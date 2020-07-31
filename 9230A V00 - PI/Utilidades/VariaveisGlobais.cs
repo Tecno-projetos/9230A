@@ -209,6 +209,19 @@ namespace _9230A_V00___PI.Utilidades
             public bool Escrevendo_Parametros_INV;
 
         }
+        #region Telas Supervisão 
+
+        public static TelasAuxiliares.Buffer_Diag Window_Buffer_Diagnostic = new TelasAuxiliares.Buffer_Diag();
+
+        public static TelasAuxiliares.Diagnosticos Window_Diagnostic = new TelasAuxiliares.Diagnosticos();
+
+        public static Telas_Fluxo.Fluxo Fluxo = new Telas_Fluxo.Fluxo();
+
+        #endregion
+
+
+
+        #region Structs
 
         public struct type_BufferPLC
         {
@@ -222,6 +235,27 @@ namespace _9230A_V00___PI.Utilidades
             public bool Enable_Write;   //Habilita Escrita
             public bool OnlyWrite;      //Buffer somente de escrita
 
+        }
+
+        public struct typeUsers
+        {
+            public string userLogged;
+            public string groupUserLogged;
+            public string passwordLogged;
+            public int numberOfGroup;
+
+            private string v1;
+            private string v2;
+            private string v3;
+            private int v4;
+
+            public typeUsers(string v1, string v2, string v3, int v4) : this()
+            {
+                userLogged = v1;
+                groupUserLogged = v2;
+                passwordLogged = v3;
+                numberOfGroup = v4;
+            }
         }
 
         #endregion
@@ -271,13 +305,17 @@ namespace _9230A_V00___PI.Utilidades
 
         #endregion
 
-        #region Window
+        #region Controle de Usuário
 
-        public static TelasAuxiliares.Buffer_Diag Window_Buffer_Diagnostic = new TelasAuxiliares.Buffer_Diag();
+        static typeUsers Users = new typeUsers(UserLogged_GS = "", GroupUserLogged_GS = "", PasswordLogged_GS = "", NumberOfGroup_GS = 0);
 
-        public static TelasAuxiliares.Diagnosticos Window_Diagnostic = new TelasAuxiliares.Diagnosticos();
+        public static string UserLogged_GS { get => Users.userLogged; set => Users.userLogged = value; }
+        public static string GroupUserLogged_GS { get => Users.groupUserLogged; set => Users.groupUserLogged = value; }
+        public static string PasswordLogged_GS { get => Users.passwordLogged; set => Users.passwordLogged = value; }
+        public static int NumberOfGroup_GS { get => Users.numberOfGroup; set => Users.numberOfGroup = value; }
 
         #endregion
+
 
     }
 }

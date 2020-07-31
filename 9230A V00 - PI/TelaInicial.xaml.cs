@@ -32,10 +32,12 @@ namespace _9230A_V00___PI
 
         System.Threading.Thread ReadWritePLCThread;
 
+        //added field
+        private Process _touchKeyboardProcess = null;
+
         #endregion
 
 
-        Telas_Fluxo.Fluxo fluxo = new Telas_Fluxo.Fluxo();
 
 
         public TelaInicial()
@@ -43,7 +45,7 @@ namespace _9230A_V00___PI
             InitializeComponent();
 
 
-            spInical.Children.Add(fluxo);
+            spInical.Children.Add(Utilidades.VariaveisGlobais.Fluxo);
 
             #region Configuração Buffers PLC
 
@@ -137,20 +139,42 @@ namespace _9230A_V00___PI
 
             try
             {
-                TextBox tb = (TextBox)e.OriginalSource;
-                tb.Dispatcher.BeginInvoke(
-                    new Action(delegate
-                    {
-                        tb.SelectAll();
-                    }), System.Windows.Threading.DispatcherPriority.Input);
+                if (Utilidades.VariaveisGlobais.NumberOfGroup_GS == 0)
+                {
+                    TextBox tb = (TextBox)e.OriginalSource;
+                    tb.Dispatcher.BeginInvoke(
+                        new Action(delegate
+                        {
+                            tb.SelectAll();
+                        }), System.Windows.Threading.DispatcherPriority.Input);
+                   
+                    string touchKeyboardPath = @"C:\Program Files\Common Files\Microsoft Shared\Ink\TabTip.exe";
+
+                    _touchKeyboardProcess = Process.Start(touchKeyboardPath);
+
+                }
             }
             catch (Exception ex)
             {
 
+                Utilidades.VariaveisGlobais.Window_Buffer_Diagnostic.List_Error = ex.ToString();
+
+            }
+        }
+
+        private void txtUser_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (_touchKeyboardProcess != null)
+            {
+                _touchKeyboardProcess.Kill();
+                //nullify the instance pointing to the now-invalid process
+                _touchKeyboardProcess = null;
             }
         }
 
         #endregion
 
+
     }
+
 }
