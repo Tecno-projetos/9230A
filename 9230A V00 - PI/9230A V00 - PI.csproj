@@ -77,6 +77,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Comunicacao\CallCommunicationPLC.cs" />
+    <Compile Include="Comunicacao\Sharp7.cs" />
     <Compile Include="Desenhos\abastecimentoManual.xaml.cs">
       <DependentUpon>abastecimentoManual.xaml</DependentUpon>
     </Compile>
@@ -152,9 +154,16 @@
     <Compile Include="Telas Fluxo\Fluxo.xaml.cs">
       <DependentUpon>Fluxo.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TelasAuxiliares\Buffer_Diag.xaml.cs">
+      <DependentUpon>Buffer_Diag.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TelasAuxiliares\Diagnosticos.xaml.cs">
+      <DependentUpon>Diagnosticos.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Utilidades\Menu.xaml.cs">
       <DependentUpon>Menu.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Utilidades\VariaveisGlobais.cs" />
     <Page Include="Desenhos\abastecimentoManual.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -256,6 +265,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Telas Fluxo\Fluxo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TelasAuxiliares\Buffer_Diag.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TelasAuxiliares\Diagnosticos.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
