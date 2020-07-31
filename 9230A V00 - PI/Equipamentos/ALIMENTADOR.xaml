@@ -1,0 +1,14 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:_9230A_V00___PI.Equipamentos"
+             xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing" x:Class="_9230A_V00___PI.Equipamentos.alimentador"
+             mc:Ignorable="d" Height="33.52" Width="49.74">
+    <Grid>
+        <ed:RegularPolygon Fill="Black" HorizontalAlignment="Left" Height="24.667" InnerRadius="1" Margin="0.917,7.125,0,0" PointCount="5" Stretch="Fill" VerticalAlignment="Top" Width="40.5"/>
+        <Rectangle Fill="Black" HorizontalAlignment="Left" Height="15.75" Margin="0.917,0.874,0,0" VerticalAlignment="Top" Width="46.25"/>
+        <Rectangle Fill="Black" HorizontalAlignment="Left" Height="17.167" Margin="21,14.625,0,0" VerticalAlignment="Top" Width="26.25"/>
+    </Grid>
+</UserControl>

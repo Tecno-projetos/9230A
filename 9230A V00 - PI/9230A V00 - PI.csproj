@@ -1,0 +1,398 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{695ECCB4-7A9E-407E-8B48-B7BC447CB7D9}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>_9230A_V00___PI</RootNamespace>
+    <AssemblyName>9230A V00 - PI</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MaterialDesignColors, Version=1.2.6.1513, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignColors.1.2.6\lib\net45\MaterialDesignColors.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.Wpf, Version=3.1.3.1513, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignThemes.3.1.3\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Expression.Blend, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=x86" />
+    <Reference Include="Microsoft.Expression.Controls, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Expression.Drawing, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Expression.Effects, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Expression.Utility, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=x86" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Desenhos\abastecimentoManual.xaml.cs">
+      <DependentUpon>abastecimentoManual.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Desenhos\balanca.xaml.cs">
+      <DependentUpon>balanca.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Desenhos\Silo.xaml.cs">
+      <DependentUpon>Silo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Desenhos\siloPequeno.xaml.cs">
+      <DependentUpon>siloPequeno.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Equipamentos\alimentador.xaml.cs">
+      <DependentUpon>alimentador.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Equipamentos\bifurcada.xaml.cs">
+      <DependentUpon>bifurcada.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Equipamentos\bifurcadaDireita.xaml.cs">
+      <DependentUpon>bifurcadaDireita.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Equipamentos\corpoElevador.xaml.cs">
+      <DependentUpon>corpoElevador.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Equipamentos\dosadorOscilante.xaml.cs">
+      <DependentUpon>dosadorOscilante.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Equipamentos\elevadorDireita.xaml.cs">
+      <DependentUpon>elevadorDireita.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Equipamentos\elevadorEsquerda.xaml.cs">
+      <DependentUpon>elevadorEsquerda.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Equipamentos\fundoElevador.xaml.cs">
+      <DependentUpon>fundoElevador.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Equipamentos\moinho.xaml.cs">
+      <DependentUpon>moinho.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Equipamentos\registro.xaml.cs">
+      <DependentUpon>registro.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Equipamentos\rosca.xaml.cs">
+      <DependentUpon>rosca.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Equipamentos\roscaTransversal.xaml.cs">
+      <DependentUpon>roscaTransversal.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Partidas\controleInversor.xaml.cs">
+      <DependentUpon>controleInversor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Partidas\controlePartidaDireta.xaml.cs">
+      <DependentUpon>controlePartidaDireta.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Partidas\controleSoftStarter.xaml.cs">
+      <DependentUpon>controleSoftStarter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TelaInicial.xaml.cs">
+      <DependentUpon>TelaInicial.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="KeyPad\keypad.xaml.cs">
+      <DependentUpon>keypad.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Partidas\controleAtuadorAnalogico.xaml.cs">
+      <DependentUpon>controleAtuadorAnalogico.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Partidas\controleAtuadorLinear.xaml.cs">
+      <DependentUpon>controleAtuadorLinear.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Partidas\controleAtuadorLinearBifurcada.xaml.cs">
+      <DependentUpon>controleAtuadorLinearBifurcada.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Telas Fluxo\Fluxo.xaml.cs">
+      <DependentUpon>Fluxo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Utilidades\Menu.xaml.cs">
+      <DependentUpon>Menu.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Desenhos\abastecimentoManual.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Desenhos\balanca.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Desenhos\Silo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Desenhos\siloPequeno.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Equipamentos\alimentador.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Equipamentos\bifurcada.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Equipamentos\bifurcadaDireita.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Equipamentos\corpoElevador.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Equipamentos\dosadorOscilante.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Equipamentos\elevadorDireita.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Equipamentos\elevadorEsquerda.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Equipamentos\fundoElevador.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Equipamentos\moinho.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Equipamentos\registro.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Equipamentos\rosca.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Equipamentos\roscaTransversal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Partidas\controleInversor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Partidas\controlePartidaDireta.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Partidas\controleSoftStarter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TelaInicial.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="KeyPad\keypad.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Partidas\controleAtuadorAnalogico.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Partidas\controleAtuadorLinear.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Partidas\controleAtuadorLinearBifurcada.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Telas Fluxo\Fluxo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Utilidades\Menu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagens\1474153623_delete_user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagens\Active_Alarm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagens\Active_Sound.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagens\Apagar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagens\Automasul.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagens\Buffer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagens\Config_Motors.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagens\Config_Usuario.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagens\Desactive_Alarm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagens\Desactive_Sound.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagens\Desligar2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagens\Eye_Hide.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagens\Eye_Show.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagens\Finalizar_Sem_Salvar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagens\Grafico.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagens\Horimetro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagens\Ligar3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagens\Login.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagens\Logo_Automasul.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagens\Logout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagens\Manutenção_Ativada.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagens\Manutenção_Desativada.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagens\Pesquisar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagens\Projeto_Eletrico.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagens\Reconhecer_Alarme.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagens\Reset1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagens\Rota.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagens\Sair_Aplicacao.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagens\Suporte.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagens\Timer_Scan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagens\User.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagens\Volvo-VM.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagens\beckerA.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagens\Rosca.PNG" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\MaterialDesignThemes.3.1.3\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.3.1.3\build\MaterialDesignThemes.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este projeto faz referência a pacotes do NuGet que não estão presentes neste computador. Use a Restauração de Pacotes do NuGet para baixá-los.  Para obter mais informações, consulte http://go.microsoft.com/fwlink/?LinkID=322105. O arquivo ausente é {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\MaterialDesignThemes.3.1.3\build\MaterialDesignThemes.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MaterialDesignThemes.3.1.3\build\MaterialDesignThemes.targets'))" />
+  </Target>
+</Project>
