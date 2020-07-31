@@ -62,7 +62,7 @@ namespace _9230A_V00___PI.Comunicacao
             Call_Ping();
 
             DT_Tempo_Leitura_Buffer0_PLC = DateTime.Now;
-            
+
             try
             {
                 if (Ping_PLC_Success)
@@ -153,8 +153,10 @@ namespace _9230A_V00___PI.Comunicacao
 
         private void Call_Ping()
         {
+#pragma warning disable CS0219 // Variable is assigned but its value is never used
             bool Error_Plc;
             bool Value_Timer;
+#pragma warning restore CS0219 // Variable is assigned but its value is never used
             bool count = false;
             int Result_Async;
 

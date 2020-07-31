@@ -32,7 +32,7 @@ namespace _9230A_V00___PI.Utilidades
         public static string IP_Plc = "192.168.0.10";
 
         public static int Rack_PLC = 0;
-        public static int Slot_PLC = 2;
+        public static int Slot_PLC = 1;
 
         public static string IP_Plc_GS { get => IP_Plc; set => IP_Plc = value; }
         public static int Rack_PLC_GS { get => Rack_PLC; set => Rack_PLC = value; }
@@ -52,10 +52,6 @@ namespace _9230A_V00___PI.Utilidades
         public static TelasAuxiliares.Diagnosticos Window_Diagnostic = new TelasAuxiliares.Diagnosticos();
 
         #endregion
-
-
-
-
 
     }
 }

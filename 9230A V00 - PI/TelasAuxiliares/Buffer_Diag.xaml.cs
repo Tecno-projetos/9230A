@@ -26,7 +26,7 @@ namespace _9230A_V00___PI.TelasAuxiliares
 
         bool primeiro = true;
         Int64 Count = 0;
-
+        Int64 Countlog = 0;
         #endregion
 
         public Buffer_Diag()
@@ -43,6 +43,14 @@ namespace _9230A_V00___PI.TelasAuxiliares
             {
                 //Criamos um com o nome folder
                 Directory.CreateDirectory(folder);
+            }
+
+            StreamWriter w;
+
+            using (w = File.AppendText(@"C:\Logs\Log" + "_" + DateTime.Now.Day.ToString() + "_" + DateTime.Now.Month.ToString() + "_" + DateTime.Now.Year.ToString() + ".txt"))
+            {
+                w.WriteLine("{0} {1} {2}", "Abriu Supervisorio: ",DateTime.Now.ToLongTimeString(), DateTime.Now.ToLongDateString());
+                w.WriteLine("-------------------------------");
             }
 
             #endregion
@@ -63,40 +71,30 @@ namespace _9230A_V00___PI.TelasAuxiliares
                 {
                     Error = value;
 
-                    //Fazer chamada async
-
                     if (!(Error.Contains("OK")))
                     {
                         Count += 1;
                         listBox.Dispatcher.Invoke(delegate { listBox.Items.Add(Error + Count); });
 
 
-                        if (Count > 10000)
+                        if (Count > 1000)
                         {
                             listBox.Dispatcher.Invoke(delegate { listBox.Items.Clear(); });
+                            Count = 0;
                         }
 
                         StreamWriter w;
 
                         using (w = File.AppendText(@"C:\Logs\Log" + "_" + DateTime.Now.Day.ToString() + "_" + DateTime.Now.Month.ToString() + "_" + DateTime.Now.Year.ToString() + ".txt"))
                         {
-                            if (!(Error.Contains("OK")))
-                            {
-                                if (primeiro)
-                                {
-
-                                    Log(("Abriu Supervisorio"), w);
-                                    primeiro = false;
-                                }
-
-                                Log((Error + Count), w);
-                            }
+                            Log((Error + Countlog), w);
+                            Countlog += 1;
                         }
                     }
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-
+                    this.List_Error = "Erro na escrita do log" + ex.ToString();
                 }
                            
             }
@@ -119,7 +117,7 @@ namespace _9230A_V00___PI.TelasAuxiliares
             }
             catch (Exception)
             {
-
+                
             }
 
         }
