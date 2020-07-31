@@ -1542,7 +1542,6 @@ namespace _9230A_V00___PI
 
         private void txtUser_GotFocus(object sender, RoutedEventArgs e)
         {
-
             try
             {
                 if (Utilidades.VariaveisGlobais.NumberOfGroup_GS == 0)
@@ -1553,6 +1552,9 @@ namespace _9230A_V00___PI
                         {
                             tb.SelectAll();
                         }), System.Windows.Threading.DispatcherPriority.Input);
+
+                    
+
                    
 
                 }
