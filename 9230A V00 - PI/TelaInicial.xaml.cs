@@ -31,7 +31,9 @@ namespace _9230A_V00___PI
         #region Threads
 
         System.Threading.Thread ReadWritePLCThread;
-        private Process onScreenKeyboardProc;
+
+        //added field
+        private Process _touchKeyboardProcess = null;
 
         #endregion
 
@@ -145,16 +147,10 @@ namespace _9230A_V00___PI
                         {
                             tb.SelectAll();
                         }), System.Windows.Threading.DispatcherPriority.Input);
+                   
+                    string touchKeyboardPath = @"C:\Program Files\Common Files\Microsoft Shared\Ink\TabTip.exe";
 
-                    string progFiles = @"C:\Program Files\Common Files\Microsoft Shared\ink";
-                    string onScreenKeyboardPath = System.IO.Path.Combine(progFiles, "TabTip.exe");
-                    onScreenKeyboardProc = System.Diagnostics.Process.Start(onScreenKeyboardPath);
-
-
-
-
-
-
+                    _touchKeyboardProcess = Process.Start(touchKeyboardPath);
 
                 }
             }
@@ -166,7 +162,19 @@ namespace _9230A_V00___PI
             }
         }
 
+        private void txtUser_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (_touchKeyboardProcess != null)
+            {
+                _touchKeyboardProcess.Kill();
+                //nullify the instance pointing to the now-invalid process
+                _touchKeyboardProcess = null;
+            }
+        }
+
         #endregion
 
+
     }
+
 }

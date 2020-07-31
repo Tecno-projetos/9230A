@@ -127,7 +127,7 @@
                         </MultiBinding>
                     </TextBlock.Visibility>
                 </TextBlock>
-                <TextBox x:Name="txtUser" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,0,1" FontSize="14" VerticalAlignment="Bottom" Foreground="White" GotFocus="txtUser_GotFocus" />
+                <TextBox x:Name="txtUser" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,0,1" FontSize="14" VerticalAlignment="Bottom" Foreground="White" GotFocus="txtUser_GotFocus" LostFocus="txtUser_LostFocus" />
             </Grid>
 
         </Grid>
