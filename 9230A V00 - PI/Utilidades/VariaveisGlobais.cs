@@ -209,19 +209,6 @@ namespace _9230A_V00___PI.Utilidades
             public bool Escrevendo_Parametros_INV;
 
         }
-        #region Telas Supervisão 
-
-        public static TelasAuxiliares.Buffer_Diag Window_Buffer_Diagnostic = new TelasAuxiliares.Buffer_Diag();
-
-        public static TelasAuxiliares.Diagnosticos Window_Diagnostic = new TelasAuxiliares.Diagnosticos();
-
-        public static Telas_Fluxo.Fluxo Fluxo = new Telas_Fluxo.Fluxo();
-
-        #endregion
-
-
-
-        #region Structs
 
         public struct type_BufferPLC
         {
@@ -257,6 +244,16 @@ namespace _9230A_V00___PI.Utilidades
                 numberOfGroup = v4;
             }
         }
+
+        #endregion
+
+        #region Telas Supervisão 
+
+        public static TelasAuxiliares.Buffer_Diag Window_Buffer_Diagnostic = new TelasAuxiliares.Buffer_Diag();
+
+        public static TelasAuxiliares.Diagnosticos Window_Diagnostic = new TelasAuxiliares.Diagnosticos();
+
+        public static Telas_Fluxo.Fluxo Fluxo = new Telas_Fluxo.Fluxo();
 
         #endregion
 
