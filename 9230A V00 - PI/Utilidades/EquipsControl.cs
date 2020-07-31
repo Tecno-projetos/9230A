@@ -34,7 +34,7 @@ namespace _9230A_V00___PI.Utilidades
 
         #endregion
 
-        public EquipsControl(typeEquip Equip, typeCommand TCommand, int index)
+        public EquipsControl(typeEquip Equip, typeCommand TCommand)
         {
             Command.TypeEquip = Equip;
             Command.TypeCommand = TCommand;
