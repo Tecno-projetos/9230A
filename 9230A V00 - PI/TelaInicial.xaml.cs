@@ -28,7 +28,7 @@ namespace _9230A_V00___PI
         {
             InitializeComponent();
 
-
+            //Emanuel Comentario
 
             spInical.Children.Add(fluxo);
 
