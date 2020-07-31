@@ -34,6 +34,7 @@
         <Rectangle Fill="#FFFFE3E3" HorizontalAlignment="Left" Height="178" Margin="10,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="404"/>
         <Label x:Name="LB_Leitura_PLC" Content="Tempo Leitura Buffer PLC:" Margin="18,20,-27,0" BorderBrush="#FF707070" BorderThickness="1" Background="#00000000" Style="{DynamicResource Label_Inversor_G120C}" HorizontalAlignment="Left" Width="385" Height="28" VerticalAlignment="Top" VerticalContentAlignment="Center"/>
         <Label x:Name="LB_Escrita_PLC" Content="Tempo Escrita Buffer PLC:" Margin="18,54,-27,0" BorderBrush="#FF707070" BorderThickness="1" Background="#00000000" Style="{DynamicResource Label_Inversor_G120C}" HorizontalAlignment="Left" Width="385" Height="28" VerticalAlignment="Top" VerticalContentAlignment="Center"/>
+        <Label x:Name="LB_Ping_PLC" Content="Ping PLC" Margin="18,87,0,0" BorderBrush="#FF707070" BorderThickness="1" Background="#00000000" Style="{DynamicResource Label_Inversor_G120C}" HorizontalAlignment="Left" Width="385" Height="29" VerticalAlignment="Top" VerticalContentAlignment="Center"/>
 
     </Grid>
 </Window>

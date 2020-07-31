@@ -178,11 +178,11 @@ namespace _9230A_V00___PI.Comunicacao
             //PING PLC
             try
             {
-                Ping_PLC.SendAsync(Utility.GlobalVariables.IP_Plc_GS, 100);
+                Ping_PLC.SendAsync(Utilidades.VariaveisGlobais.IP_Plc_GS, 100);
             }
             catch (Exception ex)
             {
-                Aux_Screen.Call_Screens.Window_Buffer_Diagnostic.List_Error = ex.ToString();
+                Utilidades.VariaveisGlobais.Window_Buffer_Diagnostic.List_Error = ex.ToString();
             }
 
             //Status PLC
@@ -205,7 +205,7 @@ namespace _9230A_V00___PI.Comunicacao
                         Client_Async.Disconnect();
                         Result_Async = -1;
 
-                        Aux_Screen.Call_Screens.Window_Buffer_Diagnostic.List_Error = Client_Async.ErrorText(Client_Async.LastError());
+                        Utilidades.VariaveisGlobais.Window_Buffer_Diagnostic.List_Error = Client_Async.ErrorText(Client_Async.LastError());
                     }
 
                 }
@@ -213,9 +213,9 @@ namespace _9230A_V00___PI.Comunicacao
                 {
                     if (!count)
                     {
-                        Result_Async = Client_Async.ConnectTo(Utility.GlobalVariables.IP_Plc_GS, Utility.GlobalVariables.Rack_PLC_GS, Utility.GlobalVariables.Slot_PLC_GS);
+                        Result_Async = Client_Async.ConnectTo(Utilidades.VariaveisGlobais.IP_Plc_GS, Utilidades.VariaveisGlobais.Rack_PLC_GS, Utilidades.VariaveisGlobais.Slot_PLC_GS);
 
-                        Aux_Screen.Call_Screens.Window_Buffer_Diagnostic.List_Error = Client_Async.ErrorText(Client_Async.LastError());
+                        Utilidades.VariaveisGlobais.Window_Buffer_Diagnostic.List_Error = Client_Async.ErrorText(Client_Async.LastError());
                     }
                 }
 
@@ -234,7 +234,7 @@ namespace _9230A_V00___PI.Comunicacao
                         switch (Status)
                         {
 
-                            case Drivers.Sharp7.S7Consts.S7CpuStatusRun:
+                            case Comunicacao.Sharp7.S7Consts.S7CpuStatusRun:
                                 {
                                     BrushConnectionStatus.Dispatcher.Invoke(delegate { BrushConnectionStatus = new SolidColorBrush(Color.FromArgb(255, 0, 255, 0)); });
 
@@ -244,7 +244,7 @@ namespace _9230A_V00___PI.Comunicacao
                                     ConnectionStatus = 1;
                                     break;
                                 }
-                            case Drivers.Sharp7.S7Consts.S7CpuStatusStop:
+                            case Comunicacao.Sharp7.S7Consts.S7CpuStatusStop:
                                 {
                                     BrushConnectionStatus.Dispatcher.Invoke(delegate { BrushConnectionStatus = new SolidColorBrush(Color.FromArgb(255, 255, 255, 0)); });
                                     ConnectionStatus = 0;
@@ -278,13 +278,13 @@ namespace _9230A_V00___PI.Comunicacao
             }
             catch (Exception ex)
             {
-                Aux_Screen.Call_Screens.Window_Buffer_Diagnostic.List_Error = ex.ToString();
+                Utilidades.VariaveisGlobais.Window_Buffer_Diagnostic.List_Error = ex.ToString();
             }
 
 
             //-----------------------------------------------------------------------------------------------------------------------
 
-            Aux_Screen.Call_Screens.Screen_Scan.Tempo_Ping_PLC_GS = (DateTime.Now - DT_Tempo_Ping_PLC).ToString();
+            Utilidades.VariaveisGlobais.Window_Diagnostic.Tempo_Ping_PLC_GS = (DateTime.Now - DT_Tempo_Ping_PLC).ToString();
 
             #endregion
         }

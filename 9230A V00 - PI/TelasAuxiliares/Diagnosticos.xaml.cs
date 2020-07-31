@@ -21,6 +21,7 @@ namespace _9230A_V00___PI.TelasAuxiliares
     {
         string Tempo_Leitura_PLC;
         string Tempo_Escrita_PLC;
+        string Tempo_Ping_PLC;
 
         public Diagnosticos()
         {
@@ -51,6 +52,20 @@ namespace _9230A_V00___PI.TelasAuxiliares
             {
                 Tempo_Escrita_PLC = value;
                 LB_Escrita_PLC.Dispatcher.Invoke(delegate { LB_Escrita_PLC.Content = "Tempo Escrita Buffer PLC: " + Tempo_Escrita_PLC; });
+            }
+
+        }
+
+        public string Tempo_Ping_PLC_GS
+        {
+            get
+            {
+                return Tempo_Ping_PLC;
+            }
+            set
+            {
+                Tempo_Ping_PLC = value;
+                LB_Ping_PLC.Dispatcher.Invoke(delegate { LB_Ping_PLC.Content = "Tempo Ping PLC: " + Tempo_Ping_PLC; });
             }
 
         }
