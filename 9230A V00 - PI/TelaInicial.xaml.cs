@@ -150,13 +150,13 @@ namespace _9230A_V00___PI
                    
                     string touchKeyboardPath = @"C:\Program Files\Common Files\Microsoft Shared\Ink\TabTip.exe";
 
+
+
                     _touchKeyboardProcess = Process.Start(touchKeyboardPath);
 
-                    if (_touchKeyboardProcess != null)
-                    {
-                        _touchKeyboardProcess.Start();
+                    int ID;
 
-                    }
+                    ID = _touchKeyboardProcess.Id;
 
 
 
