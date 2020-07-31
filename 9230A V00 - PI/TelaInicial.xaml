@@ -8,7 +8,7 @@
         xmlns:local="clr-namespace:_9230A_V00___PI.Utilidades"
         xmlns:componentModel="clr-namespace:System.ComponentModel;assembly=WindowsBase"
         mc:Ignorable="d"
-   Title="MainWindow" Height="768" Width="1024" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None" Background="#FF7F7F7F" WindowState="Maximized">
+   Title="MainWindow" Height="768" Width="1024" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None" Background="#FF7F7F7F">
 
     <Window.Resources>
 
@@ -127,7 +127,7 @@
                         </MultiBinding>
                     </TextBlock.Visibility>
                 </TextBlock>
-                <TextBox x:Name="txtUser" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,0,1" FontSize="14" VerticalAlignment="Bottom" Foreground="White" GotFocus="txtUser_GotFocus" LostFocus="txtUser_LostFocus" />
+                <TextBox x:Name="txtUser" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,0,1" FontSize="14" VerticalAlignment="Bottom" Foreground="White" GotFocus="txtUser_GotFocus" />
             </Grid>
 
         </Grid>

@@ -13,7 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace _9230A_V00___PI.KeyPad
+namespace _9230A_V00___PI.Teclados
 {
     /// <summary>
     /// Lógica interna para keypad.xaml
