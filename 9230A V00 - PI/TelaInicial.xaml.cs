@@ -152,6 +152,14 @@ namespace _9230A_V00___PI
 
                     _touchKeyboardProcess = Process.Start(touchKeyboardPath);
 
+                    if (_touchKeyboardProcess != null)
+                    {
+                        _touchKeyboardProcess.Start();
+
+                    }
+
+
+
                 }
             }
             catch (Exception ex)
@@ -166,9 +174,9 @@ namespace _9230A_V00___PI
         {
             if (_touchKeyboardProcess != null)
             {
-                _touchKeyboardProcess.Kill();
-                //nullify the instance pointing to the now-invalid process
-                _touchKeyboardProcess = null;
+    
+
+                _touchKeyboardProcess.Close();
             }
         }
 
