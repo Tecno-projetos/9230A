@@ -94,11 +94,6 @@ namespace _9230A_V00___PI
 
         private void btSair_Click(object sender, RoutedEventArgs e)
         {
-
-
-
-
-
             App.Current.Shutdown();
             Process proc = Process.GetCurrentProcess();
             proc.Kill();
@@ -137,39 +132,25 @@ namespace _9230A_V00___PI
         }
 
 
+        private void txtUser_GotFocus(object sender, RoutedEventArgs e)
+        {
 
+            try
+            {
+                TextBox tb = (TextBox)e.OriginalSource;
+                tb.Dispatcher.BeginInvoke(
+                    new Action(delegate
+                    {
+                        tb.SelectAll();
+                    }), System.Windows.Threading.DispatcherPriority.Input);
+            }
+            catch (Exception ex)
+            {
 
+            }
+        }
 
         #endregion
 
-        private void tbUser_PreviewMouseUp(object sender, MouseButtonEventArgs e)
-        {
-
-            tbUser.Clear();
-            tbUser.Foreground = new SolidColorBrush(Colors.Black);
-
-
-        }
-
-        private void tbUser_MouseLeave(object sender, MouseEventArgs e)
-        {
-
-            if (tbUser.Text != null)
-            {
-                if (tbUser.Text.Length == 0 || tbUser.Text.Contains(" "))
-                {
-
-                    tbUser.Foreground = new SolidColorBrush(Colors.Silver);
-                    tbUser.Text = "Usuário";
-
-                }
-            }
-            else
-            {
-                tbUser.Foreground = new SolidColorBrush(Colors.Silver);
-                tbUser.Text = "Usuário";
-            }
-
-        }
     }
 }

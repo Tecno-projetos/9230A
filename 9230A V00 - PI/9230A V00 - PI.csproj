@@ -160,6 +160,7 @@
     <Compile Include="TelasAuxiliares\Diagnosticos.xaml.cs">
       <DependentUpon>Diagnosticos.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Utilidades\convertTextInputToVisibility.cs" />
     <Compile Include="Utilidades\Menu.xaml.cs">
       <DependentUpon>Menu.xaml</DependentUpon>
     </Compile>
