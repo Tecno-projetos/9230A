@@ -53,10 +53,12 @@ namespace _9230A_V00___PI.Utilidades
                 Window_PD.Closing += Window_PD_Closing;
 
                //Click para controle da Partida 
-               //Window_PD.Bt_Turn_On_Click += new EventHandler(PD_Bt_Turn_On_Click);
-               //Window_PD.Bt_Reset_Click += new EventHandler(PD_Bt_Reset_Click);
-               //Window_PD.Bt_Maintenance_Click += new EventHandler(PD_Bt_Maintenance_Click);
-               //Window_PD.Bt_Automatic_Click += new EventHandler(PD_LB_Automatic_Click);
+               Window_PD.Bt_Ligar_Click += new EventHandler(Bt_Ligar_Click);
+               Window_PD.Bt_Reset_Click += new EventHandler(Bt_Reset_Click);
+               Window_PD.Bt_Libera_Click += new EventHandler(Bt_Libera_Click);
+               Window_PD.Bt_Manutencao_Click += new EventHandler(Bt_Manutencao_Click);
+               Window_PD.Bt_Manual_Click += new EventHandler(Bt_Manual_Click);
+               Window_PD.Bt_Fechar_Click += new EventHandler(Bt_Fechar_Click);
             }
             //INV
             else if (Equip == typeEquip.INV)
@@ -113,7 +115,7 @@ namespace _9230A_V00___PI.Utilidades
         #region Events Screens
 
         //PD
-        protected void PD_Bt_Turn_On_Click(object sender, EventArgs e)
+        protected void Bt_Ligar_Click(object sender, EventArgs e)
         {
             if (Command.Standard.Liga_Manual)
             {
@@ -129,15 +131,15 @@ namespace _9230A_V00___PI.Utilidades
 
             if (Command.Standard.Liga_Manual)
             {
-                //DataBase.SqlFunctionsEquips.IntoDate_Table_EquipAlarmEvent("_" + Command.Tag, "Comando Ligar", true, false, 1, false, "", Utilidades.VariaveisGlobais.UserLogged_GS, Utilidades.VariaveisGlobais.GroupUserLogged_GS, DateTime.Now.ToString(), "", "", DateTime.Now, "");
+                DataBase.SqlFunctionsEquips.IntoDate_Table_EquipAlarmEvent("_" + Command.Tag, "Comando Ligar", true, false, 1, false, "", Utilidades.VariaveisGlobais.UserLogged_GS, Utilidades.VariaveisGlobais.GroupUserLogged_GS, DateTime.Now.ToString(), "", "", DateTime.Now, "");
             }
             else
             {
-                //DataBase.SqlFunctionsEquips.IntoDate_Table_EquipAlarmEvent("_" + Command.Tag, "Comando Desligar", true, false, 1, false, "", Utilidades.VariaveisGlobais.UserLogged_GS, Utilidades.VariaveisGlobais.GroupUserLogged_GS, DateTime.Now.ToString(), "", "", DateTime.Now, "");
+                DataBase.SqlFunctionsEquips.IntoDate_Table_EquipAlarmEvent("_" + Command.Tag, "Comando Desligar", true, false, 1, false, "", Utilidades.VariaveisGlobais.UserLogged_GS, Utilidades.VariaveisGlobais.GroupUserLogged_GS, DateTime.Now.ToString(), "", "", DateTime.Now, "");
             }
         }
 
-        protected void PD_Bt_Reset_Click(object sender, EventArgs e)
+        protected void Bt_Reset_Click(object sender, EventArgs e)
         {
             if (Command.Standard.Reset)
             {
@@ -153,21 +155,66 @@ namespace _9230A_V00___PI.Utilidades
 
             if (Command.Standard.Reset)
             {
-                //DataBase.SqlFunctionsEquips.IntoDate_Table_EquipAlarmEvent("_" + Command.Tag, "Comando Reset Falha", true, false, 1, false, "", Utilidades.VariaveisGlobais.UserLogged_GS, Utilidades.VariaveisGlobais.GroupUserLogged_GS, DateTime.Now.ToString(), "", "", DateTime.Now, "");
+                DataBase.SqlFunctionsEquips.IntoDate_Table_EquipAlarmEvent("_" + Command.Tag, "Comando Reset Falha", true, false, 1, false, "", Utilidades.VariaveisGlobais.UserLogged_GS, Utilidades.VariaveisGlobais.GroupUserLogged_GS, DateTime.Now.ToString(), "", "", DateTime.Now, "");
             }
 
         }
 
-        protected void PD_Bt_Maintenance_Click(object sender, EventArgs e)
+        protected void Bt_Libera_Click(object sender, EventArgs e)
         {
+            if (Command.Standard.Libera_Bloqueio)
+            {
+                Command.Standard.Libera_Bloqueio = false;
+            }
+            else
+            {
+                Command.Standard.Libera_Bloqueio = true;
+            }
 
-            //LiberaManutencao();
+            Command.enableWriteDwordCommand = true;
+            Command.enableReadDwordCommand = false;
+
+            if (Command.Standard.Libera_Bloqueio)
+            {
+                DataBase.SqlFunctionsEquips.IntoDate_Table_EquipAlarmEvent("_" + Command.Tag, "Comando Libera Bloqueio", true, false, 1, false, "", Utilidades.VariaveisGlobais.UserLogged_GS, Utilidades.VariaveisGlobais.GroupUserLogged_GS, DateTime.Now.ToString(), "", "", DateTime.Now, "");
+            }
+        }
+
+        protected void Bt_Manutencao_Click(object sender, EventArgs e)
+        {
+            if (Utilidades.VariaveisGlobais.NumberOfGroup_GS < 2)
+            {
+                TopMost.TopMostMessageBox.Show(Utilidades.VariaveisGlobais.faltaPermissaoMessage, Utilidades.VariaveisGlobais.faltaPermissaoTitle, System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
+            }
+            else
+            {
+                if (Command.Standard.Manutencao)
+                {
+                    Command.Standard.Manutencao = false;
+                }
+                else
+                {
+                    Command.Standard.Manutencao = true;
+                }
+
+                Command.enableWriteDwordCommand = true;
+                Command.enableReadDwordCommand = false;
+
+                if (Command.Standard.Manutencao)
+                {
+                    DataBase.SqlFunctionsEquips.IntoDate_Table_EquipAlarmEvent("_" + Command.Tag, "Comando Sair Modo Manutenção", true, false, 1, false, "", Utilidades.VariaveisGlobais.UserLogged_GS, Utilidades.VariaveisGlobais.GroupUserLogged_GS, DateTime.Now.ToString(), "", "", DateTime.Now, "");
+                }
+                else
+                {
+                    DataBase.SqlFunctionsEquips.IntoDate_Table_EquipAlarmEvent("_" + Command.Tag, "Comando Ir Para Modo Manutenção", true, false, 1, false, "", Utilidades.VariaveisGlobais.UserLogged_GS, Utilidades.VariaveisGlobais.GroupUserLogged_GS, DateTime.Now.ToString(), "", "", DateTime.Now, "");
+                }
+
+            }
 
         }
 
-        protected void PD_LB_Automatic_Click(object sender, EventArgs e)
+        protected void Bt_Manual_Click(object sender, EventArgs e)
         {
-
             if (Command.Standard.Automatico)
             {
                 Command.Standard.Automatico = false;
@@ -184,14 +231,18 @@ namespace _9230A_V00___PI.Utilidades
 
             if (Command.Standard.Automatico)
             {
-                //DataBase.SqlFunctionsEquips.IntoDate_Table_EquipAlarmEvent("_" + Command.Tag, "Comando Ir Para Modo Automático", true, false, 1, false, "", Utilidades.VariaveisGlobais.UserLogged_GS, Utilidades.VariaveisGlobais.GroupUserLogged_GS, DateTime.Now.ToString(), "", "", DateTime.Now, "");
+                DataBase.SqlFunctionsEquips.IntoDate_Table_EquipAlarmEvent("_" + Command.Tag, "Comando Ir Para Modo Automático", true, false, 1, false, "", Utilidades.VariaveisGlobais.UserLogged_GS, Utilidades.VariaveisGlobais.GroupUserLogged_GS, DateTime.Now.ToString(), "", "", DateTime.Now, "");
             }
             else
             {
-                //DataBase.SqlFunctionsEquips.IntoDate_Table_EquipAlarmEvent("_" + Command.Tag, "Comando Ir Para Modo Manual", true, false, 1, false, "", Utilidades.VariaveisGlobais.UserLogged_GS, Utilidades.VariaveisGlobais.GroupUserLogged_GS, DateTime.Now.ToString(), "", "", DateTime.Now, "");
+                DataBase.SqlFunctionsEquips.IntoDate_Table_EquipAlarmEvent("_" + Command.Tag, "Comando Ir Para Modo Manual", true, false, 1, false, "", Utilidades.VariaveisGlobais.UserLogged_GS, Utilidades.VariaveisGlobais.GroupUserLogged_GS, DateTime.Now.ToString(), "", "", DateTime.Now, "");
             }
         }
 
+        protected void Bt_Fechar_Click(object sender, EventArgs e)
+        {
+
+        }
 
         //INV
         protected void INV_Bt_Turn_On_Click(object sender, EventArgs e)
@@ -234,15 +285,22 @@ namespace _9230A_V00___PI.Utilidades
 
             if (Command.Standard.Reset)
             {
-                //DataBase.SqlFunctionsEquips.IntoDate_Table_EquipAlarmEvent("_" + Command.Tag, "Comando Reset Falha", true, false, 1, false, "", Utilidades.VariaveisGlobais.UserLogged_GS, Utilidades.VariaveisGlobais.GroupUserLogged_GS, DateTime.Now.ToString(), "", "", DateTime.Now, "");
+                DataBase.SqlFunctionsEquips.IntoDate_Table_EquipAlarmEvent("_" + Command.Tag, "Comando Reset Falha", true, false, 1, false, "", Utilidades.VariaveisGlobais.UserLogged_GS, Utilidades.VariaveisGlobais.GroupUserLogged_GS, DateTime.Now.ToString(), "", "", DateTime.Now, "");
             }
 
         }
 
         protected void INV_Bt_Maintenance_Click(object sender, EventArgs e)
         {
+            if (Utilidades.VariaveisGlobais.NumberOfGroup_GS < 2)
+            {
+                TopMost.TopMostMessageBox.Show(Utilidades.VariaveisGlobais.faltaPermissaoMessage, Utilidades.VariaveisGlobais.faltaPermissaoTitle, System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
+            }
+            else
+            {
+                Command.ResetClicks = true;
 
-            //LiberaManutencao();
+            }
         }
 
         protected void INV_LB_Automatic_Click(object sender, EventArgs e)
@@ -264,11 +322,11 @@ namespace _9230A_V00___PI.Utilidades
 
             if (Command.Standard.Automatico)
             {
-                //DataBase.SqlFunctionsEquips.IntoDate_Table_EquipAlarmEvent("_" + Command.Tag, "Comando Ir Para Modo Automático", true, false, 1, false, "", Utilidades.VariaveisGlobais.UserLogged_GS, Utilidades.VariaveisGlobais.GroupUserLogged_GS, DateTime.Now.ToString(), "", "", DateTime.Now, "");
+                DataBase.SqlFunctionsEquips.IntoDate_Table_EquipAlarmEvent("_" + Command.Tag, "Comando Ir Para Modo Automático", true, false, 1, false, "", Utilidades.VariaveisGlobais.UserLogged_GS, Utilidades.VariaveisGlobais.GroupUserLogged_GS, DateTime.Now.ToString(), "", "", DateTime.Now, "");
             }
             else
             {
-                //DataBase.SqlFunctionsEquips.IntoDate_Table_EquipAlarmEvent("_" + Command.Tag, "Comando Ir Para Modo Manual", true, false, 1, false, "", Utilidades.VariaveisGlobais.UserLogged_GS, Utilidades.VariaveisGlobais.GroupUserLogged_GS, DateTime.Now.ToString(), "", "", DateTime.Now, "");
+                DataBase.SqlFunctionsEquips.IntoDate_Table_EquipAlarmEvent("_" + Command.Tag, "Comando Ir Para Modo Manual", true, false, 1, false, "", Utilidades.VariaveisGlobais.UserLogged_GS, Utilidades.VariaveisGlobais.GroupUserLogged_GS, DateTime.Now.ToString(), "", "", DateTime.Now, "");
             }
         }
 

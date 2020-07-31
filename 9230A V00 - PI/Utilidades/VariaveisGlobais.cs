@@ -25,7 +25,7 @@ namespace _9230A_V00___PI.Utilidades
             public bool ligando;
             public bool desligando;
             public bool liberado;
-            public bool falhaPartidaConfirmou;
+            public bool falhaPartidaNaoConfirmou;
             public bool falhaContatorDesligou;
             public bool falhaDisjuntoDesligou;
             public bool falhaPartidaNaoDesligou;
@@ -104,19 +104,17 @@ namespace _9230A_V00___PI.Utilidades
             public bool Emergencia;
 
             //Comandos Partidas
-            public bool Liga_Manual_Sentido2;
             public bool Liga_Manual;
             public bool Manual;
             public bool Automatico;
             public bool Manutencao;
-            public bool Sem_Bloqueio;
+            public bool Libera_Bloqueio;
             public bool Reset;
             public bool Libera_Manual;
 
             //Comando Registro
             public bool Abre;
             public bool Fecha;
-            public bool RegistroEmTransicao;
             public bool StatusSensorAberto;
             public bool StatusSensorFechado;
             public bool RegistroAbertoOuFechado;
@@ -126,6 +124,7 @@ namespace _9230A_V00___PI.Utilidades
             public bool Ligando;
             public bool Desligando;
             public bool Bloqueado;
+            public bool Liberado;
 
             //Falhas Partidas
             public bool Falha_Geral;
@@ -148,25 +147,11 @@ namespace _9230A_V00___PI.Utilidades
             //Resets
             public bool Reset_Timer;
             public bool Reset_Timer_Total;
-            public bool Reset_Rolamento_Horimetro;
-            public bool Reset_Caixa_Horimetro;
 
             //Utilidades
-            public bool Desabilita_Sensor_Movimento;
-            public bool Sensor_Movimento_Habilitado;
-            public bool Tempo_Rolamento_Atingido;
-            public bool Tempo_CxOleo_Atingido;
             public bool Tempo_Manutencao;
             public bool Desabilita_Sensor_Embuchamento;
             public bool Desabilita_Bloqueio_Manual;
-
-
-            //Rota
-            public bool Seleciona_Rota;
-            public bool Seleciona_Rota_Direita;
-            public bool Seleciona_Rota_Meio;
-            public bool Seleciona_Rota_Esquerda;
-            public bool Habilitado_Ligar_Rota;
 
             //Furcadas
             public bool Abre_Esquerda;
@@ -194,19 +179,6 @@ namespace _9230A_V00___PI.Utilidades
             public bool Falha_Sensor_Direita;
             public bool Falha_Sensor_Esquerda;
             public bool Manual_Automatico;
-
-
-            public bool _22_S_Plc_ON_Open;
-            public bool _23_S_Plc_OFF_Close;
-
-            //PC
-            public bool PC_Espera;
-            public bool PC_Espera_Numero_Maximo_Partidas;
-            public bool PC_Compensadora_Habilita_Partidas;
-
-            //INV
-            public bool Escreve_parametros_INV;
-            public bool Escrevendo_Parametros_INV;
 
         }
 
@@ -244,6 +216,16 @@ namespace _9230A_V00___PI.Utilidades
                 numberOfGroup = v4;
             }
         }
+
+        #endregion
+
+        #region Mensagens Padrões
+
+        public static string faltaPermissaoMessage = "Permissão insuficiente para realizar esse tipo de operação!";
+        public static string faltaUsuarioMessage = "Falta realizar o login!";
+
+        public static string faltaPermissaoTitle = "Permissão insuficiente";
+        public static string faltaUsuarioTitle = "Falta realizar o login";
 
         #endregion
 
