@@ -5,8 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:_9230A_V00___PI.Utilidades"
+        xmlns:componentModel="clr-namespace:System.ComponentModel;assembly=WindowsBase"
         mc:Ignorable="d"
    Title="MainWindow" Height="768" Width="1024" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None" Background="#FF7F7F7F" WindowState="Maximized">
+
+    <Window.Resources>
+
+        <SolidColorBrush x:Key="brushWatermarkBackground" Color="#FF505050" />
+        <SolidColorBrush x:Key="brushWatermarkForeground" Color="White" />
+        <SolidColorBrush x:Key="brushWatermarkBorder" Color="White" />
+
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+        <local:TextInputToVisibilityConverter x:Key="TextInputToVisibilityConverter" />
+
+        <Style x:Key="EntryFieldStyle" TargetType="Grid" >
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="20,0" />
+        </Style>
+
+
+    </Window.Resources>
+
 
     <Grid>
         <Grid.Resources>
@@ -16,7 +37,9 @@
                     <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Indigo.xaml" />
                     <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
                 </ResourceDictionary.MergedDictionaries>
+
             </ResourceDictionary>
+
         </Grid.Resources>
 
 
@@ -64,7 +87,6 @@
                     <materialDesign:PackIcon Kind="UserKey" VerticalAlignment="Top" Foreground="White" Margin="-10,-3,-11,-4" HorizontalAlignment="Left" Width="38" Height="32"/>
                 </Grid>
             </Button>
-            <TextBox x:Name="tbUser" HorizontalAlignment="Left" Height="40" Margin="702,5,0,0" TextWrapping="Wrap" Text="Usuário" VerticalAlignment="Top" Width="105" Background="#FF505050" Foreground="White" FontSize="14" VerticalContentAlignment="Center" PreviewMouseUp="tbUser_PreviewMouseUp" MouseLeave="tbUser_MouseLeave"/>
             <TextBox HorizontalAlignment="Left" Height="40" Margin="702,48,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top" Width="105" Background="#FF505050" Foreground="White" FontSize="14" VerticalContentAlignment="Center"/>
             <Grid Background="#FF505050" Margin="679,6,326,47">
                 <materialDesign:PackIcon Kind="User" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="0,0,0,1" BorderBrush="#FF040404"/>
@@ -95,11 +117,20 @@
             <Grid Background="#FF505050" Margin="679,48,326,5">
                 <materialDesign:PackIcon Kind="FormTextboxPassword" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="0,0,0,1"/>
             </Grid>
+
+            <Grid Background="{StaticResource brushWatermarkBackground}" Style="{StaticResource EntryFieldStyle}" Margin="700,6,217,48" Height="39" >
+                <TextBlock Margin="5,2,5,3" Text="Usuário" Foreground="{StaticResource brushWatermarkForeground}" VerticalAlignment="Bottom" FontSize="14" >
+                    <TextBlock.Visibility>
+                        <MultiBinding Converter="{StaticResource TextInputToVisibilityConverter}">
+                            <Binding ElementName="txtUser" Path="Text.IsEmpty" />
+                            <Binding ElementName="txtUser" Path="IsFocused" />
+                        </MultiBinding>
+                    </TextBlock.Visibility>
+                </TextBlock>
+                <TextBox x:Name="txtUser" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,0,1" FontSize="14" VerticalAlignment="Bottom" Foreground="White" GotFocus="txtUser_GotFocus" />
+            </Grid>
+
         </Grid>
-
-
-
-
 
 
     </Grid>
