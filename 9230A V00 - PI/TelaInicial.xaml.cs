@@ -1555,7 +1555,7 @@ namespace _9230A_V00___PI
 
                     
 
-                   
+                   Teclados.keyboard.openKeyboard();
 
                 }
             }

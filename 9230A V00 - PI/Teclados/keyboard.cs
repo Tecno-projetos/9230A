@@ -5,6 +5,7 @@ using System.Linq;
 using System.Management;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace _9230A_V00___PI.Teclados
 {
@@ -19,33 +20,42 @@ namespace _9230A_V00___PI.Teclados
        /// <summary>
        /// Abre teclado virtual para digitação
        /// </summary>
-        public void openKeyboard() 
+        public static void openKeyboard() 
         {
             ManagementObjectSearcher searcher = new ManagementObjectSearcher("Select Name from Win32_Keyboard");
+
+            string touchKeyboardPath = @"C:\Program Files\Common Files\Microsoft Shared\Ink\TabTip.exe";
 
             foreach (ManagementObject keyboard in searcher.Get())
             {
                 if (!keyboard.GetPropertyValue("Name").Equals(""))
                 {
-                    Console.WriteLine("KB Name: {0}", keyboard.GetPropertyValue("Name"));
+                    closeKeyboard();
+
+                    Process.Start(touchKeyboardPath);
+                }
+                else
+                {
+                    closeKeyboard();
+                    Process.Start(touchKeyboardPath);
+
                 }
             }
-
-
-
-
-
-            string touchKeyboardPath = @"C:\Program Files\Common Files\Microsoft Shared\Ink\TabTip.exe";
-            Process.Start(touchKeyboardPath);
 
         }
 
         /// <summary>
         /// Fecha Teclado Virtual
         /// </summary>
-        public void closeKeyboard() 
+        private static void closeKeyboard() 
         {
-        
+            Process[] tabtip = Process.GetProcessesByName("TabTip");
+
+            if (null != tabtip)
+            {
+                tabtip.ToList().ForEach(a => { if (null != a) { a.Kill(); } });
+
+            }
         }
 
     }

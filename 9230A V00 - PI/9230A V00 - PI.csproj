@@ -157,6 +157,9 @@
     <Compile Include="Partidas\controleAtuadorLinearBifurcada.xaml.cs">
       <DependentUpon>controleAtuadorLinearBifurcada.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Telas Fluxo\configuracoes.xaml.cs">
+      <DependentUpon>configuracoes.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Telas Fluxo\Fluxo.xaml.cs">
       <DependentUpon>Fluxo.xaml</DependentUpon>
     </Compile>
@@ -272,6 +275,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Partidas\controleAtuadorLinearBifurcada.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Telas Fluxo\configuracoes.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
