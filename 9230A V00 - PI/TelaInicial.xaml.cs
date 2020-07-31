@@ -90,9 +90,38 @@ namespace _9230A_V00___PI
 
 
 
+
+
         #endregion
 
+        private void tbUser_PreviewMouseUp(object sender, MouseButtonEventArgs e)
+        {
+
+            tbUser.Clear();
+            tbUser.Foreground = new SolidColorBrush(Colors.Black);
 
 
+        }
+
+        private void tbUser_MouseLeave(object sender, MouseEventArgs e)
+        {
+
+            if (tbUser.Text != null)
+            {
+                if (tbUser.Text.Length == 0 || tbUser.Text.Contains(" "))
+                {
+
+                    tbUser.Foreground = new SolidColorBrush(Colors.Silver);
+                    tbUser.Text = "Usuário";
+
+                }
+            }
+            else
+            {
+                tbUser.Foreground = new SolidColorBrush(Colors.Silver);
+                tbUser.Text = "Usuário";
+            }
+
+        }
     }
 }

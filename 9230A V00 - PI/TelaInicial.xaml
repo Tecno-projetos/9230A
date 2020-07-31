@@ -22,7 +22,7 @@
 
         <StackPanel x:Name="spInical" HorizontalAlignment="Left" Height="675" VerticalAlignment="Top" Width="1024"/>
         <Grid HorizontalAlignment="Left" Height="93" Margin="0,675,0,0" VerticalAlignment="Top" Width="1024" Background="#FF3C3C3C">
-            <Button x:Name="btHome" Margin="117,5,0,0" Background="#FF505050" BorderBrush="{x:Null}" HorizontalAlignment="Left" Width="85" Height="83" VerticalAlignment="Top" Click="btHome_Click">
+            <Button x:Name="btHome" Margin="139,6,0,0" Background="#FF505050" BorderBrush="{x:Null}" HorizontalAlignment="Left" Width="85" Height="83" VerticalAlignment="Top" Click="btHome_Click">
                 <Grid Width="53" Height="70">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
@@ -31,7 +31,7 @@
                     <materialDesign:PackIcon Kind="HomeOutline" VerticalAlignment="Center" Foreground="White" Margin="0,0,0,22" HorizontalAlignment="Left" Width="53" Height="48"/>
                 </Grid>
             </Button>
-            <Button x:Name="btRelatorio" Margin="477,5,0,0" Background="#FF505050" BorderBrush="{x:Null}" HorizontalAlignment="Left" Width="85" Height="84" VerticalAlignment="Top" Click="btRelatorio_Click">
+            <Button x:Name="btRelatorio" Margin="499,5,0,0" Background="#FF505050" BorderBrush="{x:Null}" HorizontalAlignment="Left" Width="85" Height="84" VerticalAlignment="Top" Click="btRelatorio_Click">
                 <Grid Width="53" Height="70">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
@@ -40,14 +40,14 @@
                     <materialDesign:PackIcon Kind="FileReport" VerticalAlignment="Center" Foreground="White" Margin="0,0,0,22" HorizontalAlignment="Left" Width="53" Height="48"/>
                 </Grid>
             </Button>
-            <Button x:Name="btProducao" Margin="207,4,0,0" Background="#FF505050" BorderBrush="{x:Null}" HorizontalAlignment="Left" Width="85" Height="84" VerticalAlignment="Top" Click="btProducao_Click">
+            <Button x:Name="btProducao" Margin="229,5,0,0" Background="#FF505050" BorderBrush="{x:Null}" HorizontalAlignment="Left" Width="85" Height="84" VerticalAlignment="Top" Click="btProducao_Click">
                 <Grid Width="53" Height="70">
 
                     <Label Content="Produção" Margin="-14,48,-14,-5" HorizontalContentAlignment="Center" FontWeight="Bold" Foreground="White" HorizontalAlignment="Left" Width="81" FontSize="11"/>
                     <materialDesign:PackIcon Kind="PlayBox" VerticalAlignment="Center" Foreground="White" Margin="0,0,0,22" HorizontalAlignment="Left" Width="53" Height="48"/>
                 </Grid>
             </Button>
-            <Button x:Name="btConfiguracoes" Margin="387,5,0,0" Background="#FF505050" BorderBrush="{x:Null}" HorizontalAlignment="Left" Width="85" Height="84" VerticalAlignment="Top" Click="btConfiguracoes_Click">
+            <Button x:Name="btConfiguracoes" Margin="409,5,0,0" Background="#FF505050" BorderBrush="{x:Null}" HorizontalAlignment="Left" Width="85" Height="84" VerticalAlignment="Top" Click="btConfiguracoes_Click">
                 <Grid Width="53" Height="70">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
@@ -56,25 +56,25 @@
                     <materialDesign:PackIcon Kind="Cog" VerticalAlignment="Center" Foreground="White" Margin="0,0,0,22" HorizontalAlignment="Left" Width="53" Height="48"/>
                 </Grid>
             </Button>
-            <Label Content="11:18:17" HorizontalAlignment="Left" Margin="882,27,0,0" VerticalAlignment="Top" FontSize="24" FontWeight="Bold" Background="#00000000" Foreground="White" Height="50"/>
-            <Label Content="31/03" HorizontalAlignment="Left" Margin="981,27,0,0" VerticalAlignment="Top" FontWeight="Bold" Background="#00000000" Foreground="White" Width="43" VerticalContentAlignment="Center"/>
-            <Label Content="2020" HorizontalAlignment="Left" Margin="988,54,0,0" VerticalAlignment="Top" FontWeight="Bold" Background="#00000000" Foreground="White" FontSize="11" Height="23" VerticalContentAlignment="Center"/>
-            <Button x:Name="btRelatorio_Copy4" Margin="782,6,0,0" Background="#FF505050" BorderBrush="#FFABADAC" HorizontalAlignment="Left" Width="50" Height="82" VerticalAlignment="Top">
+            <Label Content="11:18:17" HorizontalAlignment="Left" Margin="913,28,0,0" VerticalAlignment="Top" FontSize="24" FontWeight="Bold" Background="#00000000" Foreground="White" Height="50"/>
+            <Label Content="31/03" HorizontalAlignment="Left" Margin="943,5,0,0" VerticalAlignment="Top" FontWeight="Bold" Background="#00000000" Foreground="White" Width="43" VerticalContentAlignment="Center"/>
+            <Label Content="2020" HorizontalAlignment="Left" Margin="946,63,0,0" VerticalAlignment="Top" FontWeight="Bold" Background="#00000000" Foreground="White" FontSize="11" Height="25" VerticalContentAlignment="Center" Width="40" HorizontalContentAlignment="Center"/>
+            <Button x:Name="btRelatorio_Copy4" Margin="809,5,0,0" Background="#FF505050" BorderBrush="{x:Null}" HorizontalAlignment="Left" Width="50" Height="84" VerticalAlignment="Top">
                 <Grid Width="17" Height="25">
                     <materialDesign:PackIcon Kind="UserKey" VerticalAlignment="Top" Foreground="White" Margin="-10,-3,-11,-4" HorizontalAlignment="Left" Width="38" Height="32"/>
                 </Grid>
             </Button>
-            <TextBox HorizontalAlignment="Left" Height="40" Margin="672,6,0,0" TextWrapping="Wrap" Text="User" VerticalAlignment="Top" Width="108" Background="#FF505050" Foreground="White" FontSize="14" VerticalContentAlignment="Center"/>
-            <TextBox HorizontalAlignment="Left" Height="40" Margin="672,48,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top" Width="108" Background="#FF505050" Foreground="White" FontSize="14" VerticalContentAlignment="Center"/>
-            <Grid Background="#FF505050" Margin="652,6,353,47">
+            <TextBox x:Name="tbUser" HorizontalAlignment="Left" Height="40" Margin="702,5,0,0" TextWrapping="Wrap" Text="Usuário" VerticalAlignment="Top" Width="105" Background="#FF505050" Foreground="White" FontSize="14" VerticalContentAlignment="Center" PreviewMouseUp="tbUser_PreviewMouseUp" MouseLeave="tbUser_MouseLeave"/>
+            <TextBox HorizontalAlignment="Left" Height="40" Margin="702,48,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top" Width="105" Background="#FF505050" Foreground="White" FontSize="14" VerticalContentAlignment="Center"/>
+            <Grid Background="#FF505050" Margin="679,6,326,47">
                 <materialDesign:PackIcon Kind="User" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="0,0,0,1" BorderBrush="#FF040404"/>
             </Grid>
-            <Button x:Name="btSair" Margin="835,6,0,0" Background="#FF505050" BorderBrush="#FFABADAC" HorizontalAlignment="Left" Width="50" Height="82" VerticalAlignment="Top" Click="btSair_Click">
+            <Button x:Name="btSair" Margin="862,5,0,0" Background="#FF505050" BorderBrush="{x:Null}" HorizontalAlignment="Left" Width="50" Height="84" VerticalAlignment="Top" Click="btSair_Click">
                 <Grid Width="17" Height="25">
                     <materialDesign:PackIcon Kind="ExitToApp" VerticalAlignment="Top" Foreground="White" Margin="-10,-2,-11,-5" HorizontalAlignment="Left" Width="38" Height="32"/>
                 </Grid>
             </Button>
-            <Button x:Name="btReceitas" Margin="297,5,0,0" Background="#FF505050" BorderBrush="{x:Null}" HorizontalAlignment="Left" Width="85" Height="84" VerticalAlignment="Top" Click="btReceitas_Click">
+            <Button x:Name="btReceitas" Margin="319,5,0,0" Background="#FF505050" BorderBrush="{x:Null}" HorizontalAlignment="Left" Width="85" Height="84" VerticalAlignment="Top" Click="btReceitas_Click">
                 <Grid Width="53" Height="70">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
@@ -83,7 +83,7 @@
                     <materialDesign:PackIcon Kind="ClipboardFile" VerticalAlignment="Center" Foreground="White" Margin="0,0,0,22" HorizontalAlignment="Left" Width="53" Height="48"/>
                 </Grid>
             </Button>
-            <Button x:Name="btAlarmes" Margin="562,5,0,0" Background="#FF505050" BorderBrush="{x:Null}" HorizontalAlignment="Left" Width="85" Height="84" VerticalAlignment="Top" Click="btAlarmes_Click">
+            <Button x:Name="btAlarmes" Margin="589,5,0,0" Background="#FF505050" BorderBrush="{x:Null}" HorizontalAlignment="Left" Width="85" Height="84" VerticalAlignment="Top" Click="btAlarmes_Click">
                 <Grid Width="53" Height="70">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
@@ -92,13 +92,15 @@
                     <materialDesign:PackIcon Kind="WarningBox" VerticalAlignment="Center" Foreground="White" Margin="0,0,0,22" HorizontalAlignment="Left" Width="53" Height="48"/>
                 </Grid>
             </Button>
-            <Grid Background="#FF505050" Margin="652,48,353,5">
+            <Grid Background="#FF505050" Margin="679,48,326,5">
                 <materialDesign:PackIcon Kind="FormTextboxPassword" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="0,0,0,1"/>
             </Grid>
-
-
-
         </Grid>
+
+
+
+
+
 
     </Grid>
 </Window>
