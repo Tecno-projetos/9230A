@@ -31,11 +31,11 @@ namespace _9230A_V00___PI
         #region Threads
 
         System.Threading.Thread ReadWritePLCThread;
+        private Process onScreenKeyboardProc;
 
         #endregion
 
 
-        Telas_Fluxo.Fluxo fluxo = new Telas_Fluxo.Fluxo();
 
 
         public TelaInicial()
@@ -43,7 +43,7 @@ namespace _9230A_V00___PI
             InitializeComponent();
 
 
-            spInical.Children.Add(fluxo);
+            spInical.Children.Add(Utilidades.VariaveisGlobais.Fluxo);
 
             #region Configuração Buffers PLC
 
@@ -137,15 +137,31 @@ namespace _9230A_V00___PI
 
             try
             {
-                TextBox tb = (TextBox)e.OriginalSource;
-                tb.Dispatcher.BeginInvoke(
-                    new Action(delegate
-                    {
-                        tb.SelectAll();
-                    }), System.Windows.Threading.DispatcherPriority.Input);
+                if (Utilidades.VariaveisGlobais.NumberOfGroup_GS == 0)
+                {
+                    TextBox tb = (TextBox)e.OriginalSource;
+                    tb.Dispatcher.BeginInvoke(
+                        new Action(delegate
+                        {
+                            tb.SelectAll();
+                        }), System.Windows.Threading.DispatcherPriority.Input);
+
+                    string progFiles = @"C:\Program Files\Common Files\Microsoft Shared\ink";
+                    string onScreenKeyboardPath = System.IO.Path.Combine(progFiles, "TabTip.exe");
+                    onScreenKeyboardProc = System.Diagnostics.Process.Start(onScreenKeyboardPath);
+
+
+
+
+
+
+
+                }
             }
             catch (Exception ex)
             {
+
+                Utilidades.VariaveisGlobais.Window_Buffer_Diagnostic.List_Error = ex.ToString();
 
             }
         }
