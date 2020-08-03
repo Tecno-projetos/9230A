@@ -105,6 +105,9 @@ namespace _9230A_V00___PI
             timer50ms.Start();
 
             #endregion
+
+
+
         }
 
         void timer_Tick(object sender, EventArgs e)

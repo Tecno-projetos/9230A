@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace _9230A_V00___PI.Usuarios
 {
     /// <summary>
-    /// Interação lógica para adiocionarUsuario.xam
+    /// Interação lógica para adicionarUsuario.xam
     /// </summary>
-    public partial class adiocionarUsuario : UserControl
+    public partial class adicionarUsuario : UserControl
     {
-        public adiocionarUsuario()
+        public adicionarUsuario()
         {
             InitializeComponent();
         }
