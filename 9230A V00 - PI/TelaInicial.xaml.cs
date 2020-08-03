@@ -100,7 +100,7 @@ namespace _9230A_V00___PI
 
             #region Configuração Dispatcher
 
-            timer50ms.Interval = TimeSpan.FromMilliseconds(50);
+            timer50ms.Interval = TimeSpan.FromMilliseconds(1);
             timer50ms.Tick += timer_Tick;
             timer50ms.Start();
 
@@ -112,26 +112,20 @@ namespace _9230A_V00___PI
 
         void timer_Tick(object sender, EventArgs e)
         {
-            lblTime.Content = DateTime.Now.ToLongTimeString();
+            lbAno.Content = DateTime.Now.Year;
+            lbDiaMes.Content = DateTime.Now.Day + "/" + DateTime.Now.Month;
+            lbHorario.Content = DateTime.Now.Minute + ":" + DateTime.Now.Second + ":" + DateTime.Now.Millisecond;
+
+            CommunicationPLC.readBuffersPLC(); //Chama a leitura no PLC
+
+
+
+
+            CommunicationPLC.writeBufferPLC();//Chama a escrita no PLC
 
         }
 
 
-        private void ReadWritePLC()
-        {
-            while (true)
-            {
-                CommunicationPLC.readBuffersPLC(); //Chama a leitura no PLC
-
-
-
-                
-                CommunicationPLC.writeBufferPLC();//Chama a escrita no PLC
-
-                Thread.Sleep(100);
-            }
-
-        }
 
 
 
