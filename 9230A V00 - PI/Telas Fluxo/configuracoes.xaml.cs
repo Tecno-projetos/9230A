@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Management;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -23,6 +24,19 @@ namespace _9230A_V00___PI.Telas_Fluxo
         public configuracoes()
         {
             InitializeComponent();
+
+            ObjectQuery wql = new ObjectQuery("SELECT * FROM Win32_OperatingSystem");
+            ManagementObjectSearcher searcher = new ManagementObjectSearcher(wql);
+            ManagementObjectCollection results = searcher.Get();
+
+            foreach (ManagementObject result in results)
+            {
+                Console.WriteLine("Total Visible Memory: {0} KB", result["TotalVisibleMemorySize"]);
+                Console.WriteLine("Free Physical Memory: {0} KB", result["FreePhysicalMemory"]);
+                Console.WriteLine("Total Virtual Memory: {0} KB", result["TotalVirtualMemorySize"]);
+                Console.WriteLine("Free Virtual Memory: {0} KB", result["FreeVirtualMemory"]);
+            }
+
         }
     }
 }

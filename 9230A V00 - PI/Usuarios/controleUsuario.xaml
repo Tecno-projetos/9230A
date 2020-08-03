@@ -44,7 +44,7 @@
                 </Grid>
             </Button>
         </Grid>
-        <StackPanel Name="spControleUsuario" HorizontalAlignment="Left" Height="675" Margin="200,0,0,0" VerticalAlignment="Top" Width="824"/>
+        <StackPanel Name="spControleUsuario" HorizontalAlignment="Left" Height="675" Margin="200,0,0,0" VerticalAlignment="Top" Width="825"/>
 
     </Grid>
 </UserControl>

@@ -107,6 +107,9 @@ namespace _9230A_V00___PI
             ReadWritePLCThread.Start();
 
             #endregion
+
+
+
         }
 
         private void ReadWritePLC()

@@ -181,8 +181,8 @@
     <Compile Include="TelasAuxiliares\Diagnosticos.xaml.cs">
       <DependentUpon>Diagnosticos.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Usuarios\adiocionarUsuario.xaml.cs">
-      <DependentUpon>adiocionarUsuario.xaml</DependentUpon>
+    <Compile Include="Usuarios\adicionarUsuario.xaml.cs">
+      <DependentUpon>adicionarUsuario.xaml</DependentUpon>
     </Compile>
     <Compile Include="Usuarios\controleUsuario.xaml.cs">
       <DependentUpon>controleUsuario.xaml</DependentUpon>
@@ -334,7 +334,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Usuarios\adiocionarUsuario.xaml">
+    <Page Include="Usuarios\adicionarUsuario.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
