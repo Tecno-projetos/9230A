@@ -1549,7 +1549,6 @@ namespace _9230A_V00___PI
         {
             if (spInical != null)
             {
-
                 spInical.Children.Clear();
 
                 spInical.Children.Add(Utilidades.VariaveisGlobais.Fluxo);
@@ -1559,27 +1558,57 @@ namespace _9230A_V00___PI
 
         private void btProducao_Click(object sender, RoutedEventArgs e)
         {
+            if (spInical != null)
+            {
+                spInical.Children.Clear();
 
+                spInical.Children.Add(Utilidades.VariaveisGlobais.producao);
+
+            }
         }
 
         private void btReceitas_Click(object sender, RoutedEventArgs e)
         {
+            if (spInical != null)
+            {
+                spInical.Children.Clear();
 
+                spInical.Children.Add(Utilidades.VariaveisGlobais.receitas);
+
+            }
         }
 
         private void btConfiguracoes_Click(object sender, RoutedEventArgs e)
         {
+            if (spInical != null)
+            {
+                spInical.Children.Clear();
 
+                spInical.Children.Add(Utilidades.VariaveisGlobais.configuracoes);
+
+            }
         }
 
         private void btRelatorio_Click(object sender, RoutedEventArgs e)
         {
+            if (spInical != null)
+            {
+                spInical.Children.Clear();
 
+                spInical.Children.Add(Utilidades.VariaveisGlobais.relatorios);
+
+            }
         }
 
         private void btAlarmes_Click(object sender, RoutedEventArgs e)
         {
+            if (spInical != null)
+            {
+                spInical.Children.Clear();
 
+                spInical.Children.Add(Utilidades.VariaveisGlobais.alarmes);
+
+            }
         }
 
 

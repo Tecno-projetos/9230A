@@ -239,6 +239,17 @@ namespace _9230A_V00___PI.Utilidades
 
         public static Usuarios.controleUsuario controleUsuario = new Usuarios.controleUsuario();
 
+        public static Telas_Fluxo.alarmes alarmes = new Telas_Fluxo.alarmes();
+
+        public static Telas_Fluxo.configuracoes configuracoes = new Telas_Fluxo.configuracoes();
+
+        public static Telas_Fluxo.producao producao = new Telas_Fluxo.producao();
+
+        public static Telas_Fluxo.receitas receitas = new Telas_Fluxo.receitas();
+
+        public static Telas_Fluxo.relatorios relatorios = new Telas_Fluxo.relatorios();
+
+
         #endregion
 
         #region Connection PLC
