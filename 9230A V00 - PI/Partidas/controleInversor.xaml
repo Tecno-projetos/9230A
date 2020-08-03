@@ -13,7 +13,7 @@
 
         <Label x:Name="lbName" Content="Nome Partida" RenderTransformOrigin="-0.066,0.849" FontSize="18" FontWeight="Bold" HorizontalAlignment="Left" Width="238" HorizontalContentAlignment="Center" Foreground="White" Height="35" VerticalAlignment="Top" Margin="0,-1,0,0"/>
 
-        <ToggleButton x:Name="btLigar" Margin="21,42,0,0" Foreground="White" Height="104" VerticalAlignment="Top" HorizontalAlignment="Left" Width="85" Cursor="Hand" ToolTip="Ligar/Desligar Equipamento.">
+        <ToggleButton x:Name="btLigar" Click="btLigar_Click" Margin="21,42,0,0" Foreground="White" Height="104" VerticalAlignment="Top" HorizontalAlignment="Left" Width="85" Cursor="Hand" ToolTip="Ligar/Desligar Equipamento.">
             <ToggleButton.Style>
                 <Style TargetType="{x:Type ToggleButton}">
                     <Setter Property="Template">
@@ -35,7 +35,7 @@
                 </Style>
             </ToggleButton.Style>
         </ToggleButton>
-        <ToggleButton x:Name="btReset" Margin="131,42,0,0" Foreground="White" Height="104" VerticalAlignment="Top" HorizontalAlignment="Left" Width="85" Cursor="Hand" ToolTip="Reset Equipamento.">
+        <ToggleButton x:Name="btReset" Click="btReset_Click" Margin="131,42,0,0" Foreground="White" Height="104" VerticalAlignment="Top" HorizontalAlignment="Left" Width="85" Cursor="Hand" ToolTip="Reset Equipamento.">
             <ToggleButton.Style>
                 <Style TargetType="{x:Type ToggleButton}">
                     <Setter Property="Template">
@@ -57,7 +57,7 @@
                 </Style>
             </ToggleButton.Style>
         </ToggleButton>
-        <ToggleButton x:Name="btManutencao" Margin="20,252,0,0" Foreground="White" Height="104" VerticalAlignment="Top" HorizontalAlignment="Left" Width="85" Cursor="Hand" ToolTip="Manutenção Equipamento.">
+        <ToggleButton x:Name="btManutencao" Click="btManutencao_Click" Margin="20,252,0,0" Foreground="White" Height="104" VerticalAlignment="Top" HorizontalAlignment="Left" Width="85" Cursor="Hand" ToolTip="Manutenção Equipamento.">
             <ToggleButton.Style>
                 <Style TargetType="{x:Type ToggleButton}">
                     <Setter Property="Template">
@@ -80,11 +80,11 @@
             </ToggleButton.Style>
         </ToggleButton>
 
-        <Button x:Name="btManual" IsHitTestVisible="False" Content="A" Margin="134,263,0,0" HorizontalAlignment="Left" Width="85" ToolTip="Comando ligar motor em modo automático ou em modo manual." Cursor="Hand" FontSize="72" Height="65" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Yu Gothic UI Semibold" BorderBrush="{x:Null}" Foreground="#FFB4B4B4" Background="{x:Null}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Padding="0,-20,0,0"/>
+        <Button x:Name="btManual" Click="btManual_Click" IsHitTestVisible="False" Content="A" Margin="134,263,0,0" HorizontalAlignment="Left" Width="85" ToolTip="Comando ligar motor em modo automático ou em modo manual." Cursor="Hand" FontSize="72" Height="65" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Yu Gothic UI Semibold" BorderBrush="{x:Null}" Foreground="#FFB4B4B4" Background="{x:Null}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Padding="0,-20,0,0"/>
         <TextBlock TextAlignment="Center" TextWrapping="Wrap" Text="Em Modo Manual" HorizontalAlignment="Left" VerticalAlignment="Top" Width="76" Padding="0" FontSize="10" FontWeight="Bold" Background="#00000000" Foreground="#FFF7F7F7" Height="35" Margin="138,329,0,0" />
 
 
-        <TextBox x:Name="tbPosicaoSolicitada" Margin="82,161,0,0" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalAlignment="Left" Width="53" ToolTip="Total de horas que o motor já funcionou." Cursor="Hand" Height="41" Opacity="0.5" FontSize="16" FontWeight="Bold" TextAlignment="Center" PreviewMouseUp="tbPosicaoSolicitada_PreviewMouseUp"/>
+        <TextBox x:Name="tbVelocidadeSolicitada" Margin="82,161,0,0" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalAlignment="Left" Width="53" ToolTip="Total de horas que o motor já funcionou." Cursor="Hand" Height="41" Opacity="0.5" FontSize="16" FontWeight="Bold" TextAlignment="Center" PreviewMouseUp="tbPosicaoSolicitada_PreviewMouseUp"/>
         <TextBlock TextAlignment="Center" TextWrapping="Wrap" Text="Velocidade Solicitada (%):" HorizontalAlignment="Left" VerticalAlignment="Top" Width="78" Padding="0" FontWeight="Bold" Background="#00000000" Foreground="#FFF7F7F7" Height="37" Margin="7,165,0,0" FontSize="10" />
 
         <Button x:Name="btAumenta" Margin="136,160,0,0" Background="#FF505050" BorderBrush="Black" Height="42" VerticalAlignment="Top" HorizontalAlignment="Left" Width="45" Click="btAumenta_Click">
@@ -97,7 +97,7 @@
                 <materialDesign:PackIcon Kind="Minus" VerticalAlignment="Center" Foreground="White" Height="20" Margin="-3,-2,-2,-2" Width="20"/>
             </Grid>
         </Button>
-        <Button x:Name="btLibera"  Margin="15,208,0,0" Background="#FFE2C92D" BorderBrush="Black" Height="28" VerticalAlignment="Top" HorizontalAlignment="Left" Width="212">
+        <Button x:Name="btLibera" Click="btLibera_Click"  Margin="15,208,0,0" Background="#FFE2C92D" BorderBrush="Black" Height="28" VerticalAlignment="Top" HorizontalAlignment="Left" Width="212">
             <Grid Width="150">
                 <materialDesign:PackIcon Kind="Lock" VerticalAlignment="Center" Foreground="#FF272424" Height="23" Margin="-23,0,0,-1" Width="33"/>
                 <TextBlock HorizontalAlignment="Center" Text="Libera Cascata" FontFamily="Champagne &amp; Limousines" Foreground="#FF363636" FontSize="18" Margin="20,1,-23,-1" Width="153"/>
@@ -106,16 +106,16 @@
 
 
         <Label x:Name="lbStatusMotor" Content="Status Motor" Margin="7,366,0,0" BorderBrush="#FF707070" BorderThickness="1" Background="#00000000" HorizontalContentAlignment="Center" Height="29" VerticalAlignment="Top" HorizontalAlignment="Left" Width="223" ToolTip="Status do motor, falhas e alarmes." Cursor="No" FontSize="13"/>
-        <Label x:Name="lbPosicaoAtual" Content="Velocidade Atual" Margin="7,400,0,0" BorderBrush="#FF707070" BorderThickness="1" Background="#00000000" HorizontalContentAlignment="Center" Height="29" VerticalAlignment="Top" HorizontalAlignment="Left" Width="110" ToolTip="Status do motor, falhas e alarmes." Cursor="No" FontSize="13"/>
-        <Button x:Name="btFechar"  Margin="7,468,0,0" Background="Red" BorderBrush="Black" Height="35" VerticalAlignment="Top" HorizontalAlignment="Left" Width="223">
+        <Label x:Name="lbVelocidadeAtual" Content="Velocidade Atual" Margin="7,400,0,0" BorderBrush="#FF707070" BorderThickness="1" Background="#00000000" HorizontalContentAlignment="Center" Height="29" VerticalAlignment="Top" HorizontalAlignment="Left" Width="110" ToolTip="Status do motor, falhas e alarmes." Cursor="No" FontSize="13"/>
+        <Button x:Name="btFechar" Click="btFechar_Click"  Margin="7,468,0,0" Background="Red" BorderBrush="Black" Height="35" VerticalAlignment="Top" HorizontalAlignment="Left" Width="223">
             <Grid Width="150">
                 <materialDesign:PackIcon Kind="Close" VerticalAlignment="Center" Foreground="White" Height="30" Margin="-37,-7,0,-7" Width="42"/>
                 <TextBlock HorizontalAlignment="Center" Text="Fechar" FontFamily="Champagne &amp; Limousines" Foreground="White" FontSize="18" Margin="49,1,49,-1"/>
             </Grid>
         </Button>
-        <Label x:Name="lbPosicaoAtual_Copy" Content="Código Falha" Margin="7,434,0,0" BorderBrush="#FF707070" BorderThickness="1" Background="#00000000" HorizontalContentAlignment="Center" Height="29" VerticalAlignment="Top" HorizontalAlignment="Left" Width="110" ToolTip="Status do motor, falhas e alarmes." Cursor="No" FontSize="13"/>
-        <Label x:Name="lbPosicaoAtual_Copy1" Content="Código Alarme" Margin="120,434,0,0" BorderBrush="#FF707070" BorderThickness="1" Background="#00000000" HorizontalContentAlignment="Center" Height="29" VerticalAlignment="Top" HorizontalAlignment="Left" Width="110" ToolTip="Status do motor, falhas e alarmes." Cursor="No" FontSize="13"/>
-        <Label x:Name="lbPosicaoAtual_Copy2" Content="Corrente Atual" Margin="120,400,0,0" BorderBrush="#FF707070" BorderThickness="1" Background="#00000000" HorizontalContentAlignment="Center" Height="29" VerticalAlignment="Top" HorizontalAlignment="Left" Width="110" ToolTip="Status do motor, falhas e alarmes." Cursor="No" FontSize="13"/>
+        <Label x:Name="lbCodigoFalha" Content="Código Falha" Margin="7,434,0,0" BorderBrush="#FF707070" BorderThickness="1" Background="#00000000" HorizontalContentAlignment="Center" Height="29" VerticalAlignment="Top" HorizontalAlignment="Left" Width="110" ToolTip="Status do motor, falhas e alarmes." Cursor="No" FontSize="13"/>
+        <Label x:Name="lbCodigoAlarme" Content="Código Alarme" Margin="120,434,0,0" BorderBrush="#FF707070" BorderThickness="1" Background="#00000000" HorizontalContentAlignment="Center" Height="29" VerticalAlignment="Top" HorizontalAlignment="Left" Width="110" ToolTip="Status do motor, falhas e alarmes." Cursor="No" FontSize="13"/>
+        <Label x:Name="lbCorrenteAtual" Content="Corrente Atual" Margin="120,400,0,0" BorderBrush="#FF707070" BorderThickness="1" Background="#00000000" HorizontalContentAlignment="Center" Height="29" VerticalAlignment="Top" HorizontalAlignment="Left" Width="110" ToolTip="Status do motor, falhas e alarmes." Cursor="No" FontSize="13"/>
 
     </Grid>
 

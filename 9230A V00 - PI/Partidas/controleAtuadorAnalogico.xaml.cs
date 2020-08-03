@@ -36,6 +36,30 @@ namespace _9230A_V00___PI.Partidas
 
         }
 
+        #region Get/Sets
+
+        public string statusMotor_GS 
+        {
+            get => lbStatusMotor.Content.ToString();
+
+            set
+            {
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Content = value; });
+            }
+        }
+
+        public string posicaoAtual_GS
+        {
+            get => lbPosicaoAtual.Content.ToString();
+
+            set
+            {
+                lbPosicaoAtual.Dispatcher.Invoke(delegate { lbPosicaoAtual.Content = value; });
+            }
+        }
+
+        #endregion
+
         #region Keypad + Atualizar posição solicitada.
 
         private void tbPosicaoSolicitada_PreviewMouseUp(object sender, MouseButtonEventArgs e)
