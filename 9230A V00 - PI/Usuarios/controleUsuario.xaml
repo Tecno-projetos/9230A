@@ -8,7 +8,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800" Width="1024" Height="675">
     <Grid Background="#FF7F7F7F">
-        <Grid HorizontalAlignment="Left" Height="675" VerticalAlignment="Top" Width="200" Background="#FC5A5A5A">
+        <Grid HorizontalAlignment="Left" Height="675" VerticalAlignment="Top" Width="200" Background="#FF3C3C3C">
             <Button x:Name="btCriarUsuario" Margin="10,136,10,489" Background="#FF505050" BorderBrush="Black" Height="50">
                 <Grid Width="150">
                     <materialDesign:PackIcon Kind="UserAdd" VerticalAlignment="Center" Foreground="White" Margin="2,-6,0,-7" Height="30" Width="30"/>
@@ -44,7 +44,7 @@
                 </Grid>
             </Button>
         </Grid>
-        <StackPanel HorizontalAlignment="Left" Height="675" Margin="200,0,0,0" VerticalAlignment="Top" Width="824"/>
+        <StackPanel Name="spControleUsuario" HorizontalAlignment="Left" Height="675" Margin="200,0,0,0" VerticalAlignment="Top" Width="824"/>
 
     </Grid>
 </UserControl>

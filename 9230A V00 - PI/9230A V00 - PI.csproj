@@ -163,6 +163,15 @@
     <Compile Include="Telas Fluxo\Fluxo.xaml.cs">
       <DependentUpon>Fluxo.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Telas Fluxo\producao.xaml.cs">
+      <DependentUpon>producao.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Telas Fluxo\receitas.xaml.cs">
+      <DependentUpon>receitas.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Telas Fluxo\relatorios.xaml.cs">
+      <DependentUpon>relatorios.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TelasAuxiliares\Buffer_Diag.xaml.cs">
       <DependentUpon>Buffer_Diag.xaml</DependentUpon>
     </Compile>
@@ -286,6 +295,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Telas Fluxo\Fluxo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Telas Fluxo\producao.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Telas Fluxo\receitas.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Telas Fluxo\relatorios.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
