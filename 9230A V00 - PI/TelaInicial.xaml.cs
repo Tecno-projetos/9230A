@@ -1547,7 +1547,14 @@ namespace _9230A_V00___PI
 
         private void btHome_Click(object sender, RoutedEventArgs e)
         {
+            if (spInical != null)
+            {
 
+                spInical.Children.Clear();
+
+                spInical.Children.Add(Utilidades.VariaveisGlobais.Fluxo);
+
+            }
         }
 
         private void btProducao_Click(object sender, RoutedEventArgs e)
@@ -1614,7 +1621,14 @@ namespace _9230A_V00___PI
 
         private void btConfiguracoesUsuario_Click(object sender, RoutedEventArgs e)
         {
+            if (spInical != null)
+            {
 
+                spInical.Children.Clear();
+
+                spInical.Children.Add(Utilidades.VariaveisGlobais.controleUsuario);
+
+            }
         }
     }
 

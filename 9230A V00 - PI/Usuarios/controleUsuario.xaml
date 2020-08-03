@@ -9,47 +9,42 @@
              d:DesignHeight="450" d:DesignWidth="800" Width="1024" Height="675">
     <Grid Background="#FF7F7F7F">
         <Grid HorizontalAlignment="Left" Height="675" VerticalAlignment="Top" Width="200" Background="#FC5A5A5A">
-            <Button x:Name="btCriarUsuario" Margin="10,136,10,489" Background="#FF505050" BorderBrush="Black" Click="BT_Manutencao_Click" Height="50">
+            <Button x:Name="btCriarUsuario" Margin="10,136,10,489" Background="#FF505050" BorderBrush="Black" Height="50">
                 <Grid Width="150">
-                    <materialDesign:PackIcon Kind="UserAdd" VerticalAlignment="Center" Foreground="White" Margin="-5,-6,0,-7" Height="30" Width="30"/>
+                    <materialDesign:PackIcon Kind="UserAdd" VerticalAlignment="Center" Foreground="White" Margin="2,-6,0,-7" Height="30" Width="30"/>
                     <TextBlock  Text="Criar Usuário " FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="41,1,24,-1" Width="85" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                 </Grid>
             </Button>
 
             <materialDesign:PackIcon Kind="User" VerticalAlignment="Center" Foreground="White" Height="95" Margin="0,6,0,574" Width="200"/>
             <Label Content="Controle de Usuário" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Foreground="White" FontSize="16" VerticalContentAlignment="Center" FontWeight="Bold" HorizontalContentAlignment="Center" Margin="0,86,0,0"/>
-            <Button x:Name="btApagarUsuario" Margin="10,190,10,435" Background="#FF505050" BorderBrush="Black" Click="BT_Manutencao_Click" Height="50">
+            <Button x:Name="btApagarUsuario" Margin="10,190,10,435" Background="#FF505050" BorderBrush="Black" Height="50">
                 <Grid Width="150">
-                    <materialDesign:PackIcon Kind="UserMinus" VerticalAlignment="Center" Foreground="White" Margin="-5,-6,0,-7" Height="30" Width="30"/>
+                    <materialDesign:PackIcon Kind="UserMinus" VerticalAlignment="Center" Foreground="White" Margin="2,-6,0,-7" Height="30" Width="30"/>
                     <TextBlock  Text="Apagar Usuário " FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="41,1,10,-1" Width="99" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                 </Grid>
             </Button>
-            <Button x:Name="brEditarUsuario" Margin="10,245,10,380" Background="#FF505050" BorderBrush="Black" Click="BT_Manutencao_Click" Height="50">
+            <Button x:Name="brEditarUsuario" Margin="10,245,10,380" Background="#FF505050" BorderBrush="Black" Height="50">
                 <Grid Width="150">
-                    <materialDesign:PackIcon Kind="UserEdit" VerticalAlignment="Center" Foreground="White" Margin="-5,-6,0,-7" Height="30" Width="30"/>
+                    <materialDesign:PackIcon Kind="UserEdit" VerticalAlignment="Center" Foreground="White" Margin="2,-6,0,-7" Height="30" Width="30"/>
                     <TextBlock  Text="Editar Usuário " FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="41,1,10,-1" Width="99" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                 </Grid>
             </Button>
             <Rectangle Fill="White" HorizontalAlignment="Left" Height="5" Margin="10,118,0,0" Stroke="White" VerticalAlignment="Top" Width="180"/>
-            <Button x:Name="btHistoricoUsuario" Margin="10,300,10,325" Background="#FF505050" BorderBrush="Black" Click="BT_Manutencao_Click" Height="50">
+            <Button x:Name="btHistoricoUsuario" Margin="10,300,10,325" Background="#FF505050" BorderBrush="Black" Height="50">
                 <Grid Width="150">
-                    <materialDesign:PackIcon Kind="UserHelp" VerticalAlignment="Center" Foreground="White" Margin="-5,-6,0,-7" Height="30" Width="30"/>
+                    <materialDesign:PackIcon Kind="UserHelp" VerticalAlignment="Center" Foreground="White" Margin="2,-6,0,-7" Height="30" Width="30"/>
                     <TextBlock  Text="Histórico Usuário " FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="41,1,0,-1" Width="109" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                 </Grid>
             </Button>
-            <Button x:Name="btHistoricoTodosUsuario" Margin="10,355,10,270" Background="#FF505050" BorderBrush="Black" Click="BT_Manutencao_Click" Height="50">
+            <Button x:Name="btHistoricoTodosUsuario" Margin="10,355,10,270" Background="#FF505050" BorderBrush="Black" Height="50">
                 <Grid Width="150">
-                    <materialDesign:PackIcon Kind="UserHelp" VerticalAlignment="Center" Foreground="White" Margin="-5,-6,0,-7" Height="30" Width="30"/>
+                    <materialDesign:PackIcon Kind="TableUser" VerticalAlignment="Center" Foreground="White" Margin="2,2,0,2" Height="30" Width="30"/>
                     <TextBlock  Text="Histórico Todos Usuário" TextAlignment="Center" TextWrapping="Wrap" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="41,1,10,-1" Width="99" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                 </Grid>
             </Button>
-            <Button x:Name="btFechar" Margin="10,621,10,4" Background="Red" BorderBrush="Black" Click="BT_Manutencao_Click" Height="50">
-                <Grid Width="150">
-                    <materialDesign:PackIcon Kind="Close" VerticalAlignment="Center" Foreground="White" Margin="-5,-6,0,-7" Height="30" Width="30"/>
-                    <TextBlock  Text="Fechar" TextAlignment="Center" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="0,1,-10,-1" Width="160" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                </Grid>
-            </Button>
         </Grid>
+        <StackPanel HorizontalAlignment="Left" Height="675" Margin="200,0,0,0" VerticalAlignment="Top" Width="824"/>
 
     </Grid>
 </UserControl>

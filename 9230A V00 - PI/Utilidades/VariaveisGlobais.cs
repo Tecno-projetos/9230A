@@ -237,6 +237,8 @@ namespace _9230A_V00___PI.Utilidades
 
         public static Telas_Fluxo.Fluxo Fluxo = new Telas_Fluxo.Fluxo();
 
+        public static Usuarios.controleUsuario controleUsuario = new Usuarios.controleUsuario();
+
         #endregion
 
         #region Connection PLC
