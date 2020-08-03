@@ -26,28 +26,27 @@ namespace _9230A_V00___PI.Teclados
 
             string touchKeyboardPath = @"C:\Program Files\Common Files\Microsoft Shared\Ink\TabTip.exe";
 
+           
             foreach (ManagementObject keyboard in searcher.Get())
             {
                 if (!keyboard.GetPropertyValue("Name").Equals(""))
                 {
+
                     closeKeyboard();
 
                     Process.Start(touchKeyboardPath);
                 }
-                else
-                {
-                    closeKeyboard();
-                    Process.Start(touchKeyboardPath);
 
-                }
             }
 
+            closeKeyboard();
+            Process.Start(touchKeyboardPath);
         }
 
         /// <summary>
         /// Fecha Teclado Virtual
         /// </summary>
-        private static void closeKeyboard() 
+        public static void closeKeyboard() 
         {
             Process[] tabtip = Process.GetProcessesByName("TabTip");
 

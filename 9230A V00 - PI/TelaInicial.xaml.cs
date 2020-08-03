@@ -1535,7 +1535,7 @@ namespace _9230A_V00___PI
 
         //-----------------------------------------------------------------------
         //Emanuel
-            #region Clicks Menu
+       #region Clicks Menu
 
         private void btSair_Click(object sender, RoutedEventArgs e)
         {
@@ -1544,7 +1544,6 @@ namespace _9230A_V00___PI
             proc.Kill();
 
         }
-
 
         private void btHome_Click(object sender, RoutedEventArgs e)
         {
@@ -1577,7 +1576,19 @@ namespace _9230A_V00___PI
         }
 
 
-        private void txtUser_GotFocus(object sender, RoutedEventArgs e)
+        private void txtUser_LostFocus(object sender, RoutedEventArgs e)
+        {
+            Process[] tabtip = Process.GetProcessesByName("TabTip");
+
+            if (null != tabtip)
+            {
+                tabtip.ToList().ForEach(a => { if (null != a) { a.Kill(); } });
+
+            }
+        }
+
+
+        private void txtUser_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             try
             {
@@ -1590,34 +1601,21 @@ namespace _9230A_V00___PI
                             tb.SelectAll();
                         }), System.Windows.Threading.DispatcherPriority.Input);
 
-                    
-
-                   Teclados.keyboard.openKeyboard();
-
+                    Teclados.keyboard.openKeyboard();
                 }
             }
             catch (Exception ex)
             {
-
                 Utilidades.VariaveisGlobais.Window_Buffer_Diagnostic.List_Error = ex.ToString();
-
-            }
-        }
-
-        private void txtUser_LostFocus(object sender, RoutedEventArgs e)
-        {
-            Process[] tabtip = Process.GetProcessesByName("TabTip");
-
-            if (null != tabtip)
-            {
-                tabtip.ToList().ForEach(a => { if (null != a) { a.Kill(); } });
-
             }
         }
 
         #endregion
 
+        private void btConfiguracoesUsuario_Click(object sender, RoutedEventArgs e)
+        {
 
+        }
     }
 
 }

@@ -8,7 +8,7 @@
         xmlns:local="clr-namespace:_9230A_V00___PI.Utilidades"
         xmlns:componentModel="clr-namespace:System.ComponentModel;assembly=WindowsBase"
         mc:Ignorable="d"
-   Title="MainWindow" Height="768" Width="1024" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None" Background="#FF7F7F7F">
+   Title="MainWindow" Height="768" Width="1024" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None" Background="#FF7F7F7F" WindowState="Maximized">
 
     <Window.Resources>
 
@@ -82,7 +82,7 @@
             <Label Content="11:18:17" HorizontalAlignment="Left" Margin="913,28,0,0" VerticalAlignment="Top" FontSize="24" FontWeight="Bold" Background="#00000000" Foreground="White" Height="50"/>
             <Label Content="31/03" HorizontalAlignment="Left" Margin="943,5,0,0" VerticalAlignment="Top" FontWeight="Bold" Background="#00000000" Foreground="White" Width="43" VerticalContentAlignment="Center"/>
             <Label Content="2020" HorizontalAlignment="Left" Margin="946,63,0,0" VerticalAlignment="Top" FontWeight="Bold" Background="#00000000" Foreground="White" FontSize="11" Height="25" VerticalContentAlignment="Center" Width="40" HorizontalContentAlignment="Center"/>
-            <Button x:Name="btRelatorio_Copy4" Margin="809,5,0,0" Background="#FF505050" BorderBrush="{x:Null}" HorizontalAlignment="Left" Width="50" Height="84" VerticalAlignment="Top">
+            <Button x:Name="btConfiguracoesUsuario" Margin="809,5,0,0" Background="#FF505050" BorderBrush="{x:Null}" HorizontalAlignment="Left" Width="50" Height="84" VerticalAlignment="Top" Click="btConfiguracoesUsuario_Click">
                 <Grid Width="17" Height="25">
                     <materialDesign:PackIcon Kind="UserKey" VerticalAlignment="Top" Foreground="White" Margin="-10,-3,-11,-4" HorizontalAlignment="Left" Width="38" Height="32"/>
                 </Grid>
@@ -127,7 +127,7 @@
                         </MultiBinding>
                     </TextBlock.Visibility>
                 </TextBlock>
-                <TextBox x:Name="txtUser" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,0,1" FontSize="14" VerticalAlignment="Bottom" Foreground="White" GotFocus="txtUser_GotFocus" />
+                <TextBox x:Name="txtUser" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,0,1" FontSize="14" VerticalAlignment="Bottom" Foreground="White" PreviewMouseLeftButtonUp="txtUser_PreviewMouseLeftButtonUp" />
             </Grid>
 
         </Grid>

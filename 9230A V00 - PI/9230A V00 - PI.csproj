@@ -169,6 +169,9 @@
     <Compile Include="TelasAuxiliares\Diagnosticos.xaml.cs">
       <DependentUpon>Diagnosticos.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Usuarios\controleUsuario.xaml.cs">
+      <DependentUpon>controleUsuario.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Utilidades\Conversions.cs" />
     <Compile Include="Utilidades\convertTextInputToVisibility.cs" />
     <Compile Include="Utilidades\EquipsControl.cs" />
@@ -291,6 +294,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="TelasAuxiliares\Diagnosticos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Usuarios\controleUsuario.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
