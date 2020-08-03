@@ -13,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace _9230A_V00___PI
 {
@@ -28,9 +29,9 @@ namespace _9230A_V00___PI
 
         #endregion
 
-        #region Threads
+        #region Dispacher Timers
 
-        System.Threading.Thread ReadWritePLCThread;
+        DispatcherTimer timer50ms = new DispatcherTimer();
 
         #endregion
 
@@ -62,7 +63,6 @@ namespace _9230A_V00___PI
 
 
             spInical.Children.Add(Utilidades.VariaveisGlobais.Fluxo);
-
 
             #region Equipamentos
 
@@ -98,16 +98,21 @@ namespace _9230A_V00___PI
 
             #endregion
 
-            #region Configuração Threads
+            #region Configuração Dispatcher
 
-            //Leitura e escrita PLC
-            //====================================================================
-            ReadWritePLCThread = new System.Threading.Thread(ReadWritePLC);
-            ReadWritePLCThread.Name = "Actualize Screen";
-            ReadWritePLCThread.Start();
+            timer50ms.Interval = TimeSpan.FromMilliseconds(50);
+            timer50ms.Tick += timer_Tick;
+            timer50ms.Start();
 
             #endregion
         }
+
+        void timer_Tick(object sender, EventArgs e)
+        {
+            lblTime.Content = DateTime.Now.ToLongTimeString();
+
+        }
+
 
         private void ReadWritePLC()
         {
