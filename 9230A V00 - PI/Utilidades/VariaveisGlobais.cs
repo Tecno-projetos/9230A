@@ -64,7 +64,7 @@ namespace _9230A_V00___PI.Utilidades
 
 
             public int initialOffSet;
-
+            public int bufferPlc;
             public string Nome;                  //Nome
             public string Tag;                   //Tag
             public string NumeroPartida;         //Numero da Partida

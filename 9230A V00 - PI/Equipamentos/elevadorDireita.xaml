@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:_9230A_V00___PI.Equipamentos"
              xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing"
-             mc:Ignorable="d" Height="66.955" Width="36.781">
+             mc:Ignorable="d" Height="205.5" Width="60">
 
     <UserControl.Resources>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
@@ -24,9 +24,9 @@
         </Storyboard>
     </UserControl.Resources>
 
-    <Grid Height="68" VerticalAlignment="Top" Margin="-0.016,0,0,-1.045">
+    <Grid Margin="0,0,0,-4">
 
-        <Rectangle x:Name="Head_6" Margin="5.745,21.634,0,7.658" Stroke="Black" StrokeThickness="0.5" HorizontalAlignment="Left" Width="10" Cursor="Hand">
+        <Rectangle x:Name="Head_6" Margin="6,22,0,0" Stroke="Black" StrokeThickness="0.5" HorizontalAlignment="Left" Width="10" Cursor="Hand" Height="62" VerticalAlignment="Top">
             <Rectangle.Fill>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <LinearGradientBrush.RelativeTransform>
@@ -43,7 +43,7 @@
                 </LinearGradientBrush>
             </Rectangle.Fill>
         </Rectangle>
-        <Rectangle x:Name="Head_7" Margin="15.761,21.634,0,7.658" Stroke="Black" StrokeThickness="0.5" HorizontalAlignment="Left" Width="10" Cursor="Hand">
+        <Rectangle x:Name="Head_7" Margin="16,22,0,0" Stroke="Black" StrokeThickness="0.5" HorizontalAlignment="Left" Width="10" Cursor="Hand" Height="62" VerticalAlignment="Top">
             <Rectangle.Fill>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <LinearGradientBrush.RelativeTransform>
@@ -70,7 +70,7 @@
                 </LinearGradientBrush>
             </Path.Fill>
         </Path>
-        <Path Data="M26.25,30.166667 L31.5,51.791667" HorizontalAlignment="Left" Margin="15.248,19.916,0,7.133" Stretch="Fill" Stroke="Black" Width="1" RenderTransformOrigin="0.5,0.5">
+        <Path Data="M26.25,30.166667 L31.5,51.791667" HorizontalAlignment="Left" Margin="15.248,19.916,0,30.591" Stretch="Fill" Stroke="Black" Width="1" RenderTransformOrigin="0.5,0.5">
             <Path.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="-1"/>
@@ -127,7 +127,7 @@
                 </TransformGroup>
             </ed:Arc.RenderTransform>
         </ed:Arc>
-        <Grid x:Name="grid1" Margin="15,4.425,0,-1.425" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" Width="10">
+        <Grid x:Name="grid1" Margin="15,4,0,0" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" Width="10" Height="68" VerticalAlignment="Top">
             <Grid.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -817,7 +817,7 @@
                 </Path.RenderTransform>
             </Path>
         </Grid>
-        <Grid x:Name="grid" HorizontalAlignment="Left" Margin="5,24.425,0,-9.425" Width="11" RenderTransformOrigin="0.5,0.5">
+        <Grid x:Name="grid" HorizontalAlignment="Left" Margin="5,24,0,0" Width="11" RenderTransformOrigin="0.5,0.5" Height="55" VerticalAlignment="Top">
             <Grid.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -1244,7 +1244,7 @@
             </Rectangle.Fill>
         </Rectangle>
         <Path Data="M5.953,7.621 L5.953,23.209" Fill="#FF0B7C1F" HorizontalAlignment="Left" Height="16.838" Margin="5.743,0.344,0,0" Stretch="Fill" Stroke="Black" StrokeThickness="0.5" VerticalAlignment="Top" Width="0.5"/>
-        <Rectangle x:Name="Head_8" Margin="0.304,16.871,0,37.523" Stroke="Black" StrokeThickness="0.5" HorizontalAlignment="Left" Width="26.126">
+        <Rectangle x:Name="Head_8" Margin="0,17,0,0" Stroke="Black" StrokeThickness="0.5" Height="13" VerticalAlignment="Top" HorizontalAlignment="Left" Width="25.984">
             <Rectangle.Fill>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <LinearGradientBrush.RelativeTransform>
@@ -1270,7 +1270,69 @@
                 </LinearGradientBrush>
             </Path.Fill>
         </Path>
-        <Label x:Name="LB_M_A" Content="M" HorizontalAlignment="Left" Height="15.045" Margin="0.304,15.432,0,37.523" VerticalAlignment="Center" Width="25.457" Foreground="Black" HorizontalContentAlignment="Center" FontFamily="Franklin Gothic Medium" FontSize="14" Padding="0" Cursor="No" Background="#00000000" VerticalContentAlignment="Center" />
+        <Label x:Name="LB_M_A" Content="M" Margin="0,15.154,0,0" Foreground="Black" HorizontalContentAlignment="Center" FontFamily="Franklin Gothic Medium" FontSize="14" Padding="0" Cursor="No" Background="#00000000" VerticalContentAlignment="Center" Height="15.512" VerticalAlignment="Top" HorizontalAlignment="Left" Width="26" />
+        <Rectangle x:Name="Body1" Margin="6,61,0,31" Stroke="Black" StrokeThickness="0.5" HorizontalAlignment="Left" Width="10" Cursor="Hand">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <LinearGradientBrush.RelativeTransform>
+                        <TransformGroup>
+                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                            <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                            <RotateTransform Angle="90" CenterY="0.5" CenterX="0.5"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </LinearGradientBrush.RelativeTransform>
+                    <GradientStop Color="#FF505050"/>
+                    <GradientStop Color="#FF505050" Offset="1"/>
+                    <GradientStop Color="#FFC8C8C8" Offset="0.5"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle x:Name="Body2" Margin="16,61,0,31" Stroke="Black" StrokeThickness="0.5" HorizontalAlignment="Left" Width="10" Cursor="Hand">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <LinearGradientBrush.RelativeTransform>
+                        <TransformGroup>
+                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                            <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                            <RotateTransform Angle="90" CenterY="0.5" CenterX="0.5"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </LinearGradientBrush.RelativeTransform>
+                    <GradientStop Color="#FF505050"/>
+                    <GradientStop Color="#FF505050" Offset="1"/>
+                    <GradientStop Color="#FFC8C8C8" Offset="0.5"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <ed:RegularPolygon x:Name="Foot1" Height="16" Margin="-13,0,0,15" PointCount="3" Stretch="Fill" Stroke="Black" StrokeThickness="0.5" VerticalAlignment="Bottom" RenderTransformOrigin="0.5,0.5" Fill="#FF505050" HorizontalAlignment="Left" Width="39" Cursor="Hand">
+            <ed:RegularPolygon.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="-1" ScaleX="1"/>
+                    <SkewTransform AngleY="0" AngleX="0"/>
+                    <RotateTransform Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </ed:RegularPolygon.RenderTransform>
+        </ed:RegularPolygon>
+        <Rectangle x:Name="Foot4" Margin="6,0,0,11" Stroke="Black" StrokeThickness="0.5" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" Width="20" Cursor="Hand" Height="20" VerticalAlignment="Bottom">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <LinearGradientBrush.RelativeTransform>
+                        <TransformGroup>
+                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                            <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                            <RotateTransform Angle="90" CenterY="0.5" CenterX="0.5"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </LinearGradientBrush.RelativeTransform>
+                    <GradientStop Color="#FF505050" Offset="0"/>
+                    <GradientStop Color="#FF505050" Offset="1"/>
+                    <GradientStop Color="#FFC8C8C8" Offset="0.5"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle x:Name="Foot3" Margin="14,0,0,17" Stroke="Black" StrokeThickness="0.5" RenderTransformOrigin="0.5,0.5" Height="14" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="4" Fill="#FF505050" Cursor="Hand"/>
 
     </Grid>
 </UserControl>

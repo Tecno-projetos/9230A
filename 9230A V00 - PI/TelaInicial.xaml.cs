@@ -1,4 +1,5 @@
-﻿using System;
+﻿using _9230A_V00___PI.Utilidades;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -37,7 +38,7 @@ namespace _9230A_V00___PI
 
         #region Equipamentos
 
-        Utilidades.EquipsControl Motor_22 = new Utilidades.EquipsControl(Utilidades.typeEquip.PD, Utilidades.typeCommand.PD);
+        //Utilidades.EquipsControl Motor_22 = new Utilidades.EquipsControl(Utilidades.typeEquip.PD, Utilidades.typeCommand.PD);
         Utilidades.EquipsControl Bifurcada_23 = new Utilidades.EquipsControl(Utilidades.typeEquip.PD, Utilidades.typeCommand.PD);
         Utilidades.EquipsControl Atuador_26_Silo_1 = new Utilidades.EquipsControl(Utilidades.typeEquip.PD, Utilidades.typeCommand.PD);
         Utilidades.EquipsControl Atuador_26_Silo_2 = new Utilidades.EquipsControl(Utilidades.typeEquip.PD, Utilidades.typeCommand.PD);
@@ -76,8 +77,10 @@ namespace _9230A_V00___PI
 
             //Atualiza informações de cada motor
 
-            Motor_22.initialOffSet = 0;
+            //Motor_22.initialOffSet = 0;
+            //Motor_22.bufferPlc = 0;
 
+            VariaveisGlobais.Fluxo.Motor_22 = new Equipamentos.elevadorDireita(Utilidades.typeEquip.PD, Utilidades.typeCommand.PD);
 
             #endregion
 
@@ -120,7 +123,7 @@ namespace _9230A_V00___PI
 
 
             //Leitura Motor 22
-            Motor_22.readPlcFromBuffer = true;
+            //Motor_22.readPlcFromBuffer = true;
 
 
 

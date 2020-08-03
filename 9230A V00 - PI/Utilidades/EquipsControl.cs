@@ -30,12 +30,13 @@ namespace _9230A_V00___PI.Utilidades
         //Palavra de comando geral
         Utilidades.VariaveisGlobais.type_All Command = new Utilidades.VariaveisGlobais.type_All();
 
-        bool setInitialOffSet = false;
-
+        
         #endregion
 
         public EquipsControl(typeEquip Equip, typeCommand TCommand)
         {
+            Command.initialOffSet = -1;
+            Command.bufferPlc = -1;
             Command.TypeEquip = Equip;
             Command.TypeCommand = TCommand;
 
@@ -328,10 +329,22 @@ namespace _9230A_V00___PI.Utilidades
         {
             set
             {
-                if (!setInitialOffSet)
+                if (Command.initialOffSet == -1)
                 {
+                    //depois de setado uma vez o valor do offset, não pode ser alterado em tempo de execução.
                     Command.initialOffSet = value;
-                    setInitialOffSet = true;      //depois de setado uma vez o valor do offset, não pode ser alterado em tempo de execução.
+                }
+            }
+        }
+
+        public int bufferPlc
+        {
+            set
+            {
+                if (Command.bufferPlc == -1)
+                {
+                    //depois de setado uma vez o valor do buffer, não pode ser alterado em tempo de execução.
+                    Command.bufferPlc = value;
                 }
             }
         }

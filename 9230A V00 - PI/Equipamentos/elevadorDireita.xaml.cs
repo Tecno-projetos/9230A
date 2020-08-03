@@ -1,5 +1,7 @@
-﻿using System;
+﻿using _9230A_V00___PI.Utilidades;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,6 +23,12 @@ namespace _9230A_V00___PI.Equipamentos
     public partial class elevadorDireita : UserControl
     {
         public elevadorDireita()
+        {
+            InitializeComponent();
+        }
+
+
+        public elevadorDireita(typeEquip Equip, typeCommand TCommand)
         {
             InitializeComponent();
         }
