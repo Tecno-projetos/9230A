@@ -57,46 +57,21 @@ namespace _9230A_V00___PI.Utilidades
         //Padrão de bits, com todos os bits de todas as UDTs que existem no clp relacionada a equipamentos.
         public struct type_All
         {
+            public UInt32 DWord;                  //Dword bits palavra de comando e status
             public type_Standard_GUI Standard;   //Tipo de estrutura padrão para GUI
                                                  //
-            public type_PD PD;                 //Tipo de estrutura PD_PCM
-            public UInt32 DWord;                 //Valor recebido do PLC
-                                                 //
-            public string Name;                  //Nome
+            public type_PD PD;                   //Tipo de estrutura PD_PCM
+
+
+            public int initialOffSet;
+
+            public string Nome;                  //Nome
             public string Tag;                   //Tag
             public string NumeroPartida;         //Numero da Partida
             public string PaginaProjeto;         //Pagina do Projeto
 
-            public bool HabilitaCorrente;        //Habilitado Corrente
-
-            public float CorrenteAtual;          //Corrente Atual
-            public float VelocidadeAtual;
-            public float CodigoFalha;
-            public float CodigoAlarme;
-
-            public float VelocidadeManual;
-            public bool EnableWrite_Velocidade;
-            public bool ReadVelocidadeManualOneTime;
-
-            public bool ClickLeft;               //Click que recebe na UI e envia para controle.
-            public bool ClickRight;              //Click que recebe na UI e envia para controle.
-            public bool ClickMiddle;             //Click que recebe na UI e envia para controle.
-            public bool ClickOpenWindowForked;   //Click abrir tela quando for Furcada.
-            public bool ClickBodyForked;         //Click no corpo da furcada.
-            public bool ResetClicks;             //Variavel auxiliar para poder resetar os clicks no equip UI.
-
-            public bool enableReadDwordCommand; //Habilita leitura no Buffer do PLC
-            public bool enableWriteDwordCommand; //Habilita escrita do Buffer do PLC
-
-            public int Total_Horas;           //Total Horas Motor Ligado
-            public int Parcial_Horas;         //Parcial Horas
-            public int ManutencaoEm;          //Tempo que falta para Manutenção
-            public short TempoLimpeza;          //Tempo de limpeza de cada motor, para a rota.
-
             public typeEquip TypeEquip;          //tipo do equipamento
             public typeCommand TypeCommand;      //tipo de palavra que o equipamento ira utilizar
-
-            public bool HabilitaAtualizaUI;
         }
 
         public struct type_Standard_GUI

@@ -76,7 +76,7 @@ namespace _9230A_V00___PI
 
             //Atualiza informações de cada motor
 
-
+            Motor_22.initialOffSet = 0;
 
 
             #endregion
@@ -118,6 +118,9 @@ namespace _9230A_V00___PI
 
             CommunicationPLC.readBuffersPLC(); //Chama a leitura no PLC
 
+
+            //Leitura Motor 22
+            Motor_22.readPlcFromBuffer = true;
 
 
 
