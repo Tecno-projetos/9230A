@@ -181,8 +181,17 @@
     <Compile Include="TelasAuxiliares\Diagnosticos.xaml.cs">
       <DependentUpon>Diagnosticos.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Usuarios\adiocionarUsuario.xaml.cs">
+      <DependentUpon>adiocionarUsuario.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Usuarios\controleUsuario.xaml.cs">
       <DependentUpon>controleUsuario.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Usuarios\editarUsuario.xaml.cs">
+      <DependentUpon>editarUsuario.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Usuarios\removerUsuario.xaml.cs">
+      <DependentUpon>removerUsuario.xaml</DependentUpon>
     </Compile>
     <Compile Include="Utilidades\Conversions.cs" />
     <Compile Include="Utilidades\convertTextInputToVisibility.cs" />
@@ -325,7 +334,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Usuarios\adiocionarUsuario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Usuarios\controleUsuario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Usuarios\editarUsuario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Usuarios\removerUsuario.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
