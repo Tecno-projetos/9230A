@@ -46,10 +46,6 @@ namespace _9230A_V00___PI.Usuarios
 
                 genericButton_Direita.Content = "Fechar";
                 genericButton_Esquerda.Content = "Ok";
-
-
-
-
             }
             else
             {
@@ -70,6 +66,9 @@ namespace _9230A_V00___PI.Usuarios
                     else
                     {
 
+
+
+
                     }
                 }
                 else
@@ -88,9 +87,6 @@ namespace _9230A_V00___PI.Usuarios
  
         
         }
-
-
-
 
 
         private void btCriar_Click(object sender, RoutedEventArgs e)
@@ -137,6 +133,11 @@ namespace _9230A_V00___PI.Usuarios
             //        }
             //    }
             //}
+        }
+
+        private void openKeyboard(object sender, MouseButtonEventArgs e)
+        {
+            Teclados.keyboard.openKeyboard();
         }
     }
 }

@@ -83,6 +83,7 @@
     <Compile Include="Comunicacao\CallCommunicationPLC.cs" />
     <Compile Include="Comunicacao\Sharp7.cs" />
     <Compile Include="DataBase\SqlFunctionsEquips.cs" />
+    <Compile Include="DataBase\SqlFunctionsUsers.cs" />
     <Compile Include="DataBase\SqlGlobalFuctions.cs" />
     <Compile Include="Desenhos\abastecimentoManual.xaml.cs">
       <DependentUpon>abastecimentoManual.xaml</DependentUpon>
@@ -366,6 +367,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="..\.editorconfig">
+      <Link>.editorconfig</Link>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

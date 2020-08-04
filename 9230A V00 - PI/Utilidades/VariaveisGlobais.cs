@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -229,10 +230,10 @@ namespace _9230A_V00___PI.Utilidades
 
         #region Connection PLC
 
-        public static string IP_Plc = "192.168.0.10";
+        private static string IP_Plc = "192.168.0.10";
 
-        public static int Rack_PLC = 0;
-        public static int Slot_PLC = 1;
+        private static int Rack_PLC = 0;
+        private static int Slot_PLC = 1;
 
         public static string IP_Plc_GS { get => IP_Plc; set => IP_Plc = value; }
         public static int Rack_PLC_GS { get => Rack_PLC; set => Rack_PLC = value; }
@@ -244,12 +245,20 @@ namespace _9230A_V00___PI.Utilidades
 
         #endregion
 
+        #region Pastas
+
+        private static string folderSql = @"C:\SQLCe"; //nome do diretorio a ser criado
+        private static string folderLogs = @"C:\Logs";
+
+
+        #endregion
+
         #region Connection DB and Type DB (SQLExpress or SqlCe)
 
         static bool DB_Connected;
         private static bool SQLCe;
         private static string Connection_DB_Create = "";
-        private static string Connection_DB_Users = "";
+        private static string Connection_DB_Users = @"Data Source =" + folderSql + "\\" + "BeckerUsers" + ".sdf";
         private static string Connection_DB_Equip = "";
         private static string Connection_DB_Current = "";
 
@@ -283,14 +292,34 @@ namespace _9230A_V00___PI.Utilidades
 
         #endregion
 
+        private static void createFolder(string folder) 
+        {
+          
+            //Se o diretório não existir...
 
+            if (!Directory.Exists(folder))
+            {
+                //Criamos um com o nome folder
+                Directory.CreateDirectory(folder);
+            }
 
+        }
 
+        public static void Load_Connection()
+        {
+            //Cria pastas para Apliacação
+            createFolder(folderSql);
+            createFolder(folderLogs);
 
+            SQLCe_GS = true;
 
+            //Criação dos Bancos
+            DataBase.SqlGlobalFuctions.Create_DB("BeckerUsers");
 
 
 
+            //Inicializa Tabelas
+            DataBase.SqlFunctionsUsers.Initialize_ProgramDBCA();
 
 
 
@@ -300,6 +329,7 @@ namespace _9230A_V00___PI.Utilidades
 
 
 
+        }
 
 
 
@@ -581,8 +611,6 @@ namespace _9230A_V00___PI.Utilidades
 
 
 
-        //--------------------
-        //Emanuel
 
 
 
@@ -590,5 +618,22 @@ namespace _9230A_V00___PI.Utilidades
 
 
 
-    }
+
+
+
+
+
+
+
+
+            //--------------------
+            //Emanuel
+
+
+
+
+
+
+
+        }
 }

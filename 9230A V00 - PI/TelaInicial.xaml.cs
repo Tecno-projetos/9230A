@@ -62,6 +62,7 @@ namespace _9230A_V00___PI
         {
             InitializeComponent();
 
+            VariaveisGlobais.Load_Connection();
 
             spInical.Children.Add(Utilidades.VariaveisGlobais.Fluxo);
 

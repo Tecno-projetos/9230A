@@ -33,18 +33,6 @@ namespace _9230A_V00___PI.TelasAuxiliares
         {
             InitializeComponent();
 
-            #region Diretório 
-
-            string folder = @"C:\Logs"; //nome do diretorio a ser criado
-
-            //Se o diretório não existir...
-
-            if (!Directory.Exists(folder))
-            {
-                //Criamos um com o nome folder
-                Directory.CreateDirectory(folder);
-            }
-
             StreamWriter w;
 
             using (w = File.AppendText(@"C:\Logs\Log" + "_" + DateTime.Now.Day.ToString() + "_" + DateTime.Now.Month.ToString() + "_" + DateTime.Now.Year.ToString() + ".txt"))
@@ -53,7 +41,6 @@ namespace _9230A_V00___PI.TelasAuxiliares
                 w.WriteLine("-------------------------------");
             }
 
-            #endregion
         }
 
         #region Get/Set list error
