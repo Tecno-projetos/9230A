@@ -7,36 +7,34 @@
              xmlns:model="clr-namespace:_9230A_V00___PI.Utilidades"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:Utilidades="clr-namespace:_9230A_V00___PI.Utilidades" x:Class="_9230A_V00___PI.Usuarios.adicionarUsuario"        
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800" Width="825" Height="675">
-
-    <UserControl.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Blue.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Indigo.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
-            </ResourceDictionary.MergedDictionaries>
-
-
-            <SolidColorBrush x:Key="brushWatermarkBackground" Color="#FF505050" />
-            <SolidColorBrush x:Key="brushWatermarkForeground" Color="White" />
-            <Utilidades:TextInputToVisibilityConverter x:Key="TextInputToVisibilityConverter" />
-
-            <SolidColorBrush x:Key="brushWatermarkBorder" Color="White" />
-
-            <Style x:Key="EntryFieldStyle" TargetType="{x:Type Grid}" >
-                <Setter Property="HorizontalAlignment" Value="Stretch" />
-                <Setter Property="VerticalAlignment" Value="Center" />
-                <Setter Property="Margin" Value="20,0" />
-            </Style>
-        </ResourceDictionary>
-
-    </UserControl.Resources>
+             d:DesignHeight="450" d:DesignWidth="800" Width="825" Height="675" Loaded="DialogHost_LostFocus">
 
     <Grid Background="#FF7F7F7F">
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
+
+        <Grid.Resources  >
+
+            <ResourceDictionary>
+                <ResourceDictionary.MergedDictionaries>
+                    <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Blue.xaml" />
+                    <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Indigo.xaml" />
+                    <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                </ResourceDictionary.MergedDictionaries>
+
+
+                <SolidColorBrush x:Key="brushWatermarkBackground" Color="#FF505050" />
+                <SolidColorBrush x:Key="brushWatermarkForeground" Color="White" />
+                <Utilidades:TextInputToVisibilityConverter x:Key="TextInputToVisibilityConverter" />
+
+                <SolidColorBrush x:Key="brushWatermarkBorder" Color="White" />
+
+                <Style x:Key="EntryFieldStyle" TargetType="{x:Type Grid}" >
+                    <Setter Property="HorizontalAlignment" Value="Stretch" />
+                    <Setter Property="VerticalAlignment" Value="Center" />
+                    <Setter Property="Margin" Value="20,0" />
+                </Style>
+            </ResourceDictionary>
+
+        </Grid.Resources>
 
         <materialDesign:PackIcon Kind="UserAdd" VerticalAlignment="Center" Foreground="White" Height="95" Margin="0,6,0,574" Width="825"/>
         <Label Content="Criar Usuário" HorizontalAlignment="Left" VerticalAlignment="Top" Width="825" Foreground="White" FontSize="16" VerticalContentAlignment="Center" FontWeight="Bold" HorizontalContentAlignment="Center" Margin="0,86,0,0"/>
@@ -52,7 +50,7 @@
                     </MultiBinding>
                 </TextBlock.Visibility>
             </TextBlock>
-            <TextBox x:Name="txtUser" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" />
+            <TextBox x:Name="txtUser" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" PreviewMouseLeftButtonUp="openKeyboard" />
         </Grid>
 
         <materialDesign:PackIcon Kind="User" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="14,137,773,504" BorderBrush="#FF040404"/>
@@ -61,7 +59,7 @@
         <Label Content="Senha (*):" Height="34" Margin="52,250,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="188" Foreground="White" FontWeight="Bold" FontSize="16"/>
 
         <Grid Style="{StaticResource EntryFieldStyle}" Margin="52,289,418,345" Height="41" Background="#FF3C3C3C" >
-            <PasswordBox x:Name="txtSenha" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White"/>
+            <PasswordBox x:Name="txtSenha" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" PreviewMouseLeftButtonUp="openKeyboard"/>
         </Grid>
 
         <materialDesign:PackIcon Kind="FormTextboxPassword" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="14,249,773,392" BorderBrush="#FF040404"/>
@@ -70,7 +68,7 @@
         <Label Content="Repetir Senha (*):" Height="34" Margin="52,345,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="188" Foreground="White" FontWeight="Bold" FontSize="16"/>
 
         <Grid Style="{StaticResource EntryFieldStyle}" Margin="52,384,418,250" Height="41" Background="#FF3C3C3C" >
-            <PasswordBox x:Name="txtSenha1" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" />
+            <PasswordBox x:Name="txtSenha1" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" PreviewMouseLeftButtonUp="openKeyboard" />
         </Grid>
 
 
@@ -86,19 +84,17 @@
                     </MultiBinding>
                 </TextBlock.Visibility>
             </TextBlock>
-            <TextBox x:Name="txtEmail" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White"/>
+            <TextBox x:Name="txtEmail" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" PreviewMouseLeftButtonUp="openKeyboard"/>
         </Grid>
         <materialDesign:PackIcon Kind="Mail" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="14,453,773,188" BorderBrush="#FF040404"/>
         <materialDesign:PackIcon Kind="Pencil" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="14,493,773,141" BorderBrush="#FF040404"/>
         <Rectangle Fill="White" HorizontalAlignment="Left" Height="5" Margin="10,442,0,0" Stroke="White" VerticalAlignment="Top" Width="397"/>
-         <Label Content="Grupo do Usuário: (*)" Height="34" Margin="471,137,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="188" Foreground="White" FontWeight="Bold" FontSize="16"/>
-        <materialDesign:PackIcon Kind="UserGroupOutline" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="428,137,359,504" BorderBrush="#FF040404"/>
-        <materialDesign:PackIcon Kind="Pencil" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="428,177,359,457" BorderBrush="#FF040404"/>
-
-        <ComboBox x:Name="cbAddGroup" HorizontalAlignment="Left" Margin="471,177,0,0" VerticalAlignment="Top" Width="344" Background="#FF3C3C3C" Height="41" BorderBrush="White" Foreground="White" FontSize="22"/>
+        <Label Content="Grupo do Usuário: (*)" Height="34" Margin="542,137,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="188" Foreground="White" FontWeight="Bold" FontSize="16"/>
+        <materialDesign:PackIcon Kind="UserGroupOutline" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="499,137,288,504" BorderBrush="#FF040404"/>
+        <materialDesign:PackIcon Kind="CheckBox" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="499,177,288,457" BorderBrush="#FF040404" Visibility="{Binding IsChecked, ElementName=rbManutencao}"/>
 
         <!--Botão com messagebox-->
-        <materialDesign:DialogHost BorderBrush="#FFD32B2B" >
+        <materialDesign:DialogHost x:Name="dialogHost" BorderBrush="#FFD32B2B" Margin="-860,6,860,-6">
             <materialDesign:DialogHost.DialogContent>
                 <Grid Width="450" Height="200" HorizontalAlignment="Center">
                     <!--Imagem para messagebox-->
@@ -118,7 +114,6 @@
                 </Grid>
             </materialDesign:DialogHost.DialogContent>
 
-
             <!--Quando efetuado o click nesse botão deve-se ser setado o titulo e a mensagem que deseja utilizar na  tela-->
             <Button x:Name="btCriarUsuario" Margin="241,598,220,27" Background="#FF505050" BorderBrush="Black" Height="50" Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}" Click="btCriarUsuario_Click" >
                 <Grid Width="150">
@@ -127,10 +122,48 @@
                 </Grid>
             </Button>
 
-          </materialDesign:DialogHost>
 
+            <!--Quando efetuado o click nesse botão deve-se ser setado o titulo e a mensagem que deseja utilizar na  tela-->
+
+        </materialDesign:DialogHost>
+
+        <RadioButton x:Name="rbManutencao"  Style="{StaticResource MaterialDesignSwitchToggleButton}" Content="" HorizontalAlignment="Left" Margin="567,187,0,0" VerticalAlignment="Top" Height="23" Width="47" IsChecked="True" FontSize="9" RenderTransformOrigin="0.5,0.5" Background="#FF3C3C3C" FontWeight="Bold" Foreground="#FF3C3C3C" GroupName="groupUser" IsHitTestVisible="False">
+            <RadioButton.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </RadioButton.RenderTransform>
+        </RadioButton>
+        <materialDesign:PackIcon Kind="CheckBox" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="499,225,288,409" BorderBrush="#FF040404" Visibility="{Binding Visibility, ElementName=rbOperador}"/>
+        <RadioButton x:Name="rbOperador" Content="Operador" HorizontalAlignment="Left" Margin="593,235,0,0" VerticalAlignment="Top" Height="23" Width="98" FontSize="9" IsChecked="False" RenderTransformOrigin="0.5,0.5" Background="#FF3C3C3C" FontWeight="Bold" Foreground="#FF3C3C3C" GroupName="groupUser">
+            <RadioButton.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </RadioButton.RenderTransform>
+        </RadioButton>
+        <materialDesign:PackIcon Kind="CheckBox" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="499,273,288,361" BorderBrush="#FF040404" Visibility="{Binding Visibility, ElementName=rbAdministrador}"/>
+        <RadioButton x:Name="rbAdministrador" Content="Adiministrador" HorizontalAlignment="Left" Margin="593,283,0,0" VerticalAlignment="Top" IsChecked="False" Height="23" Width="98" FontSize="9" RenderTransformOrigin="0.5,0.5" Background="#FF3C3C3C" FontWeight="Bold" Foreground="#FF3C3C3C" GroupName="groupUser">
+            <RadioButton.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </RadioButton.RenderTransform>
+        </RadioButton>
 
 
 
     </Grid>
+
+
+
 </UserControl>

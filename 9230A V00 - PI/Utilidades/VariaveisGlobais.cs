@@ -305,6 +305,8 @@ namespace _9230A_V00___PI.Utilidades
 
         }
 
+        
+
         public static void Load_Connection()
         {
             //Cria pastas para Apliacação
@@ -326,15 +328,10 @@ namespace _9230A_V00___PI.Utilidades
 
 
 
-
-
-
         }
 
 
-
-
-
+        
 
 
 
