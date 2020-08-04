@@ -44,6 +44,10 @@ namespace _9230A_V00___PI.Usuarios
             }
             else
             {
+                if (true)
+                {
+
+                }
                 if (txtSenha.Password.Equals(txtSenha1.Password))
                 {
                     char t = Convert.ToChar(txtUser.Text.Substring(0, 1));
@@ -138,6 +142,37 @@ namespace _9230A_V00___PI.Usuarios
                 dialogHost.IsOpen = false;
             }
 
+        }
+
+        private void lbAdm_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (lbAdm.IsSelected)
+            {
+                pckAdm.Visibility = Visibility.Visible;
+                pckMan.Visibility = Visibility.Hidden;
+                pckOperador.Visibility = Visibility.Hidden;
+
+            }
+        }
+
+        private void lbManutencao_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (lbManutencao.IsSelected)
+            {
+                pckAdm.Visibility = Visibility.Hidden;
+                pckMan.Visibility = Visibility.Visible;
+                pckOperador.Visibility = Visibility.Hidden;
+            }
+        }
+
+        private void lbOperador_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (lbOperador.IsSelected)
+            {
+                pckAdm.Visibility = Visibility.Hidden;
+                pckMan.Visibility = Visibility.Hidden;
+                pckOperador.Visibility = Visibility.Visible;
+            }
         }
     }
 }

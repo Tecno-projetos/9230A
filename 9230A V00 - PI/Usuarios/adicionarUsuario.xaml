@@ -95,19 +95,10 @@
         <Label Content="Grupo do Usuário: (*)" Height="34" Margin="542,137,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="188" Foreground="White" FontWeight="Bold" FontSize="16"/>
         <materialDesign:PackIcon Kind="UserGroupOutline" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="499,137,288,504" BorderBrush="#FF040404"/>
 
-        <ListBox
-  Style="{StaticResource MaterialDesignListBox}" x:Name="RadioButtonGroupChoiceChipPrimaryOutline" Margin="542,493,35,55">
-            <ListBoxItem Width="143" Background="#FFC77474" >
-                
-
-                Mercury
-            </ListBoxItem>
-            <ListBoxItem IsSelected="True">
-                Venus
-            </ListBoxItem>
-            <ListBoxItem>
-                Earth
-            </ListBoxItem>
+        <ListBox Style="{StaticResource MaterialDesignListBox}" x:Name="RadioButtonGroupChoiceChipPrimaryOutline" Margin="499,170,50,333">
+            <ListBoxItem x:Name="lbAdm" Width="143" Background="#FF3C3C3C" Height="50" Content="Administrador" FontSize="16" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Margin="0,5,0,0" IsSelected="True" PreviewMouseLeftButtonUp="lbAdm_PreviewMouseLeftButtonUp" />
+            <ListBoxItem x:Name="lbManutencao"  Height="50" Width="145" Content="Manutenção" Background="#FF3C3C3C" FontSize="16" Foreground="White" Margin="0,5,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" HorizontalContentAlignment="Center" PreviewMouseLeftButtonUp="lbManutencao_PreviewMouseLeftButtonUp"/>
+            <ListBoxItem x:Name="lbOperador" Width="145" Height="50" Content="Operador" Margin="0,5,0,0" Background="#FF3C3C3C" FontSize="16" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" HorizontalContentAlignment="Center" PreviewMouseLeftButtonUp="lbOperador_PreviewMouseLeftButtonUp"/>
         </ListBox>
 
 
@@ -145,10 +136,12 @@
             <!--Quando efetuado o click nesse botão deve-se ser setado o titulo e a mensagem que deseja utilizar na  tela-->
 
         </materialDesign:DialogHost>
+        <materialDesign:PackIcon x:Name="pckAdm" Kind="CheckBox" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="520,180,262,450" BorderBrush="#FF040404"/>
+        <materialDesign:PackIcon x:Name="pckMan" Kind="CheckBox" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="520,235,262,395" BorderBrush="#FF040404" Visibility="Hidden"/>
+        <materialDesign:PackIcon x:Name="pckOperador" Kind="CheckBox" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="520,291,262,339" BorderBrush="#FF040404" Visibility="Hidden"/>
 
-        
-        
-        
+
+
 
 
     </Grid>
