@@ -153,7 +153,7 @@
             </Desenhos:Silo.RenderTransform>
         </Desenhos:Silo>
 
-        <Equipamentos:elevadorDireita x:Name="Motor_22" HorizontalAlignment="Left" Height="482" Margin="201,123,0,0" VerticalAlignment="Top" Width="38" RenderTransformOrigin="0.5,0.5">
+        <Equipamentos:elevadorDireita  x:Name="Motor_22" HorizontalAlignment="Left" Height="477" Margin="201,123,0,0" VerticalAlignment="Top" Width="38" RenderTransformOrigin="0.5,0.5" >
             <Equipamentos:elevadorDireita.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="1.2" ScaleY="1.2"/>

@@ -33,10 +33,10 @@ namespace _9230A_V00___PI.Utilidades
         
         #endregion
 
-        public EquipsControl(typeEquip Equip, typeCommand TCommand)
+        public EquipsControl(typeEquip Equip, typeCommand TCommand, int initialOffSet, int bufferPlc)
         {
-            Command.initialOffSet = -1;
-            Command.bufferPlc = -1;
+            Command.initialOffSet = initialOffSet;
+            Command.bufferPlc = bufferPlc;
             Command.TypeEquip = Equip;
             Command.TypeCommand = TCommand;
 
@@ -325,30 +325,6 @@ namespace _9230A_V00___PI.Utilidades
 
         #region Encapulate Fields
 
-        public int initialOffSet
-        {
-            set
-            {
-                if (Command.initialOffSet == -1)
-                {
-                    //depois de setado uma vez o valor do offset, não pode ser alterado em tempo de execução.
-                    Command.initialOffSet = value;
-                }
-            }
-        }
-
-        public int bufferPlc
-        {
-            set
-            {
-                if (Command.bufferPlc == -1)
-                {
-                    //depois de setado uma vez o valor do buffer, não pode ser alterado em tempo de execução.
-                    Command.bufferPlc = value;
-                }
-            }
-        }
-
         public bool readPlcFromBuffer
         {
             set
@@ -356,11 +332,11 @@ namespace _9230A_V00___PI.Utilidades
                 if (Command.TypeEquip == typeEquip.PD && Command.TypeCommand == typeCommand.PD)
                 {
                     //Lendo variaveis do buffer do CLP
-                    Command.DWord = Comunicacao.Sharp7.S7.GetDWordAt(VariaveisGlobais.Buffer_PLC[0].Buffer, Command.initialOffSet);
-                    Command.PD.SP_Manutencao = Comunicacao.Sharp7.S7.GetDIntAt(VariaveisGlobais.Buffer_PLC[0].Buffer, Command.initialOffSet + 4);
-                    Command.PD.HorimetroParcial = Comunicacao.Sharp7.S7.GetDIntAt(VariaveisGlobais.Buffer_PLC[0].Buffer, Command.initialOffSet + 8);
-                    Command.PD.HorimetroTotal = Comunicacao.Sharp7.S7.GetDIntAt(VariaveisGlobais.Buffer_PLC[0].Buffer, Command.initialOffSet + 12);
-                    Command.PD.Tempo_Limpeza = Comunicacao.Sharp7.S7.GetDIntAt(VariaveisGlobais.Buffer_PLC[0].Buffer, Command.initialOffSet + 16);
+                    Command.DWord = Comunicacao.Sharp7.S7.GetDWordAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet);
+                    Command.PD.SP_Manutencao = Comunicacao.Sharp7.S7.GetDIntAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + 4);
+                    Command.PD.HorimetroParcial = Comunicacao.Sharp7.S7.GetDIntAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + 8);
+                    Command.PD.HorimetroTotal = Comunicacao.Sharp7.S7.GetDIntAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + 12);
+                    Command.PD.Tempo_Limpeza = Comunicacao.Sharp7.S7.GetDIntAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + 16);
 
                     //Atualizando as variaveis para o standard GUI
 
@@ -370,10 +346,23 @@ namespace _9230A_V00___PI.Utilidades
                     //Segundo atualiza o standard GUI
                     Command = Utilidades.Move_Bits.typePD_TO_typeStandardGUI(Command);
 
-
                 }
+            }
+        }
 
+        public Utilidades.VariaveisGlobais.type_All Command_Get
+        {
+            get
+            {
+                return Command;
+            }
+        }
 
+        public void OpenWindow()
+        {
+            if (Command_Get.TypeEquip == typeEquip.PD && Command_Get.TypeCommand == typeCommand.PD)
+            {
+                Window_PD.ShowDialog();
             }
         }
 

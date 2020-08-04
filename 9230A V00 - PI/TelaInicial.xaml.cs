@@ -39,20 +39,20 @@ namespace _9230A_V00___PI
         #region Equipamentos
 
         //Utilidades.EquipsControl Motor_22 = new Utilidades.EquipsControl(Utilidades.typeEquip.PD, Utilidades.typeCommand.PD);
-        Utilidades.EquipsControl Bifurcada_23 = new Utilidades.EquipsControl(Utilidades.typeEquip.PD, Utilidades.typeCommand.PD);
-        Utilidades.EquipsControl Atuador_26_Silo_1 = new Utilidades.EquipsControl(Utilidades.typeEquip.PD, Utilidades.typeCommand.PD);
-        Utilidades.EquipsControl Atuador_26_Silo_2 = new Utilidades.EquipsControl(Utilidades.typeEquip.PD, Utilidades.typeCommand.PD);
-        Utilidades.EquipsControl Motor_29 = new Utilidades.EquipsControl(Utilidades.typeEquip.PD, Utilidades.typeCommand.PD);
-        Utilidades.EquipsControl Motor_30 = new Utilidades.EquipsControl(Utilidades.typeEquip.PD, Utilidades.typeCommand.PD);
-        Utilidades.EquipsControl Motor_42 = new Utilidades.EquipsControl(Utilidades.typeEquip.PD, Utilidades.typeCommand.PD);
-        Utilidades.EquipsControl Motor_43 = new Utilidades.EquipsControl(Utilidades.typeEquip.INV, Utilidades.typeCommand.INV);
-        Utilidades.EquipsControl Motor_44 = new Utilidades.EquipsControl(Utilidades.typeEquip.SS, Utilidades.typeCommand.SS);
-        Utilidades.EquipsControl Motor_45 = new Utilidades.EquipsControl(Utilidades.typeEquip.PD, Utilidades.typeCommand.PD);
-        Utilidades.EquipsControl Motor_46 = new Utilidades.EquipsControl(Utilidades.typeEquip.PD, Utilidades.typeCommand.PD);
-        Utilidades.EquipsControl Motor_48 = new Utilidades.EquipsControl(Utilidades.typeEquip.PD, Utilidades.typeCommand.PD);
-        Utilidades.EquipsControl Motor_49 = new Utilidades.EquipsControl(Utilidades.typeEquip.Atuador, Utilidades.typeCommand.Atuador_Digital);
-        Utilidades.EquipsControl Motor_62 = new Utilidades.EquipsControl(Utilidades.typeEquip.INV, Utilidades.typeCommand.INV);
-        Utilidades.EquipsControl Motor_65 = new Utilidades.EquipsControl(Utilidades.typeEquip.INV, Utilidades.typeCommand.INV);
+        //Utilidades.EquipsControl Bifurcada_23 = new Utilidades.EquipsControl(Utilidades.typeEquip.PD, Utilidades.typeCommand.PD);
+        //Utilidades.EquipsControl Atuador_26_Silo_1 = new Utilidades.EquipsControl(Utilidades.typeEquip.PD, Utilidades.typeCommand.PD);
+        //Utilidades.EquipsControl Atuador_26_Silo_2 = new Utilidades.EquipsControl(Utilidades.typeEquip.PD, Utilidades.typeCommand.PD);
+        //Utilidades.EquipsControl Motor_29 = new Utilidades.EquipsControl(Utilidades.typeEquip.PD, Utilidades.typeCommand.PD);
+        //Utilidades.EquipsControl Motor_30 = new Utilidades.EquipsControl(Utilidades.typeEquip.PD, Utilidades.typeCommand.PD);
+        //Utilidades.EquipsControl Motor_42 = new Utilidades.EquipsControl(Utilidades.typeEquip.PD, Utilidades.typeCommand.PD);
+        //Utilidades.EquipsControl Motor_43 = new Utilidades.EquipsControl(Utilidades.typeEquip.INV, Utilidades.typeCommand.INV);
+        //Utilidades.EquipsControl Motor_44 = new Utilidades.EquipsControl(Utilidades.typeEquip.SS, Utilidades.typeCommand.SS);
+        //Utilidades.EquipsControl Motor_45 = new Utilidades.EquipsControl(Utilidades.typeEquip.PD, Utilidades.typeCommand.PD);
+        //Utilidades.EquipsControl Motor_46 = new Utilidades.EquipsControl(Utilidades.typeEquip.PD, Utilidades.typeCommand.PD);
+        //Utilidades.EquipsControl Motor_48 = new Utilidades.EquipsControl(Utilidades.typeEquip.PD, Utilidades.typeCommand.PD);
+        //Utilidades.EquipsControl Motor_49 = new Utilidades.EquipsControl(Utilidades.typeEquip.Atuador, Utilidades.typeCommand.Atuador_Digital);
+        //Utilidades.EquipsControl Motor_62 = new Utilidades.EquipsControl(Utilidades.typeEquip.INV, Utilidades.typeCommand.INV);
+        //Utilidades.EquipsControl Motor_65 = new Utilidades.EquipsControl(Utilidades.typeEquip.INV, Utilidades.typeCommand.INV);
 
 
         #endregion
@@ -80,7 +80,7 @@ namespace _9230A_V00___PI
             //Motor_22.initialOffSet = 0;
             //Motor_22.bufferPlc = 0;
 
-            VariaveisGlobais.Fluxo.Motor_22 = new Equipamentos.elevadorDireita(Utilidades.typeEquip.PD, Utilidades.typeCommand.PD);
+            VariaveisGlobais.Fluxo.Motor_22.loadEquip(Utilidades.typeEquip.PD, Utilidades.typeCommand.PD, 0, 0);
 
             #endregion
 
@@ -123,7 +123,7 @@ namespace _9230A_V00___PI
 
 
             //Leitura Motor 22
-            //Motor_22.readPlcFromBuffer = true;
+            VariaveisGlobais.Fluxo.Motor_22.readPlcFromBuffer = true;
 
 
 

@@ -85,20 +85,11 @@ namespace _9230A_V00___PI.Utilidades
             public bool Manutencao;
             public bool Libera_Bloqueio;
             public bool Reset;
-            public bool Libera_Manual;
-
-            //Comando Registro
-            public bool Abre;
-            public bool Fecha;
-            public bool StatusSensorAberto;
-            public bool StatusSensorFechado;
-            public bool RegistroAbertoOuFechado;
 
             //Status Partidas
             public bool Ligado;
             public bool Ligando;
             public bool Desligando;
-            public bool Bloqueado;
             public bool Liberado;
 
             //Falhas Partidas
@@ -107,17 +98,7 @@ namespace _9230A_V00___PI.Utilidades
             public bool Falha_Contator_Desligou;
             public bool Falha_Disjuntor_Desligou;
             public bool Falha_Partida_Nao_Desligou;
-            public bool Falha_Sensor_Movimento;
-            public bool Falha_Contator_Ligou;
-            public bool Falha_Sensor_Externo;
-            public bool Falha_Excedeu_Limite_Corrente;
-            public bool Falha_Contator_PCM_Nao_Ligou;
-            public bool Falha_Compensadora;
-            public bool Falha_AltaTemperatura_Compensadora;
             public bool Disjuntor_Desligado;
-            public bool Falha_Sensor_Abre;
-            public bool Falha_Sensor_Fecha;
-            public bool Falha_Posicao;
 
             //Resets
             public bool Reset_Timer;
@@ -125,35 +106,6 @@ namespace _9230A_V00___PI.Utilidades
 
             //Utilidades
             public bool Tempo_Manutencao;
-            public bool Desabilita_Sensor_Embuchamento;
-            public bool Desabilita_Bloqueio_Manual;
-
-            //Furcadas
-            public bool Abre_Esquerda;
-            public bool Abre_Direita;
-            public bool Esquerda_Aberto;
-            public bool Direita_Aberto;
-            public bool Abre_Meio;
-            public bool Meio_Aberto;
-            public bool Habilitado_Direita;
-            public bool Habilitado_Esquerda;
-            public bool Habilitado_Meio;
-            public bool Confirma_Posicao_Furcada;
-
-
-            //Bifurcadas Automáticas
-            public bool Sensor_Direita;
-            public bool Sensor_Esquerda;
-            public bool EmTransicao;
-            public bool Ligado_Direita;
-            public bool Ligado_Esquerda;
-            public bool Ligando_Direita;
-            public bool Ligando_Esquerda;
-            public bool Desligando_Direita;
-            public bool Desligando_Esquerda;
-            public bool Falha_Sensor_Direita;
-            public bool Falha_Sensor_Esquerda;
-            public bool Manual_Automatico;
 
         }
 
