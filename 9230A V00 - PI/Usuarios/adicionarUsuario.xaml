@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:_9230A_V00___PI.Usuarios"
              xmlns:model="clr-namespace:_9230A_V00___PI.Utilidades"
-             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:Utilidades="clr-namespace:_9230A_V00___PI.Utilidades" x:Class="_9230A_V00___PI.Usuarios.adicionarUsuario"        
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:Utilidades="clr-namespace:_9230A_V00___PI.Utilidades" x:Class="_9230A_V00___PI.Usuarios.adicionarUsuario"        
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800" Width="825" Height="675" Loaded="DialogHost_LostFocus">
 
@@ -32,6 +32,9 @@
                     <Setter Property="VerticalAlignment" Value="Center" />
                     <Setter Property="Margin" Value="20,0" />
                 </Style>
+
+
+
             </ResourceDictionary>
 
         </Grid.Resources>
@@ -91,7 +94,23 @@
         <Rectangle Fill="White" HorizontalAlignment="Left" Height="5" Margin="10,442,0,0" Stroke="White" VerticalAlignment="Top" Width="397"/>
         <Label Content="Grupo do Usuário: (*)" Height="34" Margin="542,137,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="188" Foreground="White" FontWeight="Bold" FontSize="16"/>
         <materialDesign:PackIcon Kind="UserGroupOutline" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="499,137,288,504" BorderBrush="#FF040404"/>
-        <materialDesign:PackIcon Kind="CheckBox" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="499,177,288,457" BorderBrush="#FF040404" Visibility="{Binding IsChecked, ElementName=rbManutencao}"/>
+
+        <ListBox
+  Style="{StaticResource MaterialDesignListBox}" x:Name="RadioButtonGroupChoiceChipPrimaryOutline" Margin="542,493,35,55">
+            <ListBoxItem Width="143" Background="#FFC77474" >
+                
+
+                Mercury
+            </ListBoxItem>
+            <ListBoxItem IsSelected="True">
+                Venus
+            </ListBoxItem>
+            <ListBoxItem>
+                Earth
+            </ListBoxItem>
+        </ListBox>
+
+
 
         <!--Botão com messagebox-->
         <materialDesign:DialogHost x:Name="dialogHost" BorderBrush="#FFD32B2B" Margin="-860,6,860,-6">
@@ -127,39 +146,9 @@
 
         </materialDesign:DialogHost>
 
-        <RadioButton x:Name="rbManutencao"  Style="{StaticResource MaterialDesignSwitchToggleButton}" Content="" HorizontalAlignment="Left" Margin="567,187,0,0" VerticalAlignment="Top" Height="23" Width="47" IsChecked="True" FontSize="9" RenderTransformOrigin="0.5,0.5" Background="#FF3C3C3C" FontWeight="Bold" Foreground="#FF3C3C3C" GroupName="groupUser" IsHitTestVisible="False">
-            <RadioButton.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform ScaleX="2" ScaleY="2"/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </RadioButton.RenderTransform>
-        </RadioButton>
-        <materialDesign:PackIcon Kind="CheckBox" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="499,225,288,409" BorderBrush="#FF040404" Visibility="{Binding Visibility, ElementName=rbOperador}"/>
-        <RadioButton x:Name="rbOperador" Content="Operador" HorizontalAlignment="Left" Margin="593,235,0,0" VerticalAlignment="Top" Height="23" Width="98" FontSize="9" IsChecked="False" RenderTransformOrigin="0.5,0.5" Background="#FF3C3C3C" FontWeight="Bold" Foreground="#FF3C3C3C" GroupName="groupUser">
-            <RadioButton.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform ScaleX="2" ScaleY="2"/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </RadioButton.RenderTransform>
-        </RadioButton>
-        <materialDesign:PackIcon Kind="CheckBox" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="499,273,288,361" BorderBrush="#FF040404" Visibility="{Binding Visibility, ElementName=rbAdministrador}"/>
-        <RadioButton x:Name="rbAdministrador" Content="Adiministrador" HorizontalAlignment="Left" Margin="593,283,0,0" VerticalAlignment="Top" IsChecked="False" Height="23" Width="98" FontSize="9" RenderTransformOrigin="0.5,0.5" Background="#FF3C3C3C" FontWeight="Bold" Foreground="#FF3C3C3C" GroupName="groupUser">
-            <RadioButton.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform ScaleX="2" ScaleY="2"/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </RadioButton.RenderTransform>
-        </RadioButton>
-
+        
+        
+        
 
 
     </Grid>

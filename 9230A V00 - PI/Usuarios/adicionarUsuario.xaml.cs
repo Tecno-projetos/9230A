@@ -77,18 +77,18 @@ namespace _9230A_V00___PI.Usuarios
 
                             string groupUser = "";
 
-                            if ((bool)rbManutencao.IsChecked)
-                            {
-                                groupUser = "Manutenção";
-                            }
-                            else if ((bool)rbOperador.IsChecked)
-                            {
-                                groupUser = "Operador";
-                            }
-                            else if ((bool)rbAdministrador.IsChecked)
-                            {
-                                groupUser = "Administrador";
-                            }
+                            //if ((bool)rbManutencao.IsChecked)
+                            //{
+                            //    groupUser = "Manutenção";
+                            //}
+                            //else if ((bool)rbOperador.IsChecked)
+                            //{
+                            //    groupUser = "Operador";
+                            //}
+                            //else if ((bool)rbAdministrador.IsChecked)
+                            //{
+                            //    groupUser = "Administrador";
+                            //}
 
 
                             DataBase.SqlFunctionsUsers.IntoDateDBCA(txtUser.Text, DataBase.SqlFunctionsUsers.MD5Cryptography(txtSenha.Password), groupUser, txtEmail.Text, "Created");
