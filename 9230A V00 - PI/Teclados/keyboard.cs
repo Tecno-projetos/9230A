@@ -25,16 +25,12 @@ namespace _9230A_V00___PI.Teclados
             ManagementObjectSearcher searcher = new ManagementObjectSearcher("Select Name from Win32_Keyboard");
 
             string touchKeyboardPath = @"C:\Program Files\Common Files\Microsoft Shared\Ink\TabTip.exe";
-
-           
+         
             foreach (ManagementObject keyboard in searcher.Get())
             {
                 if (!keyboard.GetPropertyValue("Name").Equals(""))
                 {
 
-                    closeKeyboard();
-
-                    Process.Start(touchKeyboardPath);
                 }
 
             }
@@ -48,13 +44,15 @@ namespace _9230A_V00___PI.Teclados
         /// </summary>
         public static void closeKeyboard() 
         {
-            Process[] tabtip = Process.GetProcessesByName("TabTip");
+   
+                Process[] tabtip = Process.GetProcessesByName("TabTip");
 
-            if (null != tabtip)
-            {
-                tabtip.ToList().ForEach(a => { if (null != a) { a.Kill(); } });
+                if (null != tabtip)
+                {
+                    tabtip.ToList().ForEach(a => { if (null != a) { a.Kill(); } });
 
-            }
+                }
+           
         }
 
     }

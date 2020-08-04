@@ -26,18 +26,13 @@ namespace _9230A_V00___PI.Usuarios
         {
             InitializeComponent();
 
-            cbAddGroup.Items.Add("Administrador");
-            cbAddGroup.Items.Add("Manutenção");
-            cbAddGroup.Items.Add("Operador");
-
-
         }
 
 
 
         private void btCriarUsuario_Click(object sender, RoutedEventArgs e)
         {
-            if (String.IsNullOrEmpty(txtUser.Text) || String.IsNullOrEmpty(txtSenha.Password) || String.IsNullOrEmpty(txtSenha1.Password) || String.IsNullOrEmpty(cbAddGroup.Text))
+            if (String.IsNullOrEmpty(txtUser.Text) || String.IsNullOrEmpty(txtSenha.Password) || String.IsNullOrEmpty(txtSenha1.Password))
             {
 
                 txtTitle.Text = "Campos Vazios";
@@ -46,10 +41,6 @@ namespace _9230A_V00___PI.Usuarios
 
                 genericButton_Direita.Content = "Fechar";
                 genericButton_Esquerda.Content = "Ok";
-
-
-
-
             }
             else
             {
@@ -69,7 +60,57 @@ namespace _9230A_V00___PI.Usuarios
                     }
                     else
                     {
+                        if ((DataBase.SqlFunctionsUsers.ExistTableDBCA(txtUser.Text)) == true)
+                        {
 
+                            txtTitle.Text = "Conflito de Usuários";
+                            txtMessage.Text = "Esse nome de usuário já existe, por favor informe outro nome";
+                            pckIcon.Kind = PackIconKind.Error;
+
+                            genericButton_Direita.Content = "Fechar";
+                            genericButton_Esquerda.Content = "Ok";
+
+                        }
+                        else
+                        {
+                            DataBase.SqlFunctionsUsers.CreateTableDBCA(txtUser.Text);
+
+                            string groupUser = "";
+
+                            if ((bool)rbManutencao.IsChecked)
+                            {
+                                groupUser = "Manutenção";
+                            }
+                            else if ((bool)rbOperador.IsChecked)
+                            {
+                                groupUser = "Operador";
+                            }
+                            else if ((bool)rbAdministrador.IsChecked)
+                            {
+                                groupUser = "Administrador";
+                            }
+
+
+                            DataBase.SqlFunctionsUsers.IntoDateDBCA(txtUser.Text, DataBase.SqlFunctionsUsers.MD5Cryptography(txtSenha.Password), groupUser, txtEmail.Text, "Created");
+
+
+                            //mensagem que criou corretamente
+                            txtTitle.Text = "Usuário Criado";
+                            txtMessage.Text = "Usuário " + txtUser.Text + " cadastrado com sucesso!";
+                            pckIcon.Kind = PackIconKind.UserAdd;
+
+                            genericButton_Direita.Content = "Fechar";
+                            genericButton_Esquerda.Content = "Ok";
+
+
+                            //limpa campos
+                            txtUser.Text = "";
+                            txtSenha.Password = "";
+                            txtSenha1.Password = "";
+                            txtEmail.Text = "";
+
+
+                        }
                     }
                 }
                 else
@@ -83,60 +124,20 @@ namespace _9230A_V00___PI.Usuarios
 
                 }
             }
-            
-            
- 
-        
         }
 
-
-
-
-
-        private void btCriar_Click(object sender, RoutedEventArgs e)
+        private void openKeyboard(object sender, MouseButtonEventArgs e)
         {
-            //if (TBUser.Text == "" || TBPassword.Password == "" || CBGroups.Text == "")
-            //{
-            //    MessageBox.Show("Por favor verifique se todos os campos estão preenchidos", "Campos Vazios", MessageBoxButton.OK, MessageBoxImage.Error);
-            //}
-            //else
-            //{
-            //    char t = Convert.ToChar(TBUser.Text.Substring(0, 1));
+            Teclados.keyboard.openKeyboard();
+        }
 
-            //    if (!char.IsLetter(t))
-            //    {
-            //        MessageBox.Show("Por favor inicie o nome do usuário com um caracter do alfabeto", "Letra ao iniciar", MessageBoxButton.OK, MessageBoxImage.Error);
-            //    }
-            //    else
-            //    {
+        private void DialogHost_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (dialogHost.IsOpen)
+            {
+                dialogHost.IsOpen = false;
+            }
 
-            //        if ((DataBase.SqlFunctionsUsers.ExistTableDBCA(TBUser.Text)) == true)
-            //        {
-            //            MessageBox.Show("Conflito de usuário, por favor informe outro nome", "Conflito de Usuários", MessageBoxButton.OK, MessageBoxImage.Error);
-            //        }
-            //        else
-            //        {
-            //            DataBase.SqlFunctionsUsers.CreateTableDBCA(TBUser.Text);
-
-
-            //            DataBase.SqlFunctionsUsers.IntoDateDBCA(TBUser.Text, DataBase.SqlFunctionsUsers.MD5Cryptography(TBPassword.Password), CBGroups.Text, TBEmail.Text, "Created");
-
-            //            //limpa campos
-            //            TBUser.Text = "";
-            //            TBPassword.Password = "";
-            //            TBEmail.Text = "";
-            //            CBGroups.Text = "";
-
-            //            //mensagem que criou corretamente
-            //            MessageBox.Show("Usuário cadastrado com sucesso!!!", "Cadastro concluido", MessageBoxButton.OK, MessageBoxImage.Information);
-
-            //            //resize window and hidden grid
-            //            this.Width = 217;
-            //            BTCreatUser.Background = new SolidColorBrush(Color.FromRgb(255, 255, 255));
-            //            Enable_Create_User = false;
-            //        }
-            //    }
-            //}
         }
     }
 }
