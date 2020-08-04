@@ -20,9 +20,27 @@ namespace _9230A_V00___PI.Usuarios
     /// </summary>
     public partial class controleUsuario : UserControl
     {
+        adicionarUsuario addUser = new adicionarUsuario();
+
+
+
         public controleUsuario()
         {
             InitializeComponent();
+        }
+
+        private void btCriarUsuario_Click(object sender, RoutedEventArgs e)
+        {
+            if (spControleUsuario != null)
+            {
+                spControleUsuario.Children.Clear();
+
+                spControleUsuario.Children.Add(addUser);
+            }
+            else
+            {
+                spControleUsuario.Children.Add(addUser);
+            }
         }
     }
 }
