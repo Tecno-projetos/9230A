@@ -33,14 +33,8 @@
             <Rectangle Fill="White" HorizontalAlignment="Left" Height="5" Margin="10,118,0,0" Stroke="White" VerticalAlignment="Top" Width="180"/>
             <Button x:Name="btHistoricoUsuario" Margin="10,300,10,325" Background="#FF505050" BorderBrush="Black" Height="50">
                 <Grid Width="150" Height="30">
-                    <materialDesign:PackIcon Kind="UserHelp" VerticalAlignment="Center" Foreground="White" Margin="2,-6,0,-7" Height="30" Width="30"/>
-                    <TextBlock  Text="Histórico Usuário " FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="41,1,0,-1" Width="109" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                </Grid>
-            </Button>
-            <Button x:Name="btHistoricoTodosUsuario" Margin="10,355,10,270" Background="#FF505050" BorderBrush="Black" Height="50">
-                <Grid Width="150">
-                    <materialDesign:PackIcon Kind="TableUser" VerticalAlignment="Center" Foreground="White" Margin="2,2,0,2" Height="30" Width="30"/>
-                    <TextBlock  Text="Histórico Todos Usuário" TextAlignment="Center" TextWrapping="Wrap" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="41,1,10,-1" Width="99" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    <materialDesign:PackIcon Kind="TableUser" VerticalAlignment="Center" Foreground="White" Margin="2,-6,0,-7" Height="30" Width="30"/>
+                    <TextBlock  Text="Histórico Usuários " FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="41,8,-10,6" Width="119" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                 </Grid>
             </Button>
         </Grid>
