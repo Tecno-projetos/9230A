@@ -34,7 +34,7 @@
             <Button x:Name="btHistoricoUsuario" Margin="10,300,10,325" Background="#FF505050" BorderBrush="Black" Height="50" Click="btHistoricoUsuario_Click">
                 <Grid Width="160" Height="30">
                     <materialDesign:PackIcon Kind="TableUser" VerticalAlignment="Center" Foreground="White" Margin="2,-6,0,-7" Height="30" Width="30"/>
-                    <TextBlock  Text="Histórico Usuários " FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="41,8,-10,6" Width="119" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    <TextBlock  Text="Histórico Usuários " FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="40,8,1,6" Width="119" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                 </Grid>
             </Button>
         </Grid>
