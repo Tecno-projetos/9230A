@@ -32,12 +32,16 @@ namespace _9230A_V00___PI.Utilidades
         
         #endregion
 
-        public EquipsControl(typeEquip Equip, typeCommand TCommand, int initialOffSet, int bufferPlc)
+        public EquipsControl(typeEquip Equip, typeCommand TCommand, int initialOffSet, int bufferPlc, string nome, string tag, string numeroPartida, string paginaProjeto)
         {
             Command.initialOffSet = initialOffSet;
             Command.bufferPlc = bufferPlc;
             Command.TypeEquip = Equip;
             Command.TypeCommand = TCommand;
+            Command.Nome = nome;
+            Command.Tag = tag;
+            Command.NumeroPartida = numeroPartida;
+            Command.PaginaProjeto = paginaProjeto;
 
             //==========================================================================================
             //Inicia a tela dependendo o tipo de motor.
@@ -45,7 +49,7 @@ namespace _9230A_V00___PI.Utilidades
             //PD
             if (Equip == typeEquip.PD)
             {
-                Window_PD = new Partidas.controlePartidaDireta();
+                Window_PD = new Partidas.controlePartidaDireta(nome, tag, numeroPartida, paginaProjeto);
 
                 Window_PD.Closing += Window_PD_Closing;
 
@@ -60,9 +64,9 @@ namespace _9230A_V00___PI.Utilidades
             //INV
             else if (Equip == typeEquip.INV)
             {
-                Window_INV = new Partidas.controleInversor();
+                Window_INV = new Partidas.controleInversor(nome, tag, numeroPartida, paginaProjeto);
 
-                Window_INV.Closing += Window_PD_Closing;
+                Window_INV.Closing += Window_INV_Closing;
 
                 //Click para controle da Partida 
                 Window_INV.Bt_Ligar_Click += new EventHandler(INV_Bt_Ligar_Click);
@@ -180,12 +184,16 @@ namespace _9230A_V00___PI.Utilidades
 
         protected void INV_Bt_Fechar_Click(object sender, EventArgs e)
         {
-            Window_PD.DialogResult = true;
+            Window_INV.DialogResult = true;
         }
 
         private void INV_atualiza_Velocidade(object sender, EventArgs e)
         {
-            
+            VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Enable_Read = false;
+
+            Comunicacao.Sharp7.S7.SetRealAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + 4, Convert.ToSingle(Window_INV.velocidadeManual_GS));
+
+            VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Enable_Write = true;
         }
 
         #endregion
@@ -205,7 +213,14 @@ namespace _9230A_V00___PI.Utilidades
 
             VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Enable_Read = false;
 
-            Comunicacao.Sharp7.S7.SetDWordAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet, Utilidades.Move_Bits.typePD_TO_Dword(Utilidades.Move_Bits.typeStandardGUI_TO_typePD(Command)));
+            if (Command_Get.TypeEquip == typeEquip.PD && Command_Get.TypeCommand == typeCommand.PD)
+            {
+                Comunicacao.Sharp7.S7.SetDWordAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet, Utilidades.Move_Bits.typePD_TO_Dword(Utilidades.Move_Bits.typeStandardGUI_TO_typePD(Command)));
+            }
+            else if (Command_Get.TypeEquip == typeEquip.INV && Command_Get.TypeCommand == typeCommand.INV)
+            {
+                Comunicacao.Sharp7.S7.SetDWordAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet, Utilidades.Move_Bits.typeINV_TO_Dword(Utilidades.Move_Bits.typeStandardGUI_TO_typeINV(Command)));
+            }
 
             VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Enable_Write = true;
 
@@ -225,7 +240,14 @@ namespace _9230A_V00___PI.Utilidades
 
             VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Enable_Read = false;
 
-            Comunicacao.Sharp7.S7.SetDWordAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet, Utilidades.Move_Bits.typePD_TO_Dword(Utilidades.Move_Bits.typeStandardGUI_TO_typePD(Command)));
+            if (Command_Get.TypeEquip == typeEquip.PD && Command_Get.TypeCommand == typeCommand.PD)
+            {
+                Comunicacao.Sharp7.S7.SetDWordAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet, Utilidades.Move_Bits.typePD_TO_Dword(Utilidades.Move_Bits.typeStandardGUI_TO_typePD(Command)));
+            }
+            else if (Command_Get.TypeEquip == typeEquip.INV && Command_Get.TypeCommand == typeCommand.INV)
+            {
+                Comunicacao.Sharp7.S7.SetDWordAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet, Utilidades.Move_Bits.typeINV_TO_Dword(Utilidades.Move_Bits.typeStandardGUI_TO_typeINV(Command)));
+            }
 
             VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Enable_Write = true;
 
@@ -248,7 +270,14 @@ namespace _9230A_V00___PI.Utilidades
 
             VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Enable_Read = false;
 
-            Comunicacao.Sharp7.S7.SetDWordAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet, Utilidades.Move_Bits.typePD_TO_Dword(Utilidades.Move_Bits.typeStandardGUI_TO_typePD(Command)));
+            if (Command_Get.TypeEquip == typeEquip.PD && Command_Get.TypeCommand == typeCommand.PD)
+            {
+                Comunicacao.Sharp7.S7.SetDWordAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet, Utilidades.Move_Bits.typePD_TO_Dword(Utilidades.Move_Bits.typeStandardGUI_TO_typePD(Command)));
+            }
+            else if (Command_Get.TypeEquip == typeEquip.INV && Command_Get.TypeCommand == typeCommand.INV)
+            {
+                Comunicacao.Sharp7.S7.SetDWordAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet, Utilidades.Move_Bits.typeINV_TO_Dword(Utilidades.Move_Bits.typeStandardGUI_TO_typeINV(Command)));
+            }
 
             VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Enable_Write = true;
 
@@ -279,7 +308,14 @@ namespace _9230A_V00___PI.Utilidades
 
             VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Enable_Read = false;
 
-            Comunicacao.Sharp7.S7.SetDWordAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet, Utilidades.Move_Bits.typePD_TO_Dword(Utilidades.Move_Bits.typeStandardGUI_TO_typePD(Command)));
+            if (Command_Get.TypeEquip == typeEquip.PD && Command_Get.TypeCommand == typeCommand.PD)
+            {
+                Comunicacao.Sharp7.S7.SetDWordAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet, Utilidades.Move_Bits.typePD_TO_Dword(Utilidades.Move_Bits.typeStandardGUI_TO_typePD(Command)));
+            }
+            else if (Command_Get.TypeEquip == typeEquip.INV && Command_Get.TypeCommand == typeCommand.INV)
+            {
+                Comunicacao.Sharp7.S7.SetDWordAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet, Utilidades.Move_Bits.typeINV_TO_Dword(Utilidades.Move_Bits.typeStandardGUI_TO_typeINV(Command)));
+            }
 
             VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Enable_Write = true;
 
@@ -308,7 +344,14 @@ namespace _9230A_V00___PI.Utilidades
 
             VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Enable_Read = false;
 
-            Comunicacao.Sharp7.S7.SetDWordAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet, Utilidades.Move_Bits.typePD_TO_Dword(Utilidades.Move_Bits.typeStandardGUI_TO_typePD(Command)));
+            if (Command_Get.TypeEquip == typeEquip.PD && Command_Get.TypeCommand == typeCommand.PD)
+            {
+                Comunicacao.Sharp7.S7.SetDWordAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet, Utilidades.Move_Bits.typePD_TO_Dword(Utilidades.Move_Bits.typeStandardGUI_TO_typePD(Command)));
+            }
+            else if (Command_Get.TypeEquip == typeEquip.INV && Command_Get.TypeCommand == typeCommand.INV)
+            {
+                Comunicacao.Sharp7.S7.SetDWordAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet, Utilidades.Move_Bits.typeINV_TO_Dword(Utilidades.Move_Bits.typeStandardGUI_TO_typeINV(Command)));
+            }
 
             VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Enable_Write = true;
 
@@ -368,6 +411,31 @@ namespace _9230A_V00___PI.Utilidades
                         Command = Utilidades.Move_Bits.typePD_TO_typeStandardGUI(Command);
 
                     }
+                    else if (Command_Get.TypeEquip == typeEquip.INV && Command_Get.TypeCommand == typeCommand.INV)
+                    {
+                        //Lendo variaveis do buffer do CLP
+                        Command.DWord = Comunicacao.Sharp7.S7.GetDWordAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet);
+                        Command.INV.Velocidade_Manual = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + 4);
+                        Command.INV.Velocidade_Automatica_Solicita = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + 8);
+                        Command.INV.Velocidade_Atual = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + 12);
+                        Command.INV.Velocidade_Nominal = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + 16);
+                        Command.INV.SP_Corrente_Motor_Vazio = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + 20);
+                        Command.INV.Corrente_Atual = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + 24);
+                        Command.INV.Codigo_Alarme = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + 28);
+                        Command.INV.Codigo_Falha = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + 32);
+                        Command.INV.SP_Manutencao = Comunicacao.Sharp7.S7.GetDIntAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + 36);
+                        Command.INV.HorimetroParcial = Comunicacao.Sharp7.S7.GetDIntAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + 40);
+                        Command.INV.HorimetroTotal = Comunicacao.Sharp7.S7.GetDIntAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + 44);
+                        Command.INV.Tempo_Limpeza = Comunicacao.Sharp7.S7.GetDIntAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + 48);
+
+                        //Atualizando as variaveis para o standard GUI
+
+                        //Primeiro converte a Dword para os bits
+                        Command = Utilidades.Move_Bits.Dword_TO_typeINV(Command.DWord, Command);
+
+                        //Segundo atualiza o standard GUI
+                        Command = Utilidades.Move_Bits.typeINV_TO_typeStandardGUI(Command);
+                    }
                 }
 
                 //Atualiza Window
@@ -375,7 +443,10 @@ namespace _9230A_V00___PI.Utilidades
                 {
                     Window_PD.actualize_UI(Command);
                 }
-
+                else if (Command_Get.TypeEquip == typeEquip.INV && Command_Get.TypeCommand == typeCommand.INV)
+                {
+                    Window_INV.actualize_UI(Command);
+                }
             }
         }
 
@@ -392,6 +463,12 @@ namespace _9230A_V00___PI.Utilidades
             if (Command_Get.TypeEquip == typeEquip.PD && Command_Get.TypeCommand == typeCommand.PD)
             {
                 Window_PD.ShowDialog();
+            }
+            else if(Command_Get.TypeEquip == typeEquip.INV && Command_Get.TypeCommand == typeCommand.INV)
+            {
+                Window_INV.velocidadeManual_GS = Command.INV.Velocidade_Manual.ToString();
+
+                Window_INV.ShowDialog();
             }
         }
 

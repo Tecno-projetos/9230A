@@ -55,6 +55,55 @@ namespace _9230A_V00___PI.Utilidades
 
         }
 
+        public struct type_INV
+        {
+            public bool ligaManual;
+            public bool manual;
+            public bool automatico;
+            public bool manutencao;
+            public bool Libera_Bloqueio_Manual;
+            public bool reset;
+            public bool ligado;
+            public bool ligando;
+            public bool desligando;
+            public bool liberado;
+            public bool resetHotimetroTotal;
+            public bool resetHorimetroParcial;
+            public bool emergencia;
+            public bool disjuntorDesligado;
+            public bool tempoManutencao;
+            public bool falha;
+            public bool bitReserva;
+            public bool bitReserva_1;
+            public bool bitReserva_2;
+            public bool bitReserva_3;
+            public bool bitReserva_4;
+            public bool bitReserva_5;
+            public bool bitReserva_6;
+            public bool bitReserva_7;
+            public bool bitReserva_8;
+            public bool bitReserva_9;
+            public bool bitReserva_10;
+            public bool bitReserva_11;
+            public bool bitReserva_12;
+            public bool bitReserva_13;
+            public bool bitReserva_14;
+            public bool bitReserva_15;
+            public float Velocidade_Manual;
+            public float Velocidade_Automatica_Solicita;
+            public float Velocidade_Atual;
+            public float Velocidade_Nominal;
+            public float SP_Corrente_Motor_Vazio;
+            public float Corrente_Atual;
+            public float Codigo_Alarme;
+            public float Codigo_Falha;
+            public Int32 SP_Manutencao;
+            public Int32 HorimetroParcial;
+            public Int32 HorimetroTotal;
+            public Int32 Tempo_Limpeza;
+
+        }
+
         //Padrão de bits, com todos os bits de todas as UDTs que existem no clp relacionada a equipamentos.
         public struct type_All
         {
@@ -62,7 +111,7 @@ namespace _9230A_V00___PI.Utilidades
             public type_Standard_GUI Standard;   //Tipo de estrutura padrão para GUI
                                                  //
             public type_PD PD;                   //Tipo de estrutura PD_PCM
-
+            public type_INV INV;
 
             public int initialOffSet;
             public int bufferPlc;

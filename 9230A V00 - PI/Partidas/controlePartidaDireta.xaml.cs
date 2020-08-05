@@ -19,9 +19,11 @@ namespace _9230A_V00___PI.Partidas
     /// </summary>
     public partial class controlePartidaDireta : Window
     {
-        public controlePartidaDireta()
+        public controlePartidaDireta(string nome, string tag, string numeroPartida, string paginaProjeto)
         {
             InitializeComponent();
+            lbName.Content = nome;
+            this.Title = nome + " " + tag;
         }
 
         public event EventHandler Bt_Ligar_Click;

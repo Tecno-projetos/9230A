@@ -81,7 +81,8 @@ namespace _9230A_V00___PI
             //Motor_22.initialOffSet = 0;
             //Motor_22.bufferPlc = 0;
 
-            VariaveisGlobais.Fluxo.Motor_22.loadEquip(Utilidades.typeEquip.PD, Utilidades.typeCommand.PD, 0, 0);
+            VariaveisGlobais.Fluxo.Motor_22.loadEquip(Utilidades.typeEquip.PD, Utilidades.typeCommand.PD, 0, 0, "Elevador Autolimpante", "22", "22", "11");
+            VariaveisGlobais.Fluxo.Motor_62.loadEquip(Utilidades.typeEquip.INV, Utilidades.typeCommand.INV, 264, 0, "Elevador Expedição", "61", "61", "10");
 
             #endregion
 
@@ -90,7 +91,7 @@ namespace _9230A_V00___PI
             Utilidades.VariaveisGlobais.Buffer_PLC[0].Name = "DB Controle Todos Equipamentos";
             Utilidades.VariaveisGlobais.Buffer_PLC[0].DBNumber = 2;
             Utilidades.VariaveisGlobais.Buffer_PLC[0].Start = 0;
-            Utilidades.VariaveisGlobais.Buffer_PLC[0].Size = 392;
+            Utilidades.VariaveisGlobais.Buffer_PLC[0].Size = 368;
             Utilidades.VariaveisGlobais.Buffer_PLC[0].Enable_Read = true;
             Utilidades.VariaveisGlobais.Buffer_PLC[0].Enable_Write = false;
 
@@ -109,9 +110,6 @@ namespace _9230A_V00___PI
             timer50ms.Start();
 
             #endregion
-
-
-
         }
 
         void timer_Tick(object sender, EventArgs e)
@@ -123,9 +121,9 @@ namespace _9230A_V00___PI
             CommunicationPLC.readBuffersPLC(); //Chama a leitura no PLC
 
 
-            //Leitura Motor 22
+            //Atualização Equip
             VariaveisGlobais.Fluxo.Motor_22.actualize_Equip = true;
-
+            VariaveisGlobais.Fluxo.Motor_62.actualize_Equip = true;
 
 
             CommunicationPLC.writeBufferPLC();//Chama a escrita no PLC
