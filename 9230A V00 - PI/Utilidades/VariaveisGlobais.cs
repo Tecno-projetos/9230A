@@ -148,6 +148,85 @@ namespace _9230A_V00___PI.Utilidades
 
         }
 
+        public struct type_AtuadorDigital
+        {
+            public bool manual;
+            public bool automatico;
+            public bool manutencao;
+            public bool Libera_Bloqueio_Manual;
+            public bool emergencia;
+            public bool liberado;
+            public bool acionaLado1;
+            public bool acionaLado2;
+            public bool acionandoLado1;
+            public bool acionandoLado2;
+            public bool acionandoAutomatico;
+            public bool emPosicaoLado1;
+            public bool emPosicaoLado2;
+            public bool falhaAcionandoLado1;
+            public bool falhaAcionandoLado2;
+            public bool falha2PosicoesAtiva;
+            public bool falhaConfirmacaoContatorLado1;
+            public bool falhaConfirmacaoContatorLado2;
+            public bool reset;
+            public bool bitReserva;
+            public bool bitReserva_1;
+            public bool bitReserva_2;
+            public bool bitReserva_3;
+            public bool bitReserva_4;
+            public bool bitReserva_5;
+            public bool bitReserva_6;
+            public bool bitReserva_7;
+            public bool bitReserva_8;
+            public bool bitReserva_9;
+            public bool bitReserva_10;
+            public bool bitReserva_11;
+            public bool bitReserva_12;
+
+        }
+
+        public struct type_AtuadorAnalogico
+        {
+            public bool ligaManual;
+            public bool manual;
+            public bool automatico;
+            public bool manutencao;
+            public bool Libera_Bloqueio_Manual;
+            public bool emergencia;
+            public bool liberado;
+            public bool acionandoAutomatico;
+            public bool falhaConfirmacaoContatorLado1;
+            public bool falhaConfirmacaoContatorLado2;
+            public bool falhaPosicionamento;
+            public bool falhaLeituraPosicao;
+            public bool reset;
+            public bool bitReserva;
+            public bool bitReserva_1;
+            public bool bitReserva_2;
+            public bool bitReserva_3;
+            public bool bitReserva_4;
+            public bool bitReserva_5;
+            public bool bitReserva_6;
+            public bool bitReserva_7;
+            public bool bitReserva_8;
+            public bool bitReserva_9;
+            public bool bitReserva_10;
+            public bool bitReserva_11;
+            public bool bitReserva_12;
+            public bool bitReserva_13;
+            public bool bitReserva_14;
+            public bool bitReserva_15;
+            public bool bitReserva_16;
+            public bool bitReserva_17;
+            public bool bitReserva_18;
+
+            public float PosicaoSolicitadaAutomatico;
+            public float SP_Posicao_Manual;
+            public float PosicaoAtual;
+
+        }
+
+
         //Padrão de bits, com todos os bits de todas as UDTs que existem no clp relacionada a equipamentos.
         public struct type_All
         {
@@ -157,6 +236,8 @@ namespace _9230A_V00___PI.Utilidades
             public type_PD PD;                   //Tipo de estrutura PD_PCM
             public type_INV INV;
             public type_SS SS;
+            public type_AtuadorDigital AtuadorD;
+            public type_AtuadorAnalogico AtuadorA;
 
             public int initialOffSet;
             public int bufferPlc;
@@ -182,12 +263,22 @@ namespace _9230A_V00___PI.Utilidades
             public bool Reset;
             public bool inverterSentidoGiro;
 
+            //Comandos Atuadores
+            public bool AcionaLado1;
+            public bool AcionaLado2;
+
+
             //Status Partidas
             public bool Ligado;
             public bool Ligando;
             public bool Desligando;
             public bool Liberado;
             public bool SentidoGiro;
+            public bool AcionandoLado1;
+            public bool AcionandoLado2;
+            public bool AcionandoAutomatico;
+            public bool EmPosicaoLado1;
+            public bool EmPosicaoLado2;
 
             //Falhas Partidas
             public bool Falha_Geral;
@@ -196,6 +287,16 @@ namespace _9230A_V00___PI.Utilidades
             public bool Falha_Disjuntor_Desligou;
             public bool Falha_Partida_Nao_Desligou;
             public bool Disjuntor_Desligado;
+
+            //Falhas Atuadores
+            public bool FalhaAcionandoLado1;
+            public bool FalhaAcionandoLado2;
+            public bool Falha2PosicoesAtiva;
+            public bool FalhaConfirmacaoContatorLado1;
+            public bool FalhaConfirmacaoContatorLado2;
+
+            public bool falhaPosicionamento;
+            public bool falhaLeituraPosicao;
 
             //Resets
             public bool Reset_Timer;

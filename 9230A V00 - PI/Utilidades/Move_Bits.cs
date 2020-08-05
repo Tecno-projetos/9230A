@@ -429,5 +429,272 @@ namespace _9230A_V00___PI.Utilidades
 
             return Command.DWord;
         }
+
+        //Type Atuador Digital
+        //=====================================================================================================================================
+
+        public static Utilidades.VariaveisGlobais.type_All typeAtuadorD_TO_typeStandardGUI(Utilidades.VariaveisGlobais.type_All Command)
+        {
+            Command.Standard.Manual = Command.AtuadorD.manual;
+            Command.Standard.Automatico = Command.AtuadorD.automatico;
+            Command.Standard.Manutencao = Command.AtuadorD.manutencao;
+            Command.Standard.Libera_Bloqueio = Command.AtuadorD.Libera_Bloqueio_Manual;
+            Command.Standard.Emergencia = Command.AtuadorD.emergencia;
+            Command.Standard.Liberado = Command.AtuadorD.liberado;
+            Command.Standard.AcionaLado1 = Command.AtuadorD.acionaLado1;
+            Command.Standard.AcionaLado2 = Command.AtuadorD.acionaLado2;
+            Command.Standard.AcionandoLado1 = Command.AtuadorD.acionandoLado1;
+            Command.Standard.AcionandoLado2 = Command.AtuadorD.acionandoLado2;
+            Command.Standard.AcionandoAutomatico = Command.AtuadorD.acionandoAutomatico;
+            Command.Standard.EmPosicaoLado1 = Command.AtuadorD.emPosicaoLado1;
+            Command.Standard.EmPosicaoLado2 = Command.AtuadorD.emPosicaoLado2;
+            Command.Standard.FalhaAcionandoLado1 = Command.AtuadorD.falhaAcionandoLado1;
+            Command.Standard.FalhaAcionandoLado2 = Command.AtuadorD.falhaAcionandoLado2;
+            Command.Standard.Falha2PosicoesAtiva = Command.AtuadorD.falha2PosicoesAtiva;
+            Command.Standard.FalhaConfirmacaoContatorLado1 = Command.AtuadorD.falhaConfirmacaoContatorLado1;
+            Command.Standard.FalhaConfirmacaoContatorLado2 = Command.AtuadorD.falhaConfirmacaoContatorLado2;
+            Command.Standard.Reset = Command.AtuadorD.reset;
+            return Command;
+
+        }
+
+        public static Utilidades.VariaveisGlobais.type_All typeStandardGUI_TO_typeAtuadorD(Utilidades.VariaveisGlobais.type_All Command)
+        {
+            Command.AtuadorD.manual = Command.Standard.Manual;
+            Command.AtuadorD.automatico = Command.Standard.Automatico;
+            Command.AtuadorD.manutencao = Command.Standard.Manutencao;
+            Command.AtuadorD.Libera_Bloqueio_Manual = Command.Standard.Libera_Bloqueio;
+            Command.AtuadorD.emergencia = Command.Standard.Emergencia;
+            Command.AtuadorD.liberado = Command.Standard.Liberado;
+            Command.AtuadorD.acionaLado1 = Command.Standard.AcionaLado1;
+            Command.AtuadorD.acionaLado2 = Command.Standard.AcionaLado2;
+            Command.AtuadorD.acionandoLado1 = Command.Standard.AcionandoLado1;
+            Command.AtuadorD.acionandoLado2 = Command.Standard.AcionandoLado2;
+            Command.AtuadorD.acionandoAutomatico = Command.Standard.AcionandoAutomatico;
+            Command.AtuadorD.emPosicaoLado1 = Command.Standard.EmPosicaoLado1;
+            Command.AtuadorD.emPosicaoLado2 = Command.Standard.EmPosicaoLado2;
+            Command.AtuadorD.falhaAcionandoLado1 = Command.Standard.FalhaAcionandoLado1;
+            Command.AtuadorD.falhaAcionandoLado2 = Command.Standard.FalhaAcionandoLado2;
+            Command.AtuadorD.falha2PosicoesAtiva = Command.Standard.Falha2PosicoesAtiva;
+            Command.AtuadorD.falhaConfirmacaoContatorLado1 = Command.Standard.FalhaConfirmacaoContatorLado1;
+            Command.AtuadorD.falhaConfirmacaoContatorLado2 = Command.Standard.FalhaConfirmacaoContatorLado2;
+            Command.AtuadorD.reset = Command.Standard.Reset;
+            return Command;
+        }
+
+        public static Utilidades.VariaveisGlobais.type_All Dword_TO_typeAtuadorD(UInt32 DWord, Utilidades.VariaveisGlobais.type_All Command)
+        {
+            bool[] bits = new bool[32];
+
+            Conversions.Dword_To_Bit(DWord, ref bits, true);
+
+            //Atualiza DWord
+            Command.DWord = DWord;
+
+            Command.AtuadorD.manual = bits[0];
+            Command.AtuadorD.automatico = bits[1];
+            Command.AtuadorD.manutencao = bits[2];
+            Command.AtuadorD.Libera_Bloqueio_Manual = bits[3];
+            Command.AtuadorD.emergencia = bits[4];
+            Command.AtuadorD.liberado = bits[5];
+            Command.AtuadorD.acionaLado1 = bits[6];
+            Command.AtuadorD.acionaLado2 = bits[7];
+            Command.AtuadorD.acionandoLado1 = bits[8];
+            Command.AtuadorD.acionandoLado2 = bits[9];
+            Command.AtuadorD.acionandoAutomatico = bits[10];
+            Command.AtuadorD.emPosicaoLado1 = bits[11];
+            Command.AtuadorD.emPosicaoLado2 = bits[12];
+            Command.AtuadorD.falhaAcionandoLado1 = bits[13];
+            Command.AtuadorD.falhaAcionandoLado2 = bits[14];
+            Command.AtuadorD.falha2PosicoesAtiva = bits[15];
+            Command.AtuadorD.falhaConfirmacaoContatorLado1 = bits[16];
+            Command.AtuadorD.falhaConfirmacaoContatorLado2 = bits[17];
+            Command.AtuadorD.reset = bits[18];
+            Command.AtuadorD.bitReserva = bits[19];
+            Command.AtuadorD.bitReserva_1 = bits[20];
+            Command.AtuadorD.bitReserva_2 = bits[21];
+            Command.AtuadorD.bitReserva_3 = bits[22];
+            Command.AtuadorD.bitReserva_4 = bits[23];
+            Command.AtuadorD.bitReserva_5 = bits[24];
+            Command.AtuadorD.bitReserva_6 = bits[25];
+            Command.AtuadorD.bitReserva_7 = bits[26];
+            Command.AtuadorD.bitReserva_8 = bits[27];
+            Command.AtuadorD.bitReserva_9 = bits[28];
+            Command.AtuadorD.bitReserva_10 = bits[29];
+            Command.AtuadorD.bitReserva_11 = bits[30];
+            Command.AtuadorD.bitReserva_12 = bits[31];
+
+
+            return Command;
+        }
+
+        public static UInt32 typeAtuadorD_TO_Dword(Utilidades.VariaveisGlobais.type_All Command)
+        {
+            bool[] bits = new bool[32];
+
+            bits[0] = Command.AtuadorD.manual;
+            bits[1] = Command.AtuadorD.automatico;
+            bits[2] = Command.AtuadorD.manutencao;
+            bits[3] = Command.AtuadorD.Libera_Bloqueio_Manual;
+            bits[4] = Command.AtuadorD.emergencia;
+            bits[5] = Command.AtuadorD.liberado;
+            bits[6] = Command.AtuadorD.acionaLado1;
+            bits[7] = Command.AtuadorD.acionaLado2;
+            bits[8] = Command.AtuadorD.acionandoLado1;
+            bits[9] = Command.AtuadorD.acionandoLado2;
+            bits[10] = Command.AtuadorD.acionandoAutomatico;
+            bits[11] = Command.AtuadorD.emPosicaoLado1;
+            bits[12] = Command.AtuadorD.emPosicaoLado2;
+            bits[13] = Command.AtuadorD.falhaAcionandoLado1;
+            bits[14] = Command.AtuadorD.falhaAcionandoLado2;
+            bits[15] = Command.AtuadorD.falha2PosicoesAtiva;
+            bits[16] = Command.AtuadorD.falhaConfirmacaoContatorLado1;
+            bits[17] = Command.AtuadorD.falhaConfirmacaoContatorLado1;
+            bits[18] = Command.AtuadorD.reset;
+            bits[19] = Command.AtuadorD.bitReserva;
+            bits[20] = Command.AtuadorD.bitReserva_1;
+            bits[21] = Command.AtuadorD.bitReserva_2;
+            bits[22] = Command.AtuadorD.bitReserva_3;
+            bits[23] = Command.AtuadorD.bitReserva_4;
+            bits[24] = Command.AtuadorD.bitReserva_5;
+            bits[25] = Command.AtuadorD.bitReserva_6;
+            bits[26] = Command.AtuadorD.bitReserva_7;
+            bits[27] = Command.AtuadorD.bitReserva_8;
+            bits[28] = Command.AtuadorD.bitReserva_9;
+            bits[29] = Command.AtuadorD.bitReserva_10;
+            bits[30] = Command.AtuadorD.bitReserva_11;
+            bits[31] = Command.AtuadorD.bitReserva_12;
+
+            Command.DWord = Conversions.Bit_To_Dword(ref bits, true);
+
+            return Command.DWord;
+        }
+
+        //Type Atuador Analogico
+        //=====================================================================================================================================
+
+        public static Utilidades.VariaveisGlobais.type_All typeAtuadorA_TO_typeStandardGUI(Utilidades.VariaveisGlobais.type_All Command)
+        {
+            Command.Standard.Liga_Manual = Command.AtuadorA.ligaManual;
+            Command.Standard.Manual = Command.AtuadorA.manual;
+            Command.Standard.Automatico = Command.AtuadorA.automatico;
+            Command.Standard.Manutencao = Command.AtuadorA.manutencao;
+            Command.Standard.Libera_Bloqueio = Command.AtuadorA.Libera_Bloqueio_Manual;
+            Command.Standard.Emergencia = Command.AtuadorA.emergencia;
+            Command.Standard.Liberado = Command.AtuadorA.liberado;
+            Command.Standard.AcionandoAutomatico = Command.AtuadorA.acionandoAutomatico;
+            Command.Standard.FalhaConfirmacaoContatorLado1 = Command.AtuadorA.falhaConfirmacaoContatorLado1;
+            Command.Standard.FalhaConfirmacaoContatorLado2 = Command.AtuadorA.falhaConfirmacaoContatorLado2;
+            Command.Standard.falhaPosicionamento = Command.AtuadorA.falhaPosicionamento;
+            Command.Standard.falhaLeituraPosicao = Command.AtuadorA.falhaLeituraPosicao;
+            Command.Standard.Reset = Command.AtuadorA.reset;
+            return Command;
+
+        }
+
+        public static Utilidades.VariaveisGlobais.type_All typeStandardGUI_TO_typeAtuadorA(Utilidades.VariaveisGlobais.type_All Command)
+        {
+            Command.AtuadorA.ligaManual = Command.Standard.Liga_Manual;
+            Command.AtuadorA.manual = Command.Standard.Manual;
+            Command.AtuadorA.automatico = Command.Standard.Automatico;
+            Command.AtuadorA.manutencao = Command.Standard.Manutencao;
+            Command.AtuadorA.Libera_Bloqueio_Manual = Command.Standard.Libera_Bloqueio;
+            Command.AtuadorA.emergencia = Command.Standard.Emergencia;
+            Command.AtuadorA.liberado = Command.Standard.Liberado;
+            Command.AtuadorA.acionandoAutomatico = Command.Standard.AcionandoAutomatico;
+            Command.AtuadorA.falhaConfirmacaoContatorLado1 = Command.Standard.FalhaConfirmacaoContatorLado1;
+            Command.AtuadorA.falhaConfirmacaoContatorLado2 = Command.Standard.FalhaConfirmacaoContatorLado2;
+            Command.AtuadorA.falhaPosicionamento = Command.Standard.falhaPosicionamento;
+            Command.AtuadorA.falhaLeituraPosicao = Command.Standard.falhaLeituraPosicao;
+            Command.AtuadorA.reset = Command.Standard.Reset;
+            return Command;
+        }
+
+        public static Utilidades.VariaveisGlobais.type_All Dword_TO_typeAtuadorA(UInt32 DWord, Utilidades.VariaveisGlobais.type_All Command)
+        {
+            bool[] bits = new bool[32];
+
+            Conversions.Dword_To_Bit(DWord, ref bits, true);
+
+            //Atualiza DWord
+            Command.DWord = DWord;
+
+            Command.AtuadorA.ligaManual = bits[0];
+            Command.AtuadorA.manual = bits[1];
+            Command.AtuadorA.automatico = bits[2];
+            Command.AtuadorA.manutencao = bits[3];
+            Command.AtuadorA.Libera_Bloqueio_Manual = bits[4];
+            Command.AtuadorA.emergencia = bits[5];
+            Command.AtuadorA.liberado = bits[6];
+            Command.AtuadorA.acionandoAutomatico = bits[7];
+            Command.AtuadorA.falhaConfirmacaoContatorLado1 = bits[8];
+            Command.AtuadorA.falhaConfirmacaoContatorLado2 = bits[9];
+            Command.AtuadorA.falhaPosicionamento = bits[10];
+            Command.AtuadorA.falhaLeituraPosicao = bits[11];
+            Command.AtuadorA.reset = bits[12];
+            Command.AtuadorA.bitReserva = bits[12];
+            Command.AtuadorA.bitReserva_1 = bits[13];
+            Command.AtuadorA.bitReserva_2 = bits[15];
+            Command.AtuadorA.bitReserva_3 = bits[16];
+            Command.AtuadorA.bitReserva_4 = bits[17];
+            Command.AtuadorA.bitReserva_5 = bits[18];
+            Command.AtuadorA.bitReserva_6 = bits[19];
+            Command.AtuadorA.bitReserva_7 = bits[20];
+            Command.AtuadorA.bitReserva_8 = bits[21];
+            Command.AtuadorA.bitReserva_9 = bits[22];
+            Command.AtuadorA.bitReserva_10 = bits[23];
+            Command.AtuadorA.bitReserva_11 = bits[24];
+            Command.AtuadorA.bitReserva_12 = bits[25];
+            Command.AtuadorA.bitReserva_13 = bits[26];
+            Command.AtuadorA.bitReserva_14 = bits[27];
+            Command.AtuadorA.bitReserva_15 = bits[28];
+            Command.AtuadorA.bitReserva_16 = bits[29];
+            Command.AtuadorA.bitReserva_17 = bits[30];
+            Command.AtuadorA.bitReserva_18 = bits[31];
+
+            return Command;
+        }
+
+        public static UInt32 typeAtuadorA_TO_Dword(Utilidades.VariaveisGlobais.type_All Command)
+        {
+            bool[] bits = new bool[32];
+
+            bits[0] = Command.AtuadorA.ligaManual;
+            bits[1] = Command.AtuadorA.manual;
+            bits[2] = Command.AtuadorA.automatico;
+            bits[3] = Command.AtuadorA.manutencao;
+            bits[4] = Command.AtuadorA.Libera_Bloqueio_Manual;
+            bits[5] = Command.AtuadorA.emergencia;
+            bits[6] = Command.AtuadorA.liberado;
+            bits[7] = Command.AtuadorA.acionandoAutomatico;
+            bits[8] = Command.AtuadorA.falhaConfirmacaoContatorLado1;
+            bits[9] = Command.AtuadorA.falhaConfirmacaoContatorLado1;
+            bits[10] = Command.AtuadorA.falhaPosicionamento;
+            bits[11] = Command.AtuadorA.falhaLeituraPosicao;
+            bits[12] = Command.AtuadorA.reset;
+            bits[13] = Command.AtuadorA.bitReserva;
+            bits[14] = Command.AtuadorA.bitReserva_1;
+            bits[15] = Command.AtuadorA.bitReserva_2;
+            bits[16] = Command.AtuadorA.bitReserva_3;
+            bits[17] = Command.AtuadorA.bitReserva_4;
+            bits[18] = Command.AtuadorA.bitReserva_5;
+            bits[19] = Command.AtuadorA.bitReserva_6;
+            bits[20] = Command.AtuadorA.bitReserva_7;
+            bits[21] = Command.AtuadorA.bitReserva_8;
+            bits[22] = Command.AtuadorA.bitReserva_9;
+            bits[23] = Command.AtuadorA.bitReserva_10;
+            bits[24] = Command.AtuadorA.bitReserva_11;
+            bits[25] = Command.AtuadorA.bitReserva_12;
+            bits[26] = Command.AtuadorA.bitReserva_13;
+            bits[27] = Command.AtuadorA.bitReserva_14;
+            bits[28] = Command.AtuadorA.bitReserva_15;
+            bits[29] = Command.AtuadorA.bitReserva_16;
+            bits[30] = Command.AtuadorA.bitReserva_17;
+            bits[31] = Command.AtuadorA.bitReserva_18;
+
+            Command.DWord = Conversions.Bit_To_Dword(ref bits, true);
+
+            return Command.DWord;
+        }
     }
 }
