@@ -160,7 +160,8 @@ namespace _9230A_V00___PI.Usuarios
                     DataGridHistory.Columns[4].Header = "E-mail";
                     DataGridHistory.Columns[5].Header = "Data/Hora";
 
-                    Valor = "";
+                    
+
                 }
                 else
                 {
@@ -180,7 +181,8 @@ namespace _9230A_V00___PI.Usuarios
 
             loadListbox();
 
-
+            DTPStart.Value = DateTime.Now.AddMonths(-1);
+            DTPEnd.Value = DateTime.Now.AddMinutes(2);
 
         }
 
@@ -189,9 +191,44 @@ namespace _9230A_V00___PI.Usuarios
             var scroll = (VisualTreeHelper.GetChild(DataGridHistory, 0) as Decorator).Child as ScrollViewer ;
 
             scroll.ScrollToVerticalOffset(scroll.VerticalOffset+5);
+         
+        }
 
-            MessageBox.Show(scroll.VerticalOffset.ToString());
-            
+        private void btUpList_Click(object sender, RoutedEventArgs e)
+        {
+            var scroll = (VisualTreeHelper.GetChild(DataGridHistory, 0) as Decorator).Child as ScrollViewer;
+
+            scroll.ScrollToVerticalOffset(scroll.VerticalOffset - 5);
+
+        }
+
+        private void btLeftList_Click(object sender, RoutedEventArgs e)
+        {
+            var scroll = (VisualTreeHelper.GetChild(DataGridHistory, 0) as Decorator).Child as ScrollViewer;
+
+            scroll.ScrollToHorizontalOffset(scroll.HorizontalOffset - 20);
+
+     
+        }
+
+        private void btRightList_Click(object sender, RoutedEventArgs e)
+        {
+            var scroll = (VisualTreeHelper.GetChild(DataGridHistory, 0) as Decorator).Child as ScrollViewer;
+
+            scroll.ScrollToHorizontalOffset(scroll.HorizontalOffset + 20);
+        }
+
+        private void DataGridHistory_LoadingRow(object sender, DataGridRowEventArgs e)
+        {
+            DataRowView item = e.Row.Item as DataRowView;
+
+            if (item != null)
+            {
+                e.Row.Background = new SolidColorBrush(Colors.Silver);
+                e.Row.Foreground = new SolidColorBrush(Colors.White);
+                e.Row.FontSize = 9;
+                e.Row.BorderBrush = new SolidColorBrush(Colors.Black);
+            }
         }
     }
 }
