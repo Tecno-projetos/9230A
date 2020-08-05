@@ -158,20 +158,6 @@ namespace _9230A_V00___PI.Partidas
             }
         }
 
-        #region Encapulate Fields
-
-        public string statusMotor_GS
-        {
-            get => lbStatusMotor.Content.ToString();
-
-            set
-            {
-                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Content = value; });
-            }
-        }
-
-        #endregion
-
         private void btLigar_Click(object sender, RoutedEventArgs e)
         {
             if (this.Bt_Ligar_Click != null)

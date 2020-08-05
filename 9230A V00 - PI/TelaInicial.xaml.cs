@@ -68,21 +68,9 @@ namespace _9230A_V00___PI
 
             #region Equipamentos
 
-            //Atribuição dos valores para cada equipamento
-            //Motor_22.Command_GS.Name = "EXAUSTORES SECADOR";
-            //Motor_22.Tag = "EX1-2-3-4SC";
-
-            //Motor_22.TempoCompensadora = true;
-
-            //Motor_22.HabilitaBloqueioExterno = true;
-
-            //Atualiza informações de cada motor
-
-            //Motor_22.initialOffSet = 0;
-            //Motor_22.bufferPlc = 0;
-
             VariaveisGlobais.Fluxo.Motor_22.loadEquip(Utilidades.typeEquip.PD, Utilidades.typeCommand.PD, 0, 0, "Elevador Autolimpante", "22", "22", "11");
             VariaveisGlobais.Fluxo.Motor_62.loadEquip(Utilidades.typeEquip.INV, Utilidades.typeCommand.INV, 264, 0, "Elevador Expedição", "61", "61", "10");
+            VariaveisGlobais.Fluxo.Motor_44.loadEquip(Utilidades.typeEquip.SS, Utilidades.typeCommand.SS, 264, 0, "Moinho", "44", "44", "0");
 
             #endregion
 
@@ -124,7 +112,7 @@ namespace _9230A_V00___PI
             //Atualização Equip
             VariaveisGlobais.Fluxo.Motor_22.actualize_Equip = true;
             VariaveisGlobais.Fluxo.Motor_62.actualize_Equip = true;
-
+            VariaveisGlobais.Fluxo.Motor_44.actualize_Equip = true;
 
             CommunicationPLC.writeBufferPLC();//Chama a escrita no PLC
 

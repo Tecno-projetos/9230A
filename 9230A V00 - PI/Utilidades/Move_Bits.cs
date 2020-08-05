@@ -24,7 +24,7 @@ namespace _9230A_V00___PI.Utilidades
             Command.Standard.Falha_Contator_Desligou = Command.PD.falhaContatorDesligou;
             Command.Standard.Falha_Disjuntor_Desligou = Command.PD.falhaDisjuntoDesligou;
             Command.Standard.Falha_Partida_Nao_Desligou = Command.PD.falhaPartidaNaoDesligou;
-            Command.Standard.Reset_Timer = Command.PD.resetHotimetroTotal;
+            Command.Standard.Reset_Timer = Command.PD.resetHorimetroTotal;
             Command.Standard.Reset_Timer_Total = Command.PD.resetHorimetroParcial;
             Command.Standard.Emergencia = Command.PD.emergencia;
             Command.Standard.Disjuntor_Desligado = Command.PD.disjuntorDesligado;
@@ -51,7 +51,7 @@ namespace _9230A_V00___PI.Utilidades
             Command.PD.falhaContatorDesligou = Command.Standard.Falha_Contator_Desligou;
             Command.PD.falhaDisjuntoDesligou = Command.Standard.Falha_Disjuntor_Desligou;
             Command.PD.falhaPartidaNaoDesligou = Command.Standard.Falha_Partida_Nao_Desligou;
-            Command.PD.resetHotimetroTotal = Command.Standard.Reset_Timer;
+            Command.PD.resetHorimetroTotal = Command.Standard.Reset_Timer;
             Command.PD.resetHorimetroParcial = Command.Standard.Reset_Timer_Total;
             Command.PD.emergencia = Command.Standard.Emergencia;
             Command.PD.disjuntorDesligado = Command.Standard.Disjuntor_Desligado;
@@ -85,7 +85,7 @@ namespace _9230A_V00___PI.Utilidades
             Command.PD.falhaContatorDesligou = bits[11];
             Command.PD.falhaDisjuntoDesligou = bits[12];
             Command.PD.falhaPartidaNaoDesligou = bits[13];
-            Command.PD.resetHotimetroTotal = bits[14];
+            Command.PD.resetHorimetroTotal = bits[14];
             Command.PD.resetHorimetroParcial = bits[15];
             Command.PD.emergencia = bits[16];
             Command.PD.disjuntorDesligado = bits[17];
@@ -125,7 +125,7 @@ namespace _9230A_V00___PI.Utilidades
             bits[11] = Command.PD.falhaContatorDesligou;
             bits[12] = Command.PD.falhaDisjuntoDesligou;
             bits[13] = Command.PD.falhaPartidaNaoDesligou;
-            bits[14] = Command.PD.resetHotimetroTotal;
+            bits[14] = Command.PD.resetHorimetroTotal;
             bits[15] = Command.PD.resetHorimetroParcial;
             bits[16] = Command.PD.emergencia;
             bits[17] = Command.PD.disjuntorDesligado;
@@ -164,7 +164,7 @@ namespace _9230A_V00___PI.Utilidades
             Command.Standard.Ligando = Command.INV.ligando;
             Command.Standard.Desligando = Command.INV.desligando;
             Command.Standard.Liberado = Command.INV.liberado;
-            Command.Standard.Reset_Timer = Command.INV.resetHotimetroTotal;
+            Command.Standard.Reset_Timer = Command.INV.resetHorimetroTotal;
             Command.Standard.Reset_Timer_Total = Command.INV.resetHorimetroParcial;
             Command.Standard.Emergencia = Command.INV.emergencia;
             Command.Standard.Disjuntor_Desligado = Command.INV.disjuntorDesligado;
@@ -187,7 +187,7 @@ namespace _9230A_V00___PI.Utilidades
             Command.INV.ligando = Command.Standard.Ligando;
             Command.INV.desligando = Command.Standard.Desligando;
             Command.INV.liberado = Command.Standard.Liberado;
-            Command.INV.resetHotimetroTotal = Command.Standard.Reset_Timer;
+            Command.INV.resetHorimetroTotal = Command.Standard.Reset_Timer;
             Command.INV.resetHorimetroParcial = Command.Standard.Reset_Timer_Total;
             Command.INV.emergencia = Command.Standard.Emergencia;
             Command.INV.disjuntorDesligado = Command.Standard.Disjuntor_Desligado;
@@ -217,7 +217,7 @@ namespace _9230A_V00___PI.Utilidades
             Command.INV.ligando = bits[7];
             Command.INV.desligando = bits[8];
             Command.INV.liberado = bits[9];
-            Command.INV.resetHotimetroTotal = bits[10];
+            Command.INV.resetHorimetroTotal = bits[10];
             Command.INV.resetHorimetroParcial = bits[11];
             Command.INV.emergencia = bits[12];
             Command.INV.disjuntorDesligado = bits[13];
@@ -257,7 +257,7 @@ namespace _9230A_V00___PI.Utilidades
             bits[7] = Command.INV.ligando;
             bits[8] = Command.INV.desligando;
             bits[9] = Command.INV.liberado;
-            bits[10] = Command.INV.resetHotimetroTotal;
+            bits[10] = Command.INV.resetHorimetroTotal;
             bits[11] = Command.INV.resetHorimetroParcial;
             bits[12] = Command.INV.emergencia;
             bits[13] = Command.INV.disjuntorDesligado;
@@ -279,6 +279,152 @@ namespace _9230A_V00___PI.Utilidades
             bits[29] = Command.INV.bitReserva_13;
             bits[30] = Command.INV.bitReserva_14;
             bits[31] = Command.INV.bitReserva_15;
+            Command.DWord = Conversions.Bit_To_Dword(ref bits, true);
+
+            return Command.DWord;
+        }
+
+        //Type SS
+        //=====================================================================================================================================
+
+        public static Utilidades.VariaveisGlobais.type_All typeSS_TO_typeStandardGUI(Utilidades.VariaveisGlobais.type_All Command)
+        {
+            Command.Standard.Liga_Manual = Command.SS.ligaManual;
+            Command.Standard.Manual = Command.SS.manual;
+            Command.Standard.Automatico = Command.SS.automatico;
+            Command.Standard.Manutencao = Command.SS.manutencao;
+            Command.Standard.Libera_Bloqueio = Command.SS.Libera_Bloqueio_Manual;
+            Command.Standard.Reset = Command.SS.reset;
+            Command.Standard.Ligado = Command.SS.ligado;
+            Command.Standard.Ligando = Command.SS.ligando;
+            Command.Standard.Desligando = Command.SS.desligando;
+            Command.Standard.Liberado = Command.SS.liberado;
+            Command.Standard.Falha_Partida_Nao_Confirmou = Command.SS.falhaPartidaNaoConfirmou;
+            Command.Standard.Falha_Contator_Desligou = Command.SS.falhaContatorDesligou;
+            Command.Standard.Falha_Disjuntor_Desligou = Command.SS.falhaDisjuntoDesligou;
+            Command.Standard.Falha_Partida_Nao_Desligou = Command.SS.falhaPartidaNaoDesligou;
+            Command.Standard.Reset_Timer = Command.SS.resetHorimetroParcial;
+            Command.Standard.Reset_Timer_Total = Command.SS.resetHorimetroTotal;
+            Command.Standard.Emergencia = Command.SS.emergencia;
+            Command.Standard.Disjuntor_Desligado = Command.SS.disjuntorDesligado;
+            Command.Standard.Tempo_Manutencao = Command.SS.tempoManutencao;
+            Command.Standard.Falha_Geral = Command.SS.falhaGeral;
+            Command.Standard.inverterSentidoGiro = Command.SS.inverterSentidoGiro;
+            Command.Standard.SentidoGiro = Command.SS.sentidoGiro;
+            return Command;
+
+        }
+
+        public static Utilidades.VariaveisGlobais.type_All typeStandardGUI_TO_typeSS(Utilidades.VariaveisGlobais.type_All Command)
+        {
+            Command.SS.ligaManual = Command.Standard.Liga_Manual;
+            Command.SS.manual = Command.Standard.Manual;
+            Command.SS.automatico = Command.Standard.Automatico;
+            Command.SS.manutencao = Command.Standard.Manutencao;
+            Command.SS.Libera_Bloqueio_Manual = Command.Standard.Libera_Bloqueio;
+            Command.SS.reset = Command.Standard.Reset;
+            Command.SS.ligado = Command.Standard.Ligado;
+            Command.SS.ligando = Command.Standard.Ligando;
+            Command.SS.desligando = Command.Standard.Desligando;
+            Command.SS.liberado = Command.Standard.Liberado;
+            Command.SS.falhaPartidaNaoConfirmou = Command.Standard.Falha_Partida_Nao_Confirmou;
+            Command.SS.falhaContatorDesligou = Command.Standard.Falha_Contator_Desligou;
+            Command.SS.falhaDisjuntoDesligou = Command.Standard.Falha_Disjuntor_Desligou;
+            Command.SS.falhaPartidaNaoDesligou = Command.Standard.Falha_Partida_Nao_Desligou;
+            Command.SS.resetHorimetroTotal = Command.Standard.Reset_Timer;
+            Command.SS.resetHorimetroParcial = Command.Standard.Reset_Timer_Total;
+            Command.SS.emergencia = Command.Standard.Emergencia;
+            Command.SS.disjuntorDesligado = Command.Standard.Disjuntor_Desligado;
+            Command.SS.tempoManutencao = Command.Standard.Tempo_Manutencao;
+            Command.SS.falhaGeral = Command.Standard.Falha_Geral;
+            Command.SS.inverterSentidoGiro = Command.Standard.inverterSentidoGiro;
+            Command.SS.sentidoGiro = Command.Standard.SentidoGiro;
+            return Command;
+        }
+
+        public static Utilidades.VariaveisGlobais.type_All Dword_TO_typeSS(UInt32 DWord, Utilidades.VariaveisGlobais.type_All Command)
+        {
+            bool[] bits = new bool[32];
+
+            Conversions.Dword_To_Bit(DWord, ref bits, true);
+
+            //Atualiza DWord
+            Command.DWord = DWord;
+
+
+            Command.SS.ligaManual = bits[0];
+            Command.SS.manual = bits[1];
+            Command.SS.automatico = bits[2];
+            Command.SS.manutencao = bits[3];
+            Command.SS.Libera_Bloqueio_Manual = bits[4];
+            Command.SS.reset = bits[5];
+            Command.SS.ligado = bits[6];
+            Command.SS.ligando = bits[7];
+            Command.SS.desligando = bits[8];
+            Command.SS.liberado = bits[9];
+            Command.SS.falhaPartidaNaoConfirmou = bits[10];
+            Command.SS.falhaContatorDesligou = bits[11];
+            Command.SS.falhaDisjuntoDesligou = bits[12];
+            Command.SS.falhaPartidaNaoDesligou = bits[13];
+            Command.SS.resetHorimetroTotal = bits[14];
+            Command.SS.resetHorimetroParcial = bits[15];
+            Command.SS.emergencia = bits[16];
+            Command.SS.disjuntorDesligado = bits[17];
+            Command.SS.tempoManutencao = bits[18];
+            Command.SS.falhaGeral = bits[19];
+            Command.SS.inverterSentidoGiro = bits[20];
+            Command.SS.sentidoGiro = bits[21];
+            Command.SS.bitReserva = bits[22];
+            Command.SS.bitReserva_1 = bits[23];
+            Command.SS.bitReserva_2 = bits[24];
+            Command.SS.bitReserva_3 = bits[25];
+            Command.SS.bitReserva_4 = bits[26];
+            Command.SS.bitReserva_5 = bits[27];
+            Command.SS.bitReserva_6 = bits[28];
+            Command.SS.bitReserva_7 = bits[29];
+            Command.SS.bitReserva_8 = bits[30];
+            Command.SS.bitReserva_9 = bits[31];
+
+            return Command;
+        }
+
+        public static UInt32 typeSS_TO_Dword(Utilidades.VariaveisGlobais.type_All Command)
+        {
+            bool[] bits = new bool[32];
+
+            bits[0] = Command.SS.ligaManual;
+            bits[1] = Command.SS.manual;
+            bits[2] = Command.SS.automatico;
+            bits[3] = Command.SS.manutencao;
+            bits[4] = Command.SS.Libera_Bloqueio_Manual;
+            bits[5] = Command.SS.reset;
+            bits[6] = Command.SS.ligado;
+            bits[7] = Command.SS.ligando;
+            bits[8] = Command.SS.desligando;
+            bits[9] = Command.SS.liberado;
+            bits[10] = Command.SS.falhaPartidaNaoConfirmou;
+            bits[11] = Command.SS.falhaContatorDesligou;
+            bits[12] = Command.SS.falhaDisjuntoDesligou;
+            bits[13] = Command.SS.falhaPartidaNaoDesligou;
+            bits[14] = Command.SS.resetHorimetroTotal;
+            bits[15] = Command.SS.resetHorimetroParcial;
+            bits[16] = Command.SS.emergencia;
+            bits[17] = Command.SS.disjuntorDesligado;
+            bits[18] = Command.SS.tempoManutencao;
+            bits[19] = Command.SS.falhaGeral;
+            bits[20] = Command.SS.inverterSentidoGiro;
+            bits[21] = Command.SS.sentidoGiro;
+            bits[22] = Command.SS.bitReserva;
+            bits[23] = Command.SS.bitReserva_1;
+            bits[24] = Command.SS.bitReserva_2;
+            bits[25] = Command.SS.bitReserva_3;
+            bits[26] = Command.SS.bitReserva_4;
+            bits[27] = Command.SS.bitReserva_5;
+            bits[28] = Command.SS.bitReserva_6;
+            bits[29] = Command.SS.bitReserva_7;
+            bits[30] = Command.SS.bitReserva_8;
+            bits[31] = Command.SS.bitReserva_9;
+
             Command.DWord = Conversions.Bit_To_Dword(ref bits, true);
 
             return Command.DWord;

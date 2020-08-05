@@ -14,6 +14,50 @@ namespace _9230A_V00___PI.Utilidades
     {
         #region Structs
 
+        public struct type_SS
+        {
+            public bool ligaManual;
+            public bool manual;
+            public bool automatico;
+            public bool manutencao;
+            public bool Libera_Bloqueio_Manual;
+            public bool reset;
+            public bool ligado;
+            public bool ligando;
+            public bool desligando;
+            public bool liberado;
+            public bool falhaPartidaNaoConfirmou;
+            public bool falhaContatorDesligou;
+            public bool falhaDisjuntoDesligou;
+            public bool falhaPartidaNaoDesligou;
+            public bool resetHorimetroTotal;
+            public bool resetHorimetroParcial;
+            public bool emergencia;
+            public bool disjuntorDesligado;
+            public bool tempoManutencao;
+            public bool falhaGeral;
+            public bool inverterSentidoGiro;
+            public bool sentidoGiro;
+            public bool bitReserva;
+            public bool bitReserva_1;
+            public bool bitReserva_2;
+            public bool bitReserva_3;
+            public bool bitReserva_4;
+            public bool bitReserva_5;
+            public bool bitReserva_6;
+            public bool bitReserva_7;
+            public bool bitReserva_8;
+            public bool bitReserva_9;
+            public Int32 SP_Manutencao;
+            public Int32 HorimetroParcial;
+            public Int32 HorimetroTotal;
+            public Int32 Tempo_Limpeza;
+            public float Corrente_Atual;
+            public float SP_Corrente_Motor_Vazio;
+            public Int32 SP_Tempo_Reversao;
+            public Int32 Tempo_Reversao_Atual;
+        }
+
         public struct type_PD
         {
             public bool ligaManual;
@@ -30,7 +74,7 @@ namespace _9230A_V00___PI.Utilidades
             public bool falhaContatorDesligou;
             public bool falhaDisjuntoDesligou;
             public bool falhaPartidaNaoDesligou;
-            public bool resetHotimetroTotal;
+            public bool resetHorimetroTotal;
             public bool resetHorimetroParcial;
             public bool emergencia;
             public bool disjuntorDesligado;
@@ -67,7 +111,7 @@ namespace _9230A_V00___PI.Utilidades
             public bool ligando;
             public bool desligando;
             public bool liberado;
-            public bool resetHotimetroTotal;
+            public bool resetHorimetroTotal;
             public bool resetHorimetroParcial;
             public bool emergencia;
             public bool disjuntorDesligado;
@@ -112,6 +156,7 @@ namespace _9230A_V00___PI.Utilidades
                                                  //
             public type_PD PD;                   //Tipo de estrutura PD_PCM
             public type_INV INV;
+            public type_SS SS;
 
             public int initialOffSet;
             public int bufferPlc;
@@ -135,12 +180,14 @@ namespace _9230A_V00___PI.Utilidades
             public bool Manutencao;
             public bool Libera_Bloqueio;
             public bool Reset;
+            public bool inverterSentidoGiro;
 
             //Status Partidas
             public bool Ligado;
             public bool Ligando;
             public bool Desligando;
             public bool Liberado;
+            public bool SentidoGiro;
 
             //Falhas Partidas
             public bool Falha_Geral;
@@ -179,11 +226,6 @@ namespace _9230A_V00___PI.Utilidades
             public string groupUserLogged;
             public string passwordLogged;
             public int numberOfGroup;
-
-            private string v1;
-            private string v2;
-            private string v3;
-            private int v4;
 
             public typeUsers(string v1, string v2, string v3, int v4) : this()
             {

@@ -41,56 +41,6 @@ namespace _9230A_V00___PI.Partidas
 
         #region Encapsulate Fields
 
-        public string statusMotor_GS
-        {
-            get => lbStatusMotor.Content.ToString();
-
-            set
-            {
-                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Content = value; });
-            }
-        }
-
-        public string velocidadeAtual_GS
-        {
-            get => lbVelocidadeAtual.Content.ToString();
-
-            set
-            {
-                lbVelocidadeAtual.Dispatcher.Invoke(delegate { lbVelocidadeAtual.Content = value; });
-            }
-        }
-
-        public string correnteAtual_GS
-        {
-            get => lbCorrenteAtual.Content.ToString();
-
-            set
-            {
-                lbCorrenteAtual.Dispatcher.Invoke(delegate { lbCorrenteAtual.Content = value; });
-            }
-        }
-
-        public string codigoFalha_GS
-        {
-            get => lbCodigoFalha.Content.ToString();
-
-            set
-            {
-                lbCodigoFalha.Dispatcher.Invoke(delegate { lbCodigoFalha.Content = value; });
-            }
-        }
-
-        public string codigoAlarme_GS
-        {
-            get => lbCodigoAlarme.Content.ToString();
-
-            set
-            {
-                lbCodigoAlarme.Dispatcher.Invoke(delegate { lbCodigoAlarme.Content = value; });
-            }
-        }
-
         public string velocidadeManual_GS
         {
             get => tbVelocidadeSolicitada.Text;
