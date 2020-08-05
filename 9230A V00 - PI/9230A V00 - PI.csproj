@@ -188,6 +188,9 @@
     <Compile Include="Utilidades\Conversions.cs" />
     <Compile Include="Utilidades\convertTextInputToVisibility.cs" />
     <Compile Include="Utilidades\EquipsControl.cs" />
+    <Compile Include="Utilidades\messageBox.xaml.cs">
+      <DependentUpon>messageBox.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Utilidades\Move_Bits.cs" />
     <Compile Include="Utilidades\TopMost.cs" />
     <Compile Include="Utilidades\VariaveisGlobais.cs" />
@@ -324,6 +327,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Usuarios\removerUsuario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Utilidades\messageBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

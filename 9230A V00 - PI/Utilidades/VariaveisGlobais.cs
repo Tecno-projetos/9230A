@@ -267,17 +267,15 @@ namespace _9230A_V00___PI.Utilidades
 
             SQLCe_GS = true;
 
+            DB_Connected_GS = true;
+
+
             //Criação dos Bancos
             DataBase.SqlGlobalFuctions.Create_DB("BeckerUsers");
 
 
-
             //Inicializa Tabelas
             DataBase.SqlFunctionsUsers.Initialize_ProgramDBCA();
-
-
-
-
 
 
         }

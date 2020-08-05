@@ -1544,14 +1544,108 @@ namespace _9230A_V00___PI
 
         //-----------------------------------------------------------------------
         //Emanuel
-       #region Clicks Menu
+        #region Clicks Menu
 
-        private void btSair_Click(object sender, RoutedEventArgs e)
+        //private void btSair_Click(object sender, RoutedEventArgs e)
+        //{
+        //    App.Current.Shutdown();
+        //    Process proc = Process.GetCurrentProcess();
+        //    proc.Kill();
+
+        //}
+
+        #region Login e Logout
+
+        private bool login()
         {
-            App.Current.Shutdown();
-            Process proc = Process.GetCurrentProcess();
-            proc.Kill();
+            if (DataBase.SqlFunctionsUsers.ExistTableDBCA(txtUser.Text))
+            {
+                if (DataBase.SqlFunctionsUsers.CheckPasswordDBCA(txtUser.Text, txtSenha.Password))
+                {
+                    DataBase.SqlFunctionsUsers.IntoDateDBCA(txtUser.Text, DataBase.SqlFunctionsUsers.MD5Cryptography(txtSenha.Password), DataBase.SqlFunctionsUsers.GetLastValueTableDBCA(txtUser.Text, "GroupUser"), DataBase.SqlFunctionsUsers.GetLastValueTableDBCA(txtUser.Text, "Email"), "Entrou");
 
+                    VariaveisGlobais.UserLogged_GS = txtUser.Text;
+                    VariaveisGlobais.GroupUserLogged_GS = DataBase.SqlFunctionsUsers.GetLastValueTableDBCA(txtUser.Text, "GroupUser");
+                    VariaveisGlobais.PasswordLogged_GS = txtSenha.Password;
+
+
+
+                    if (VariaveisGlobais.GroupUserLogged_GS.Equals("Operador"))
+                    {
+                        VariaveisGlobais.NumberOfGroup_GS = 1;
+                    }
+                    else if (VariaveisGlobais.GroupUserLogged_GS.Equals("Manutenção"))
+                    {
+                        VariaveisGlobais.NumberOfGroup_GS = 2;
+                    }
+                    else if (VariaveisGlobais.GroupUserLogged_GS.Equals("Administrador"))
+                    {
+                        VariaveisGlobais.NumberOfGroup_GS = 3;
+                    }
+
+
+                    txtUser.IsEnabled = false;
+                    txtSenha.Password = "";
+                    txtSenha.IsEnabled = false;
+
+
+                    iconLogin.Kind = MaterialDesignThemes.Wpf.PackIconKind.Logout;
+
+                    return true;
+
+                }
+                else
+                {
+                    Utilidades.messageBox inputDialog = new messageBox("Senha Incorreta", "Senha incorreta, por favor verifique e tente novamente", MaterialDesignThemes.Wpf.PackIconKind.Error,"OK","Fchar");
+
+                    inputDialog.ShowDialog();
+
+                    return false;
+
+                }
+            }
+            else
+            {
+
+                Utilidades.messageBox inputDialog = new messageBox("Usuário não Cadastrado", "Usuário não cadastrado, por favor verifique e tente novamente", MaterialDesignThemes.Wpf.PackIconKind.Information, "OK", "Fchar");
+
+                inputDialog.ShowDialog();
+
+                return false;
+          
+            
+            }
+        }
+
+        private void logout() 
+        {
+            DataBase.SqlFunctionsUsers.IntoDateDBCA(VariaveisGlobais.UserLogged_GS,DataBase.SqlFunctionsUsers.GetLastValueTableDBCA(VariaveisGlobais.UserLogged_GS, "Password"), DataBase.SqlFunctionsUsers.GetLastValueTableDBCA(VariaveisGlobais.UserLogged_GS, "GroupUser"), DataBase.SqlFunctionsUsers.GetLastValueTableDBCA(VariaveisGlobais.UserLogged_GS, "Email"), "Saiu");
+
+            txtUser.IsEnabled = true;
+            txtSenha.IsEnabled = true;
+
+            txtUser.Text = "";
+            VariaveisGlobais.UserLogged_GS = "";
+            VariaveisGlobais.GroupUserLogged_GS = "";
+            VariaveisGlobais.PasswordLogged_GS = "";
+            VariaveisGlobais.NumberOfGroup_GS = 0;
+
+            iconLogin.Kind = MaterialDesignThemes.Wpf.PackIconKind.Login;
+
+        }
+
+        #endregion
+
+        private void btLogin_Click(object sender, RoutedEventArgs e)
+        {          
+            if (iconLogin.Kind == MaterialDesignThemes.Wpf.PackIconKind.Login)
+            {
+                login();
+            }
+            else
+            {
+                logout();
+            }
         }
 
         private void btHome_Click(object sender, RoutedEventArgs e)
@@ -1620,7 +1714,6 @@ namespace _9230A_V00___PI
             }
         }
 
-
         private void txtUser_LostFocus(object sender, RoutedEventArgs e)
         {
             Process[] tabtip = Process.GetProcessesByName("TabTip");
@@ -1632,20 +1725,12 @@ namespace _9230A_V00___PI
             }
         }
 
-
-        private void txtUser_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        private void openKeyboard(object sender, MouseButtonEventArgs e)
         {
             try
             {
                 if (Utilidades.VariaveisGlobais.NumberOfGroup_GS == 0)
                 {
-                    TextBox tb = (TextBox)e.OriginalSource;
-                    tb.Dispatcher.BeginInvoke(
-                        new Action(delegate
-                        {
-                            tb.SelectAll();
-                        }), System.Windows.Threading.DispatcherPriority.Input);
-
                     Teclados.keyboard.openKeyboard();
                 }
             }
@@ -1661,13 +1746,20 @@ namespace _9230A_V00___PI
         {
             if (spInical != null)
             {
-
                 spInical.Children.Clear();
 
                 spInical.Children.Add(Utilidades.VariaveisGlobais.controleUsuario);
+            }
+        }
 
+        private void txtSenha_PreviewKeyUp(object sender, KeyEventArgs e)
+        {
+            KeyConverter key = new KeyConverter();
+            if (e.Key == Key.Enter || e.Key == Key.DeadCharProcessed)
+            {
+                login();
+                spInical.Focus();
             }
         }
     }
-
 }
