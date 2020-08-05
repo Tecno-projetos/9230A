@@ -104,7 +104,7 @@
 
 
         <!--Botão com messagebox-->
-        <materialDesign:DialogHost x:Name="dialogHost" BorderBrush="#FFD32B2B" Margin="-10,0,0,0">
+        <materialDesign:DialogHost x:Name="dialogHost" BorderBrush="#FFD32B2B" Margin="0,0,-10,0">
             <materialDesign:DialogHost.DialogContent>
                 <Grid Width="450" Height="200" HorizontalAlignment="Center">
                     <!--Imagem para messagebox-->

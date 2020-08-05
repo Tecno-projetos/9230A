@@ -23,15 +23,16 @@ namespace _9230A_V00___PI.Utilidades
         public event EventHandler Esquerda_Click;
         public event EventHandler Direita_Click;
 
-        public messageBox(string Titulo, string Mensagem, MaterialDesignThemes.Wpf.PackIcon packIcon, string contentButtonEsquerda, string contentButtonDireita)
+        public messageBox(string Titulo, string Mensagem, MaterialDesignThemes.Wpf.PackIconKind packIcon, string contentButtonEsquerda, string contentButtonDireita)
         {
             InitializeComponent();
 
             txtTitle.Text = Titulo;
             txtMessage.Text = Mensagem;
-            pckIcon = packIcon;
+            pckIcon.Kind = packIcon;
             genericButton_Esquerda.Content = contentButtonEsquerda;
             genericButton_Direita.Content = contentButtonDireita;
+
 
         }
 
@@ -41,6 +42,10 @@ namespace _9230A_V00___PI.Utilidades
             //bubble the event up to the parent
             if (this.Esquerda_Click != null)
                 this.Esquerda_Click(this, e);
+
+
+            this.Hide();
+
 
         }
 

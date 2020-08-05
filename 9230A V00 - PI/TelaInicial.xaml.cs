@@ -1560,54 +1560,93 @@ namespace _9230A_V00___PI
         {
             if (DataBase.SqlFunctionsUsers.ExistTableDBCA(txtUser.Text))
             {
-                if (DataBase.SqlFunctionsUsers.CheckPasswordDBCA(txtUser.Text, tc.Password))
+                if (DataBase.SqlFunctionsUsers.CheckPasswordDBCA(txtUser.Text, txtSenha.Password))
                 {
-                    DataBase.SqlFunctionsUsers.IntoDateDBCA(TBUserLogin.Text, AutomasulGUI.DataBase.SqlFunctionsUsers.MD5Cryptography(TBPasswordLogin.Password), AutomasulGUI.DataBase.SqlFunctionsUsers.GetLastValueTableDBCA(TBUserLogin.Text, "GroupUser"), AutomasulGUI.DataBase.SqlFunctionsUsers.GetLastValueTableDBCA(TBUserLogin.Text, "Email"), "Entrou");
+                    DataBase.SqlFunctionsUsers.IntoDateDBCA(txtUser.Text, DataBase.SqlFunctionsUsers.MD5Cryptography(txtSenha.Password), DataBase.SqlFunctionsUsers.GetLastValueTableDBCA(txtUser.Text, "GroupUser"), DataBase.SqlFunctionsUsers.GetLastValueTableDBCA(txtUser.Text, "Email"), "Entrou");
 
-                    =Utility.GlobalVariables.UserLogged_GS = TBUserLogin.Text;
-                    AutomasulGUI.Utility.GlobalVariables.GroupUserLogged_GS = AutomasulGUI.DataBase.SqlFunctionsUsers.GetLastValueTableDBCA(TBUserLogin.Text, "GroupUser");
-                    AutomasulGUI.Utility.GlobalVariables.PasswordLogged_GS = TBPasswordLogin.Password;
-                    TBGroupUserLogin.Text = AutomasulGUI.Utility.GlobalVariables.GroupUserLogged_GS;
-
-                    TBUserLogin.IsEnabled = false;
-                    TBPasswordLogin.Password = "";
-                    TBPasswordLogin.IsEnabled = false;
-                    TB_Password.Visibility = Visibility.Hidden;
+                    VariaveisGlobais.UserLogged_GS = txtUser.Text;
+                    VariaveisGlobais.GroupUserLogged_GS = DataBase.SqlFunctionsUsers.GetLastValueTableDBCA(txtUser.Text, "GroupUser");
+                    VariaveisGlobais.PasswordLogged_GS = txtSenha.Password;
 
 
-                    BT_Logout.Visibility = Visibility.Visible;
-                    BT_Login.Visibility = Visibility.Hidden;
+
+                    if (VariaveisGlobais.GroupUserLogged_GS.Equals("Operador"))
+                    {
+                        VariaveisGlobais.NumberOfGroup_GS = 1;
+                    }
+                    else if (VariaveisGlobais.GroupUserLogged_GS.Equals("Manutenção"))
+                    {
+                        VariaveisGlobais.NumberOfGroup_GS = 2;
+                    }
+                    else if (VariaveisGlobais.GroupUserLogged_GS.Equals("Administrador"))
+                    {
+                        VariaveisGlobais.NumberOfGroup_GS = 3;
+                    }
+
+
+                    txtUser.IsEnabled = false;
+                    txtSenha.Password = "";
+                    txtSenha.IsEnabled = false;
+
+
+                    iconLogin.Kind = MaterialDesignThemes.Wpf.PackIconKind.Logout;
 
                     return true;
 
                 }
                 else
                 {
-                    System.Windows.MessageBox.Show("Senha incorreta, por favor verifique e tente novamente", "Senha Incorreta", MessageBoxButton.OK, MessageBoxImage.Error);
+                    Utilidades.messageBox inputDialog = new messageBox("Senha Incorreta", "Senha incorreta, por favor verifique e tente novamente", MaterialDesignThemes.Wpf.PackIconKind.Error,"OK","Fchar");
+
+                    inputDialog.ShowDialog();
+
                     return false;
 
                 }
             }
             else
             {
-                System.Windows.MessageBox.Show("Usuário não cadastrado, por favor verifique e tente novamente", "Usuário não Cadastrado", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                Utilidades.messageBox inputDialog = new messageBox("Usuário não Cadastrado", "Usuário não cadastrado, por favor verifique e tente novamente", MaterialDesignThemes.Wpf.PackIconKind.Information, "OK", "Fchar");
+
+                inputDialog.ShowDialog();
+
                 return false;
+          
+            
             }
         }
 
-
-        #endregion
-
-
-        private void btLogin_Click(object sender, RoutedEventArgs e)
+        private void logout() 
         {
+            DataBase.SqlFunctionsUsers.IntoDateDBCA(VariaveisGlobais.UserLogged_GS,DataBase.SqlFunctionsUsers.GetLastValueTableDBCA(VariaveisGlobais.UserLogged_GS, "Password"), DataBase.SqlFunctionsUsers.GetLastValueTableDBCA(VariaveisGlobais.UserLogged_GS, "GroupUser"), DataBase.SqlFunctionsUsers.GetLastValueTableDBCA(VariaveisGlobais.UserLogged_GS, "Email"), "Saiu");
 
+            txtUser.IsEnabled = true;
+            txtSenha.IsEnabled = true;
 
+            txtUser.Text = "";
+            VariaveisGlobais.UserLogged_GS = "";
+            VariaveisGlobais.GroupUserLogged_GS = "";
+            VariaveisGlobais.PasswordLogged_GS = "";
+            VariaveisGlobais.NumberOfGroup_GS = 0;
 
+            iconLogin.Kind = MaterialDesignThemes.Wpf.PackIconKind.Login;
 
         }
 
+        #endregion
 
+        private void btLogin_Click(object sender, RoutedEventArgs e)
+        {          
+            if (iconLogin.Kind == MaterialDesignThemes.Wpf.PackIconKind.Login)
+            {
+                login();
+            }
+            else
+            {
+                logout();
+            }
+        }
 
         private void btHome_Click(object sender, RoutedEventArgs e)
         {
@@ -1675,7 +1714,6 @@ namespace _9230A_V00___PI
             }
         }
 
-
         private void txtUser_LostFocus(object sender, RoutedEventArgs e)
         {
             Process[] tabtip = Process.GetProcessesByName("TabTip");
@@ -1687,20 +1725,12 @@ namespace _9230A_V00___PI
             }
         }
 
-
-        private void txtUser_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        private void openKeyboard(object sender, MouseButtonEventArgs e)
         {
             try
             {
                 if (Utilidades.VariaveisGlobais.NumberOfGroup_GS == 0)
                 {
-                    TextBox tb = (TextBox)e.OriginalSource;
-                    tb.Dispatcher.BeginInvoke(
-                        new Action(delegate
-                        {
-                            tb.SelectAll();
-                        }), System.Windows.Threading.DispatcherPriority.Input);
-
                     Teclados.keyboard.openKeyboard();
                 }
             }
@@ -1716,15 +1746,20 @@ namespace _9230A_V00___PI
         {
             if (spInical != null)
             {
-
                 spInical.Children.Clear();
 
                 spInical.Children.Add(Utilidades.VariaveisGlobais.controleUsuario);
-
             }
         }
 
-
+        private void txtSenha_PreviewKeyUp(object sender, KeyEventArgs e)
+        {
+            KeyConverter key = new KeyConverter();
+            if (e.Key == Key.Enter || e.Key == Key.DeadCharProcessed)
+            {
+                login();
+                spInical.Focus();
+            }
+        }
     }
-
 }

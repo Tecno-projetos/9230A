@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Management;
 using System.Text;
@@ -37,6 +38,13 @@ namespace _9230A_V00___PI.Telas_Fluxo
                 Console.WriteLine("Free Virtual Memory: {0} KB", result["FreeVirtualMemory"]);
             }
 
+        }
+
+        private void btSair_Click(object sender, RoutedEventArgs e)
+        {
+              App.Current.Shutdown();
+              Process proc = Process.GetCurrentProcess();
+              proc.Kill();
         }
     }
 }
