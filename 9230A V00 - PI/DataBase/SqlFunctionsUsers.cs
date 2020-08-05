@@ -52,23 +52,26 @@ namespace _9230A_V00___PI.DataBase
         {
             DataTable Data = new DataTable();
 
+
             if (Utilidades.VariaveisGlobais.DB_Connected_GS)
             {
                 try
                 {
+                    string CommandString = "SELECT * FROM information_schema.tables;";
+
                     dynamic Call = SqlGlobalFuctions.ReturnCall(Utilidades.VariaveisGlobais.Connection_DB_Users_GS);
-                    Call.Open();
-                    Data = Call.GetSchema("Tables");
-                    Call.Close();
+
+                    dynamic Adapter = SqlGlobalFuctions.ReturnAdapter(CommandString, Utilidades.VariaveisGlobais.Connection_DB_Users_GS);
+
+                    Adapter.Fill(Data);
                 }
                 catch (Exception ex)
                 {
-                  Utilidades.VariaveisGlobais.Window_Buffer_Diagnostic.List_Error = ex.ToString();
+                    Utilidades.VariaveisGlobais.Window_Buffer_Diagnostic.List_Error = ex.ToString();
                 }
             }
 
             return Data;
-
         }
 
         public static DataTable GetTableDBCA(string TableName)

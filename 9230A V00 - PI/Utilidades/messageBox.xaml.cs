@@ -39,13 +39,9 @@ namespace _9230A_V00___PI.Utilidades
 
         private void genericButton_Esquerda_Click(object sender, RoutedEventArgs e)
         {
-            //bubble the event up to the parent
-            if (this.Esquerda_Click != null)
-                this.Esquerda_Click(this, e);
-
+            this.DialogResult = true;
 
             this.Hide();
-
 
         }
 

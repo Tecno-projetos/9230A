@@ -1532,13 +1532,7 @@ namespace _9230A_V00___PI
         //Emanuel
         #region Clicks Menu
 
-        //private void btSair_Click(object sender, RoutedEventArgs e)
-        //{
-        //    App.Current.Shutdown();
-        //    Process proc = Process.GetCurrentProcess();
-        //    proc.Kill();
-
-        //}
+        Utilidades.messageBox inputDialog;
 
         #region Login e Logout
 
@@ -1631,6 +1625,11 @@ namespace _9230A_V00___PI
             else
             {
                 logout();
+
+                spInical.Children.Clear();
+
+                spInical.Children.Add(Utilidades.VariaveisGlobais.Fluxo);
+
             }
         }
 
@@ -1730,11 +1729,19 @@ namespace _9230A_V00___PI
 
         private void btConfiguracoesUsuario_Click(object sender, RoutedEventArgs e)
         {
-            if (spInical != null)
+            if (VariaveisGlobais.NumberOfGroup_GS == 0)
             {
+                inputDialog = new Utilidades.messageBox(VariaveisGlobais.faltaUsuarioTitle, VariaveisGlobais.faltaUsuarioMessage, MaterialDesignThemes.Wpf.PackIconKind.Error, "OK", "Fchar");
+                inputDialog.ShowDialog();
+            }
+            else
+            {          
                 spInical.Children.Clear();
 
                 spInical.Children.Add(Utilidades.VariaveisGlobais.controleUsuario);
+
+                Utilidades.VariaveisGlobais.controleUsuario.spControleUsuario.Children.Clear();
+
             }
         }
 
