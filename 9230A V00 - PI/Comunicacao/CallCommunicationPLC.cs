@@ -17,13 +17,15 @@ namespace _9230A_V00___PI.Comunicacao
 
         bool Ping_PLC_Success = false;
 
+        bool pinging = false;
+
         #endregion
 
         #region Create Variables, Objects For Driver
 
         //Driver for Read
         //=====================================================================
-        public Comunicacao.Sharp7.S7Client Client_Async;
+        public Comunicacao.Sharp7.S7Client Client;
 
         //Status da conexão com PLC
 
@@ -46,13 +48,14 @@ namespace _9230A_V00___PI.Comunicacao
 
         int _BufferInicial = -1;
         int _BufferFinal = -1;
+
         public CallCommunicationPLC(int BufferInicial, int BufferFinal)
         {
             _BufferInicial = BufferInicial;
             _BufferFinal = BufferFinal;
 
             //Cria o driver
-            Client_Async = new Comunicacao.Sharp7.S7Client();
+            Client = new Comunicacao.Sharp7.S7Client();
 
             Ping_PLC.PingCompleted += new PingCompletedEventHandler(Ping_PLC_PingCompleted);
         }
@@ -67,7 +70,7 @@ namespace _9230A_V00___PI.Comunicacao
             {
                 if (Ping_PLC_Success)
                 {
-                    if (Client_Async.Connected)
+                    if (Client.Connected)
                     {
                         for (int i = _BufferInicial; i < _BufferFinal; i++)
                         {
@@ -75,10 +78,10 @@ namespace _9230A_V00___PI.Comunicacao
                             {
                                 try
                                 {
-                                    Utilidades.VariaveisGlobais.Buffer_PLC[i].Result = Client_Async.DBRead(Utilidades.VariaveisGlobais.Buffer_PLC[i].DBNumber, Utilidades.VariaveisGlobais.Buffer_PLC[i].Start, Utilidades.VariaveisGlobais.Buffer_PLC[i].Size, Utilidades.VariaveisGlobais.Buffer_PLC[i].Buffer);
+                                    Utilidades.VariaveisGlobais.Buffer_PLC[i].Result = Client.DBRead(Utilidades.VariaveisGlobais.Buffer_PLC[i].DBNumber, Utilidades.VariaveisGlobais.Buffer_PLC[i].Start, Utilidades.VariaveisGlobais.Buffer_PLC[i].Size, Utilidades.VariaveisGlobais.Buffer_PLC[i].Buffer);
 
 
-                                    Utilidades.VariaveisGlobais.Window_Buffer_Diagnostic.List_Error = Client_Async.ErrorText(Utilidades.VariaveisGlobais.Buffer_PLC[i].Result);
+                                    Utilidades.VariaveisGlobais.Window_Buffer_Diagnostic.List_Error = Client.ErrorText(Utilidades.VariaveisGlobais.Buffer_PLC[i].Result);
 
                                 }
                                 catch (Exception ex)
@@ -109,7 +112,7 @@ namespace _9230A_V00___PI.Comunicacao
             {
                 if (Ping_PLC_Success)
                 {
-                    if (Client_Async.Connected)
+                    if (Client.Connected)
                     {
                         for (int i = _BufferInicial; i < _BufferFinal; i++)
                         {
@@ -117,7 +120,7 @@ namespace _9230A_V00___PI.Comunicacao
                             {
                                 try
                                 {
-                                    Utilidades.VariaveisGlobais.Buffer_PLC[i].Result = Client_Async.DBWrite(Utilidades.VariaveisGlobais.Buffer_PLC[i].DBNumber, Utilidades.VariaveisGlobais.Buffer_PLC[i].Start, Utilidades.VariaveisGlobais.Buffer_PLC[i].Size, Utilidades.VariaveisGlobais.Buffer_PLC[i].Buffer);
+                                    Utilidades.VariaveisGlobais.Buffer_PLC[i].Result = Client.DBWrite(Utilidades.VariaveisGlobais.Buffer_PLC[i].DBNumber, Utilidades.VariaveisGlobais.Buffer_PLC[i].Start, Utilidades.VariaveisGlobais.Buffer_PLC[i].Size, Utilidades.VariaveisGlobais.Buffer_PLC[i].Buffer);
 
                                     Utilidades.VariaveisGlobais.Buffer_PLC[i].Enable_Write = false;
 
@@ -167,20 +170,25 @@ namespace _9230A_V00___PI.Comunicacao
             DT_Tempo_Ping_PLC = DateTime.Now;
 
 
-            if (!Client_Async.Connected)
+            if (!Client.Connected)
             {
                 PLCConnected = false;
             }
             else
             {
                 PLCConnected = true;
-                //System.Threading.Thread.Sleep(0);
             }
-
+            
             //PING PLC
             try
             {
-                Ping_PLC.SendAsync(Utilidades.VariaveisGlobais.IP_Plc_GS, 100);
+                if (!pinging)
+                {
+                    Ping_PLC.SendAsync(Utilidades.VariaveisGlobais.IP_Plc_GS, 100);
+                    pinging = true;
+                }
+
+
             }
             catch (Exception ex)
             {
@@ -190,7 +198,7 @@ namespace _9230A_V00___PI.Comunicacao
             //Status PLC
             try
             {
-                if (!Client_Async.Connected)
+                if (!Client.Connected)
                 {
                     count = false;
                 }
@@ -204,10 +212,10 @@ namespace _9230A_V00___PI.Comunicacao
                 {
                     if (count)
                     {
-                        Client_Async.Disconnect();
+                        Client.Disconnect();
                         Result_Async = -1;
 
-                        Utilidades.VariaveisGlobais.Window_Buffer_Diagnostic.List_Error = Client_Async.ErrorText(Client_Async.LastError());
+                        Utilidades.VariaveisGlobais.Window_Buffer_Diagnostic.List_Error = Client.ErrorText(Client.LastError());
                     }
 
                 }
@@ -215,21 +223,21 @@ namespace _9230A_V00___PI.Comunicacao
                 {
                     if (!count)
                     {
-                        Result_Async = Client_Async.ConnectTo(Utilidades.VariaveisGlobais.IP_Plc_GS, Utilidades.VariaveisGlobais.Rack_PLC_GS, Utilidades.VariaveisGlobais.Slot_PLC_GS);
+                        Result_Async = Client.ConnectTo(Utilidades.VariaveisGlobais.IP_Plc_GS, Utilidades.VariaveisGlobais.Rack_PLC_GS, Utilidades.VariaveisGlobais.Slot_PLC_GS);
 
-                        Utilidades.VariaveisGlobais.Window_Buffer_Diagnostic.List_Error = Client_Async.ErrorText(Client_Async.LastError());
+                        Utilidades.VariaveisGlobais.Window_Buffer_Diagnostic.List_Error = Client.ErrorText(Client.LastError());
                     }
                 }
 
                 #region Status Plc
 
-                if (Client_Async.Connected)
+                if (Client.Connected)
                 {
 
                     int Status = 0;
                     int Result0 = -1;
 
-                    Result0 = Client_Async.PlcGetStatus(ref Status);
+                    Result0 = Client.PlcGetStatus(ref Status);
 
                     if (Result0 == 0)
                     {
@@ -239,7 +247,6 @@ namespace _9230A_V00___PI.Comunicacao
                             case Comunicacao.Sharp7.S7Consts.S7CpuStatusRun:
                                 {
                                     BrushConnectionStatus.Dispatcher.Invoke(delegate { BrushConnectionStatus = new SolidColorBrush(Color.FromArgb(255, 0, 255, 0)); });
-
 
                                     Error_Plc = false;
                                     Value_Timer = true;
@@ -311,6 +318,10 @@ namespace _9230A_V00___PI.Comunicacao
             catch (Exception ex)
             {
                 Utilidades.VariaveisGlobais.Window_Buffer_Diagnostic.List_Error = ex.ToString();
+            }
+            finally
+            {
+                pinging = false;
             }
 
         }

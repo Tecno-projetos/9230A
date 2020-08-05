@@ -124,7 +124,7 @@ namespace _9230A_V00___PI
 
 
             //Leitura Motor 22
-            VariaveisGlobais.Fluxo.Motor_22.readPlcFromBuffer = true;
+            VariaveisGlobais.Fluxo.Motor_22.actualize_Equip = true;
 
 
 

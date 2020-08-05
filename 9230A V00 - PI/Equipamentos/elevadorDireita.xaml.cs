@@ -598,7 +598,7 @@ namespace _9230A_V00___PI.Equipamentos
             loadedEquip = true;
         }
 
-        public void Actualize_UI()
+        public void actualize_UI()
         {
             if (loadedEquip)
             {
@@ -856,17 +856,17 @@ namespace _9230A_V00___PI.Equipamentos
             }
         }
 
-        public bool readPlcFromBuffer
+        public bool actualize_Equip
         {
             set
             {
                 if (loadedEquip)
                 {
                     //Atualiza Equipamento
-                    equip.readPlcFromBuffer = value;
+                    equip.actualize_Equip = value;
 
                     //Atualiza visual do equipamento
-                    Actualize_UI();
+                    actualize_UI();
 
                     //Atualiza tela de controle e status do equipamento
 

@@ -106,20 +106,11 @@
     <Compile Include="Equipamentos\bifurcadaDireita.xaml.cs">
       <DependentUpon>bifurcadaDireita.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Equipamentos\corpoElevador.xaml.cs">
-      <DependentUpon>corpoElevador.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Equipamentos\dosadorOscilante.xaml.cs">
       <DependentUpon>dosadorOscilante.xaml</DependentUpon>
     </Compile>
     <Compile Include="Equipamentos\elevadorDireita.xaml.cs">
       <DependentUpon>elevadorDireita.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Equipamentos\elevadorEsquerda.xaml.cs">
-      <DependentUpon>elevadorEsquerda.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Equipamentos\fundoElevador.xaml.cs">
-      <DependentUpon>fundoElevador.xaml</DependentUpon>
     </Compile>
     <Compile Include="Equipamentos\moinho.xaml.cs">
       <DependentUpon>moinho.xaml</DependentUpon>
@@ -228,23 +219,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Equipamentos\corpoElevador.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Equipamentos\dosadorOscilante.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Equipamentos\elevadorDireita.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Equipamentos\elevadorEsquerda.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Equipamentos\fundoElevador.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
