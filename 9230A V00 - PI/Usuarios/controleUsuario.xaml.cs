@@ -26,7 +26,7 @@ namespace _9230A_V00___PI.Usuarios
         adicionarUsuario addUser = new adicionarUsuario();
         removerUsuario removeUser = new removerUsuario();
         editarUsuario editUser = new editarUsuario();
-
+        historicoUsuarios historicoUser = new historicoUsuarios();
 
         public controleUsuario()
         {
@@ -92,6 +92,20 @@ namespace _9230A_V00___PI.Usuarios
             else
             {
                 spControleUsuario.Children.Add(editUser);
+            }
+        }
+
+        private void btHistoricoUsuario_Click(object sender, RoutedEventArgs e)
+        {
+            if (spControleUsuario != null)
+            {
+                spControleUsuario.Children.Clear();
+
+                spControleUsuario.Children.Add(historicoUser);
+            }
+            else
+            {
+                spControleUsuario.Children.Add(historicoUser);
             }
         }
     }

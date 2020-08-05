@@ -100,6 +100,48 @@ namespace _9230A_V00___PI.DataBase
             return Data;
         }
 
+        public static DataTable Get_Table(string TableName, DateTime dtIn, DateTime dtOut)
+        {
+            DataTable Data1 = new DataTable();
+
+            if (Utilidades.VariaveisGlobais.DB_Connected_GS)
+            {
+                try
+                {
+
+                    dynamic DTIn;
+                    dynamic DTOut;
+
+                    if (Utilidades.VariaveisGlobais.SQLCe_GS)
+                    {
+                        DTIn = dtIn.ToString("yyyyMMdd") + " " + dtIn.Hour + ":" + dtIn.Minute;
+                        DTOut = dtOut.ToString("yyyyMMdd") + " " + dtOut.Hour + ":" + dtOut.Minute;
+                    }
+                    else
+                    {
+                        DTIn = dtIn;
+                        DTOut = dtOut;
+                    }
+
+
+
+                    string CommandString = "SELECT * FROM " + TableName + " WHERE DateNow >= '" + DTIn + "' AND DateNow <= '" + DTOut + "'";
+
+                    dynamic Call = SqlGlobalFuctions.ReturnCall(Utilidades.VariaveisGlobais.Connection_DB_Users_GS);
+                    dynamic Adapter = SqlGlobalFuctions.ReturnAdapter(CommandString, Utilidades.VariaveisGlobais.Connection_DB_Users_GS);
+
+                    Adapter.Fill(Data1);
+                }
+                catch (Exception ex)
+                {
+                 
+                }
+            }
+
+            return Data1;
+        }
+
+
         public static DataTable GetTableDBCA_DescID(string TableName)
         {
             DataTable Data = new DataTable();

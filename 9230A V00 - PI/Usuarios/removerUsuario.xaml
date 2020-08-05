@@ -4,10 +4,42 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:_9230A_V00___PI.Usuarios"
-             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="_9230A_V00___PI.Usuarios.removerUsuario"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:Utilidades="clr-namespace:_9230A_V00___PI.Utilidades" x:Class="_9230A_V00___PI.Usuarios.removerUsuario"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800" Width="825" Height="675" Loaded="UserControl_Loaded">
     <Grid Background="#FF7F7F7F">
+
+
+        <Grid.Resources  >
+
+            <ResourceDictionary>
+                <ResourceDictionary.MergedDictionaries>
+                    <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Blue.xaml" />
+                    <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Indigo.xaml" />
+                    <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                </ResourceDictionary.MergedDictionaries>
+
+
+                <SolidColorBrush x:Key="brushWatermarkBackground" Color="#FF505050" />
+                <SolidColorBrush x:Key="brushWatermarkForeground" Color="White" />
+                <Utilidades:TextInputToVisibilityConverter x:Key="TextInputToVisibilityConverter" />
+
+                <SolidColorBrush x:Key="brushWatermarkBorder" Color="White" />
+
+                <Style x:Key="EntryFieldStyle" TargetType="{x:Type Grid}" >
+                    <Setter Property="HorizontalAlignment" Value="Stretch" />
+                    <Setter Property="VerticalAlignment" Value="Center" />
+                    <Setter Property="Margin" Value="20,0" />
+                </Style>
+
+
+
+            </ResourceDictionary>
+
+        </Grid.Resources>
+        
+
         <Grid.RowDefinitions>
             <RowDefinition/>
         </Grid.RowDefinitions>
@@ -42,9 +74,9 @@
             </Grid>
 
         </Button>
-        <ListBox x:Name="listbox" Margin="7,178,542,10" Background="{x:Null}" BorderBrush="{x:Null}" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Visible" SelectionChanged="listbox_SelectionChanged"/>
         <Label x:Name="lbUser" Content="User xxxx" Height="45" Margin="432,195,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="304" Foreground="White" FontWeight="Bold" FontSize="28" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
         <materialDesign:PackIcon Kind="UserMinus" VerticalAlignment="Center" Foreground="White" Height="45" Margin="375,195,0,435" Width="60"/>
+        <ListBox x:Name="listbox" Margin="7,178,542,10" Background="{x:Null}" BorderBrush="{x:Null}" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Visible" SelectionChanged="listbox_SelectionChanged"/>
 
 
 
