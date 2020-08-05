@@ -24,7 +24,6 @@ namespace _9230A_V00___PI.TelasAuxiliares
 
         private string Error = null;
 
-        bool primeiro = true;
         Int64 Count = 0;
         Int64 Countlog = 0;
         #endregion

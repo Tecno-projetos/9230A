@@ -29,16 +29,19 @@ namespace _9230A_V00___PI.Utilidades
 
         //Palavra de comando geral
         Utilidades.VariaveisGlobais.type_All Command = new Utilidades.VariaveisGlobais.type_All();
-
         
         #endregion
 
-        public EquipsControl(typeEquip Equip, typeCommand TCommand, int initialOffSet, int bufferPlc)
+        public EquipsControl(typeEquip Equip, typeCommand TCommand, int initialOffSet, int bufferPlc, string nome, string tag, string numeroPartida, string paginaProjeto)
         {
             Command.initialOffSet = initialOffSet;
             Command.bufferPlc = bufferPlc;
             Command.TypeEquip = Equip;
             Command.TypeCommand = TCommand;
+            Command.Nome = nome;
+            Command.Tag = tag;
+            Command.NumeroPartida = numeroPartida;
+            Command.PaginaProjeto = paginaProjeto;
 
             //==========================================================================================
             //Inicia a tela dependendo o tipo de motor.
@@ -46,28 +49,50 @@ namespace _9230A_V00___PI.Utilidades
             //PD
             if (Equip == typeEquip.PD)
             {
-                Window_PD = new Partidas.controlePartidaDireta();
+                Window_PD = new Partidas.controlePartidaDireta(nome, tag, numeroPartida, paginaProjeto);
 
                 Window_PD.Closing += Window_PD_Closing;
 
                //Click para controle da Partida 
-               Window_PD.Bt_Ligar_Click += new EventHandler(Bt_Ligar_Click);
-               Window_PD.Bt_Reset_Click += new EventHandler(Bt_Reset_Click);
-               Window_PD.Bt_Libera_Click += new EventHandler(Bt_Libera_Click);
-               Window_PD.Bt_Manutencao_Click += new EventHandler(Bt_Manutencao_Click);
-               Window_PD.Bt_Manual_Click += new EventHandler(Bt_Manual_Click);
-               Window_PD.Bt_Fechar_Click += new EventHandler(Bt_Fechar_Click);
+               Window_PD.Bt_Ligar_Click += new EventHandler(PD_Bt_Ligar_Click);
+               Window_PD.Bt_Reset_Click += new EventHandler(PD_Bt_Reset_Click);
+               Window_PD.Bt_Libera_Click += new EventHandler(PD_Bt_Libera_Click);
+               Window_PD.Bt_Manutencao_Click += new EventHandler(PD_Bt_Manutencao_Click);
+               Window_PD.Bt_Manual_Click += new EventHandler(PD_Bt_Manual_Click);
+               Window_PD.Bt_Fechar_Click += new EventHandler(PD_Bt_Fechar_Click);
             }
             //INV
             else if (Equip == typeEquip.INV)
             {
+                Window_INV = new Partidas.controleInversor(nome, tag, numeroPartida, paginaProjeto);
 
+                Window_INV.Closing += Window_INV_Closing;
+
+                //Click para controle da Partida 
+                Window_INV.Bt_Ligar_Click += new EventHandler(INV_Bt_Ligar_Click);
+                Window_INV.Bt_Reset_Click += new EventHandler(INV_Bt_Reset_Click);
+                Window_INV.Bt_Libera_Click += new EventHandler(INV_Bt_Libera_Click);
+                Window_INV.Bt_Manutencao_Click += new EventHandler(INV_Bt_Manutencao_Click);
+                Window_INV.Bt_Manual_Click += new EventHandler(INV_Bt_Manual_Click);
+                Window_INV.Bt_Fechar_Click += new EventHandler(INV_Bt_Fechar_Click);
+                Window_INV.atualizarVelocidade += new EventHandler(INV_atualiza_Velocidade);
 
             }
             //SS
             else if (Equip == typeEquip.SS)
             {
+                Window_SS = new Partidas.controleSoftStarter(nome, tag, numeroPartida, paginaProjeto);
 
+                Window_SS.Closing += Window_SS_Closing;
+
+                //Click para controle da Partida 
+                Window_SS.Bt_Ligar_Click += new EventHandler(SS_Bt_Ligar_Click);
+                Window_SS.Bt_Reset_Click += new EventHandler(SS_Bt_Reset_Click);
+                Window_SS.Bt_Libera_Click += new EventHandler(SS_Bt_Libera_Click);
+                Window_SS.Bt_Manutencao_Click += new EventHandler(SS_Bt_Manutencao_Click);
+                Window_SS.Bt_Manual_Click += new EventHandler(SS_Bt_Manual_Click);
+                Window_SS.Bt_Fechar_Click += new EventHandler(SS_Bt_Fechar_Click);
+                Window_SS.Bt_Inverte_Click += new EventHandler(SS_Bt_InverterSentido_Click);
 
             }
             //Atuador
@@ -85,7 +110,6 @@ namespace _9230A_V00___PI.Utilidades
 
         }
 
-
         #region Events Window
 
         private void Window_PD_Closing(object sender, System.ComponentModel.CancelEventArgs e)
@@ -101,6 +125,13 @@ namespace _9230A_V00___PI.Utilidades
             Window_INV.Hide();
         }
 
+        private void Window_SS_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            e.Cancel = true;
+
+            Window_SS.Hide();
+        }
+
         private void Window_BF_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             e.Cancel = true;
@@ -113,7 +144,142 @@ namespace _9230A_V00___PI.Utilidades
         #region Events Screens
 
         //PD
-        protected void Bt_Ligar_Click(object sender, EventArgs e)
+        protected void PD_Bt_Ligar_Click(object sender, EventArgs e)
+        {
+            invertBitLigar();
+        }
+
+        protected void PD_Bt_Reset_Click(object sender, EventArgs e)
+        {
+            setBitReset();
+        }
+
+        protected void PD_Bt_Libera_Click(object sender, EventArgs e)
+        {
+            invertBitLibera();
+        }
+
+        protected void PD_Bt_Manutencao_Click(object sender, EventArgs e)
+        {
+            invertBitManutencao();
+        }
+
+        protected void PD_Bt_Manual_Click(object sender, EventArgs e)
+        {
+            invertBitManual();
+        }
+
+        protected void PD_Bt_Fechar_Click(object sender, EventArgs e)
+        {
+            Window_PD.DialogResult = true;
+        }
+
+        //INV
+        protected void INV_Bt_Ligar_Click(object sender, EventArgs e)
+        {
+            invertBitLigar();
+        }
+
+        protected void INV_Bt_Reset_Click(object sender, EventArgs e)
+        {
+            setBitReset();
+        }
+
+        protected void INV_Bt_Libera_Click(object sender, EventArgs e)
+        {
+            invertBitLibera();
+        }
+
+        protected void INV_Bt_Manutencao_Click(object sender, EventArgs e)
+        {
+            invertBitManutencao();
+        }
+
+        protected void INV_Bt_Manual_Click(object sender, EventArgs e)
+        {
+            invertBitManual();
+        }
+
+        protected void INV_Bt_Fechar_Click(object sender, EventArgs e)
+        {
+            Window_INV.DialogResult = true;
+        }
+
+        private void INV_atualiza_Velocidade(object sender, EventArgs e)
+        {
+            VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Enable_Read = false;
+
+            Comunicacao.Sharp7.S7.SetRealAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + 4, Convert.ToSingle(Window_INV.velocidadeManual_GS));
+
+            VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Enable_Write = true;
+        }
+
+        //SS
+        protected void SS_Bt_Ligar_Click(object sender, EventArgs e)
+        {
+            invertBitLigar();
+        }
+
+        protected void SS_Bt_Reset_Click(object sender, EventArgs e)
+        {
+            setBitReset();
+        }
+
+        protected void SS_Bt_Libera_Click(object sender, EventArgs e)
+        {
+            invertBitLibera();
+        }
+
+        protected void SS_Bt_Manutencao_Click(object sender, EventArgs e)
+        {
+            invertBitManutencao();
+        }
+
+        protected void SS_Bt_Manual_Click(object sender, EventArgs e)
+        {
+            invertBitManual();
+        }
+
+        protected void SS_Bt_InverterSentido_Click(object sender, EventArgs e)
+        {
+            if (Command.Standard.inverterSentidoGiro)
+            {
+                Command.Standard.inverterSentidoGiro = false;
+            }
+            else
+            {
+                Command.Standard.inverterSentidoGiro = true;
+            }
+
+            VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Enable_Read = false;
+
+            if (Command_Get.TypeEquip == typeEquip.SS && Command_Get.TypeCommand == typeCommand.SS)
+            {
+                Comunicacao.Sharp7.S7.SetDWordAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet, Utilidades.Move_Bits.typeSS_TO_Dword(Utilidades.Move_Bits.typeStandardGUI_TO_typeSS(Command)));
+            }
+
+            VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Enable_Write = true;
+
+            if (Command.Standard.inverterSentidoGiro)
+            {
+                DataBase.SqlFunctionsEquips.IntoDate_Table_EquipAlarmEvent("_" + Command.Tag, "Comando Sentido Horário", true, false, 1, false, "", Utilidades.VariaveisGlobais.UserLogged_GS, Utilidades.VariaveisGlobais.GroupUserLogged_GS, DateTime.Now.ToString(), "", "", DateTime.Now, "");
+            }
+            else
+            {
+                DataBase.SqlFunctionsEquips.IntoDate_Table_EquipAlarmEvent("_" + Command.Tag, "Comando Sentido Anti-Horário", true, false, 1, false, "", Utilidades.VariaveisGlobais.UserLogged_GS, Utilidades.VariaveisGlobais.GroupUserLogged_GS, DateTime.Now.ToString(), "", "", DateTime.Now, "");
+            }
+        }
+
+        protected void SS_Bt_Fechar_Click(object sender, EventArgs e)
+        {
+            Window_SS.DialogResult = true;
+        }
+
+        #endregion
+
+        #region Functions
+
+        private void invertBitLigar()
         {
             if (Command.Standard.Liga_Manual)
             {
@@ -123,6 +289,23 @@ namespace _9230A_V00___PI.Utilidades
             {
                 Command.Standard.Liga_Manual = true;
             }
+
+            VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Enable_Read = false;
+
+            if (Command_Get.TypeEquip == typeEquip.PD && Command_Get.TypeCommand == typeCommand.PD)
+            {
+                Comunicacao.Sharp7.S7.SetDWordAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet, Utilidades.Move_Bits.typePD_TO_Dword(Utilidades.Move_Bits.typeStandardGUI_TO_typePD(Command)));
+            }
+            else if (Command_Get.TypeEquip == typeEquip.INV && Command_Get.TypeCommand == typeCommand.INV)
+            {
+                Comunicacao.Sharp7.S7.SetDWordAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet, Utilidades.Move_Bits.typeINV_TO_Dword(Utilidades.Move_Bits.typeStandardGUI_TO_typeINV(Command)));
+            }
+            else if (Command_Get.TypeEquip == typeEquip.SS && Command_Get.TypeCommand == typeCommand.SS)
+            {
+                Comunicacao.Sharp7.S7.SetDWordAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet, Utilidades.Move_Bits.typeSS_TO_Dword(Utilidades.Move_Bits.typeStandardGUI_TO_typeSS(Command)));
+            }
+
+            VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Enable_Write = true;
 
             if (Command.Standard.Liga_Manual)
             {
@@ -134,25 +317,34 @@ namespace _9230A_V00___PI.Utilidades
             }
         }
 
-        protected void Bt_Reset_Click(object sender, EventArgs e)
+        private void setBitReset()
         {
-            if (Command.Standard.Reset)
+            Command.Standard.Reset = true;
+
+            VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Enable_Read = false;
+
+            if (Command_Get.TypeEquip == typeEquip.PD && Command_Get.TypeCommand == typeCommand.PD)
             {
-                Command.Standard.Reset = false;
+                Comunicacao.Sharp7.S7.SetDWordAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet, Utilidades.Move_Bits.typePD_TO_Dword(Utilidades.Move_Bits.typeStandardGUI_TO_typePD(Command)));
             }
-            else
+            else if (Command_Get.TypeEquip == typeEquip.INV && Command_Get.TypeCommand == typeCommand.INV)
             {
-                Command.Standard.Reset = true;
+                Comunicacao.Sharp7.S7.SetDWordAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet, Utilidades.Move_Bits.typeINV_TO_Dword(Utilidades.Move_Bits.typeStandardGUI_TO_typeINV(Command)));
             }
+            else if (Command_Get.TypeEquip == typeEquip.SS && Command_Get.TypeCommand == typeCommand.SS)
+            {
+                Comunicacao.Sharp7.S7.SetDWordAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet, Utilidades.Move_Bits.typeSS_TO_Dword(Utilidades.Move_Bits.typeStandardGUI_TO_typeSS(Command)));
+            }
+
+            VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Enable_Write = true;
 
             if (Command.Standard.Reset)
             {
                 DataBase.SqlFunctionsEquips.IntoDate_Table_EquipAlarmEvent("_" + Command.Tag, "Comando Reset Falha", true, false, 1, false, "", Utilidades.VariaveisGlobais.UserLogged_GS, Utilidades.VariaveisGlobais.GroupUserLogged_GS, DateTime.Now.ToString(), "", "", DateTime.Now, "");
             }
-
         }
 
-        protected void Bt_Libera_Click(object sender, EventArgs e)
+        private void invertBitLibera()
         {
             if (Command.Standard.Libera_Bloqueio)
             {
@@ -163,43 +355,75 @@ namespace _9230A_V00___PI.Utilidades
                 Command.Standard.Libera_Bloqueio = true;
             }
 
+            VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Enable_Read = false;
+
+            if (Command_Get.TypeEquip == typeEquip.PD && Command_Get.TypeCommand == typeCommand.PD)
+            {
+                Comunicacao.Sharp7.S7.SetDWordAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet, Utilidades.Move_Bits.typePD_TO_Dword(Utilidades.Move_Bits.typeStandardGUI_TO_typePD(Command)));
+            }
+            else if (Command_Get.TypeEquip == typeEquip.INV && Command_Get.TypeCommand == typeCommand.INV)
+            {
+                Comunicacao.Sharp7.S7.SetDWordAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet, Utilidades.Move_Bits.typeINV_TO_Dword(Utilidades.Move_Bits.typeStandardGUI_TO_typeINV(Command)));
+            }
+            else if (Command_Get.TypeEquip == typeEquip.SS && Command_Get.TypeCommand == typeCommand.SS)
+            {
+                Comunicacao.Sharp7.S7.SetDWordAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet, Utilidades.Move_Bits.typeSS_TO_Dword(Utilidades.Move_Bits.typeStandardGUI_TO_typeSS(Command)));
+            }
+            VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Enable_Write = true;
+
             if (Command.Standard.Libera_Bloqueio)
             {
                 DataBase.SqlFunctionsEquips.IntoDate_Table_EquipAlarmEvent("_" + Command.Tag, "Comando Libera Bloqueio", true, false, 1, false, "", Utilidades.VariaveisGlobais.UserLogged_GS, Utilidades.VariaveisGlobais.GroupUserLogged_GS, DateTime.Now.ToString(), "", "", DateTime.Now, "");
             }
         }
 
-        protected void Bt_Manutencao_Click(object sender, EventArgs e)
+        private void invertBitManutencao()
         {
-            if (Utilidades.VariaveisGlobais.NumberOfGroup_GS < 2)
+            //if (Utilidades.VariaveisGlobais.NumberOfGroup_GS < 2)
+            //{
+            //    TopMost.TopMostMessageBox.Show(Utilidades.VariaveisGlobais.faltaPermissaoMessage, Utilidades.VariaveisGlobais.faltaPermissaoTitle, System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
+            //}
+            //else
+            //{
+            //    Solicita_Manutencao = true;
+            //}
+            if (Command.Standard.Manutencao)
             {
-                TopMost.TopMostMessageBox.Show(Utilidades.VariaveisGlobais.faltaPermissaoMessage, Utilidades.VariaveisGlobais.faltaPermissaoTitle, System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
+                Command.Standard.Manutencao = false;
             }
             else
             {
-                if (Command.Standard.Manutencao)
-                {
-                    Command.Standard.Manutencao = false;
-                }
-                else
-                {
-                    Command.Standard.Manutencao = true;
-                }
-
-                if (Command.Standard.Manutencao)
-                {
-                    DataBase.SqlFunctionsEquips.IntoDate_Table_EquipAlarmEvent("_" + Command.Tag, "Comando Sair Modo Manutenção", true, false, 1, false, "", Utilidades.VariaveisGlobais.UserLogged_GS, Utilidades.VariaveisGlobais.GroupUserLogged_GS, DateTime.Now.ToString(), "", "", DateTime.Now, "");
-                }
-                else
-                {
-                    DataBase.SqlFunctionsEquips.IntoDate_Table_EquipAlarmEvent("_" + Command.Tag, "Comando Ir Para Modo Manutenção", true, false, 1, false, "", Utilidades.VariaveisGlobais.UserLogged_GS, Utilidades.VariaveisGlobais.GroupUserLogged_GS, DateTime.Now.ToString(), "", "", DateTime.Now, "");
-                }
-
+                Command.Standard.Manutencao = true;
             }
 
+            VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Enable_Read = false;
+
+            if (Command_Get.TypeEquip == typeEquip.PD && Command_Get.TypeCommand == typeCommand.PD)
+            {
+                Comunicacao.Sharp7.S7.SetDWordAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet, Utilidades.Move_Bits.typePD_TO_Dword(Utilidades.Move_Bits.typeStandardGUI_TO_typePD(Command)));
+            }
+            else if (Command_Get.TypeEquip == typeEquip.INV && Command_Get.TypeCommand == typeCommand.INV)
+            {
+                Comunicacao.Sharp7.S7.SetDWordAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet, Utilidades.Move_Bits.typeINV_TO_Dword(Utilidades.Move_Bits.typeStandardGUI_TO_typeINV(Command)));
+            }
+            else if (Command_Get.TypeEquip == typeEquip.SS && Command_Get.TypeCommand == typeCommand.SS)
+            {
+                Comunicacao.Sharp7.S7.SetDWordAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet, Utilidades.Move_Bits.typeSS_TO_Dword(Utilidades.Move_Bits.typeStandardGUI_TO_typeSS(Command)));
+            }
+
+            VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Enable_Write = true;
+
+            if (Command.Standard.Manutencao)
+            {
+                DataBase.SqlFunctionsEquips.IntoDate_Table_EquipAlarmEvent("_" + Command.Tag, "Comando Sair Modo Manutenção", true, false, 1, false, "", Utilidades.VariaveisGlobais.UserLogged_GS, Utilidades.VariaveisGlobais.GroupUserLogged_GS, DateTime.Now.ToString(), "", "", DateTime.Now, "");
+            }
+            else
+            {
+                DataBase.SqlFunctionsEquips.IntoDate_Table_EquipAlarmEvent("_" + Command.Tag, "Comando Ir Para Modo Manutenção", true, false, 1, false, "", Utilidades.VariaveisGlobais.UserLogged_GS, Utilidades.VariaveisGlobais.GroupUserLogged_GS, DateTime.Now.ToString(), "", "", DateTime.Now, "");
+            }
         }
 
-        protected void Bt_Manual_Click(object sender, EventArgs e)
+        private void invertBitManual()
         {
             if (Command.Standard.Automatico)
             {
@@ -212,88 +436,22 @@ namespace _9230A_V00___PI.Utilidades
                 Command.Standard.Manual = false;
             }
 
-            if (Command.Standard.Automatico)
-            {
-                DataBase.SqlFunctionsEquips.IntoDate_Table_EquipAlarmEvent("_" + Command.Tag, "Comando Ir Para Modo Automático", true, false, 1, false, "", Utilidades.VariaveisGlobais.UserLogged_GS, Utilidades.VariaveisGlobais.GroupUserLogged_GS, DateTime.Now.ToString(), "", "", DateTime.Now, "");
-            }
-            else
-            {
-                DataBase.SqlFunctionsEquips.IntoDate_Table_EquipAlarmEvent("_" + Command.Tag, "Comando Ir Para Modo Manual", true, false, 1, false, "", Utilidades.VariaveisGlobais.UserLogged_GS, Utilidades.VariaveisGlobais.GroupUserLogged_GS, DateTime.Now.ToString(), "", "", DateTime.Now, "");
-            }
-        }
+            VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Enable_Read = false;
 
-        protected void Bt_Fechar_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        //INV
-        protected void INV_Bt_Turn_On_Click(object sender, EventArgs e)
-        {
-            if (Command.Standard.Liga_Manual)
+            if (Command_Get.TypeEquip == typeEquip.PD && Command_Get.TypeCommand == typeCommand.PD)
             {
-                Command.Standard.Liga_Manual = false;
+                Comunicacao.Sharp7.S7.SetDWordAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet, Utilidades.Move_Bits.typePD_TO_Dword(Utilidades.Move_Bits.typeStandardGUI_TO_typePD(Command)));
             }
-            else
+            else if (Command_Get.TypeEquip == typeEquip.INV && Command_Get.TypeCommand == typeCommand.INV)
             {
-                Command.Standard.Liga_Manual = true;
+                Comunicacao.Sharp7.S7.SetDWordAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet, Utilidades.Move_Bits.typeINV_TO_Dword(Utilidades.Move_Bits.typeStandardGUI_TO_typeINV(Command)));
+            }
+            else if (Command_Get.TypeEquip == typeEquip.SS && Command_Get.TypeCommand == typeCommand.SS)
+            {
+                Comunicacao.Sharp7.S7.SetDWordAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet, Utilidades.Move_Bits.typeSS_TO_Dword(Utilidades.Move_Bits.typeStandardGUI_TO_typeSS(Command)));
             }
 
-            if (Command.Standard.Liga_Manual)
-            {
-                //DataBase.SqlFunctionsEquips.IntoDate_Table_EquipAlarmEvent("_" + Command.Tag, "Comando Ligar", true, false, 1, false, "", Utilidades.VariaveisGlobais.UserLogged_GS, Utilidades.VariaveisGlobais.GroupUserLogged_GS, DateTime.Now.ToString(), "", "", DateTime.Now, "");
-            }
-            else
-            {
-                //DataBase.SqlFunctionsEquips.IntoDate_Table_EquipAlarmEvent("_" + Command.Tag, "Comando Desligar", true, false, 1, false, "", Utilidades.VariaveisGlobais.UserLogged_GS, Utilidades.VariaveisGlobais.GroupUserLogged_GS, DateTime.Now.ToString(), "", "", DateTime.Now, "");
-            }
-        }
-
-        protected void INV_Bt_Reset_Click(object sender, EventArgs e)
-        {
-            if (Command.Standard.Reset)
-            {
-                Command.Standard.Reset = false;
-            }
-            else
-            {
-                Command.Standard.Reset = true;
-            }
-
-            if (Command.Standard.Reset)
-            {
-                DataBase.SqlFunctionsEquips.IntoDate_Table_EquipAlarmEvent("_" + Command.Tag, "Comando Reset Falha", true, false, 1, false, "", Utilidades.VariaveisGlobais.UserLogged_GS, Utilidades.VariaveisGlobais.GroupUserLogged_GS, DateTime.Now.ToString(), "", "", DateTime.Now, "");
-            }
-
-        }
-
-        protected void INV_Bt_Maintenance_Click(object sender, EventArgs e)
-        {
-            if (Utilidades.VariaveisGlobais.NumberOfGroup_GS < 2)
-            {
-                TopMost.TopMostMessageBox.Show(Utilidades.VariaveisGlobais.faltaPermissaoMessage, Utilidades.VariaveisGlobais.faltaPermissaoTitle, System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
-            }
-            else
-            {
-
-
-            }
-        }
-
-        protected void INV_LB_Automatic_Click(object sender, EventArgs e)
-        {
-
-            if (Command.Standard.Automatico)
-            {
-                Command.Standard.Automatico = false;
-                Command.Standard.Manual = true;
-            }
-            else
-            {
-                Command.Standard.Automatico = true;
-                Command.Standard.Manual = false;
-            }
-
+            VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Enable_Write = true;
 
             if (Command.Standard.Automatico)
             {
@@ -325,27 +483,66 @@ namespace _9230A_V00___PI.Utilidades
 
         #region Encapulate Fields
 
-        public bool readPlcFromBuffer
+        public bool actualize_Equip
         {
             set
             {
-                if (Command.TypeEquip == typeEquip.PD && Command.TypeCommand == typeCommand.PD)
+                //Leitura das Variaveis
+                if (VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Enable_Read)
                 {
-                    //Lendo variaveis do buffer do CLP
-                    Command.DWord = Comunicacao.Sharp7.S7.GetDWordAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet);
-                    Command.PD.SP_Manutencao = Comunicacao.Sharp7.S7.GetDIntAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + 4);
-                    Command.PD.HorimetroParcial = Comunicacao.Sharp7.S7.GetDIntAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + 8);
-                    Command.PD.HorimetroTotal = Comunicacao.Sharp7.S7.GetDIntAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + 12);
-                    Command.PD.Tempo_Limpeza = Comunicacao.Sharp7.S7.GetDIntAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + 16);
+                    if (Command.TypeEquip == typeEquip.PD && Command.TypeCommand == typeCommand.PD)
+                    {
+                        //Lendo variaveis do buffer do CLP
+                        Command.DWord = Comunicacao.Sharp7.S7.GetDWordAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet);
+                        Command.PD.SP_Manutencao = Comunicacao.Sharp7.S7.GetDIntAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + 4);
+                        Command.PD.HorimetroParcial = Comunicacao.Sharp7.S7.GetDIntAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + 8);
+                        Command.PD.HorimetroTotal = Comunicacao.Sharp7.S7.GetDIntAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + 12);
+                        Command.PD.Tempo_Limpeza = Comunicacao.Sharp7.S7.GetDIntAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + 16);
 
-                    //Atualizando as variaveis para o standard GUI
+                        //Atualizando as variaveis para o standard GUI
 
-                    //Primeiro converte a Dword para os bits
-                    Command = Utilidades.Move_Bits.Dword_TO_typePD(Command.DWord, Command);
+                        //Primeiro converte a Dword para os bits
+                        Command = Utilidades.Move_Bits.Dword_TO_typePD(Command.DWord, Command);
 
-                    //Segundo atualiza o standard GUI
-                    Command = Utilidades.Move_Bits.typePD_TO_typeStandardGUI(Command);
+                        //Segundo atualiza o standard GUI
+                        Command = Utilidades.Move_Bits.typePD_TO_typeStandardGUI(Command);
 
+                    }
+                    else if (Command_Get.TypeEquip == typeEquip.INV && Command_Get.TypeCommand == typeCommand.INV)
+                    {
+                        //Lendo variaveis do buffer do CLP
+                        Command.DWord = Comunicacao.Sharp7.S7.GetDWordAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet);
+                        Command.INV.Velocidade_Manual = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + 4);
+                        Command.INV.Velocidade_Automatica_Solicita = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + 8);
+                        Command.INV.Velocidade_Atual = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + 12);
+                        Command.INV.Velocidade_Nominal = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + 16);
+                        Command.INV.SP_Corrente_Motor_Vazio = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + 20);
+                        Command.INV.Corrente_Atual = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + 24);
+                        Command.INV.Codigo_Alarme = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + 28);
+                        Command.INV.Codigo_Falha = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + 32);
+                        Command.INV.SP_Manutencao = Comunicacao.Sharp7.S7.GetDIntAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + 36);
+                        Command.INV.HorimetroParcial = Comunicacao.Sharp7.S7.GetDIntAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + 40);
+                        Command.INV.HorimetroTotal = Comunicacao.Sharp7.S7.GetDIntAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + 44);
+                        Command.INV.Tempo_Limpeza = Comunicacao.Sharp7.S7.GetDIntAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + 48);
+
+                        //Atualizando as variaveis para o standard GUI
+
+                        //Primeiro converte a Dword para os bits
+                        Command = Utilidades.Move_Bits.Dword_TO_typeINV(Command.DWord, Command);
+
+                        //Segundo atualiza o standard GUI
+                        Command = Utilidades.Move_Bits.typeINV_TO_typeStandardGUI(Command);
+                    }
+                }
+
+                //Atualiza Window
+                if (Command_Get.TypeEquip == typeEquip.PD && Command_Get.TypeCommand == typeCommand.PD)
+                {
+                    Window_PD.actualize_UI(Command);
+                }
+                else if (Command_Get.TypeEquip == typeEquip.INV && Command_Get.TypeCommand == typeCommand.INV)
+                {
+                    Window_INV.actualize_UI(Command);
                 }
             }
         }
@@ -363,6 +560,12 @@ namespace _9230A_V00___PI.Utilidades
             if (Command_Get.TypeEquip == typeEquip.PD && Command_Get.TypeCommand == typeCommand.PD)
             {
                 Window_PD.ShowDialog();
+            }
+            else if(Command_Get.TypeEquip == typeEquip.INV && Command_Get.TypeCommand == typeCommand.INV)
+            {
+                Window_INV.velocidadeManual_GS = Command.INV.Velocidade_Manual.ToString();
+
+                Window_INV.ShowDialog();
             }
         }
 

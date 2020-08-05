@@ -163,7 +163,7 @@
                 </TransformGroup>
             </Equipamentos:elevadorDireita.RenderTransform>
         </Equipamentos:elevadorDireita>
-        <Equipamentos:moinho HorizontalAlignment="Left" Height="132" Margin="494,505,0,0" VerticalAlignment="Top" Width="96" RenderTransformOrigin="0.5,0.5">
+        <Equipamentos:moinho x:Name="Motor_44" HorizontalAlignment="Left" Height="132" Margin="494,505,0,0" VerticalAlignment="Top" Width="96" RenderTransformOrigin="0.5,0.5">
             <Equipamentos:moinho.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="0.8" ScaleY="0.8"/>
@@ -233,7 +233,6 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Label Content="EL-01" HorizontalAlignment="Left" Height="25" Margin="199,42,0,0" VerticalAlignment="Top" Width="34" RenderTransformOrigin="0.5,0.5" FontSize="10" Foreground="White" FontWeight="Bold"/>
 
         <Rectangle Width="47" VerticalAlignment="Top" StrokeThickness="0" RenderTransformOrigin="0.5,0.5" Margin="235,108,0,0" Height="6" HorizontalAlignment="Left" Fill="Black" />
         <ed:Arc ArcThickness="0" ArcThicknessUnit="Pixel" EndAngle="90" HorizontalAlignment="Left" Height="15" Margin="228,99,0,0" Stretch="None" StartAngle="0" VerticalAlignment="Top" Width="14" StrokeThickness="6" RenderTransformOrigin="0.5,0.5" Stroke="Black">
@@ -332,7 +331,7 @@
         <Rectangle Fill="#FF97FF00" HorizontalAlignment="Left" Height="80" Margin="519,426,0,0" VerticalAlignment="Top" Width="6"/>
         <Rectangle Width="17" VerticalAlignment="Top" StrokeThickness="0" RenderTransformOrigin="0.5,0.5" Margin="502,419,0,0" Height="6" HorizontalAlignment="Left" Fill="#FF97FF00" />
         <ed:Arc EndAngle="90" HorizontalAlignment="Left" Height="15" Margin="510,419,0,0" StartAngle="0" VerticalAlignment="Top" Width="15" StrokeThickness="6" Stretch="None" Style="{DynamicResource ArcStyle1}" RenderTransformOrigin="0.5,0.5" Stroke="#FF97FF00"/>
-        <Equipamentos:elevadorDireita HorizontalAlignment="Left" Height="93" Margin="743,70,0,0" VerticalAlignment="Top" Width="38" RenderTransformOrigin="0.5,0.5">
+        <Equipamentos:elevadorDireita x:Name="Motor_62" HorizontalAlignment="Left" Height="489" Margin="743,109,0,0" VerticalAlignment="Top" Width="38" RenderTransformOrigin="0.5,0.5">
             <Equipamentos:elevadorDireita.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="1.2" ScaleY="1.2"/>
@@ -342,27 +341,7 @@
                 </TransformGroup>
             </Equipamentos:elevadorDireita.RenderTransform>
         </Equipamentos:elevadorDireita>
-        <Equipamentos:corpoElevador HorizontalAlignment="Left" Height="406" Margin="748,172,0,0" VerticalAlignment="Top" Width="22" RenderTransformOrigin="0.5,0.5">
-            <Equipamentos:corpoElevador.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform ScaleX="1.2" ScaleY="1.2"/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Equipamentos:corpoElevador.RenderTransform>
-        </Equipamentos:corpoElevador>
-        <Equipamentos:fundoElevador HorizontalAlignment="Left" Height="22" Margin="729,617,0,0" VerticalAlignment="Top" Width="59" RenderTransformOrigin="0.5,0.5">
-            <Equipamentos:fundoElevador.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform ScaleX="1.2" ScaleY="1.2"/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Equipamentos:fundoElevador.RenderTransform>
-        </Equipamentos:fundoElevador>
-        <Label Content="EL-02" HorizontalAlignment="Left" Height="25" Margin="743,42,0,0" VerticalAlignment="Top" Width="40" RenderTransformOrigin="0.5,0.5" FontSize="10" Foreground="White" FontWeight="Bold"/>
+        <Label Content="62" HorizontalAlignment="Left" Height="25" Margin="758,22,0,0" VerticalAlignment="Top" Width="40" RenderTransformOrigin="0.5,0.5" FontSize="10" Foreground="White" FontWeight="Bold"/>
         <Desenhos:Silo HorizontalAlignment="Left" Height="388" Margin="767,154,0,0" VerticalAlignment="Top" Width="135" RenderTransformOrigin="0.5,0.5">
             <Desenhos:Silo.RenderTransform>
                 <TransformGroup>
@@ -597,7 +576,7 @@
         </Label>
         <Label Content="REG-1" HorizontalAlignment="Left" Height="25" Margin="632,506,0,0" VerticalAlignment="Top" Width="42" RenderTransformOrigin="0.5,0.5" FontSize="10" Foreground="White" FontWeight="Bold"/>
         <Label Content="PRÉ MISTURADOR" HorizontalAlignment="Left" Height="18" Margin="422,423,0,0" VerticalAlignment="Top" Width="80" RenderTransformOrigin="0.5,0.5" FontSize="9" Foreground="White" FontWeight="Bold" HorizontalContentAlignment="Center" Padding="0"/>
-        <Label Content="EL-01" HorizontalAlignment="Left" Height="25" Margin="199,42,0,0" VerticalAlignment="Top" Width="34" RenderTransformOrigin="0.5,0.5" FontSize="10" Foreground="White" FontWeight="Bold"/>
+        <Label Content="22" HorizontalAlignment="Left" Height="25" Margin="163,54,0,0" VerticalAlignment="Top" Width="34" RenderTransformOrigin="0.5,0.5" FontSize="10" Foreground="White" FontWeight="Bold"/>
         <Rectangle Fill="#FF97FF00" HorizontalAlignment="Left" Height="116" Margin="922,504,0,0" VerticalAlignment="Top" Width="6"/>
         <Rectangle Fill="Black" HorizontalAlignment="Left" Height="10" Margin="902,584,0,0" VerticalAlignment="Top" Width="15"/>
         <Rectangle Fill="Black" HorizontalAlignment="Left" Height="37" Margin="907,593,0,0" VerticalAlignment="Top" Width="5"/>

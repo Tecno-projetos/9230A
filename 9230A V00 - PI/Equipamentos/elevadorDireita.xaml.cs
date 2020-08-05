@@ -592,13 +592,13 @@ namespace _9230A_V00___PI.Equipamentos
 
         #endregion  
 
-        public void loadEquip(typeEquip Equip, typeCommand TCommand, int initialOffSet, int bufferPlc)
+        public void loadEquip(typeEquip Equip, typeCommand TCommand, int initialOffSet, int bufferPlc, string nome, string tag, string numeroPartida, string paginaProjeto)
         {
-            equip = new EquipsControl(Equip, TCommand, initialOffSet, bufferPlc);
+            equip = new EquipsControl(Equip, TCommand, initialOffSet, bufferPlc, nome, tag, numeroPartida, paginaProjeto);
             loadedEquip = true;
         }
 
-        public void Actualize_UI()
+        public void actualize_UI()
         {
             if (loadedEquip)
             {
@@ -856,17 +856,17 @@ namespace _9230A_V00___PI.Equipamentos
             }
         }
 
-        public bool readPlcFromBuffer
+        public bool actualize_Equip
         {
             set
             {
                 if (loadedEquip)
                 {
                     //Atualiza Equipamento
-                    equip.readPlcFromBuffer = value;
+                    equip.actualize_Equip = value;
 
                     //Atualiza visual do equipamento
-                    Actualize_UI();
+                    actualize_UI();
 
                     //Atualiza tela de controle e status do equipamento
 
