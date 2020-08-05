@@ -19,8 +19,8 @@ namespace _9230A_V00___PI.Utilidades
         Partidas.controlePartidaDireta Window_PD;
         Partidas.controleInversor Window_INV;
         Partidas.controleSoftStarter Window_SS;
-        Partidas.controleAtuadorAnalogico Window_Atuador_Analogico;
-        Partidas.controleAtuadorLinear Window_Atuador_Digital;
+        Partidas.controleAtuadorAnalogico Window_AtuadorA;
+        Partidas.controleAtuadorLinear Window_AtuadorD;
         Partidas.controleAtuadorLinearBifurcada Window_BF;
 
         SolidColorBrush Verde = new SolidColorBrush(Color.FromRgb(0, 140, 0));
@@ -100,7 +100,24 @@ namespace _9230A_V00___PI.Utilidades
             //Atuador
             else if (Equip == typeEquip.Atuador)
             {
+                if (TCommand == typeCommand.Atuador_Digital)
+                {
+                    Window_AtuadorD = new Partidas.controleAtuadorLinear(nome, tag, numeroPartida, paginaProjeto);
 
+                    Window_AtuadorD.Closing += Window_AtuadorD_Closing;
+
+                    //Click para controle da Partida 
+                    Window_AtuadorD.Bt_Abrir_Click += new EventHandler(AtuadorD_Bt_Ligar_Click);
+                    Window_AtuadorD.Bt_Reset_Click += new EventHandler(AtuadorD_Bt_Reset_Click);
+                    Window_AtuadorD.Bt_Libera_Click += new EventHandler(AtuadorD_Bt_Libera_Click);
+                    Window_AtuadorD.Bt_Manutencao_Click += new EventHandler(AtuadorD_Bt_Manutencao_Click);
+                    Window_AtuadorD.Bt_Manual_Click += new EventHandler(AtuadorD_Bt_Manual_Click);
+                    Window_AtuadorD.Bt_Fechar_Click += new EventHandler(AtuadorD_Bt_Fechar_Click);
+                }
+                else if(TCommand == typeCommand.Atuador_Analogico)
+                {
+
+                }
 
             }
             //BF
@@ -134,10 +151,11 @@ namespace _9230A_V00___PI.Utilidades
             Window_SS.Hide();
         }
 
-        private void Window_BF_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        private void Window_AtuadorD_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             e.Cancel = true;
-            Window_BF.Hide();
+
+            Window_AtuadorD.Hide();
         }
 
 
@@ -293,6 +311,37 @@ namespace _9230A_V00___PI.Utilidades
             Comunicacao.Sharp7.S7.SetDIntAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + 28, Convert.ToInt32(Window_SS.SP_TempoReversao));
 
             VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Enable_Write = true;
+        }
+
+        //Atuador Digital
+        protected void AtuadorD_Bt_Ligar_Click(object sender, EventArgs e)
+        {
+            invertBitLigar();
+        }
+
+        protected void AtuadorD_Bt_Reset_Click(object sender, EventArgs e)
+        {
+            setBitReset();
+        }
+
+        protected void AtuadorD_Bt_Libera_Click(object sender, EventArgs e)
+        {
+            invertBitLibera();
+        }
+
+        protected void AtuadorD_Bt_Manutencao_Click(object sender, EventArgs e)
+        {
+            invertBitManutencao();
+        }
+
+        protected void AtuadorD_Bt_Manual_Click(object sender, EventArgs e)
+        {
+            invertBitManual();
+        }
+
+        protected void AtuadorD_Bt_Fechar_Click(object sender, EventArgs e)
+        {
+            Window_AtuadorD.DialogResult = true;
         }
 
         #endregion

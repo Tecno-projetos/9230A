@@ -27,24 +27,148 @@ namespace _9230A_V00___PI.Partidas
         public event EventHandler Bt_Manual_Click;
         public event EventHandler Bt_Fechar_Click;
 
-        #region Get/Sets
-
-        public string statusMotor_GS
+        public controleAtuadorLinear(string nome, string tag, string numeroPartida, string paginaProjeto)
         {
-            get => lbStatusMotor.Content.ToString();
+            InitializeComponent();
 
-            set
+            lbName.Content = nome;
+            this.Title = nome + " " + tag;
+        }
+
+        public void actualize_UI(Utilidades.VariaveisGlobais.type_All Command)
+        {
+            //Habilita ou desabilita botões
+            if (!Command.Standard.Emergencia || 
+                Command.Standard.FalhaAcionandoLado1 ||
+                Command.Standard.FalhaAcionandoLado2 ||
+                Command.Standard.Falha2PosicoesAtiva ||
+                Command.Standard.FalhaConfirmacaoContatorLado1 ||
+                Command.Standard.FalhaConfirmacaoContatorLado2
+                )
             {
-                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Content = value; });
+                btReset.Dispatcher.Invoke(delegate { btReset.IsEnabled = false; });
+
+                btManual.Dispatcher.Invoke(delegate { btManual.IsEnabled = false; });
+
+                btManutencao.Dispatcher.Invoke(delegate { btManutencao.IsEnabled = false; });
+
+                btLibera.Dispatcher.Invoke(delegate { btLibera.IsEnabled = false; });
+
+                btLigar.Dispatcher.Invoke(delegate { btLigar.IsEnabled = false; });
+
+            }
+            else
+            {
+                btReset.Dispatcher.Invoke(delegate { btReset.IsEnabled = true; });
+
+                btManual.Dispatcher.Invoke(delegate { btManual.IsEnabled = true; });
+
+                btManutencao.Dispatcher.Invoke(delegate { btManutencao.IsEnabled = true; });
+
+                btLibera.Dispatcher.Invoke(delegate { btLibera.IsEnabled = true; });
+
+                btLigar.Dispatcher.Invoke(delegate { btLigar.IsEnabled = true; });
+            }
+
+            //Atualiza status dos botões
+            if (Command.Standard.AcionaLado1)
+            {
+                btLigar.Dispatcher.Invoke(delegate { btLigar.IsChecked = true; });
+            }
+            else if(Command.Standard.AcionaLado2)
+            {
+                btLigar.Dispatcher.Invoke(delegate { btLigar.IsChecked = false; });
+            }
+
+            if (Command.Standard.Manual)
+            {
+                btManual.Dispatcher.Invoke(delegate { btManual.Content = "M"; });
+                lbManual.Dispatcher.Invoke(delegate { lbManual.Text = "Em Modo Manual"; });
+            }
+
+            if (Command.Standard.Automatico)
+            {
+                btManual.Dispatcher.Invoke(delegate { btManual.Content = "A"; });
+                lbManual.Dispatcher.Invoke(delegate { lbManual.Text = "Em Modo Automático"; });
+            }
+
+            if (Command.Standard.Manutencao)
+            {
+                btManutencao.Dispatcher.Invoke(delegate { btManutencao.IsChecked = true; });
+            }
+            else
+            {
+                btManutencao.Dispatcher.Invoke(delegate { btManutencao.IsChecked = false; });
+            }
+
+            if (Command.Standard.Libera_Bloqueio)
+            {
+                iconLibera.Dispatcher.Invoke(delegate { iconLibera.Kind = MaterialDesignThemes.Wpf.PackIconKind.LockOpen; });
+                textLibera.Dispatcher.Invoke(delegate { textLibera.Text = "Bloquear Liberada"; });
+                btLibera.Dispatcher.Invoke(delegate { btLibera.Background = new SolidColorBrush(Colors.Green); });
+            }
+            else
+            {
+                iconLibera.Dispatcher.Invoke(delegate { iconLibera.Kind = MaterialDesignThemes.Wpf.PackIconKind.Lock; });
+                textLibera.Dispatcher.Invoke(delegate { textLibera.Text = "Liberar Cascata"; });
+                btLibera.Dispatcher.Invoke(delegate { btLibera.Background = new SolidColorBrush(Colors.Yellow); });
+            }
+
+            //Status Motor
+            if (!Command.Standard.Emergencia)
+            {
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Content = "Em Emergência"; });
+            }
+            else if (Command.Standard.FalhaAcionandoLado1)
+            {
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Content = "Falha ao Abrir"; });
+            }
+            else if (Command.Standard.FalhaAcionandoLado2)
+            {
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Content = "Falha ao Fechar"; });
+            }
+            else if (Command.Standard.Falha2PosicoesAtiva)
+            {
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Content = "Falha 2 Posições Ativa"; });
+            }
+            else if (Command.Standard.FalhaConfirmacaoContatorLado1)
+            {
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Content = "Falha Confirmação Contator Abrir"; });
+            }
+            else if (Command.Standard.FalhaConfirmacaoContatorLado2)
+            {
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Content = "Falha Confirmação Contator Fechar"; });
+            }
+            else if (Command.Standard.Manutencao)
+            {
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Content = "Em Manutenção"; });
+            }
+            else if (Command.Standard.AcionandoLado1)
+            {
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Content = "Abrindo"; });
+            }
+            else if (Command.Standard.AcionandoLado2)
+            {
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Content = "Fechando"; });
+            }
+            else if (Command.Standard.AcionandoAutomatico)
+            {
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Content = "Acionando Automático"; });
+            }
+            else if (Command.Standard.EmPosicaoLado1)
+            {
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Content = "Aberto"; });
+            }
+            else if (Command.Standard.EmPosicaoLado2)
+            {
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Content = "Fechado"; });
+            }
+            else
+            {
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Content = "Sem Poisção"; });
             }
         }
 
-        #endregion
-
-        public controleAtuadorLinear()
-        {
-            InitializeComponent();
-        }
 
         private void btLigar_Click(object sender, RoutedEventArgs e)
         {
