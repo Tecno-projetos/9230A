@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:_9230A_V00___PI.Equipamentos"
               xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing"
-             mc:Ignorable="d" Height="123.103" Width="134.134">
+             mc:Ignorable="d" Height="123.103" Width="134.134" Cursor="Hand">
 <UserControl.Resources>
     <Storyboard x:Key="Storyboard1">
         <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="Apa_0">
@@ -46,7 +46,7 @@
         </DoubleAnimationUsingKeyFrames>
     </Storyboard>
 </UserControl.Resources>
-<Grid Margin="0,0,13,0">
+<Grid Margin="0,0,13,0" Cursor="Hand">
     <Grid.ColumnDefinitions>
         <ColumnDefinition/>
     </Grid.ColumnDefinitions>
