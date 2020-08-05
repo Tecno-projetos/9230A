@@ -38,13 +38,13 @@ namespace _9230A_V00___PI.Usuarios
 
             if (!String.IsNullOrEmpty(Valor))
             {
-                inputDialog = new Utilidades.messageBox("Confirmação de exclusão do usuário", "O usuário " + Valor + " será excluido, e não poderá ser restaurado. Tem certeza que deseja prosseguir?", MaterialDesignThemes.Wpf.PackIconKind.Information, "OK", "Fchar");
+                inputDialog = new Utilidades.messageBox("Confirmação de exclusão do usuário", "O usuário " + Valor + " será excluido, e não poderá ser restaurado. Tem certeza que deseja prosseguir?", MaterialDesignThemes.Wpf.PackIconKind.Information, "OK", "Fechar");
 
                 if (inputDialog.ShowDialog() == true)
                 {
                     if (DataBase.SqlFunctionsUsers.DropTableDBCA(Valor))
                     {
-                        inputDialog = new Utilidades.messageBox("Exclusão do usuário", "O usuário " + Valor + " foi excluido com sucesso!", MaterialDesignThemes.Wpf.PackIconKind.Information, "OK", "Fchar");
+                        inputDialog = new Utilidades.messageBox("Exclusão do usuário", "O usuário " + Valor + " foi excluido com sucesso!", MaterialDesignThemes.Wpf.PackIconKind.Information, "OK", "Fechar");
 
                         inputDialog.ShowDialog();
 
@@ -54,7 +54,7 @@ namespace _9230A_V00___PI.Usuarios
                     else
                     {
 
-                        inputDialog = new Utilidades.messageBox("Exclusão do usuário", "Não foi possível excluir o usuário " + Valor + ", entre em contato com o administrador", MaterialDesignThemes.Wpf.PackIconKind.Information, "OK", "Fchar");
+                        inputDialog = new Utilidades.messageBox("Exclusão do usuário", "Não foi possível excluir o usuário " + Valor + ", entre em contato com o administrador", MaterialDesignThemes.Wpf.PackIconKind.Information, "OK", "Fechar");
 
                         inputDialog.ShowDialog();
                     }
@@ -63,7 +63,7 @@ namespace _9230A_V00___PI.Usuarios
             }
             else
             {
-                inputDialog = new Utilidades.messageBox("Selecione o usuário", "Selecione algum usuário para prosseguir", MaterialDesignThemes.Wpf.PackIconKind.Information, "OK", "Fchar");
+                inputDialog = new Utilidades.messageBox("Selecione o usuário", "Selecione algum usuário para prosseguir", MaterialDesignThemes.Wpf.PackIconKind.Information, "OK", "Fechar");
 
 
                 inputDialog.ShowDialog();

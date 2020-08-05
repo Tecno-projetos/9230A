@@ -50,7 +50,7 @@ namespace _9230A_V00___PI.Usuarios
             }
             else
             {
-                inputDialog = new Utilidades.messageBox(Utilidades.VariaveisGlobais.faltaPermissaoTitle, Utilidades.VariaveisGlobais.faltaPermissaoMessage, MaterialDesignThemes.Wpf.PackIconKind.Information, "OK", "Fchar");
+                inputDialog = new Utilidades.messageBox(Utilidades.VariaveisGlobais.faltaPermissaoTitle, Utilidades.VariaveisGlobais.faltaPermissaoMessage, MaterialDesignThemes.Wpf.PackIconKind.Information, "OK", "Fechar");
 
                 inputDialog.ShowDialog();
             }
@@ -74,7 +74,7 @@ namespace _9230A_V00___PI.Usuarios
             }
             else
             {
-                inputDialog = new Utilidades.messageBox(Utilidades.VariaveisGlobais.faltaPermissaoTitle, Utilidades.VariaveisGlobais.faltaPermissaoMessage, MaterialDesignThemes.Wpf.PackIconKind.Information, "OK", "Fchar");
+                inputDialog = new Utilidades.messageBox(Utilidades.VariaveisGlobais.faltaPermissaoTitle, Utilidades.VariaveisGlobais.faltaPermissaoMessage, MaterialDesignThemes.Wpf.PackIconKind.Information, "OK", "Fechar");
 
                 inputDialog.ShowDialog();
             }

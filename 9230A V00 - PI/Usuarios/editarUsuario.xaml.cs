@@ -229,7 +229,7 @@ namespace _9230A_V00___PI.Usuarios
             Utilidades.messageBox inputDialog;
             if (String.IsNullOrEmpty((string)lbUser.Content))
             {
-                inputDialog = new Utilidades.messageBox("Sem Usuário", "Por favor selecione um usuário", MaterialDesignThemes.Wpf.PackIconKind.Information, "OK", "Fchar");
+                inputDialog = new Utilidades.messageBox("Sem Usuário", "Por favor selecione um usuário", MaterialDesignThemes.Wpf.PackIconKind.Information, "OK", "Fechar");
 
                 inputDialog.ShowDialog();
             }
@@ -237,7 +237,7 @@ namespace _9230A_V00___PI.Usuarios
             {
                 if (String.IsNullOrEmpty(txtSenha1.Password))
                 {
-                    inputDialog = new Utilidades.messageBox("Campos Vazios", "Por favor verifique se todos os campos estão preenchidos", MaterialDesignThemes.Wpf.PackIconKind.Error, "OK", "Fchar");
+                    inputDialog = new Utilidades.messageBox("Campos Vazios", "Por favor verifique se todos os campos estão preenchidos", MaterialDesignThemes.Wpf.PackIconKind.Error, "OK", "Fechar");
 
                     inputDialog.ShowDialog();
                 }
@@ -274,7 +274,7 @@ namespace _9230A_V00___PI.Usuarios
                         DataBase.SqlFunctionsUsers.IntoDateDBCA((string)lbUser.Content, DataBase.SqlFunctionsUsers.MD5Cryptography(txtSenha.Password), groupUser, email, "Modificado");
 
                         //mensagem que criou corretamente
-                        inputDialog = new Utilidades.messageBox("Edição Usuário", "Usuário " + (string)lbUser.Content  + " editado com sucesso!", MaterialDesignThemes.Wpf.PackIconKind.UserEdit, "OK", "Fchar");
+                        inputDialog = new Utilidades.messageBox("Edição Usuário", "Usuário " + (string)lbUser.Content  + " editado com sucesso!", MaterialDesignThemes.Wpf.PackIconKind.UserEdit, "OK", "Fechar");
 
                         txtEmail.Text = "";
                         txtSenha.Password = "";
@@ -292,7 +292,7 @@ namespace _9230A_V00___PI.Usuarios
                     else
                     {
                         //mensagem que criou corretamente
-                        inputDialog = new Utilidades.messageBox("Senhas não conhecidem", "Por favor as senhas não conhecidem, digitar novamente o campo senha", MaterialDesignThemes.Wpf.PackIconKind.UserAdd, "OK", "Fchar");
+                        inputDialog = new Utilidades.messageBox("Senhas não conhecidem", "Por favor as senhas não conhecidem, digitar novamente o campo senha", MaterialDesignThemes.Wpf.PackIconKind.UserAdd, "OK", "Fechar");
 
                         inputDialog.ShowDialog();
                     }
