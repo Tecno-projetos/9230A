@@ -91,9 +91,9 @@
             <Grid Background="#FF505050" Margin="711,6,294,48">
                 <materialDesign:PackIcon Kind="User" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="0,0,0,1" BorderBrush="#FF040404"/>
             </Grid>
-            <Button x:Name="btSair" Margin="829,5,0,0" Background="#FF505050" BorderBrush="{x:Null}" HorizontalAlignment="Left" Width="50" Height="84" VerticalAlignment="Top" Click="btSair_Click">
+            <Button x:Name="btLogin" Margin="829,5,0,0" Background="#FF505050" BorderBrush="{x:Null}" HorizontalAlignment="Left" Width="50" Height="84" VerticalAlignment="Top" Click="btLogin_Click">
                 <Grid Width="17" Height="25">
-                    <materialDesign:PackIcon Kind="ExitToApp" VerticalAlignment="Top" Foreground="White" Margin="-10,-2,-11,-5" HorizontalAlignment="Left" Width="38" Height="32"/>
+                    <materialDesign:PackIcon Kind="Login" VerticalAlignment="Top" Foreground="White" Margin="-10,-2,-11,-5" HorizontalAlignment="Left" Width="38" Height="32"/>
                 </Grid>
             </Button>
             <Button x:Name="btReceitas" Margin="369,4,0,0" Background="#FF505050" BorderBrush="{x:Null}" HorizontalAlignment="Left" Width="85" Height="84" VerticalAlignment="Top" Click="btReceitas_Click">
@@ -130,8 +130,42 @@
                 <TextBox x:Name="txtUser" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,0,1" FontSize="14" VerticalAlignment="Bottom" Foreground="White" PreviewMouseLeftButtonUp="txtUser_PreviewMouseLeftButtonUp" />
             </Grid>
 
+
         </Grid>
 
 
+        <!--Botão com messagebox-->
+        <materialDesign:DialogHost x:Name="dialogHost" BorderBrush="#FFD32B2B" Margin="-1110,1,1100,-1">
+            <materialDesign:DialogHost.DialogContent>
+                <Grid Width="450" Height="200" HorizontalAlignment="Center">
+                    <!--Imagem para messagebox-->
+                    <materialDesign:PackIcon x:Name="pckIcon" Kind="UserAdd" Foreground="#FF3C3C3C" Width="80" Height="80"/>
+                    <!--Titulo para messagebox-->
+                    <TextBlock Name="txtTitle" Foreground="Gray" Margin="73,0,7,155" TextWrapping="Wrap" Text="Titulo" FontSize="30" TextAlignment="Center"/>
+                    <!--Mensagem para messagebox-->
+                    <TextBlock x:Name="txtMessage" Foreground="Gray" Margin="85,45,7,76" TextWrapping="Wrap" Text="Mesagem" FontSize="20" TextAlignment="Center"/>
+                    <!--Click para messagebox-->
+                    <Button x:Name="genericButton_Direita" Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" Margin="333,134,7,6" VerticalAlignment="Center" Opacity="1" Width="110" Height="60" Background="#FF3C3C3C" BorderBrush="Black">
+                        Não
+                    </Button>
+                    <!--Click para messagebox-->
+                    <Button x:Name="genericButton_Esquerda" Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" Margin="218,134,122,6" VerticalAlignment="Center" Background="#FF3A3A3A" BorderBrush="#FF080808" Opacity="1" Width="110" Height="60">
+                        Sim
+                    </Button>
+                </Grid>
+            </materialDesign:DialogHost.DialogContent>
+
+            <!--Quando efetuado o click nesse botão deve-se ser setado o titulo e a mensagem que deseja utilizar na  tela-->
+            <Button x:Name="btCriarUsuario" Margin="241,598,220,27" Background="#FF505050" BorderBrush="Black" Height="50" Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}" Click="btCriarUsuario_Click" >
+                <Grid Width="150">
+                    <materialDesign:PackIcon Kind="UserAdd" VerticalAlignment="Center" Foreground="White" Margin="2,-6,0,-7" Height="30" Width="30"/>
+                    <TextBlock  Text="Criar Usuário " FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="41,1,24,-1" Width="85" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                </Grid>
+            </Button>
+
+
+            <!--Quando efetuado o click nesse botão deve-se ser setado o titulo e a mensagem que deseja utilizar na  tela-->
+
+        </materialDesign:DialogHost>
     </Grid>
 </Window>

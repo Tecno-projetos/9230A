@@ -1544,15 +1544,70 @@ namespace _9230A_V00___PI
 
         //-----------------------------------------------------------------------
         //Emanuel
-       #region Clicks Menu
+        #region Clicks Menu
 
-        private void btSair_Click(object sender, RoutedEventArgs e)
+        //private void btSair_Click(object sender, RoutedEventArgs e)
+        //{
+        //    App.Current.Shutdown();
+        //    Process proc = Process.GetCurrentProcess();
+        //    proc.Kill();
+
+        //}
+
+        #region Login e Logout
+
+        private bool login()
         {
-            App.Current.Shutdown();
-            Process proc = Process.GetCurrentProcess();
-            proc.Kill();
+            if (DataBase.SqlFunctionsUsers.ExistTableDBCA(txtUser.Text))
+            {
+                if (DataBase.SqlFunctionsUsers.CheckPasswordDBCA(txtUser.Text, tc.Password))
+                {
+                    DataBase.SqlFunctionsUsers.IntoDateDBCA(TBUserLogin.Text, AutomasulGUI.DataBase.SqlFunctionsUsers.MD5Cryptography(TBPasswordLogin.Password), AutomasulGUI.DataBase.SqlFunctionsUsers.GetLastValueTableDBCA(TBUserLogin.Text, "GroupUser"), AutomasulGUI.DataBase.SqlFunctionsUsers.GetLastValueTableDBCA(TBUserLogin.Text, "Email"), "Entrou");
+
+                    =Utility.GlobalVariables.UserLogged_GS = TBUserLogin.Text;
+                    AutomasulGUI.Utility.GlobalVariables.GroupUserLogged_GS = AutomasulGUI.DataBase.SqlFunctionsUsers.GetLastValueTableDBCA(TBUserLogin.Text, "GroupUser");
+                    AutomasulGUI.Utility.GlobalVariables.PasswordLogged_GS = TBPasswordLogin.Password;
+                    TBGroupUserLogin.Text = AutomasulGUI.Utility.GlobalVariables.GroupUserLogged_GS;
+
+                    TBUserLogin.IsEnabled = false;
+                    TBPasswordLogin.Password = "";
+                    TBPasswordLogin.IsEnabled = false;
+                    TB_Password.Visibility = Visibility.Hidden;
+
+
+                    BT_Logout.Visibility = Visibility.Visible;
+                    BT_Login.Visibility = Visibility.Hidden;
+
+                    return true;
+
+                }
+                else
+                {
+                    System.Windows.MessageBox.Show("Senha incorreta, por favor verifique e tente novamente", "Senha Incorreta", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return false;
+
+                }
+            }
+            else
+            {
+                System.Windows.MessageBox.Show("Usuário não cadastrado, por favor verifique e tente novamente", "Usuário não Cadastrado", MessageBoxButton.OK, MessageBoxImage.Information);
+                return false;
+            }
+        }
+
+
+        #endregion
+
+
+        private void btLogin_Click(object sender, RoutedEventArgs e)
+        {
+
+
+
 
         }
+
+
 
         private void btHome_Click(object sender, RoutedEventArgs e)
         {
@@ -1668,6 +1723,8 @@ namespace _9230A_V00___PI
 
             }
         }
+
+
     }
 
 }
