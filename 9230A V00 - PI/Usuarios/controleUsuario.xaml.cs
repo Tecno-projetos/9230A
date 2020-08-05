@@ -20,8 +20,12 @@ namespace _9230A_V00___PI.Usuarios
     /// </summary>
     public partial class controleUsuario : UserControl
     {
-        adicionarUsuario addUser = new adicionarUsuario();
 
+        Utilidades.messageBox inputDialog;
+
+        adicionarUsuario addUser = new adicionarUsuario();
+        removerUsuario removeUser = new removerUsuario();
+        editarUsuario editUser = new editarUsuario();
 
 
         public controleUsuario()
@@ -31,15 +35,63 @@ namespace _9230A_V00___PI.Usuarios
 
         private void btCriarUsuario_Click(object sender, RoutedEventArgs e)
         {
+            if (Utilidades.VariaveisGlobais.NumberOfGroup_GS == 3)
+            {
+                if (spControleUsuario != null)
+                {
+                    spControleUsuario.Children.Clear();
+
+                    spControleUsuario.Children.Add(addUser);
+                }
+                else
+                {
+                    spControleUsuario.Children.Add(addUser);
+                }
+            }
+            else
+            {
+                inputDialog = new Utilidades.messageBox(Utilidades.VariaveisGlobais.faltaPermissaoTitle, Utilidades.VariaveisGlobais.faltaPermissaoMessage, MaterialDesignThemes.Wpf.PackIconKind.Information, "OK", "Fchar");
+
+                inputDialog.ShowDialog();
+            }
+        }
+
+        private void btApagarUsuario_Click(object sender, RoutedEventArgs e)
+        {
+
+            if (Utilidades.VariaveisGlobais.NumberOfGroup_GS == 3)
+            {
+                if (spControleUsuario != null)
+                {
+                    spControleUsuario.Children.Clear();
+
+                    spControleUsuario.Children.Add(removeUser);
+                }
+                else
+                {
+                    spControleUsuario.Children.Add(removeUser);
+                }
+            }
+            else
+            {
+                inputDialog = new Utilidades.messageBox(Utilidades.VariaveisGlobais.faltaPermissaoTitle, Utilidades.VariaveisGlobais.faltaPermissaoMessage, MaterialDesignThemes.Wpf.PackIconKind.Information, "OK", "Fchar");
+
+                inputDialog.ShowDialog();
+            }
+
+        }
+
+        private void brEditarUsuario_Click(object sender, RoutedEventArgs e)
+        {
             if (spControleUsuario != null)
             {
                 spControleUsuario.Children.Clear();
 
-                spControleUsuario.Children.Add(addUser);
+                spControleUsuario.Children.Add(editUser);
             }
             else
             {
-                spControleUsuario.Children.Add(addUser);
+                spControleUsuario.Children.Add(editUser);
             }
         }
     }

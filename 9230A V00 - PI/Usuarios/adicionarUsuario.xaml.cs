@@ -35,17 +35,17 @@ namespace _9230A_V00___PI.Usuarios
 
         private void btCriarUsuario_Click(object sender, RoutedEventArgs e)
         {
+            Utilidades.messageBox inputDialog;
+
             if (VariaveisGlobais.DB_Connected_GS)
             {
+  
                 if (String.IsNullOrEmpty(txtUser.Text) || String.IsNullOrEmpty(txtSenha.Password) || String.IsNullOrEmpty(txtSenha1.Password))
                 {
+                    inputDialog = new Utilidades.messageBox("Campos Vazios", "Por favor verifique se todos os campos estão preenchidos", MaterialDesignThemes.Wpf.PackIconKind.Error, "OK", "Fchar");
 
-                    txtTitle.Text = "Campos Vazios";
-                    txtMessage.Text = "Por favor verifique se todos os campos estão preenchidos";
-                    pckIcon.Kind = PackIconKind.Error;
+                    inputDialog.ShowDialog();
 
-                    genericButton_Direita.Content = "Fechar";
-                    genericButton_Esquerda.Content = "Ok";
                 }
                 else
                 {
@@ -57,12 +57,9 @@ namespace _9230A_V00___PI.Usuarios
 
                             if (!char.IsLetter(t))
                             {
-                                txtTitle.Text = "Letra ao iniciar";
-                                txtMessage.Text = "Por favor inicie o nome do usuário com um caracter do alfabeto";
-                                pckIcon.Kind = PackIconKind.Error;
+                                inputDialog = new Utilidades.messageBox("Letra ao iniciar", "Por favor inicie o nome do usuário com um caracter do alfabeto", MaterialDesignThemes.Wpf.PackIconKind.Error, "OK", "Fchar");
 
-                                genericButton_Direita.Content = "Fechar";
-                                genericButton_Esquerda.Content = "Ok";
+                                inputDialog.ShowDialog();
 
                             }
                             else
@@ -70,12 +67,9 @@ namespace _9230A_V00___PI.Usuarios
                                 if ((DataBase.SqlFunctionsUsers.ExistTableDBCA(txtUser.Text)) == true)
                                 {
 
-                                    txtTitle.Text = "Conflito de Usuários";
-                                    txtMessage.Text = "Esse nome de usuário já existe, por favor informe outro nome";
-                                    pckIcon.Kind = PackIconKind.Error;
+                                    inputDialog = new Utilidades.messageBox("Conflito de Usuários", "Esse nome de usuário já existe, por favor informe outro nome", MaterialDesignThemes.Wpf.PackIconKind.Error, "OK", "Fchar");
 
-                                    genericButton_Direita.Content = "Fechar";
-                                    genericButton_Esquerda.Content = "Ok";
+                                    inputDialog.ShowDialog();
 
                                 }
                                 else
@@ -109,75 +103,44 @@ namespace _9230A_V00___PI.Usuarios
 
                                     DataBase.SqlFunctionsUsers.IntoDateDBCA(txtUser.Text, DataBase.SqlFunctionsUsers.MD5Cryptography(txtSenha.Password), groupUser, email, "Created");
 
-
                                     //mensagem que criou corretamente
-                                    txtTitle.Text = "Usuário Criado";
-                                    txtMessage.Text = "Usuário " + txtUser.Text + " cadastrado com sucesso!";
-                                    pckIcon.Kind = PackIconKind.UserAdd;
+                                    inputDialog = new Utilidades.messageBox("Usuário Criado", "Usuário " + txtUser.Text + " cadastrado com sucesso!", MaterialDesignThemes.Wpf.PackIconKind.UserAdd, "OK", "Fchar");
 
-                                    genericButton_Direita.Content = "Fechar";
-                                    genericButton_Esquerda.Content = "Ok";
+                                    inputDialog.ShowDialog();
 
-
-                                    //limpa campos
-                                    txtUser.Text = "";
-                                    txtSenha.Password = "";
-                                    txtSenha1.Password = "";
-                                    txtEmail.Text = "";
-
-                                    lbOperador.IsSelected = true;
-                                    pckAdm.Visibility = Visibility.Hidden;
-                                    pckMan.Visibility = Visibility.Hidden;
-                                    pckOperador.Visibility = Visibility.Visible;
+                                    limpaCampos();
 
                                 }
                             }
                         }
                         else
                         {
-                            txtTitle.Text = "Senhas não conhecidem";
-                            txtMessage.Text = "Por favor as senhas não conhecidem, digitar novamente o campo senha";
-                            pckIcon.Kind = PackIconKind.Error;
+                            //mensagem que criou corretamente
+                            inputDialog = new Utilidades.messageBox("Senhas não conhecidem", "Por favor as senhas não conhecidem, digitar novamente o campo senha", MaterialDesignThemes.Wpf.PackIconKind.UserAdd, "OK", "Fchar");
 
-                            genericButton_Direita.Content = "Fechar";
-                            genericButton_Esquerda.Content = "Ok";
+                            inputDialog.ShowDialog();
 
                         }
                     }
                     else
                     {
-                        txtTitle.Text = "Grupo de Usuário";
-                        txtMessage.Text = "Por favor selecioane o grupo de usuário";
-                        pckIcon.Kind = PackIconKind.Error;
+      
+                        inputDialog = new Utilidades.messageBox("Grupo de Usuário", "Por favor selecioane o grupo de usuário", MaterialDesignThemes.Wpf.PackIconKind.UserAdd, "OK", "Fchar");
 
-                        genericButton_Direita.Content = "Fechar";
-                        genericButton_Esquerda.Content = "Ok";
+                        inputDialog.ShowDialog();
                     }
                 }
             }
             else
             {
-                txtTitle.Text = "Sem conexão com Banco de Dados";
-                txtMessage.Text = "Por favor verifique a conexão com o Banco de Dados";
-                pckIcon.Kind = PackIconKind.Error;
+                inputDialog = new Utilidades.messageBox("Sem conexão com Banco de Dados", "Por favor verifique a conexão com o Banco de Dados", MaterialDesignThemes.Wpf.PackIconKind.DatabaseRefresh, "OK", "Fchar");
 
-                genericButton_Direita.Content = "Fechar";
-                genericButton_Esquerda.Content = "Ok";
+                inputDialog.ShowDialog();
             }
         }
-
         private void openKeyboard(object sender, MouseButtonEventArgs e)
         {
             Teclados.keyboard.openKeyboard();
-        }
-
-        private void DialogHost_LostFocus(object sender, RoutedEventArgs e)
-        {
-            if (dialogHost.IsOpen)
-            {
-                dialogHost.IsOpen = false;
-            }
-
         }
 
         private void lbAdm_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -210,5 +173,27 @@ namespace _9230A_V00___PI.Usuarios
                 pckOperador.Visibility = Visibility.Visible;
             }
         }
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            limpaCampos();
+
+        }
+
+        private void limpaCampos()
+        {
+
+            //limpa campos
+            txtUser.Text = "";
+            txtSenha.Password = "";
+            txtSenha1.Password = "";
+            txtEmail.Text = "";
+
+            lbOperador.IsSelected = true;
+            pckAdm.Visibility = Visibility.Hidden;
+            pckMan.Visibility = Visibility.Hidden;
+            pckOperador.Visibility = Visibility.Visible;
+        }
+
+
     }
 }

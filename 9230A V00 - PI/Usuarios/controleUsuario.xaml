@@ -18,13 +18,13 @@
 
             <materialDesign:PackIcon Kind="User" VerticalAlignment="Center" Foreground="White" Height="95" Margin="0,6,0,574" Width="200"/>
             <Label Content="Controle de Usuário" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Foreground="White" FontSize="16" VerticalContentAlignment="Center" FontWeight="Bold" HorizontalContentAlignment="Center" Margin="0,86,0,0"/>
-            <Button x:Name="btApagarUsuario" Margin="10,190,10,435" Background="#FF505050" BorderBrush="Black" Height="50">
+            <Button x:Name="btApagarUsuario" Margin="10,190,10,435" Background="#FF505050" BorderBrush="Black" Height="50" Click="btApagarUsuario_Click">
                 <Grid Width="150" Height="25">
                     <materialDesign:PackIcon Kind="UserMinus" VerticalAlignment="Center" Foreground="White" Margin="2,-6,0,-7" Height="30" Width="30"/>
                     <TextBlock  Text="Apagar Usuário " FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="41,1,10,-1" Width="99" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                 </Grid>
             </Button>
-            <Button x:Name="brEditarUsuario" Margin="10,245,10,380" Background="#FF505050" BorderBrush="Black" Height="50">
+            <Button x:Name="brEditarUsuario" Margin="10,245,10,380" Background="#FF505050" BorderBrush="Black" Height="50" Click="brEditarUsuario_Click">
                 <Grid Width="150" Height="30">
                     <materialDesign:PackIcon Kind="UserEdit" VerticalAlignment="Center" Foreground="White" Margin="2,-6,0,-7" Height="30" Width="30"/>
                     <TextBlock  Text="Editar Usuário " FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="41,1,10,-1" Width="99" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center"/>
