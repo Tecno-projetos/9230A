@@ -38,6 +38,32 @@ namespace _9230A_V00___PI.Partidas
             this.Title = nome + " " + tag;
         }
 
+        public string CorrenteMotorVazio
+        {
+            set
+            {
+                tbCorrenteVazio.Dispatcher.Invoke(delegate { tbCorrenteVazio.Text = value; });
+                
+            }
+            get
+            {
+                return tbCorrenteVazio.Text;
+            }
+        }
+
+        public string SP_TempoReversao
+        {
+            set
+            {
+                tbReversao.Dispatcher.Invoke(delegate { tbReversao.Text = value; });
+
+            }
+            get
+            {
+                return tbReversao.Text;
+            }
+        }
+
         public void actualize_UI(Utilidades.VariaveisGlobais.type_All Command)
         {
             //Habilita ou desabilita botões
@@ -53,6 +79,10 @@ namespace _9230A_V00___PI.Partidas
 
                 btLigar.Dispatcher.Invoke(delegate { btLigar.IsEnabled = false; });
 
+                btInverte.Dispatcher.Invoke(delegate { btInverte.IsEnabled = false; });
+
+                
+
             }
             else
             {
@@ -65,9 +95,12 @@ namespace _9230A_V00___PI.Partidas
                 btLibera.Dispatcher.Invoke(delegate { btLibera.IsEnabled = true; });
 
                 btLigar.Dispatcher.Invoke(delegate { btLigar.IsEnabled = true; });
+
+                btInverte.Dispatcher.Invoke(delegate { btInverte.IsEnabled = true; });
             }
 
-            //Atualiza status dos botões
+            //Atualiza status dos botões2
+
             if (Command.Standard.Liga_Manual)
             {
                 btLigar.Dispatcher.Invoke(delegate { btLigar.IsChecked = true; });

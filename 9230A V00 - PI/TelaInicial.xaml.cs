@@ -70,7 +70,7 @@ namespace _9230A_V00___PI
 
             VariaveisGlobais.Fluxo.Motor_22.loadEquip(Utilidades.typeEquip.PD, Utilidades.typeCommand.PD, 0, 0, "Elevador Autolimpante", "22", "22", "11");
             VariaveisGlobais.Fluxo.Motor_62.loadEquip(Utilidades.typeEquip.INV, Utilidades.typeCommand.INV, 264, 0, "Elevador Expedição", "61", "61", "10");
-            VariaveisGlobais.Fluxo.Motor_44.loadEquip(Utilidades.typeEquip.SS, Utilidades.typeCommand.SS, 264, 0, "Moinho", "44", "44", "0");
+            VariaveisGlobais.Fluxo.Motor_44.loadEquip(Utilidades.typeEquip.SS, Utilidades.typeCommand.SS, 164, 0, "Moinho", "44", "44", "0");
 
             #endregion
 

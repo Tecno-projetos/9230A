@@ -93,6 +93,8 @@ namespace _9230A_V00___PI.Utilidades
                 Window_SS.Bt_Manual_Click += new EventHandler(SS_Bt_Manual_Click);
                 Window_SS.Bt_Fechar_Click += new EventHandler(SS_Bt_Fechar_Click);
                 Window_SS.Bt_Inverte_Click += new EventHandler(SS_Bt_InverterSentido_Click);
+                Window_SS.atualizarCorrenteVazio += new EventHandler(SS_Bt_atualizarCorrenteVazio_Click);
+                Window_SS.atualizarTempoReversao += new EventHandler(SS_Bt_atualizarTempoReversao_Click);
 
             }
             //Atuador
@@ -273,6 +275,24 @@ namespace _9230A_V00___PI.Utilidades
         protected void SS_Bt_Fechar_Click(object sender, EventArgs e)
         {
             Window_SS.DialogResult = true;
+        }
+
+        protected void SS_Bt_atualizarCorrenteVazio_Click(object sender, EventArgs e)
+        {
+            VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Enable_Read = false;
+
+            Comunicacao.Sharp7.S7.SetRealAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + 24, Convert.ToSingle(Window_SS.CorrenteMotorVazio));
+
+            VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Enable_Write = true;
+        }
+
+        protected void SS_Bt_atualizarTempoReversao_Click(object sender, EventArgs e)
+        {
+            VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Enable_Read = false;
+
+            Comunicacao.Sharp7.S7.SetDIntAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + 28, Convert.ToInt32(Window_SS.SP_TempoReversao));
+
+            VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Enable_Write = true;
         }
 
         #endregion
@@ -533,6 +553,30 @@ namespace _9230A_V00___PI.Utilidades
                         //Segundo atualiza o standard GUI
                         Command = Utilidades.Move_Bits.typeINV_TO_typeStandardGUI(Command);
                     }
+                    else if (Command_Get.TypeEquip == typeEquip.SS && Command_Get.TypeCommand == typeCommand.SS)
+                    {
+                        //Lendo variaveis do buffer do CLP
+                        Command.DWord = Comunicacao.Sharp7.S7.GetDWordAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet);
+                        Command.SS.SP_Manutencao = Comunicacao.Sharp7.S7.GetDIntAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + 4);
+                        Command.SS.HorimetroParcial = Comunicacao.Sharp7.S7.GetDIntAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + 8);
+                        Command.SS.HorimetroTotal = Comunicacao.Sharp7.S7.GetDIntAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + 12);
+                        Command.SS.Tempo_Limpeza = Comunicacao.Sharp7.S7.GetDIntAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + 16);
+                        Command.SS.Corrente_Atual = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + 20);
+                        Command.SS.SP_Corrente_Motor_Vazio = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + 24);
+                        Command.SS.SP_Tempo_Reversao = Comunicacao.Sharp7.S7.GetDIntAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + 28);
+                        Command.SS.Tempo_Reversao_Atual = Comunicacao.Sharp7.S7.GetDIntAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + 32);
+
+
+                        //Atualizando as variaveis para o standard GUI
+
+                        //Primeiro converte a Dword para os bits
+                        Command = Utilidades.Move_Bits.Dword_TO_typeSS(Command.DWord, Command);
+
+                        //Segundo atualiza o standard GUI
+                        Command = Utilidades.Move_Bits.typeSS_TO_typeStandardGUI(Command);
+
+
+                    }
                 }
 
                 //Atualiza Window
@@ -543,6 +587,10 @@ namespace _9230A_V00___PI.Utilidades
                 else if (Command_Get.TypeEquip == typeEquip.INV && Command_Get.TypeCommand == typeCommand.INV)
                 {
                     Window_INV.actualize_UI(Command);
+                }
+                else if (Command_Get.TypeEquip == typeEquip.SS && Command_Get.TypeCommand == typeCommand.SS)
+                {
+                    Window_SS.actualize_UI(Command);
                 }
             }
         }
@@ -566,6 +614,13 @@ namespace _9230A_V00___PI.Utilidades
                 Window_INV.velocidadeManual_GS = Command.INV.Velocidade_Manual.ToString();
 
                 Window_INV.ShowDialog();
+            }
+            else if (Command_Get.TypeEquip == typeEquip.SS && Command_Get.TypeCommand == typeCommand.SS)
+            {
+                Window_SS.CorrenteMotorVazio = Command.SS.SP_Corrente_Motor_Vazio.ToString();
+                Window_SS.SP_TempoReversao = Command.SS.SP_Tempo_Reversao.ToString();
+
+                Window_SS.ShowDialog();
             }
         }
 
