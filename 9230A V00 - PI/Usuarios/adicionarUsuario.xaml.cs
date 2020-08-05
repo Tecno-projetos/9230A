@@ -42,7 +42,7 @@ namespace _9230A_V00___PI.Usuarios
   
                 if (String.IsNullOrEmpty(txtUser.Text) || String.IsNullOrEmpty(txtSenha.Password) || String.IsNullOrEmpty(txtSenha1.Password))
                 {
-                    inputDialog = new Utilidades.messageBox("Campos Vazios", "Por favor verifique se todos os campos estão preenchidos", MaterialDesignThemes.Wpf.PackIconKind.Error, "OK", "Fchar");
+                    inputDialog = new Utilidades.messageBox("Campos Vazios", "Por favor verifique se todos os campos estão preenchidos", MaterialDesignThemes.Wpf.PackIconKind.Error, "OK", "Fechar");
 
                     inputDialog.ShowDialog();
 
@@ -57,7 +57,7 @@ namespace _9230A_V00___PI.Usuarios
 
                             if (!char.IsLetter(t))
                             {
-                                inputDialog = new Utilidades.messageBox("Letra ao iniciar", "Por favor inicie o nome do usuário com um caracter do alfabeto", MaterialDesignThemes.Wpf.PackIconKind.Error, "OK", "Fchar");
+                                inputDialog = new Utilidades.messageBox("Letra ao iniciar", "Por favor inicie o nome do usuário com um caracter do alfabeto", MaterialDesignThemes.Wpf.PackIconKind.Error, "OK", "Fechar");
 
                                 inputDialog.ShowDialog();
 
@@ -67,7 +67,7 @@ namespace _9230A_V00___PI.Usuarios
                                 if ((DataBase.SqlFunctionsUsers.ExistTableDBCA(txtUser.Text)) == true)
                                 {
 
-                                    inputDialog = new Utilidades.messageBox("Conflito de Usuários", "Esse nome de usuário já existe, por favor informe outro nome", MaterialDesignThemes.Wpf.PackIconKind.Error, "OK", "Fchar");
+                                    inputDialog = new Utilidades.messageBox("Conflito de Usuários", "Esse nome de usuário já existe, por favor informe outro nome", MaterialDesignThemes.Wpf.PackIconKind.Error, "OK", "Fechar");
 
                                     inputDialog.ShowDialog();
 
@@ -104,7 +104,7 @@ namespace _9230A_V00___PI.Usuarios
                                     DataBase.SqlFunctionsUsers.IntoDateDBCA(txtUser.Text, DataBase.SqlFunctionsUsers.MD5Cryptography(txtSenha.Password), groupUser, email, "Created");
 
                                     //mensagem que criou corretamente
-                                    inputDialog = new Utilidades.messageBox("Usuário Criado", "Usuário " + txtUser.Text + " cadastrado com sucesso!", MaterialDesignThemes.Wpf.PackIconKind.UserAdd, "OK", "Fchar");
+                                    inputDialog = new Utilidades.messageBox("Usuário Criado", "Usuário " + txtUser.Text + " cadastrado com sucesso!", MaterialDesignThemes.Wpf.PackIconKind.UserAdd, "OK", "Fechar");
 
                                     inputDialog.ShowDialog();
 
@@ -116,7 +116,7 @@ namespace _9230A_V00___PI.Usuarios
                         else
                         {
                             //mensagem que criou corretamente
-                            inputDialog = new Utilidades.messageBox("Senhas não conhecidem", "Por favor as senhas não conhecidem, digitar novamente o campo senha", MaterialDesignThemes.Wpf.PackIconKind.UserAdd, "OK", "Fchar");
+                            inputDialog = new Utilidades.messageBox("Senhas não conhecidem", "Por favor as senhas não conhecidem, digitar novamente o campo senha", MaterialDesignThemes.Wpf.PackIconKind.UserAdd, "OK", "Fechar");
 
                             inputDialog.ShowDialog();
 
@@ -125,7 +125,7 @@ namespace _9230A_V00___PI.Usuarios
                     else
                     {
       
-                        inputDialog = new Utilidades.messageBox("Grupo de Usuário", "Por favor selecioane o grupo de usuário", MaterialDesignThemes.Wpf.PackIconKind.UserAdd, "OK", "Fchar");
+                        inputDialog = new Utilidades.messageBox("Grupo de Usuário", "Por favor selecioane o grupo de usuário", MaterialDesignThemes.Wpf.PackIconKind.UserAdd, "OK", "Fechar");
 
                         inputDialog.ShowDialog();
                     }
@@ -133,7 +133,7 @@ namespace _9230A_V00___PI.Usuarios
             }
             else
             {
-                inputDialog = new Utilidades.messageBox("Sem conexão com Banco de Dados", "Por favor verifique a conexão com o Banco de Dados", MaterialDesignThemes.Wpf.PackIconKind.DatabaseRefresh, "OK", "Fchar");
+                inputDialog = new Utilidades.messageBox("Sem conexão com Banco de Dados", "Por favor verifique a conexão com o Banco de Dados", MaterialDesignThemes.Wpf.PackIconKind.DatabaseRefresh, "OK", "Fechar");
 
                 inputDialog.ShowDialog();
             }

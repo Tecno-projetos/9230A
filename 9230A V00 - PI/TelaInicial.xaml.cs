@@ -1576,7 +1576,7 @@ namespace _9230A_V00___PI
                 }
                 else
                 {
-                    Utilidades.messageBox inputDialog = new messageBox("Senha Incorreta", "Senha incorreta, por favor verifique e tente novamente", MaterialDesignThemes.Wpf.PackIconKind.Error,"OK","Fchar");
+                    Utilidades.messageBox inputDialog = new messageBox("Senha Incorreta", "Senha incorreta, por favor verifique e tente novamente", MaterialDesignThemes.Wpf.PackIconKind.Error,"OK","Fechar");
 
                     inputDialog.ShowDialog();
 
@@ -1587,7 +1587,7 @@ namespace _9230A_V00___PI
             else
             {
 
-                Utilidades.messageBox inputDialog = new messageBox("Usuário não Cadastrado", "Usuário não cadastrado, por favor verifique e tente novamente", MaterialDesignThemes.Wpf.PackIconKind.Information, "OK", "Fchar");
+                Utilidades.messageBox inputDialog = new messageBox("Usuário não Cadastrado", "Usuário não cadastrado, por favor verifique e tente novamente", MaterialDesignThemes.Wpf.PackIconKind.Information, "OK", "Fechar");
 
                 inputDialog.ShowDialog();
 
@@ -1731,7 +1731,7 @@ namespace _9230A_V00___PI
         {
             if (VariaveisGlobais.NumberOfGroup_GS == 0)
             {
-                inputDialog = new Utilidades.messageBox(VariaveisGlobais.faltaUsuarioTitle, VariaveisGlobais.faltaUsuarioMessage, MaterialDesignThemes.Wpf.PackIconKind.Error, "OK", "Fchar");
+                inputDialog = new Utilidades.messageBox(VariaveisGlobais.faltaUsuarioTitle, VariaveisGlobais.faltaUsuarioMessage, MaterialDesignThemes.Wpf.PackIconKind.Error, "OK", "Fechar");
                 inputDialog.ShowDialog();
             }
             else

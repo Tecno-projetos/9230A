@@ -142,7 +142,7 @@ namespace _9230A_V00___PI.Usuarios
 
             if (String.IsNullOrEmpty(Valor))
             {
-                inputDialog = new Utilidades.messageBox("Sem Usuário", "Por favor selecione um usuário", MaterialDesignThemes.Wpf.PackIconKind.Information, "OK", "Fchar");
+                inputDialog = new Utilidades.messageBox("Sem Usuário", "Por favor selecione um usuário", MaterialDesignThemes.Wpf.PackIconKind.Information, "OK", "Fechar");
 
                 inputDialog.ShowDialog();
             }
@@ -165,7 +165,7 @@ namespace _9230A_V00___PI.Usuarios
                 }
                 else
                 {
-                    inputDialog = new Utilidades.messageBox("Selecione Data", "A data inicial deve ser menor que a final", MaterialDesignThemes.Wpf.PackIconKind.Information, "OK", "Fchar");
+                    inputDialog = new Utilidades.messageBox("Selecione Data", "A data inicial deve ser menor que a final", MaterialDesignThemes.Wpf.PackIconKind.Information, "OK", "Fechar");
 
                     inputDialog.ShowDialog();
                 }
