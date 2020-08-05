@@ -42,21 +42,49 @@
         <Label Content="Tabela Usuário" HorizontalAlignment="Left" VerticalAlignment="Top" Width="825" Foreground="White" FontSize="16" VerticalContentAlignment="Center" FontWeight="Bold" HorizontalContentAlignment="Center" Margin="0,86,0,0"/>
         <Rectangle Fill="White" HorizontalAlignment="Left" Height="5" Margin="0,118,0,0" Stroke="White" VerticalAlignment="Top" Width="825"/>
 
-        <Button x:Name="btPesquisar" Margin="378,615,83,10" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btPesquisar_Click" >
+        <Button x:Name="btPesquisar" Margin="588,615,10,10" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btPesquisar_Click" >
             <Grid Width="150">
                 <materialDesign:PackIcon Kind="Search" VerticalAlignment="Center" Foreground="White" Margin="2,-6,0,-7" Height="30" Width="30"/>
-                <TextBlock  Text="Pesquisar" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="41,1,24,-1" Width="85" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <TextBlock  Text="Pesquisar" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="55,0,10,0" Width="85" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center"/>
             </Grid>
         </Button>
         <ListBox x:Name="listbox" Margin="7,178,542,10" Background="{x:Null}" BorderBrush="{x:Null}" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Visible" SelectionChanged="listbox_SelectionChanged"/>
         <Label Content="Nome do Usuário: " Height="34" Margin="62,140,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="188" Foreground="White" FontWeight="Bold" FontSize="16"/>
         <materialDesign:PackIcon Kind="User" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="24,139,763,502" BorderBrush="#FF040404"/>
 
-        <DataGrid x:Name="DataGridHistory" Margin="300,178,10,75" ItemsSource="{Binding}" AutoGenerateColumns="True"/>
+        <DataGrid x:Name="DataGridHistory" Margin="300,190,10,0" CanUserAddRows="False"
+            HorizontalAlignment="Stretch" VerticalAlignment="Top"
+            RowBackground="#fff" FontWeight="Bold" Foreground="#525252"
+            ScrollViewer.CanContentScroll="True"
+            HorizontalGridLinesBrush="Black"
+            VerticalGridLinesBrush="Black" BorderBrush="#000" BorderThickness="1"
+            ScrollViewer.HorizontalScrollBarVisibility="Visible"
+            CanUserDeleteRows ="False" CanUserReorderColumns="False" CanUserResizeRows="False" CanUserSortColumns="False"   
+            ScrollViewer.VerticalScrollBarVisibility="Auto" Height="370" Cursor="Hand" IsReadOnly="True"/>
 
 
         <xctk:DateTimePicker x:Name="DTPStart" Height="30" Margin="301,139,0,0" VerticalAlignment="Top" Width="240" HorizontalAlignment="Left" HorizontalContentAlignment="Left" Cursor="Hand" ToolTip="Selecione a data Inicial para pesquisa." FontSize="14"/>
         <xctk:DateTimePicker x:Name="DTPEnd" Height="30" Margin="575,139,0,0" VerticalAlignment="Top" Width="240" HorizontalAlignment="Left" HorizontalContentAlignment="Left" Cursor="Hand" ToolTip="Selecione a data Inicial para pesquisa." FontSize="14"/>
+        <Button x:Name="btUpList" Margin="382,565,366,60" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btDownList_Click" >
+            <Grid Width="42" Height="42" Margin="0">
+                <materialDesign:PackIcon Kind="ArrowUpBold" VerticalAlignment="Center" Foreground="White" Height="42" Width="42"/>
+            </Grid>
+        </Button>
+        <Button x:Name="btDownList1" Margin="382,620,366,5" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btDownList_Click" >
+            <Grid Width="42" Height="42" Margin="0">
+                <materialDesign:PackIcon Kind="ArrowDownBold" VerticalAlignment="Center" Foreground="White" Height="42" Width="42"/>
+            </Grid>
+        </Button>
+        <Button x:Name="btDownList_Copy1" Margin="300,590,448,35" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btDownList_Click" >
+            <Grid Width="42" Height="42" Margin="0">
+                <materialDesign:PackIcon Kind="ArrowLeftBold" VerticalAlignment="Center" Foreground="White" Height="42" Width="42"/>
+            </Grid>
+        </Button>
+        <Button x:Name="btDownList_Copy2" Margin="464,590,284,35" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btDownList_Click" >
+            <Grid Width="42" Height="42" Margin="0">
+                <materialDesign:PackIcon Kind="ArrowRightBold" VerticalAlignment="Center" Foreground="White" Height="42" Width="42"/>
+            </Grid>
+        </Button>
 
 
     </Grid>

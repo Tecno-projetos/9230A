@@ -151,7 +151,7 @@ namespace _9230A_V00___PI.Usuarios
                 if (DTPStart.Value < DTPEnd.Value)
                 {
     
-                    System.Data.DataTable Data = DataBase.SqlFunctionsUsers.GetTableDBCA(Valor, Convert.ToDateTime(DTPStart.Value), Convert.ToDateTime(DTPEnd.Value));
+                    System.Data.DataTable Data = DataBase.SqlFunctionsUsers.Get_Table(Valor, Convert.ToDateTime(DTPStart.Value), Convert.ToDateTime(DTPEnd.Value));
                     DataGridHistory.ItemsSource = Data.DefaultView;
                     DataGridHistory.Columns[0].Header = "Id";
                     DataGridHistory.Columns[1].Visibility = Visibility.Hidden;
@@ -182,6 +182,16 @@ namespace _9230A_V00___PI.Usuarios
 
 
 
+        }
+
+        private void btDownList_Click(object sender, RoutedEventArgs e)
+        {
+            var scroll = (VisualTreeHelper.GetChild(DataGridHistory, 0) as Decorator).Child as ScrollViewer ;
+
+            scroll.ScrollToVerticalOffset(scroll.VerticalOffset+5);
+
+            MessageBox.Show(scroll.VerticalOffset.ToString());
+            
         }
     }
 }
