@@ -19,8 +19,8 @@ namespace _9230A_V00___PI.Utilidades
         Partidas.Principal.principalPartidaDireta Window_PD;
         Partidas.controleInversor Window_INV;
         Partidas.controleSoftStarter Window_SS;
-        Partidas.controleAtuadorAnalogico Window_AtuadorA;
-        Partidas.controleAtuadorLinear Window_AtuadorD;
+        Partidas.Principal.principalControleAtuadorAnalogico Window_AtuadorA;
+        Partidas.Principal.principalControleAtuadorLinear Window_AtuadorD;
         Partidas.controleAtuadorLinearBifurcada Window_BF;
 
         SolidColorBrush Verde = new SolidColorBrush(Color.FromRgb(0, 140, 0));
@@ -49,10 +49,6 @@ namespace _9230A_V00___PI.Utilidades
             //PD
             if (Equip == typeEquip.PD)
             {
-
-
-
-
                 Window_PD = new Partidas.Principal.principalPartidaDireta(nome, tag, numeroPartida, paginaProjeto);
 
                 this.Window_PD.Height = 515;
@@ -118,17 +114,17 @@ namespace _9230A_V00___PI.Utilidades
             {
                 if (TCommand == typeCommand.Atuador_Digital)
                 {
-                    Window_AtuadorD = new Partidas.controleAtuadorLinear(nome, tag, numeroPartida, paginaProjeto);
+                    Window_AtuadorD = new Partidas.Principal.principalControleAtuadorLinear(nome, tag, numeroPartida, paginaProjeto);
 
                     Window_AtuadorD.Closing += Window_AtuadorD_Closing;
 
                     //Click para controle da Partida 
-                    Window_AtuadorD.Bt_Abrir_Click += new EventHandler(AtuadorD_Bt_Ligar_Click);
-                    Window_AtuadorD.Bt_Reset_Click += new EventHandler(AtuadorD_Bt_Reset_Click);
-                    Window_AtuadorD.Bt_Libera_Click += new EventHandler(AtuadorD_Bt_Libera_Click);
-                    Window_AtuadorD.Bt_Manutencao_Click += new EventHandler(AtuadorD_Bt_Manutencao_Click);
-                    Window_AtuadorD.Bt_Manual_Click += new EventHandler(AtuadorD_Bt_Manual_Click);
-                    Window_AtuadorD.Bt_Fechar_Click += new EventHandler(AtuadorD_Bt_Fechar_Click);
+                    Window_AtuadorD.controleAtuadorLinear.Bt_Abrir_Click += new EventHandler(AtuadorD_Bt_Ligar_Click);
+                    Window_AtuadorD.controleAtuadorLinear.Bt_Reset_Click += new EventHandler(AtuadorD_Bt_Reset_Click);
+                    Window_AtuadorD.controleAtuadorLinear.Bt_Libera_Click += new EventHandler(AtuadorD_Bt_Libera_Click);
+                    Window_AtuadorD.controleAtuadorLinear.Bt_Manutencao_Click += new EventHandler(AtuadorD_Bt_Manutencao_Click);
+                    Window_AtuadorD.controleAtuadorLinear.Bt_Manual_Click += new EventHandler(AtuadorD_Bt_Manual_Click);
+                    Window_AtuadorD.controleAtuadorLinear.Bt_Fechar_Click += new EventHandler(AtuadorD_Bt_Fechar_Click);
                 }
                 else if(TCommand == typeCommand.Atuador_Analogico)
                 {
@@ -144,10 +140,6 @@ namespace _9230A_V00___PI.Utilidades
             }
 
         }
-
-
-
-
 
         #region Events Window
 

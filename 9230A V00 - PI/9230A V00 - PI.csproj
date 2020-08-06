@@ -143,6 +143,12 @@
     <Compile Include="Equipamentos\roscaTransversal.xaml.cs">
       <DependentUpon>roscaTransversal.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Partidas\Controle\controleAtuadorAnalogico.xaml.cs">
+      <DependentUpon>controleAtuadorAnalogico.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Partidas\Controle\controleAtuadorLinear.xaml.cs">
+      <DependentUpon>controleAtuadorLinear.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Partidas\Controle\controlePartidaDireta.xaml.cs">
       <DependentUpon>controlePartidaDireta.xaml</DependentUpon>
     </Compile>
@@ -151,6 +157,12 @@
     </Compile>
     <Compile Include="Partidas\Outras Telas\controleAlarmes.xaml.cs">
       <DependentUpon>controleAlarmes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Partidas\Principal\principalControleAtuadorAnalogico.xaml.cs">
+      <DependentUpon>principalControleAtuadorAnalogico.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Partidas\Principal\principalControleAtuadorLinear.xaml.cs">
+      <DependentUpon>principalControleAtuadorLinear.xaml</DependentUpon>
     </Compile>
     <Compile Include="Partidas\Principal\principalPartidaDireta.xaml.cs">
       <DependentUpon>principalPartidaDireta.xaml</DependentUpon>
@@ -167,12 +179,6 @@
     </Compile>
     <Compile Include="Teclados\keypad.xaml.cs">
       <DependentUpon>keypad.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Partidas\controleAtuadorAnalogico.xaml.cs">
-      <DependentUpon>controleAtuadorAnalogico.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Partidas\controleAtuadorLinear.xaml.cs">
-      <DependentUpon>controleAtuadorLinear.xaml</DependentUpon>
     </Compile>
     <Compile Include="Partidas\controleAtuadorLinearBifurcada.xaml.cs">
       <DependentUpon>controleAtuadorLinearBifurcada.xaml</DependentUpon>
@@ -291,6 +297,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Partidas\Controle\controleAtuadorAnalogico.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Partidas\Controle\controleAtuadorLinear.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Partidas\Controle\controlePartidaDireta.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -300,6 +314,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Partidas\Outras Telas\controleAlarmes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Partidas\Principal\principalControleAtuadorAnalogico.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Partidas\Principal\principalControleAtuadorLinear.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -316,14 +338,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Teclados\keypad.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Partidas\controleAtuadorAnalogico.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Partidas\controleAtuadorLinear.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
