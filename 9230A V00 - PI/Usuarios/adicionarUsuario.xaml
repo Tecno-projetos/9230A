@@ -114,7 +114,7 @@
 
 
         <materialDesign:PackIcon x:Name="pckAdm" Kind="CheckBox" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="520,180,262,179.616" BorderBrush="#FF040404"/>
-        <materialDesign:PackIcon x:Name="pckMan" Kind="CheckBox" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="520,235,262,124.616" BorderBrush="#FF040404" Visibility="Hidden"/>
+        <materialDesign:PackIcon x:Name="pckMan" Kind="CheckBox" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="520,235,262,124.616" BorderBrush="#FF040404"/>
         <materialDesign:PackIcon x:Name="pckOperador" Kind="CheckBox" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="520,291,262,68.616" BorderBrush="#FF040404" Visibility="Hidden"/>
 
 
