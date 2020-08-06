@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-      Title="keypad" Height="313" Width="299" ShowInTaskbar="False" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Icon="/9230A V00 - PI;component/Imagens/Automasul.ico" >
+      Title="keypad" Height="313" Width="299" ShowInTaskbar="False" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Icon="/9230A V00 - PI;component/Imagens/Automasul.ico" Topmost="True" >
     <Window.Resources>
         <DropShadowEffect x:Key="DropShadowEffect" 
 						  ShadowDepth="1" 

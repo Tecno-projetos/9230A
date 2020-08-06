@@ -141,12 +141,18 @@
     <Compile Include="Equipamentos\roscaTransversal.xaml.cs">
       <DependentUpon>roscaTransversal.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Partidas\Controle\controlePartidaDireta.xaml.cs">
+      <DependentUpon>controlePartidaDireta.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Partidas\Outras Telas\configuracoesPartidas.xaml.cs">
+      <DependentUpon>configuracoesPartidas.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Partidas\Principal\principalPartidaDireta.xaml.cs">
+      <DependentUpon>principalPartidaDireta.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Teclados\keyboard.cs" />
     <Compile Include="Partidas\controleInversor.xaml.cs">
       <DependentUpon>controleInversor.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Partidas\controlePartidaDireta.xaml.cs">
-      <DependentUpon>controlePartidaDireta.xaml</DependentUpon>
     </Compile>
     <Compile Include="Partidas\controleSoftStarter.xaml.cs">
       <DependentUpon>controleSoftStarter.xaml</DependentUpon>
@@ -270,11 +276,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Partidas\controlePartidaDireta.xaml">
+    <Page Include="Partidas\controleSoftStarter.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Partidas\controleSoftStarter.xaml">
+    <Page Include="Partidas\Controle\controlePartidaDireta.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Partidas\Outras Telas\configuracoesPartidas.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Partidas\Principal\principalPartidaDireta.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

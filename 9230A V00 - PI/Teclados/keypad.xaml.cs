@@ -39,10 +39,10 @@ namespace _9230A_V00___PI.Teclados
         /// <param name="owner">Tela criada</param>
         /// <param name="bloqueiaFlutuante">Bloqueia para digitar o ponto flutuante</param>
         /// <param name="maxDisplay">Número máximo no Dysplay do numPad</param>
-        public keypad(Window owner, bool bloqueiaFlutuante, Int16 maxDisplay)
+        public keypad(/*Window owner*/bool bloqueiaFlutuante, Int16 maxDisplay)
         {
             InitializeComponent();
-            this.Owner = owner;
+            //this.Owner = owner;
             this.DataContext = this;
 
 
