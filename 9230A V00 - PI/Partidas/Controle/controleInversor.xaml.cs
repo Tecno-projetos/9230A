@@ -128,56 +128,115 @@ namespace _9230A_V00___PI.Partidas.Controle
             if (!Command.Standard.Emergencia)
             {
                 lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Content = "Em Emergência"; });
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Foreground = new SolidColorBrush(Colors.White); });
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Background = new SolidColorBrush(Colors.Red); });
+
             }
             else if (Command.Standard.Falha_Geral)
             {
                 if (Command.Standard.Falha_Partida_Nao_Confirmou)
                 {
                     lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Content = "Falha Confirmação"; });
+                    lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Foreground = new SolidColorBrush(Colors.White); });
+                    lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Background = new SolidColorBrush(Colors.Red); });
                 }
                 else if (Command.Standard.Falha_Contator_Desligou)
                 {
                     lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Content = "Falha Partida Não Desligou"; });
+                    lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Foreground = new SolidColorBrush(Colors.White); });
+                    lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Background = new SolidColorBrush(Colors.Red); });
                 }
                 else if (Command.Standard.Falha_Disjuntor_Desligou)
                 {
                     lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Content = "Falha Partida Desligou"; });
+                    lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Foreground = new SolidColorBrush(Colors.White); });
+                    lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Background = new SolidColorBrush(Colors.Red); });
                 }
                 else if (Command.Standard.Falha_Partida_Nao_Desligou)
                 {
                     lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Content = "Falha Partida Não Desligou"; });
+                    lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Foreground = new SolidColorBrush(Colors.White); });
+                    lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Background = new SolidColorBrush(Colors.Red); });
                 }
             }
             else if (Command.Standard.Manutencao)
             {
                 lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Content = "Em Manutenção"; });
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Foreground = new SolidColorBrush(Colors.White); });
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Background = new SolidColorBrush(Colors.Blue); });
             }
             else if (Command.Standard.Disjuntor_Desligado)
             {
                 lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Content = "Disjuntor Desligado"; });
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Foreground = new SolidColorBrush(Colors.Black); });
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Background = new SolidColorBrush(Colors.Yellow); });
             }
             else if (Command.Standard.Ligando)
             {
                 lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Content = "Ligando"; });
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Foreground = new SolidColorBrush(Colors.White); });
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Background = new SolidColorBrush(Colors.ForestGreen); });
             }
             else if (Command.Standard.Desligando)
             {
                 lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Content = "Desligando"; });
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Foreground = new SolidColorBrush(Colors.White); });
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Background = new SolidColorBrush(Colors.ForestGreen); });
             }
             else if (Command.Standard.Ligado)
             {
                 lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Content = "Ligado"; });
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Foreground = new SolidColorBrush(Colors.Black); });
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Background = new SolidColorBrush(Colors.Green); });
             }
             else
             {
                 lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Content = "Desligado"; });
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Foreground = new SolidColorBrush(Colors.White); });
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Background = new SolidColorBrush(Colors.Gray); });
             }
 
+            lbVelocidadeAtual.Dispatcher.Invoke(delegate { lbVelocidadeAtual.Foreground = new SolidColorBrush(Colors.White); });
+            lbVelocidadeAtual.Dispatcher.Invoke(delegate { lbVelocidadeAtual.Background = new SolidColorBrush(Colors.Gray); });
+
             lbVelocidadeAtual.Dispatcher.Invoke(delegate { lbVelocidadeAtual.Content = Command.INV.Velocidade_Atual + " rpm"; });
+
+            lbVelocidadeSolicitada.Dispatcher.Invoke(delegate { lbVelocidadeSolicitada.Foreground = new SolidColorBrush(Colors.White); });
+            lbVelocidadeSolicitada.Dispatcher.Invoke(delegate { lbVelocidadeSolicitada.Background = new SolidColorBrush(Colors.Gray); });
+
             lbVelocidadeSolicitada.Dispatcher.Invoke(delegate { lbVelocidadeSolicitada.Content = Command.INV.Velocidade_Automatica_Solicita + " rpm"; });
 
+
+
+            lbCorrenteAtual.Dispatcher.Invoke(delegate { lbCorrenteAtual.Foreground = new SolidColorBrush(Colors.White); });
+            lbCorrenteAtual.Dispatcher.Invoke(delegate { lbCorrenteAtual.Background = new SolidColorBrush(Colors.Gray); });
+
             lbCorrenteAtual.Dispatcher.Invoke(delegate { lbCorrenteAtual.Content = Command.INV.Corrente_Atual + " A"; });
+
+            if (Command.INV.Codigo_Falha != 0)
+            {
+                lbCodigoFalha.Dispatcher.Invoke(delegate { lbCodigoFalha.Foreground = new SolidColorBrush(Colors.White); });
+                lbCodigoFalha.Dispatcher.Invoke(delegate { lbCodigoFalha.Background = new SolidColorBrush(Colors.Red); });
+            }
+            else
+            {
+                lbCodigoFalha.Dispatcher.Invoke(delegate { lbCodigoFalha.Foreground = new SolidColorBrush(Colors.White); });
+                lbCodigoFalha.Dispatcher.Invoke(delegate { lbCodigoFalha.Background = new SolidColorBrush(Colors.Gray); });
+            }
+
             lbCodigoFalha.Dispatcher.Invoke(delegate { lbCodigoFalha.Content = "Falha: " + Command.INV.Codigo_Falha; });
+
+            if (Command.INV.Codigo_Alarme != 0)
+            {
+                lbCodigoAlarme.Dispatcher.Invoke(delegate { lbCodigoAlarme.Foreground = new SolidColorBrush(Colors.Black); });
+                lbCodigoAlarme.Dispatcher.Invoke(delegate { lbCodigoAlarme.Background = new SolidColorBrush(Colors.Yellow); });
+            }
+            else
+            {
+                lbCodigoAlarme.Dispatcher.Invoke(delegate { lbCodigoAlarme.Foreground = new SolidColorBrush(Colors.White); });
+                lbCodigoAlarme.Dispatcher.Invoke(delegate { lbCodigoAlarme.Background = new SolidColorBrush(Colors.Gray); });
+            }
+
             lbCodigoAlarme.Dispatcher.Invoke(delegate { lbCodigoAlarme.Content = "Alarme: " + Command.INV.Codigo_Alarme; });
         }
 

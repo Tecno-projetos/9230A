@@ -94,7 +94,7 @@
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
 
-                    <Outras_Telas:configuracoesPartidas x:Name="configuracoesPD" HorizontalAlignment="Left" Height="364" VerticalAlignment="Top" Width="244"/>
+                    <Outras_Telas:configuracoesPartidas x:Name="configuracoesPD" HorizontalAlignment="Left" Height="369" VerticalAlignment="Top" Width="244"/>
 
                 </Grid>
             </TabItem>

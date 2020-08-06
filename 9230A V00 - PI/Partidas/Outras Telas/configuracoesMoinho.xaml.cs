@@ -169,7 +169,7 @@ namespace _9230A_V00___PI.Partidas.Outras_Telas
 
         private void TB_SPLimpeza_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            keypad mainWindow = new keypad(true, 4);
+            keypad mainWindow = new keypad(true, 1);
             if (mainWindow.ShowDialog() == true)
             {
                 //Recebe Valor antigo digitado no Textbox
