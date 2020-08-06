@@ -26,6 +26,7 @@ namespace _9230A_V00___PI.Partidas.Outras_Telas
         public event EventHandler resetTotal_Click;
         public event EventHandler resetParcial_Click;
         public event EventHandler atualizaSPManutencao_Click;
+        public event EventHandler atualizaSPLimpeza_Click;
 
         public configuracoesPartidas()
         {
@@ -47,7 +48,6 @@ namespace _9230A_V00___PI.Partidas.Outras_Telas
         {
             TB_Total_Horas.Text = Convert.ToString(Command.PD.HorimetroTotal);
             TB_Horas.Text = Convert.ToString(Command.PD.HorimetroParcial);
-            TB_MantencaoEm.Text = Convert.ToString(Command.PD.tempoManutencao);
 
         }
 
@@ -66,6 +66,18 @@ namespace _9230A_V00___PI.Partidas.Outras_Telas
             }
         }
 
+        public string SpLimpeza
+        {
+            set
+            {
+                TB_SPLimpeza.Dispatcher.Invoke(delegate { TB_SPLimpeza.Text = value; });
+
+            }
+            get
+            {
+                return TB_SPLimpeza.Text;
+            }
+        }
         #endregion
 
         private void TB_GotFocus(object sender, RoutedEventArgs e)
@@ -118,6 +130,43 @@ namespace _9230A_V00___PI.Partidas.Outras_Telas
                 {
                     //Envia o oldValue pois o valor máximo ultrapassou o limite.
                     TB_SPMantencao.Text = Convert.ToString(oldValue);
+                }
+
+            }
+        }
+
+        private void TB_SPLimpeza_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            keypad mainWindow = new keypad(true, 4);
+            if (mainWindow.ShowDialog() == true)
+            {
+                //Recebe Valor antigo digitado no Textbox
+                int oldValue = Convert.ToInt16(TB_SPLimpeza.Text);
+                //Recebe o novo valor digitado no Keypad
+                int newValue = Convert.ToInt16(mainWindow.Result);
+
+                bool isNumeric = int.TryParse(TB_SPLimpeza.Text, out n);
+
+                if (isNumeric)
+                {
+                    if (oldValue != newValue)
+                    {
+                        TB_SPLimpeza.Text = Convert.ToString(newValue);
+
+
+                        //Retira o foco do textbox.
+                        Keyboard.ClearFocus();
+
+                        //Dispara o evento de atualizar a váriavel no CLP.
+                        if (this.atualizaSPLimpeza_Click != null)
+                            this.atualizaSPLimpeza_Click(this, e);
+
+                    }
+                }
+                else
+                {
+                    //Envia o oldValue pois o valor máximo ultrapassou o limite.
+                    TB_SPLimpeza.Text = Convert.ToString(oldValue);
                 }
 
             }

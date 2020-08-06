@@ -16,6 +16,19 @@ namespace _9230A_V00___PI.Utilidades
 
         public struct type_SS
         {
+            public type_SS(string value) : this()
+            {
+                offSet_SP_Manutencao = 4;
+                offSet_HorimetroParcial = 8;
+                offSet_HorimetroTotal = 12;
+                offSet_Tempo_Limpeza = 16;
+                offSet_Corrente_Atual = 20;
+                offSet_SP_Corrente_Motor_Vazio = 24;
+                offSet_SP_Tempo_Reversao = 28;
+                offSet_Tempo_Reversao_Atual = 32;
+
+            }
+
             public bool ligaManual;
             public bool manual;
             public bool automatico;
@@ -56,10 +69,29 @@ namespace _9230A_V00___PI.Utilidades
             public float SP_Corrente_Motor_Vazio;
             public Int32 SP_Tempo_Reversao;
             public Int32 Tempo_Reversao_Atual;
+
+            public int offSet_SP_Manutencao;
+            public int offSet_HorimetroParcial;
+            public int offSet_HorimetroTotal;
+            public int offSet_Tempo_Limpeza;
+            public int offSet_Corrente_Atual;
+            public int offSet_SP_Corrente_Motor_Vazio;
+            public int offSet_SP_Tempo_Reversao;
+            public int offSet_Tempo_Reversao_Atual;
+
         }
 
         public struct type_PD
         {
+
+            public type_PD(string value) : this()
+            {
+                offSet_SP_Manutencao = 4;
+                offSet_HorimetroParcial = 8;
+                offSet_HorimetroTotal = 12;
+                offSet_Tempo_Limpeza = 16;
+            }
+
             public bool ligaManual;
             public bool manual;
             public bool automatico;
@@ -92,15 +124,37 @@ namespace _9230A_V00___PI.Utilidades
             public bool bitReserva_9;
             public bool bitReserva_10;
             public bool bitReserva_11;
+
             public Int32 SP_Manutencao;
             public Int32 HorimetroParcial;
             public Int32 HorimetroTotal;
             public Int32 Tempo_Limpeza;
 
+            public int offSet_SP_Manutencao;
+            public int offSet_HorimetroParcial;
+            public int offSet_HorimetroTotal;
+            public int offSet_Tempo_Limpeza;
+
         }
 
         public struct type_INV
         {
+            public type_INV(string value) : this()
+            {
+                offSet_Velocidade_Manual = 4;
+                offSet_Velocidade_Automatica_Solicita = 8;
+                offSet_Velocidade_Atual = 12;
+                offSet_Velocidade_Nominal = 16;
+                offSet_SP_Corrente_Motor_Vazio = 20;
+                offSet_Corrente_Atual = 24;
+                offSet_Codigo_Alarme = 28;
+                offSet_Codigo_Falha = 32;
+                offSet_SP_Manutencao = 36;
+                offSet_HorimetroParcial = 40;
+                offSet_HorimetroTotal = 44;
+                offSet_Tempo_Limpeza = 48;
+            }
+
             public bool ligaManual;
             public bool manual;
             public bool automatico;
@@ -146,6 +200,18 @@ namespace _9230A_V00___PI.Utilidades
             public Int32 HorimetroTotal;
             public Int32 Tempo_Limpeza;
 
+            public int offSet_Velocidade_Manual;
+            public int offSet_Velocidade_Automatica_Solicita;
+            public int offSet_Velocidade_Atual;
+            public int offSet_Velocidade_Nominal;
+            public int offSet_SP_Corrente_Motor_Vazio;
+            public int offSet_Corrente_Atual;
+            public int offSet_Codigo_Alarme;
+            public int offSet_Codigo_Falha;
+            public int offSet_SP_Manutencao;
+            public int offSet_HorimetroParcial;
+            public int offSet_HorimetroTotal;
+            public int offSet_Tempo_Limpeza;
         }
 
         public struct type_AtuadorDigital
@@ -230,10 +296,18 @@ namespace _9230A_V00___PI.Utilidades
         //Padrão de bits, com todos os bits de todas as UDTs que existem no clp relacionada a equipamentos.
         public struct type_All
         {
+            public type_All(string value) : this()
+            {
+                PD = new type_PD("");
+                INV = new type_INV("");
+                SS = new type_SS("");
+            }
+
             public UInt32 DWord;                  //Dword bits palavra de comando e status
             public type_Standard_GUI Standard;   //Tipo de estrutura padrão para GUI
                                                  //
             public type_PD PD;                   //Tipo de estrutura PD_PCM
+            
             public type_INV INV;
             public type_SS SS;
             public type_AtuadorDigital AtuadorD;
@@ -248,6 +322,8 @@ namespace _9230A_V00___PI.Utilidades
 
             public typeEquip TypeEquip;          //tipo do equipamento
             public typeCommand TypeCommand;      //tipo de palavra que o equipamento ira utilizar
+
+         
         }
 
         public struct type_Standard_GUI
@@ -304,7 +380,6 @@ namespace _9230A_V00___PI.Utilidades
 
             //Utilidades
             public bool Tempo_Manutencao;
-
         }
 
         public struct type_BufferPLC
@@ -467,11 +542,15 @@ namespace _9230A_V00___PI.Utilidades
 
             //Criação dos Bancos
             DataBase.SqlGlobalFuctions.Create_DB("BeckerUsers");
+            DataBase.SqlGlobalFuctions.Create_DB("BeckerEquip");
+
             DataBase.SqlGlobalFuctions.Create_DB("BeckerProdutos");
             DataBase.SqlGlobalFuctions.Create_DB("BeckerReceitas");
 
             //Inicializa Tabelas
             DataBase.SqlFunctionsUsers.Initialize_ProgramDBCA();
+            DataBase.SqlFunctionsEquips.ExistTable();
+
 
 
         }
