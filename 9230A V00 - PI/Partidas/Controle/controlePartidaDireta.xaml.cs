@@ -10,20 +10,20 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace _9230A_V00___PI.Partidas
+namespace _9230A_V00___PI.Partidas.Controle
 {
     /// <summary>
-    /// Lógica interna para controlePartidaDireta.xaml
+    /// Interação lógica para controlePartidaDireta.xam
     /// </summary>
-    public partial class controlePartidaDireta : Window
+    public partial class controlePartidaDireta : UserControl
     {
-        public controlePartidaDireta(string nome, string tag, string numeroPartida, string paginaProjeto)
+        public controlePartidaDireta()
         {
             InitializeComponent();
-            lbName.Content = nome;
-            this.Title = nome + " " + tag;
+            //lbName.Content = nome;
         }
 
         public event EventHandler Bt_Ligar_Click;
@@ -31,7 +31,7 @@ namespace _9230A_V00___PI.Partidas
         public event EventHandler Bt_Libera_Click;
         public event EventHandler Bt_Manutencao_Click;
         public event EventHandler Bt_Manual_Click;
-        public event EventHandler Bt_Fechar_Click;
+
 
         public void actualize_UI(Utilidades.VariaveisGlobais.type_All Command)
         {
@@ -76,11 +76,11 @@ namespace _9230A_V00___PI.Partidas
             {
                 btManual.Dispatcher.Invoke(delegate { btManual.Content = "M"; });
                 lbManual.Dispatcher.Invoke(delegate { lbManual.Text = "Em Modo Manual"; });
-                
+
 
             }
-            
-            if(Command.Standard.Automatico)
+
+            if (Command.Standard.Automatico)
             {
                 btManual.Dispatcher.Invoke(delegate { btManual.Content = "A"; });
                 lbManual.Dispatcher.Invoke(delegate { lbManual.Text = "Em Modo Automático"; });
@@ -140,7 +140,7 @@ namespace _9230A_V00___PI.Partidas
             {
                 lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Content = "Disjuntor Desligado"; });
             }
-            else if(Command.Standard.Ligando)
+            else if (Command.Standard.Ligando)
             {
                 lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Content = "Ligando"; });
             }
@@ -186,12 +186,6 @@ namespace _9230A_V00___PI.Partidas
         {
             if (this.Bt_Manual_Click != null)
                 this.Bt_Manual_Click(this, e);
-        }
-
-        private void btFechar_Click(object sender, RoutedEventArgs e)
-        {
-            if (this.Bt_Fechar_Click != null)
-                this.Bt_Fechar_Click(this, e);
         }
     }
 }
