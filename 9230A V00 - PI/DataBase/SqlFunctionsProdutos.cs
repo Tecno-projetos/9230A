@@ -104,7 +104,7 @@ namespace _9230A_V00___PI.DataBase
             }
         }
 
-        public DataTable getTableProdutos()
+        public static DataTable getTableProdutos()
         {
             DataTable Data = new DataTable();
 

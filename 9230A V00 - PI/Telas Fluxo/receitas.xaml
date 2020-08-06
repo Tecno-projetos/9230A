@@ -39,7 +39,7 @@
                     <TextBlock TextAlignment="Center" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="36,12,15,10" Width="119" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center"><Run Text="Apagar"/><Run Text=" "/><Run Text="Receita"/></TextBlock>
                 </Grid>
             </Button>
-            <Button x:Name="btEditarProduto" Margin="10,474,10,151" Background="#FF505050" BorderBrush="Black" Height="50" Click="btCadastroProduto_Click">
+            <Button x:Name="btEditarProduto" Margin="10,474,10,151" Background="#FF505050" BorderBrush="Black" Height="50" Click="btEditarProduto_Click">
                 <Grid Width="170" Height="40">
                     <materialDesign:PackIcon Kind="Edit" VerticalAlignment="Center" Foreground="#FFE2950D" Margin="2,-6,0,-7" Height="30" Width="30"/>
                     <TextBlock TextAlignment="Center" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="38,12,13,10" Width="119" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center"><Run Text="Editar"/><Run Text=" "/><Run Text="Produto"/></TextBlock>

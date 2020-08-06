@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -527,8 +528,6 @@ namespace _9230A_V00___PI.Utilidades
 
         }
 
-        
-
         public static void Load_Connection()
         {
             //Cria pastas para Apliacação
@@ -552,307 +551,70 @@ namespace _9230A_V00___PI.Utilidades
             DataBase.SqlFunctionsProdutos.ExistTable();
         }
 
+        public static List<Produto> listProdutos = new List<Produto>();
 
-        
+        public static List<Receita> listReceitas = new List<Receita>();
+    }
 
+    public class functions
+    {
+        public static void atualizalistProdutos()
+        {
+            VariaveisGlobais.listProdutos.Clear();
 
+            DataTable dt = DataBase.SqlFunctionsProdutos.getTableProdutos();
 
+            Produto dummyProduto;
 
+            foreach (DataRow item in dt.Rows)
+            {
+                dummyProduto = new Produto();
 
+                dummyProduto.codigo = (string)item.ItemArray[0];
+                dummyProduto.descricao = (string)item.ItemArray[1];
+                dummyProduto.densidade = (float)item.ItemArray[2];
+                dummyProduto.tipoProduto = (string)item.ItemArray[3];
+                dummyProduto.observacao = (string)item.ItemArray[4];
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            //--------------------
-            //Emanuel
-
-
-
-
-
+                VariaveisGlobais.listProdutos.Add(dummyProduto);
+            }
 
 
         }
+
+        public static void atualizalistReceitas()
+        {
+
+        }
+    }
+
+
+    public class Produto
+    {
+        public string codigo { get; set; } 
+
+        public string descricao { get; set; }
+
+        public float densidade { get; set; }
+
+        public string tipoProduto { get; set; }
+
+        public string observacao { get; set; }
+    }
+
+    public class Receita
+    {
+        public string nomeReceita { get; set; }
+
+        public string pesoBase { get; set; }
+
+        public float codigoProduto { get; set; }
+
+        public string pesoPorProduto { get; set; }
+
+        public string observacao { get; set; }
+    }
+
+
+
 }
