@@ -23,13 +23,21 @@ namespace _9230A_V00___PI.Partidas.Principal
         private SolidColorBrush Vermelho = new SolidColorBrush(Colors.Red);
         private SolidColorBrush Branco = new SolidColorBrush(Colors.White);
 
+        private string tagEquip = "";
+
         public event EventHandler Bt_Fechar_Click;
 
-        public principalPartidaDireta(string titulo)
+        public principalPartidaDireta(string nome, string tag, string numeroPartida, string paginaProjeto)
         {
-            InitializeComponent();
+            InitializeComponent();          
+            this.Title = nome + " " + tag;
 
-            this.Title = titulo;
+            pckInicial.Foreground = Vermelho;
+            pckAlarmes.Foreground = Branco;
+            pckConfiguracoes.Foreground = Branco;
+
+            tagEquip = tag;
+
         }
 
         public void actualize_UI(Utilidades.VariaveisGlobais.type_All Command)
@@ -45,8 +53,8 @@ namespace _9230A_V00___PI.Partidas.Principal
             pckAlarmes.Foreground = Branco;
             pckConfiguracoes.Foreground = Branco;
 
-            this.Width = 245;
             this.Height = 510;
+            this.Width = 255;
 
         }
 
@@ -58,12 +66,33 @@ namespace _9230A_V00___PI.Partidas.Principal
             pckConfiguracoes.Foreground = Vermelho;
 
 
-            this.Width = 245;
             this.Height = 510;
+            this.Width = 255;
+
         }
 
         private void alarmes_Tela_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+            pckInicial.Foreground = Branco;
+            pckAlarmes.Foreground = Vermelho;
+            pckConfiguracoes.Foreground = Branco;
+
+
+            this.Height = 510;
+            this.Width = 255;
+
+            DateTime dtin;
+            DateTime dtout;
+
+            dtin = DateTime.Now.AddMonths(-1);
+            dtout = DateTime.Now.AddMinutes(2);
+
+            /// Referencia de código para a tela de alarmes
+            // Click para atualizar os alarmes tela de alarmes
+            alarmes.DataGrid_ItemSource_Alarms_And_Events(DataBase.SqlFunctionsEquips.GetReportAlarm_Table_EquipAlarmEvent(dtin, dtout, "_" + tagEquip), alarmes.DataGrid_Search_Alarme, true);
+
+            //Click para atualizar os Eventos na tela de alarmes
+            alarmes.DataGrid_ItemSource_Alarms_And_Events(DataBase.SqlFunctionsEquips.GetReportEvent_Table_EquipAlarmEvent(dtin, dtout, "_" + tagEquip), alarmes.DataGrid_Search_Eventos, false);
 
         }
 

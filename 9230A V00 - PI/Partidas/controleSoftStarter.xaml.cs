@@ -254,7 +254,7 @@ namespace _9230A_V00___PI.Partidas
 
         private void tbCorrenteVazio_PreviewMouseUp(object sender, MouseButtonEventArgs e)
         {
-            keypad mainWindow = new keypad(this, true, 3);
+            keypad mainWindow = new keypad(true, 3);
             if (mainWindow.ShowDialog() == true)
             {
                 //Recebe Valor antigo digitado no Textbox
@@ -283,7 +283,7 @@ namespace _9230A_V00___PI.Partidas
 
         private void tbReversao_PreviewMouseUp(object sender, MouseButtonEventArgs e)
         {
-            keypad mainWindow = new keypad(this, true, 3);
+            keypad mainWindow = new keypad(true, 3);
             if (mainWindow.ShowDialog() == true)
             {
                 //Recebe Valor antigo digitado no Textbox

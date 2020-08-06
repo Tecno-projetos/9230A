@@ -16,7 +16,7 @@ namespace _9230A_V00___PI.Utilidades
 
         #region Variables 
 
-        Partidas.controlePartidaDireta Window_PD;
+        Partidas.Principal.principalPartidaDireta Window_PD;
         Partidas.controleInversor Window_INV;
         Partidas.controleSoftStarter Window_SS;
         Partidas.controleAtuadorAnalogico Window_AtuadorA;
@@ -49,17 +49,29 @@ namespace _9230A_V00___PI.Utilidades
             //PD
             if (Equip == typeEquip.PD)
             {
-                Window_PD = new Partidas.controlePartidaDireta(nome, tag, numeroPartida, paginaProjeto);
+
+
+
+
+                Window_PD = new Partidas.Principal.principalPartidaDireta(nome, tag, numeroPartida, paginaProjeto);
+
+                this.Window_PD.Height = 510;
+                this.Window_PD.Width = 255;
+
 
                 Window_PD.Closing += Window_PD_Closing;
 
                //Click para controle da Partida 
-               Window_PD.Bt_Ligar_Click += new EventHandler(PD_Bt_Ligar_Click);
-               Window_PD.Bt_Reset_Click += new EventHandler(PD_Bt_Reset_Click);
-               Window_PD.Bt_Libera_Click += new EventHandler(PD_Bt_Libera_Click);
-               Window_PD.Bt_Manutencao_Click += new EventHandler(PD_Bt_Manutencao_Click);
-               Window_PD.Bt_Manual_Click += new EventHandler(PD_Bt_Manual_Click);
+               Window_PD.controlePD.Bt_Ligar_Click += new EventHandler(PD_Bt_Ligar_Click);
+               Window_PD.controlePD.Bt_Reset_Click += new EventHandler(PD_Bt_Reset_Click);
+               Window_PD.controlePD.Bt_Libera_Click += new EventHandler(PD_Bt_Libera_Click);
+               Window_PD.controlePD.Bt_Manutencao_Click += new EventHandler(PD_Bt_Manutencao_Click);
+               Window_PD.controlePD.Bt_Manual_Click += new EventHandler(PD_Bt_Manual_Click);
+               
+                
+                
                Window_PD.Bt_Fechar_Click += new EventHandler(PD_Bt_Fechar_Click);
+
             }
             //INV
             else if (Equip == typeEquip.INV)
@@ -715,6 +727,8 @@ namespace _9230A_V00___PI.Utilidades
         {
             if (Command_Get.TypeEquip == typeEquip.PD && Command_Get.TypeCommand == typeCommand.PD)
             {
+                Window_PD.configuracoesPD.SpManutencao = Command.PD.SP_Manutencao.ToString();
+
                 Window_PD.ShowDialog();
             }
             else if(Command_Get.TypeEquip == typeEquip.INV && Command_Get.TypeCommand == typeCommand.INV)

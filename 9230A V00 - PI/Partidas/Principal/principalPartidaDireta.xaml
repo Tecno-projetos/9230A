@@ -9,10 +9,10 @@
         xmlns:partidas="clr-namespace:_9230A_V00___PI.Partidas.Controle" 
         x:Class="_9230A_V00___PI.Partidas.Principal.principalPartidaDireta" 
     
-         mc:Ignorable="d" Height="506" Width="825" ResizeMode="NoResize" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen">
+         mc:Ignorable="d" Height="510" Width="510" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid Background="#FF5B5B5B">
 
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="115" Margin="2,365,0,0" VerticalAlignment="Top" Width="817" Stroke="White"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="115" Margin="2,365,0,0" VerticalAlignment="Top" Width="502" Stroke="White"/>
         <Button x:Name="btHome" Margin="20,370,0,0" Background="#FF505050" BorderBrush="Black" HorizontalAlignment="Left" Width="60" Height="60" VerticalAlignment="Top">
             <Grid Width="57" Height="60">
                 <Grid.RowDefinitions>
@@ -72,7 +72,7 @@
         </Button>
 
 
-        <TabControl HorizontalAlignment="Left" Height="360" VerticalAlignment="Top" Width="815" Background="{x:Null}" BorderBrush="Transparent">
+        <TabControl HorizontalAlignment="Left" Height="435" VerticalAlignment="Top" Width="504" Background="{x:Null}" BorderBrush="Transparent">
             <TabItem x:Name="Home" Header="TabItem" Margin="19,370,-21,-398" Opacity="0" Cursor="Hand" PreviewMouseLeftButtonUp="Home_PreviewMouseLeftButtonUp">
                 <Grid Background="#FF5B5B5B" Margin="-3,-38,0,0" HorizontalAlignment="Left" Width="247" Height="369" VerticalAlignment="Top">
                     <Grid.ColumnDefinitions>
@@ -84,9 +84,11 @@
                 </Grid>
             </TabItem>
             <TabItem x:Name="alarmes_Tela" Header="TabItem" Margin="98,370,-102,-399" Opacity="0" Cursor="Hand" PreviewMouseLeftButtonUp="alarmes_Tela_PreviewMouseLeftButtonUp">
-                <Grid Background="#FF5B5B5B" Margin="-2,-35,-6,75"/>
+                <Grid Background="#FF5B5B5B" Margin="-2,-35,-6,75">
+                    <Outras_Telas:controleAlarmes x:Name="alarmes" HorizontalAlignment="Left" Height="358" VerticalAlignment="Top" Width="510" Margin="0,0,-4,0"/>
+                </Grid>
             </TabItem>
-            <TabItem x:Name="config" Header="TabItem" Margin="-23,370,23,-399" Opacity="0" Cursor="Hand" HorizontalAlignment="Right" Width="58" PreviewMouseLeftButtonUp="config_PreviewMouseLeftButtonUp">
+            <TabItem x:Name="config" Header="TabItem" Margin="-23,370,0,-399" Opacity="0" Cursor="Hand" HorizontalAlignment="Left" Width="58" PreviewMouseLeftButtonUp="config_PreviewMouseLeftButtonUp">
                 <Grid Background="#FF5B5B5B" Margin="-3,-38,0,0" HorizontalAlignment="Left" Width="247" Height="369" VerticalAlignment="Top">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
@@ -97,7 +99,7 @@
                 </Grid>
             </TabItem>
         </TabControl>
-        <Image HorizontalAlignment="Left" Height="80" Margin="555,387,0,0" VerticalAlignment="Top" Width="254" Source="/9230A V00 - PI;component/Imagens/Logo_Automasul.png"/>
+        <Image HorizontalAlignment="Left" Height="80" Margin="240,382,0,0" VerticalAlignment="Top" Width="254" Source="/9230A V00 - PI;component/Imagens/Logo_Automasul.png"/>
 
     </Grid>
 </Window>

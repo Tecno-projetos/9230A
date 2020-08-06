@@ -64,7 +64,7 @@ namespace _9230A_V00___PI.Partidas
 
         private void tbPosicaoSolicitada_PreviewMouseUp(object sender, MouseButtonEventArgs e)
         {
-            keypad mainWindow = new keypad(this, true, 2);
+            keypad mainWindow = new keypad(true, 2);
             if (mainWindow.ShowDialog() == true)
             {
                 //Recebe Valor antigo digitado no Textbox
