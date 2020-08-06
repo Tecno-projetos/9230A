@@ -95,7 +95,7 @@ namespace _9230A_V00___PI.Partidas.Outras_Telas
                 if (alarme)
                 {
                     dt.ItemsSource = Data.DefaultView;
-                    dt.Columns[0].Header = "Id";
+
                     dt.Columns[1].Header = "Tag";
                     dt.Columns[2].Header = "Descrição";
                     dt.Columns[7].Header = "Usuário Reconheceu";
@@ -104,6 +104,7 @@ namespace _9230A_V00___PI.Partidas.Outras_Telas
                     dt.Columns[11].Header = "Data Saída";
                     dt.Columns[12].Header = "Data Reconhecido";
 
+                    dt.Columns[0].Visibility = Visibility.Hidden;
                     dt.Columns[3].Visibility = Visibility.Hidden;
                     dt.Columns[4].Visibility = Visibility.Hidden;
                     dt.Columns[5].Visibility = Visibility.Hidden;
@@ -116,12 +117,12 @@ namespace _9230A_V00___PI.Partidas.Outras_Telas
                 else
                 {
                     dt.ItemsSource = Data.DefaultView;
-                    dt.Columns[0].Header = "Id";
                     dt.Columns[1].Header = "Tag";
                     dt.Columns[2].Header = "Descrição";
                     dt.Columns[8].Header = "Usuário Logado";
                     dt.Columns[10].Header = "Data Entrada";
 
+                    dt.Columns[0].Visibility = Visibility.Hidden;
                     dt.Columns[3].Visibility = Visibility.Hidden;
                     dt.Columns[4].Visibility = Visibility.Hidden;
                     dt.Columns[5].Visibility = Visibility.Hidden;

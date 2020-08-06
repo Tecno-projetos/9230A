@@ -10,14 +10,15 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace _9230A_V00___PI.Partidas
+namespace _9230A_V00___PI.Partidas.Controle
 {
     /// <summary>
-    /// Lógica interna para controleAtuadorLinear.xaml
+    /// Interação lógica para controleAtuadorLinear.xam
     /// </summary>
-    public partial class controleAtuadorLinear : Window
+    public partial class controleAtuadorLinear : UserControl
     {
 
         public event EventHandler Bt_Abrir_Click;
@@ -27,18 +28,16 @@ namespace _9230A_V00___PI.Partidas
         public event EventHandler Bt_Manual_Click;
         public event EventHandler Bt_Fechar_Click;
 
-        public controleAtuadorLinear(string nome, string tag, string numeroPartida, string paginaProjeto)
+
+        public controleAtuadorLinear()
         {
             InitializeComponent();
-
-            lbName.Content = nome;
-            this.Title = nome + " " + tag;
         }
 
         public void actualize_UI(Utilidades.VariaveisGlobais.type_All Command)
         {
             //Habilita ou desabilita botões
-            if (!Command.Standard.Emergencia || 
+            if (!Command.Standard.Emergencia ||
                 Command.Standard.FalhaAcionandoLado1 ||
                 Command.Standard.FalhaAcionandoLado2 ||
                 Command.Standard.Falha2PosicoesAtiva ||
@@ -69,11 +68,11 @@ namespace _9230A_V00___PI.Partidas
             btReset.Dispatcher.Invoke(delegate { btReset.IsEnabled = true; });
 
             //Atualiza status dos botões
-            if (Command.Standard.AcionaLado1 || (Command.Standard.EmPosicaoLado1 && !Command.Standard.AcionaLado2) )
+            if (Command.Standard.AcionaLado1 || (Command.Standard.EmPosicaoLado1 && !Command.Standard.AcionaLado2))
             {
                 btLigar.Dispatcher.Invoke(delegate { btLigar.IsChecked = true; });
             }
-            else if(Command.Standard.AcionaLado2 || (Command.Standard.EmPosicaoLado2 && !Command.Standard.AcionaLado1))
+            else if (Command.Standard.AcionaLado2 || (Command.Standard.EmPosicaoLado2 && !Command.Standard.AcionaLado1))
             {
                 btLigar.Dispatcher.Invoke(delegate { btLigar.IsChecked = false; });
             }
@@ -171,7 +170,6 @@ namespace _9230A_V00___PI.Partidas
             }
         }
 
-
         private void btLigar_Click(object sender, RoutedEventArgs e)
         {
             if (this.Bt_Abrir_Click != null)
@@ -209,3 +207,4 @@ namespace _9230A_V00___PI.Partidas
         }
     }
 }
+

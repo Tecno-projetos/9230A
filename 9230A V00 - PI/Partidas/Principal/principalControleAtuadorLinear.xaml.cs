@@ -15,9 +15,9 @@ using System.Windows.Shapes;
 namespace _9230A_V00___PI.Partidas.Principal
 {
     /// <summary>
-    /// Lógica interna para principalPartidaDireta.xaml
+    /// Lógica interna para principalControleAtuadorLinear.xaml
     /// </summary>
-    public partial class principalPartidaDireta : Window
+    public partial class principalControleAtuadorLinear : Window
     {
 
         private SolidColorBrush Vermelho = new SolidColorBrush(Colors.Red);
@@ -28,28 +28,28 @@ namespace _9230A_V00___PI.Partidas.Principal
 
         public event EventHandler Bt_Fechar_Click;
 
-        public principalPartidaDireta(string nome, string tag, string numeroPartida, string paginaProjeto)
+        public principalControleAtuadorLinear(string nome, string tag, string numeroPartida, string paginaProjeto)
         {
-            InitializeComponent();          
+            InitializeComponent();
+
             this.Title = nome + " " + tag;
 
             pckInicial.Foreground = Vermelho;
             pckAlarmes.Foreground = Branco;
-            pckConfiguracoes.Foreground = Branco;
+
 
             tagEquip = tag;
             NomePartida = nome + " " + tag;
 
-            controlePD.lbName.Content = NomePartida;
-            configuracoesPD.lbName.Content = NomePartida;
+            controleAtuadorLinear.lbName.Content = NomePartida;
             alarmes.lbNameEquip.Content = NomePartida;
 
         }
 
         public void actualize_UI(Utilidades.VariaveisGlobais.type_All Command)
         {
-            controlePD.actualize_UI(Command);
-            configuracoesPD.actualize_UI(Command);
+            controleAtuadorLinear.actualize_UI(Command);
+
 
         }
 
@@ -57,19 +57,6 @@ namespace _9230A_V00___PI.Partidas.Principal
         {
             pckInicial.Foreground = Vermelho;
             pckAlarmes.Foreground = Branco;
-            pckConfiguracoes.Foreground = Branco;
-
-            this.Height = 515;
-            this.Width = 255;
-
-        }
-
-
-        private void config_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            pckInicial.Foreground = Branco;
-            pckAlarmes.Foreground = Branco;
-            pckConfiguracoes.Foreground = Vermelho;
 
 
             this.Height = 515;
@@ -81,7 +68,7 @@ namespace _9230A_V00___PI.Partidas.Principal
         {
             pckInicial.Foreground = Branco;
             pckAlarmes.Foreground = Vermelho;
-            pckConfiguracoes.Foreground = Branco;
+
 
 
             this.Height = 515;
@@ -125,11 +112,11 @@ namespace _9230A_V00___PI.Partidas.Principal
 
             var scrollAlarme = (VisualTreeHelper.GetChild(alarmes.DataGrid_Search_Alarme, 0) as Decorator).Child as ScrollViewer;
 
-            scrollAlarme.ScrollToVerticalOffset(scrollAlarme.VerticalOffset -5);
+            scrollAlarme.ScrollToVerticalOffset(scrollAlarme.VerticalOffset - 5);
 
             var scrollEvento = (VisualTreeHelper.GetChild(alarmes.DataGrid_Search_Eventos, 0) as Decorator).Child as ScrollViewer;
 
-            scrollEvento.ScrollToVerticalOffset(scrollEvento.VerticalOffset -5 );
+            scrollEvento.ScrollToVerticalOffset(scrollEvento.VerticalOffset - 5);
 
         }
 
@@ -158,5 +145,7 @@ namespace _9230A_V00___PI.Partidas.Principal
 
             scrollEvento.ScrollToHorizontalOffset(scrollEvento.HorizontalOffset + 20);
         }
+
+
     }
 }

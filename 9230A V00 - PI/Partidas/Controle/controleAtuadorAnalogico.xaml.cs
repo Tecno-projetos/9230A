@@ -11,14 +11,15 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace _9230A_V00___PI.Partidas
+namespace _9230A_V00___PI.Partidas.Controle
 {
     /// <summary>
-    /// Lógica interna para controleAtuadorAnalogico.xaml
+    /// Interação lógica para controleAtuadorAnalogico.xam
     /// </summary>
-    public partial class controleAtuadorAnalogico : Window
+    public partial class controleAtuadorAnalogico : UserControl
     {
 
         public event EventHandler atualizarPosicao;
@@ -29,36 +30,16 @@ namespace _9230A_V00___PI.Partidas
         public event EventHandler Bt_Manual_Click;
         public event EventHandler Bt_Fechar_Click;
 
-
         public controleAtuadorAnalogico()
         {
             InitializeComponent();
-
         }
 
-        #region Get/Sets
-
-        public string statusMotor_GS 
+        public void actualize_UI(Utilidades.VariaveisGlobais.type_All Command)
         {
-            get => lbStatusMotor.Content.ToString();
 
-            set
-            {
-                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Content = value; });
-            }
         }
 
-        public string posicaoAtual_GS
-        {
-            get => lbPosicaoAtual.Content.ToString();
-
-            set
-            {
-                lbPosicaoAtual.Dispatcher.Invoke(delegate { lbPosicaoAtual.Content = value; });
-            }
-        }
-
-        #endregion
 
         #region Keypad + Atualizar posição solicitada.
 
@@ -87,7 +68,7 @@ namespace _9230A_V00___PI.Partidas
                         tbPosicaoSolicitada.Text = Convert.ToString(oldValue);
                     }
 
-                    
+
                     //Retira o foco do textbox.
                     Keyboard.ClearFocus();
 
@@ -200,5 +181,6 @@ namespace _9230A_V00___PI.Partidas
             if (this.Bt_Fechar_Click != null)
                 this.Bt_Fechar_Click(this, e);
         }
+
     }
 }

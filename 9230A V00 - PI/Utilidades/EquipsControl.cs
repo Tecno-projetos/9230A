@@ -19,8 +19,8 @@ namespace _9230A_V00___PI.Utilidades
         Partidas.Principal.principalPartidaDireta Window_PD;
         Partidas.controleInversor Window_INV;
         Partidas.controleSoftStarter Window_SS;
-        Partidas.controleAtuadorAnalogico Window_AtuadorA;
-        Partidas.controleAtuadorLinear Window_AtuadorD;
+        Partidas.Principal.principalControleAtuadorAnalogico Window_AtuadorA;
+        Partidas.Principal.principalControleAtuadorLinear Window_AtuadorD;
         Partidas.controleAtuadorLinearBifurcada Window_BF;
 
         SolidColorBrush Verde = new SolidColorBrush(Color.FromRgb(0, 140, 0));
@@ -49,13 +49,9 @@ namespace _9230A_V00___PI.Utilidades
             //PD
             if (Equip == typeEquip.PD)
             {
-
-
-
-
                 Window_PD = new Partidas.Principal.principalPartidaDireta(nome, tag, numeroPartida, paginaProjeto);
 
-                this.Window_PD.Height = 510;
+                this.Window_PD.Height = 515;
                 this.Window_PD.Width = 255;
 
 
@@ -118,17 +114,17 @@ namespace _9230A_V00___PI.Utilidades
             {
                 if (TCommand == typeCommand.Atuador_Digital)
                 {
-                    Window_AtuadorD = new Partidas.controleAtuadorLinear(nome, tag, numeroPartida, paginaProjeto);
+                    Window_AtuadorD = new Partidas.Principal.principalControleAtuadorLinear(nome, tag, numeroPartida, paginaProjeto);
 
                     Window_AtuadorD.Closing += Window_AtuadorD_Closing;
 
                     //Click para controle da Partida 
-                    Window_AtuadorD.Bt_Abrir_Click += new EventHandler(AtuadorD_Bt_Ligar_Click);
-                    Window_AtuadorD.Bt_Reset_Click += new EventHandler(AtuadorD_Bt_Reset_Click);
-                    Window_AtuadorD.Bt_Libera_Click += new EventHandler(AtuadorD_Bt_Libera_Click);
-                    Window_AtuadorD.Bt_Manutencao_Click += new EventHandler(AtuadorD_Bt_Manutencao_Click);
-                    Window_AtuadorD.Bt_Manual_Click += new EventHandler(AtuadorD_Bt_Manual_Click);
-                    Window_AtuadorD.Bt_Fechar_Click += new EventHandler(AtuadorD_Bt_Fechar_Click);
+                    Window_AtuadorD.controleAtuadorLinear.Bt_Abrir_Click += new EventHandler(AtuadorD_Bt_Ligar_Click);
+                    Window_AtuadorD.controleAtuadorLinear.Bt_Reset_Click += new EventHandler(AtuadorD_Bt_Reset_Click);
+                    Window_AtuadorD.controleAtuadorLinear.Bt_Libera_Click += new EventHandler(AtuadorD_Bt_Libera_Click);
+                    Window_AtuadorD.controleAtuadorLinear.Bt_Manutencao_Click += new EventHandler(AtuadorD_Bt_Manutencao_Click);
+                    Window_AtuadorD.controleAtuadorLinear.Bt_Manual_Click += new EventHandler(AtuadorD_Bt_Manual_Click);
+                    Window_AtuadorD.controleAtuadorLinear.Bt_Fechar_Click += new EventHandler(AtuadorD_Bt_Fechar_Click);
                 }
                 else if(TCommand == typeCommand.Atuador_Analogico)
                 {
@@ -144,10 +140,6 @@ namespace _9230A_V00___PI.Utilidades
             }
 
         }
-
-
-
-
 
         #region Events Window
 
@@ -222,7 +214,7 @@ namespace _9230A_V00___PI.Utilidades
         {
             VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Enable_Read = false;
 
-            Comunicacao.Sharp7.S7.SetDIntAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + 4, Convert.ToInt32(Window_PD.configuracoesPD.SpManutencao));
+            Comunicacao.Sharp7.S7.SetDIntAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + Command.PD.offSet_SP_Manutencao, Convert.ToInt32(Window_PD.configuracoesPD.SpManutencao));
 
             VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Enable_Write = true;
         }
@@ -231,7 +223,7 @@ namespace _9230A_V00___PI.Utilidades
         {
             VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Enable_Read = false;
 
-            Comunicacao.Sharp7.S7.SetDIntAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + 16, Convert.ToInt32(Window_PD.configuracoesPD.SpLimpeza));
+            Comunicacao.Sharp7.S7.SetDIntAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + Command.PD.offSet_Tempo_Limpeza, Convert.ToInt32(Window_PD.configuracoesPD.SpLimpeza));
 
             VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Enable_Write = true;
         }
@@ -748,7 +740,7 @@ namespace _9230A_V00___PI.Utilidades
                         Command.INV.SP_Manutencao = Comunicacao.Sharp7.S7.GetDIntAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + Command.INV.offSet_SP_Manutencao);
                         Command.INV.HorimetroParcial = Comunicacao.Sharp7.S7.GetDIntAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + Command.INV.offSet_HorimetroParcial);
                         Command.INV.HorimetroTotal = Comunicacao.Sharp7.S7.GetDIntAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + Command.INV.offSet_HorimetroTotal);
-                        Command.INV.Tempo_Limpeza = Comunicacao.Sharp7.S7.GetDIntAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + 48);
+                        Command.INV.Tempo_Limpeza = Comunicacao.Sharp7.S7.GetDIntAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + Command.INV.offSet_Tempo_Limpeza);
 
                         //Atualizando as variaveis para o standard GUI
 
@@ -762,14 +754,14 @@ namespace _9230A_V00___PI.Utilidades
                     {
                         //Lendo variaveis do buffer do CLP
                         Command.DWord = Comunicacao.Sharp7.S7.GetDWordAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet);
-                        Command.SS.SP_Manutencao = Comunicacao.Sharp7.S7.GetDIntAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + 4);
-                        Command.SS.HorimetroParcial = Comunicacao.Sharp7.S7.GetDIntAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + 8);
-                        Command.SS.HorimetroTotal = Comunicacao.Sharp7.S7.GetDIntAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + 12);
-                        Command.SS.Tempo_Limpeza = Comunicacao.Sharp7.S7.GetDIntAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + 16);
-                        Command.SS.Corrente_Atual = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + 20);
-                        Command.SS.SP_Corrente_Motor_Vazio = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + 24);
-                        Command.SS.SP_Tempo_Reversao = Comunicacao.Sharp7.S7.GetDIntAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + 28);
-                        Command.SS.Tempo_Reversao_Atual = Comunicacao.Sharp7.S7.GetDIntAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + 32);
+                        Command.SS.SP_Manutencao = Comunicacao.Sharp7.S7.GetDIntAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + Command.SS.offSet_SP_Manutencao);
+                        Command.SS.HorimetroParcial = Comunicacao.Sharp7.S7.GetDIntAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + Command.SS.offSet_HorimetroParcial);
+                        Command.SS.HorimetroTotal = Comunicacao.Sharp7.S7.GetDIntAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + Command.SS.offSet_HorimetroTotal);
+                        Command.SS.Tempo_Limpeza = Comunicacao.Sharp7.S7.GetDIntAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + Command.SS.offSet_Tempo_Limpeza);
+                        Command.SS.Corrente_Atual = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + Command.SS.offSet_Corrente_Atual);
+                        Command.SS.SP_Corrente_Motor_Vazio = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + Command.SS.offSet_SP_Corrente_Motor_Vazio);
+                        Command.SS.SP_Tempo_Reversao = Comunicacao.Sharp7.S7.GetDIntAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + Command.SS.offSet_SP_Tempo_Reversao);
+                        Command.SS.Tempo_Reversao_Atual = Comunicacao.Sharp7.S7.GetDIntAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + Command.SS.offSet_Tempo_Reversao_Atual);
 
 
                         //Atualizando as variaveis para o standard GUI

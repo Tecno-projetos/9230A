@@ -104,9 +104,9 @@ namespace _9230A_V00___PI.Partidas.Outras_Telas
             if (mainWindow.ShowDialog() == true)
             {
                 //Recebe Valor antigo digitado no Textbox
-                int oldValue = Convert.ToInt16(TB_SPMantencao.Text);
+                int oldValue = Convert.ToInt32(TB_SPMantencao.Text);
                 //Recebe o novo valor digitado no Keypad
-                int newValue = Convert.ToInt16(mainWindow.Result);
+                int newValue = Convert.ToInt32(mainWindow.Result);
 
                 bool isNumeric = int.TryParse(TB_SPMantencao.Text, out n);
 
@@ -141,9 +141,9 @@ namespace _9230A_V00___PI.Partidas.Outras_Telas
             if (mainWindow.ShowDialog() == true)
             {
                 //Recebe Valor antigo digitado no Textbox
-                int oldValue = Convert.ToInt16(TB_SPLimpeza.Text);
+                int oldValue = Convert.ToInt32(TB_SPLimpeza.Text);
                 //Recebe o novo valor digitado no Keypad
-                int newValue = Convert.ToInt16(mainWindow.Result);
+                int newValue = Convert.ToInt32(mainWindow.Result);
 
                 bool isNumeric = int.TryParse(TB_SPLimpeza.Text, out n);
 
