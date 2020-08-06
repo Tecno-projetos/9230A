@@ -79,7 +79,7 @@ namespace _9230A_V00___PI.Partidas.Principal
 
 
             this.Height = 510;
-            this.Width = 255;
+            this.Width = 515;
 
             DateTime dtin;
             DateTime dtout;
