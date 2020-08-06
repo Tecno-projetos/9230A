@@ -35,8 +35,6 @@ namespace _9230A_V00___PI.Partidas
             InitializeComponent();
             lbName.Content = nome;
             this.Title = nome + " " +tag;
-
-
         }
 
         #region Encapsulate Fields
