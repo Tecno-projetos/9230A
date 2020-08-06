@@ -11,14 +11,15 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace _9230A_V00___PI.Partidas
+namespace _9230A_V00___PI.Partidas.Controle
 {
     /// <summary>
-    /// Lógica interna para controleInversor.xaml
+    /// Interação lógica para controleInversor.xam
     /// </summary>
-    public partial class controleInversor : Window
+    public partial class controleInversor : UserControl
     {
 
         public event EventHandler atualizarVelocidade;
@@ -27,14 +28,12 @@ namespace _9230A_V00___PI.Partidas
         public event EventHandler Bt_Libera_Click;
         public event EventHandler Bt_Manutencao_Click;
         public event EventHandler Bt_Manual_Click;
-        public event EventHandler Bt_Fechar_Click;
 
 
-        public controleInversor(string nome, string tag, string numeroPartida, string paginaProjeto)
+
+        public controleInversor()
         {
             InitializeComponent();
-            lbName.Content = nome;
-            this.Title = nome + " " +tag;
         }
 
         #region Encapsulate Fields
@@ -314,11 +313,6 @@ namespace _9230A_V00___PI.Partidas
                 this.Bt_Manual_Click(this, e);
         }
 
-        private void btFechar_Click(object sender, RoutedEventArgs e)
-        {
-            if (this.Bt_Fechar_Click != null)
-                this.Bt_Fechar_Click(this, e);
-        }
 
     }
 }

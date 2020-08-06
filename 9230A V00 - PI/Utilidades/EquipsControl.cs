@@ -17,11 +17,11 @@ namespace _9230A_V00___PI.Utilidades
         #region Variables 
 
         Partidas.Principal.principalPartidaDireta Window_PD;
-        Partidas.controleInversor Window_INV;
+        Partidas.Principal.principalControleInversor Window_INV;
         Partidas.controleSoftStarter Window_SS;
         Partidas.Principal.principalControleAtuadorAnalogico Window_AtuadorA;
         Partidas.Principal.principalControleAtuadorLinear Window_AtuadorD;
-        Partidas.controleAtuadorLinearBifurcada Window_BF;
+        Partidas.Principal.principalControleAtuadorLinearBifurcada Window_BF;
 
         SolidColorBrush Verde = new SolidColorBrush(Color.FromRgb(0, 140, 0));
         SolidColorBrush Laranja = new SolidColorBrush(Color.FromRgb(250, 150, 0));
@@ -76,18 +76,31 @@ namespace _9230A_V00___PI.Utilidades
             //INV
             else if (Equip == typeEquip.INV)
             {
-                Window_INV = new Partidas.controleInversor(nome, tag, numeroPartida, paginaProjeto);
+                Window_INV = new Partidas.Principal.principalControleInversor(nome, tag, numeroPartida, paginaProjeto);
+
+
+
+                this.Window_INV.Height = 660;
+                this.Window_INV.Width = 255;
 
                 Window_INV.Closing += Window_INV_Closing;
 
                 //Click para controle da Partida 
-                Window_INV.Bt_Ligar_Click += new EventHandler(INV_Bt_Ligar_Click);
-                Window_INV.Bt_Reset_Click += new EventHandler(INV_Bt_Reset_Click);
-                Window_INV.Bt_Libera_Click += new EventHandler(INV_Bt_Libera_Click);
-                Window_INV.Bt_Manutencao_Click += new EventHandler(INV_Bt_Manutencao_Click);
-                Window_INV.Bt_Manual_Click += new EventHandler(INV_Bt_Manual_Click);
+                Window_INV.controleINV.Bt_Ligar_Click += new EventHandler(INV_Bt_Ligar_Click);
+                Window_INV.controleINV.Bt_Reset_Click += new EventHandler(INV_Bt_Reset_Click);
+                Window_INV.controleINV.Bt_Libera_Click += new EventHandler(INV_Bt_Libera_Click);
+                Window_INV.controleINV.Bt_Manutencao_Click += new EventHandler(INV_Bt_Manutencao_Click);
+                Window_INV.controleINV.Bt_Manual_Click += new EventHandler(INV_Bt_Manual_Click);
+                Window_INV.controleINV.atualizarVelocidade += new EventHandler(INV_atualiza_Velocidade);
+
+
+                Window_INV.configuracoesINV.resetTotal_Click += new EventHandler(INV_resetTotal_Click);
+                Window_INV.configuracoesINV.resetParcial_Click += new EventHandler(INV_resetParcial_Click);
+                Window_INV.configuracoesINV.atualizaSPManutencao_Click += new EventHandler(INV_atualizaSPManutencao_Event);
+                Window_INV.configuracoesINV.atualizaSPLimpeza_Click += new EventHandler(INV_atualizaSPLimepza_Event);
+                Window_INV.configuracoesINV.atualizaSPMotorVazio_Click += new EventHandler(INV_atualizaSPMotorVazio_Event);
+
                 Window_INV.Bt_Fechar_Click += new EventHandler(INV_Bt_Fechar_Click);
-                Window_INV.atualizarVelocidade += new EventHandler(INV_atualiza_Velocidade);
 
             }
             //SS
@@ -116,6 +129,10 @@ namespace _9230A_V00___PI.Utilidades
                 {
                     Window_AtuadorD = new Partidas.Principal.principalControleAtuadorLinear(nome, tag, numeroPartida, paginaProjeto);
 
+                    this.Window_AtuadorD.Height = 515;
+                    this.Window_AtuadorD.Width = 255;
+
+
                     Window_AtuadorD.Closing += Window_AtuadorD_Closing;
 
                     //Click para controle da Partida 
@@ -124,7 +141,10 @@ namespace _9230A_V00___PI.Utilidades
                     Window_AtuadorD.controleAtuadorLinear.Bt_Libera_Click += new EventHandler(AtuadorD_Bt_Libera_Click);
                     Window_AtuadorD.controleAtuadorLinear.Bt_Manutencao_Click += new EventHandler(AtuadorD_Bt_Manutencao_Click);
                     Window_AtuadorD.controleAtuadorLinear.Bt_Manual_Click += new EventHandler(AtuadorD_Bt_Manual_Click);
-                    Window_AtuadorD.controleAtuadorLinear.Bt_Fechar_Click += new EventHandler(AtuadorD_Bt_Fechar_Click);
+                    Window_AtuadorD.Bt_Fechar_Click += new EventHandler(AtuadorD_Bt_Fechar_Click);
+
+
+
                 }
                 else if(TCommand == typeCommand.Atuador_Analogico)
                 {
@@ -140,6 +160,8 @@ namespace _9230A_V00___PI.Utilidades
             }
 
         }
+
+
 
         #region Events Window
 
@@ -259,6 +281,44 @@ namespace _9230A_V00___PI.Utilidades
             invertBitManual();
         }
 
+        private void INV_resetTotal_Click(object sender, EventArgs e)
+        {
+            setBitResetHorimetroTotal();
+        }
+
+        private void INV_resetParcial_Click(object sender, EventArgs e)
+        {
+            setBitResetHorimetroParcial();
+        }
+        private void INV_atualizaSPManutencao_Event(object sender, EventArgs e)
+        {
+            VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Enable_Read = false;
+
+            Comunicacao.Sharp7.S7.SetDIntAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + Command.INV.offSet_SP_Manutencao, Convert.ToInt32(Window_INV.configuracoesINV.SpManutencao));
+
+            VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Enable_Write = true;
+        }
+
+        private void INV_atualizaSPLimepza_Event(object sender, EventArgs e)
+        {
+            VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Enable_Read = false;
+
+            Comunicacao.Sharp7.S7.SetDIntAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + Command.INV.offSet_Tempo_Limpeza, Convert.ToInt32(Window_INV.configuracoesINV.SpLimpeza));
+
+            VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Enable_Write = true;
+        }
+
+        private void INV_atualizaSPMotorVazio_Event(object sender, EventArgs e)
+        {
+            VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Enable_Read = false;
+
+            Comunicacao.Sharp7.S7.SetRealAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + Command.INV.offSet_SP_Corrente_Motor_Vazio, Convert.ToSingle(Window_INV.configuracoesINV.SpMotorVazio));
+
+            VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Enable_Write = true;
+        }
+
+
+
         protected void INV_Bt_Fechar_Click(object sender, EventArgs e)
         {
             Window_INV.DialogResult = true;
@@ -268,7 +328,7 @@ namespace _9230A_V00___PI.Utilidades
         {
             VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Enable_Read = false;
 
-            Comunicacao.Sharp7.S7.SetRealAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + 4, Convert.ToSingle(Window_INV.velocidadeManual_GS));
+            Comunicacao.Sharp7.S7.SetRealAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + 4, Convert.ToSingle(Window_INV.controleINV.velocidadeManual_GS));
 
             VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Enable_Write = true;
         }
@@ -697,9 +757,6 @@ namespace _9230A_V00___PI.Utilidades
 
         #region Encapulate Fields
 
-
-       
-
         public bool actualize_Equip
         {
             set
@@ -827,7 +884,13 @@ namespace _9230A_V00___PI.Utilidades
             }
             else if(Command_Get.TypeEquip == typeEquip.INV && Command_Get.TypeCommand == typeCommand.INV)
             {
-                Window_INV.velocidadeManual_GS = Command.INV.Velocidade_Manual.ToString();
+                Window_INV.controleINV.velocidadeManual_GS = Command.INV.Velocidade_Manual.ToString();
+
+                Window_INV.configuracoesINV.SpManutencao = Command.INV.SP_Manutencao.ToString();
+
+                Window_INV.configuracoesINV.SpLimpeza = Command.INV.Tempo_Limpeza.ToString();
+
+                Window_INV.configuracoesINV.SpMotorVazio = Command.INV.SP_Corrente_Motor_Vazio.ToString();
 
                 Window_INV.ShowDialog();
             }

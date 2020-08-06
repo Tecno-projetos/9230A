@@ -149,8 +149,17 @@
     <Compile Include="Partidas\Controle\controleAtuadorLinear.xaml.cs">
       <DependentUpon>controleAtuadorLinear.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Partidas\Controle\controleAtuadorLinearBifurcada.xaml.cs">
+      <DependentUpon>controleAtuadorLinearBifurcada.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Partidas\Controle\controleInversor.xaml.cs">
+      <DependentUpon>controleInversor.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Partidas\Controle\controlePartidaDireta.xaml.cs">
       <DependentUpon>controlePartidaDireta.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Partidas\Outras Telas\configuracoesINV.xaml.cs">
+      <DependentUpon>configuracoesINV.xaml</DependentUpon>
     </Compile>
     <Compile Include="Partidas\Outras Telas\configuracoesPartidas.xaml.cs">
       <DependentUpon>configuracoesPartidas.xaml</DependentUpon>
@@ -164,13 +173,16 @@
     <Compile Include="Partidas\Principal\principalControleAtuadorLinear.xaml.cs">
       <DependentUpon>principalControleAtuadorLinear.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Partidas\Principal\principalControleAtuadorLinearBifurcada.xaml.cs">
+      <DependentUpon>principalControleAtuadorLinearBifurcada.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Partidas\Principal\principalControleInversor.xaml.cs">
+      <DependentUpon>principalControleInversor.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Partidas\Principal\principalPartidaDireta.xaml.cs">
       <DependentUpon>principalPartidaDireta.xaml</DependentUpon>
     </Compile>
     <Compile Include="Teclados\keyboard.cs" />
-    <Compile Include="Partidas\controleInversor.xaml.cs">
-      <DependentUpon>controleInversor.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Partidas\controleSoftStarter.xaml.cs">
       <DependentUpon>controleSoftStarter.xaml</DependentUpon>
     </Compile>
@@ -179,9 +191,6 @@
     </Compile>
     <Compile Include="Teclados\keypad.xaml.cs">
       <DependentUpon>keypad.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Partidas\controleAtuadorLinearBifurcada.xaml.cs">
-      <DependentUpon>controleAtuadorLinearBifurcada.xaml</DependentUpon>
     </Compile>
     <Compile Include="Telas Fluxo\alarmes.xaml.cs">
       <DependentUpon>alarmes.xaml</DependentUpon>
@@ -293,10 +302,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Partidas\controleInversor.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Partidas\controleSoftStarter.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -309,7 +314,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Partidas\Controle\controleAtuadorLinearBifurcada.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Partidas\Controle\controleInversor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Partidas\Controle\controlePartidaDireta.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Partidas\Outras Telas\configuracoesINV.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -329,6 +346,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Partidas\Principal\principalControleAtuadorLinearBifurcada.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Partidas\Principal\principalControleInversor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Partidas\Principal\principalPartidaDireta.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -342,10 +367,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Teclados\keypad.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Partidas\controleAtuadorLinearBifurcada.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
