@@ -24,8 +24,8 @@ namespace _9230A_V00___PI.Utilidades
             Command.Standard.Falha_Contator_Desligou = Command.PD.falhaContatorDesligou;
             Command.Standard.Falha_Disjuntor_Desligou = Command.PD.falhaDisjuntoDesligou;
             Command.Standard.Falha_Partida_Nao_Desligou = Command.PD.falhaPartidaNaoDesligou;
-            Command.Standard.Reset_Timer = Command.PD.resetHorimetroTotal;
-            Command.Standard.Reset_Timer_Total = Command.PD.resetHorimetroParcial;
+            Command.Standard.Reset_Timer_Total = Command.PD.resetHorimetroTotal;
+            Command.Standard.Reset_Timer = Command.PD.resetHorimetroParcial;
             Command.Standard.Emergencia = Command.PD.emergencia;
             Command.Standard.Disjuntor_Desligado = Command.PD.disjuntorDesligado;
             Command.Standard.Tempo_Manutencao = Command.PD.tempoManutencao;
@@ -51,8 +51,8 @@ namespace _9230A_V00___PI.Utilidades
             Command.PD.falhaContatorDesligou = Command.Standard.Falha_Contator_Desligou;
             Command.PD.falhaDisjuntoDesligou = Command.Standard.Falha_Disjuntor_Desligou;
             Command.PD.falhaPartidaNaoDesligou = Command.Standard.Falha_Partida_Nao_Desligou;
-            Command.PD.resetHorimetroTotal = Command.Standard.Reset_Timer;
-            Command.PD.resetHorimetroParcial = Command.Standard.Reset_Timer_Total;
+            Command.PD.resetHorimetroTotal = Command.Standard.Reset_Timer_Total;
+            Command.PD.resetHorimetroParcial = Command.Standard.Reset_Timer;
             Command.PD.emergencia = Command.Standard.Emergencia;
             Command.PD.disjuntorDesligado = Command.Standard.Disjuntor_Desligado;
             Command.PD.tempoManutencao = Command.Standard.Tempo_Manutencao;
@@ -164,8 +164,8 @@ namespace _9230A_V00___PI.Utilidades
             Command.Standard.Ligando = Command.INV.ligando;
             Command.Standard.Desligando = Command.INV.desligando;
             Command.Standard.Liberado = Command.INV.liberado;
-            Command.Standard.Reset_Timer = Command.INV.resetHorimetroTotal;
-            Command.Standard.Reset_Timer_Total = Command.INV.resetHorimetroParcial;
+            Command.Standard.Reset_Timer_Total = Command.INV.resetHorimetroTotal;
+            Command.Standard.Reset_Timer = Command.INV.resetHorimetroParcial;
             Command.Standard.Emergencia = Command.INV.emergencia;
             Command.Standard.Disjuntor_Desligado = Command.INV.disjuntorDesligado;
             Command.Standard.Tempo_Manutencao = Command.INV.tempoManutencao;
@@ -187,8 +187,8 @@ namespace _9230A_V00___PI.Utilidades
             Command.INV.ligando = Command.Standard.Ligando;
             Command.INV.desligando = Command.Standard.Desligando;
             Command.INV.liberado = Command.Standard.Liberado;
-            Command.INV.resetHorimetroTotal = Command.Standard.Reset_Timer;
-            Command.INV.resetHorimetroParcial = Command.Standard.Reset_Timer_Total;
+            Command.INV.resetHorimetroTotal = Command.Standard.Reset_Timer_Total;
+            Command.INV.resetHorimetroParcial = Command.Standard.Reset_Timer;
             Command.INV.emergencia = Command.Standard.Emergencia;
             Command.INV.disjuntorDesligado = Command.Standard.Disjuntor_Desligado;
             Command.INV.tempoManutencao = Command.Standard.Tempo_Manutencao;

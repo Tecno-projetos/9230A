@@ -46,9 +46,9 @@ namespace _9230A_V00___PI.DataBase
                 try
                 {
                     string CommandString = "CREATE TABLE Produtos (" +
-                        "Codigo string not null primary key," +
+                        "Codigo nvarchar(100) not null primary key," +
                         "Descricao nvarchar(200)," +
-                        "Densidade double," +
+                        "Densidade real," +
                         "TipoProduto nvarchar(100), " +
                         "Observacao nvarchar(300));";
 
@@ -67,9 +67,9 @@ namespace _9230A_V00___PI.DataBase
             }
         }
 
-        public static string IntoDate_Table_Produtos(string codigo, string descricao, double densidade, string tipoProduto, string observacao)
+        public static int IntoDate_Table_Produtos(string codigo, string descricao, float densidade, string tipoProduto, string observacao)
         {
-            string ret = "";
+            int ret = -1;
 
             if (Utilidades.VariaveisGlobais.DB_Connected_GS)
             {
@@ -84,16 +84,16 @@ namespace _9230A_V00___PI.DataBase
                     Command.Parameters.AddWithValue("@Descricao", descricao);
                     Command.Parameters.AddWithValue("@Densidade", densidade);
                     Command.Parameters.AddWithValue("@TipoProduto", tipoProduto);
-                    Command.Parameters.AddWithValue("@TipoProduto", observacao);
+                    Command.Parameters.AddWithValue("@Observacao", observacao);
                     Call.Open();
-                    Command.ExecuteNonQuery();
+                    ret = Command.ExecuteNonQuery();
                     Call.Close();
-                    ret = "ok";
                 }
                 catch (Exception ex)
                 {
+                    
                     Utilidades.VariaveisGlobais.Window_Buffer_Diagnostic.List_Error = ex.ToString();
-                    ret = "erro";
+                    ret = -1;
                 }
 
                 return ret;
@@ -102,6 +102,31 @@ namespace _9230A_V00___PI.DataBase
             {
                 return ret;
             }
+        }
+
+        public DataTable getTableProdutos()
+        {
+            DataTable Data = new DataTable();
+
+            if (Utilidades.VariaveisGlobais.DB_Connected_GS)
+            {
+                try
+                {
+                    string CommandString = "SELECT * FROM Produtos";
+
+                    dynamic Call = SqlGlobalFuctions.ReturnCall(Utilidades.VariaveisGlobais.Connection_DB_Produtos_GS);
+
+                    dynamic Adapter = SqlGlobalFuctions.ReturnAdapter(CommandString, Utilidades.VariaveisGlobais.Connection_DB_Produtos_GS);
+
+                    Adapter.Fill(Data);
+                }
+                catch (Exception ex)
+                {
+                    Utilidades.VariaveisGlobais.Window_Buffer_Diagnostic.List_Error = ex.ToString();
+                }
+            }
+
+            return Data;
         }
 
 

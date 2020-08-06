@@ -51,12 +51,12 @@
             </ResourceDictionary>
 
         </Grid.Resources>
-        <Label Content="Cadastrar Produto" HorizontalAlignment="Left" VerticalAlignment="Top" Width="825" Foreground="White" VerticalContentAlignment="Center" FontWeight="Bold" HorizontalContentAlignment="Center" Margin="0,6,-1,0" Height="60" FontSize="30"/>
+        <Label x:Name="lbTitle" Content="Cadastrar Produto" HorizontalAlignment="Left" VerticalAlignment="Top" Width="825" Foreground="White" VerticalContentAlignment="Center" FontWeight="Bold" HorizontalContentAlignment="Center" Margin="0,6,-1,0" Height="60" FontSize="30"/>
         <Rectangle Fill="White" HorizontalAlignment="Left" Height="5" Margin="0,76,-1,0" Stroke="White" VerticalAlignment="Top" Width="825"/>
         <Label Content="Código Produto: (*)" Height="34" Margin="52,103,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="188" Foreground="White" FontWeight="Bold" FontSize="16"/>
 
         <Grid Style="{StaticResource EntryFieldStyle}" Margin="52,142,417,492" Height="41" Background="#FF3C3C3C" >
-            <TextBlock Margin="5,0,6,5" Text="254" Foreground="{StaticResource brushWatermarkForeground}" VerticalAlignment="Bottom" FontSize="14" >
+            <TextBlock Margin="5,0,6,5" Text="Exemplo: 254" Foreground="#FF919191" VerticalAlignment="Bottom" FontSize="14" >
                 <TextBlock.Visibility>
                     <MultiBinding Converter="{StaticResource TextInputToVisibilityConverter}">
                         <Binding ElementName="txtCod" Path="Text.IsEmpty" />
@@ -71,13 +71,13 @@
         <materialDesign:PackIcon Kind="Pencil" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="14,142,772,492" BorderBrush="#FF040404"/>
         <Button x:Name="btCadastrarProduto" Margin="256,590,204,35" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btCadastrarProduto_Click" >
             <Grid Width="150">
-                <materialDesign:PackIcon Kind="plus" VerticalAlignment="Center" Foreground="White" Margin="6,-6,0,-7" Height="30" Width="30"/>
-                <TextBlock FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="45,1,20,-1" Width="85" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center"><Run Text="C"/><Run Text="adastrar"/></TextBlock>
+                <materialDesign:PackIcon x:Name="packiconCadastrarEditar" Kind="plus" VerticalAlignment="Center" Foreground="White" Margin="6,-6,0,-7" Height="30" Width="30"/>
+                <TextBlock x:Name="lbTextButton" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="45,1,20,-1" Width="85" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center"><Run Text="C"/><Run Text="adastrar"/></TextBlock>
             </Grid>
         </Button>
         <Label Content="Descrição: (*)" Height="34" Margin="52,183,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="188" Foreground="White" FontWeight="Bold" FontSize="16"/>
         <Grid Style="{StaticResource EntryFieldStyle}" Margin="52,222,417,412" Height="41" Background="#FF3C3C3C" >
-            <TextBlock Margin="5,0,6,5" Text="Milho" Foreground="{StaticResource brushWatermarkForeground}" VerticalAlignment="Bottom" FontSize="14" >
+            <TextBlock Margin="5,0,6,5" Text="Exemplo: Milho" Foreground="#FF919191" VerticalAlignment="Bottom" FontSize="14" >
                 <TextBlock.Visibility>
                     <MultiBinding Converter="{StaticResource TextInputToVisibilityConverter}">
                         <Binding ElementName="txtDesc" Path="Text.IsEmpty" />
@@ -91,7 +91,7 @@
         <materialDesign:PackIcon Kind="Pencil" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="14,222,772,412" BorderBrush="#FF040404"/>
         <Label Content="Densidade(kg/m³): (*)" Height="34" Margin="52,263,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="188" Foreground="White" FontWeight="Bold" FontSize="16"/>
         <Grid Style="{StaticResource EntryFieldStyle}" Margin="52,302,417,332" Height="41" Background="#FF3C3C3C" >
-            <TextBlock Margin="5,0,6,5" Text="1,224" Foreground="{StaticResource brushWatermarkForeground}" VerticalAlignment="Bottom" FontSize="14" >
+            <TextBlock Margin="5,0,6,5" Text="Exemplo: 1,224" Foreground="#FF919191" VerticalAlignment="Bottom" FontSize="14" >
                 <TextBlock.Visibility>
                     <MultiBinding Converter="{StaticResource TextInputToVisibilityConverter}">
                         <Binding ElementName="txtDensidade" Path="Text.IsEmpty" />
@@ -105,7 +105,7 @@
         <materialDesign:PackIcon Kind="Pencil" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="14,302,772,332" BorderBrush="#FF040404"/>
         <Label Content="Observação:" Height="34" Margin="52,343,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="188" Foreground="White" FontWeight="Bold" FontSize="16"/>
         <Grid Style="{StaticResource EntryFieldStyle}" Margin="52,382,417,252" Height="41" Background="#FF3C3C3C" >
-            <TextBlock Margin="5,0,6,5" Text="Fornecedor X" Foreground="{StaticResource brushWatermarkForeground}" VerticalAlignment="Bottom" FontSize="14" >
+            <TextBlock Margin="5,0,6,5" Text="Exemplo: Fornecedor X" Foreground="#FF919191" VerticalAlignment="Bottom" FontSize="14" >
                 <TextBlock.Visibility>
                     <MultiBinding Converter="{StaticResource TextInputToVisibilityConverter}">
                         <Binding ElementName="txtObs" Path="Text.IsEmpty" />
