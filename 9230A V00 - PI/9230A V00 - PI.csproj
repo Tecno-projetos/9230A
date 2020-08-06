@@ -155,11 +155,17 @@
     <Compile Include="Partidas\Controle\controleInversor.xaml.cs">
       <DependentUpon>controleInversor.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Partidas\Controle\controleMoinho.xaml.cs">
+      <DependentUpon>controleMoinho.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Partidas\Controle\controlePartidaDireta.xaml.cs">
       <DependentUpon>controlePartidaDireta.xaml</DependentUpon>
     </Compile>
     <Compile Include="Partidas\Outras Telas\configuracoesINV.xaml.cs">
       <DependentUpon>configuracoesINV.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Partidas\Outras Telas\configuracoesMoinho.xaml.cs">
+      <DependentUpon>configuracoesMoinho.xaml</DependentUpon>
     </Compile>
     <Compile Include="Partidas\Outras Telas\configuracoesPartidas.xaml.cs">
       <DependentUpon>configuracoesPartidas.xaml</DependentUpon>
@@ -179,13 +185,13 @@
     <Compile Include="Partidas\Principal\principalControleInversor.xaml.cs">
       <DependentUpon>principalControleInversor.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Partidas\Principal\principalControleMoinho.xaml.cs">
+      <DependentUpon>principalControleMoinho.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Partidas\Principal\principalPartidaDireta.xaml.cs">
       <DependentUpon>principalPartidaDireta.xaml</DependentUpon>
     </Compile>
     <Compile Include="Teclados\keyboard.cs" />
-    <Compile Include="Partidas\controleSoftStarter.xaml.cs">
-      <DependentUpon>controleSoftStarter.xaml</DependentUpon>
-    </Compile>
     <Compile Include="TelaInicial.xaml.cs">
       <DependentUpon>TelaInicial.xaml</DependentUpon>
     </Compile>
@@ -305,10 +311,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Partidas\controleSoftStarter.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Partidas\Controle\controleAtuadorAnalogico.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -325,11 +327,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Partidas\Controle\controleMoinho.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Partidas\Controle\controlePartidaDireta.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Partidas\Outras Telas\configuracoesINV.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Partidas\Outras Telas\configuracoesMoinho.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -354,6 +364,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Partidas\Principal\principalControleInversor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Partidas\Principal\principalControleMoinho.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

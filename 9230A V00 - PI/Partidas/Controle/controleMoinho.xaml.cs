@@ -1,5 +1,4 @@
-﻿using _9230A_V00___PI.Teclados;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,17 +10,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace _9230A_V00___PI.Partidas
+namespace _9230A_V00___PI.Partidas.Controle
 {
     /// <summary>
-    /// Lógica interna para controleSoftStarter.xaml
+    /// Interação lógica para controleMoinho.xam
     /// </summary>
-    public partial class controleSoftStarter : Window
+    public partial class controleMoinho : UserControl
     {
-        public event EventHandler atualizarCorrenteVazio;
-        public event EventHandler atualizarTempoReversao;
 
         public event EventHandler Bt_Ligar_Click;
         public event EventHandler Bt_Reset_Click;
@@ -29,39 +27,10 @@ namespace _9230A_V00___PI.Partidas
         public event EventHandler Bt_Inverte_Click;
         public event EventHandler Bt_Manutencao_Click;
         public event EventHandler Bt_Manual_Click;
-        public event EventHandler Bt_Fechar_Click;
 
-        public controleSoftStarter(string nome, string tag, string numeroPartida, string paginaProjeto)
+        public controleMoinho()
         {
             InitializeComponent();
-            lbName.Content = nome;
-            this.Title = nome + " " + tag;
-        }
-
-        public string CorrenteMotorVazio
-        {
-            set
-            {
-                tbCorrenteVazio.Dispatcher.Invoke(delegate { tbCorrenteVazio.Text = value; });
-                
-            }
-            get
-            {
-                return tbCorrenteVazio.Text;
-            }
-        }
-
-        public string SP_TempoReversao
-        {
-            set
-            {
-                tbReversao.Dispatcher.Invoke(delegate { tbReversao.Text = value; });
-
-            }
-            get
-            {
-                return tbReversao.Text;
-            }
         }
 
         public void actualize_UI(Utilidades.VariaveisGlobais.type_All Command)
@@ -81,7 +50,7 @@ namespace _9230A_V00___PI.Partidas
 
                 btInverte.Dispatcher.Invoke(delegate { btInverte.IsEnabled = false; });
 
-                
+
 
             }
             else
@@ -150,53 +119,83 @@ namespace _9230A_V00___PI.Partidas
             if (!Command.Standard.Emergencia)
             {
                 lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Content = "Em Emergência"; });
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Foreground = new SolidColorBrush(Colors.White); });
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Background = new SolidColorBrush(Colors.Red); });
+
             }
             else if (Command.Standard.Falha_Geral)
             {
                 if (Command.Standard.Falha_Partida_Nao_Confirmou)
                 {
                     lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Content = "Falha Confirmação"; });
+                    lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Foreground = new SolidColorBrush(Colors.White); });
+                    lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Background = new SolidColorBrush(Colors.Red); });
                 }
                 else if (Command.Standard.Falha_Contator_Desligou)
                 {
                     lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Content = "Falha Partida Não Desligou"; });
+                    lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Foreground = new SolidColorBrush(Colors.White); });
+                    lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Background = new SolidColorBrush(Colors.Red); });
                 }
                 else if (Command.Standard.Falha_Disjuntor_Desligou)
                 {
                     lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Content = "Falha Partida Desligou"; });
+                    lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Foreground = new SolidColorBrush(Colors.White); });
+                    lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Background = new SolidColorBrush(Colors.Red); });
                 }
                 else if (Command.Standard.Falha_Partida_Nao_Desligou)
                 {
                     lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Content = "Falha Partida Não Desligou"; });
+                    lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Foreground = new SolidColorBrush(Colors.White); });
+                    lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Background = new SolidColorBrush(Colors.Red); });
                 }
             }
             else if (Command.Standard.Manutencao)
             {
                 lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Content = "Em Manutenção"; });
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Foreground = new SolidColorBrush(Colors.White); });
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Background = new SolidColorBrush(Colors.Blue); });
             }
             else if (Command.Standard.Disjuntor_Desligado)
             {
                 lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Content = "Disjuntor Desligado"; });
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Foreground = new SolidColorBrush(Colors.Black); });
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Background = new SolidColorBrush(Colors.Yellow); });
             }
             else if (Command.Standard.Ligando)
             {
                 lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Content = "Ligando"; });
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Foreground = new SolidColorBrush(Colors.White); });
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Background = new SolidColorBrush(Colors.ForestGreen); });
             }
             else if (Command.Standard.Desligando)
             {
                 lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Content = "Desligando"; });
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Foreground = new SolidColorBrush(Colors.White); });
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Background = new SolidColorBrush(Colors.ForestGreen); });
             }
             else if (Command.Standard.Ligado)
             {
                 lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Content = "Ligado"; });
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Foreground = new SolidColorBrush(Colors.Black); });
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Background = new SolidColorBrush(Colors.Green); });
             }
             else
             {
                 lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Content = "Desligado"; });
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Foreground = new SolidColorBrush(Colors.White); });
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Background = new SolidColorBrush(Colors.Gray); });
             }
 
             lbCorrenteAtual.Dispatcher.Invoke(delegate { lbCorrenteAtual.Content = Command.SS.Corrente_Atual + " A"; });
-            lbTempoReversao.Dispatcher.Invoke(delegate { lbTempoReversao.Content = "Falta: "+ Command.INV.Codigo_Falha+" min."; });
+
+            lbCorrenteAtual.Dispatcher.Invoke(delegate { lbCorrenteAtual.Foreground = new SolidColorBrush(Colors.White); });
+            lbCorrenteAtual.Dispatcher.Invoke(delegate { lbCorrenteAtual.Background = new SolidColorBrush(Colors.Gray); });
+
+            lbTempoReversao.Dispatcher.Invoke(delegate { lbTempoReversao.Content = "Falta: " + Command.SS.Tempo_Reversao_Atual + " min."; });
+
+            lbTempoReversao.Dispatcher.Invoke(delegate { lbTempoReversao.Foreground = new SolidColorBrush(Colors.White); });
+            lbTempoReversao.Dispatcher.Invoke(delegate { lbTempoReversao.Background = new SolidColorBrush(Colors.Gray); });
 
             if (Command.Standard.SentidoGiro)
             {
@@ -206,6 +205,10 @@ namespace _9230A_V00___PI.Partidas
             {
                 lbSentidoGiro.Dispatcher.Invoke(delegate { lbSentidoGiro.Content = "Sentido Anti-Horário"; });
             }
+
+
+            lbSentidoGiro.Dispatcher.Invoke(delegate { lbSentidoGiro.Foreground = new SolidColorBrush(Colors.White); });
+            lbSentidoGiro.Dispatcher.Invoke(delegate { lbSentidoGiro.Background = new SolidColorBrush(Colors.Gray); });
 
 
         }
@@ -246,68 +249,5 @@ namespace _9230A_V00___PI.Partidas
                 this.Bt_Manual_Click(this, e);
         }
 
-        private void btFechar_Click(object sender, RoutedEventArgs e)
-        {
-            if (this.Bt_Fechar_Click != null)
-                this.Bt_Fechar_Click(this, e);
-        }
-
-        private void tbCorrenteVazio_PreviewMouseUp(object sender, MouseButtonEventArgs e)
-        {
-            keypad mainWindow = new keypad(true, 3);
-            if (mainWindow.ShowDialog() == true)
-            {
-                //Recebe Valor antigo digitado no Textbox
-                int oldValue = Convert.ToInt16(tbCorrenteVazio.Text);
-                //Recebe o novo valor digitado no Keypad
-                int newValue = Convert.ToInt16(mainWindow.Result);
-
-
-                //Verifica se o novo valor é diferente do valor anterior para que atualize a váriavel no CLP
-                if (oldValue != newValue)
-                {
-        
-                    tbCorrenteVazio.Text = Convert.ToString(newValue);
-
-                    //Retira o foco do textbox.
-                    Keyboard.ClearFocus();
-
-                    //Dispara o evento de atualizar a váriavel no CLP.
-                    if (this.atualizarCorrenteVazio != null)
-                        this.atualizarCorrenteVazio(this, e);
-
-                }
-
-            }
-        }
-
-        private void tbReversao_PreviewMouseUp(object sender, MouseButtonEventArgs e)
-        {
-            keypad mainWindow = new keypad(true, 3);
-            if (mainWindow.ShowDialog() == true)
-            {
-                //Recebe Valor antigo digitado no Textbox
-                int oldValue = Convert.ToInt16(tbReversao.Text);
-                //Recebe o novo valor digitado no Keypad
-                int newValue = Convert.ToInt16(mainWindow.Result);
-
-
-                //Verifica se o novo valor é diferente do valor anterior para que atualize a váriavel no CLP
-                if (oldValue != newValue)
-                {
-
-                    tbReversao.Text = Convert.ToString(newValue);
-
-                    //Retira o foco do textbox.
-                    Keyboard.ClearFocus();
-
-                    //Dispara o evento de atualizar a váriavel no CLP.
-                    if (this.atualizarTempoReversao != null)
-                        this.atualizarTempoReversao(this, e);
-
-                }
-
-            }
-        }
     }
 }

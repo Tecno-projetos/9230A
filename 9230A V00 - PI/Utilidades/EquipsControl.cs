@@ -18,7 +18,7 @@ namespace _9230A_V00___PI.Utilidades
 
         Partidas.Principal.principalPartidaDireta Window_PD;
         Partidas.Principal.principalControleInversor Window_INV;
-        Partidas.controleSoftStarter Window_SS;
+        Partidas.Principal.principalControleMoinho Window_SS;
         Partidas.Principal.principalControleAtuadorAnalogico Window_AtuadorA;
         Partidas.Principal.principalControleAtuadorLinear Window_AtuadorD;
         Partidas.Principal.principalControleAtuadorLinearBifurcada Window_BF;
@@ -106,21 +106,28 @@ namespace _9230A_V00___PI.Utilidades
             //SS
             else if (Equip == typeEquip.SS)
             {
-                Window_SS = new Partidas.controleSoftStarter(nome, tag, numeroPartida, paginaProjeto);
+                Window_SS = new Partidas.Principal.principalControleMoinho(nome, tag, numeroPartida, paginaProjeto);
+
+                this.Window_SS.Height = 617;
+                this.Window_SS.Width = 255;
 
                 Window_SS.Closing += Window_SS_Closing;
 
                 //Click para controle da Partida 
-                Window_SS.Bt_Ligar_Click += new EventHandler(SS_Bt_Ligar_Click);
-                Window_SS.Bt_Reset_Click += new EventHandler(SS_Bt_Reset_Click);
-                Window_SS.Bt_Libera_Click += new EventHandler(SS_Bt_Libera_Click);
-                Window_SS.Bt_Manutencao_Click += new EventHandler(SS_Bt_Manutencao_Click);
-                Window_SS.Bt_Manual_Click += new EventHandler(SS_Bt_Manual_Click);
-                Window_SS.Bt_Fechar_Click += new EventHandler(SS_Bt_Fechar_Click);
-                Window_SS.Bt_Inverte_Click += new EventHandler(SS_Bt_InverterSentido_Click);
-                Window_SS.atualizarCorrenteVazio += new EventHandler(SS_Bt_atualizarCorrenteVazio_Click);
-                Window_SS.atualizarTempoReversao += new EventHandler(SS_Bt_atualizarTempoReversao_Click);
+                Window_SS.controleMoinho.Bt_Ligar_Click += new EventHandler(SS_Bt_Ligar_Click);
+                Window_SS.controleMoinho.Bt_Reset_Click += new EventHandler(SS_Bt_Reset_Click);
+                Window_SS.controleMoinho.Bt_Libera_Click += new EventHandler(SS_Bt_Libera_Click);
+                Window_SS.controleMoinho.Bt_Manutencao_Click += new EventHandler(SS_Bt_Manutencao_Click);
+                Window_SS.controleMoinho.Bt_Manual_Click += new EventHandler(SS_Bt_Manual_Click);
 
+                Window_SS.Bt_Fechar_Click += new EventHandler(SS_Bt_Fechar_Click);
+
+                Window_SS.controleMoinho.Bt_Inverte_Click += new EventHandler(SS_Bt_InverterSentido_Click);
+
+                Window_SS.configuracoesMOINHO.atualizaSPMotorVazio_Click += new EventHandler(SS_Bt_atualizarCorrenteVazio_Click);
+                Window_SS.configuracoesMOINHO.atualizaSPTempoReversao_Click += new EventHandler(SS_Bt_atualizarTempoReversao_Click);
+                Window_SS.configuracoesMOINHO.atualizaSPLimpeza_Click += new EventHandler(SS_Bt_atualizarSPLimpeza_Click);
+                Window_SS.configuracoesMOINHO.atualizaSPManutencao_Click += new EventHandler(SS_Bt_atualizarSPManutencao_Click);
             }
             //Atuador
             else if (Equip == typeEquip.Atuador)
@@ -160,6 +167,8 @@ namespace _9230A_V00___PI.Utilidades
             }
 
         }
+
+
 
 
 
@@ -398,7 +407,7 @@ namespace _9230A_V00___PI.Utilidades
         {
             VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Enable_Read = false;
 
-            Comunicacao.Sharp7.S7.SetRealAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + 24, Convert.ToSingle(Window_SS.CorrenteMotorVazio));
+            Comunicacao.Sharp7.S7.SetRealAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + Command.SS.offSet_SP_Corrente_Motor_Vazio, Convert.ToSingle(Window_SS.configuracoesMOINHO.SpMotorVazio));
 
             VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Enable_Write = true;
         }
@@ -407,7 +416,25 @@ namespace _9230A_V00___PI.Utilidades
         {
             VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Enable_Read = false;
 
-            Comunicacao.Sharp7.S7.SetDIntAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + 28, Convert.ToInt32(Window_SS.SP_TempoReversao));
+            Comunicacao.Sharp7.S7.SetDIntAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + Command.SS.offSet_SP_Tempo_Reversao, Convert.ToInt32(Window_SS.configuracoesMOINHO.SpTempoReversao));
+
+            VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Enable_Write = true;
+        }
+
+        private void SS_Bt_atualizarSPManutencao_Click(object sender, EventArgs e)
+        {
+            VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Enable_Read = false;
+
+            Comunicacao.Sharp7.S7.SetDIntAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + Command.SS.offSet_SP_Manutencao, Convert.ToInt32(Window_SS.configuracoesMOINHO.SpManutencao));
+
+            VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Enable_Write = true;
+        }
+
+        private void SS_Bt_atualizarSPLimpeza_Click(object sender, EventArgs e)
+        {
+            VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Enable_Read = false;
+
+            Comunicacao.Sharp7.S7.SetDIntAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + Command.SS.offSet_Tempo_Limpeza, Convert.ToInt32(Window_SS.configuracoesMOINHO.SpLimpeza));
 
             VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Enable_Write = true;
         }
@@ -896,8 +923,12 @@ namespace _9230A_V00___PI.Utilidades
             }
             else if (Command_Get.TypeEquip == typeEquip.SS && Command_Get.TypeCommand == typeCommand.SS)
             {
-                Window_SS.CorrenteMotorVazio = Command.SS.SP_Corrente_Motor_Vazio.ToString();
-                Window_SS.SP_TempoReversao = Command.SS.SP_Tempo_Reversao.ToString();
+
+                Window_SS.configuracoesMOINHO.SpMotorVazio = Command.SS.SP_Corrente_Motor_Vazio.ToString();
+                Window_SS.configuracoesMOINHO.SpTempoReversao = Command.SS.SP_Tempo_Reversao.ToString();
+                Window_SS.configuracoesMOINHO.SpLimpeza = Command.SS.Tempo_Limpeza.ToString();
+                Window_SS.configuracoesMOINHO.SpManutencao = Command.SS.SP_Manutencao.ToString();
+
 
                 Window_SS.ShowDialog();
             }
