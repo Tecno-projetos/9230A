@@ -10,24 +10,22 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace _9230A_V00___PI.Partidas
+namespace _9230A_V00___PI.Partidas.Controle
 {
     /// <summary>
-    /// Lógica interna para controleAtuadorLinearBifurcada.xaml
+    /// Interação lógica para controleAtuadorLinearBifurcada.xam
     /// </summary>
-    public partial class controleAtuadorLinearBifurcada : Window
+    public partial class controleAtuadorLinearBifurcada : UserControl
     {
-
         public event EventHandler Bt_AbrirEsquerda_Click;
         public event EventHandler Bt_AbrirDireita_Click;
         public event EventHandler Bt_Reset_Click;
         public event EventHandler Bt_Libera_Click;
         public event EventHandler Bt_Manutencao_Click;
         public event EventHandler Bt_Manual_Click;
-        public event EventHandler Bt_Fechar_Click;
-
 
 
         public controleAtuadorLinearBifurcada()
@@ -35,20 +33,11 @@ namespace _9230A_V00___PI.Partidas
             InitializeComponent();
         }
 
-        #region Get/Sets
-
-        public string statusMotor_GS
+        public void actualize_UI(Utilidades.VariaveisGlobais.type_All Command)
         {
-            get => lbStatusMotor.Content.ToString();
 
-            set
-            {
-                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Content = value; });
-            }
+
         }
-
-
-        #endregion
 
         private void btAbre_Esquerda_Click(object sender, RoutedEventArgs e)
         {
@@ -85,12 +74,6 @@ namespace _9230A_V00___PI.Partidas
         {
             if (this.Bt_Manual_Click != null)
                 this.Bt_Manual_Click(this, e);
-        }
-
-        private void btFechar_Click(object sender, RoutedEventArgs e)
-        {
-            if (this.Bt_Fechar_Click != null)
-                this.Bt_Fechar_Click(this, e);
         }
     }
 }

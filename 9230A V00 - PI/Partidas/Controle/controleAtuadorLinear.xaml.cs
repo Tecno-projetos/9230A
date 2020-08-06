@@ -26,8 +26,6 @@ namespace _9230A_V00___PI.Partidas.Controle
         public event EventHandler Bt_Libera_Click;
         public event EventHandler Bt_Manutencao_Click;
         public event EventHandler Bt_Manual_Click;
-        public event EventHandler Bt_Fechar_Click;
-
 
         public controleAtuadorLinear()
         {
@@ -198,12 +196,6 @@ namespace _9230A_V00___PI.Partidas.Controle
         {
             if (this.Bt_Manual_Click != null)
                 this.Bt_Manual_Click(this, e);
-        }
-
-        private void btFechar_Click(object sender, RoutedEventArgs e)
-        {
-            if (this.Bt_Fechar_Click != null)
-                this.Bt_Fechar_Click(this, e);
         }
     }
 }
