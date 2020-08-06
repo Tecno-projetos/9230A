@@ -68,10 +68,10 @@ namespace _9230A_V00___PI
 
             #region Equipamentos
 
-            VariaveisGlobais.Fluxo.Motor_22.loadEquip(Utilidades.typeEquip.PD, Utilidades.typeCommand.PD, 0, 0, "Elevador Autolimpante", "22", "22", "11");
-            VariaveisGlobais.Fluxo.Motor_62.loadEquip(Utilidades.typeEquip.INV, Utilidades.typeCommand.INV, 264, 0, "Elevador Expedição", "61", "61", "10");
-            VariaveisGlobais.Fluxo.Motor_44.loadEquip(Utilidades.typeEquip.SS, Utilidades.typeCommand.SS, 164, 0, "Moinho", "44", "44", "0");
-
+            VariaveisGlobais.Fluxo.Motor_22.loadEquip(Utilidades.typeEquip.PD, Utilidades.typeCommand.PD, 0, 0, "Elevador", "22", "22", "11");
+            VariaveisGlobais.Fluxo.Motor_62.loadEquip(Utilidades.typeEquip.INV, Utilidades.typeCommand.INV, 268, 0, "Elevador", "61", "61", "10");
+            VariaveisGlobais.Fluxo.Motor_44.loadEquip(Utilidades.typeEquip.SS, Utilidades.typeCommand.SS, 168, 0, "Moinho", "44", "44", "0");
+            VariaveisGlobais.Fluxo.Motor_49.loadEquip(Utilidades.typeEquip.Atuador, Utilidades.typeCommand.Atuador_Digital, 264, 0, "Atuador", "49", "49", "0");
             #endregion
 
             #region Configuração Buffers PLC
@@ -113,6 +113,7 @@ namespace _9230A_V00___PI
             VariaveisGlobais.Fluxo.Motor_22.actualize_Equip = true;
             VariaveisGlobais.Fluxo.Motor_62.actualize_Equip = true;
             VariaveisGlobais.Fluxo.Motor_44.actualize_Equip = true;
+            VariaveisGlobais.Fluxo.Motor_49.actualize_Equip = true;
 
             CommunicationPLC.writeBufferPLC();//Chama a escrita no PLC
 

@@ -448,7 +448,7 @@
         </Equipamentos:alimentador>
         <Rectangle Fill="#FF97FF00" HorizontalAlignment="Left" Height="44" Margin="732,570,0,0" VerticalAlignment="Top" Width="6"/>
         <ed:Arc EndAngle="90" HorizontalAlignment="Left" Height="15" Margin="723,564,0,0" StartAngle="0" VerticalAlignment="Top" Width="15" StrokeThickness="6" Stretch="None" Style="{DynamicResource ArcStyle1}" RenderTransformOrigin="0.5,0.5" Stroke="#FF97FF00"/>
-        <Equipamentos:registro HorizontalAlignment="Left" Height="26" Margin="619,517,0,0" VerticalAlignment="Top" Width="29"/>
+        <Equipamentos:registro x:Name="Motor_49" HorizontalAlignment="Left" Height="26" Margin="619,517,0,0" VerticalAlignment="Top" Width="29"/>
         <Rectangle Width="96" VerticalAlignment="Top" StrokeThickness="0" RenderTransformOrigin="0.5,0.5" Margin="636,564,0,0" Height="6" HorizontalAlignment="Left" Fill="#FF97FF00" />
         <ed:Arc ArcThickness="0" ArcThicknessUnit="Pixel" EndAngle="90" HorizontalAlignment="Left" Height="15" Margin="630,555,0,0" Stretch="None" StartAngle="0" VerticalAlignment="Top" Width="14" StrokeThickness="6" RenderTransformOrigin="0.5,0.5" Stroke="#FF97FF00">
             <ed:Arc.RenderTransform>
@@ -638,9 +638,6 @@
                 </TransformGroup>
             </Desenhos:abastecimentoManual.RenderTransform>
         </Desenhos:abastecimentoManual>
-        <Button x:Name="telaAnalogica" Content="Analogica" HorizontalAlignment="Left" Margin="519,70,0,0" VerticalAlignment="Top" Width="95" Height="35" Click="telaAnalogica_Click"/>
-        <Button x:Name="telaRegistro" Content="Registro" HorizontalAlignment="Left" Margin="519,130,0,0" VerticalAlignment="Top" Width="95" Height="35" Click="telaRegistro_Click"/>
-        <Button x:Name="telaRBifurcada" Content="Bifurcada" HorizontalAlignment="Left" Margin="519,185,0,0" VerticalAlignment="Top" Width="95" Height="35" Click="telaRBifurcada_Click"/>
         <Image HorizontalAlignment="Left" Height="55" Margin="10,108,0,0" VerticalAlignment="Top" Width="135" Source="/9230A V00 - PI;component/Imagens/Logo_Automasul.png"/>
 
     </Grid>

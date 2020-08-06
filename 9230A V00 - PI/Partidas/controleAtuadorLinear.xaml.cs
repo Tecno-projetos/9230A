@@ -46,8 +46,6 @@ namespace _9230A_V00___PI.Partidas
                 Command.Standard.FalhaConfirmacaoContatorLado2
                 )
             {
-                btReset.Dispatcher.Invoke(delegate { btReset.IsEnabled = false; });
-
                 btManual.Dispatcher.Invoke(delegate { btManual.IsEnabled = false; });
 
                 btManutencao.Dispatcher.Invoke(delegate { btManutencao.IsEnabled = false; });
@@ -59,8 +57,6 @@ namespace _9230A_V00___PI.Partidas
             }
             else
             {
-                btReset.Dispatcher.Invoke(delegate { btReset.IsEnabled = true; });
-
                 btManual.Dispatcher.Invoke(delegate { btManual.IsEnabled = true; });
 
                 btManutencao.Dispatcher.Invoke(delegate { btManutencao.IsEnabled = true; });
@@ -70,12 +66,18 @@ namespace _9230A_V00___PI.Partidas
                 btLigar.Dispatcher.Invoke(delegate { btLigar.IsEnabled = true; });
             }
 
+            btReset.Dispatcher.Invoke(delegate { btReset.IsEnabled = true; });
+
             //Atualiza status dos botões
-            if (Command.Standard.AcionaLado1)
+            if (Command.Standard.AcionaLado1 || (Command.Standard.EmPosicaoLado1 && !Command.Standard.AcionaLado2) )
             {
                 btLigar.Dispatcher.Invoke(delegate { btLigar.IsChecked = true; });
             }
-            else if(Command.Standard.AcionaLado2)
+            else if(Command.Standard.AcionaLado2 || (Command.Standard.EmPosicaoLado2 && !Command.Standard.AcionaLado1))
+            {
+                btLigar.Dispatcher.Invoke(delegate { btLigar.IsChecked = false; });
+            }
+            else
             {
                 btLigar.Dispatcher.Invoke(delegate { btLigar.IsChecked = false; });
             }

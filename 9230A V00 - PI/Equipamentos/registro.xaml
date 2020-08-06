@@ -15,9 +15,9 @@
         </Storyboard>
         <Storyboard x:Key="Registro_Fecha"/>
     </UserControl.Resources>
-    <Grid Margin="-0.333,-0.333,0,0">
+    <Grid Margin="-0.333,-0.333,0,0" Cursor="">
 
-        <Rectangle Fill="Black" HorizontalAlignment="Left" Margin="11.25,6,0,0" Stroke="Black" StrokeThickness="0" Width="6" Height="20" VerticalAlignment="Top"/>
+        <Rectangle Fill="Black" HorizontalAlignment="Left" Margin="11.25,6,0,0" Stroke="Black" StrokeThickness="0" Width="6" Height="20" VerticalAlignment="Top" Cursor=""/>
         <Rectangle x:Name="R2" Fill="White" Height="15" Margin="4.25,8,0,0" Stroke="Black" VerticalAlignment="Top" StrokeThickness="0" HorizontalAlignment="Left" Width="21"/>
         <Rectangle x:Name="R1" Fill="White" Margin="4.25,9,0,0" Stroke="Black" HorizontalAlignment="Left" Width="21" Height="14" VerticalAlignment="Top"/>
         <Rectangle x:Name="rectangle" Fill="Black" Margin="3.25,0,0,8" Stroke="Black" StrokeThickness="0" Height="2" VerticalAlignment="Bottom" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" Width="2">
@@ -30,7 +30,7 @@
                 </TransformGroup>
             </Rectangle.RenderTransform>
         </Rectangle>
-        <Rectangle x:Name="rectangle1" Fill="Black" Margin="1.25,10,0,8" Stroke="Black" StrokeThickness="0" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" Width="2">
+        <Rectangle x:Name="rectangle1" Fill="Black" Margin="1.25,10,0,8" Stroke="Black" StrokeThickness="0" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" Width="2" Cursor="">
             <Rectangle.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>

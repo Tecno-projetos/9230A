@@ -24,27 +24,5 @@ namespace _9230A_V00___PI.Telas_Fluxo
         {
             InitializeComponent();
         }
-
-        Partidas.controleAtuadorAnalogico controleAtuadorAnalogico = new Partidas.controleAtuadorAnalogico();
-
-        Partidas.controleAtuadorLinear controleAtuadorLinear = new Partidas.controleAtuadorLinear();
-
-        Partidas.controleAtuadorLinearBifurcada controleAtuadorLinearBifurcada = new Partidas.controleAtuadorLinearBifurcada();
-
-
-        private void telaAnalogica_Click(object sender, RoutedEventArgs e)
-        {
-            controleAtuadorAnalogico.Show();
-        }
-
-        private void telaRegistro_Click(object sender, RoutedEventArgs e)
-        {
-            controleAtuadorLinear.Show();
-        }
-
-        private void telaRBifurcada_Click(object sender, RoutedEventArgs e)
-        {
-            controleAtuadorLinearBifurcada.Show();
-        }
     }
 }
