@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media;
 
 namespace _9230A_V00___PI.Utilidades
 {
@@ -512,6 +513,14 @@ namespace _9230A_V00___PI.Utilidades
         public static string GroupUserLogged_GS { get => Users.groupUserLogged; set => Users.groupUserLogged = value; }
         public static string PasswordLogged_GS { get => Users.passwordLogged; set => Users.passwordLogged = value; }
         public static int NumberOfGroup_GS { get => Users.numberOfGroup; set => Users.numberOfGroup = value; }
+
+        #endregion
+
+        #region Cor de Fundo Icones
+
+        public static SolidColorBrush Verde = new SolidColorBrush(Colors.Green);
+
+        public static SolidColorBrush Branco = new SolidColorBrush(Colors.White);
 
         #endregion
 
