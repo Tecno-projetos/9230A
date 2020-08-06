@@ -34,8 +34,7 @@ namespace _9230A_V00___PI.Partidas.Controle
 
         public void actualize_UI(Utilidades.VariaveisGlobais.type_All Command)
         {
-            lbName.Content = Command.Nome;
-
+   
             //Habilita ou desabilita botões
             if (!Command.Standard.Emergencia || Command.Standard.Falha_Geral)
             {

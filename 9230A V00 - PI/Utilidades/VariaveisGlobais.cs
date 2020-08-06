@@ -478,7 +478,7 @@ namespace _9230A_V00___PI.Utilidades
         private static bool SQLCe;
         private static string Connection_DB_Create = "";
         private static string Connection_DB_Users = @"Data Source =" + folderSql + "\\" + "BeckerUsers" + ".sdf";
-        private static string Connection_DB_Equip = "";
+        private static string Connection_DB_Equip = @"Data Source =" + folderSql + "\\" + "BeckerEquip" + ".sdf";
         private static string Connection_DB_Current = "";
         private static string Connection_DB_Produtos = @"Data Source =" + folderSql + "\\" + "BeckerProdutos" + ".sdf";
         private static string Connection_DB_Receitas = @"Data Source =" + folderSql + "\\" + "BeckerReceitas" + ".sdf";

@@ -24,6 +24,7 @@ namespace _9230A_V00___PI.Partidas.Principal
         private SolidColorBrush Branco = new SolidColorBrush(Colors.White);
 
         private string tagEquip = "";
+        private string NomePartida = "";
 
         public event EventHandler Bt_Fechar_Click;
 
@@ -37,6 +38,11 @@ namespace _9230A_V00___PI.Partidas.Principal
             pckConfiguracoes.Foreground = Branco;
 
             tagEquip = tag;
+            NomePartida = nome + " " + tag;
+
+            controlePD.lbName.Content = NomePartida;
+            configuracoesPD.lbName.Content = NomePartida;
+            alarmes.lbNameEquip.Content = NomePartida;
 
         }
 
@@ -53,7 +59,7 @@ namespace _9230A_V00___PI.Partidas.Principal
             pckAlarmes.Foreground = Branco;
             pckConfiguracoes.Foreground = Branco;
 
-            this.Height = 510;
+            this.Height = 515;
             this.Width = 255;
 
         }
@@ -66,7 +72,7 @@ namespace _9230A_V00___PI.Partidas.Principal
             pckConfiguracoes.Foreground = Vermelho;
 
 
-            this.Height = 510;
+            this.Height = 515;
             this.Width = 255;
 
         }
@@ -78,7 +84,7 @@ namespace _9230A_V00___PI.Partidas.Principal
             pckConfiguracoes.Foreground = Branco;
 
 
-            this.Height = 510;
+            this.Height = 515;
             this.Width = 515;
 
             DateTime dtin;
@@ -102,5 +108,55 @@ namespace _9230A_V00___PI.Partidas.Principal
                 this.Bt_Fechar_Click(this, e);
         }
 
+        private void btDownList_Click(object sender, RoutedEventArgs e)
+        {
+            var scrollAlarme = (VisualTreeHelper.GetChild(alarmes.DataGrid_Search_Alarme, 0) as Decorator).Child as ScrollViewer;
+
+            scrollAlarme.ScrollToVerticalOffset(scrollAlarme.VerticalOffset + 5);
+
+            var scrollEvento = (VisualTreeHelper.GetChild(alarmes.DataGrid_Search_Eventos, 0) as Decorator).Child as ScrollViewer;
+
+            scrollEvento.ScrollToVerticalOffset(scrollEvento.VerticalOffset + 5);
+
+        }
+
+        private void btUpList_Click(object sender, RoutedEventArgs e)
+        {
+
+            var scrollAlarme = (VisualTreeHelper.GetChild(alarmes.DataGrid_Search_Alarme, 0) as Decorator).Child as ScrollViewer;
+
+            scrollAlarme.ScrollToVerticalOffset(scrollAlarme.VerticalOffset -5);
+
+            var scrollEvento = (VisualTreeHelper.GetChild(alarmes.DataGrid_Search_Eventos, 0) as Decorator).Child as ScrollViewer;
+
+            scrollEvento.ScrollToVerticalOffset(scrollEvento.VerticalOffset -5 );
+
+        }
+
+        private void btLeftList_Click(object sender, RoutedEventArgs e)
+        {
+
+
+            var scrollAlarme = (VisualTreeHelper.GetChild(alarmes.DataGrid_Search_Alarme, 0) as Decorator).Child as ScrollViewer;
+
+            scrollAlarme.ScrollToHorizontalOffset(scrollAlarme.HorizontalOffset - 20);
+
+            var scrollEvento = (VisualTreeHelper.GetChild(alarmes.DataGrid_Search_Eventos, 0) as Decorator).Child as ScrollViewer;
+
+            scrollEvento.ScrollToHorizontalOffset(scrollEvento.HorizontalOffset - 20);
+
+
+        }
+
+        private void btRightList_Click(object sender, RoutedEventArgs e)
+        {
+            var scrollAlarme = (VisualTreeHelper.GetChild(alarmes.DataGrid_Search_Alarme, 0) as Decorator).Child as ScrollViewer;
+
+            scrollAlarme.ScrollToHorizontalOffset(scrollAlarme.HorizontalOffset + 20);
+
+            var scrollEvento = (VisualTreeHelper.GetChild(alarmes.DataGrid_Search_Eventos, 0) as Decorator).Child as ScrollViewer;
+
+            scrollEvento.ScrollToHorizontalOffset(scrollEvento.HorizontalOffset + 20);
+        }
     }
 }
