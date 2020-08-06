@@ -1,0 +1,128 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:_9230A_V00___PI.Telas_Fluxo.Receitas"
+             xmlns:Utilidades="clr-namespace:_9230A_V00___PI.Utilidades" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="_9230A_V00___PI.Telas_Fluxo.Receitas.CadastroProdutos"
+             mc:Ignorable="d" 
+             d:DesignHeight="675" d:DesignWidth="824">
+    <UserControl.Resources>
+        <SolidColorBrush x:Key="brushWatermarkForeground" Color="White" />
+        <Utilidades:TextInputToVisibilityConverter x:Key="TextInputToVisibilityConverter" />
+
+        <SolidColorBrush x:Key="brushWatermarkBorder" Color="White" />
+
+        <Style x:Key="EntryFieldStyle" TargetType="{x:Type Grid}" >
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="20,0" />
+        </Style>
+
+
+
+    </UserControl.Resources>
+    <Grid Background="#FF7F7F7F">
+
+        <Grid.Resources  >
+
+            <ResourceDictionary>
+                <ResourceDictionary.MergedDictionaries>
+                    <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Blue.xaml" />
+                    <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Indigo.xaml" />
+                    <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                </ResourceDictionary.MergedDictionaries>
+
+
+                <SolidColorBrush x:Key="brushWatermarkBackground" Color="#FF505050" />
+                <SolidColorBrush x:Key="brushWatermarkForeground" Color="White" />
+                <Utilidades:TextInputToVisibilityConverter x:Key="TextInputToVisibilityConverter" />
+
+                <SolidColorBrush x:Key="brushWatermarkBorder" Color="White" />
+
+                <Style x:Key="EntryFieldStyle" TargetType="{x:Type Grid}" >
+                    <Setter Property="HorizontalAlignment" Value="Stretch" />
+                    <Setter Property="VerticalAlignment" Value="Center" />
+                    <Setter Property="Margin" Value="20,0" />
+                </Style>
+
+
+
+            </ResourceDictionary>
+
+        </Grid.Resources>
+        <Label Content="Cadastrar Produto" HorizontalAlignment="Left" VerticalAlignment="Top" Width="825" Foreground="White" VerticalContentAlignment="Center" FontWeight="Bold" HorizontalContentAlignment="Center" Margin="0,6,-1,0" Height="60" FontSize="30"/>
+        <Rectangle Fill="White" HorizontalAlignment="Left" Height="5" Margin="0,76,-1,0" Stroke="White" VerticalAlignment="Top" Width="825"/>
+        <Label Content="Código Produto: (*)" Height="34" Margin="52,103,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="188" Foreground="White" FontWeight="Bold" FontSize="16"/>
+
+        <Grid Style="{StaticResource EntryFieldStyle}" Margin="52,142,417,492" Height="41" Background="#FF3C3C3C" >
+            <TextBlock Margin="5,0,6,5" Text="Usuário" Foreground="{StaticResource brushWatermarkForeground}" VerticalAlignment="Bottom" FontSize="14" >
+                <TextBlock.Visibility>
+                    <MultiBinding Converter="{StaticResource TextInputToVisibilityConverter}">
+                        <Binding ElementName="txtUser" Path="Text.IsEmpty" />
+                        <Binding ElementName="txtUser" Path="IsFocused" />
+                    </MultiBinding>
+                </TextBlock.Visibility>
+            </TextBlock>
+            <TextBox x:Name="txtUser" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" PreviewMouseLeftButtonUp="openKeyboard" />
+        </Grid>
+
+        <materialDesign:PackIcon Kind="Receipt" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="14,102,772,539" BorderBrush="#FF040404"/>
+        <materialDesign:PackIcon Kind="Pencil" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="14,142,772,492" BorderBrush="#FF040404"/>
+        <Button x:Name="btCriarUsuario" Margin="256,590,204,35" Background="#FF505050" BorderBrush="Black" Height="50" Click="btCriarUsuario_Click" Opacity="1" >
+            <Grid Width="150">
+                <materialDesign:PackIcon Kind="UserAdd" VerticalAlignment="Center" Foreground="White" Margin="2,-6,0,-7" Height="30" Width="30"/>
+                <TextBlock  Text="Criar Usuário " FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="41,1,24,-1" Width="85" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            </Grid>
+        </Button>
+        <Label Content="Descrição: (*)" Height="34" Margin="52,183,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="188" Foreground="White" FontWeight="Bold" FontSize="16"/>
+        <Grid Style="{StaticResource EntryFieldStyle}" Margin="52,222,417,412" Height="41" Background="#FF3C3C3C" >
+            <TextBlock Margin="5,0,6,5" Text="Usuário" Foreground="{StaticResource brushWatermarkForeground}" VerticalAlignment="Bottom" FontSize="14" >
+                <TextBlock.Visibility>
+                    <MultiBinding Converter="{StaticResource TextInputToVisibilityConverter}">
+                        <Binding ElementName="txtUser" Path="Text.IsEmpty" />
+                        <Binding ElementName="txtUser" Path="IsFocused" />
+                    </MultiBinding>
+                </TextBlock.Visibility>
+            </TextBlock>
+            <TextBox x:Name="txtUser1" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" PreviewMouseLeftButtonUp="openKeyboard" />
+        </Grid>
+        <materialDesign:PackIcon Kind="Receipt" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="14,182,772,459" BorderBrush="#FF040404"/>
+        <materialDesign:PackIcon Kind="Pencil" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="14,222,772,412" BorderBrush="#FF040404"/>
+        <Label Content="Densidade(kg/m³): (*)" Height="34" Margin="52,263,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="188" Foreground="White" FontWeight="Bold" FontSize="16"/>
+        <Grid Style="{StaticResource EntryFieldStyle}" Margin="52,302,417,332" Height="41" Background="#FF3C3C3C" >
+            <TextBlock Margin="5,0,6,5" Text="Usuário" Foreground="{StaticResource brushWatermarkForeground}" VerticalAlignment="Bottom" FontSize="14" >
+                <TextBlock.Visibility>
+                    <MultiBinding Converter="{StaticResource TextInputToVisibilityConverter}">
+                        <Binding ElementName="txtUser" Path="Text.IsEmpty" />
+                        <Binding ElementName="txtUser" Path="IsFocused" />
+                    </MultiBinding>
+                </TextBlock.Visibility>
+            </TextBlock>
+            <TextBox x:Name="txtUser2" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" PreviewMouseLeftButtonUp="openKeyboard" />
+        </Grid>
+        <materialDesign:PackIcon Kind="Receipt" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="14,262,772,379" BorderBrush="#FF040404"/>
+        <materialDesign:PackIcon Kind="Pencil" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="14,302,772,332" BorderBrush="#FF040404"/>
+        <Label Content="Observação:" Height="34" Margin="52,343,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="188" Foreground="White" FontWeight="Bold" FontSize="16"/>
+        <Grid Style="{StaticResource EntryFieldStyle}" Margin="52,382,417,252" Height="41" Background="#FF3C3C3C" >
+            <TextBlock Margin="5,0,6,5" Text="Usuário" Foreground="{StaticResource brushWatermarkForeground}" VerticalAlignment="Bottom" FontSize="14" >
+                <TextBlock.Visibility>
+                    <MultiBinding Converter="{StaticResource TextInputToVisibilityConverter}">
+                        <Binding ElementName="txtUser" Path="Text.IsEmpty" />
+                        <Binding ElementName="txtUser" Path="IsFocused" />
+                    </MultiBinding>
+                </TextBlock.Visibility>
+            </TextBlock>
+            <TextBox x:Name="txtUser3" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" PreviewMouseLeftButtonUp="openKeyboard" />
+        </Grid>
+        <materialDesign:PackIcon Kind="Receipt" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="14,342,772,299" BorderBrush="#FF040404"/>
+        <materialDesign:PackIcon Kind="Pencil" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="14,382,772,252" BorderBrush="#FF040404"/>
+        <Label Content="Tipo Produto: (*)" Height="34" Margin="542,137,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="188" Foreground="White" FontWeight="Bold" FontSize="16"/>
+        <materialDesign:PackIcon Kind="RadioboxMarked" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="499,137,287,503.616" BorderBrush="#FF040404"/>
+        <ListBox Style="{StaticResource MaterialDesignListBox}" x:Name="RadioButtonGroupChoiceChipPrimaryOutline" Margin="499,170,49,378">
+            <ListBoxItem x:Name="lbAdm" Width="143" Background="#FF3C3C3C" Height="50" Content="Matéria Prima" FontSize="16" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Margin="0,5,0,0" IsSelected="True" PreviewMouseLeftButtonUp="lbAdm_PreviewMouseLeftButtonUp" />
+            <ListBoxItem x:Name="lbManutencao"  Height="50" Width="145" Content="Complemento" Background="#FF3C3C3C" FontSize="16" Foreground="White" Margin="0,5,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" HorizontalContentAlignment="Center" PreviewMouseLeftButtonUp="lbManutencao_PreviewMouseLeftButtonUp"/>
+        </ListBox>
+
+    </Grid>
+</UserControl>

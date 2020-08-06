@@ -405,12 +405,15 @@ namespace _9230A_V00___PI.Utilidades
         private static string Connection_DB_Users = @"Data Source =" + folderSql + "\\" + "BeckerUsers" + ".sdf";
         private static string Connection_DB_Equip = "";
         private static string Connection_DB_Current = "";
-
+        private static string Connection_DB_Produtos = @"Data Source =" + folderSql + "\\" + "BeckerProdutos" + ".sdf";
+        private static string Connection_DB_Receitas = @"Data Source =" + folderSql + "\\" + "BeckerReceitas" + ".sdf";
 
         public static string Connection_DB_Users_GS { get => Connection_DB_Users; set => Connection_DB_Users = value; }
         public static string Connection_DB_Equip_GS { get => Connection_DB_Equip; set => Connection_DB_Equip = value; }
         public static string Connection_DB_Current_GS { get => Connection_DB_Current; set => Connection_DB_Current = value; }
         public static string Connection_DB_Create_GS { get => Connection_DB_Create; set => Connection_DB_Create = value; }
+        public static string Connection_DB_Produtos_GS { get => Connection_DB_Produtos; set => Connection_DB_Produtos = value; }
+        public static string Connection_DB_Receitas_GS { get => Connection_DB_Receitas; set => Connection_DB_Receitas = value; }
 
         public static bool SQLCe_GS { get => SQLCe; set => SQLCe = value; }
 
@@ -464,7 +467,8 @@ namespace _9230A_V00___PI.Utilidades
 
             //Criação dos Bancos
             DataBase.SqlGlobalFuctions.Create_DB("BeckerUsers");
-
+            DataBase.SqlGlobalFuctions.Create_DB("BeckerProdutos");
+            DataBase.SqlGlobalFuctions.Create_DB("BeckerReceitas");
 
             //Inicializa Tabelas
             DataBase.SqlFunctionsUsers.Initialize_ProgramDBCA();
