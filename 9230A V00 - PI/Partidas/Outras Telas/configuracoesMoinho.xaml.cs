@@ -17,9 +17,9 @@ using System.Windows.Shapes;
 namespace _9230A_V00___PI.Partidas.Outras_Telas
 {
     /// <summary>
-    /// Interação lógica para configuracoesINV.xam
+    /// Interação lógica para configuracoesMoinho.xam
     /// </summary>
-    public partial class configuracoesINV : UserControl
+    public partial class configuracoesMoinho : UserControl
     {
 
         Int32 n;
@@ -31,8 +31,9 @@ namespace _9230A_V00___PI.Partidas.Outras_Telas
         public event EventHandler atualizaSPManutencao_Click;
         public event EventHandler atualizaSPLimpeza_Click;
         public event EventHandler atualizaSPMotorVazio_Click;
+        public event EventHandler atualizaSPTempoReversao_Click;
 
-        public configuracoesINV()
+        public configuracoesMoinho()
         {
             InitializeComponent();
         }
@@ -78,6 +79,20 @@ namespace _9230A_V00___PI.Partidas.Outras_Telas
                 return tbMotorVazio.Text;
             }
         }
+
+        public string SpTempoReversao
+        {
+            set
+            {
+                tbTempoReversao.Dispatcher.Invoke(delegate { tbTempoReversao.Text = value; });
+
+            }
+            get
+            {
+                return tbTempoReversao.Text;
+            }
+        }
+
         #endregion
 
         private void btResetTotal_Click(object sender, RoutedEventArgs e)
@@ -191,14 +206,14 @@ namespace _9230A_V00___PI.Partidas.Outras_Telas
 
         private void tbMotorVazio_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            keypad mainWindow = new keypad(false,5);
+            keypad mainWindow = new keypad(false, 5);
             if (mainWindow.ShowDialog() == true)
             {
                 //Recebe Valor antigo digitado no Textbox
                 double oldValue = Convert.ToDouble(tbMotorVazio.Text);
                 //Recebe o novo valor digitado no Keypad
-                
-                
+
+
                 double newValue = Convert.ToDouble(mainWindow.Result.Replace('.', ','));
 
 
@@ -224,6 +239,43 @@ namespace _9230A_V00___PI.Partidas.Outras_Telas
                 {
                     //Envia o oldValue pois o valor máximo ultrapassou o limite.
                     tbMotorVazio.Text = Convert.ToString(oldValue);
+                }
+
+            }
+        }
+
+        private void tbTempoReversao_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            keypad mainWindow = new keypad(true, 4);
+            if (mainWindow.ShowDialog() == true)
+            {
+                //Recebe Valor antigo digitado no Textbox
+                int oldValue = Convert.ToInt32(tbTempoReversao.Text);
+                //Recebe o novo valor digitado no Keypad
+                int newValue = Convert.ToInt32(mainWindow.Result);
+
+                bool isNumeric = int.TryParse(tbTempoReversao.Text, out n);
+
+                if (isNumeric)
+                {
+                    if (oldValue != newValue)
+                    {
+                        tbTempoReversao.Text = Convert.ToString(newValue);
+
+
+                        //Retira o foco do textbox.
+                        Keyboard.ClearFocus();
+
+                        //Dispara o evento de atualizar a váriavel no CLP.
+                        if (this.atualizaSPTempoReversao_Click != null)
+                            this.atualizaSPTempoReversao_Click(this, e);
+
+                    }
+                }
+                else
+                {
+                    //Envia o oldValue pois o valor máximo ultrapassou o limite.
+                    tbTempoReversao.Text = Convert.ToString(oldValue);
                 }
 
             }
