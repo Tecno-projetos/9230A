@@ -26,12 +26,24 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
         long codigoProduto = 0;
         float densidade = 0.0f;
         string tipoProduto = "";
+        bool editarProduto = false;
+
+        public bool EditarProduto 
+        {
+            set
+            {
+                editarProduto = value;
+
+            }
+        }
 
         public CadastroProdutos()
         {
             InitializeComponent();
             limpaCampos();
         }
+
+        
 
         private void lbMateriaPrima_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
@@ -54,6 +66,25 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             limpaCampos();
+
+            if (editarProduto)
+            {
+                lbTextButton.Text = "Editar";
+                lbTitle.Content = "Editar Produto";
+                packiconCadastrarEditar.Kind = MaterialDesignThemes.Wpf.PackIconKind.Edit;
+
+
+                //Carrega valores do produto selecionado para edição
+
+
+
+            }
+            else
+            {
+                lbTextButton.Text = "Cadastrar";
+                lbTitle.Content = "Cadastrar Produto";
+                packiconCadastrarEditar.Kind = MaterialDesignThemes.Wpf.PackIconKind.Plus;
+            }
         }
 
         private void limpaCampos()
@@ -102,14 +133,41 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
                                     tipoProduto = "Matéria Prima";
                                 }
 
+                                //Verifica se a tela esta criando ou editando produto
+                                if (editarProduto)
+                                {
+                                    if (DataBase.SqlFunctionsProdutos.IntoDate_Table_Produtos(codigoProduto.ToString(), txtDesc.Text, densidade, tipoProduto, txtObs.Text) == 1)
+                                    {
+                                        inputDialog = new Utilidades.messageBox("Edição", "Produto: " + txtDesc.Text + " Editado com Sucesso!", MaterialDesignThemes.Wpf.PackIconKind.Plus, "OK", "Fechar");
 
-                                DataBase.SqlFunctionsProdutos.IntoDate_Table_Produtos(codigoProduto.ToString(), txtDesc.Text, densidade, tipoProduto, txtObs.Text);
+                                        inputDialog.ShowDialog();
 
+                                        limpaCampos();
+                                    }
+                                    else
+                                    {
+                                        inputDialog = new Utilidades.messageBox("Edição", "Ocorreu algum erro ao editar o produto, verificar se existe cadastrado um produto com o mesmo código!", MaterialDesignThemes.Wpf.PackIconKind.Error, "OK", "Fechar");
 
-                                inputDialog = new Utilidades.messageBox("Cadastro", "Produto: " + txtDesc.Text + " Cadastrado com Sucesso!", MaterialDesignThemes.Wpf.PackIconKind.Plus, "OK", "Fechar");
+                                        inputDialog.ShowDialog();
+                                    }
+                                }
+                                else
+                                {
+                                    if (DataBase.SqlFunctionsProdutos.IntoDate_Table_Produtos(codigoProduto.ToString(), txtDesc.Text, densidade, tipoProduto, txtObs.Text) == 1)
+                                    {
+                                        inputDialog = new Utilidades.messageBox("Cadastro", "Produto: " + txtDesc.Text + " Cadastrado com Sucesso!", MaterialDesignThemes.Wpf.PackIconKind.Plus, "OK", "Fechar");
 
-                                inputDialog.ShowDialog();
+                                        inputDialog.ShowDialog();
 
+                                        limpaCampos();
+                                    }
+                                    else
+                                    {
+                                        inputDialog = new Utilidades.messageBox("Cadastro", "Ocorreu algum erro ao cadastrar o produto, verificar se existe cadastrado um produto com o mesmo código!", MaterialDesignThemes.Wpf.PackIconKind.Error, "OK", "Fechar");
+
+                                        inputDialog.ShowDialog();
+                                    }
+                                }
                             }
                             else
                             {

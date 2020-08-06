@@ -539,7 +539,6 @@ namespace _9230A_V00___PI.Utilidades
 
             DB_Connected_GS = true;
 
-
             //Criação dos Bancos
             DataBase.SqlGlobalFuctions.Create_DB("BeckerUsers");
             DataBase.SqlGlobalFuctions.Create_DB("BeckerEquip");
@@ -550,9 +549,7 @@ namespace _9230A_V00___PI.Utilidades
             //Inicializa Tabelas
             DataBase.SqlFunctionsUsers.Initialize_ProgramDBCA();
             DataBase.SqlFunctionsEquips.ExistTable();
-
-
-
+            DataBase.SqlFunctionsProdutos.ExistTable();
         }
 
 
