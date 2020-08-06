@@ -225,6 +225,9 @@
     <Compile Include="TelasAuxiliares\Diagnosticos.xaml.cs">
       <DependentUpon>Diagnosticos.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TelasAuxiliares\FirstLoading.xaml.cs">
+      <DependentUpon>FirstLoading.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Usuarios\adicionarUsuario.xaml.cs">
       <DependentUpon>adicionarUsuario.xaml</DependentUpon>
     </Compile>
@@ -411,6 +414,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="TelasAuxiliares\Diagnosticos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TelasAuxiliares\FirstLoading.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

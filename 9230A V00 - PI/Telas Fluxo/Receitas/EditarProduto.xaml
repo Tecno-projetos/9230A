@@ -22,18 +22,18 @@
 
 
     </UserControl.Resources>
+
+
     <Grid Background="#FF7F7F7F">
 
 
         <Grid.Resources  >
-
             <ResourceDictionary>
                 <ResourceDictionary.MergedDictionaries>
                     <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Blue.xaml" />
                     <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Indigo.xaml" />
                     <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
                 </ResourceDictionary.MergedDictionaries>
-
 
                 <SolidColorBrush x:Key="brushWatermarkBackground" Color="#FF505050" />
                 <SolidColorBrush x:Key="brushWatermarkForeground" Color="White" />
@@ -47,8 +47,6 @@
                     <Setter Property="Margin" Value="20,0" />
                 </Style>
 
-
-
             </ResourceDictionary>
 
         </Grid.Resources>
@@ -61,36 +59,56 @@
 
         <Label x:Name="lbTitle" Content="Editar Produto" HorizontalAlignment="Left" VerticalAlignment="Top" Width="825" Foreground="White" VerticalContentAlignment="Center" FontWeight="Bold" HorizontalContentAlignment="Center" Margin="0,6,-1,0" Height="60" FontSize="30"/>
         <Rectangle Fill="White" HorizontalAlignment="Left" Height="5" Margin="0,76,-1,0" Stroke="White" VerticalAlignment="Top" Width="825"/>
+
         <DataGrid x:Name="DataGrid" Margin="10,131,10,0" CanUserAddRows="False"
-            HorizontalAlignment="Stretch" VerticalAlignment="Top" FontWeight="Bold" Foreground="Black"
+            HorizontalAlignment="Stretch" VerticalAlignment="Top" FontWeight="Black" Foreground="Black"
             HorizontalGridLinesBrush="{DynamicResource {x:Static SystemColors.ControlTextColor}}"
-            VerticalGridLinesBrush="{DynamicResource brushWatermarkForeground}" BorderBrush="#000" BorderThickness="1"
+            VerticalGridLinesBrush="{DynamicResource MaterialDesignDarkBackground}" BorderBrush="{x:Null}" BorderThickness="1"
             CanUserDeleteRows ="False" CanUserReorderColumns="False" CanUserResizeRows="False" CanUserSortColumns="False"   
-            ScrollViewer.VerticalScrollBarVisibility="Auto" Height="383" Cursor="Hand" IsReadOnly="True" AlternatingRowBackground="#FF93AA61" RowBackground="White" HorizontalScrollBarVisibility="Hidden" Background="#FF93AA61" MouseLeftButtonUp="DataGrid_MouseLeftButtonUp" FontSize="16" FontFamily="Segoe UI Emoji" AutomationProperties.IsColumnHeader="True" GridLinesVisibility="All" SelectionMode="Single"/>
+            ScrollViewer.VerticalScrollBarVisibility="Auto" Height="383" Cursor="Hand" IsReadOnly="True" AlternatingRowBackground="#FF7F7F7F" 
+            RowBackground="White" HorizontalScrollBarVisibility="Hidden" Background="White" MouseLeftButtonUp="DataGrid_MouseLeftButtonUp" FontSize="24" FontFamily="Segoe UI Emoji" GridLinesVisibility="All" 
+            SelectionMode="Single"  AutoGenerateColumns="True" LoadingRow="DataGrid_LoadingRow" RowHeight="50" >
 
-        <Label Content="Produto Selecionado:" Height="34" Margin="10,92,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="171" Foreground="White" FontWeight="Bold" FontSize="16"/>
+            <DataGrid.Resources>
+                <Style TargetType="DataGridCell">
+                    <Style.Triggers>
+                        <Trigger Property="DataGridCell.IsSelected" Value="True">
+                            <Setter Property="Background" Value="#FF3C3C3C" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.Resources>
 
-        <Button x:Name="btUpList" Margin="86,548,661,77" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btUpList_Click" >
+
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="FontSize" Value="25"/>
+                </Style>
+
+            </DataGrid.ColumnHeaderStyle>
+        </DataGrid>
+
+        <Button x:Name="btUpList" Margin="102,544,645,81" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btUpList_Click" >
             <Grid Width="42" Height="42" Margin="0">
                 <materialDesign:PackIcon Kind="ArrowUpBold" VerticalAlignment="Center" Foreground="White" Height="42" Width="42"/>
             </Grid>
         </Button>
-        <Button x:Name="btDownList" Margin="86,603,661,22" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btDownList_Click" >
+        <Button x:Name="btDownList" Margin="102,599,645,26" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btDownList_Click" >
             <Grid Width="42" Height="42" Margin="0">
                 <materialDesign:PackIcon Kind="ArrowDownBold" VerticalAlignment="Center" Foreground="White" Height="42" Width="42"/>
             </Grid>
         </Button>
-        <Button x:Name="btLeftList" Margin="4,573,743,52" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btLeftList_Click" >
+        <Button x:Name="btLeftList" Margin="20,569,727,56" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btLeftList_Click" >
             <Grid Width="42" Height="42" Margin="0">
                 <materialDesign:PackIcon Kind="ArrowLeftBold" VerticalAlignment="Center" Foreground="White" Height="42" Width="42"/>
             </Grid>
         </Button>
-        <Button x:Name="btRightList" Margin="168,573,579,52" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btRightList_Click" >
+        <Button x:Name="btRightList" Margin="184,569,563,56" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btRightList_Click" >
             <Grid Width="42" Height="42" Margin="0">
                 <materialDesign:PackIcon Kind="ArrowRightBold" VerticalAlignment="Center" Foreground="White" Height="42" Width="42"/>
             </Grid>
         </Button>
-        <Label x:Name="lbNomeProduto" Content="Produto selecionado" Height="34" Margin="186,92,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="627" Foreground="White" FontWeight="Bold" FontSize="16" Background="{x:Null}"/>
+        <Label x:Name="lbNomeProduto" Content="Produto selecionado" Height="40" Margin="10,88,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="803" Foreground="White" FontWeight="Bold" FontSize="22" Background="{x:Null}" HorizontalContentAlignment="Center" BorderBrush="Black"/>
 
 
         <Label Content="Contém Código Produto:" Height="34" Margin="286,519,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="209" Foreground="White" FontWeight="Bold" FontSize="16"/>

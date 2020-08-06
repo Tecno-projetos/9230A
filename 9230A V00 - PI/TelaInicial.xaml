@@ -89,7 +89,7 @@
             </Button>
 
             <Grid Style="{StaticResource EntryFieldStyle}" Margin="732,48,197,5" Height="40" Background="#FF505050" >
-                <PasswordBox x:Name="txtSenha" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" PreviewMouseLeftButtonUp="openKeyboard" PreviewKeyUp="txtSenha_PreviewKeyUp" TabIndex="501"/>
+                <PasswordBox x:Name="txtSenha" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" PreviewMouseLeftButtonUp="openKeyboard" PreviewKeyUp="txtSenha_PreviewKeyUp" TabIndex="501" Password="8887"/>
             </Grid>
 
             <Grid Background="#FF505050" Margin="711,6,294,48">
@@ -131,7 +131,7 @@
                         </MultiBinding>
                     </TextBlock.Visibility>
                 </TextBlock>
-                <TextBox x:Name="txtUser" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,0,1" FontSize="14" VerticalAlignment="Bottom" Foreground="White" PreviewMouseLeftButtonUp="openKeyboard" TabIndex="500" />
+                <TextBox x:Name="txtUser" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,0,1" FontSize="14" VerticalAlignment="Bottom" Foreground="White" PreviewMouseLeftButtonUp="openKeyboard" TabIndex="500" Text="Automasul" />
             </Grid>
 
 

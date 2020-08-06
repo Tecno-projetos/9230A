@@ -60,6 +60,9 @@ namespace _9230A_V00___PI
 
         public TelaInicial()
         {
+            TelasAuxiliares.FirstLoading windowFirstLoading = new TelasAuxiliares.FirstLoading();
+            windowFirstLoading.Show();
+
             InitializeComponent();
 
             VariaveisGlobais.Load_Connection();
@@ -98,6 +101,8 @@ namespace _9230A_V00___PI
             timer50ms.Start();
 
             #endregion
+
+            windowFirstLoading.Close();
         }
 
         void timer_Tick(object sender, EventArgs e)

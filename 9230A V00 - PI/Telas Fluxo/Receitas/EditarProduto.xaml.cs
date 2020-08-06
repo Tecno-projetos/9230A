@@ -85,11 +85,22 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
 
         private void DataGrid_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            //var rowList = (Utilidades.Produto)DataGrid.SelectedItem; //(DataGrid.ItemContainerGenerator.ContainerFromIndex(DataGrid.SelectedIndex) as DataGridRow).Item;
+            var rowList = (DataGrid.ItemContainerGenerator.ContainerFromIndex(DataGrid.SelectedIndex) as DataGridRow).Item as DataRowView;
 
-            //lbNomeProduto.Content = rowList.descricao;
+            lbNomeProduto.Content = (string)rowList.Row.ItemArray[1];
+        }
 
 
+
+        private void DataGrid_LoadingRow(object sender, DataGridRowEventArgs e)
+        {
+            DataGrid.Columns[0].Header = "Código";
+            DataGrid.Columns[1].Header = "Descrição";
+            DataGrid.Columns[2].Header = "Densidade (kg/m³)";
+            DataGrid.Columns[3].Header = "Tipo Produto";
+            DataGrid.Columns[4].Header = "Observação";
+
+            
         }
     }
 }
