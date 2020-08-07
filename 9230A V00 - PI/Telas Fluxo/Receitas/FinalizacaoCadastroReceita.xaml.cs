@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace _9230A_V00___PI.Telas_Fluxo.Receitas
 {
     /// <summary>
-    /// Interaction logic for CadastroReceitas.xaml
+    /// Interaction logic for FinalizacaoCadastroReceita.xaml
     /// </summary>
-    public partial class CadastroReceitas : UserControl
+    public partial class FinalizacaoCadastroReceita : UserControl
     {
-        public CadastroReceitas()
+        public FinalizacaoCadastroReceita()
         {
             InitializeComponent();
         }

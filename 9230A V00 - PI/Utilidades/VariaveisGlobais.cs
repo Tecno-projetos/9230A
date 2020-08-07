@@ -482,14 +482,12 @@ namespace _9230A_V00___PI.Utilidades
         private static string Connection_DB_Users = @"Data Source =" + folderSql + "\\" + "BeckerUsers" + ".sdf";
         private static string Connection_DB_Equip = @"Data Source =" + folderSql + "\\" + "BeckerEquip" + ".sdf";
         private static string Connection_DB_Current = "";
-        private static string Connection_DB_Produtos = @"Data Source =" + folderSql + "\\" + "BeckerProdutos" + ".sdf";
         private static string Connection_DB_Receitas = @"Data Source =" + folderSql + "\\" + "BeckerReceitas" + ".sdf";
 
         public static string Connection_DB_Users_GS { get => Connection_DB_Users; set => Connection_DB_Users = value; }
         public static string Connection_DB_Equip_GS { get => Connection_DB_Equip; set => Connection_DB_Equip = value; }
         public static string Connection_DB_Current_GS { get => Connection_DB_Current; set => Connection_DB_Current = value; }
         public static string Connection_DB_Create_GS { get => Connection_DB_Create; set => Connection_DB_Create = value; }
-        public static string Connection_DB_Produtos_GS { get => Connection_DB_Produtos; set => Connection_DB_Produtos = value; }
         public static string Connection_DB_Receitas_GS { get => Connection_DB_Receitas; set => Connection_DB_Receitas = value; }
 
         public static bool SQLCe_GS { get => SQLCe; set => SQLCe = value; }
@@ -563,6 +561,8 @@ namespace _9230A_V00___PI.Utilidades
         public static List<Produto> listProdutos = new List<Produto>();
 
         public static List<Receita> listReceitas = new List<Receita>();
+
+        public static Receita ReceitaCadastro = new Receita();
     }
 
     public class functions
@@ -613,18 +613,56 @@ namespace _9230A_V00___PI.Utilidades
         public string observacao { get; set; }
     }
 
+    public class ProdutoReceita
+    {
+        public Produto produto { get; set; }
+
+        public float pesoPorProduto { get; set; }
+    }
+
     public class Receita
     {
+        public int id { get; set; }
         public string nomeReceita { get; set; }
 
-        public string pesoBase { get; set; }
+        public float pesoBase { get; set; }
 
-        public float codigoProduto { get; set; }
-
-        public string pesoPorProduto { get; set; }
+        public static List<ProdutoReceita> listProdutos = new List<ProdutoReceita>();
 
         public string observacao { get; set; }
     }
+
+    public class ProdutoBatelada : Produto
+    {
+
+        public float valorDosado { get; set; }
+
+        public string statusItem { get; set; }
+
+    }
+
+
+    public class Batelada
+    {
+        public static List<ProdutoBatelada> produtos = new List<ProdutoBatelada>();
+    }
+
+    public class Producao
+    {
+        public Receita receita { get; set; }
+
+        public static List<Batelada> batelada = new List<Batelada>();
+
+        public int quantidadeBateladas { get; set; }
+
+        public int pesoPorBatelada { get; set; }
+
+        public int pesoTotalProducao { get; set; }
+
+        public string statusBatelada { get; set; }
+
+    }
+
 
 
 

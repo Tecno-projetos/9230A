@@ -28,14 +28,32 @@ namespace _9230A_V00___PI.Telas_Fluxo
         Telas_Fluxo.Receitas.ApagarProduto apagarProdutos = new Receitas.ApagarProduto();
 
         //Receitas
-        Telas_Fluxo.Receitas.CadastroReceitas cadastroReceitas = new Receitas.CadastroReceitas();
+
+        Telas_Fluxo.Receitas.CadastroReceitaInicial cadastroReceitaInicial = new Receitas.CadastroReceitaInicial();
+        Telas_Fluxo.Receitas.AdicionarProdutoReceita adicionarProdutoReceita = new Receitas.AdicionarProdutoReceita();
 
         public receitas()
         {
             InitializeComponent();
+
+            //Chama a tela de cadastro só para edição, isso após a escolha do produto que deseja editar
             editarProdutos.Bt_Editar_Click += new EventHandler(Bt_Editar_Produtos_Click);
+
+            //Produto editado com sucesso
             cadastroProdutos.EditadoSucesso += new EventHandler(EditadoSucesso);
 
+            //Finalizado inicio do cadastro de receitas, agora irá chamar a tela de adicionar produtos na receita.
+            cadastroReceitaInicial.FinalizadoInicioCadastroReceita += new EventHandler(EventoFinalizadoInicioCadastroReceita);
+
+        }
+
+        protected void EventoFinalizadoInicioCadastroReceita(object sender, EventArgs e)
+        {
+            if (spReceitas != null)
+            {
+                spReceitas.Children.Clear();
+            }
+            spReceitas.Children.Add(adicionarProdutoReceita);
         }
 
         protected void EditadoSucesso(object sender, EventArgs e)
@@ -73,24 +91,12 @@ namespace _9230A_V00___PI.Telas_Fluxo
 
         private void btCadastroReceita_Click(object sender, RoutedEventArgs e)
         {
-            if (Utilidades.VariaveisGlobais.NumberOfGroup_GS == 3)
+            if (spReceitas != null)
             {
-                if (spReceitas != null)
-                {
-                    spReceitas.Children.Clear();
-                }
-
                 spReceitas.Children.Clear();
-
-                spReceitas.Children.Add(cadastroReceitas);
-
             }
-            else
-            {
-                inputDialog = new Utilidades.messageBox(Utilidades.VariaveisGlobais.faltaPermissaoTitle, Utilidades.VariaveisGlobais.faltaPermissaoMessage, MaterialDesignThemes.Wpf.PackIconKind.Information, "OK", "Fechar");
 
-                inputDialog.ShowDialog();
-            }
+            spReceitas.Children.Add(cadastroReceitaInicial);
         }
 
         private void btEditarProduto_Click(object sender, RoutedEventArgs e)
