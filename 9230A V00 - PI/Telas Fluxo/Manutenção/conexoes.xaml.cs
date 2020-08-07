@@ -1,4 +1,5 @@
-﻿using System;
+﻿using _9230A_V00___PI.Utilidades;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,6 +27,11 @@ namespace _9230A_V00___PI.Telas_Fluxo.Manutenção
         public conexoes()
         {
             InitializeComponent();
+
+            timer.Interval = TimeSpan.FromSeconds(1);
+            timer.Tick += Timer_Tick;
+            timer.Start();
+
         }
 
         private void Timer_Tick(object sender, EventArgs e)
@@ -39,6 +45,20 @@ namespace _9230A_V00___PI.Telas_Fluxo.Manutenção
             pckProdutos = pckIcone(pckProdutos, ConnectionDB(Utilidades.VariaveisGlobais.Connection_DB_Receitas_GS));
 
             pckReceitas = pckIcone(pckReceitas, ConnectionDB(Utilidades.VariaveisGlobais.Connection_DB_Receitas_GS));
+
+
+
+            if (VariaveisGlobais.PLCConnected)
+            {
+                CLP.Kind = MaterialDesignThemes.Wpf.PackIconKind.LanCheck;
+                CLP.Foreground = new SolidColorBrush(Colors.Green);
+            }
+            else
+            {
+                CLP.Kind = MaterialDesignThemes.Wpf.PackIconKind.LanDisconnect;
+                CLP.Foreground = new SolidColorBrush(Colors.Red);
+            }
+
 
 
 
