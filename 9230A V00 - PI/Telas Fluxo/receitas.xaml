@@ -45,10 +45,16 @@
                     <TextBlock TextAlignment="Center" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="38,12,13,10" Width="119" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center"><Run Text="Editar"/><Run Text=" "/><Run Text="Produto"/></TextBlock>
                 </Grid>
             </Button>
-            <Button x:Name="btApagarProduto" Margin="10,537,10,88" Background="#FF505050" BorderBrush="Black" Height="50" Click="btCadastroProduto_Click">
+            <Button x:Name="btApagarProduto" Margin="10,537,10,88" Background="#FF505050" BorderBrush="Black" Height="50" Click="btApagarProduto_Click">
                 <Grid Width="170" Height="40">
                     <materialDesign:PackIcon Kind="Delete" VerticalAlignment="Center" Foreground="Red" Margin="2,-6,0,-7" Height="30" Width="30"/>
                     <TextBlock TextAlignment="Center" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="38,12,13,10" Width="119" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center"><Run Text="Apagar"/><Run Text=" "/><Run Text="Produto"/></TextBlock>
+                </Grid>
+            </Button>
+            <Button x:Name="btTesteIntoProd" Margin="10,600,10,25" Background="#FF505050" BorderBrush="Black" Height="50" Click="btTesteIntoProd_Click">
+                <Grid Width="170" Height="40">
+                    <materialDesign:PackIcon Kind="Injection" VerticalAlignment="Center" Foreground="Red" Margin="2,-6,0,-7" Height="30" Width="30"/>
+                    <TextBlock TextAlignment="Center" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="38,12,13,10" Width="119" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Teste Into Prod"/>
                 </Grid>
             </Button>
         </Grid>

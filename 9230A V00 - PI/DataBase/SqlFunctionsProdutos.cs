@@ -25,7 +25,7 @@ namespace _9230A_V00___PI.DataBase
                     dynamic Call_Produtos = SqlGlobalFuctions.ReturnCall(Utilidades.VariaveisGlobais.Connection_DB_Produtos_GS);
                     dynamic Adapter_Produtos = SqlGlobalFuctions.ReturnAdapter(CommandString_Produtos, Utilidades.VariaveisGlobais.Connection_DB_Produtos_GS);
 
-                    Adapter_Produtos.Fill(Utilidades.VariaveisGlobais.Connection_DB_Produtos_GS);
+                    Adapter_Produtos.Fill(Data_Produtos);
                 }
                 catch (Exception ex)
                 {
@@ -46,6 +46,7 @@ namespace _9230A_V00___PI.DataBase
                 try
                 {
                     string CommandString = "CREATE TABLE Produtos (" +
+                        "Id int not null IDENTITY(1,1)," +
                         "Codigo nvarchar(100) not null primary key," +
                         "Descricao nvarchar(200)," +
                         "Densidade real," +
@@ -56,6 +57,7 @@ namespace _9230A_V00___PI.DataBase
                     Call.Open();
 
                     dynamic Command = SqlGlobalFuctions.ReturnCommand(CommandString, Call);
+
                     Command.ExecuteNonQuery();
 
                     Call.Close();
@@ -129,6 +131,67 @@ namespace _9230A_V00___PI.DataBase
             return Data;
         }
 
+        public static int UpdateTableProdutos(int id, string codigo, string descricao, float densidade, string tipoProduto, string observacao)
+        {
+            int ret = -1;
+            if (Utilidades.VariaveisGlobais.DB_Connected_GS)
+            {
+                try
+                {
+                    densidade = (float)densidade;
+                    string CommandString = "UPDATE Produtos SET Codigo = '"+ codigo + "', Descricao = '" + descricao + "', Densidade = '" + densidade + "', TipoProduto = '" + tipoProduto + "', Observacao = '" + observacao + "' WHERE Id = " + id + ";";
+
+                    dynamic Call = SqlGlobalFuctions.ReturnCall(Utilidades.VariaveisGlobais.Connection_DB_Produtos_GS);
+                    dynamic Command = SqlGlobalFuctions.ReturnCommand(CommandString, Call);
+
+                    Call.Open();
+                    ret = Command.ExecuteNonQuery();
+                    Call.Close();
+                    return ret;
+                }
+                catch (Exception ex)
+                {
+                    Utilidades.VariaveisGlobais.Window_Buffer_Diagnostic.List_Error = ex.ToString();
+                    ret = -1;
+                    return ret;
+                }
+            }
+            else
+            {
+                return ret;
+            }
+
+        }
+
+        public static bool Delete_Rows(int id)
+        {
+            if (Utilidades.VariaveisGlobais.DB_Connected_GS)
+            {
+                try
+                {
+                    string CommandString = "DELETE FROM Produtos WHERE Id = " + id + ";";
+
+                    dynamic Call = SqlGlobalFuctions.ReturnCall(Utilidades.VariaveisGlobais.Connection_DB_Produtos_GS);
+
+                    Call.Open();
+
+                    dynamic Command = SqlGlobalFuctions.ReturnCommand(CommandString, Call);
+                    Command.ExecuteNonQuery();
+
+                    Call.Close();
+
+                }
+                catch (Exception ex)
+                {
+                    Utilidades.VariaveisGlobais.Window_Buffer_Diagnostic.List_Error = ex.ToString();
+
+                    return false;
+                }
+            }
+
+            return true;
+
+        }
 
     }
 }

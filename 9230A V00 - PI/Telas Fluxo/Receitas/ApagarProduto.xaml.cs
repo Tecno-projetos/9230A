@@ -17,20 +17,14 @@ using System.Windows.Shapes;
 namespace _9230A_V00___PI.Telas_Fluxo.Receitas
 {
     /// <summary>
-    /// Interaction logic for EditarProduto.xaml
+    /// Interaction logic for ApagarProduto.xaml
     /// </summary>
-    public partial class EditarProduto : UserControl
+    public partial class ApagarProduto : UserControl
     {
-
-        public event EventHandler Bt_Editar_Click;
 
         Utilidades.messageBox inputDialog;
 
-        int produtoEditar = -1;
-
-        public int ProdutoEditar { get => produtoEditar; set => produtoEditar = value; }
-
-        public EditarProduto()
+        public ApagarProduto()
         {
             InitializeComponent();
         }
@@ -63,36 +57,14 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
             scroll.ScrollToVerticalOffset(scroll.VerticalOffset - 5);
         }
 
-        private void btEditarProduto_Click(object sender, RoutedEventArgs e)
-        {
-            var rowList = (DataGrid.ItemContainerGenerator.ContainerFromIndex(DataGrid.SelectedIndex) as DataGridRow).Item as DataRowView;
-
-            if (rowList != null)
-            {
-                ProdutoEditar = Convert.ToInt32(rowList.Row.ItemArray[0]);
-                if (this.Bt_Editar_Click != null)
-                    this.Bt_Editar_Click(this, e);
-            }
-            else
-            {
-                inputDialog = new Utilidades.messageBox("Edição", "Verifique se selecionou algum produto!", MaterialDesignThemes.Wpf.PackIconKind.Error, "OK", "Fechar");
-
-                inputDialog.ShowDialog();
-
-                ProdutoEditar = -1;
-            }
-
-
-        }
-
         private void btPesquisar_Click(object sender, RoutedEventArgs e)
         {
             Utilidades.functions.atualizalistProdutos();
 
             var filter = from p in Utilidades.VariaveisGlobais.listProdutos
-                              where p.codigo.Contains(txtCod.Text) &&
-                              p.descricao.Contains(txtDesc.Text)
-                              select p;
+                         where p.codigo.Contains(txtCod.Text) &&
+                         p.descricao.Contains(txtDesc.Text)
+                         select p;
 
             var listProdutosFiltered = filter.ToList();
 
@@ -101,20 +73,6 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
             DataTable dt = converter.ToDataTable(listProdutosFiltered);
 
             DataGrid.Dispatcher.Invoke(delegate { DataGrid.ItemsSource = dt.DefaultView; });
-        }
-
-        private void UserControl_Loaded(object sender, RoutedEventArgs e)
-        {
-            Utilidades.functions.atualizalistProdutos();
-
-            Utilidades.ListtoDataTableConverter converter = new Utilidades.ListtoDataTableConverter();
-
-            DataTable dt = converter.ToDataTable(Utilidades.VariaveisGlobais.listProdutos);
-
-            DataGrid.Dispatcher.Invoke(delegate { DataGrid.ItemsSource = dt.DefaultView; });
-
-            lbNomeProduto.Content = "";
-
         }
 
         private void openKeyboard(object sender, MouseButtonEventArgs e)
@@ -137,6 +95,50 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
             DataGrid.Columns[3].Header = "Densidade (kg/m³)";
             DataGrid.Columns[4].Header = "Tipo Produto";
             DataGrid.Columns[5].Header = "Observação";
+        }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            Utilidades.functions.atualizalistProdutos();
+
+            Utilidades.ListtoDataTableConverter converter = new Utilidades.ListtoDataTableConverter();
+
+            DataTable dt = converter.ToDataTable(Utilidades.VariaveisGlobais.listProdutos);
+
+            DataGrid.Dispatcher.Invoke(delegate { DataGrid.ItemsSource = dt.DefaultView; });
+
+            lbNomeProduto.Content = "";
+        }
+
+        private void btApagarProduto_Click(object sender, RoutedEventArgs e)
+        {
+            var rowList = (DataGrid.ItemContainerGenerator.ContainerFromIndex(DataGrid.SelectedIndex) as DataGridRow).Item as DataRowView;
+
+            if (rowList != null)
+            {
+                if (DataBase.SqlFunctionsProdutos.Delete_Rows(Convert.ToInt32(rowList.Row.ItemArray[0])))
+                {
+                    inputDialog = new Utilidades.messageBox("Apagar", "Produto apagado com sucesso!", MaterialDesignThemes.Wpf.PackIconKind.Error, "OK", "Fechar");
+
+                    inputDialog.ShowDialog();
+                }
+                else
+                {
+                    inputDialog = new Utilidades.messageBox("Apagar", "Ocorreu algum erro ao apagar!", MaterialDesignThemes.Wpf.PackIconKind.Error, "OK", "Fechar");
+
+                    inputDialog.ShowDialog();
+                }
+            }
+            else
+            {
+                inputDialog = new Utilidades.messageBox("Apagar", "Verifique se selecionou algum produto!", MaterialDesignThemes.Wpf.PackIconKind.Error, "OK", "Fechar");
+
+                inputDialog.ShowDialog();
+            }
+
+
+
+
         }
     }
 }

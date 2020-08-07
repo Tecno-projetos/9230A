@@ -570,11 +570,12 @@ namespace _9230A_V00___PI.Utilidades
             {
                 dummyProduto = new Produto();
 
-                dummyProduto.codigo = (string)item.ItemArray[0];
-                dummyProduto.descricao = (string)item.ItemArray[1];
-                dummyProduto.densidade = (float)item.ItemArray[2];
-                dummyProduto.tipoProduto = (string)item.ItemArray[3];
-                dummyProduto.observacao = (string)item.ItemArray[4];
+                dummyProduto.id = (int)item.ItemArray[0];
+                dummyProduto.codigo = (string)item.ItemArray[1];
+                dummyProduto.descricao = (string)item.ItemArray[2];
+                dummyProduto.densidade = (float)item.ItemArray[3];
+                dummyProduto.tipoProduto = (string)item.ItemArray[4];
+                dummyProduto.observacao = (string)item.ItemArray[5];
 
                 VariaveisGlobais.listProdutos.Add(dummyProduto);
             }
@@ -591,6 +592,7 @@ namespace _9230A_V00___PI.Utilidades
 
     public class Produto
     {
+        public int id { get; set; }
         public string codigo { get; set; } 
 
         public string descricao { get; set; }

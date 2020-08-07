@@ -22,11 +22,14 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
     public partial class CadastroProdutos : UserControl
     {
         Utilidades.messageBox inputDialog;
+        public event EventHandler EditadoSucesso;
 
         long codigoProduto = 0;
         float densidade = 0.0f;
         string tipoProduto = "";
         bool editarProduto = false;
+        int produtoEditar = -1;
+        public int ProdutoEditar { get => produtoEditar; set => produtoEditar = value; }
 
         public bool EditarProduto 
         {
@@ -75,9 +78,32 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
 
 
                 //Carrega valores do produto selecionado para edição
+                Utilidades.functions.atualizalistProdutos();
 
+                var filter = from p in Utilidades.VariaveisGlobais.listProdutos
+                             where p.id == ProdutoEditar
+                             select p;
 
+                var listProdutosFiltered = filter.ToList();
 
+                //limpa campos
+                txtCod.Text = listProdutosFiltered[0].codigo;
+                txtDesc.Text = listProdutosFiltered[0].descricao;
+                txtDensidade.Text = listProdutosFiltered[0].densidade.ToString();
+                txtObs.Text = listProdutosFiltered[0].observacao;
+
+                if (listProdutosFiltered[0].tipoProduto == "Matéria Prima")
+                {
+                    lbMateriaPrima.IsSelected = true;
+                    pckComplemento.Visibility = Visibility.Hidden;
+                    pckMateriaPrima.Visibility = Visibility.Visible;
+                }
+                else if(listProdutosFiltered[0].tipoProduto == "Complemento")
+                {
+                    lbComplemento.IsSelected = true;
+                    pckComplemento.Visibility = Visibility.Visible;
+                    pckMateriaPrima.Visibility = Visibility.Hidden;
+                }
             }
             else
             {
@@ -136,11 +162,14 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
                                 //Verifica se a tela esta criando ou editando produto
                                 if (editarProduto)
                                 {
-                                    if (DataBase.SqlFunctionsProdutos.IntoDate_Table_Produtos(codigoProduto.ToString(), txtDesc.Text, densidade, tipoProduto, txtObs.Text) == 1)
+                                    if (DataBase.SqlFunctionsProdutos.UpdateTableProdutos(produtoEditar, codigoProduto.ToString(), txtDesc.Text, densidade, tipoProduto, txtObs.Text) == 1)
                                     {
                                         inputDialog = new Utilidades.messageBox("Edição", "Produto: " + txtDesc.Text + " Editado com Sucesso!", MaterialDesignThemes.Wpf.PackIconKind.Plus, "OK", "Fechar");
 
                                         inputDialog.ShowDialog();
+
+                                        if (this.EditadoSucesso != null)
+                                            this.EditadoSucesso(this, e);
 
                                         limpaCampos();
                                     }
