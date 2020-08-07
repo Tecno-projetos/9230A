@@ -22,7 +22,7 @@ namespace _9230A_V00___PI.DataBase
                 {
                     string CommandString_Produtos = "SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Produtos';";
 
-                    dynamic Adapter_Produtos = SqlGlobalFuctions.ReturnAdapter(CommandString_Produtos, Utilidades.VariaveisGlobais.Connection_DB_Produtos_GS);
+                    dynamic Adapter_Produtos = SqlGlobalFuctions.ReturnAdapter(CommandString_Produtos, Utilidades.VariaveisGlobais.Connection_DB_Receitas_GS);
 
                     Adapter_Produtos.Fill(Data_Produtos);
                 }
@@ -52,7 +52,7 @@ namespace _9230A_V00___PI.DataBase
                         "TipoProduto nvarchar(100), " +
                         "Observacao nvarchar(300));";
 
-                    dynamic Call = SqlGlobalFuctions.ReturnCall(Utilidades.VariaveisGlobais.Connection_DB_Produtos_GS);
+                    dynamic Call = SqlGlobalFuctions.ReturnCall(Utilidades.VariaveisGlobais.Connection_DB_Receitas_GS);
                     Call.Open();
 
                     dynamic Command = SqlGlobalFuctions.ReturnCommand(CommandString, Call);
@@ -77,7 +77,7 @@ namespace _9230A_V00___PI.DataBase
                 try
                 {
 
-                    dynamic Call = SqlGlobalFuctions.ReturnCall(Utilidades.VariaveisGlobais.Connection_DB_Produtos_GS);
+                    dynamic Call = SqlGlobalFuctions.ReturnCall(Utilidades.VariaveisGlobais.Connection_DB_Receitas_GS);
 
                     string query = "INSERT into Produtos (Codigo, Descricao, Densidade, TipoProduto, Observacao) VALUES (@Codigo, @Descricao, @Densidade, @TipoProduto, @Observacao)";
                     dynamic Command = SqlGlobalFuctions.ReturnCommand(query, Call);
@@ -115,9 +115,9 @@ namespace _9230A_V00___PI.DataBase
                 {
                     string CommandString = "SELECT * FROM Produtos";
 
-                    dynamic Call = SqlGlobalFuctions.ReturnCall(Utilidades.VariaveisGlobais.Connection_DB_Produtos_GS);
+                    dynamic Call = SqlGlobalFuctions.ReturnCall(Utilidades.VariaveisGlobais.Connection_DB_Receitas_GS);
 
-                    dynamic Adapter = SqlGlobalFuctions.ReturnAdapter(CommandString, Utilidades.VariaveisGlobais.Connection_DB_Produtos_GS);
+                    dynamic Adapter = SqlGlobalFuctions.ReturnAdapter(CommandString, Utilidades.VariaveisGlobais.Connection_DB_Receitas_GS);
 
                     Adapter.Fill(Data);
                 }
@@ -140,7 +140,7 @@ namespace _9230A_V00___PI.DataBase
                     densidade = (float)densidade;
                     string CommandString = "UPDATE Produtos SET Codigo = '"+ codigo + "', Descricao = '" + descricao + "', Densidade = '" + densidade + "', TipoProduto = '" + tipoProduto + "', Observacao = '" + observacao + "' WHERE Id = " + id + ";";
 
-                    dynamic Call = SqlGlobalFuctions.ReturnCall(Utilidades.VariaveisGlobais.Connection_DB_Produtos_GS);
+                    dynamic Call = SqlGlobalFuctions.ReturnCall(Utilidades.VariaveisGlobais.Connection_DB_Receitas_GS);
                     dynamic Command = SqlGlobalFuctions.ReturnCommand(CommandString, Call);
 
                     Call.Open();
@@ -170,7 +170,7 @@ namespace _9230A_V00___PI.DataBase
                 {
                     string CommandString = "DELETE FROM Produtos WHERE Id = " + id + ";";
 
-                    dynamic Call = SqlGlobalFuctions.ReturnCall(Utilidades.VariaveisGlobais.Connection_DB_Produtos_GS);
+                    dynamic Call = SqlGlobalFuctions.ReturnCall(Utilidades.VariaveisGlobais.Connection_DB_Receitas_GS);
 
                     Call.Open();
 

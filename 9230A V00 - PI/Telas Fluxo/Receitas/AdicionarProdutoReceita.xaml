@@ -46,10 +46,9 @@
             </ResourceDictionary>
 
         </Grid.Resources>
-        <Button x:Name="btPesquisar" Margin="302,618,306,7" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btPesquisar_Click" >
-            <Grid Width="150">
-                <materialDesign:PackIcon Kind="Search" VerticalAlignment="Center" Foreground="White" Margin="2,-6,0,-7" Height="30" Width="30"/>
-                <TextBlock  Text="Pesquisar" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="55,0,10,0" Width="85" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Button x:Name="btPesquisar" Margin="496,548,264,86" Background="#FF505050" BorderBrush="Black" Height="Auto" Opacity="1" Click="btPesquisar_Click" >
+            <Grid Width="46" Height="31">
+                <materialDesign:PackIcon Kind="Search" VerticalAlignment="Top" Foreground="White" Margin="-4,-2,0,-4" Height="37" Width="42"/>
             </Grid>
         </Button>
 
@@ -102,8 +101,8 @@
             </Grid>
         </Button>
 
-        <Label Content="Contém Descrição: " Height="34" Margin="300,517,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="181" Foreground="White" FontWeight="Bold" FontSize="16"/>
-        <Grid Style="{StaticResource EntryFieldStyle}" Margin="303,548,305,86" Height="41" Background="#FF3C3C3C" >
+        <Label Content="Contém Descrição: " Height="34" Margin="272,517,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="181" Foreground="White" FontWeight="Bold" FontSize="16"/>
+        <Grid Style="{StaticResource EntryFieldStyle}" Margin="275,548,333,86" Height="41" Background="#FF3C3C3C" >
             <TextBlock Margin="5,0,6,5" Text="Exemplo: Milho" Foreground="#FF919191" VerticalAlignment="Bottom" FontSize="14" >
                 <TextBlock.Visibility>
                     <MultiBinding Converter="{StaticResource TextInputToVisibilityConverter}">
@@ -195,6 +194,11 @@
         </Button>
         <Label x:Name="lbTitle" Content="Adicionar Produto na Receita" HorizontalAlignment="Left" VerticalAlignment="Top" Width="824" Foreground="White" VerticalContentAlignment="Center" FontWeight="Bold" HorizontalContentAlignment="Center" Margin="0,6,0,0" Height="58" FontSize="30"/>
         <Button x:Name="btEditarProdutoReceita" Margin="373,445,376,163" Background="#FF505050" BorderBrush="Black" Height="Auto" Opacity="1" >
+            <Grid Width="58" Height="57">
+                <materialDesign:PackIcon Kind="Check" VerticalAlignment="Center" Foreground="#FF00FF2E" Margin="-4,-28,0,-26" Height="111" Width="52" RenderTransformOrigin="0.5,0.5"/>
+            </Grid>
+        </Button>
+        <Button x:Name="btEditarProdutoReceita_Copy" Margin="373,301,376,307" Background="#FF505050" BorderBrush="Black" Height="Auto" Opacity="1" >
             <Grid Width="47" Height="40">
                 <materialDesign:PackIcon Kind="Edit" VerticalAlignment="Center" Foreground="White" Margin="-1,-20,-3,-21" Height="81" Width="51" RenderTransformOrigin="0.5,0.5">
                     <materialDesign:PackIcon.RenderTransform>
