@@ -138,28 +138,38 @@ namespace _9230A_V00___PI
 
         void timer_Tick(object sender, EventArgs e)
         {
-            lbAno.Content = DateTime.Now.Year;
-            lbDiaMes.Content = DateTime.Now.Day + "/" + DateTime.Now.Month;
-            lbHorario.Content = DateTime.Now.Minute + ":" + DateTime.Now.Second + ":" + DateTime.Now.Millisecond;
+            try
+            {
+                lbAno.Content = DateTime.Now.Year;
+                lbDiaMes.Content = DateTime.Now.Day + "/" + DateTime.Now.Month;
+                lbHorario.Content = DateTime.Now.ToShortTimeString();
 
-            CommunicationPLC.readBuffersPLC(); //Chama a leitura no PLC
+                CommunicationPLC.readBuffersPLC(); //Chama a leitura no PLC
 
 
-            //Atualização Equip
-            VariaveisGlobais.Fluxo.Motor_22.actualize_Equip = true;
-            VariaveisGlobais.Fluxo.Motor_29.actualize_Equip = true;
-            VariaveisGlobais.Fluxo.Motor_30.actualize_Equip = true;
-            VariaveisGlobais.Fluxo.Motor_42.actualize_Equip = true;
-            VariaveisGlobais.Fluxo.Motor_43.actualize_Equip = true;
-            VariaveisGlobais.Fluxo.Motor_44.actualize_Equip = true;
-            VariaveisGlobais.Fluxo.Motor_45.actualize_Equip = true;
-            VariaveisGlobais.Fluxo.Motor_46.actualize_Equip = true;
-            VariaveisGlobais.Fluxo.Motor_48.actualize_Equip = true;
-            VariaveisGlobais.Fluxo.Motor_49.actualize_Equip = true;
-            VariaveisGlobais.Fluxo.Motor_62.actualize_Equip = true;
-            VariaveisGlobais.Fluxo.Motor_65.actualize_Equip = true;
+                //Atualização Equip
+                VariaveisGlobais.Fluxo.Motor_22.actualize_Equip = true;
+                VariaveisGlobais.Fluxo.Motor_29.actualize_Equip = true;
+                VariaveisGlobais.Fluxo.Motor_30.actualize_Equip = true;
+                VariaveisGlobais.Fluxo.Motor_42.actualize_Equip = true;
+                VariaveisGlobais.Fluxo.Motor_43.actualize_Equip = true;
+                VariaveisGlobais.Fluxo.Motor_44.actualize_Equip = true;
+                VariaveisGlobais.Fluxo.Motor_45.actualize_Equip = true;
+                VariaveisGlobais.Fluxo.Motor_46.actualize_Equip = true;
+                VariaveisGlobais.Fluxo.Motor_48.actualize_Equip = true;
+                VariaveisGlobais.Fluxo.Motor_49.actualize_Equip = true;
+                VariaveisGlobais.Fluxo.Motor_62.actualize_Equip = true;
+                VariaveisGlobais.Fluxo.Motor_65.actualize_Equip = true;
 
-            CommunicationPLC.writeBufferPLC();//Chama a escrita no PLC
+                CommunicationPLC.writeBufferPLC();//Chama a escrita no PLC
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+
+
 
         }
 
