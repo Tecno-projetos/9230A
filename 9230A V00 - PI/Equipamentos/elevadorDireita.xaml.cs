@@ -873,9 +873,9 @@ namespace _9230A_V00___PI.Equipamentos
                 }
 
             }
+            get { return true; }        
+
         }
-
-
 
     }
 }

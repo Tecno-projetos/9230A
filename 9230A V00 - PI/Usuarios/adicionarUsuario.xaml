@@ -49,7 +49,7 @@
         <Label Content="Nome do Usuário: (*)" Height="34" Margin="52,138,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="188" Foreground="White" FontWeight="Bold" FontSize="16"/>
 
         <Grid Style="{StaticResource EntryFieldStyle}" Margin="52,177,418,186.616" Height="41" Background="#FF3C3C3C" >
-            <TextBlock Margin="5,0,6,5" Text="Usuário" Foreground="{StaticResource brushWatermarkForeground}" VerticalAlignment="Bottom" FontSize="14" >
+            <TextBlock Margin="5,0,6,5" Text="Usuário" Foreground="#FF919191" VerticalAlignment="Bottom" FontSize="14" >
                 <TextBlock.Visibility>
                     <MultiBinding Converter="{StaticResource TextInputToVisibilityConverter}">
                         <Binding ElementName="txtUser" Path="Text.IsEmpty" />
@@ -83,7 +83,7 @@
         <materialDesign:PackIcon Kind="Pencil" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="14,384,773,250" BorderBrush="#FF040404" Grid.RowSpan="2"/>
         <Label Content="E-mail" Height="34" Margin="52,49.384,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="188" Foreground="White" FontWeight="Bold" FontSize="16" Grid.Row="1"/>
         <Grid Style="{StaticResource EntryFieldStyle}" Margin="52,88.384,418,141" Height="41" Background="#FF3C3C3C" Grid.Row="1" >
-            <TextBlock Margin="5,0,6,5" Text="E-mail" Foreground="{StaticResource brushWatermarkForeground}" VerticalAlignment="Bottom" FontSize="14" >
+            <TextBlock Margin="5,0,6,5" Text="E-mail" Foreground="#FF919191" VerticalAlignment="Bottom" FontSize="14" >
                 <TextBlock.Visibility>
                     <MultiBinding Converter="{StaticResource TextInputToVisibilityConverter}">
                         <Binding ElementName="txtEmail" Path="Text.IsEmpty" />

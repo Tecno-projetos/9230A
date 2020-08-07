@@ -51,7 +51,7 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <Label Content="Fluxo" Margin="-13,48,-15,-5" HorizontalContentAlignment="Center" FontWeight="Bold" Foreground="White" Height="27" FontSize="11"/>
-                    <materialDesign:PackIcon Kind="HomeOutline" VerticalAlignment="Center" Foreground="White" Margin="0,0,0,22" HorizontalAlignment="Left" Width="53" Height="48"/>
+                    <materialDesign:PackIcon x:Name="pckHome" Kind="HomeOutline" VerticalAlignment="Center" Foreground="White" Margin="0,0,0,22" HorizontalAlignment="Left" Width="53" Height="48"/>
                 </Grid>
             </Button>
             <Button x:Name="btRelatorio" Margin="539,4,0,0" Background="#FF505050" BorderBrush="{x:Null}" HorizontalAlignment="Left" Width="85" Height="84" VerticalAlignment="Top" Click="btRelatorio_Click">
@@ -60,14 +60,14 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <Label Content="Relátorios" Margin="-14,40,-14,-12" HorizontalContentAlignment="Center" FontWeight="Bold" Foreground="White" Width="81" Height="27" FontSize="11"/>
-                    <materialDesign:PackIcon Kind="FileReport" VerticalAlignment="Center" Foreground="White" Margin="0,0,0,22" HorizontalAlignment="Left" Width="53" Height="48"/>
+                    <materialDesign:PackIcon x:Name="pckRelatorio" Kind="FileReport" VerticalAlignment="Center" Foreground="White" Margin="0,0,0,22" HorizontalAlignment="Left" Width="53" Height="48"/>
                 </Grid>
             </Button>
             <Button x:Name="btProducao" Margin="284,4,0,0" Background="#FF505050" BorderBrush="{x:Null}" HorizontalAlignment="Left" Width="85" Height="84" VerticalAlignment="Top" Click="btProducao_Click">
                 <Grid Width="53" Height="70">
 
                     <Label Content="Produção" Margin="-14,48,-14,-5" HorizontalContentAlignment="Center" FontWeight="Bold" Foreground="White" HorizontalAlignment="Left" Width="81" FontSize="11"/>
-                    <materialDesign:PackIcon Kind="PlayBox" VerticalAlignment="Center" Foreground="White" Margin="0,0,0,22" HorizontalAlignment="Left" Width="53" Height="48"/>
+                    <materialDesign:PackIcon x:Name="pckProducao" Kind="PlayBox" VerticalAlignment="Center" Foreground="White" Margin="0,0,0,22" HorizontalAlignment="Left" Width="53" Height="48"/>
                 </Grid>
             </Button>
             <Button x:Name="btConfiguracoes" Margin="454,4,0,0" Background="#FF505050" BorderBrush="{x:Null}" HorizontalAlignment="Left" Width="85" Height="84" VerticalAlignment="Top" Click="btConfiguracoes_Click">
@@ -76,7 +76,7 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <Label Content="Configurações" Margin="-14,48,-14,-5" HorizontalContentAlignment="Center" FontWeight="Bold" Foreground="White" Width="81" Height="27" FontSize="11" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0,4,4,4"/>
-                    <materialDesign:PackIcon Kind="Cog" VerticalAlignment="Center" Foreground="White" Margin="0,0,0,22" HorizontalAlignment="Left" Width="53" Height="48"/>
+                    <materialDesign:PackIcon x:Name="pckConfiguracoes" Kind="Cog" VerticalAlignment="Center" Foreground="White" Margin="0,0,0,22" HorizontalAlignment="Left" Width="53" Height="48"/>
                 </Grid>
             </Button>
             <Label x:Name="lbHorario" Content="11:18:17" HorizontalAlignment="Left" Margin="929,28,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Background="#00000000" Foreground="White" Height="35" Width="95"/>
@@ -84,7 +84,7 @@
             <Label x:Name="lbAno" Content="2020" HorizontalAlignment="Left" Margin="960,63,0,0" VerticalAlignment="Top" FontWeight="Bold" Background="#00000000" Foreground="White" FontSize="11" Height="25" VerticalContentAlignment="Center" Width="40" HorizontalContentAlignment="Center"/>
             <Button x:Name="btConfiguracoesUsuario" Margin="879,5,0,0" Background="#FF505050" BorderBrush="{x:Null}" HorizontalAlignment="Left" Width="50" Height="84" VerticalAlignment="Top" Click="btConfiguracoesUsuario_Click" TabIndex="503">
                 <Grid Width="17" Height="25">
-                    <materialDesign:PackIcon Kind="UserKey" VerticalAlignment="Top" Foreground="White" Margin="-10,-3,-11,-4" HorizontalAlignment="Left" Width="38" Height="32"/>
+                    <materialDesign:PackIcon x:Name="pckUser" Kind="UserKey" VerticalAlignment="Top" Foreground="White" Margin="-10,-3,-11,-4" HorizontalAlignment="Left" Width="38" Height="32"/>
                 </Grid>
             </Button>
 
@@ -106,7 +106,7 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <Label Content="Receitas" Margin="-14,40,-14,-12" HorizontalContentAlignment="Center" FontWeight="Bold" Foreground="White" Width="81" Height="27" FontSize="11"/>
-                    <materialDesign:PackIcon Kind="Receipt" VerticalAlignment="Center" Foreground="White" Margin="0,0,0,22" HorizontalAlignment="Left" Width="53" Height="48"/>
+                    <materialDesign:PackIcon x:Name="pckReceitas" Kind="Receipt" VerticalAlignment="Center" Foreground="White" Margin="0,0,0,22" HorizontalAlignment="Left" Width="53" Height="48"/>
                 </Grid>
             </Button>
             <Button x:Name="btAlarmes" Margin="624,4,0,0" Background="#FF505050" BorderBrush="{x:Null}" HorizontalAlignment="Left" Width="85" Height="84" VerticalAlignment="Top" Click="btAlarmes_Click">
@@ -115,7 +115,7 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <Label Content="Alarmes" Margin="-14,40,-14,-12" HorizontalContentAlignment="Center" FontWeight="Bold" Foreground="White" Width="81" Height="27" FontSize="11"/>
-                    <materialDesign:PackIcon Kind="WarningBox" VerticalAlignment="Center" Foreground="White" Margin="0,0,0,22" HorizontalAlignment="Left" Width="53" Height="48"/>
+                    <materialDesign:PackIcon x:Name="pckAlarmes" Kind="WarningBox" VerticalAlignment="Center" Foreground="White" Margin="0,0,0,22" HorizontalAlignment="Left" Width="53" Height="48"/>
                 </Grid>
             </Button>
             <Grid Background="#FF505050" Margin="711,48,294,5">
@@ -123,7 +123,7 @@
             </Grid>
 
             <Grid Background="{StaticResource brushWatermarkBackground}" Style="{StaticResource EntryFieldStyle}" Margin="732,6,197,48" Height="39" >
-                <TextBlock Margin="5,2,5,3" Text="Usuário" Foreground="{StaticResource brushWatermarkForeground}" VerticalAlignment="Bottom" FontSize="14" >
+                <TextBlock Margin="5,2,5,3" Text="Usuário" Foreground="#FF919191" VerticalAlignment="Bottom" FontSize="14" >
                     <TextBlock.Visibility>
                         <MultiBinding Converter="{StaticResource TextInputToVisibilityConverter}">
                             <Binding ElementName="txtUser" Path="Text.IsEmpty" />

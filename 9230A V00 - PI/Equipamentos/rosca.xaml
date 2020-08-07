@@ -62,7 +62,7 @@
                 </LinearGradientBrush>
             </Rectangle.Fill>
         </Rectangle>
-        <Label x:Name="LB_M_A_1" Content="M" HorizontalAlignment="Left" Height="20" Margin="5,-2.893,0,0" VerticalAlignment="Top" Width="17" Foreground="Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Franklin Gothic Medium" FontSize="14" Padding="0" Cursor="No"/>
+        <Label x:Name="LB_M_A" Content="M" HorizontalAlignment="Left" Height="20" Margin="5,-2.893,0,0" VerticalAlignment="Top" Width="17" Foreground="Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Franklin Gothic Medium" FontSize="14" Padding="0" Cursor="No"/>
 
     </Grid>
 </UserControl>

@@ -134,7 +134,7 @@ namespace _9230A_V00___PI.DataBase
                 }
                 catch (Exception ex)
                 {
-                 
+                    Utilidades.VariaveisGlobais.Window_Buffer_Diagnostic.List_Error = ex.ToString();
                 }
             }
 
