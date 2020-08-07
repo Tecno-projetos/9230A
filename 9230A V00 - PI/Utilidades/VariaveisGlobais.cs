@@ -558,11 +558,14 @@ namespace _9230A_V00___PI.Utilidades
             DataBase.SqlFunctionsUsers.Initialize_ProgramDBCA();
             DataBase.SqlFunctionsEquips.ExistTable();
             DataBase.SqlFunctionsProdutos.ExistTable();
+            DataBase.SqlFunctionsReceitas.ExistTable();
         }
 
         public static List<Produto> listProdutos = new List<Produto>();
 
         public static List<Receita> listReceitas = new List<Receita>();
+
+        public static Receita ReceitaCadastro = new Receita();
     }
 
     public class functions
@@ -613,18 +616,54 @@ namespace _9230A_V00___PI.Utilidades
         public string observacao { get; set; }
     }
 
+    public class ProdutoReceita
+    {
+        public Produto produto { get; set; }
+
+        public float pesoPorProduto { get; set; }
+    }
+
     public class Receita
     {
+        public int id { get; set; }
         public string nomeReceita { get; set; }
 
-        public string pesoBase { get; set; }
+        public float pesoBase { get; set; }
 
-        public float codigoProduto { get; set; }
-
-        public string pesoPorProduto { get; set; }
+        public static List<ProdutoReceita> listProdutos = new List<ProdutoReceita>();
 
         public string observacao { get; set; }
     }
+
+    public class ProdutoBatelada : Produto
+    {
+
+        public float valorDosado { get; set; }
+
+        public string statusItem { get; set; }
+
+    }
+
+
+    public class Batelada
+    {
+        public static List<ProdutoBatelada> produtos = new List<ProdutoBatelada>();
+    }
+
+    public class Producao
+    {
+        public Receita receita { get; set; }
+
+        public static List<Batelada> batelada = new List<Batelada>();
+
+        public int quantidadeBateladas { get; set; }
+
+        public int pesoPorBatelada { get; set; }
+
+        public int pesoTotalProducao { get; set; }
+
+    }
+
 
 
 

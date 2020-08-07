@@ -22,7 +22,6 @@ namespace _9230A_V00___PI.DataBase
                 {
                     string CommandString_Produtos = "SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Produtos';";
 
-                    dynamic Call_Produtos = SqlGlobalFuctions.ReturnCall(Utilidades.VariaveisGlobais.Connection_DB_Produtos_GS);
                     dynamic Adapter_Produtos = SqlGlobalFuctions.ReturnAdapter(CommandString_Produtos, Utilidades.VariaveisGlobais.Connection_DB_Produtos_GS);
 
                     Adapter_Produtos.Fill(Data_Produtos);
