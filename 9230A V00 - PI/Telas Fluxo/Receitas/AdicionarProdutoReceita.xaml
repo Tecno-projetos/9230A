@@ -59,7 +59,7 @@
             CanUserDeleteRows ="False" CanUserReorderColumns="False" CanUserResizeRows="False" CanUserSortColumns="False"   
             ScrollViewer.VerticalScrollBarVisibility="Auto" Height="383" Cursor="Hand" IsReadOnly="True" AlternatingRowBackground="#FF7F7F7F" 
             RowBackground="White" HorizontalScrollBarVisibility="Hidden" Background="White" FontSize="24" FontFamily="Segoe UI Emoji" GridLinesVisibility="All" 
-            SelectionMode="Single"  AutoGenerateColumns="True" LoadingRow="DataGrid_Produtos_LoadingRow" RowHeight="50" MouseLeftButtonUp="DataGrid_Produtos_MouseLeftButtonUp" >
+            SelectionMode="Single"  AutoGenerateColumns="True" LoadingRow="DataGrid_Produtos_LoadingRow" RowHeight="40" MouseLeftButtonUp="DataGrid_Produtos_MouseLeftButtonUp" >
 
             <DataGrid.Resources>
                 <Style TargetType="DataGridCell">
@@ -120,7 +120,7 @@
             CanUserDeleteRows ="False" CanUserReorderColumns="False" CanUserResizeRows="False" CanUserSortColumns="False"   
             ScrollViewer.VerticalScrollBarVisibility="Auto" Height="383" Cursor="Hand" IsReadOnly="True" AlternatingRowBackground="#FF7F7F7F" 
             RowBackground="White" HorizontalScrollBarVisibility="Hidden" Background="White" FontSize="24" FontFamily="Segoe UI Emoji" GridLinesVisibility="All" 
-            SelectionMode="Single"  AutoGenerateColumns="True" RowHeight="50" MouseLeftButtonUp="DataGrid_Receita_MouseLeftButtonUp" LoadingRow="DataGrid_Receita_LoadingRow" >
+            SelectionMode="Single"  AutoGenerateColumns="True" RowHeight="40" MouseLeftButtonUp="DataGrid_Receita_MouseLeftButtonUp" LoadingRow="DataGrid_Receita_LoadingRow" >
 
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridCell}">
@@ -141,7 +141,7 @@
             </DataGrid.ColumnHeaderStyle>
         </DataGrid>
         <Label Content="Itens Receita:" Height="34" Margin="5,97,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="209" Foreground="White" FontWeight="Bold" FontSize="16"/>
-        <Button x:Name="btSubProdutoReceita" Margin="373,224,376,384" Background="#FF505050" BorderBrush="Black" Height="Auto" Opacity="1" >
+        <Button x:Name="btSubProdutoReceita" Margin="373,224,376,384" Background="#FF505050" BorderBrush="Black" Height="Auto" Opacity="1" Click="btSubProdutoReceita_Click" >
             <Grid Width="47" Height="40">
                 <materialDesign:PackIcon Kind="LessThan" VerticalAlignment="Center" Foreground="White" Margin="-1,-20,-3,-21" Height="81" Width="51" RenderTransformOrigin="0.5,0.5">
                     <materialDesign:PackIcon.RenderTransform>
@@ -155,7 +155,7 @@
                 </materialDesign:PackIcon>
             </Grid>
         </Button>
-        <Button x:Name="btAddProdutoReceita" Margin="373,147,376,461" Background="#FF505050" BorderBrush="Black" Height="Auto" Opacity="1" >
+        <Button x:Name="btAddProdutoReceita" Margin="373,147,376,461" Background="#FF505050" BorderBrush="Black" Height="Auto" Opacity="1" Click="btAddProdutoReceita_Click" >
             <Grid Width="47" Height="40">
                 <materialDesign:PackIcon Kind="LessThan" VerticalAlignment="Center" Foreground="White" Margin="-5,-20,0,-21" Height="81" Width="51" RenderTransformOrigin="0.5,0.5"/>
             </Grid>
@@ -180,25 +180,25 @@
                 <materialDesign:PackIcon Kind="ArrowRightBold" VerticalAlignment="Center" Foreground="White" Height="42" Width="42"/>
             </Grid>
         </Button>
-        <Button x:Name="btMateriaPrima" Margin="471,85,197,555" Background="#FF505050" BorderBrush="Black" Height="Auto" Opacity="1" >
+        <Button x:Name="btMateriaPrima" Margin="471,85,197,555" Background="#FF505050" BorderBrush="Black" Height="Auto" Opacity="1" Click="btMateriaPrima_Click" >
             <Grid Width="148" Height="28">
                 <materialDesign:PackIcon Kind="Search" VerticalAlignment="Center" Foreground="White" Margin="-1,0,0,-2" Height="30" Width="30"/>
                 <TextBlock  Text="Matéria Prima" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="32,6,27,6" Width="89" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center"/>
             </Grid>
         </Button>
-        <Button x:Name="btComplemento" Margin="654,85,14,555" Background="#FF505050" BorderBrush="Black" Height="Auto" Opacity="1" >
+        <Button x:Name="btComplemento" Margin="654,85,14,555" Background="#FF505050" BorderBrush="Black" Height="Auto" Opacity="1" Click="btComplemento_Click" >
             <Grid Width="148" Height="28">
                 <materialDesign:PackIcon Kind="Search" VerticalAlignment="Center" Foreground="White" Margin="-1,0,0,-2" Height="30" Width="30"/>
                 <TextBlock  Text="Complemento" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="32,6,27,6" Width="89" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center"/>
             </Grid>
         </Button>
         <Label x:Name="lbTitle" Content="Adicionar Produto na Receita" HorizontalAlignment="Left" VerticalAlignment="Top" Width="824" Foreground="White" VerticalContentAlignment="Center" FontWeight="Bold" HorizontalContentAlignment="Center" Margin="0,6,0,0" Height="58" FontSize="30"/>
-        <Button x:Name="btEditarProdutoReceita" Margin="373,445,376,163" Background="#FF505050" BorderBrush="Black" Height="Auto" Opacity="1" >
+        <Button x:Name="btFinalizarAdicaoProduto" Margin="373,445,376,163" Background="#FF505050" BorderBrush="Black" Height="Auto" Opacity="1" >
             <Grid Width="58" Height="57">
                 <materialDesign:PackIcon Kind="Check" VerticalAlignment="Center" Foreground="#FF00FF2E" Margin="-4,-28,0,-26" Height="111" Width="52" RenderTransformOrigin="0.5,0.5"/>
             </Grid>
         </Button>
-        <Button x:Name="btEditarProdutoReceita_Copy" Margin="373,301,376,307" Background="#FF505050" BorderBrush="Black" Height="Auto" Opacity="1" >
+        <Button x:Name="btEditarProdutoReceita" Margin="373,301,376,307" Background="#FF505050" BorderBrush="Black" Height="Auto" Opacity="1" Click="btEditarProdutoReceita_Click" >
             <Grid Width="47" Height="40">
                 <materialDesign:PackIcon Kind="Edit" VerticalAlignment="Center" Foreground="White" Margin="-1,-20,-3,-21" Height="81" Width="51" RenderTransformOrigin="0.5,0.5">
                     <materialDesign:PackIcon.RenderTransform>

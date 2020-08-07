@@ -1,5 +1,7 @@
-﻿using System;
+﻿using _9230A_V00___PI.Utilidades;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,6 +22,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
     /// </summary>
     public partial class AdicionarProdutoReceita : UserControl
     {
+        string filtroTipoProduto = "";
         public AdicionarProdutoReceita()
         {
             InitializeComponent();
@@ -83,17 +86,33 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
 
         private void btPesquisar_Click(object sender, RoutedEventArgs e)
         {
-
+            atualizaFiltroDataProduto();
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
-        {
+        { 
 
+            if (filtroTipoProduto == "Matéria Prima")
+            {
+                filtroMateriaPrima();
+            }
+            else if (filtroTipoProduto == "Complemento")
+            {
+                filtroComplemento();
+            }
+
+            atualizaFiltroDataProduto();
         }
 
         private void DataGrid_Produtos_LoadingRow(object sender, DataGridRowEventArgs e)
         {
+            DataGrid_Produtos.Columns[0].Visibility = Visibility.Hidden;
+            DataGrid_Produtos.Columns[3].Visibility = Visibility.Hidden;
+            DataGrid_Produtos.Columns[4].Visibility = Visibility.Hidden;
+            DataGrid_Produtos.Columns[5].Visibility = Visibility.Hidden;
 
+            DataGrid_Produtos.Columns[1].Header = "Código";
+            DataGrid_Produtos.Columns[2].Header = "Descrição";
         }
 
         private void DataGrid_Produtos_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -108,11 +127,144 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
 
         private void DataGrid_Receita_LoadingRow(object sender, DataGridRowEventArgs e)
         {
+            DataGrid_Receita.Columns[0].Visibility = Visibility.Hidden;
 
+            //DataGrid_Receita.Columns[0].Header = "Produto";
+            //DataGrid_Receita.Columns[1].Header = "Peso";
         }
         private void openKeyboard(object sender, MouseButtonEventArgs e)
         {
             Teclados.keyboard.openKeyboard();
+        }
+
+        private void btAddProdutoReceita_Click(object sender, RoutedEventArgs e)
+        {
+            var rowList = (DataGrid_Produtos.ItemContainerGenerator.ContainerFromIndex(DataGrid_Produtos.SelectedIndex) as DataGridRow).Item as DataRowView;
+
+            //Verifica se ja não tem o item na lista 
+            if (true)
+            {
+                Utilidades.ProdutoReceita produtoReceita = new Utilidades.ProdutoReceita();
+                produtoReceita.produto = new Produto();
+
+                produtoReceita.produto.id = Convert.ToInt32(rowList.Row.ItemArray[0]);
+                produtoReceita.produto.codigo = Convert.ToString(rowList.Row.ItemArray[1]);
+                produtoReceita.produto.descricao = Convert.ToString(rowList.Row.ItemArray[2]);
+                produtoReceita.produto.densidade = Convert.ToSingle(rowList.Row.ItemArray[3]);
+                produtoReceita.produto.tipoProduto = Convert.ToString(rowList.Row.ItemArray[4]);
+                produtoReceita.produto.observacao = Convert.ToString(rowList.Row.ItemArray[5]);
+
+                //Abre tela para escolha do peso do produto na receita e se a matéria prima irá ser dosada manual ou automáticamente
+                Telas_Fluxo.Receitas.AdicionarProdutoReceitaPouUp adcionaProdutoReceita = new AdicionarProdutoReceitaPouUp(produtoReceita, 0, false, "");
+                adcionaProdutoReceita.ShowDialog();
+                loadDataReceitas();
+            }
+            else
+            {
+                //Avisa que não pode adicionar o mesmo item na lista
+            }
+        }
+
+        private void btEditarProdutoReceita_Click(object sender, RoutedEventArgs e)
+        {
+            var rowList = (DataGrid_Receita.ItemContainerGenerator.ContainerFromIndex(DataGrid_Receita.SelectedIndex) as DataGridRow).Item as DataRowView;
+
+            var index = Utilidades.VariaveisGlobais.ReceitaCadastro.listProdutos.FindIndex(x => x.produto.id == Convert.ToInt32(rowList.Row.ItemArray[0]));
+
+            //Abre tela para editar o produto
+            Telas_Fluxo.Receitas.AdicionarProdutoReceitaPouUp adcionaProdutoReceita = new AdicionarProdutoReceitaPouUp(Utilidades.VariaveisGlobais.ReceitaCadastro.listProdutos[index], Utilidades.VariaveisGlobais.ReceitaCadastro.listProdutos[index].pesoPorProduto, true, Utilidades.VariaveisGlobais.ReceitaCadastro.listProdutos[index].tipoDosagemMateriaPrima);
+            adcionaProdutoReceita.ShowDialog();
+            loadDataReceitas();
+        }
+
+        private void btSubProdutoReceita_Click(object sender, RoutedEventArgs e)
+        {
+            var rowList = (DataGrid_Receita.ItemContainerGenerator.ContainerFromIndex(DataGrid_Receita.SelectedIndex) as DataGridRow).Item as DataRowView;
+
+            var index = Utilidades.VariaveisGlobais.ReceitaCadastro.listProdutos.FindIndex(x => x.produto.id == Convert.ToInt32(rowList.Row.ItemArray[0]));
+
+            Utilidades.VariaveisGlobais.ReceitaCadastro.listProdutos.RemoveAt(index);
+
+            loadDataReceitas();
+        }
+
+        private void loadDataProdutos()
+        {
+            Utilidades.functions.atualizalistProdutos();
+
+            Utilidades.ListtoDataTableConverter converter = new Utilidades.ListtoDataTableConverter();
+
+            DataTable dt = converter.ToDataTable(Utilidades.VariaveisGlobais.listProdutos);
+
+            DataGrid_Produtos.Dispatcher.Invoke(delegate { DataGrid_Produtos.ItemsSource = dt.DefaultView; });
+        }
+
+        private void loadDataReceitas()
+        {
+            DataTable dt = new DataTable();
+
+            dt.Columns.Add("Id");
+            dt.Columns.Add("Produto");
+            dt.Columns.Add("Peso(kg)");
+
+            foreach (var item in Utilidades.VariaveisGlobais.ReceitaCadastro.listProdutos)
+            {
+                DataRow dr = dt.NewRow();
+
+                dr["Id"] = item.produto.id;
+                dr["Produto"] = item.produto.descricao;
+                dr["Peso(kg)"] = item.pesoPorProduto;
+
+                dt.Rows.Add(dr);
+            }
+
+
+            DataGrid_Receita.Dispatcher.Invoke(delegate { DataGrid_Receita.ItemsSource = dt.DefaultView; });
+        }
+
+        private void btMateriaPrima_Click(object sender, RoutedEventArgs e)
+        {
+            filtroMateriaPrima();
+            atualizaFiltroDataProduto();
+        }
+
+        private void btComplemento_Click(object sender, RoutedEventArgs e)
+        {
+            filtroComplemento();
+            atualizaFiltroDataProduto();
+        }
+
+        private void filtroMateriaPrima()
+        {
+            btMateriaPrima.Background = new SolidColorBrush(Colors.ForestGreen);
+            btComplemento.Background = new SolidColorBrush(Color.FromArgb(255, 80, 80, 80));
+            filtroTipoProduto = "Matéria Prima";
+        }
+
+        private void filtroComplemento()
+        {
+            btComplemento.Background = new SolidColorBrush(Colors.ForestGreen);
+            btMateriaPrima.Background = new SolidColorBrush(Color.FromArgb(255, 80, 80, 80));
+
+            filtroTipoProduto = "Complemento";
+        }
+
+        private void atualizaFiltroDataProduto()
+        {
+            Utilidades.functions.atualizalistProdutos();
+
+            var filter = from p in Utilidades.VariaveisGlobais.listProdutos
+                         where p.descricao.Contains(txtDesc.Text) &&
+                         p.tipoProduto.Contains(filtroTipoProduto)
+                         select p;
+
+            var listProdutosFiltered = filter.ToList();
+
+            Utilidades.ListtoDataTableConverter converter = new Utilidades.ListtoDataTableConverter();
+
+            DataTable dt = converter.ToDataTable(listProdutosFiltered);
+
+            DataGrid_Produtos.Dispatcher.Invoke(delegate { DataGrid_Produtos.ItemsSource = dt.DefaultView; });
         }
 
     }

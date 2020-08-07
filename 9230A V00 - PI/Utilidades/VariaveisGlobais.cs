@@ -588,8 +588,6 @@ namespace _9230A_V00___PI.Utilidades
 
                 VariaveisGlobais.listProdutos.Add(dummyProduto);
             }
-
-
         }
 
         public static void atualizalistReceitas()
@@ -618,16 +616,19 @@ namespace _9230A_V00___PI.Utilidades
         public Produto produto { get; set; }
 
         public float pesoPorProduto { get; set; }
+
+        public string tipoDosagemMateriaPrima { get; set; } //"Automático" ou "Manual" - Na matéria prima pode ser dosado o produto manualmente ou automaticamente
     }
 
     public class Receita
     {
         public int id { get; set; }
+
         public string nomeReceita { get; set; }
 
         public float pesoBase { get; set; }
 
-        public static List<ProdutoReceita> listProdutos = new List<ProdutoReceita>();
+        public List<ProdutoReceita> listProdutos = new List<ProdutoReceita>();
 
         public string observacao { get; set; }
     }
@@ -636,6 +637,8 @@ namespace _9230A_V00___PI.Utilidades
     {
 
         public float valorDosado { get; set; }
+
+        public string siloDosagemMateriaPrima { get; set; } //Qual silo será dosado a matéria prima automática.
 
         public string statusItem { get; set; }
 
