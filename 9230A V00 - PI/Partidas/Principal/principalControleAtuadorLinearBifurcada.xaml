@@ -27,7 +27,7 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
                 <Label Content="Alarmes" Margin="4,34,3,0" Width="50" HorizontalContentAlignment="Center" FontWeight="Bold" FontSize="10" Foreground="White"/>
-                <materialDesign:PackIcon x:Name="pckAlarmes" Kind="Alert" VerticalAlignment="Center" Foreground="White" Margin="9,0,0,23" HorizontalAlignment="Left" Width="39" Height="37"/>
+                <materialDesign:PackIcon x:Name="pckManutencao" Kind="Alert" VerticalAlignment="Center" Foreground="White" Margin="9,0,0,23" HorizontalAlignment="Left" Width="39" Height="37"/>
             </Grid>
         </Button>
 

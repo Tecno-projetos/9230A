@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace _9230A_V00___PI.Telas_Fluxo
+namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
 {
     /// <summary>
-    /// Interação lógica para alarmes.xam
+    /// Interação lógica para inicialControleProducao.xam
     /// </summary>
-    public partial class alarmes : UserControl
+    public partial class inicialControleProducao : UserControl
     {
-        public alarmes()
+        public inicialControleProducao()
         {
             InitializeComponent();
         }

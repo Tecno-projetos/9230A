@@ -62,7 +62,7 @@
         <materialDesign:PackIcon Kind="Pencil" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="417,306,370,328" BorderBrush="#FF040404"/>
         <Label Content="E-mail" Height="34" Margin="455,376,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="188" Foreground="White" FontWeight="Bold" FontSize="16"/>
         <Grid Style="{StaticResource EntryFieldStyle}" Margin="455,415,15,219" Height="41" Background="#FF3C3C3C" >
-            <TextBlock Margin="5,0,6,5" Text="E-mail" Foreground="{StaticResource brushWatermarkForeground}" VerticalAlignment="Bottom" FontSize="14" >
+            <TextBlock Margin="5,0,6,5" Text="E-mail" Foreground="#FF919191" VerticalAlignment="Bottom" FontSize="14" >
                 <TextBlock.Visibility>
                     <MultiBinding Converter="{StaticResource TextInputToVisibilityConverter}">
                         <Binding ElementName="txtEmail" Path="Text.IsEmpty" />

@@ -255,6 +255,6 @@
         </Path>
     </Grid>
     <Rectangle Fill="#FF595959" HorizontalAlignment="Left" Height="13.125" Margin="15.042,109.125,0,0" Stroke="Black" VerticalAlignment="Top" Width="65.217"/>
-    <Label x:Name="LB_M_A" Margin="81,1,0,0" VerticalContentAlignment="Center" Padding="0" Content="M" FontSize="36" Height="42" VerticalAlignment="Top" HorizontalAlignment="Left" Width="53" FontWeight="Bold" Cursor="No" Background="#00000000" Foreground="White"/>
+    <Label x:Name="LB_M_A" Margin="68,0,0,0" VerticalContentAlignment="Center" Padding="0" Content="M" FontSize="28" Height="42" VerticalAlignment="Top" HorizontalAlignment="Left" Width="53" FontWeight="Bold" Cursor="No" Background="#00000000" Foreground="White"/>
 </Grid>
 </UserControl>

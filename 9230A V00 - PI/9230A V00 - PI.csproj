@@ -119,6 +119,9 @@
     <Compile Include="Equipamentos\alimentador.xaml.cs">
       <DependentUpon>alimentador.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Equipamentos\balancaManual.xaml.cs">
+      <DependentUpon>balancaManual.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Equipamentos\bifurcada.xaml.cs">
       <DependentUpon>bifurcada.xaml</DependentUpon>
     </Compile>
@@ -198,14 +201,23 @@
     <Compile Include="Teclados\keypad.xaml.cs">
       <DependentUpon>keypad.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Telas Fluxo\alarmes.xaml.cs">
-      <DependentUpon>alarmes.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Telas Fluxo\configuracoes.xaml.cs">
       <DependentUpon>configuracoes.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Telas Fluxo\Controle Produção\inicialControleProducao.xaml.cs">
+      <DependentUpon>inicialControleProducao.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Telas Fluxo\Fluxo.xaml.cs">
       <DependentUpon>Fluxo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Telas Fluxo\manutencao.xaml.cs">
+      <DependentUpon>manutencao.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Telas Fluxo\Manutenção\conexoes.xaml.cs">
+      <DependentUpon>conexoes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Telas Fluxo\Manutenção\informacoesSistema.xaml.cs">
+      <DependentUpon>informacoesSistema.xaml</DependentUpon>
     </Compile>
     <Compile Include="Telas Fluxo\producao.xaml.cs">
       <DependentUpon>producao.xaml</DependentUpon>
@@ -288,6 +300,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Equipamentos\alimentador.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Equipamentos\balancaManual.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -399,15 +415,27 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Telas Fluxo\alarmes.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Telas Fluxo\configuracoes.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Telas Fluxo\Controle Produção\inicialControleProducao.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Telas Fluxo\Fluxo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Telas Fluxo\manutencao.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Telas Fluxo\Manutenção\conexoes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Telas Fluxo\Manutenção\informacoesSistema.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

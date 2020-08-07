@@ -35,7 +35,7 @@ namespace _9230A_V00___PI.Partidas.Principal
             this.Title = nome + " " + tag;
 
             pckInicial.Foreground = Utilidades.VariaveisGlobais.Verde;
-            pckAlarmes.Foreground = Utilidades.VariaveisGlobais.Branco;
+            pckManutencao.Foreground = Utilidades.VariaveisGlobais.Branco;
 
 
             tagEquip = tag;
@@ -56,7 +56,7 @@ namespace _9230A_V00___PI.Partidas.Principal
         private void Home_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             pckInicial.Foreground = Utilidades.VariaveisGlobais.Verde;
-            pckAlarmes.Foreground = Utilidades.VariaveisGlobais.Branco;
+            pckManutencao.Foreground = Utilidades.VariaveisGlobais.Branco;
 
 
             this.Height = 515;
@@ -67,7 +67,7 @@ namespace _9230A_V00___PI.Partidas.Principal
         private void alarmes_Tela_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             pckInicial.Foreground = Utilidades.VariaveisGlobais.Branco;
-            pckAlarmes.Foreground = Utilidades.VariaveisGlobais.Verde;
+            pckManutencao.Foreground = Utilidades.VariaveisGlobais.Verde;
 
 
 
