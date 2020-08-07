@@ -124,7 +124,7 @@ namespace _9230A_V00___PI
             #endregion
 
 
-            pckAlarmes.Foreground = VariaveisGlobais.Branco;
+            pckManutencao.Foreground = VariaveisGlobais.Branco;
             pckConfiguracoes.Foreground = VariaveisGlobais.Branco;
             pckHome.Foreground = VariaveisGlobais.Verde;
             pckProducao.Foreground = VariaveisGlobais.Branco;
@@ -1699,7 +1699,7 @@ namespace _9230A_V00___PI
                 spInical.Children.Add(Utilidades.VariaveisGlobais.Fluxo);
 
 
-                pckAlarmes.Foreground = VariaveisGlobais.Branco;
+                pckManutencao.Foreground = VariaveisGlobais.Branco;
                 pckConfiguracoes.Foreground  = VariaveisGlobais.Branco;
                 pckHome.Foreground = VariaveisGlobais.Verde;
                 pckProducao.Foreground = VariaveisGlobais.Branco;
@@ -1724,7 +1724,7 @@ namespace _9230A_V00___PI
 
                 spInical.Children.Add(Utilidades.VariaveisGlobais.producao);
 
-                pckAlarmes.Foreground = VariaveisGlobais.Branco;
+                pckManutencao.Foreground = VariaveisGlobais.Branco;
                 pckConfiguracoes.Foreground = VariaveisGlobais.Branco;
                 pckHome.Foreground = VariaveisGlobais.Branco;
                 pckProducao.Foreground = VariaveisGlobais.Verde;
@@ -1743,7 +1743,7 @@ namespace _9230A_V00___PI
 
                 spInical.Children.Add(Utilidades.VariaveisGlobais.receitas);
 
-                pckAlarmes.Foreground = VariaveisGlobais.Branco;
+                pckManutencao.Foreground = VariaveisGlobais.Branco;
                 pckConfiguracoes.Foreground = VariaveisGlobais.Branco;
                 pckHome.Foreground = VariaveisGlobais.Branco;
                 pckProducao.Foreground = VariaveisGlobais.Branco;
@@ -1762,7 +1762,7 @@ namespace _9230A_V00___PI
 
                 spInical.Children.Add(Utilidades.VariaveisGlobais.configuracoes);
 
-                pckAlarmes.Foreground = VariaveisGlobais.Branco;
+                pckManutencao.Foreground = VariaveisGlobais.Branco;
                 pckConfiguracoes.Foreground = VariaveisGlobais.Verde;
                 pckHome.Foreground = VariaveisGlobais.Branco;
                 pckProducao.Foreground = VariaveisGlobais.Branco;
@@ -1781,33 +1781,13 @@ namespace _9230A_V00___PI
 
                 spInical.Children.Add(Utilidades.VariaveisGlobais.relatorios);
 
-                pckAlarmes.Foreground = VariaveisGlobais.Branco;
+                pckManutencao.Foreground = VariaveisGlobais.Branco;
                 pckConfiguracoes.Foreground = VariaveisGlobais.Branco;
                 pckHome.Foreground = VariaveisGlobais.Branco;
                 pckProducao.Foreground = VariaveisGlobais.Branco;
                 pckReceitas.Foreground = VariaveisGlobais.Branco;
                 pckRelatorio.Foreground = VariaveisGlobais.Verde;
                 pckUser.Foreground = VariaveisGlobais.Branco;
-
-            }
-        }
-
-        private void btAlarmes_Click(object sender, RoutedEventArgs e)
-        {
-            if (spInical != null)
-            {
-                spInical.Children.Clear();
-
-                spInical.Children.Add(Utilidades.VariaveisGlobais.alarmes);
-
-                pckAlarmes.Foreground = VariaveisGlobais.Verde;
-                pckConfiguracoes.Foreground = VariaveisGlobais.Branco;
-                pckHome.Foreground = VariaveisGlobais.Branco;
-                pckProducao.Foreground = VariaveisGlobais.Branco;
-                pckReceitas.Foreground = VariaveisGlobais.Branco;
-                pckRelatorio.Foreground = VariaveisGlobais.Branco;
-                pckUser.Foreground = VariaveisGlobais.Branco;
-
 
             }
         }
@@ -1844,7 +1824,7 @@ namespace _9230A_V00___PI
 
                 Utilidades.VariaveisGlobais.controleUsuario.spControleUsuario.Children.Clear();
 
-                pckAlarmes.Foreground = VariaveisGlobais.Branco;
+                pckManutencao.Foreground = VariaveisGlobais.Branco;
                 pckConfiguracoes.Foreground = VariaveisGlobais.Branco;
                 pckHome.Foreground = VariaveisGlobais.Branco;
                 pckProducao.Foreground = VariaveisGlobais.Branco;
@@ -1863,6 +1843,26 @@ namespace _9230A_V00___PI
             {
                 login();
                 btLogin.Focus();
+            }
+        }
+
+        private void btManutencao_Click(object sender, RoutedEventArgs e)
+        {
+            if (spInical != null)
+            {
+                spInical.Children.Clear();
+
+                spInical.Children.Add(Utilidades.VariaveisGlobais.manutencao);
+
+                pckManutencao.Foreground = VariaveisGlobais.Verde;
+                pckConfiguracoes.Foreground = VariaveisGlobais.Branco;
+                pckHome.Foreground = VariaveisGlobais.Branco;
+                pckProducao.Foreground = VariaveisGlobais.Branco;
+                pckReceitas.Foreground = VariaveisGlobais.Branco;
+                pckRelatorio.Foreground = VariaveisGlobais.Branco;
+                pckUser.Foreground = VariaveisGlobais.Branco;
+
+
             }
         }
     }

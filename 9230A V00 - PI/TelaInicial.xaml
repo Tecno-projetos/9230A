@@ -109,13 +109,13 @@
                     <materialDesign:PackIcon x:Name="pckReceitas" Kind="Receipt" VerticalAlignment="Center" Foreground="White" Margin="0,0,0,22" HorizontalAlignment="Left" Width="53" Height="48"/>
                 </Grid>
             </Button>
-            <Button x:Name="btAlarmes" Margin="624,4,0,0" Background="#FF505050" BorderBrush="{x:Null}" HorizontalAlignment="Left" Width="85" Height="84" VerticalAlignment="Top" Click="btAlarmes_Click">
+            <Button x:Name="btManutencao" Margin="624,4,0,0" Background="#FF505050" BorderBrush="{x:Null}" HorizontalAlignment="Left" Width="85" Height="84" VerticalAlignment="Top" Click="btManutencao_Click">
                 <Grid Width="53" Height="70">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                    <Label Content="Alarmes" Margin="-14,40,-14,-12" HorizontalContentAlignment="Center" FontWeight="Bold" Foreground="White" Width="81" Height="27" FontSize="11"/>
-                    <materialDesign:PackIcon x:Name="pckAlarmes" Kind="WarningBox" VerticalAlignment="Center" Foreground="White" Margin="0,0,0,22" HorizontalAlignment="Left" Width="53" Height="48"/>
+                    <Label Content="Manutenção" Margin="-14,40,-14,-12" HorizontalContentAlignment="Center" FontWeight="Bold" Foreground="White" Width="81" Height="27" FontSize="11"/>
+                    <materialDesign:PackIcon x:Name="pckManutencao" Kind="HammerScrewdriver" VerticalAlignment="Center" Foreground="White" Margin="0,0,0,22" HorizontalAlignment="Left" Width="53" Height="48"/>
                 </Grid>
             </Button>
             <Grid Background="#FF505050" Margin="711,48,294,5">

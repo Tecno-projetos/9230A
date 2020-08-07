@@ -201,9 +201,6 @@
     <Compile Include="Teclados\keypad.xaml.cs">
       <DependentUpon>keypad.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Telas Fluxo\alarmes.xaml.cs">
-      <DependentUpon>alarmes.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Telas Fluxo\configuracoes.xaml.cs">
       <DependentUpon>configuracoes.xaml</DependentUpon>
     </Compile>
@@ -212,6 +209,15 @@
     </Compile>
     <Compile Include="Telas Fluxo\Fluxo.xaml.cs">
       <DependentUpon>Fluxo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Telas Fluxo\manutencao.xaml.cs">
+      <DependentUpon>manutencao.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Telas Fluxo\Manutenção\conexoes.xaml.cs">
+      <DependentUpon>conexoes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Telas Fluxo\Manutenção\informacoesSistema.xaml.cs">
+      <DependentUpon>informacoesSistema.xaml</DependentUpon>
     </Compile>
     <Compile Include="Telas Fluxo\producao.xaml.cs">
       <DependentUpon>producao.xaml</DependentUpon>
@@ -406,10 +412,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Telas Fluxo\alarmes.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Telas Fluxo\configuracoes.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -419,6 +421,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Telas Fluxo\Fluxo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Telas Fluxo\manutencao.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Telas Fluxo\Manutenção\conexoes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Telas Fluxo\Manutenção\informacoesSistema.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

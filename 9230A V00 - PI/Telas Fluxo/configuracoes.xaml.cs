@@ -22,21 +22,16 @@ namespace _9230A_V00___PI.Telas_Fluxo
     /// </summary>
     public partial class configuracoes : UserControl
     {
+
+        Telas_Fluxo.Manutenção.informacoesSistema controleOperacao = new Manutenção.informacoesSistema();
+
+
+
         public configuracoes()
         {
             InitializeComponent();
 
-            ObjectQuery wql = new ObjectQuery("SELECT * FROM Win32_OperatingSystem");
-            ManagementObjectSearcher searcher = new ManagementObjectSearcher(wql);
-            ManagementObjectCollection results = searcher.Get();
 
-            foreach (ManagementObject result in results)
-            {
-                Console.WriteLine("Total Visible Memory: {0} KB", result["TotalVisibleMemorySize"]);
-                Console.WriteLine("Free Physical Memory: {0} KB", result["FreePhysicalMemory"]);
-                Console.WriteLine("Total Virtual Memory: {0} KB", result["TotalVirtualMemorySize"]);
-                Console.WriteLine("Free Virtual Memory: {0} KB", result["FreeVirtualMemory"]);
-            }
 
         }
 
@@ -45,6 +40,19 @@ namespace _9230A_V00___PI.Telas_Fluxo
               App.Current.Shutdown();
               Process proc = Process.GetCurrentProcess();
               proc.Kill();
+        }
+
+        private void btInformacoesSistema_Click(object sender, RoutedEventArgs e)
+        {
+            if (spConfiguracao != null)
+            {
+                spConfiguracao.Children.Clear();
+            }
+
+            spConfiguracao.Children.Add(controleOperacao);
+
+
+
         }
     }
 }

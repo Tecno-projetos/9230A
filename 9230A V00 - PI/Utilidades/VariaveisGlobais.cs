@@ -436,7 +436,7 @@ namespace _9230A_V00___PI.Utilidades
 
         public static Usuarios.controleUsuario controleUsuario = new Usuarios.controleUsuario();
 
-        public static Telas_Fluxo.alarmes alarmes = new Telas_Fluxo.alarmes();
+        public static Telas_Fluxo.manutencao manutencao = new Telas_Fluxo.manutencao();
 
         public static Telas_Fluxo.configuracoes configuracoes = new Telas_Fluxo.configuracoes();
 
