@@ -20,8 +20,8 @@ namespace _9230A_V00___PI.Partidas.Principal
     public partial class principalControleAtuadorLinearBifurcada : Window
     {
 
-        private SolidColorBrush Vermelho = new SolidColorBrush(Colors.Red);
-        private SolidColorBrush Branco = new SolidColorBrush(Colors.White);
+
+
 
         private string tagEquip = "";
         private string NomePartida = "";
@@ -35,8 +35,8 @@ namespace _9230A_V00___PI.Partidas.Principal
 
             this.Title = nome + " " + tag;
 
-            pckInicial.Foreground = Vermelho;
-            pckAlarmes.Foreground = Branco;
+            pckInicial.Foreground = Utilidades.VariaveisGlobais.Verde;
+            pckAlarmes.Foreground = Utilidades.VariaveisGlobais.Branco;
 
 
             tagEquip = tag;
@@ -57,8 +57,8 @@ namespace _9230A_V00___PI.Partidas.Principal
 
         private void Home_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            pckInicial.Foreground = Vermelho;
-            pckAlarmes.Foreground = Branco;
+            pckInicial.Foreground = Utilidades.VariaveisGlobais.Verde;
+            pckAlarmes.Foreground = Utilidades.VariaveisGlobais.Branco;
 
 
             this.Height = 535;
@@ -68,8 +68,8 @@ namespace _9230A_V00___PI.Partidas.Principal
 
         private void alarmes_Tela_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            pckInicial.Foreground = Branco;
-            pckAlarmes.Foreground = Vermelho;
+            pckInicial.Foreground = Utilidades.VariaveisGlobais.Branco;
+            pckAlarmes.Foreground = Utilidades.VariaveisGlobais.Verde;
 
 
 
