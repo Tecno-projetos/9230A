@@ -65,7 +65,7 @@
             <TextBox x:Name="txtPeso" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" PreviewMouseLeftButtonUp="openKeyboard" />
         </Grid>
         <Button x:Name="btAdicionarProduto" Margin="241,136,0,0" Background="#FF505050" BorderBrush="Black" Opacity="1" HorizontalAlignment="Left" Width="178" Height="39" VerticalAlignment="Top" Click="btAdicionarProduto_Click" >
-            <Grid Width="150">
+            <Grid Width="150" Height="29">
                 <materialDesign:PackIcon x:Name="packiconCadastrarEditar" Kind="plus" VerticalAlignment="Center" Foreground="White" Margin="1,-6,0,-7" Height="30" Width="30"/>
                 <TextBlock x:Name="lbTextButton" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="38,1,2,-1" Width="110" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center"><Run Text="Adicionar"/><Run Text=" Receita"/></TextBlock>
             </Grid>
@@ -81,7 +81,7 @@
             </Grid>
         </Button>
         <Label Content="Tipo de Dosagem:" Height="34" Margin="7,105,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="181" Foreground="White" FontWeight="Bold" FontSize="16"/>
-        <Button x:Name="btExit" Margin="241,65,0,0" Background="#FF505050" BorderBrush="Black" Opacity="1" HorizontalAlignment="Left" Width="178" Height="39" VerticalAlignment="Top" Click="btAdicionarProduto_Click" IsCancel="True" >
+        <Button x:Name="btExit" Margin="241,65,0,0" Background="#FF505050" BorderBrush="Black" Opacity="1" HorizontalAlignment="Left" Width="178" Height="39" VerticalAlignment="Top" IsCancel="True" >
             <Grid Width="150">
                 <materialDesign:PackIcon x:Name="packiconCadastrarEditar1" Kind="Close" VerticalAlignment="Center" Foreground="Red" Margin="1,-6,0,-7" Height="30" Width="30"/>
                 <TextBlock x:Name="lbTextButton3" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="38,1,2,-1" Width="110" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Fechar"/>

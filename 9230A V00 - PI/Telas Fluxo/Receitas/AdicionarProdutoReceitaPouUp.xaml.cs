@@ -57,7 +57,12 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
                         SetDosagemManual();
                     }
                 }
+                //Mudar o titulo da tela para edição
+                this.Title = "Editar Produto Receita";
 
+                //Mudar o Label do botão para editar e o icone do botão para editar
+                lbTextButton.Text = "Editar Item";
+                packiconCadastrarEditar.Kind = MaterialDesignThemes.Wpf.PackIconKind.Edit;
             }
 
             //Verifica se não é materia prima o produto, se não for não deixa selecionar o tipo de dosagem
@@ -165,7 +170,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
         {
             btAutomatico.Background = new SolidColorBrush(Colors.ForestGreen);
             btManual.Background = new SolidColorBrush(Color.FromArgb(255, 80, 80, 80));
-            AutomaticoManual = "Manual";
+            AutomaticoManual = "Automático";
         }
 
         private void SetDosagemManual()
@@ -173,7 +178,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
             btManual.Background = new SolidColorBrush(Colors.ForestGreen);
             btAutomatico.Background = new SolidColorBrush(Color.FromArgb(255, 80, 80, 80));
 
-            AutomaticoManual = "Automático";
+            AutomaticoManual = "Manual";
         }
         private void openKeyboard(object sender, MouseButtonEventArgs e)
         {

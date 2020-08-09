@@ -23,6 +23,9 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
     public partial class AdicionarProdutoReceita : UserControl
     {
         string filtroTipoProduto = "";
+
+        public event EventHandler FinalizadoAdicaoProdutosReceita;
+
         public AdicionarProdutoReceita()
         {
             InitializeComponent();
@@ -91,7 +94,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         { 
-
+            //Atualiza a lista de produtos conforme os filtros
             if (filtroTipoProduto == "Matéria Prima")
             {
                 filtroMateriaPrima();
@@ -102,6 +105,10 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
             }
 
             atualizaFiltroDataProduto();
+
+            //Atualiza o datagrid de receitas com os produtos inseridos na receita cadastro
+            loadDataReceitas();
+
         }
 
         private void DataGrid_Produtos_LoadingRow(object sender, DataGridRowEventArgs e)
@@ -267,5 +274,10 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
             DataGrid_Produtos.Dispatcher.Invoke(delegate { DataGrid_Produtos.ItemsSource = dt.DefaultView; });
         }
 
+        private void btFinalizarAdicaoProduto_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.FinalizadoAdicaoProdutosReceita != null)
+                this.FinalizadoAdicaoProdutosReceita(this, e);
+        }
     }
 }

@@ -160,22 +160,22 @@
                 <materialDesign:PackIcon Kind="LessThan" VerticalAlignment="Center" Foreground="White" Margin="-5,-20,0,-21" Height="81" Width="51" RenderTransformOrigin="0.5,0.5"/>
             </Grid>
         </Button>
-        <Button x:Name="btUpList_Produtos" Margin="649,544,98,81" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btUpList_Click" >
+        <Button x:Name="btUpList_Produtos" Margin="649,544,98,81" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btUpList_Produtos_Click" >
             <Grid Width="42" Height="42" Margin="0">
                 <materialDesign:PackIcon Kind="ArrowUpBold" VerticalAlignment="Center" Foreground="White" Height="42" Width="42"/>
             </Grid>
         </Button>
-        <Button x:Name="btDownList_Produtos" Margin="649,599,98,26" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btDownList_Click" >
+        <Button x:Name="btDownList_Produtos" Margin="649,599,98,26" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btDownList_Produtos_Click" >
             <Grid Width="42" Height="42" Margin="0">
                 <materialDesign:PackIcon Kind="ArrowDownBold" VerticalAlignment="Center" Foreground="White" Height="42" Width="42"/>
             </Grid>
         </Button>
-        <Button x:Name="btLeftList_Produtos" Margin="567,569,180,56" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btLeftList_Click" >
+        <Button x:Name="btLeftList_Produtos" Margin="567,569,180,56" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btLeftList_Produtos_Click" >
             <Grid Width="42" Height="42" Margin="0">
                 <materialDesign:PackIcon Kind="ArrowLeftBold" VerticalAlignment="Center" Foreground="White" Height="42" Width="42"/>
             </Grid>
         </Button>
-        <Button x:Name="btRightList_Produtos" Margin="731,569,16,56" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btRightList_Click" >
+        <Button x:Name="btRightList_Produtos" Margin="731,569,16,56" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btRightList_Produtos_Click" >
             <Grid Width="42" Height="42" Margin="0">
                 <materialDesign:PackIcon Kind="ArrowRightBold" VerticalAlignment="Center" Foreground="White" Height="42" Width="42"/>
             </Grid>
@@ -193,7 +193,7 @@
             </Grid>
         </Button>
         <Label x:Name="lbTitle" Content="Adicionar Produto na Receita" HorizontalAlignment="Left" VerticalAlignment="Top" Width="824" Foreground="White" VerticalContentAlignment="Center" FontWeight="Bold" HorizontalContentAlignment="Center" Margin="0,6,0,0" Height="58" FontSize="30"/>
-        <Button x:Name="btFinalizarAdicaoProduto" Margin="373,445,376,163" Background="#FF505050" BorderBrush="Black" Height="Auto" Opacity="1" >
+        <Button x:Name="btFinalizarAdicaoProduto" Margin="373,445,376,163" Background="#FF505050" BorderBrush="Black" Height="Auto" Opacity="1" Click="btFinalizarAdicaoProduto_Click" >
             <Grid Width="58" Height="57">
                 <materialDesign:PackIcon Kind="Check" VerticalAlignment="Center" Foreground="#FF00FF2E" Margin="-4,-28,0,-26" Height="111" Width="52" RenderTransformOrigin="0.5,0.5"/>
             </Grid>
