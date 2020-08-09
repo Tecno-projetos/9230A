@@ -28,6 +28,8 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
 
         public event EventHandler VoltarAdicaoProdutosReceita;
 
+        public event EventHandler FinalizadoCadastroReceita;
+
         public FinalizacaoCadastroReceita()
         {
             InitializeComponent();
@@ -93,9 +95,17 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
                     if (inputDialog.DialogResult == true)
                     {
                         //Adicionar receita no banco de dados.
+                        DataBase.SqlFunctionsReceitas.AddNewRecipeBD();
 
+                        //Se foi criado com sucesso a receita
+                        if (true)
+                        {
+                            //Limpar Cadastro Receita Global
+                            Utilidades.VariaveisGlobais.ReceitaCadastro = new Utilidades.Receita();
 
-                        //Limpar Cadastro Receita Global
+                            if (this.FinalizadoCadastroReceita != null)
+                                this.FinalizadoCadastroReceita(this, e);
+                        }
                     }
 
                 }
