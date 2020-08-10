@@ -579,6 +579,9 @@ namespace _9230A_V00___PI.Utilidades
         public static List<Receita> listReceitas = new List<Receita>();
 
         public static Receita ReceitaCadastro = new Receita();
+
+        public static Producao EmProducao = new Producao();
+
     }
 
     public class functions
@@ -703,15 +706,17 @@ namespace _9230A_V00___PI.Utilidades
 
     public class ProdutoBatelada : Produto
     {
+        public int id { get; set; }
 
         public float valorDosado { get; set; }
 
         public string siloDosagemMateriaPrima { get; set; } //Qual silo será dosado a matéria prima automática.
 
+
+
         public string statusItem { get; set; }
 
     }
-
 
     public class Batelada
     {
@@ -720,15 +725,27 @@ namespace _9230A_V00___PI.Utilidades
 
     public class Producao
     {
+        public int id {get; set;}
+
+        public int idReceita { get; set; }
+
         public Receita receita { get; set; }
 
         public static List<Batelada> batelada = new List<Batelada>();
+
+        public Int32 tempoPreMistura { get; set; }
+
+        public Int32 tempoPosMistura { get; set; }
+
+        public int pesoTotalProducao { get; set; }
 
         public int quantidadeBateladas { get; set; }
 
         public int pesoPorBatelada { get; set; }
 
-        public int pesoTotalProducao { get; set; }
+        public DateTime dateTimeInicioProducao { get; set; }
+
+        public DateTime dateTimeFimProducao { get; set; }
 
         public string statusBatelada { get; set; }
 

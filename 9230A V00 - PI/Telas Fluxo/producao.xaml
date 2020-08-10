@@ -9,16 +9,22 @@
              d:DesignHeight="450" d:DesignWidth="800" Width="1024" Height="675">
     <Grid Background="#FF7F7F7F">
         <Grid HorizontalAlignment="Left" Height="675" VerticalAlignment="Top" Width="200" Background="#FF3C3C3C">
-            <Button x:Name="btCriarUsuario" Margin="10,151,10,474" Background="#FF505050" BorderBrush="Black" Height="50">
-                <Grid Width="150">
-                    <materialDesign:PackIcon Kind="Passport" VerticalAlignment="Center" Foreground="White" Margin="2,-6,0,-7" Height="30" Width="30"/>
-                    <TextBlock  Text="Teste" TextAlignment="Center" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="41,1,24,-1" Width="85" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                </Grid>
-            </Button>
 
-            <materialDesign:PackIcon Kind="RobotIndustrial" VerticalAlignment="Center" Foreground="White" Height="95" Margin="0,6,0,574" Width="200"/>
+            <materialDesign:PackIcon Kind="Gear" VerticalAlignment="Center" Foreground="White" Height="95" Margin="0,6,0,574" Width="200"/>
             <Label Content="Produção" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Foreground="White" FontSize="16" VerticalContentAlignment="Center" FontWeight="Bold" HorizontalContentAlignment="Center" Margin="0,101,0,0"/>
             <Rectangle Fill="White" HorizontalAlignment="Left" Height="5" Margin="10,133,0,0" Stroke="White" VerticalAlignment="Top" Width="180"/>
+            <Button x:Name="btTelaInicialRacao" Margin="10,151,10,474" Background="#FF505050" BorderBrush="Black" Height="50" Click="btTelaInicialRacao_Click">
+                <Grid Width="170" Height="40">
+                    <materialDesign:PackIcon Kind="Plus" VerticalAlignment="Center" Foreground="#FF00FB22" Margin="2,-6,0,-7" Height="30" Width="30"/>
+                    <TextBlock TextAlignment="Center" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="36,12,15,10" Width="119" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Ração"/>
+                </Grid>
+            </Button>
+            <Button x:Name="btTelaInicialEnsaque" Margin="10,217,10,408" Background="#FF505050" BorderBrush="Black" Height="50" Click="btTelaInicialEnsaque_Click">
+                <Grid Width="170" Height="40">
+                    <materialDesign:PackIcon Kind="Plus" VerticalAlignment="Center" Foreground="#FF00FB22" Margin="2,-6,0,-7" Height="30" Width="30"/>
+                    <TextBlock TextAlignment="Center" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="36,12,15,10" Width="119" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Ensaque"/>
+                </Grid>
+            </Button>
         </Grid>
         <StackPanel x:Name="spControleProducao" HorizontalAlignment="Left" Height="675" Margin="200,0,0,0" VerticalAlignment="Top" Width="824"/>
     </Grid>
