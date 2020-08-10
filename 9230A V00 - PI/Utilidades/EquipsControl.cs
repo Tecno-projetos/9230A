@@ -278,9 +278,15 @@ namespace _9230A_V00___PI.Utilidades
 
         private void AtuadorBF_Bt_LigarEsquerda_Click(object sender, EventArgs e)
         {
-            if (Command.Standard.AcionaLado1)
+            if (Command.Standard.AcionaLado1 || (Command.Standard.EmPosicaoLado1 & !Command.Standard.AcionaLado2))
             {
                 Command.Standard.AcionaLado1 = false;
+                Command.Standard.AcionaLado2 = true;
+            }
+            else if (Command.Standard.AcionaLado2 || (Command.Standard.EmPosicaoLado2 & !Command.Standard.AcionaLado1))
+            {
+                Command.Standard.AcionaLado2 = false;
+                Command.Standard.AcionaLado1 = true;
             }
             else
             {
@@ -306,14 +312,23 @@ namespace _9230A_V00___PI.Utilidades
 
         private void AtuadorBF_Bt_LigarDireita_Click(object sender, EventArgs e)
         {
-            if (Command.Standard.AcionaLado2)
+
+            if (Command.Standard.AcionaLado1 || (Command.Standard.EmPosicaoLado1 & !Command.Standard.AcionaLado2))
+            {
+                Command.Standard.AcionaLado1 = false;
+                Command.Standard.AcionaLado2 = true;
+            }
+            else if (Command.Standard.AcionaLado2 || (Command.Standard.EmPosicaoLado2 & !Command.Standard.AcionaLado1))
             {
                 Command.Standard.AcionaLado2 = false;
+                Command.Standard.AcionaLado1 = true;
             }
             else
             {
-                Command.Standard.AcionaLado2 = true;
+                Command.Standard.AcionaLado1 = true;
             }
+
+
 
             VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Enable_Read = false;
 
@@ -1105,6 +1120,19 @@ namespace _9230A_V00___PI.Utilidades
 
                         //Segundo atualiza o standard GUI
                         Command = Utilidades.Move_Bits.typeAtuadorA_TO_typeStandardGUI(Command);
+                    }
+                    else if (Command_Get.TypeEquip == typeEquip.BF && Command_Get.TypeCommand == typeCommand.Atuador_Digital)
+                    {
+                        //Lendo variaveis do buffer do CLP
+                        Command.DWord = Comunicacao.Sharp7.S7.GetDWordAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet);
+
+                        //Atualizando as variaveis para o standard GUI
+
+                        //Primeiro converte a Dword para os bits
+                        Command = Utilidades.Move_Bits.Dword_TO_typeAtuadorD(Command.DWord, Command);
+
+                        //Segundo atualiza o standard GUI
+                        Command = Utilidades.Move_Bits.typeAtuadorD_TO_typeStandardGUI(Command);
                     }
                 }
 
