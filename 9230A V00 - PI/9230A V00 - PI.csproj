@@ -41,6 +41,9 @@
     <ApplicationIcon>Imagens\Automasul.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="itextsharp, Version=5.5.13.1, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.1\lib\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="MaterialDesignColors, Version=1.2.6.1513, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialDesignColors.1.2.6\lib\net45\MaterialDesignColors.dll</HintPath>
     </Reference>
@@ -283,6 +286,7 @@
     <Compile Include="Telas Fluxo\relatorios.xaml.cs">
       <DependentUpon>relatorios.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Telas Fluxo\Relatorios\ExportacaoRelatorios.cs" />
     <Compile Include="TelasAuxiliares\Buffer_Diag.xaml.cs">
       <DependentUpon>Buffer_Diag.xaml</DependentUpon>
     </Compile>
