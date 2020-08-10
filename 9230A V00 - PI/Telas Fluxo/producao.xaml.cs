@@ -20,9 +20,37 @@ namespace _9230A_V00___PI.Telas_Fluxo
     /// </summary>
     public partial class producao : UserControl
     {
+        Telas_Fluxo.Producao.ProducaoTelaInicial TelaInicialProducao = new Producao.ProducaoTelaInicial();
+        Telas_Fluxo.Producao.ConfiguracaoReceitaProducao TelaConfiguracaoReceitaProducao = new Producao.ConfiguracaoReceitaProducao();
+
         public producao()
         {
             InitializeComponent();
+
+            TelaInicialProducao.EventoReceitaSelecionada += new EventHandler(EventoReceitaSelecionada);
+        }
+
+        protected void EventoReceitaSelecionada(object sender, EventArgs e)
+        {
+            if (spControleProducao != null)
+            {
+                spControleProducao.Children.Clear();
+            }
+            spControleProducao.Children.Add(TelaConfiguracaoReceitaProducao);
+        }
+
+        private void btTelaInicialEnsaque_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btTelaInicialRacao_Click(object sender, RoutedEventArgs e)
+        {
+            if (spControleProducao != null)
+            {
+                spControleProducao.Children.Clear();
+            }
+            spControleProducao.Children.Add(TelaInicialProducao);
         }
     }
 }

@@ -113,6 +113,7 @@
     <Compile Include="Comunicacao\CallCommunicationPLC.cs" />
     <Compile Include="Comunicacao\Sharp7.cs" />
     <Compile Include="DataBase\SqlFunctionsEquips.cs" />
+    <Compile Include="DataBase\SQLFunctionsProducao.cs" />
     <Compile Include="DataBase\SqlFunctionsProdutos.cs" />
     <Compile Include="DataBase\SqlFunctionsReceitas.cs" />
     <Compile Include="DataBase\SqlFunctionsUsers.cs" />
@@ -242,6 +243,12 @@
     </Compile>
     <Compile Include="Telas Fluxo\producao.xaml.cs">
       <DependentUpon>producao.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Telas Fluxo\Producao\ConfiguracaoReceitaProducao.xaml.cs">
+      <DependentUpon>ConfiguracaoReceitaProducao.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Telas Fluxo\Producao\ProducaoTelaInicial.xaml.cs">
+      <DependentUpon>ProducaoTelaInicial.xaml</DependentUpon>
     </Compile>
     <Compile Include="Telas Fluxo\receitas.xaml.cs">
       <DependentUpon>receitas.xaml</DependentUpon>
@@ -471,6 +478,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Telas Fluxo\producao.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Telas Fluxo\Producao\ConfiguracaoReceitaProducao.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Telas Fluxo\Producao\ProducaoTelaInicial.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
