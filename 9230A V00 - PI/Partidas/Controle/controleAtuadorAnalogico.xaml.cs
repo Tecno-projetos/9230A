@@ -37,6 +37,141 @@ namespace _9230A_V00___PI.Partidas.Controle
 
         public void actualize_UI(Utilidades.VariaveisGlobais.type_All Command)
         {
+            //Habilita ou desabilita botões
+            if (!Command.Standard.Emergencia || 
+                Command.Standard.FalhaConfirmacaoContatorLado1 ||
+                Command.Standard.FalhaConfirmacaoContatorLado2 ||
+                Command.Standard.falhaPosicionamento ||
+                Command.Standard.falhaLeituraPosicao
+                )
+            {
+                btManual.Dispatcher.Invoke(delegate { btManual.IsEnabled = false; });
+
+                btManutencao.Dispatcher.Invoke(delegate { btManutencao.IsEnabled = false; });
+
+                btLibera.Dispatcher.Invoke(delegate { btLibera.IsEnabled = false; });
+
+                btLigar.Dispatcher.Invoke(delegate { btLigar.IsEnabled = false; });
+
+            }
+            else
+            {
+                btManual.Dispatcher.Invoke(delegate { btManual.IsEnabled = true; });
+
+                btManutencao.Dispatcher.Invoke(delegate { btManutencao.IsEnabled = true; });
+
+                btLibera.Dispatcher.Invoke(delegate { btLibera.IsEnabled = true; });
+
+                btLigar.Dispatcher.Invoke(delegate { btLigar.IsEnabled = true; });
+            }
+
+            btReset.Dispatcher.Invoke(delegate { btReset.IsEnabled = true; });
+
+            //Atualiza status dos botões
+            if (Command.Standard.Liga_Manual)
+            {
+                btLigar.Dispatcher.Invoke(delegate { btLigar.IsChecked = true; });
+            }
+            else
+            {
+                btLigar.Dispatcher.Invoke(delegate { btLigar.IsChecked = false; });
+            }
+
+            if (Command.Standard.Manual)
+            {
+                btManual.Dispatcher.Invoke(delegate { btManual.Content = "M"; });
+                lbManual.Dispatcher.Invoke(delegate { lbManual.Text = "Em Modo Manual"; });
+            }
+
+            if (Command.Standard.Automatico)
+            {
+                btManual.Dispatcher.Invoke(delegate { btManual.Content = "A"; });
+                lbManual.Dispatcher.Invoke(delegate { lbManual.Text = "Em Modo Automático"; });
+            }
+
+            if (Command.Standard.Manutencao)
+            {
+                btManutencao.Dispatcher.Invoke(delegate { btManutencao.IsChecked = true; });
+            }
+            else
+            {
+                btManutencao.Dispatcher.Invoke(delegate { btManutencao.IsChecked = false; });
+            }
+
+            if (Command.Standard.Libera_Bloqueio)
+            {
+                iconLibera.Dispatcher.Invoke(delegate { iconLibera.Kind = MaterialDesignThemes.Wpf.PackIconKind.LockOpen; });
+                textLibera.Dispatcher.Invoke(delegate { textLibera.Text = "Bloquear Liberada"; });
+                btLibera.Dispatcher.Invoke(delegate { btLibera.Background = new SolidColorBrush(Colors.Green); });
+            }
+            else
+            {
+                iconLibera.Dispatcher.Invoke(delegate { iconLibera.Kind = MaterialDesignThemes.Wpf.PackIconKind.Lock; });
+                textLibera.Dispatcher.Invoke(delegate { textLibera.Text = "Liberar Cascata"; });
+                btLibera.Dispatcher.Invoke(delegate { btLibera.Background = new SolidColorBrush(Colors.Yellow); });
+            }
+
+            //Status Motor
+            if (!Command.Standard.Emergencia)
+            {
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Content = "Em Emergência"; });
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Foreground = new SolidColorBrush(Colors.White); });
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Background = new SolidColorBrush(Colors.Red); });
+
+            }
+            else if (Command.Standard.FalhaConfirmacaoContatorLado1)
+            {
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Content = "Falha Confirmação Contator Abrir"; });
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Foreground = new SolidColorBrush(Colors.White); });
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Background = new SolidColorBrush(Colors.Red); });
+            }
+            else if (Command.Standard.FalhaConfirmacaoContatorLado2)
+            {
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Content = "Falha Confirmação Contator Fechar"; });
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Foreground = new SolidColorBrush(Colors.White); });
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Background = new SolidColorBrush(Colors.Red); });
+            }
+            else if (Command.Standard.falhaPosicionamento)
+            {
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Content = "Falha posição"; });
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Foreground = new SolidColorBrush(Colors.White); });
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Background = new SolidColorBrush(Colors.Red); });
+            }
+            else if (Command.Standard.falhaLeituraPosicao)
+            {
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Content = "Falha leitura posição"; });
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Foreground = new SolidColorBrush(Colors.White); });
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Background = new SolidColorBrush(Colors.Red); });
+            }
+            else if (Command.Standard.Manutencao)
+            {
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Content = "Em Manutenção"; });
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Foreground = new SolidColorBrush(Colors.White); });
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Background = new SolidColorBrush(Colors.Blue); });
+            }
+            else if (Command.Standard.Liga_Manual)
+            {
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Content = "Aberto"; });
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Foreground = new SolidColorBrush(Colors.White); });
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Background = new SolidColorBrush(Colors.ForestGreen); });
+            }
+            else if (Command.Standard.AcionandoAutomatico)
+            {
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Content = "Acionando Automático"; });
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Foreground = new SolidColorBrush(Colors.Black); });
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Background = new SolidColorBrush(Colors.Green); });
+            }
+            else
+            {
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Content = "Sem Poisção"; });
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Foreground = new SolidColorBrush(Colors.White); });
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Background = new SolidColorBrush(Colors.Red); });
+            }
+
+            lbPosicaoAtual.Dispatcher.Invoke(delegate { lbPosicaoAtual.Foreground = new SolidColorBrush(Colors.White); });
+            lbPosicaoAtual.Dispatcher.Invoke(delegate { lbPosicaoAtual.Background = new SolidColorBrush(Colors.Gray); });
+
+            lbPosicaoAtual.Dispatcher.Invoke(delegate { lbPosicaoAtual.Content = Command.AtuadorA.PosicaoAtual + " %"; });
 
         }
 
@@ -145,6 +280,21 @@ namespace _9230A_V00___PI.Partidas.Controle
         }
 
         #endregion
+
+
+        #region Encapsulate Fields
+
+        public string PosicaoSolicitada_GS
+        {
+            get => tbPosicaoSolicitada.Text;
+            set
+            {
+                tbPosicaoSolicitada.Dispatcher.Invoke(delegate { tbPosicaoSolicitada.Text = value; });
+            }
+        }
+
+        #endregion
+
 
         private void btLigar_Click(object sender, RoutedEventArgs e)
         {

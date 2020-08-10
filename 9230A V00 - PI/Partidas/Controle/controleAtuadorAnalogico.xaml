@@ -107,7 +107,7 @@
             </Button.Resources>
 
         </Button>
-        <TextBlock TextAlignment="Center" TextWrapping="Wrap" Text="Em Modo Manual" HorizontalAlignment="Left" VerticalAlignment="Top" Width="76" Padding="0" FontSize="10" FontWeight="Bold" Background="#00000000" Foreground="#FFF7F7F7" Height="35" Margin="138,329,0,0" />
+        <TextBlock x:Name="lbManual" TextAlignment="Center" TextWrapping="Wrap" Text="Em Modo Manual" HorizontalAlignment="Left" VerticalAlignment="Top" Width="76" Padding="0" FontSize="10" FontWeight="Bold" Background="#00000000" Foreground="#FFF7F7F7" Height="35" Margin="138,329,0,0" />
 
 
         <TextBox x:Name="tbPosicaoSolicitada" Margin="82,161,0,0" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalAlignment="Left" Width="53" ToolTip="Total de horas que o motor já funcionou." Cursor="Hand" Height="41" Opacity="0.5" FontSize="16" FontWeight="Bold" TextAlignment="Center" PreviewMouseUp="tbPosicaoSolicitada_PreviewMouseUp"/>
@@ -196,8 +196,8 @@
             </Button.Resources>
 
             <Grid Width="150">
-                <materialDesign:PackIcon Kind="Lock" VerticalAlignment="Center" Foreground="#FF272424" Height="23" Margin="-23,0,0,-1" Width="33"/>
-                <TextBlock HorizontalAlignment="Center" Text="Libera Cascata" FontFamily="Champagne &amp; Limousines" Foreground="#FF363636" FontSize="18" Margin="20,1,-23,-1" Width="153"/>
+                <materialDesign:PackIcon x:Name="iconLibera" Kind="Lock" VerticalAlignment="Center" Foreground="#FF272424" Height="23" Margin="-23,0,0,-1" Width="33"/>
+                <TextBlock x:Name="textLibera" HorizontalAlignment="Center" Text="Libera Cascata" FontFamily="Champagne &amp; Limousines" Foreground="#FF363636" FontSize="18" Margin="20,1,-23,-1" Width="153"/>
             </Grid>
         </Button>
 

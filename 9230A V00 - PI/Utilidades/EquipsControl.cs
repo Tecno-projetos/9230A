@@ -155,7 +155,22 @@ namespace _9230A_V00___PI.Utilidades
                 }
                 else if(TCommand == typeCommand.Atuador_Analogico)
                 {
+                    Window_AtuadorA = new Partidas.Principal.principalControleAtuadorAnalogico(nome, tag, numeroPartida, paginaProjeto);
 
+                    this.Window_AtuadorA.Height = 585;
+                    this.Window_AtuadorA.Width = 255;
+
+                    Window_AtuadorA.Closing += Window_AtuadorA_Closing;
+
+                    //Click para controle da Partida 
+                    Window_AtuadorA.controleAtuadorAnalogico.Bt_Ligar_Click += new EventHandler(AtuadorA_Bt_Ligar_Click);
+                    Window_AtuadorA.controleAtuadorAnalogico.Bt_Reset_Click += new EventHandler(AtuadorA_Bt_Reset_Click);
+                    Window_AtuadorA.controleAtuadorAnalogico.Bt_Libera_Click += new EventHandler(AtuadorA_Bt_Libera_Click);
+                    Window_AtuadorA.controleAtuadorAnalogico.Bt_Manutencao_Click += new EventHandler(AtuadorA_Bt_Manutencao_Click);
+                    Window_AtuadorA.controleAtuadorAnalogico.Bt_Manual_Click += new EventHandler(AtuadorA_Bt_Manual_Click);
+                    Window_AtuadorA.controleAtuadorAnalogico.atualizarPosicao += new EventHandler(AtuadorA_AtulizaPosicao);
+
+                    Window_AtuadorA.Bt_Fechar_Click += new EventHandler(AtuadorA_Bt_Fechar_Click);
                 }
 
             }
@@ -163,13 +178,28 @@ namespace _9230A_V00___PI.Utilidades
             else if (Equip == typeEquip.BF)
             {
 
+                Window_BF = new Partidas.Principal.principalControleAtuadorLinearBifurcada(nome, tag, numeroPartida, paginaProjeto);
+
+                this.Window_BF.Height = 535;
+                this.Window_BF.Width = 255;
+
+
+                Window_BF.Closing += Window_AtuadorBF_Closing;
+
+                //Click para controle da Partida 
+                Window_BF.controleAtuadorBifurcada.Bt_AbrirDireita_Click += new EventHandler(AtuadorBF_Bt_LigarDireita_Click);
+                Window_BF.controleAtuadorBifurcada.Bt_AbrirEsquerda_Click += new EventHandler(AtuadorBF_Bt_LigarEsquerda_Click);
+
+                Window_BF.controleAtuadorBifurcada.Bt_Reset_Click += new EventHandler(AtuadorBF_Bt_Reset_Click);
+                Window_BF.controleAtuadorBifurcada.Bt_Libera_Click += new EventHandler(AtuadorBF_Bt_Libera_Click);
+                Window_BF.controleAtuadorBifurcada.Bt_Manutencao_Click += new EventHandler(AtuadorBF_Bt_Manutencao_Click);
+                Window_BF.controleAtuadorBifurcada.Bt_Manual_Click += new EventHandler(AtuadorBF_Bt_Manual_Click);
+                Window_BF.Bt_Fechar_Click += new EventHandler(AtuadorBF_Bt_Fechar_Click);
+
 
             }
 
         }
-
-
-
 
 
         #region Events Window
@@ -201,10 +231,171 @@ namespace _9230A_V00___PI.Utilidades
             Window_AtuadorD.Hide();
         }
 
+        private void Window_AtuadorA_Closing(object sender, CancelEventArgs e)
+        {
+            e.Cancel = true;
+
+            Window_AtuadorA.Hide();
+        }
+
+
+        private void Window_AtuadorBF_Closing(object sender, CancelEventArgs e)
+        {
+            e.Cancel = true;
+
+            Window_BF.Hide();
+        }
 
         #endregion
 
         #region Events Screens
+
+        //Atuador Bifurcada
+        private void AtuadorBF_Bt_Fechar_Click(object sender, EventArgs e)
+        {
+            Window_BF.DialogResult = true;
+        }
+
+        private void AtuadorBF_Bt_Manual_Click(object sender, EventArgs e)
+        {
+            invertBitManual();
+        }
+
+        private void AtuadorBF_Bt_Manutencao_Click(object sender, EventArgs e)
+        {
+            invertBitManutencao();
+        }
+
+        private void AtuadorBF_Bt_Libera_Click(object sender, EventArgs e)
+        {
+            invertBitLibera();
+        }
+
+        private void AtuadorBF_Bt_Reset_Click(object sender, EventArgs e)
+        {
+            setBitReset();
+        }
+
+        private void AtuadorBF_Bt_LigarEsquerda_Click(object sender, EventArgs e)
+        {
+            if (Command.Standard.AcionaLado1)
+            {
+                Command.Standard.AcionaLado1 = false;
+            }
+            else
+            {
+                Command.Standard.AcionaLado1 = true;
+            }
+
+            VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Enable_Read = false;
+
+            Comunicacao.Sharp7.S7.SetDWordAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet, Utilidades.Move_Bits.typeAtuadorD_TO_Dword(Utilidades.Move_Bits.typeStandardGUI_TO_typeAtuadorD(Command)));
+
+            VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Enable_Write = true;
+
+            if (Command.Standard.AcionaLado1)
+            {
+                DataBase.SqlFunctionsEquips.IntoDate_Table_EquipAlarmEvent("_" + Command.Tag, "Comando Abrir Esquerda", true, false, 1, false, "", Utilidades.VariaveisGlobais.UserLogged_GS, Utilidades.VariaveisGlobais.GroupUserLogged_GS, DateTime.Now.ToString(), "", "", DateTime.Now, "");
+            }
+            else
+            {
+                DataBase.SqlFunctionsEquips.IntoDate_Table_EquipAlarmEvent("_" + Command.Tag, "Comando Fechar Esquerda", true, false, 1, false, "", Utilidades.VariaveisGlobais.UserLogged_GS, Utilidades.VariaveisGlobais.GroupUserLogged_GS, DateTime.Now.ToString(), "", "", DateTime.Now, "");
+
+            }
+        }
+
+        private void AtuadorBF_Bt_LigarDireita_Click(object sender, EventArgs e)
+        {
+            if (Command.Standard.AcionaLado2)
+            {
+                Command.Standard.AcionaLado2 = false;
+            }
+            else
+            {
+                Command.Standard.AcionaLado2 = true;
+            }
+
+            VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Enable_Read = false;
+
+            Comunicacao.Sharp7.S7.SetDWordAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet, Utilidades.Move_Bits.typeAtuadorD_TO_Dword(Utilidades.Move_Bits.typeStandardGUI_TO_typeAtuadorD(Command)));
+
+            VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Enable_Write = true;
+
+            if (Command.Standard.AcionaLado2)
+            {
+                DataBase.SqlFunctionsEquips.IntoDate_Table_EquipAlarmEvent("_" + Command.Tag, "Comando Abrir Direita", true, false, 1, false, "", Utilidades.VariaveisGlobais.UserLogged_GS, Utilidades.VariaveisGlobais.GroupUserLogged_GS, DateTime.Now.ToString(), "", "", DateTime.Now, "");
+            }
+            else
+            {
+                DataBase.SqlFunctionsEquips.IntoDate_Table_EquipAlarmEvent("_" + Command.Tag, "Comando Fechar Direita", true, false, 1, false, "", Utilidades.VariaveisGlobais.UserLogged_GS, Utilidades.VariaveisGlobais.GroupUserLogged_GS, DateTime.Now.ToString(), "", "", DateTime.Now, "");
+
+            }
+        }
+
+
+        //Atuador Analógico 
+        private void AtuadorA_Bt_Ligar_Click(object sender, EventArgs e)
+        {
+            if (Command.Standard.Liga_Manual )
+            {
+                Command.Standard.Liga_Manual = false;
+            }
+            else
+            {
+                Command.Standard.Liga_Manual = true;
+            }
+
+            VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Enable_Read = false;
+
+            Comunicacao.Sharp7.S7.SetDWordAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet, Utilidades.Move_Bits.typeAtuadorA_TO_Dword(Utilidades.Move_Bits.typeStandardGUI_TO_typeAtuadorA(Command)));
+
+            VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Enable_Write = true;
+
+            if (Command.Standard.Liga_Manual)
+            {
+                DataBase.SqlFunctionsEquips.IntoDate_Table_EquipAlarmEvent("_" + Command.Tag, "Comando Abrir", true, false, 1, false, "", Utilidades.VariaveisGlobais.UserLogged_GS, Utilidades.VariaveisGlobais.GroupUserLogged_GS, DateTime.Now.ToString(), "", "", DateTime.Now, "");
+            }
+            else
+            {
+                DataBase.SqlFunctionsEquips.IntoDate_Table_EquipAlarmEvent("_" + Command.Tag, "Comando Fechar", true, false, 1, false, "", Utilidades.VariaveisGlobais.UserLogged_GS, Utilidades.VariaveisGlobais.GroupUserLogged_GS, DateTime.Now.ToString(), "", "", DateTime.Now, "");
+
+            }
+
+        }
+
+        private void AtuadorA_Bt_Manual_Click(object sender, EventArgs e)
+        {
+            invertBitManual();
+        }
+
+        private void AtuadorA_Bt_Manutencao_Click(object sender, EventArgs e)
+        {
+            invertBitManutencao();
+        }
+
+        private void AtuadorA_Bt_Libera_Click(object sender, EventArgs e)
+        {
+            invertBitLibera();
+        }
+
+        private void AtuadorA_Bt_Reset_Click(object sender, EventArgs e)
+        {
+            setBitReset();
+        }
+
+        private void AtuadorA_AtulizaPosicao(object sender, EventArgs e)
+        {
+            VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Enable_Read = false;
+
+            Comunicacao.Sharp7.S7.SetRealAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + Command.AtuadorA.offSet_SP_Posicao_Manual, Convert.ToSingle(Window_AtuadorA.controleAtuadorAnalogico.PosicaoSolicitada_GS));
+
+            VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Enable_Write = true;
+        }
+
+        private void AtuadorA_Bt_Fechar_Click(object sender, EventArgs e)
+        {
+            Window_AtuadorA.DialogResult = true;
+        }
 
         //PD
         protected void PD_Bt_Ligar_Click(object sender, EventArgs e)
@@ -563,6 +754,10 @@ namespace _9230A_V00___PI.Utilidades
             {
                 Comunicacao.Sharp7.S7.SetDWordAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet, Utilidades.Move_Bits.typeAtuadorD_TO_Dword(Utilidades.Move_Bits.typeStandardGUI_TO_typeAtuadorD(Command)));
             }
+            else if (Command_Get.TypeEquip == typeEquip.BF && Command_Get.TypeCommand == typeCommand.Atuador_Digital)
+            {
+                Comunicacao.Sharp7.S7.SetDWordAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet, Utilidades.Move_Bits.typeAtuadorD_TO_Dword(Utilidades.Move_Bits.typeStandardGUI_TO_typeAtuadorD(Command)));
+            }
 
             VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Enable_Write = true;
 
@@ -598,6 +793,14 @@ namespace _9230A_V00___PI.Utilidades
                 Comunicacao.Sharp7.S7.SetDWordAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet, Utilidades.Move_Bits.typeSS_TO_Dword(Utilidades.Move_Bits.typeStandardGUI_TO_typeSS(Command)));
             }
             else if (Command_Get.TypeEquip == typeEquip.Atuador && Command_Get.TypeCommand == typeCommand.Atuador_Digital)
+            {
+                Comunicacao.Sharp7.S7.SetDWordAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet, Utilidades.Move_Bits.typeAtuadorD_TO_Dword(Utilidades.Move_Bits.typeStandardGUI_TO_typeAtuadorD(Command)));
+            }
+            else if (Command_Get.TypeEquip == typeEquip.Atuador && Command_Get.TypeCommand == typeCommand.Atuador_Analogico)
+            {
+                Comunicacao.Sharp7.S7.SetDWordAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet, Utilidades.Move_Bits.typeAtuadorA_TO_Dword(Utilidades.Move_Bits.typeStandardGUI_TO_typeAtuadorA(Command)));
+            }
+            else if (Command_Get.TypeEquip == typeEquip.BF && Command_Get.TypeCommand == typeCommand.Atuador_Digital)
             {
                 Comunicacao.Sharp7.S7.SetDWordAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet, Utilidades.Move_Bits.typeAtuadorD_TO_Dword(Utilidades.Move_Bits.typeStandardGUI_TO_typeAtuadorD(Command)));
             }
@@ -646,6 +849,14 @@ namespace _9230A_V00___PI.Utilidades
             {
                 Comunicacao.Sharp7.S7.SetDWordAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet, Utilidades.Move_Bits.typeAtuadorD_TO_Dword(Utilidades.Move_Bits.typeStandardGUI_TO_typeAtuadorD(Command)));
             }
+            else if (Command_Get.TypeEquip == typeEquip.Atuador && Command_Get.TypeCommand == typeCommand.Atuador_Analogico)
+            {
+                Comunicacao.Sharp7.S7.SetDWordAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet, Utilidades.Move_Bits.typeAtuadorA_TO_Dword(Utilidades.Move_Bits.typeStandardGUI_TO_typeAtuadorA(Command)));
+            }
+            else if (Command_Get.TypeEquip == typeEquip.BF && Command_Get.TypeCommand == typeCommand.Atuador_Digital)
+            {
+                Comunicacao.Sharp7.S7.SetDWordAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet, Utilidades.Move_Bits.typeAtuadorD_TO_Dword(Utilidades.Move_Bits.typeStandardGUI_TO_typeAtuadorD(Command)));
+            }
             VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Enable_Write = true;
 
             if (Command.Standard.Manutencao)
@@ -686,6 +897,14 @@ namespace _9230A_V00___PI.Utilidades
                 Comunicacao.Sharp7.S7.SetDWordAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet, Utilidades.Move_Bits.typeSS_TO_Dword(Utilidades.Move_Bits.typeStandardGUI_TO_typeSS(Command)));
             }
             else if (Command_Get.TypeEquip == typeEquip.Atuador && Command_Get.TypeCommand == typeCommand.Atuador_Digital)
+            {
+                Comunicacao.Sharp7.S7.SetDWordAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet, Utilidades.Move_Bits.typeAtuadorD_TO_Dword(Utilidades.Move_Bits.typeStandardGUI_TO_typeAtuadorD(Command)));
+            }
+            else if (Command_Get.TypeEquip == typeEquip.Atuador && Command_Get.TypeCommand == typeCommand.Atuador_Analogico)
+            {
+                Comunicacao.Sharp7.S7.SetDWordAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet, Utilidades.Move_Bits.typeAtuadorA_TO_Dword(Utilidades.Move_Bits.typeStandardGUI_TO_typeAtuadorA(Command)));
+            }
+            else if (Command_Get.TypeEquip == typeEquip.BF && Command_Get.TypeCommand == typeCommand.Atuador_Digital)
             {
                 Comunicacao.Sharp7.S7.SetDWordAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet, Utilidades.Move_Bits.typeAtuadorD_TO_Dword(Utilidades.Move_Bits.typeStandardGUI_TO_typeAtuadorD(Command)));
             }
@@ -869,6 +1088,24 @@ namespace _9230A_V00___PI.Utilidades
                         //Segundo atualiza o standard GUI
                         Command = Utilidades.Move_Bits.typeAtuadorD_TO_typeStandardGUI(Command);
                     }
+                    else if (Command_Get.TypeEquip == typeEquip.Atuador && Command_Get.TypeCommand == typeCommand.Atuador_Analogico)
+                    {
+                        //Lendo variaveis do buffer do CLP
+                        Command.DWord = Comunicacao.Sharp7.S7.GetDWordAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet);
+
+                        Command.AtuadorA.PosicaoSolicitadaAutomatico = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + Command.AtuadorA.offSet_PosicaoSolicitadaAutomatico);
+                        Command.AtuadorA.SP_Posicao_Manual = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + Command.AtuadorA.offSet_SP_Posicao_Manual);
+                        Command.AtuadorA.PosicaoAtual = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + Command.AtuadorA.offSet_PosicaoAtual);
+
+
+                        //Atualizando as variaveis para o standard GUI
+
+                        //Primeiro converte a Dword para os bits
+                        Command = Utilidades.Move_Bits.Dword_TO_typeAtuadorA(Command.DWord, Command);
+
+                        //Segundo atualiza o standard GUI
+                        Command = Utilidades.Move_Bits.typeAtuadorA_TO_typeStandardGUI(Command);
+                    }
                 }
 
                 //Atualiza Window
@@ -887,6 +1124,14 @@ namespace _9230A_V00___PI.Utilidades
                 else if (Command_Get.TypeEquip == typeEquip.Atuador && Command_Get.TypeCommand == typeCommand.Atuador_Digital)
                 {
                     Window_AtuadorD.actualize_UI(Command);
+                }
+                else if (Command_Get.TypeEquip == typeEquip.Atuador && Command_Get.TypeCommand == typeCommand.Atuador_Analogico)
+                {
+                    Window_AtuadorA.actualize_UI(Command);
+                }
+                else if (Command_Get.TypeEquip == typeEquip.BF && Command_Get.TypeCommand == typeCommand.Atuador_Digital)
+                {
+                    Window_BF.actualize_UI(Command);
                 }
             }
         }
@@ -935,6 +1180,17 @@ namespace _9230A_V00___PI.Utilidades
             else if (Command_Get.TypeEquip == typeEquip.Atuador && Command_Get.TypeCommand == typeCommand.Atuador_Digital)
             {
                 Window_AtuadorD.ShowDialog();
+            }
+            else if (Command_Get.TypeEquip == typeEquip.Atuador && Command_Get.TypeCommand == typeCommand.Atuador_Analogico)
+            {
+
+                Window_AtuadorA.controleAtuadorAnalogico.PosicaoSolicitada_GS = Convert.ToInt32(Command.AtuadorA.SP_Posicao_Manual).ToString();
+               
+                Window_AtuadorA.ShowDialog();
+            }
+            else if (Command_Get.TypeEquip == typeEquip.BF && Command_Get.TypeCommand == typeCommand.Atuador_Digital)
+            {
+                Window_BF.ShowDialog();
             }
         }
 
