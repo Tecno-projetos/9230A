@@ -75,6 +75,9 @@ namespace _9230A_V00___PI
 
             VariaveisGlobais.Fluxo.Motor_22.loadEquip(Utilidades.typeEquip.PD, Utilidades.typeCommand.PD, 0, 0, "Elevador", "22", "22", "11");
 
+            VariaveisGlobais.Fluxo.Motor_23.loadEquip(Utilidades.typeEquip.BF, Utilidades.typeCommand.Atuador_Digital, 20, 0, "Atuador", "23", "49", "0");
+
+
             VariaveisGlobais.Fluxo.Motor_29.loadEquip(Utilidades.typeEquip.PD, Utilidades.typeCommand.PD, 56, 0, "Rosca", "29", "29", "12");
 
             VariaveisGlobais.Fluxo.Motor_30.loadEquip(Utilidades.typeEquip.PD, Utilidades.typeCommand.PD, 76, 0, "Rosca", "30", "30", "12");
@@ -96,6 +99,13 @@ namespace _9230A_V00___PI
             VariaveisGlobais.Fluxo.Motor_62.loadEquip(Utilidades.typeEquip.INV, Utilidades.typeCommand.INV, 268, 0, "Elevador", "62", "62", "10");
 
             VariaveisGlobais.Fluxo.Motor_65.loadEquip(Utilidades.typeEquip.INV, Utilidades.typeCommand.INV, 320, 0, "Elevador", "65", "65", "10");
+
+            VariaveisGlobais.Fluxo.Motor_26_Silo1.loadEquip(Utilidades.typeEquip.Atuador, Utilidades.typeCommand.Atuador_Analogico, 24, 0, "Atuador", "26 Silo 1", "62", "10");
+
+            VariaveisGlobais.Fluxo.Motor_26_Silo2.loadEquip(Utilidades.typeEquip.Atuador, Utilidades.typeCommand.Atuador_Analogico, 40, 0, "Atuador", "26 Silo 2", "62", "10");
+
+            VariaveisGlobais.Fluxo.Motor_65.loadEquip(Utilidades.typeEquip.INV, Utilidades.typeCommand.INV, 320, 0, "Elevador", "65", "65", "10");
+
 
 
             #endregion
@@ -173,6 +183,10 @@ namespace _9230A_V00___PI
                 VariaveisGlobais.Fluxo.Motor_49.actualize_Equip = true;
                 VariaveisGlobais.Fluxo.Motor_62.actualize_Equip = true;
                 VariaveisGlobais.Fluxo.Motor_65.actualize_Equip = true;
+
+                VariaveisGlobais.Fluxo.Motor_26_Silo1.actualize_Equip = true;
+                VariaveisGlobais.Fluxo.Motor_26_Silo2.actualize_Equip = true;
+                VariaveisGlobais.Fluxo.Motor_23.actualize_Equip = true;
 
                 VariaveisGlobais.CommunicationPLC.writeBufferPLC();//Chama a escrita no PLC
             }

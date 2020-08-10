@@ -255,6 +255,16 @@ namespace _9230A_V00___PI.Utilidades
 
         public struct type_AtuadorAnalogico
         {
+
+            public type_AtuadorAnalogico(string value) : this()
+            {
+                offSet_PosicaoSolicitadaAutomatico = 28;
+                offSet_SP_Posicao_Manual = 32;
+                offSet_PosicaoAtual = 36;
+
+
+            }
+
             public bool ligaManual;
             public bool manual;
             public bool automatico;
@@ -292,6 +302,9 @@ namespace _9230A_V00___PI.Utilidades
             public float SP_Posicao_Manual;
             public float PosicaoAtual;
 
+            public int offSet_PosicaoSolicitadaAutomatico;
+            public int offSet_SP_Posicao_Manual;
+            public int offSet_PosicaoAtual;
         }
 
 
@@ -303,6 +316,7 @@ namespace _9230A_V00___PI.Utilidades
                 PD = new type_PD("");
                 INV = new type_INV("");
                 SS = new type_SS("");
+                AtuadorA = new type_AtuadorAnalogico("");
             }
 
             public UInt32 DWord;                  //Dword bits palavra de comando e status
