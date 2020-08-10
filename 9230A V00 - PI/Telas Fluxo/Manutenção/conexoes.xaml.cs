@@ -1,4 +1,5 @@
-﻿using System;
+﻿using _9230A_V00___PI.Utilidades;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,16 +22,15 @@ namespace _9230A_V00___PI.Telas_Fluxo.Manutenção
     /// </summary>
     public partial class conexoes : UserControl
     {
-        private DispatcherTimer timer = new DispatcherTimer();
 
         public conexoes()
         {
             InitializeComponent();
+
         }
 
-        private void Timer_Tick(object sender, EventArgs e)
+        public void atualizaConexoes()
         {
-            timer.Stop();
 
             pckUser = pckIcone(pckUser, ConnectionDB(Utilidades.VariaveisGlobais.Connection_DB_Users_GS));
 
@@ -42,8 +42,16 @@ namespace _9230A_V00___PI.Telas_Fluxo.Manutenção
 
 
 
-            timer.Start();
-
+            if (VariaveisGlobais.CommunicationPLC.PLCConnected_GS)
+            {
+                CLP.Kind = MaterialDesignThemes.Wpf.PackIconKind.LanCheck;
+                CLP.Foreground = new SolidColorBrush(Colors.Green);
+            }
+            else
+            {
+                CLP.Kind = MaterialDesignThemes.Wpf.PackIconKind.LanDisconnect;
+                CLP.Foreground = new SolidColorBrush(Colors.Red);
+            }
         }
 
         private MaterialDesignThemes.Wpf.PackIcon pckIcone(MaterialDesignThemes.Wpf.PackIcon pck, bool connection)

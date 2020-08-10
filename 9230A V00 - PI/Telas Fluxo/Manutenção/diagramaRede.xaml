@@ -1,0 +1,311 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:_9230A_V00___PI.Telas_Fluxo.Manutenção"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="_9230A_V00___PI.Telas_Fluxo.Manutenção.diagramaRede"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800" Width="824" Height="675">
+    <Grid Background="#FF7F7F7F">
+
+
+        <Grid.Resources  >
+
+            <ResourceDictionary>
+                <ResourceDictionary.MergedDictionaries>
+                    <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Blue.xaml" />
+                    <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Indigo.xaml" />
+                    <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                </ResourceDictionary.MergedDictionaries>
+
+
+                <SolidColorBrush x:Key="brushWatermarkBackground" Color="#FF505050" />
+                <SolidColorBrush x:Key="brushWatermarkForeground" Color="White" />
+
+
+                <SolidColorBrush x:Key="brushWatermarkBorder" Color="White" />
+
+                <Style x:Key="EntryFieldStyle" TargetType="{x:Type Grid}" >
+                    <Setter Property="HorizontalAlignment" Value="Stretch" />
+                    <Setter Property="VerticalAlignment" Value="Center" />
+                    <Setter Property="Margin" Value="20,0" />
+                </Style>
+
+
+
+            </ResourceDictionary>
+
+        </Grid.Resources>
+
+
+        <materialDesign:PackIcon Kind="Lan" VerticalAlignment="Center" Foreground="White" Height="95" Margin="0,6,0,574" Width="824"/>
+        <Label Content="Diagrama de Rede" HorizontalAlignment="Left" VerticalAlignment="Top" Width="824" Foreground="White" FontSize="16" VerticalContentAlignment="Center" FontWeight="Bold" HorizontalContentAlignment="Center" Margin="0,98,0,0"/>
+        <Rectangle Fill="White" HorizontalAlignment="Left" Height="5" Margin="41,133,0,0" Stroke="White" VerticalAlignment="Top" Width="742"/>
+        <Rectangle Fill="#FFBEBEBE" HorizontalAlignment="Left" Height="255" Margin="41,186,0,0" Stroke="White" VerticalAlignment="Top" Width="229"/>
+        <Rectangle Fill="Black" HorizontalAlignment="Left" Height="70" Margin="250,281,0,0" Stroke="White" VerticalAlignment="Top" Width="15"/>
+        <Label Content="Painel 1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="229" Foreground="White" FontSize="16" VerticalContentAlignment="Center" FontWeight="Bold" HorizontalContentAlignment="Center" Margin="41,155,0,0"/>
+        <Rectangle Fill="#FFBEBEBE" HorizontalAlignment="Left" Height="255" Margin="303,186,0,0" Stroke="White" VerticalAlignment="Top" Width="229"/>
+        <Rectangle Fill="Black" HorizontalAlignment="Left" Height="70" Margin="512,281,0,0" Stroke="White" VerticalAlignment="Top" Width="15"/>
+        <Label Content="Painel 2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="229" Foreground="White" FontSize="16" VerticalContentAlignment="Center" FontWeight="Bold" HorizontalContentAlignment="Center" Margin="303,155,0,0"/>
+        <Rectangle Fill="#FFBEBEBE" HorizontalAlignment="Left" Height="255" Margin="567,186,0,0" Stroke="White" VerticalAlignment="Top" Width="229"/>
+        <Rectangle Fill="Black" HorizontalAlignment="Left" Height="70" Margin="776,281,0,0" Stroke="White" VerticalAlignment="Top" Width="15"/>
+        <Label Content="Painel 3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="229" Foreground="White" FontSize="16" VerticalContentAlignment="Center" FontWeight="Bold" HorizontalContentAlignment="Center" Margin="567,155,0,0"/>
+        <Image HorizontalAlignment="Left" Height="636" Margin="-125,-58,0,0" VerticalAlignment="Top" Width="429" Source="/9230A V00 - PI;component/Imagens/CabecaRedeWago.jpg.png" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="0.15" ScaleY="0.15"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Rectangle Fill="#FF46FF00" HorizontalAlignment="Left" Height="71" Margin="57,298,0,0" Stroke="#FF46FF00" VerticalAlignment="Top" Width="5"/>
+        <Image HorizontalAlignment="Left" Height="826" Margin="230,-21,0,-130" VerticalAlignment="Top" Width="435" Source="/9230A V00 - PI;component/Imagens/scalance.png" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="0.1" ScaleY="0.1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Rectangle Fill="#FF46FF00" HorizontalAlignment="Left" Height="352" Margin="233,190,0,0" Stroke="#FF46FF00" VerticalAlignment="Top" Width="6" RenderTransformOrigin="0.5,0.5">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Image HorizontalAlignment="Left" Height="636" Margin="61,-58,0,0" VerticalAlignment="Top" Width="128" Source="/9230A V00 - PI;component/Imagens/moduloIO.png" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="0.15" ScaleY="0.15"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image HorizontalAlignment="Left" Height="636" Margin="72,-58,0,0" VerticalAlignment="Top" Width="128" Source="/9230A V00 - PI;component/Imagens/moduloIO.png" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="0.15" ScaleY="0.15"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image HorizontalAlignment="Left" Height="636" Margin="84,-58,0,0" VerticalAlignment="Top" Width="128" Source="/9230A V00 - PI;component/Imagens/moduloIO.png" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="0.15" ScaleY="0.15"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image HorizontalAlignment="Left" Height="636" Margin="94,-58,0,0" VerticalAlignment="Top" Width="128" Source="/9230A V00 - PI;component/Imagens/moduloAnalogico.png" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="0.15" ScaleY="0.15"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image HorizontalAlignment="Left" Height="462" Margin="150,20,0,0" VerticalAlignment="Top" Width="396" Source="/9230A V00 - PI;component/Imagens/CPU-12-12.png" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="0.15" ScaleY="0.15"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image HorizontalAlignment="Left" Height="462" Margin="289,14,0,0" VerticalAlignment="Top" Width="262" Source="/9230A V00 - PI;component/Imagens/moduloCPU.png" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="0.15" ScaleY="0.15"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Rectangle Fill="#FF46FF00" HorizontalAlignment="Left" Height="104" Margin="330,280,0,0" Stroke="#FF46FF00" VerticalAlignment="Top" Width="5"/>
+        <Rectangle Fill="#FF46FF00" HorizontalAlignment="Left" Height="78" Margin="369,342,0,0" Stroke="#FF46FF00" VerticalAlignment="Top" Width="6" RenderTransformOrigin="0.5,0.5">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Image HorizontalAlignment="Left" Height="648" Margin="329,-70,0,0" VerticalAlignment="Top" Width="356" Source="/9230A V00 - PI;component/Imagens/g120c.png" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="0.15" ScaleY="0.15"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Rectangle Fill="#FF46FF00" HorizontalAlignment="Left" Height="104" Margin="377,295,0,0" Stroke="#FF46FF00" VerticalAlignment="Top" Width="5"/>
+        <Rectangle Fill="#FF46FF00" HorizontalAlignment="Left" Height="34" Margin="392,379,0,0" Stroke="#FF46FF00" VerticalAlignment="Top" Width="6" RenderTransformOrigin="0.5,0.5">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle Fill="#FF46FF00" HorizontalAlignment="Left" Height="88" Margin="418,254,0,0" Stroke="#FF46FF00" VerticalAlignment="Top" Width="6" RenderTransformOrigin="0.5,0.5">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Image HorizontalAlignment="Left" Height="636" Margin="406,-55,-11,0" VerticalAlignment="Top" Width="429" Source="/9230A V00 - PI;component/Imagens/CabecaRedeWago.jpg.png" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="0.15" ScaleY="0.15"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image HorizontalAlignment="Left" Height="636" Margin="592,-55,0,0" VerticalAlignment="Top" Width="128" Source="/9230A V00 - PI;component/Imagens/moduloIO.png" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="0.15" ScaleY="0.15"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image HorizontalAlignment="Left" Height="636" Margin="603,-55,0,0" VerticalAlignment="Top" Width="128" Source="/9230A V00 - PI;component/Imagens/moduloIO.png" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="0.15" ScaleY="0.15"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image HorizontalAlignment="Left" Height="636" Margin="613,-55,0,0" VerticalAlignment="Top" Width="128" Source="/9230A V00 - PI;component/Imagens/moduloAnalogico.png" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="0.15" ScaleY="0.15"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image HorizontalAlignment="Left" Height="648" Margin="500,50,-32,-23" VerticalAlignment="Top" Width="356" Source="/9230A V00 - PI;component/Imagens/g120c.png" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="0.15" ScaleY="0.15"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image HorizontalAlignment="Left" Height="648" Margin="575,50,-107,-23" VerticalAlignment="Top" Width="356" Source="/9230A V00 - PI;component/Imagens/g120c.png" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="0.15" ScaleY="0.15"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Rectangle Fill="#FF46FF00" HorizontalAlignment="Left" Height="42" Margin="686,395,0,0" Stroke="#FF46FF00" VerticalAlignment="Top" Width="6" RenderTransformOrigin="0.5,0.5">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle Fill="#FF46FF00" HorizontalAlignment="Left" Height="116" Margin="588,300,0,0" Stroke="#FF46FF00" VerticalAlignment="Top" Width="5"/>
+        <Rectangle Fill="#FF46FF00" HorizontalAlignment="Left" Height="36" Margin="604,395,0,0" Stroke="#FF46FF00" VerticalAlignment="Top" Width="6" RenderTransformOrigin="0.5,0.5">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle Fill="#FF46FF00" HorizontalAlignment="Left" Height="34" Margin="391,396,0,0" Stroke="#FF46FF00" VerticalAlignment="Top" Width="6" RenderTransformOrigin="0.5,0.5">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle Fill="#FF46FF00" HorizontalAlignment="Left" Height="49" Margin="377,411,0,0" Stroke="#FF46FF00" VerticalAlignment="Top" Width="5"/>
+        <Rectangle Fill="#FF46FF00" HorizontalAlignment="Left" Height="42" Margin="564,260,0,0" Stroke="#FF46FF00" VerticalAlignment="Top" Width="6" RenderTransformOrigin="0.5,0.5">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle Fill="#FF46FF00" HorizontalAlignment="Left" Height="181" Margin="546,279,0,0" Stroke="#FF46FF00" VerticalAlignment="Top" Width="5"/>
+        <Rectangle Fill="#FF46FF00" HorizontalAlignment="Left" Height="174" Margin="461,371,0,0" Stroke="#FF46FF00" VerticalAlignment="Top" Width="6" RenderTransformOrigin="0.5,0.5">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <GroupBox Header="IP" HorizontalAlignment="Left" Height="212" Margin="10,455,0,0" VerticalAlignment="Top" Width="325">
+
+        </GroupBox>
+        <Label Content="1U1 - 192.168.0.11" Margin="21,493,494,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Foreground="White"/>
+        <Label Content="1U2 - 192.168.0.10" Margin="21,522,494,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Foreground="White"/>
+        <Label Content="1U3 - 192.168.0.12" Margin="21,551,494,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Foreground="White"/>
+        <Label Content="43G1 - 192.168.0.12" Margin="21,580,494,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Foreground="White"/>
+        <Label Content="62G1 - 192.168.0.13" Margin="21,609,494,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Foreground="White"/>
+        <Label Content="65G1 - 192.168.0.15" Margin="21,638,494,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Foreground="White"/>
+
+    </Grid>
+</UserControl>

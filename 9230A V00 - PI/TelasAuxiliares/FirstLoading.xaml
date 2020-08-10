@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_9230A_V00___PI.TelasAuxiliares"
         mc:Ignorable="d"
-        Title="Loading" Height="370" Width="679" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize" IsEnabled="False" Cursor="Wait">
-    
-    <Grid Background="#FF6C6C6C" Cursor="Wait">
-        <Label Content="Carregando Aplicativo" HorizontalAlignment="Left" Margin="0,133,0,0" VerticalAlignment="Top" Height="65" Width="679" FontSize="45" FontWeight="Bold" HorizontalContentAlignment="Center" FontFamily="Times New Roman" Foreground="Black"/>
-        <Label Content="Sistema de Controle e Supervisão" HorizontalAlignment="Left" Margin="0,327,0,0" VerticalAlignment="Top" Height="42" Width="679" FontSize="24" HorizontalContentAlignment="Center" FontFamily="Times New Roman" Foreground="Black"/>
+        Title="Loading" Height="425" Width="960" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize" IsEnabled="False" Cursor="Wait" Background="Transparent" Foreground="Transparent" AllowsTransparency="True">
+
+    <Grid Cursor="Wait" Margin="0,0,-10,0">
+        <Label Content="Sistema de Controle e Supervisão" HorizontalAlignment="Left" Margin="160,275,0,0" VerticalAlignment="Top" Height="55" Width="810" FontSize="30" HorizontalContentAlignment="Center" FontFamily="Times New Roman" Foreground="Black"/>
+        <Image HorizontalAlignment="Left" Height="260" VerticalAlignment="Top" Width="745" Source="/9230A V00 - PI;component/Imagens/Logo_Becker.png" Margin="120,10,0,0"/>
     </Grid>
 </Window>

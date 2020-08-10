@@ -451,6 +451,9 @@ namespace _9230A_V00___PI.Utilidades
 
         #region Connection PLC
 
+        //Cria comunicação com CLP
+        public static Comunicacao.CallCommunicationPLC CommunicationPLC = new Comunicacao.CallCommunicationPLC(0, 10);
+
         private static string IP_Plc = "192.168.0.10";
 
         private static int Rack_PLC = 0;
@@ -459,8 +462,6 @@ namespace _9230A_V00___PI.Utilidades
         public static string IP_Plc_GS { get => IP_Plc; set => IP_Plc = value; }
         public static int Rack_PLC_GS { get => Rack_PLC; set => Rack_PLC = value; }
         public static int Slot_PLC_GS { get => Slot_PLC; set => Slot_PLC = value; }
-
-        public static bool PLCConnected = false;
 
         public static type_BufferPLC[] Buffer_PLC = new type_BufferPLC[50];
 

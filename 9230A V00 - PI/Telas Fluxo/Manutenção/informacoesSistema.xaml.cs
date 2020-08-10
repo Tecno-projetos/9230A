@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Buffers;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Management;
 using System.Text;
@@ -21,12 +23,14 @@ namespace _9230A_V00___PI.Telas_Fluxo.Manutenção
     /// <summary>
     /// Interação lógica para informacoesSistema.xam
     /// </summary>
+    /// 
+
+
     public partial class informacoesSistema : UserControl
     {
-
-        private DispatcherTimer timer = new DispatcherTimer();
-
-        private PerformanceCounter cpuCounter = new PerformanceCounter();
+       
+       private PerformanceCounter ramCounter;
+       private PerformanceCounter cpuCounter;
 
         public string getCurrentCpuUsage;
 
@@ -34,23 +38,55 @@ namespace _9230A_V00___PI.Telas_Fluxo.Manutenção
         {
             InitializeComponent();
 
-
-            timer.Interval = TimeSpan.FromSeconds(1);
-            timer.Tick += Timer_Tick;
-            timer.Start();
+            ramCounter = new PerformanceCounter("Memory", "Available MBytes");
+            cpuCounter = new PerformanceCounter();
 
         }
 
-        private void Timer_Tick(object sender, EventArgs e)
+        public void atualizaSistema()
         {
-            timer.Stop();
+
 
             usoMemoria();
 
             GetCpuUsage();
 
-            timer.Start();
+            getDiskInformation();
 
+
+
+        }
+
+        private void getDiskInformation() 
+        {
+
+        
+            DriveInfo[] allDrives = DriveInfo.GetDrives();
+
+            foreach (DriveInfo drive in allDrives)
+            {
+                //Console.WriteLine("Drive {0}", d.Name);
+                //Console.WriteLine("  Drive type: {0}", d.DriveType);
+                if (drive.Name.Contains("C:"))
+                {
+                    if (drive.IsReady == true)
+                    {
+                        
+                        const double BytesInGB = 1073741824;
+
+                        double totalDisco = Math.Round(drive.TotalSize / BytesInGB,1);
+                        double AvailableFreeSpace = Math.Round((drive.TotalFreeSpace) / BytesInGB,1);
+                        double percentual = Math.Round((drive.AvailableFreeSpace / (double)drive.TotalSize) * 100,1);
+
+
+
+                        lbTotalDisco.Content = "Tamanho disco:  " + totalDisco + " GB";
+
+                        lbFreedisco.Content = "Espaço disponível Disco: " + AvailableFreeSpace + " GB" + "  (" + percentual + " %)";
+
+                    }
+                }
+            }
         }
 
 
@@ -70,23 +106,10 @@ namespace _9230A_V00___PI.Telas_Fluxo.Manutenção
         {
             try
             {
-                ObjectQuery wql = new ObjectQuery("SELECT * FROM Win32_OperatingSystem");
-                ManagementObjectSearcher searcher = new ManagementObjectSearcher(wql);
-                ManagementObjectCollection results = searcher.Get();
 
-                foreach (ManagementObject result in results)
-                {
-                    long TotalVisibleMemorySize = Convert.ToInt64(result["TotalVisibleMemorySize"]) / 1000;
-                    long FreePhysicalMemory = Convert.ToInt64(result["TotalVisibleMemorySize"]) / 1000;
-                    long TotalVirtualMemorySize = Convert.ToInt64(result["TotalVirtualMemorySize"]) / 1000;
-                    long FreeVirtualMemory = Convert.ToInt64(result["FreeVirtualMemory"]) / 1000;
+                lbFree.Content = "Uso Memória Ram: "+ ramCounter.NextValue() + " MB";
 
-                    lbTotal.Content = "Total Visible Memory: {0} Mb " + TotalVisibleMemorySize;
-                    lbFree.Content = "Free Physical Memory: {0} Mb " + FreePhysicalMemory;
-                    lbVirtual.Content = "Total Virtual Memory: {0} Mb " + TotalVirtualMemorySize;
-                    lbFreeVirtual.Content = "Free Virtual Memory: {0} Mb " + FreeVirtualMemory;
 
-                }
             }
             catch (Exception)
             {
@@ -96,4 +119,6 @@ namespace _9230A_V00___PI.Telas_Fluxo.Manutenção
 
 
     }
+
+
 }

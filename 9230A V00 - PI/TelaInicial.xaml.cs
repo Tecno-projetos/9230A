@@ -25,8 +25,7 @@ namespace _9230A_V00___PI
     {
         #region Varivaies
 
-        //Cria comunicação com CLP
-        Comunicacao.CallCommunicationPLC CommunicationPLC = new Comunicacao.CallCommunicationPLC(0, 10);
+
 
         #endregion
 
@@ -144,7 +143,7 @@ namespace _9230A_V00___PI
                 lbDiaMes.Content = DateTime.Now.Day + "/" + DateTime.Now.Month;
                 lbHorario.Content = DateTime.Now.ToShortTimeString();
 
-                CommunicationPLC.readBuffersPLC(); //Chama a leitura no PLC
+              VariaveisGlobais.CommunicationPLC.readBuffersPLC(); //Chama a leitura no PLC
 
 
                 //Atualização Equip
@@ -161,7 +160,7 @@ namespace _9230A_V00___PI
                 VariaveisGlobais.Fluxo.Motor_62.actualize_Equip = true;
                 VariaveisGlobais.Fluxo.Motor_65.actualize_Equip = true;
 
-                CommunicationPLC.writeBufferPLC();//Chama a escrita no PLC
+                VariaveisGlobais.CommunicationPLC.writeBufferPLC();//Chama a escrita no PLC
             }
             catch (Exception ex)
             {

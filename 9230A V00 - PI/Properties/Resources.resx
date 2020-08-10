@@ -118,65 +118,35 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Active_Alarm" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagens\Active_Alarm.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Active_Sound" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagens\Active_Sound.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Apagar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagens\Apagar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Automasul" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagens\Automasul.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="beckerA" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagens\beckerA.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="CabecaRedeWago_jpg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagens\CabecaRedeWago.jpg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Buffer" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagens\Buffer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Config_Motors" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagens\Config_Motors.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Config_Usuario" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagens\Config_Usuario.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Desactive_Alarm" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagens\Desactive_Alarm.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Desactive_Sound" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagens\Desactive_Sound.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="CPU_12_12" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagens\CPU-12-12.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Desligar2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagens\Desligar2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Eye_Hide" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagens\Eye_Hide.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Eye_Show" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagens\Eye_Show.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Finalizar_Sem_Salvar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagens\Finalizar_Sem_Salvar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Grafico" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagens\Grafico.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Horimetro" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagens\Horimetro.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="g120c" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagens\g120c.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Ligar3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagens\Ligar3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Login" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagens\Login.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Logout" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagens\Logout.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Logo_Automasul" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagens\Logo_Automasul.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Logo_Becker" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagens\Logo_Becker.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Logo_Becker_Branco" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagens\Logo_Becker_Branco.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Logo__Becker_Laranja_Branco" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagens\Logo-_Becker_Laranja_Branco.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Manutenção_Ativada" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagens\Manutenção_Ativada.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -184,14 +154,14 @@
   <data name="Manutenção_Desativada" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagens\Manutenção_Desativada.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Pesquisar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagens\Pesquisar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="moduloAnalogico" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagens\moduloAnalogico.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Projeto_Eletrico" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagens\Projeto_Eletrico.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="moduloCPU" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagens\moduloCPU.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Reconhecer_Alarme" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagens\Reconhecer_Alarme.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="moduloIO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagens\moduloIO.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Reset1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagens\Reset1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -199,25 +169,7 @@
   <data name="Rosca" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagens\Rosca.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Rota" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagens\Rota.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Sair_Aplicacao" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagens\Sair_Aplicacao.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Suporte" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagens\Suporte.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Timer_Scan" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagens\Timer_Scan.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="User" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagens\User.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Volvo_VM" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagens\Volvo-VM.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="_1474153623_delete_user" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagens\1474153623_delete_user.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="scalance" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagens\scalance.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

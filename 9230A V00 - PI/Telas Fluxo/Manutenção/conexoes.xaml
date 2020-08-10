@@ -38,21 +38,24 @@
 
         </Grid.Resources>
 
-        <GroupBox Header="Conexões banco de dados" HorizontalAlignment="Left" Height="160" Margin="10,19,0,0" VerticalAlignment="Top" Width="460" FontSize="16" Foreground="White" FontWeight="Bold"/>
+        <GroupBox Header="Conexões banco de dados" HorizontalAlignment="Left" Height="160" Margin="10,153,0,0" VerticalAlignment="Top" Width="804" FontSize="16" Foreground="White" FontWeight="Bold"/>
 
 
-        <materialDesign:PackIcon x:Name="pckUser" Kind="DatabaseRemove" VerticalAlignment="Center" Foreground="White" Margin="30,69,0,541" Height="65" Width="65"/>
-        <Label Content="Usuários" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Foreground="White" FontSize="16" VerticalContentAlignment="Center" FontWeight="Bold" HorizontalContentAlignment="Center" Margin="18,134,0,0"/>
-        <materialDesign:PackIcon x:Name="pckEquipamentos" Kind="DatabaseRemove" VerticalAlignment="Center" Foreground="White" Margin="145,69,0,541" Height="65" Width="65"/>
-        <Label Content="Equipamentos" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Foreground="White" FontSize="16" VerticalContentAlignment="Center" FontWeight="Bold" HorizontalContentAlignment="Center" Margin="113,134,0,0"/>
-        <materialDesign:PackIcon x:Name="pckProdutos" Kind="DatabaseRemove" VerticalAlignment="Center" Foreground="White" Margin="265,69,0,541" Height="65" Width="65"/>
-        <Label Content="Produtos" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Foreground="White" FontSize="16" VerticalContentAlignment="Center" FontWeight="Bold" HorizontalContentAlignment="Center" Margin="235,134,0,0"/>
-        <materialDesign:PackIcon x:Name="pckReceitas" Kind="DatabaseRemove" VerticalAlignment="Center" Foreground="White" Margin="365,69,0,541" Height="65" Width="65"/>
-        <Label Content="Receitas" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Foreground="White" FontSize="16" VerticalContentAlignment="Center" FontWeight="Bold" HorizontalContentAlignment="Center" Margin="335,134,0,0"/>
-        <GroupBox Header="Conexão CLP" HorizontalAlignment="Left" Height="166" Margin="10,189,0,0" VerticalAlignment="Top" Width="460" FontSize="16" Foreground="White" FontWeight="Bold">
+        <materialDesign:PackIcon x:Name="pckUser" Kind="DatabaseRemove" VerticalAlignment="Center" Foreground="White" Margin="30,203,0,407" Height="65" Width="65"/>
+        <Label Content="Usuários" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Foreground="White" FontSize="16" VerticalContentAlignment="Center" FontWeight="Bold" HorizontalContentAlignment="Center" Margin="18,268,0,0"/>
+        <materialDesign:PackIcon x:Name="pckEquipamentos" Kind="DatabaseRemove" VerticalAlignment="Center" Foreground="White" Margin="145,203,0,407" Height="65" Width="65"/>
+        <Label Content="Equipamentos" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Foreground="White" FontSize="16" VerticalContentAlignment="Center" FontWeight="Bold" HorizontalContentAlignment="Center" Margin="113,268,0,0"/>
+        <materialDesign:PackIcon x:Name="pckProdutos" Kind="DatabaseRemove" VerticalAlignment="Center" Foreground="White" Margin="265,203,0,407" Height="65" Width="65"/>
+        <Label Content="Produtos" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Foreground="White" FontSize="16" VerticalContentAlignment="Center" FontWeight="Bold" HorizontalContentAlignment="Center" Margin="235,268,0,0"/>
+        <materialDesign:PackIcon x:Name="pckReceitas" Kind="DatabaseRemove" VerticalAlignment="Center" Foreground="White" Margin="365,203,0,407" Height="65" Width="65"/>
+        <Label Content="Receitas" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Foreground="White" FontSize="16" VerticalContentAlignment="Center" FontWeight="Bold" HorizontalContentAlignment="Center" Margin="335,268,0,0"/>
+        <GroupBox Header="Conexão CLP" HorizontalAlignment="Left" Height="166" Margin="10,323,0,0" VerticalAlignment="Top" Width="804" FontSize="16" Foreground="White" FontWeight="Bold">
         </GroupBox>
-        <materialDesign:PackIcon x:Name="comp" Kind="GraphicsProcessingUnit" VerticalAlignment="Center" Foreground="White" Margin="22,240,0,370" Height="65" Width="65"/>
-        <Label Content="CLP" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Foreground="White" FontSize="16" VerticalContentAlignment="Center" FontWeight="Bold" HorizontalContentAlignment="Center" Margin="10,305,0,0"/>
+        <materialDesign:PackIcon x:Name="CLP" Kind="LanCheck" VerticalAlignment="Center" Foreground="White" Margin="22,374,0,236" Height="65" Width="65"/>
+        <Label Content="CLP" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Foreground="White" FontSize="16" VerticalContentAlignment="Center" FontWeight="Bold" HorizontalContentAlignment="Center" Margin="10,439,0,0"/>
+        <materialDesign:PackIcon Kind="LanConnect" VerticalAlignment="Center" Foreground="White" Height="95" Margin="0,6,0,574" Width="824"/>
+        <Label Content="Conexões" HorizontalAlignment="Left" VerticalAlignment="Top" Width="824" Foreground="White" FontSize="16" VerticalContentAlignment="Center" FontWeight="Bold" HorizontalContentAlignment="Center" Margin="0,98,0,0"/>
+        <Rectangle Fill="White" HorizontalAlignment="Left" Height="5" Margin="41,133,0,0" Stroke="White" VerticalAlignment="Top" Width="742"/>
 
 
     </Grid>

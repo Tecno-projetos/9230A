@@ -61,46 +61,6 @@ namespace _9230A_V00___PI.Properties {
         }
         
         /// <summary>
-        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap _1474153623_delete_user {
-            get {
-                object obj = ResourceManager.GetObject("_1474153623_delete_user", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Active_Alarm {
-            get {
-                object obj = ResourceManager.GetObject("Active_Alarm", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Active_Sound {
-            get {
-                object obj = ResourceManager.GetObject("Active_Sound", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Apagar {
-            get {
-                object obj = ResourceManager.GetObject("Apagar", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Icon semelhante a (Ícone).
         /// </summary>
         internal static System.Drawing.Icon Automasul {
@@ -113,9 +73,9 @@ namespace _9230A_V00___PI.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap beckerA {
+        internal static System.Drawing.Bitmap CabecaRedeWago_jpg {
             get {
-                object obj = ResourceManager.GetObject("beckerA", resourceCulture);
+                object obj = ResourceManager.GetObject("CabecaRedeWago_jpg", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -123,49 +83,9 @@ namespace _9230A_V00___PI.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Buffer {
+        internal static System.Drawing.Bitmap CPU_12_12 {
             get {
-                object obj = ResourceManager.GetObject("Buffer", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Config_Motors {
-            get {
-                object obj = ResourceManager.GetObject("Config_Motors", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Config_Usuario {
-            get {
-                object obj = ResourceManager.GetObject("Config_Usuario", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Desactive_Alarm {
-            get {
-                object obj = ResourceManager.GetObject("Desactive_Alarm", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Desactive_Sound {
-            get {
-                object obj = ResourceManager.GetObject("Desactive_Sound", resourceCulture);
+                object obj = ResourceManager.GetObject("CPU_12_12", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -183,49 +103,9 @@ namespace _9230A_V00___PI.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Eye_Hide {
+        internal static System.Drawing.Bitmap g120c {
             get {
-                object obj = ResourceManager.GetObject("Eye_Hide", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Eye_Show {
-            get {
-                object obj = ResourceManager.GetObject("Eye_Show", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Finalizar_Sem_Salvar {
-            get {
-                object obj = ResourceManager.GetObject("Finalizar_Sem_Salvar", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Grafico {
-            get {
-                object obj = ResourceManager.GetObject("Grafico", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Horimetro {
-            get {
-                object obj = ResourceManager.GetObject("Horimetro", resourceCulture);
+                object obj = ResourceManager.GetObject("g120c", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -243,9 +123,9 @@ namespace _9230A_V00___PI.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Login {
+        internal static System.Drawing.Bitmap Logo__Becker_Laranja_Branco {
             get {
-                object obj = ResourceManager.GetObject("Login", resourceCulture);
+                object obj = ResourceManager.GetObject("Logo__Becker_Laranja_Branco", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -263,9 +143,19 @@ namespace _9230A_V00___PI.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Logout {
+        internal static System.Drawing.Bitmap Logo_Becker {
             get {
-                object obj = ResourceManager.GetObject("Logout", resourceCulture);
+                object obj = ResourceManager.GetObject("Logo_Becker", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Logo_Becker_Branco {
+            get {
+                object obj = ResourceManager.GetObject("Logo_Becker_Branco", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -293,9 +183,9 @@ namespace _9230A_V00___PI.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Pesquisar {
+        internal static System.Drawing.Bitmap moduloAnalogico {
             get {
-                object obj = ResourceManager.GetObject("Pesquisar", resourceCulture);
+                object obj = ResourceManager.GetObject("moduloAnalogico", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -303,9 +193,9 @@ namespace _9230A_V00___PI.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Projeto_Eletrico {
+        internal static System.Drawing.Bitmap moduloCPU {
             get {
-                object obj = ResourceManager.GetObject("Projeto_Eletrico", resourceCulture);
+                object obj = ResourceManager.GetObject("moduloCPU", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -313,9 +203,9 @@ namespace _9230A_V00___PI.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Reconhecer_Alarme {
+        internal static System.Drawing.Bitmap moduloIO {
             get {
-                object obj = ResourceManager.GetObject("Reconhecer_Alarme", resourceCulture);
+                object obj = ResourceManager.GetObject("moduloIO", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -343,59 +233,9 @@ namespace _9230A_V00___PI.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Rota {
+        internal static System.Drawing.Bitmap scalance {
             get {
-                object obj = ResourceManager.GetObject("Rota", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Sair_Aplicacao {
-            get {
-                object obj = ResourceManager.GetObject("Sair_Aplicacao", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Suporte {
-            get {
-                object obj = ResourceManager.GetObject("Suporte", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Timer_Scan {
-            get {
-                object obj = ResourceManager.GetObject("Timer_Scan", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap User {
-            get {
-                object obj = ResourceManager.GetObject("User", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Volvo_VM {
-            get {
-                object obj = ResourceManager.GetObject("Volvo_VM", resourceCulture);
+                object obj = ResourceManager.GetObject("scalance", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

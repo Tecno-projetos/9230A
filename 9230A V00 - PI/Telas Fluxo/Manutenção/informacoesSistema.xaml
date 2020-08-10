@@ -37,14 +37,17 @@
             </ResourceDictionary>
 
         </Grid.Resources>
-        <GroupBox Header="Uso Memória" HorizontalAlignment="Left" Height="201" Margin="10,16,0,0" VerticalAlignment="Top" Width="460" FontSize="16" Foreground="White" FontWeight="Bold">
+        <GroupBox Header="Uso Memória" HorizontalAlignment="Left" Height="101" Margin="17,164,0,0" VerticalAlignment="Top" Width="797" FontSize="16" Foreground="White" FontWeight="Bold">
         </GroupBox>
-        <Label x:Name="lbTotal" Content="Label" HorizontalAlignment="Left" Margin="18,67,0,0" VerticalAlignment="Top" Foreground="White" Width="437" FontSize="16" FontWeight="Bold"/>
-        <Label x:Name="lbFree" Content="Label" HorizontalAlignment="Left" Margin="18,103,0,0" VerticalAlignment="Top" Foreground="White" Width="437" FontSize="16" FontWeight="Bold"/>
-        <Label x:Name="lbVirtual" Content="Label" HorizontalAlignment="Left" Margin="18,139,0,0" VerticalAlignment="Top" Foreground="White" Width="437" FontSize="16" FontWeight="Bold"/>
-        <Label x:Name="lbFreeVirtual" Content="Label" HorizontalAlignment="Left" Margin="18,175,0,0" VerticalAlignment="Top" Foreground="White" Width="437" FontSize="16" FontWeight="Bold"/>
-        <GroupBox Header="Uso CPU" HorizontalAlignment="Left" Height="100" Margin="10,230,0,0" VerticalAlignment="Top" Width="460" FontSize="16" Foreground="White" FontWeight="Bold"/>
-        <Label x:Name="lbUseCPU" Content="Label" HorizontalAlignment="Left" Margin="18,282,0,0" VerticalAlignment="Top" Foreground="White" Width="437" FontSize="16" FontWeight="Bold"/>
+        <Label x:Name="lbFree" Content="Label" HorizontalAlignment="Left" Margin="25,215,0,0" VerticalAlignment="Top" Foreground="White" Width="437" FontSize="16" FontWeight="Bold"/>
+        <GroupBox Header="Uso CPU" HorizontalAlignment="Left" Height="100" Margin="17,279,0,0" VerticalAlignment="Top" Width="797" FontSize="16" Foreground="White" FontWeight="Bold"/>
+        <Label x:Name="lbUseCPU" Content="Label" HorizontalAlignment="Left" Margin="25,331,0,0" VerticalAlignment="Top" Foreground="White" Width="437" FontSize="16" FontWeight="Bold"/>
+        <materialDesign:PackIcon Kind="Cpu64Bit" VerticalAlignment="Center" Foreground="White" Height="95" Margin="0,6,0,574" Width="824"/>
+        <Label Content="Informações Sistema" HorizontalAlignment="Left" VerticalAlignment="Top" Width="824" Foreground="White" FontSize="16" VerticalContentAlignment="Center" FontWeight="Bold" HorizontalContentAlignment="Center" Margin="0,98,0,0"/>
+        <Rectangle Fill="White" HorizontalAlignment="Left" Height="5" Margin="41,133,0,0" Stroke="White" VerticalAlignment="Top" Width="742"/>
+        <GroupBox x:Name="gbDisco" Header="Disco" HorizontalAlignment="Left" Height="152" Margin="17,399,0,0" VerticalAlignment="Top" Width="797" FontSize="16" Foreground="White" FontWeight="Bold"/>
+        <Label x:Name="lbTotalDisco" Content="Label" HorizontalAlignment="Left" Margin="25,451,0,0" VerticalAlignment="Top" Foreground="White" Width="437" FontSize="16" FontWeight="Bold"/>
+        <Label x:Name="lbFreedisco" Content="Label" HorizontalAlignment="Left" Margin="25,480,0,0" VerticalAlignment="Top" Foreground="White" Width="437" FontSize="16" FontWeight="Bold"/>
 
 
     </Grid>
