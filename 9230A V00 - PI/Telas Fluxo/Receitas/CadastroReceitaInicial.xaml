@@ -59,8 +59,8 @@
             <TextBlock Margin="5,0,6,5" Text="Exemplo: Premium 14%" Foreground="#FF919191" VerticalAlignment="Bottom" FontSize="14" >
                 <TextBlock.Visibility>
                     <MultiBinding Converter="{StaticResource TextInputToVisibilityConverter}">
-                        <Binding ElementName="txtCod" Path="Text.IsEmpty" />
-                        <Binding ElementName="txtCod" Path="IsFocused" />
+                        <Binding ElementName="txtNome" Path="Text.IsEmpty" />
+                        <Binding ElementName="txtNome" Path="IsFocused" />
                     </MultiBinding>
                 </TextBlock.Visibility>
             </TextBlock>
@@ -80,8 +80,8 @@
             <TextBlock Margin="5,0,6,5" Text="Exemplo: 1000" Foreground="#FF919191" VerticalAlignment="Bottom" FontSize="14" >
                 <TextBlock.Visibility>
                     <MultiBinding Converter="{StaticResource TextInputToVisibilityConverter}">
-                        <Binding ElementName="txtDesc" Path="Text.IsEmpty" />
-                        <Binding ElementName="txtDesc" Path="IsFocused" />
+                        <Binding ElementName="txtPesoRef" Path="Text.IsEmpty" />
+                        <Binding ElementName="txtPesoRef" Path="IsFocused" />
                     </MultiBinding>
                 </TextBlock.Visibility>
             </TextBlock>

@@ -34,15 +34,15 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            limpaCampos();
+            leituraValoresCadastroReceita();
         }
 
-        private void limpaCampos()
+        private void leituraValoresCadastroReceita()
         {
             //limpa campos
-            txtNome.Text = "";
-            txtObs.Text = "";
-            txtPesoRef.Text = "";
+            txtNome.Text = Utilidades.VariaveisGlobais.ReceitaCadastro.nomeReceita;
+            txtObs.Text = Utilidades.VariaveisGlobais.ReceitaCadastro.observacao;
+            txtPesoRef.Text = Utilidades.VariaveisGlobais.ReceitaCadastro.pesoBase.ToString();
         }
         private void openKeyboard(object sender, MouseButtonEventArgs e)
         {

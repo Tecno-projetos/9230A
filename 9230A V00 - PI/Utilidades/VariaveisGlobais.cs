@@ -559,6 +559,7 @@ namespace _9230A_V00___PI.Utilidades
             DataBase.SqlFunctionsUsers.Initialize_ProgramDBCA();
             DataBase.SqlFunctionsEquips.ExistTable();
             DataBase.SqlFunctionsProdutos.ExistTable();
+            DataBase.SqlFunctionsReceitas.Create_Table_Receita();
         }
 
         public static List<Produto> listProdutos = new List<Produto>();
@@ -591,8 +592,6 @@ namespace _9230A_V00___PI.Utilidades
 
                 VariaveisGlobais.listProdutos.Add(dummyProduto);
             }
-
-
         }
 
         public static void atualizalistReceitas()
@@ -620,25 +619,30 @@ namespace _9230A_V00___PI.Utilidades
     {
         public Produto produto { get; set; }
 
-        public float pesoPorProduto { get; set; }
+        public float pesoPorProduto = 0.0f;
+
+        public string tipoDosagemMateriaPrima = ""; //"Automático" ou "Manual" - Na matéria prima pode ser dosado o produto manualmente ou automaticamente
     }
 
     public class Receita
     {
-        public int id { get; set; }
-        public string nomeReceita { get; set; }
+        public int id = -1;
+
+        public string nomeReceita = "";
 
         public float pesoBase { get; set; }
 
-        public static List<ProdutoReceita> listProdutos = new List<ProdutoReceita>();
+        public List<ProdutoReceita> listProdutos = new List<ProdutoReceita>();
 
-        public string observacao { get; set; }
+        public string observacao = "";
     }
 
     public class ProdutoBatelada : Produto
     {
 
         public float valorDosado { get; set; }
+
+        public string siloDosagemMateriaPrima { get; set; } //Qual silo será dosado a matéria prima automática.
 
         public string statusItem { get; set; }
 

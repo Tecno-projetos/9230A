@@ -29,8 +29,11 @@ namespace _9230A_V00___PI.Telas_Fluxo
 
         //Receitas
 
-        Telas_Fluxo.Receitas.CadastroReceitaInicial cadastroReceitaInicial = new Receitas.CadastroReceitaInicial();
-        Telas_Fluxo.Receitas.AdicionarProdutoReceita adicionarProdutoReceita = new Receitas.AdicionarProdutoReceita();
+        Telas_Fluxo.Receitas.CadastroReceitaInicial cadastroReceitaInicial = new Receitas.CadastroReceitaInicial(); //Tela inicial do cadastro de receitas, onde é preenchido o nome, peso referencia da receita e observações
+        Telas_Fluxo.Receitas.AdicionarProdutoReceita adicionarProdutoReceita = new Receitas.AdicionarProdutoReceita(); //Tela onde é realizado a adição de produtos na receita.
+        Telas_Fluxo.Receitas.FinalizacaoCadastroReceita finalizaCadastroReceita = new Receitas.FinalizacaoCadastroReceita(); //Tela onde é finalizado o cadastro da receita, o sistema verifica a soma dos pesos dos produtos e tem que ser igual ao peso ref., e também é´possível
+        //o cliente editar qualquer produto na receita nessa tela, caso queira adicionar mais produtos, terá que voltar a tela anterior...
+
 
         public receitas()
         {
@@ -45,7 +48,31 @@ namespace _9230A_V00___PI.Telas_Fluxo
             //Finalizado inicio do cadastro de receitas, agora irá chamar a tela de adicionar produtos na receita.
             cadastroReceitaInicial.FinalizadoInicioCadastroReceita += new EventHandler(EventoFinalizadoInicioCadastroReceita);
 
+            //Finalizado adição de produtos na receita, agora irá chamar a tela de finalização do cadastro da receita
+            adicionarProdutoReceita.FinalizadoAdicaoProdutosReceita += new EventHandler(EventoFinalizadoAdicaoProdutosReceita);
+
+            //Solciitação da tela de finalizar cadastro de receita para voltar para adição de produtos na receita.
+            finalizaCadastroReceita.VoltarAdicaoProdutosReceita += new EventHandler(EventoVoltarAdicaoProdutosReceita);
+
         }
+
+        protected void EventoVoltarAdicaoProdutosReceita(object sender, EventArgs e)
+        {
+            if (spReceitas != null)
+            {
+                spReceitas.Children.Clear();
+            }
+            spReceitas.Children.Add(adicionarProdutoReceita);
+        }
+        protected void EventoFinalizadoAdicaoProdutosReceita(object sender, EventArgs e)
+        {
+            if (spReceitas != null)
+            {
+                spReceitas.Children.Clear();
+            }
+            spReceitas.Children.Add(finalizaCadastroReceita);
+        }
+
 
         protected void EventoFinalizadoInicioCadastroReceita(object sender, EventArgs e)
         {
