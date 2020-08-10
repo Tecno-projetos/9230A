@@ -463,8 +463,6 @@ namespace _9230A_V00___PI.Utilidades
         public static int Rack_PLC_GS { get => Rack_PLC; set => Rack_PLC = value; }
         public static int Slot_PLC_GS { get => Slot_PLC; set => Slot_PLC = value; }
 
-        public static bool PLCConnected = false;
-
         public static type_BufferPLC[] Buffer_PLC = new type_BufferPLC[50];
 
         #endregion

@@ -26,6 +26,8 @@ namespace _9230A_V00___PI.Telas_Fluxo
 
         Manutenção.conexoes conexoes  = new Manutenção.conexoes();
 
+        Manutenção.diagramaRede rede = new Manutenção.diagramaRede();
+
         public manutencao()
         {
             InitializeComponent();
@@ -57,6 +59,25 @@ namespace _9230A_V00___PI.Telas_Fluxo
             }
 
             spManutencao.Children.Add(conexoes);
+        }
+
+        private void btDiagrama_Click(object sender, RoutedEventArgs e)
+        {
+            if (spManutencao != null)
+            {
+                spManutencao.Children.Clear();
+            }
+
+            spManutencao.Children.Add(rede);
+        }
+
+        public void atualizaManutencao() 
+        {
+            informacoesSistema.atualizaSistema();
+            conexoes.atualizaConexoes();
+            rede.atualizaRede();
+
+        
         }
     }
 }
