@@ -34,6 +34,7 @@ namespace _9230A_V00___PI.Telas_Fluxo
         Telas_Fluxo.Receitas.FinalizacaoCadastroReceita finalizaCadastroReceita = new Receitas.FinalizacaoCadastroReceita(); //Tela onde é finalizado o cadastro da receita, o sistema verifica a soma dos pesos dos produtos e tem que ser igual ao peso ref., e também é´possível
         //o cliente editar qualquer produto na receita nessa tela, caso queira adicionar mais produtos, terá que voltar a tela anterior...
         Telas_Fluxo.Receitas.EditarReceita EditarCadastroReceita = new Receitas.EditarReceita();
+        Telas_Fluxo.Receitas.ApagarReceitaxaml ApagarCadastroReceita = new Receitas.ApagarReceitaxaml();
 
         public receitas()
         {
@@ -51,13 +52,37 @@ namespace _9230A_V00___PI.Telas_Fluxo
             //Finalizado adição de produtos na receita, agora irá chamar a tela de finalização do cadastro da receita
             adicionarProdutoReceita.FinalizadoAdicaoProdutosReceita += new EventHandler(EventoFinalizadoAdicaoProdutosReceita);
 
-            //Solciitação da tela de finalizar cadastro de receita para voltar para adição de produtos na receita.
+            //Solicitação da tela de finalizar cadastro de receita para voltar para adição de produtos na receita.
             finalizaCadastroReceita.VoltarAdicaoProdutosReceita += new EventHandler(EventoVoltarAdicaoProdutosReceita);
 
             //Tela de editar cadastro da receita solicita editar uma receita, assim é chamado a tela de cadastro normal, porem na tela editar já foi carregado a receita na variavel receitacadastro.
             EditarCadastroReceita.EventoEditarReceita += new EventHandler(EventoEditarReceitar);
 
+            //Finalizado cadastro de receita
+            finalizaCadastroReceita.FinalizadoCadastroReceita += new EventHandler(EventoFinalizadoCadastroReceita);
+
+            //Apagado receita com sucesso
+            ApagarCadastroReceita.EventoApagadoSucesso += new EventHandler(EventoApagadoSucesso);
         }
+
+        protected void EventoApagadoSucesso(object sender, EventArgs e)
+        {
+            if (spReceitas != null)
+            {
+                spReceitas.Children.Clear();
+            }
+            spReceitas.Children.Add(ApagarCadastroReceita);
+        }
+
+        protected void EventoFinalizadoCadastroReceita(object sender, EventArgs e)
+        {
+            if (spReceitas != null)
+            {
+                spReceitas.Children.Clear();
+            }
+            spReceitas.Children.Add(cadastroReceitaInicial);
+        }
+
         protected void EventoEditarReceitar(object sender, EventArgs e)
         {
             if (spReceitas != null)
@@ -196,6 +221,16 @@ namespace _9230A_V00___PI.Telas_Fluxo
             }
 
             spReceitas.Children.Add(EditarCadastroReceita);
+        }
+
+        private void btApagarReceita_Click(object sender, RoutedEventArgs e)
+        {
+            if (spReceitas != null)
+            {
+                spReceitas.Children.Clear();
+            }
+
+            spReceitas.Children.Add(ApagarCadastroReceita);
         }
     }
 }
