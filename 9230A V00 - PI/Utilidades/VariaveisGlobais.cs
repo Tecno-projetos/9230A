@@ -593,10 +593,62 @@ namespace _9230A_V00___PI.Utilidades
 
         public static void atualizalistReceitas()
         {
+            VariaveisGlobais.listReceitas.Clear();
+
+            DataTable dtReceitas = DataBase.SqlFunctionsReceitas.getReceitas();
+
+            Receita dummyReceita;
+
+            atualizalistProdutos();
+
+            foreach (DataRow item in dtReceitas.Rows)
+            {
+                dummyReceita = new Receita();
+
+                dummyReceita.id = (int)item.ItemArray[0];
+                dummyReceita.nomeReceita = (string)item.ItemArray[1];
+                dummyReceita.pesoBase = (float)item.ItemArray[2];
+                dummyReceita.observacao = (string)item.ItemArray[3];
+
+                DataTable dtProdutosReceita = DataBase.SqlFunctionsReceitas.getProdutosReceita(dummyReceita.nomeReceita);
+
+                foreach (DataRow item1 in dtProdutosReceita.Rows)
+                {
+                    ProdutoReceita dummyProdutoReceita = new ProdutoReceita();
+                    Produto dummyProduto = new Produto();
+
+                    dummyProduto.codigo = (string)item1.ItemArray[1]; //Codigo do produto 
+                    dummyProdutoReceita.pesoPorProduto = (float)item1.ItemArray[2]; //Peso do produto na receita     
+                    dummyProdutoReceita.tipoDosagemMateriaPrima = (string)item1.ItemArray[3]; //Tipo da dosagem do produto na receita
+
+                    ActualizeValuesProduto(ref dummyProduto); //pega os valores do produto e atualiza esse produto
+
+
+                    dummyProdutoReceita.produto = dummyProduto;
+                    dummyReceita.listProdutos.Add(dummyProdutoReceita);
+                }
+
+                VariaveisGlobais.listReceitas.Add(dummyReceita);
+            }
 
         }
-    }
 
+        private static void ActualizeValuesProduto(ref Produto prod)
+        {
+            //Atualiza a lista de produtos a partir do banco de dados
+            
+            string codigo = prod.codigo;
+
+            var index = VariaveisGlobais.listProdutos.FindIndex(x => x.codigo == codigo);
+
+            prod.densidade = VariaveisGlobais.listProdutos[index].densidade;
+            prod.descricao = VariaveisGlobais.listProdutos[index].descricao;
+            prod.id = VariaveisGlobais.listProdutos[index].id;
+            prod.observacao = VariaveisGlobais.listProdutos[index].observacao;
+            prod.tipoProduto = VariaveisGlobais.listProdutos[index].tipoProduto;
+        }
+
+    }
 
     public class Produto
     {

@@ -32,7 +32,7 @@ namespace _9230A_V00___PI
 
         #region Dispacher Timers
 
-        DispatcherTimer timer50ms = new DispatcherTimer();
+        DispatcherTimer timer50ms = new DispatcherTimer(); //Roda o CLP
 
         #endregion
 

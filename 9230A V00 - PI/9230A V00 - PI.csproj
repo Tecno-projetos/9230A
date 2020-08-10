@@ -243,6 +243,9 @@
     <Compile Include="Telas Fluxo\Receitas\EditarProduto.xaml.cs">
       <DependentUpon>EditarProduto.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Telas Fluxo\Receitas\EditarReceita.xaml.cs">
+      <DependentUpon>EditarReceita.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Telas Fluxo\Receitas\FinalizacaoCadastroReceita.xaml.cs">
       <DependentUpon>FinalizacaoCadastroReceita.xaml</DependentUpon>
     </Compile>
@@ -468,6 +471,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Telas Fluxo\Receitas\EditarProduto.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Telas Fluxo\Receitas\EditarReceita.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

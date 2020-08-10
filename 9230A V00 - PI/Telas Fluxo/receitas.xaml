@@ -27,7 +27,7 @@
             </Button>
             <Label Content="Produtos" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Foreground="White" FontSize="16" VerticalContentAlignment="Center" FontWeight="Bold" HorizontalContentAlignment="Center" Margin="0,360,0,0"/>
             <Rectangle Fill="White" HorizontalAlignment="Left" Height="5" Margin="10,392,0,0" Stroke="White" VerticalAlignment="Top" Width="180"/>
-            <Button x:Name="btEditarReceita" Margin="10,214,10,411" Background="#FF505050" BorderBrush="Black" Height="50" Click="btCadastroReceita_Click">
+            <Button x:Name="btEditarReceita" Margin="10,214,10,411" Background="#FF505050" BorderBrush="Black" Height="50" Click="btEditarReceita_Click">
                 <Grid Width="170" Height="40">
                     <materialDesign:PackIcon Kind="Edit" VerticalAlignment="Center" Foreground="#FFE2950D" Margin="2,-6,0,-7" Height="30" Width="30"/>
                     <TextBlock TextAlignment="Center" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="36,12,15,10" Width="119" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center"><Run Text="Editar"/><Run Text=" "/><Run Text="Receita"/></TextBlock>
