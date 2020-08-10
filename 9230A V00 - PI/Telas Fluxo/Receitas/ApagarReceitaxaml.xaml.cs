@@ -17,13 +17,14 @@ using System.Windows.Shapes;
 namespace _9230A_V00___PI.Telas_Fluxo.Receitas
 {
     /// <summary>
-    /// Interaction logic for EditarReceita.xaml
+    /// Interaction logic for ApagarReceitaxaml.xaml
     /// </summary>
-    public partial class EditarReceita : UserControl
+    public partial class ApagarReceitaxaml : UserControl
     {
-        public event EventHandler EventoEditarReceita;
+        Utilidades.messageBox inputDialog;
 
-        public EditarReceita()
+        public event EventHandler EventoApagadoSucesso;
+        public ApagarReceitaxaml()
         {
             InitializeComponent();
         }
@@ -114,7 +115,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
             {
                 DataRow dr = dt.NewRow();
 
-                dr["Produto"] = item.produto.descricao; 
+                dr["Produto"] = item.produto.descricao;
                 dr["Peso(kg)"] = item.pesoPorProduto;
 
                 dt.Rows.Add(dr);
@@ -124,26 +125,31 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
 
         }
 
-        private void btEditarReceitaSelecionada_Click(object sender, RoutedEventArgs e)
-        {
-            var rowList = (DataGrid_Receita.ItemContainerGenerator.ContainerFromIndex(DataGrid_Receita.SelectedIndex) as DataGridRow).Item as DataRowView;
-
-            Utilidades.functions.atualizalistReceitas();
-
-            var index = Utilidades.VariaveisGlobais.listReceitas.FindIndex(x => x.id == Convert.ToInt32(rowList.Row.ItemArray[0]));
-
-            //Carregar a receita no cadastro receita
-            Utilidades.VariaveisGlobais.ReceitaCadastro = Utilidades.VariaveisGlobais.listReceitas[index];
-
-            //Dispara evento para editar produtos.
-            if (this.EventoEditarReceita != null)
-                this.EventoEditarReceita(this, e);
-
-        }
-
         private void DataGrid_Receita_LoadingRow(object sender, DataGridRowEventArgs e)
         {
             DataGrid_Receita.Columns[0].Visibility = Visibility.Hidden;
+        }
+
+        private void btApagarReceitaSelecionada_Click(object sender, RoutedEventArgs e)
+        {
+            inputDialog = new Utilidades.messageBox("Apagar Receita", "Voçê tem certeza que deseja apagar? o processo não pode ser revertido!", MaterialDesignThemes.Wpf.PackIconKind.Error, "Sim", "Não");
+
+            inputDialog.ShowDialog();
+
+            if (inputDialog.DialogResult == true)
+            {
+                var rowList = (DataGrid_Receita.ItemContainerGenerator.ContainerFromIndex(DataGrid_Receita.SelectedIndex) as DataGridRow).Item as DataRowView;
+
+                Utilidades.functions.atualizalistReceitas();
+
+                var index = Utilidades.VariaveisGlobais.listReceitas.FindIndex(x => x.id == Convert.ToInt32(rowList.Row.ItemArray[0]));
+
+                DataBase.SqlFunctionsReceitas.DeleteReceita(Utilidades.VariaveisGlobais.listReceitas[index].nomeReceita);
+            }
+
+            if (this.EventoApagadoSucesso != null)
+                this.EventoApagadoSucesso(this, e);
+
         }
 
 

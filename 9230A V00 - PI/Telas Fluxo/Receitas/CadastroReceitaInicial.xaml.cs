@@ -61,20 +61,30 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
                 }
                 else
                 {
-                    if (float.TryParse(txtPesoRef.Text.Replace('.', ','), out pesoReferencia))
+                    //Verifica se ja existe uma receita com o nome desejado
+                    if (DataBase.SqlFunctionsReceitas.getExistReceita(txtNome.Text) != 0)
                     {
-                        VariaveisGlobais.ReceitaCadastro.nomeReceita = txtNome.Text;
-                        VariaveisGlobais.ReceitaCadastro.pesoBase = pesoReferencia;
-                        VariaveisGlobais.ReceitaCadastro.observacao = txtObs.Text;
+                        inputDialog = new Utilidades.messageBox("Nome Igual", "Já existe uma receita com o mesmo nome!", MaterialDesignThemes.Wpf.PackIconKind.Error, "OK", "Fechar");
 
-                        if (this.FinalizadoInicioCadastroReceita != null)
-                            this.FinalizadoInicioCadastroReceita(this, e);
+                        inputDialog.ShowDialog();
                     }
                     else
                     {
-                        inputDialog = new Utilidades.messageBox("Densidade", "Por favor verifique se contém somente número real no peso de Referência", MaterialDesignThemes.Wpf.PackIconKind.Error, "OK", "Fechar");
+                        if (float.TryParse(txtPesoRef.Text.Replace('.', ','), out pesoReferencia))
+                        {
+                            VariaveisGlobais.ReceitaCadastro.nomeReceita = txtNome.Text;
+                            VariaveisGlobais.ReceitaCadastro.pesoBase = pesoReferencia;
+                            VariaveisGlobais.ReceitaCadastro.observacao = txtObs.Text;
 
-                        inputDialog.ShowDialog();
+                            if (this.FinalizadoInicioCadastroReceita != null)
+                                this.FinalizadoInicioCadastroReceita(this, e);
+                        }
+                        else
+                        {
+                            inputDialog = new Utilidades.messageBox("Densidade", "Por favor verifique se contém somente número real no peso de Referência", MaterialDesignThemes.Wpf.PackIconKind.Error, "OK", "Fechar");
+
+                            inputDialog.ShowDialog();
+                        }
                     }
                 }
             }

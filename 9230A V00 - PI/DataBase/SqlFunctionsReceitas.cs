@@ -9,33 +9,6 @@ namespace _9230A_V00___PI.DataBase
 {
     class SqlFunctionsReceitas
     {
-        public static void ExistTable()
-        {
-
-            //DataTable Data = new DataTable();
-
-            //if (Utilidades.VariaveisGlobais.DB_Connected_GS)
-            //{
-            //    try
-            //    {
-            //        string CommandString = "SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Receitas';";
-
-            //        dynamic Adapter = SqlGlobalFuctions.ReturnAdapter(CommandString, Utilidades.VariaveisGlobais.Connection_DB_Receitas_GS);
-
-            //        Adapter.Fill(Data);
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        Utilidades.VariaveisGlobais.Window_Buffer_Diagnostic.List_Error = ex.ToString();
-            //    }
-
-            //    if (!(Data.Rows.Count > 0))
-            //    {
-            //        Create_Table_Receita();
-            //    }
-            //}
-        }
-
         public static void Create_Table_Receita()
         {
             if (Utilidades.VariaveisGlobais.DB_Connected_GS)
@@ -303,8 +276,76 @@ namespace _9230A_V00___PI.DataBase
             return 0;
         }
 
+        public static int DeleteReceita(string NomeReceita)
+        {
+            int ret = -1;
+            if (Utilidades.VariaveisGlobais.DB_Connected_GS)
+            {
+                try
+                {
+                    string CommandString = "DROP TABLE Produtos_" + NomeReceita + "";
 
 
+                    dynamic Call = SqlGlobalFuctions.ReturnCall(Utilidades.VariaveisGlobais.Connection_DB_Receitas_GS);
+                    Call.Open();
+
+                    dynamic Command = SqlGlobalFuctions.ReturnCommand(CommandString, Call);
+                    Command.ExecuteNonQuery();
+                    CommandString = "DELETE FROM Receitas WHERE NomeReceita = '" + NomeReceita + "';";
+
+                    Command = SqlGlobalFuctions.ReturnCommand(CommandString, Call);
+                    Command.ExecuteNonQuery();
+
+                    Call.Close();
+                    ret = 0;
+                }
+                catch (Exception ex)
+                {
+                    Utilidades.VariaveisGlobais.Window_Buffer_Diagnostic.List_Error = ex.ToString();
+                    ret = -1;
+                }
+
+                return ret;
+            }
+            else
+            {
+                return ret;
+            }
+        }
+
+        public static int getExistReceita(string NomeReceita)
+        {
+            DataTable Data = new DataTable();
+
+            if (Utilidades.VariaveisGlobais.DB_Connected_GS)
+            {
+                try
+                {
+                    string CommandString = "SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Produtos_"+ NomeReceita + "';";
+
+                    dynamic Adapter = SqlGlobalFuctions.ReturnAdapter(CommandString, Utilidades.VariaveisGlobais.Connection_DB_Receitas_GS);
+
+                    Adapter.Fill(Data);
+                }
+                catch (Exception ex)
+                {
+                    Utilidades.VariaveisGlobais.Window_Buffer_Diagnostic.List_Error = ex.ToString();
+                }
+
+                if (!(Data.Rows.Count > 0))
+                {
+                    return 0;
+                }
+                else
+                {
+                    return -1;
+                }
+            }
+            else
+            {
+                return -1;
+            }
+        }
 
     }
 }
