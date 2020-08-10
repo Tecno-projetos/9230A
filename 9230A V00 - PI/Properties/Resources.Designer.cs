@@ -73,6 +73,16 @@ namespace _9230A_V00___PI.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Automasul_horiz_branco {
+            get {
+                object obj = ResourceManager.GetObject("Automasul_horiz_branco", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap CabecaRedeWago_jpg {
             get {
                 object obj = ResourceManager.GetObject("CabecaRedeWago_jpg", resourceCulture);

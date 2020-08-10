@@ -133,8 +133,8 @@
                 </TextBlock>
                 <TextBox x:Name="txtUser" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,0,1" FontSize="14" VerticalAlignment="Bottom" Foreground="White" PreviewMouseLeftButtonUp="openKeyboard" TabIndex="500" Text="Automasul" />
             </Grid>
-            <Image HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="145" Source="Imagens/Logo-_Becker_Laranja_Branco.png" Margin="20,2,0,0"/>
-            <Image HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="177" Source="Imagens/Logo_Automasul.png" Margin="8,44,0,-1"/>
+            <Image HorizontalAlignment="Left" Height="55" VerticalAlignment="Top" Width="173" Source="Imagens/Logo-_Becker_Laranja_Branco.png" Margin="9,37,0,0"/>
+            <Image HorizontalAlignment="Left" Height="53" VerticalAlignment="Top" Width="199" Source="Imagens/Automasul_horiz_branco.png" Margin="0,-5,0,0"/>
 
 
         </Grid>

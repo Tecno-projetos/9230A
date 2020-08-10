@@ -33,6 +33,9 @@ namespace _9230A_V00___PI
 
         DispatcherTimer timer50ms = new DispatcherTimer(); //Roda o CLP
 
+
+        DispatcherTimer timer1s = new DispatcherTimer(); //Roda ciclos de 1 segundo
+        
         #endregion
 
         #region Equipamentos
@@ -119,6 +122,10 @@ namespace _9230A_V00___PI
             timer50ms.Interval = TimeSpan.FromMilliseconds(1);
             timer50ms.Tick += timer_Tick;
             timer50ms.Start();
+            //====================================================
+            timer1s.Interval = TimeSpan.FromSeconds(1);
+            timer1s.Tick += timer1s_Tick;
+            timer1s.Start();
 
             #endregion
 
@@ -135,13 +142,20 @@ namespace _9230A_V00___PI
             windowFirstLoading.Close();
         }
 
+        private void timer1s_Tick(object sender, EventArgs e)
+        {
+            //Chama a atulização da Manutenção
+            VariaveisGlobais.manutencao.atualizaManutencao();
+
+        }
+
         void timer_Tick(object sender, EventArgs e)
         {
             try
             {
                 lbAno.Content = DateTime.Now.Year;
                 lbDiaMes.Content = DateTime.Now.Day + "/" + DateTime.Now.Month;
-                lbHorario.Content = DateTime.Now.ToShortTimeString();
+                lbHorario.Content = DateTime.Now.ToLongTimeString();
 
               VariaveisGlobais.CommunicationPLC.readBuffersPLC(); //Chama a leitura no PLC
 
