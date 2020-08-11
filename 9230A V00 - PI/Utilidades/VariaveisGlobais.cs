@@ -580,7 +580,9 @@ namespace _9230A_V00___PI.Utilidades
 
         public static Receita ReceitaCadastro = new Receita();
 
-        public static Producao EmProducao = new Producao();
+        public static Producao ProducaoReceita = new Producao();
+
+        public static List<Producao> PesquisaProducao = new List<Producao>();
 
     }
 
@@ -706,13 +708,9 @@ namespace _9230A_V00___PI.Utilidades
 
     public class ProdutoBatelada : Produto
     {
-        public int id { get; set; }
+        public int idProducao { get; set; }
 
         public float valorDosado { get; set; }
-
-        public string siloDosagemMateriaPrima { get; set; } //Qual silo será dosado a matéria prima automática.
-
-
 
         public string statusItem { get; set; }
 
@@ -720,34 +718,44 @@ namespace _9230A_V00___PI.Utilidades
 
     public class Batelada
     {
-        public static List<ProdutoBatelada> produtos = new List<ProdutoBatelada>();
+        public List<ProdutoBatelada> produtos = new List<ProdutoBatelada>();
     }
 
     public class Producao
     {
-        public int id {get; set;}
+        public int id {get; set;} // Id da produção
 
-        public int idReceita { get; set; }
+        public int IdReceitaBase { get; set; } // Id da receita base
 
-        public Receita receita { get; set; }
+        public Receita receita { get; set; } //Receita Base
 
-        public static List<Batelada> batelada = new List<Batelada>();
+        public int quantidadeBateladas { get; set; } //Quantidade de bateladas
 
-        public Int32 tempoPreMistura { get; set; }
+        public List<Batelada> batelada = new List<Batelada>(); //Lista das bateladas
 
-        public Int32 tempoPosMistura { get; set; }
+        public Int32 tempoPreMistura { get; set; } //Tempo de pré mistura
 
-        public int pesoTotalProducao { get; set; }
+        public Int32 tempoPosMistura { get; set; } //Tempo de pos mistura
 
-        public int quantidadeBateladas { get; set; }
+        public int pesoTotalProducao { get; set; } //Peso total da produção
 
-        public int pesoPorBatelada { get; set; }
+        public int pesoPorBatelada { get; set; } //Peso por batelada
 
-        public DateTime dateTimeInicioProducao { get; set; }
+        public int volumeTotalProducao { get; set; }//Volume total da produção
 
-        public DateTime dateTimeFimProducao { get; set; }
+        public int volumePorBatelada { get; set; } //Volume por batelada
 
-        public string statusBatelada { get; set; }
+        public string CodigoProdutoDosagemAutomaticaSilo1 { get; set; } //Codigo do produto que sera dosado automaticamente no silo 1.
+
+        public string CodigoProdutoDosagemAutomaticaSilo2 { get; set; } //Codigo do produto que sera dosado automaticamente no silo 2.
+
+        public DateTime dateTimeInicioProducao { get; set; } //Data Inicio produção
+
+        public DateTime dateTimeFimProducao { get; set; } //Data fim da produção
+
+        public bool IniciouProducao { get; set; } //Iniciou Produção
+
+        public bool FinalizouProducao { get; set; } //Finalizou Produção
 
     }
 

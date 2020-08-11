@@ -232,5 +232,108 @@ namespace _9230A_V00___PI.Telas_Fluxo
 
             spReceitas.Children.Add(ApagarCadastroReceita);
         }
+
+        private void btTesteIntoReceita_Click(object sender, RoutedEventArgs e)
+        {
+            //====================================================================================
+            //Receita 1
+            Utilidades.VariaveisGlobais.ReceitaCadastro.nomeReceita = "FrangoTipo1";
+            Utilidades.VariaveisGlobais.ReceitaCadastro.pesoBase = 100.0F;
+            Utilidades.VariaveisGlobais.ReceitaCadastro.observacao = "Teste Frango 1";
+
+            Utilidades.ProdutoReceita produtoReceita = new Utilidades.ProdutoReceita();
+
+            produtoReceita.produto.id = 1;
+            produtoReceita.produto.codigo = "1";
+            produtoReceita.produto.descricao = "Arroz";
+            produtoReceita.produto.densidade = 1.1f;
+            produtoReceita.produto.tipoProduto = "Matéria Prima";
+            produtoReceita.produto.observacao = "Teste1";
+            produtoReceita.pesoPorProduto = 50;
+            produtoReceita.tipoDosagemMateriaPrima = "Automático";
+
+            Utilidades.VariaveisGlobais.ReceitaCadastro.listProdutos.Add(produtoReceita);
+
+            produtoReceita = new Utilidades.ProdutoReceita();
+
+            produtoReceita.produto.id = 16;
+            produtoReceita.produto.codigo = "16";
+            produtoReceita.produto.descricao = "Sal Comum";
+            produtoReceita.produto.densidade = 2.6f;
+            produtoReceita.produto.tipoProduto = "Matéria Prima";
+            produtoReceita.produto.observacao = "Teste16";
+            produtoReceita.pesoPorProduto = 25;
+            produtoReceita.tipoDosagemMateriaPrima = "Manual";
+
+            Utilidades.VariaveisGlobais.ReceitaCadastro.listProdutos.Add(produtoReceita);
+
+            produtoReceita = new Utilidades.ProdutoReceita();
+
+            produtoReceita.produto.id = 7;
+            produtoReceita.produto.codigo = "7";
+            produtoReceita.produto.descricao = "Soja";
+            produtoReceita.produto.densidade = 1.7f;
+            produtoReceita.produto.tipoProduto = "Complemento";
+            produtoReceita.produto.observacao = "Teste7";
+            produtoReceita.pesoPorProduto = 25;
+            produtoReceita.tipoDosagemMateriaPrima = "";
+
+            Utilidades.VariaveisGlobais.ReceitaCadastro.listProdutos.Add(produtoReceita);
+
+            //Adicionar receita no banco de dados.
+            DataBase.SqlFunctionsReceitas.AddNewRecipeBD();
+            //Limpar Cadastro Receita Global
+            Utilidades.VariaveisGlobais.ReceitaCadastro = new Utilidades.Receita();
+
+            //====================================================================================
+            //Receita 2
+            Utilidades.VariaveisGlobais.ReceitaCadastro.nomeReceita = "GadoTipo1";
+            Utilidades.VariaveisGlobais.ReceitaCadastro.pesoBase = 100.0F;
+            Utilidades.VariaveisGlobais.ReceitaCadastro.observacao = "Teste Gado 1";
+
+            produtoReceita = new Utilidades.ProdutoReceita();
+
+            produtoReceita.produto.id = 2;
+            produtoReceita.produto.codigo = "2";
+            produtoReceita.produto.descricao = "Feijão";
+            produtoReceita.produto.densidade = 1.2f;
+            produtoReceita.produto.tipoProduto = "Matéria Prima";
+            produtoReceita.produto.observacao = "Teste2";
+            produtoReceita.pesoPorProduto = 50;
+            produtoReceita.tipoDosagemMateriaPrima = "Automática";
+
+            Utilidades.VariaveisGlobais.ReceitaCadastro.listProdutos.Add(produtoReceita);
+
+            produtoReceita = new Utilidades.ProdutoReceita();
+
+            produtoReceita.produto.id = 16;
+            produtoReceita.produto.codigo = "16";
+            produtoReceita.produto.descricao = "Sal Comum";
+            produtoReceita.produto.densidade = 2.6f;
+            produtoReceita.produto.tipoProduto = "Matéria Prima";
+            produtoReceita.produto.observacao = "Teste16";
+            produtoReceita.pesoPorProduto = 25;
+            produtoReceita.tipoDosagemMateriaPrima = "Manual";
+
+            Utilidades.VariaveisGlobais.ReceitaCadastro.listProdutos.Add(produtoReceita);
+
+            produtoReceita = new Utilidades.ProdutoReceita();
+
+            produtoReceita.produto.id = 7;
+            produtoReceita.produto.codigo = "7";
+            produtoReceita.produto.descricao = "Soja";
+            produtoReceita.produto.densidade = 1.7f;
+            produtoReceita.produto.tipoProduto = "Complemento";
+            produtoReceita.produto.observacao = "Teste7";
+            produtoReceita.pesoPorProduto = 25;
+            produtoReceita.tipoDosagemMateriaPrima = "";
+
+            Utilidades.VariaveisGlobais.ReceitaCadastro.listProdutos.Add(produtoReceita);
+
+            //Adicionar receita no banco de dados.
+            DataBase.SqlFunctionsReceitas.AddNewRecipeBD();
+            //Limpar Cadastro Receita Global
+            Utilidades.VariaveisGlobais.ReceitaCadastro = new Utilidades.Receita();
+        }
     }
 }

@@ -28,6 +28,8 @@ namespace _9230A_V00___PI.Telas_Fluxo
 
         Manutenção.diagramaRede rede = new Manutenção.diagramaRede();
 
+        Manutenção.DiagnosticoCLP DiagCLP = new Manutenção.DiagnosticoCLP();
+
         public manutencao()
         {
             InitializeComponent();
@@ -77,6 +79,16 @@ namespace _9230A_V00___PI.Telas_Fluxo
             conexoes.atualizaConexoes();
             rede.atualizaRede();
      
+        }
+
+        private void btDiagnosticoCLP_Click(object sender, RoutedEventArgs e)
+        {
+            if (spManutencao != null)
+            {
+                spManutencao.Children.Clear();
+            }
+
+            spManutencao.Children.Add(DiagCLP);
         }
     }
 }

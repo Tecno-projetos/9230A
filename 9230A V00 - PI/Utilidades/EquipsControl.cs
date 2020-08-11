@@ -49,7 +49,7 @@ namespace _9230A_V00___PI.Utilidades
             //PD
             if (Equip == typeEquip.PD)
             {
-                Window_PD = new Partidas.Principal.principalPartidaDireta(nome, tag, numeroPartida, paginaProjeto);
+               Window_PD = new Partidas.Principal.principalPartidaDireta(nome, tag, numeroPartida, paginaProjeto);
 
                 this.Window_PD.Height = 515;
                 this.Window_PD.Width = 255;
