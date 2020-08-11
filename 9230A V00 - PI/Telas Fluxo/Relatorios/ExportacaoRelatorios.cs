@@ -21,15 +21,34 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
         /// <summary>
         ///  Exporta tabela e adiociona uma linha no cabelaho de produção com datas de exportações
         /// </summary>
-        /// <param name="dtblTable"> Enviar um data table para criar as colunas e a as linhas </param>
         /// <param name="strPdfPath">Caminho a ser salvo o PDF </param>
         /// <param name="strHeader"> O que será escrito no cabeçalho da página</param>
         /// <param name="Producao">Valor de total da produção</param>
         /// <param name="dataExportacaoInicial"> Envia uma data para ser salvo no PDF e para mostrar quando foi iniciado a exportação</param>
         /// <param name="dataExportacaoFinal"> Envia uma data para ser salvo no PDF e para mostrar quando foi finalizado a exportação</param>
                
-        public static void ExportDataTableToPdf(DataTable dtblTable, String strPdfPath, string strHeader, string Producao, DateTime dataExportacaoInicial, DateTime dataExportacaoFinal)
+        public static void ExportDataTableToPdf(String strPdfPath, List<Utilidades.Producao> PesquisaProducao, string strHeader, string Producao, DateTime dataExportacaoInicial, DateTime dataExportacaoFinal)
         {
+            #region Váriveis
+
+            BaseColor preto = new BaseColor(0, 0, 0);
+            BaseColor fundo = new BaseColor(200, 200, 200);
+            BaseColor branco = new BaseColor(255, 255, 255);
+            Font font = FontFactory.GetFont(BaseFont.TIMES_ROMAN, 10, Font.BOLD, preto);
+            Font titulo = FontFactory.GetFont(BaseFont.TIMES_ROMAN, 10, Font.BOLD, preto);
+
+            float[] colsW = { 25, 25 };
+
+
+            double pesoTotalproduzido = 0;
+            double volumeTotalProduzido = 0;
+            Int64 quantidadeProducoes = 0;
+            Int64 quantidadeBateladas = 0;
+
+
+
+            #endregion
+
             #region Cabeçalho
 
             System.IO.FileStream fs = new FileStream(strPdfPath, FileMode.Create, FileAccess.Write, FileShare.None);
@@ -113,15 +132,10 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
             #endregion
 
             //Cria a table para inserir os dados
+
             #region Cabeçalho do Relatório
 
-            BaseColor preto = new BaseColor(0, 0, 0);
-            BaseColor fundo = new BaseColor(200, 200, 200);
-            BaseColor branco = new BaseColor(255, 255, 255);
-            Font font = FontFactory.GetFont(BaseFont.TIMES_ROMAN, 10, Font.BOLD, preto);
-            Font titulo = FontFactory.GetFont(BaseFont.TIMES_ROMAN, 10, Font.BOLD, preto);
 
-            float[] colsW = { 25, 25 };
 
 
             PdfPTable table_Linha1 = new PdfPTable(2);
@@ -139,18 +153,33 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
             table_Linha2.AddCell(getNewCell("Quantidade total produzida:" + "150" + " produções", titulo, Element.ALIGN_LEFT, 10, PdfPCell.NO_BORDER, preto, branco));
             table_Linha2.AddCell(getNewCell("Total de Bateladas prooduzidas:" + "150" + " und.", titulo, Element.ALIGN_LEFT, 10, PdfPCell.NO_BORDER, preto, branco));
 
-            table_Linha3.AddCell(getNewCell("Data Inicial pesquisa:" + DateTime.Now.ToString(), titulo, Element.ALIGN_LEFT, 10, PdfPCell.NO_BORDER, preto, branco)); ;
-            table_Linha3.AddCell(getNewCell("Data Final pesquisa:" + DateTime.Now.ToString(), titulo, Element.ALIGN_LEFT, 10, PdfPCell.NO_BORDER, preto, branco));
+            table_Linha3.AddCell(getNewCell("Data Inicial pesquisa:" + dataExportacaoInicial.ToString(), titulo, Element.ALIGN_LEFT, 10, PdfPCell.NO_BORDER, preto, branco)); ;
+            table_Linha3.AddCell(getNewCell("Data Final pesquisa:" + dataExportacaoFinal, titulo, Element.ALIGN_LEFT, 10, PdfPCell.NO_BORDER, preto, branco));
 
             #endregion
 
             document.Add(table_Linha1);
             document.Add(table_Linha2);
             document.Add(table_Linha3);
+            document.Add(table_Linha3);
 
             //Add a line seperation
             Paragraph p1 = new Paragraph(new Chunk(new iTextSharp.text.pdf.draw.LineSeparator(0.0F, 100.0F, iTextSharp.text.BaseColor.BLACK, Element.ALIGN_LEFT, 1)));
             document.Add(p1);
+
+            //Quantidade de produçoes
+            quantidadeProducoes = PesquisaProducao.Count;
+
+            foreach (var item in PesquisaProducao)
+            {
+                //Quantidade de bateladas em produçao pesquisada.
+                quantidadeBateladas = quantidadeBateladas + item.batelada.Count;
+                pesoTotalproduzido = pesoTotalproduzido + item.pesoTotalProducao;
+                volumeTotalProduzido = volumeTotalProduzido + item.volumeTotalProducao;
+
+
+
+            }
 
 
             //document.Add(new Chunk("Produção Total = " + Producao));

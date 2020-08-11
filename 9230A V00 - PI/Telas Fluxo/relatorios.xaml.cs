@@ -52,7 +52,7 @@ namespace _9230A_V00___PI.Telas_Fluxo
                 // Save document
                 filename = dlg.FileName;
 
-                Relatorios.ExportacaoRelatorios.ExportDataTableToPdf(dtbl, filename, "Relátorio de Produção TOtal", "150", DateTime.Now, DateTime.Now);
+                Relatorios.ExportacaoRelatorios.ExportDataTableToPdf(filename,Utilidades.VariaveisGlobais.PesquisaProducao, "Relátorio de Produção TOtal", "150", DateTime.Now, DateTime.Now);
 
 
               System.Diagnostics.Process.Start(filename);
