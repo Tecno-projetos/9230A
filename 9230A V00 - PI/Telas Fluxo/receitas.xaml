@@ -51,10 +51,9 @@
                     <TextBlock TextAlignment="Center" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="38,12,13,10" Width="119" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center"><Run Text="Apagar"/><Run Text=" "/><Run Text="Produto"/></TextBlock>
                 </Grid>
             </Button>
-            <Button x:Name="btTesteIntoProd" Margin="10,600,10,25" Background="#FF505050" BorderBrush="Black" Height="50" Click="btTesteIntoProd_Click">
-                <Grid Width="170" Height="40">
-                    <materialDesign:PackIcon Kind="Injection" VerticalAlignment="Center" Foreground="Red" Margin="2,-6,0,-7" Height="30" Width="30"/>
-                    <TextBlock TextAlignment="Center" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="38,12,13,10" Width="119" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Teste Into Prod"/>
+            <Button x:Name="btTesteIntoReceita" Margin="10,334,10,315" Background="#FF505050" BorderBrush="Black" Click="btTesteIntoReceita_Click">
+                <Grid Width="170" Height="26">
+                    <TextBlock TextAlignment="Center" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="25,4,26,4" Width="119" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center"><Run Text="Teste Into "/><Run Text="Receita"/></TextBlock>
                 </Grid>
             </Button>
         </Grid>

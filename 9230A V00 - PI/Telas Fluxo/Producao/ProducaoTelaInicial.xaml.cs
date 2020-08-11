@@ -23,6 +23,8 @@ namespace _9230A_V00___PI.Telas_Fluxo.Producao
     {
         public event EventHandler EventoReceitaSelecionada;
 
+        Utilidades.messageBox inputDialog;
+
         public ProducaoTelaInicial()
         {
             InitializeComponent();
@@ -131,18 +133,28 @@ namespace _9230A_V00___PI.Telas_Fluxo.Producao
 
         private void btSelecionaRota_Click(object sender, RoutedEventArgs e)
         {
+            if (!Utilidades.VariaveisGlobais.ProducaoReceita.IniciouProducao)
+            {
+                var rowList = (DataGrid_Receita.ItemContainerGenerator.ContainerFromIndex(DataGrid_Receita.SelectedIndex) as DataGridRow).Item as DataRowView;
 
-            var rowList = (DataGrid_Receita.ItemContainerGenerator.ContainerFromIndex(DataGrid_Receita.SelectedIndex) as DataGridRow).Item as DataRowView;
+                Utilidades.functions.atualizalistReceitas();
 
-            Utilidades.functions.atualizalistReceitas();
+                var index = Utilidades.VariaveisGlobais.listReceitas.FindIndex(x => x.id == Convert.ToInt32(rowList.Row.ItemArray[0]));
 
-            var index = Utilidades.VariaveisGlobais.listReceitas.FindIndex(x => x.id == Convert.ToInt32(rowList.Row.ItemArray[0]));
+                Utilidades.VariaveisGlobais.ProducaoReceita.receita = Utilidades.VariaveisGlobais.listReceitas[index];
 
-            Utilidades.VariaveisGlobais.EmProducao.receita = Utilidades.VariaveisGlobais.listReceitas[index];
+                //Dispara evento para editar produtos.
+                if (this.EventoReceitaSelecionada != null)
+                    this.EventoReceitaSelecionada(this, e);
+            }
+            else
+            {
+                inputDialog = new Utilidades.messageBox("Em produção", "Existe uma produção em andamento, aguarde a finalização da produção!", MaterialDesignThemes.Wpf.PackIconKind.Error, "OK", "Fechar");
 
-            //Dispara evento para editar produtos.
-            if (this.EventoReceitaSelecionada != null)
-                this.EventoReceitaSelecionada(this, e);
+                inputDialog.ShowDialog();
+            }
+
+
         }
     }
 }

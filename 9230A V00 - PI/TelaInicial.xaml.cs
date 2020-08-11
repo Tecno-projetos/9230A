@@ -77,7 +77,6 @@ namespace _9230A_V00___PI
 
             VariaveisGlobais.Fluxo.Motor_23.loadEquip(Utilidades.typeEquip.BF, Utilidades.typeCommand.Atuador_Digital, 20, 0, "Atuador", "23", "49", "0");
 
-
             VariaveisGlobais.Fluxo.Motor_29.loadEquip(Utilidades.typeEquip.PD, Utilidades.typeCommand.PD, 56, 0, "Rosca", "29", "29", "12");
 
             VariaveisGlobais.Fluxo.Motor_30.loadEquip(Utilidades.typeEquip.PD, Utilidades.typeCommand.PD, 76, 0, "Rosca", "30", "30", "12");
