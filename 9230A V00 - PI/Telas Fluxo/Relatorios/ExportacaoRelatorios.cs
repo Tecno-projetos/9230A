@@ -17,18 +17,40 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
     {
         #region Exportar PDF
 
+
         /// <summary>
         ///  Exporta tabela e adiociona uma linha no cabelaho de produção com datas de exportações
         /// </summary>
-        /// <param name="dtblTable"> Enviar um data table para criar as colunas e a as linhas </param>
         /// <param name="strPdfPath">Caminho a ser salvo o PDF </param>
         /// <param name="strHeader"> O que será escrito no cabeçalho da página</param>
         /// <param name="Producao">Valor de total da produção</param>
-        /// <param name="nomeImagem"> Envia uma imagem para ser salvo no PDF</param>
         /// <param name="dataExportacaoInicial"> Envia uma data para ser salvo no PDF e para mostrar quando foi iniciado a exportação</param>
         /// <param name="dataExportacaoFinal"> Envia uma data para ser salvo no PDF e para mostrar quando foi finalizado a exportação</param>
-        public static void ExportDataTableToPdf(DataTable dtblTable, String strPdfPath, string strHeader, string Producao, string nomeImagem, string nomeGrafico, DateTime dataExportacaoInicial, DateTime dataExportacaoFinal)
+               
+        public static void ExportDataTableToPdf(String strPdfPath, List<Utilidades.Producao> PesquisaProducao, string strHeader, string Producao, DateTime dataExportacaoInicial, DateTime dataExportacaoFinal)
         {
+            #region Váriveis
+
+            BaseColor preto = new BaseColor(0, 0, 0);
+            BaseColor fundo = new BaseColor(200, 200, 200);
+            BaseColor branco = new BaseColor(255, 255, 255);
+            Font font = FontFactory.GetFont(BaseFont.TIMES_ROMAN, 10, Font.BOLD, preto);
+            Font titulo = FontFactory.GetFont(BaseFont.TIMES_ROMAN, 10, Font.BOLD, preto);
+
+            float[] colsW = { 25, 25 };
+
+
+            double pesoTotalproduzido = 0;
+            double volumeTotalProduzido = 0;
+            Int64 quantidadeProducoes = 0;
+            Int64 quantidadeBateladas = 0;
+
+
+
+            #endregion
+
+            #region Cabeçalho
+
             System.IO.FileStream fs = new FileStream(strPdfPath, FileMode.Create, FileAccess.Write, FileShare.None);
             Document document = new Document();
             document.SetPageSize(iTextSharp.text.PageSize.A4);
@@ -67,7 +89,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
             #endregion
 
             //Adiociona a imagem no projeto e no PDF
-            #region Imagem Oleoplan
+            #region Imagem Becker
             //Busca a imagem
             string filename1 = "Logo_Becker.png";
             //Salva a imagem no arquivo Bin
@@ -91,108 +113,102 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
             BaseFont btnAuthor = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
             Font fntAuthor = new Font(btnAuthor, 8, 2, iTextSharp.text.BaseColor.GRAY);
             prgAuthor.Alignment = Element.ALIGN_RIGHT;
-            prgAuthor.Add(new Chunk("Autor : Automasul", fntAuthor));
+            prgAuthor.Add(new Chunk("Autor : " + Utilidades.VariaveisGlobais.UserLogged_GS, fntAuthor));
             prgAuthor.Add(new Chunk("\nExportado : " + DateTime.Now.ToShortDateString(), fntAuthor));
             document.Add(prgAuthor);
+
 
             //Add a line seperation
             Paragraph p = new Paragraph(new Chunk(new iTextSharp.text.pdf.draw.LineSeparator(0.0F, 100.0F, iTextSharp.text.BaseColor.BLACK, Element.ALIGN_LEFT, 1)));
             document.Add(p);
 
             //Add line break
-            document.Add(new Chunk("\n", fntHead));
-
+            //document.Add(new Chunk("\n", fntHead));
 
             //Add Data de exportação
             BaseFont bfntParagraph = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
             Font fntProducao = new Font(bfntParagraph, 12, 1, iTextSharp.text.BaseColor.BLACK);
 
-            document.Add(new Chunk("Produção Total = " + Producao));
-            document.Add(new Chunk("\nExportado Data: " + dataExportacaoInicial + " a Data: " + dataExportacaoFinal));
+            #endregion
+
+            //Cria a table para inserir os dados
+
+            #region Cabeçalho do Relatório
 
 
-            //Write the table
-            PdfPTable table = new PdfPTable(dtblTable.Columns.Count);
-            //Table header
-            BaseFont btnColumnHeader = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
-            Font fntColumnHeader = new Font(btnColumnHeader, 10, 1, iTextSharp.text.BaseColor.WHITE);
-
-            //Adiciona tabela
-            for (int i = 0; i < dtblTable.Columns.Count; i++)
-            {
-                PdfPCell cell = new PdfPCell();
-                cell.BackgroundColor = iTextSharp.text.BaseColor.GRAY;
-                cell.AddElement(new Chunk(dtblTable.Columns[i].ColumnName.ToUpper(), fntColumnHeader));
-                table.AddCell(cell);
-            }
-            //table Data
-            for (int i = 0; i < dtblTable.Rows.Count; i++)
-            {
-                for (int j = 0; j < dtblTable.Columns.Count; j++)
-                {
-                    table.AddCell(dtblTable.Rows[i][j].ToString());
-                }
-            }
-            document.Add(table);
-
-            #region Imagem Gráfico
-            //Add line break
-            if (nomeGrafico.Contains("Anual"))
-            {
-                for (int i = 0; i < 20; i++)
-                {
-                    document.Add(new Chunk("\n", fntHead));
-                }
-            }
-            else
-            {
-
-                if (nomeGrafico.Contains("Diário"))
-                {
-                    for (int i = 0; i < 11; i++)
-                    {
-                        document.Add(new Chunk("\n", fntHead));
-                    }
-                }
-                else
-                {
-                    if (nomeGrafico.Contains("Mensal"))
-                    {
-                        for (int i = 0; i < 3; i++)
-                        {
-                            document.Add(new Chunk("\n", fntHead));
-                        }
-                    }
-                    else
-                    {
-                        document.Add(new Chunk("\n", fntHead));
-                    }
-
-                }
 
 
-            }
-            //Add line break
+            PdfPTable table_Linha1 = new PdfPTable(2);
+            PdfPTable table_Linha2 = new PdfPTable(2);
+            PdfPTable table_Linha3 = new PdfPTable(2);
 
 
-            //Acresenta o nome gráfico
-            Paragraph p1 = new Paragraph(nomeGrafico);
-            p1.Alignment = Element.ALIGN_CENTER;
+            table_Linha1 = createTable(table_Linha1, colsW);
+            table_Linha2 = createTable(table_Linha2, colsW);
+            table_Linha3 = createTable(table_Linha3, colsW);
 
+            table_Linha1.AddCell(getNewCell("Peso total produzido:" +"1500000" + " kg",  titulo, Element.ALIGN_LEFT, 10, PdfPCell.NO_BORDER, preto, branco));
+            table_Linha1.AddCell(getNewCell("Volume total produzido:" + "1500000" + " m³", titulo, Element.ALIGN_LEFT, 10, PdfPCell.NO_BORDER, preto, branco));
 
-            //Busca a imagem
-            string filename2 = nomeImagem;
-            string path2 = Path.GetFullPath(filename2);
+            table_Linha2.AddCell(getNewCell("Quantidade total produzida:" + "150" + " produções", titulo, Element.ALIGN_LEFT, 10, PdfPCell.NO_BORDER, preto, branco));
+            table_Linha2.AddCell(getNewCell("Total de Bateladas prooduzidas:" + "150" + " und.", titulo, Element.ALIGN_LEFT, 10, PdfPCell.NO_BORDER, preto, branco));
 
-
-            Image imagem2 = Image.GetInstance(path2);
-            imagem2.ScaleAbsolute(550, 300);
-
-            document.Add(p1);
-            document.Add(imagem2);
+            table_Linha3.AddCell(getNewCell("Data Inicial pesquisa:" + dataExportacaoInicial.ToString(), titulo, Element.ALIGN_LEFT, 10, PdfPCell.NO_BORDER, preto, branco)); ;
+            table_Linha3.AddCell(getNewCell("Data Final pesquisa:" + dataExportacaoFinal, titulo, Element.ALIGN_LEFT, 10, PdfPCell.NO_BORDER, preto, branco));
 
             #endregion
 
+            document.Add(table_Linha1);
+            document.Add(table_Linha2);
+            document.Add(table_Linha3);
+            document.Add(table_Linha3);
+
+            //Add a line seperation
+            Paragraph p1 = new Paragraph(new Chunk(new iTextSharp.text.pdf.draw.LineSeparator(0.0F, 100.0F, iTextSharp.text.BaseColor.BLACK, Element.ALIGN_LEFT, 1)));
+            document.Add(p1);
+
+            //Quantidade de produçoes
+            quantidadeProducoes = PesquisaProducao.Count;
+
+            foreach (var item in PesquisaProducao)
+            {
+                //Quantidade de bateladas em produçao pesquisada.
+                quantidadeBateladas = quantidadeBateladas + item.batelada.Count;
+                pesoTotalproduzido = pesoTotalproduzido + item.pesoTotalProducao;
+                volumeTotalProduzido = volumeTotalProduzido + item.volumeTotalProducao;
+
+
+
+            }
+
+
+            //document.Add(new Chunk("Produção Total = " + Producao));
+            //document.Add(new Chunk("\nExportado Data: " + dataExportacaoInicial + " a Data: " + dataExportacaoFinal));
+
+
+            ////Write the table
+            //PdfPTable table = new PdfPTable(dtblTable.Columns.Count);
+            ////Table header
+            //BaseFont btnColumnHeader = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
+            //Font fntColumnHeader = new Font(btnColumnHeader, 10, 1, iTextSharp.text.BaseColor.WHITE);
+
+            ////Adiciona tabela
+            //for (int i = 0; i < dtblTable.Columns.Count; i++)
+            //{
+            //    PdfPCell cell = new PdfPCell();
+            //    cell.BackgroundColor = iTextSharp.text.BaseColor.GRAY;
+            //    cell.AddElement(new Chunk(dtblTable.Columns[i].ColumnName.ToUpper(), fntColumnHeader));
+            //    table.AddCell(cell);
+            //}
+            ////table Data
+            //for (int i = 0; i < dtblTable.Rows.Count; i++)
+            //{
+            //    for (int j = 0; j < dtblTable.Columns.Count; j++)
+            //    {
+            //        table.AddCell(dtblTable.Rows[i][j].ToString());
+            //    }
+            //}
+            //document.Add(table);
 
             document.Close();
             writer.Close();
@@ -200,6 +216,19 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
         }
 
 
+        private static PdfPTable createTable(PdfPTable tabela, float[] colsW) 
+        {
+            tabela.SetWidths(colsW);
+            tabela.HeaderRows = 0;
+            tabela.WidthPercentage = 100f;
+            tabela.DefaultCell.Border = PdfPCell.NO_BORDER;
+            tabela.DefaultCell.BorderColor = new BaseColor(255, 255, 255);
+            tabela.DefaultCell.BorderColorBottom = new BaseColor(255, 255, 255);
+            tabela.DefaultCell.Padding = 10;
+
+            return tabela;
+
+        }
 
 
         #endregion
@@ -322,6 +351,28 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
             }
         }
         #endregion
+
+        private static PdfPCell getNewCell(string Texto, Font Fonte, int Alinhamento, float Espacamento, int Borda, BaseColor CorBorda, BaseColor CorFundo)
+        {
+            var cell = new PdfPCell(new Phrase(Texto, Fonte));
+            cell.HorizontalAlignment = Alinhamento;
+            cell.Padding = Espacamento;
+            cell.Border = Borda;
+            cell.BorderColor = CorBorda;
+            cell.BackgroundColor = CorFundo;
+
+            return cell;
+        }
+
+        private static PdfPCell getNewCell(string Texto, Font Fonte, int Alinhamento, float Espacamento, int Borda, BaseColor CorBorda)
+        {
+            return getNewCell(Texto, Fonte, Alinhamento, Espacamento, Borda, CorBorda, new BaseColor(255, 255, 255));
+        }
+        private static PdfPCell getNewCell(string Texto, Font Fonte, int Alinhamento = 0, float Espacamento = 5, int Borda = 0)
+        {
+            return getNewCell(Texto, Fonte, Alinhamento, Espacamento, Borda, new BaseColor(0, 0, 0), new BaseColor(255, 255, 255));
+        }
+
 
     }
 }
