@@ -737,13 +737,13 @@ namespace _9230A_V00___PI.Utilidades
 
         public Int32 tempoPosMistura { get; set; } //Tempo de pos mistura
 
-        public int pesoTotalProducao { get; set; } //Peso total da produção
+        public float pesoTotalProducao { get; set; } //Peso total da produção
 
-        public int pesoPorBatelada { get; set; } //Peso por batelada
+        public float pesoPorBatelada { get; set; } //Peso por batelada
 
-        public int volumeTotalProducao { get; set; }//Volume total da produção
+        public float volumeTotalProducao { get; set; }//Volume total da produção
 
-        public int volumePorBatelada { get; set; } //Volume por batelada
+        public float volumePorBatelada { get; set; } //Volume por batelada
 
         public string CodigoProdutoDosagemAutomaticaSilo1 { get; set; } //Codigo do produto que sera dosado automaticamente no silo 1.
 
@@ -756,6 +756,10 @@ namespace _9230A_V00___PI.Utilidades
         public bool IniciouProducao { get; set; } //Iniciou Produção
 
         public bool FinalizouProducao { get; set; } //Finalizou Produção
+
+        public float pesoTotalProduzido { get; set; } //Peso total da produzido
+
+        public float volumeTotalProduzido { get; set; }//Volume total da produzido
 
     }
 

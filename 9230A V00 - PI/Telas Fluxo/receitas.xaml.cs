@@ -243,6 +243,8 @@ namespace _9230A_V00___PI.Telas_Fluxo
 
             Utilidades.ProdutoReceita produtoReceita = new Utilidades.ProdutoReceita();
 
+            produtoReceita.produto = new Utilidades.Produto();
+
             produtoReceita.produto.id = 1;
             produtoReceita.produto.codigo = "1";
             produtoReceita.produto.descricao = "Arroz";
@@ -255,7 +257,7 @@ namespace _9230A_V00___PI.Telas_Fluxo
             Utilidades.VariaveisGlobais.ReceitaCadastro.listProdutos.Add(produtoReceita);
 
             produtoReceita = new Utilidades.ProdutoReceita();
-
+            produtoReceita.produto = new Utilidades.Produto();
             produtoReceita.produto.id = 16;
             produtoReceita.produto.codigo = "16";
             produtoReceita.produto.descricao = "Sal Comum";
@@ -268,7 +270,7 @@ namespace _9230A_V00___PI.Telas_Fluxo
             Utilidades.VariaveisGlobais.ReceitaCadastro.listProdutos.Add(produtoReceita);
 
             produtoReceita = new Utilidades.ProdutoReceita();
-
+            produtoReceita.produto = new Utilidades.Produto();
             produtoReceita.produto.id = 7;
             produtoReceita.produto.codigo = "7";
             produtoReceita.produto.descricao = "Soja";
@@ -292,7 +294,7 @@ namespace _9230A_V00___PI.Telas_Fluxo
             Utilidades.VariaveisGlobais.ReceitaCadastro.observacao = "Teste Gado 1";
 
             produtoReceita = new Utilidades.ProdutoReceita();
-
+            produtoReceita.produto = new Utilidades.Produto();
             produtoReceita.produto.id = 2;
             produtoReceita.produto.codigo = "2";
             produtoReceita.produto.descricao = "Feijão";
@@ -305,7 +307,7 @@ namespace _9230A_V00___PI.Telas_Fluxo
             Utilidades.VariaveisGlobais.ReceitaCadastro.listProdutos.Add(produtoReceita);
 
             produtoReceita = new Utilidades.ProdutoReceita();
-
+            produtoReceita.produto = new Utilidades.Produto();
             produtoReceita.produto.id = 16;
             produtoReceita.produto.codigo = "16";
             produtoReceita.produto.descricao = "Sal Comum";
@@ -318,7 +320,7 @@ namespace _9230A_V00___PI.Telas_Fluxo
             Utilidades.VariaveisGlobais.ReceitaCadastro.listProdutos.Add(produtoReceita);
 
             produtoReceita = new Utilidades.ProdutoReceita();
-
+            produtoReceita.produto = new Utilidades.Produto();
             produtoReceita.produto.id = 7;
             produtoReceita.produto.codigo = "7";
             produtoReceita.produto.descricao = "Soja";

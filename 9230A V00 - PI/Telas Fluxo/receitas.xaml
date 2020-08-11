@@ -56,6 +56,11 @@
                     <TextBlock TextAlignment="Center" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="25,4,26,4" Width="119" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center"><Run Text="Teste Into "/><Run Text="Receita"/></TextBlock>
                 </Grid>
             </Button>
+            <Button x:Name="btTesteIntoProd" Margin="10,600,10,49" Background="#FF505050" BorderBrush="Black" Click="btTesteIntoProd_Click">
+                <Grid Width="170" Height="26">
+                    <TextBlock TextAlignment="Center" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="25,4,26,4" Width="119" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center"><Run Text="Teste Into "/><Run Text="Receita"/></TextBlock>
+                </Grid>
+            </Button>
         </Grid>
         <StackPanel x:Name="spReceitas" HorizontalAlignment="Left" Height="675" Margin="200,0,0,0" VerticalAlignment="Top" Width="824"/>
     </Grid>
