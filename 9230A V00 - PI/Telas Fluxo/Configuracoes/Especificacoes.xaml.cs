@@ -56,5 +56,18 @@ namespace _9230A_V00___PI.Telas_Fluxo.Configuracoes
         {
             Teclados.keyboard.openKeyboard();
         }
+
+        private void btInjetarInfo_Click(object sender, RoutedEventArgs e)
+        {
+            Utilidades.VariaveisGlobais.ValoresEspecificacoesEquipamentos.VolumeMaximoPermitidoSilo1_2 = 7.1f;
+            Utilidades.VariaveisGlobais.ValoresEspecificacoesEquipamentos.VolumeMaximoPermitidoBalanca = 1.2f;
+            Utilidades.VariaveisGlobais.ValoresEspecificacoesEquipamentos.VolumeMaximoPermitidoPreMisturador = 1.8f;
+            Utilidades.VariaveisGlobais.ValoresEspecificacoesEquipamentos.VolumeMaximoPermitidoPosMisturador = 2.0f;
+            Utilidades.VariaveisGlobais.ValoresEspecificacoesEquipamentos.PesoMaximoPermitidoBalanca = 1000;
+            Utilidades.VariaveisGlobais.ValoresEspecificacoesEquipamentos.PesoMaximoPermitidoPreMisturador = 1000;
+            Utilidades.VariaveisGlobais.ValoresEspecificacoesEquipamentos.PesoMaximoPermitidoPosMisturador = 1000;
+            Utilidades.VariaveisGlobais.ValoresEspecificacoesEquipamentos.TempoPreMistura = 240;
+            Utilidades.VariaveisGlobais.ValoresEspecificacoesEquipamentos.TempoPosMistura = 240;
+        }
     }
 }

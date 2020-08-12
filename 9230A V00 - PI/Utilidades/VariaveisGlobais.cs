@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media;
+using System.Windows.Navigation;
 
 namespace _9230A_V00___PI.Utilidades
 {
@@ -572,6 +573,7 @@ namespace _9230A_V00___PI.Utilidades
             DataBase.SqlFunctionsEquips.ExistTable();
             DataBase.SqlFunctionsProdutos.ExistTable();
             DataBase.SqlFunctionsReceitas.Create_Table_Receita();
+            DataBase.SQLFunctionsProducao.Create_Table_Producao();
         }
 
         public static List<Produto> listProdutos = new List<Produto>();
@@ -584,6 +586,7 @@ namespace _9230A_V00___PI.Utilidades
 
         public static List<Producao> PesquisaProducao = new List<Producao>();
 
+        public static EspecificacoesEquipamentos ValoresEspecificacoesEquipamentos = new EspecificacoesEquipamentos();
     }
 
     public class functions
@@ -670,6 +673,132 @@ namespace _9230A_V00___PI.Utilidades
 
     }
 
+    //
+
+    public class EspecificacoesEquipamentos
+    {
+        public float VolumeMaximoPermitidoSilo1_2 { get; set; } //Volume máximo permitido no silo 1 e silo 2 m³
+
+        public float VolumeMaximoPermitidoBalanca{ get; set; } //Volume máximo permitido na balança
+
+        public float VolumeMaximoPermitidoPreMisturador { get; set; } //Volume máximo permitido no Pré Misturador
+
+        public float VolumeMaximoPermitidoPosMisturador { get; set; } //Volume máximo permitido no Pos Misturador
+
+        public float PesoMaximoPermitidoBalanca { get; set; } //Peso máximo permitido na balança
+
+        public float PesoMaximoPermitidoPreMisturador { get; set; } //Peso máximo permitido no Pré Misturador
+
+        public float PesoMaximoPermitidoPosMisturador { get; set; } //Peso máximo permitido no Pos Misturador
+
+        public Int32 TempoPreMistura { get; set; } //Tempo de pré mistura
+
+        public Int32 TempoPosMistura { get; set; } //Tempo de pos mistura
+
+        public float VolumeMaximoPermitidoBatelada()
+        {
+            float value = VolumeMaximoPermitidoBalanca;
+
+            if (VolumeMaximoPermitidoPreMisturador < value)
+            {
+                value = VolumeMaximoPermitidoPreMisturador;
+            }
+
+            if (VolumeMaximoPermitidoPosMisturador < value)
+            {
+                value = VolumeMaximoPermitidoPosMisturador;
+            }
+
+            return value;
+        }
+
+        public float PesoMaximoPermitidoBatelada()
+        {
+            float value = PesoMaximoPermitidoBalanca;
+
+            if (PesoMaximoPermitidoPreMisturador < value)
+            {
+                value = PesoMaximoPermitidoPreMisturador;
+            }
+
+            if (PesoMaximoPermitidoPosMisturador < value)
+            {
+                value = PesoMaximoPermitidoPosMisturador;
+            }
+
+            return value;
+        }
+
+        public bool ValoresPreenchidos()
+        {
+            if (VolumeMaximoPermitidoSilo1_2 != 0)
+            {
+                if (VolumeMaximoPermitidoBalanca != 0)
+                {
+                    if (VolumeMaximoPermitidoPreMisturador != 0)
+                    {
+                        if (VolumeMaximoPermitidoPosMisturador != 0)
+                        {
+                            if (PesoMaximoPermitidoBalanca != 0)
+                            {
+                                if (PesoMaximoPermitidoPreMisturador != 0)
+                                {
+                                    if (PesoMaximoPermitidoPosMisturador != 0)
+                                    {
+                                        if (TempoPreMistura != 0)
+                                        {
+                                            if (TempoPosMistura != 0)
+                                            {
+                                                return true;
+                                            }
+                                            else
+                                            {
+                                                return false;
+                                            }
+                                        }
+                                        else
+                                        {
+                                            return false;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        return false;
+                                    }
+                                }
+                                else
+                                {
+                                    return false;
+                                }
+                            }
+                            else
+                            {
+                                return false;
+                            }
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+    }
+
     public class Produto
     {
         public int id { get; set; }
@@ -708,9 +837,19 @@ namespace _9230A_V00___PI.Utilidades
 
     public class ProdutoBatelada : Produto
     {
+        /// <summary>
+        /// Atualizado na tela VerificacaoBateladas
+        /// </summary>
         public int idProducao { get; set; }
 
-        public float valorDosado { get; set; }
+        /// <summary>
+        /// Atualizado na tela VerificacaoBateladas
+        /// </summary>
+        public float pesoDesejado { get; set; }
+
+        public float pesoDosado { get; set; }
+
+        public float volumeDesejado { get; set; }
 
         public string statusItem { get; set; }
 
@@ -718,48 +857,101 @@ namespace _9230A_V00___PI.Utilidades
 
     public class Batelada
     {
+
         public List<ProdutoBatelada> produtos = new List<ProdutoBatelada>();
+
+        public int numeroBatelada { get; set; }
+
+        public float pesoDesejado { get; set; }
+
+        public float pesoDosado { get; set; }
+
+        public float volumeDesejado { get; set; }
     }
 
     public class Producao
     {
         public int id {get; set;} // Id da produção
 
+        /// <summary>
+        /// Atualizado na tela ProduçãoTelaInicial
+        /// </summary>
         public int IdReceitaBase { get; set; } // Id da receita base
 
+        /// <summary>
+        /// Atualizado na tela ProduçãoTelaInicial
+        /// </summary>
         public Receita receita { get; set; } //Receita Base
 
+        /// <summary>
+        /// Atualizado na tela ConfiguracaoReceitaProducao
+        /// </summary>
         public int quantidadeBateladas { get; set; } //Quantidade de bateladas
 
+        /// <summary>
+        /// Atualizado na tela ConfiguracaoReceitaProducao
+        /// </summary>
         public List<Batelada> batelada = new List<Batelada>(); //Lista das bateladas
 
+        /// <summary>
+        /// 
+        /// </summary>
         public Int32 tempoPreMistura { get; set; } //Tempo de pré mistura
 
+        /// <summary>
+        /// 
+        /// </summary>
         public Int32 tempoPosMistura { get; set; } //Tempo de pos mistura
 
-        public float pesoTotalProducao { get; set; } //Peso total da produção
+        /// <summary>
+        /// Atualizado na tela ConfiguracaoReceitaProducao
+        /// </summary>
+        public float pesoTotalProducao { get; set; } //Peso total da produção - 
 
-        public float pesoPorBatelada { get; set; } //Peso por batelada
-
+        /// <summary>
+        /// 
+        /// </summary>
         public float volumeTotalProducao { get; set; }//Volume total da produção
 
-        public float volumePorBatelada { get; set; } //Volume por batelada
-
+        /// <summary>
+        /// Atualizado na tela ConfiguracaoReceitaProducao
+        /// </summary>
         public string CodigoProdutoDosagemAutomaticaSilo1 { get; set; } //Codigo do produto que sera dosado automaticamente no silo 1.
 
+        /// <summary>
+        /// Atualizado na tela ConfiguracaoReceitaProducao
+        /// </summary>
         public string CodigoProdutoDosagemAutomaticaSilo2 { get; set; } //Codigo do produto que sera dosado automaticamente no silo 2.
-
+        
+        /// <summary>
+        /// 
+        /// </summary>
         public DateTime dateTimeInicioProducao { get; set; } //Data Inicio produção
-
+       
+        /// <summary>
+        /// 
+        /// </summary>
         public DateTime dateTimeFimProducao { get; set; } //Data fim da produção
 
+        /// <summary>
+        /// 
+        /// </summary>
         public bool IniciouProducao { get; set; } //Iniciou Produção
 
+        /// <summary>
+        /// 
+        /// </summary>
         public bool FinalizouProducao { get; set; } //Finalizou Produção
 
-        public float pesoTotalProduzido { get; set; } //Peso total da produzido
+        /// <summary>
+        /// 
+        /// </summary>
+        public float pesoTotalProduzido { get; set; } //Peso total produzido
 
-        public float volumeTotalProduzido { get; set; }//Volume total da produzido
+        /// <summary>
+        /// 
+        /// </summary>
+        public float volumeTotalProduzido { get; set; }//Volume total produzido
 
     }
 

@@ -23,7 +23,7 @@ namespace _9230A_V00___PI.Telas_Fluxo
     public partial class configuracoes : UserControl
     {
 
-        Telas_Fluxo.Manutenção.informacoesSistema controleOperacao = new Manutenção.informacoesSistema();
+        Telas_Fluxo.Configuracoes.Especificacoes especificaoes = new Configuracoes.Especificacoes();
 
 
 
@@ -49,9 +49,7 @@ namespace _9230A_V00___PI.Telas_Fluxo
                 spConfiguracao.Children.Clear();
             }
 
-            spConfiguracao.Children.Add(controleOperacao);
-
-
+            spConfiguracao.Children.Add(especificaoes);
 
         }
     }
