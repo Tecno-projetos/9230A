@@ -56,10 +56,10 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
                     boxItem.IsSelected = false;
                 }
 
-                boxItem.Width = 60;
+                boxItem.Width = 130;
                 boxItem.Height = 60;
-                boxItem.Content = drive.Name;
-                boxItem.FontSize = 14;
+                boxItem.Content = drive.Name + " " + drive.VolumeLabel ;
+                boxItem.FontSize = 12;
                 boxItem.Foreground = new SolidColorBrush(Colors.White);
                 boxItem.VerticalAlignment = VerticalAlignment.Center;
                 boxItem.HorizontalAlignment = HorizontalAlignment.Center;
@@ -84,10 +84,14 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
                 if (idexNew != idexOLD)
                 {
                     row_list.Background = new SolidColorBrush(Color.FromRgb(0, 255, 0));
+                    row_list.Foreground = new SolidColorBrush(Color.FromRgb(0, 0, 0));
+
+
                     if (idexOLD != -1)
                     {
                         var row_listOld = (ListBoxItem)listbox.Items[idexOLD];
                         row_listOld.Background = new SolidColorBrush(Color.FromRgb(60, 60, 60));
+                        row_list.Foreground = new SolidColorBrush(Color.FromRgb(255, 255, 255));
                     }
 
                     idexOLD = idexNew;
@@ -109,13 +113,12 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
         private void btExportar_Click(object sender, RoutedEventArgs e)
         {
 
-            string folder = nomeExportação + "Relátorio Becker";
+            nomeExportação = nomeExportação + "Relatorio_Producoes";
 
-
-            if (!Directory.Exists(folder))
+            if (!Directory.Exists(nomeExportação))
             {
                 //Criamos um com o nome folder
-                Directory.CreateDirectory(folder);
+                Directory.CreateDirectory(nomeExportação);
             }
 
             this.DialogResult = true;

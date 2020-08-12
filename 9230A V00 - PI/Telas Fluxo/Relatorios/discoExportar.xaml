@@ -25,11 +25,11 @@
     </Window.Resources>
 
     <Grid Background="#FF787878">
-        <ListBox x:Name="listbox" Margin="10,10,0,0" BorderBrush="{x:Null}" 
+        <ListBox x:Name="listbox" Margin="2,10,0,0" BorderBrush="{x:Null}" 
             ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
             ScrollViewer.VerticalScrollBarVisibility="Visible" 
             SelectionChanged="listbox_SelectionChanged" 
-            Background="{x:Null}" HorizontalAlignment="Left" Width="207" Height="330" VerticalAlignment="Top"/>
+            Background="{x:Null}" HorizontalAlignment="Left" Width="225" Height="330" VerticalAlignment="Top"/>
 
         <Button x:Name="btFechar"  Margin="4,382,0,0" 
                 IsCancel="True"

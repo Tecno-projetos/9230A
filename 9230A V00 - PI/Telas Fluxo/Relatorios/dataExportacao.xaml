@@ -31,7 +31,7 @@
 
 
 
-        <WebBrowser x:Name="webBrowse" HorizontalAlignment="Left" Height="550" VerticalAlignment="Top" Width="710" Margin="67,115,0,0"/>
+        <WebBrowser x:Name="webBrowse" HorizontalAlignment="Left" Height="550" VerticalAlignment="Top" Width="710" Margin="61,115,0,0"/>
 
 
 
@@ -82,13 +82,13 @@
                 </Grid>
             </materialDesign:DialogHost.DialogContent>
         </materialDesign:DialogHost>
-        <Label x:Name="txtDataSelecionada" Content="Data Inicial:" Margin="102,33,0,0" BorderBrush="Black" BorderThickness="1" Background="#00000000" HorizontalContentAlignment="Center" Height="29" VerticalAlignment="Top" HorizontalAlignment="Left" Width="223" ToolTip="Status do motor, falhas e alarmes." Cursor="No" FontSize="18" Foreground="White" Padding="0,0,4,0"/>
-        <Button  x:Name="ButtonOpenDialog" Content="..." IsEnabled="True" Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}" CommandTarget="{Binding ElementName=PopupAddCustom}" Margin="102,67,0,0" Background="#FF505050" BorderBrush="Black" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Left" Width="223" Click="ButtonOpenDialog_Click"/>
+        <Label x:Name="txtDataSelecionada" Content="Data Inicial:" Margin="96,33,0,0" BorderBrush="Black" BorderThickness="1" Background="#00000000" HorizontalContentAlignment="Center" Height="29" VerticalAlignment="Top" HorizontalAlignment="Left" Width="223" ToolTip="Status do motor, falhas e alarmes." Cursor="No" FontSize="18" Foreground="White" Padding="0,0,4,0"/>
+        <Button  x:Name="ButtonOpenDialog" Content="..." IsEnabled="True" Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}" CommandTarget="{Binding ElementName=PopupAddCustom}" Margin="96,67,0,0" Background="#FF505050" BorderBrush="Black" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Left" Width="223" Click="ButtonOpenDialog_Click"/>
 
 
-        <materialDesign:PackIcon x:Name="iconDataInicial" Kind="Calendar" VerticalAlignment="Center" Foreground="White" Height="29" Margin="67,33,0,613" Width="33"/>
-        <materialDesign:PackIcon x:Name="iconTouch" Kind="GestureTapButton" VerticalAlignment="Center" Foreground="White" Height="29" Margin="67,70,0,576" Width="33"/>
-        <Label Content="Data Inicial:" HorizontalAlignment="Left" Margin="101,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="14"/>
+        <materialDesign:PackIcon x:Name="iconDataInicial" Kind="Calendar" VerticalAlignment="Center" Foreground="White" Height="29" Margin="61,33,0,613" Width="33"/>
+        <materialDesign:PackIcon x:Name="iconTouch" Kind="GestureTapButton" VerticalAlignment="Center" Foreground="White" Height="29" Margin="61,70,0,576" Width="33"/>
+        <Label Content="Data Inicial:" HorizontalAlignment="Left" Margin="95,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="14"/>
 
 
         <materialDesign:DialogHost x:Name="PopupAddCustom1" HorizontalAlignment="Center" VerticalAlignment="Center" IsOpen="False"
@@ -137,12 +137,12 @@
                 </Grid>
             </materialDesign:DialogHost.DialogContent>
         </materialDesign:DialogHost>
-        <Label x:Name="txtFIM" Content="Data Final:" Margin="368,33,0,0" BorderBrush="Black" BorderThickness="1" Background="#00000000" HorizontalContentAlignment="Center" Height="29" VerticalAlignment="Top" HorizontalAlignment="Left" Width="223" ToolTip="Status do motor, falhas e alarmes." Cursor="No" FontSize="18" Foreground="White" Padding="0,0,4,0"/>
-        <Button  x:Name="ButtonOpenDialogFim" Content="..." IsEnabled="True" Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}" CommandTarget="{Binding ElementName=PopupAddCustom1}" Margin="368,67,0,0" Background="#FF505050" BorderBrush="Black" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Left" Width="223" Click="ButtonOpenDialogFim_Click"/>
-        <materialDesign:PackIcon x:Name="iconDataFim" Kind="Calendar" VerticalAlignment="Center" Foreground="White" Height="29" Margin="333,33,0,613" Width="33"/>
-        <materialDesign:PackIcon x:Name="iconTouchFim" Kind="GestureTapButton" VerticalAlignment="Center" Foreground="White" Height="29" Margin="333,70,0,576" Width="33"/>
-        <Label Content="Data Final:" HorizontalAlignment="Left" Margin="367,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="14"/>
-        <Button x:Name="btPesquisar" Margin="602,10,0,0" Background="#FF505050" BorderBrush="{x:Null}" HorizontalAlignment="Left" Width="85" Height="89" VerticalAlignment="Top" Click="btPesquisar_Click">
+        <Label x:Name="txtFIM" Content="Data Final:" Margin="362,33,0,0" BorderBrush="Black" BorderThickness="1" Background="#00000000" HorizontalContentAlignment="Center" Height="29" VerticalAlignment="Top" HorizontalAlignment="Left" Width="223" ToolTip="Status do motor, falhas e alarmes." Cursor="No" FontSize="18" Foreground="White" Padding="0,0,4,0"/>
+        <Button  x:Name="ButtonOpenDialogFim" Content="..." IsEnabled="True" Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}" CommandTarget="{Binding ElementName=PopupAddCustom1}" Margin="362,67,0,0" Background="#FF505050" BorderBrush="Black" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Left" Width="223" Click="ButtonOpenDialogFim_Click"/>
+        <materialDesign:PackIcon x:Name="iconDataFim" Kind="Calendar" VerticalAlignment="Center" Foreground="White" Height="29" Margin="327,33,0,613" Width="33"/>
+        <materialDesign:PackIcon x:Name="iconTouchFim" Kind="GestureTapButton" VerticalAlignment="Center" Foreground="White" Height="29" Margin="327,70,0,576" Width="33"/>
+        <Label Content="Data Final:" HorizontalAlignment="Left" Margin="361,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="14"/>
+        <Button x:Name="btPesquisar" Margin="596,10,0,0" Background="#FF505050" BorderBrush="{x:Null}" HorizontalAlignment="Left" Width="85" Height="89" VerticalAlignment="Top" Click="btPesquisar_Click">
             <Grid Width="53" Height="70">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
@@ -151,7 +151,7 @@
                 <materialDesign:PackIcon Kind="Search" VerticalAlignment="Center" Foreground="White" Margin="0,0,0,20" HorizontalAlignment="Left" Width="53" Height="50"/>
             </Grid>
         </Button>
-        <Button x:Name="btExport" Margin="692,10,0,0" Background="#FF505050" BorderBrush="{x:Null}" HorizontalAlignment="Left" Width="85" Height="89" VerticalAlignment="Top" Click="btExport_Click">
+        <Button x:Name="btExport" Margin="686,10,0,0" Background="#FF505050" BorderBrush="{x:Null}" HorizontalAlignment="Left" Width="85" Height="89" VerticalAlignment="Top" Click="btExport_Click">
             <Grid Width="53" Height="70">
                 <Grid.RowDefinitions>
                     <RowDefinition/>

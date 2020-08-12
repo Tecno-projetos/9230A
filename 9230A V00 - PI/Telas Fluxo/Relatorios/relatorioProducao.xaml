@@ -42,7 +42,8 @@
 
 
         <materialDesign:PackIcon x:Name="pckOperador" Kind="CheckBox" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="520,291,262,68.616" BorderBrush="#FF040404" Visibility="Hidden"/>
-        <local:dataExportacao x:Name="producao" HorizontalAlignment="Left" Height="685" VerticalAlignment="Top" Width="825" Margin="0,-10,0,0"/>
+       
+        <local:dataExportacao x:Name="producao" HorizontalAlignment="Left" Height="673" VerticalAlignment="Top" Width="825" Margin="0,2,0,0"/>
     </Grid>
 
 

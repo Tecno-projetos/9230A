@@ -134,10 +134,9 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
         {       
             if (this.webBrowse != null)
             {
-                webBrowse.Navigate((Uri)null);
+                this.webBrowse.Navigate(sFilename);
             }
-            this.webBrowse.Navigate(sFilename);
-
+        
         }
 
         private void btPesquisar_Click(object sender, System.Windows.RoutedEventArgs e)
