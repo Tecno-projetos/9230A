@@ -34,6 +34,41 @@ namespace _9230A_V00___PI.Telas_Fluxo
             TelaInicialProducao.EventoReceitaSelecionada += new EventHandler(EventoReceitaSelecionada);
 
             TelaConfiguracaoReceitaProducao.ProximaTela += new EventHandler(EventoProximaTela);
+
+            TelaConfiguracaoReceitaProducao.TelaAnterior += new EventHandler(EventoTelaAnterior);
+
+            TelaVerificaoBateladas.ProximaTela += new EventHandler(EventoProximaTelaVerificacaoBateladas);
+
+            TelaVerificaoBateladas.TelaAnterior += new EventHandler(EventoTelaAnteriorVerificacaoBateladas);
+        }
+
+
+        protected void EventoTelaAnteriorVerificacaoBateladas(object sender, EventArgs e)
+        {
+            if (spControleProducao != null)
+            {
+                spControleProducao.Children.Clear();
+            }
+            spControleProducao.Children.Add(TelaConfiguracaoReceitaProducao);
+        }
+
+        protected void EventoProximaTelaVerificacaoBateladas(object sender, EventArgs e)
+        {
+            if (spControleProducao != null)
+            {
+                spControleProducao.Children.Clear();
+            }
+            //spControleProducao.Children.Add(TelaInicialProducao);
+        }
+
+
+        protected void EventoTelaAnterior(object sender, EventArgs e)
+        {
+            if (spControleProducao != null)
+            {
+                spControleProducao.Children.Clear();
+            }
+            spControleProducao.Children.Add(TelaInicialProducao);
         }
 
         protected void EventoProximaTela(object sender, EventArgs e)

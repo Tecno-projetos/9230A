@@ -152,7 +152,7 @@
                 <TextBlock x:Name="lbTextButton5" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="42,1,23,-1" Width="85" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Continuar"/>
             </Grid>
         </Button>
-        <Button x:Name="btVoltar" Margin="52,598,592,37" Background="#FF505050" BorderBrush="Black" Height="Auto" Opacity="1" >
+        <Button x:Name="btVoltar" Margin="52,598,592,37" Background="#FF505050" BorderBrush="Black" Height="Auto" Opacity="1" Click="btVoltar_Click" >
             <Grid Width="150">
                 <TextBlock x:Name="lbTextButton6" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="52,1,13,-1" Width="85" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Voltar"/>
             </Grid>

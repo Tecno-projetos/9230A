@@ -21,6 +21,11 @@ namespace _9230A_V00___PI.Telas_Fluxo.Producao
     /// </summary>
     public partial class VerificacaoBateladas : UserControl
     {
+        public event EventHandler ProximaTela;
+        public event EventHandler TelaAnterior;
+
+        Utilidades.messageBox inputDialog;
+
         public VerificacaoBateladas()
         {
             InitializeComponent();
@@ -60,7 +65,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Producao
             var scroll = (VisualTreeHelper.GetChild(DataGrid_Produtos, 0) as Decorator).Child as ScrollViewer;
 
             scroll.ScrollToHorizontalOffset(scroll.HorizontalOffset - 20);
-        }
+        } 
 
         private void btDownList_Produtos_Click(object sender, RoutedEventArgs e)
         {
@@ -169,6 +174,34 @@ namespace _9230A_V00___PI.Telas_Fluxo.Producao
             DataGrid_Produtos.Dispatcher.Invoke(delegate { DataGrid_Produtos.ItemsSource = dt.DefaultView; });
 
 
+        }
+
+        private void btContinuar_Click(object sender, RoutedEventArgs e)
+        {
+            inputDialog = new Utilidades.messageBox("Confirmação", "Você tem certeza que deseja iniciar a produção?", MaterialDesignThemes.Wpf.PackIconKind.Error, "OK", "Fechar");
+
+            inputDialog.ShowDialog();
+
+            if (inputDialog.DialogResult == true)
+            {
+                //Preenche data inicial e data final
+                Utilidades.VariaveisGlobais.ProducaoReceita.dateTimeInicioProducao = DateTime.Now;
+                Utilidades.VariaveisGlobais.ProducaoReceita.dateTimeFimProducao = DateTime.Now;
+
+                //Preenche que iniciou a produção
+                Utilidades.VariaveisGlobais.ProducaoReceita.IniciouProducao = true;
+
+                DataBase.SQLFunctionsProducao.AddProducao(Utilidades.VariaveisGlobais.ProducaoReceita);
+            }
+
+
+        }
+
+        private void btVoltar_Click(object sender, RoutedEventArgs e)
+        {
+            //Chama proximo tela
+            if (this.TelaAnterior != null)
+                this.TelaAnterior(this, e);
         }
     }
 }

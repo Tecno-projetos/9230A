@@ -265,5 +265,12 @@ namespace _9230A_V00___PI.Telas_Fluxo.Producao
             }
             
         }
+
+        private void btVoltar_Click(object sender, RoutedEventArgs e)
+        {
+            //Chama proximo tela
+            if (this.TelaAnterior != null)
+                this.TelaAnterior(this, e);
+        }
     }
 }

@@ -141,9 +141,16 @@ namespace _9230A_V00___PI.Telas_Fluxo.Producao
 
                 var index = Utilidades.VariaveisGlobais.listReceitas.FindIndex(x => x.id == Convert.ToInt32(rowList.Row.ItemArray[0]));
 
+                //Passa id da receita desejada para a produção receita
                 Utilidades.VariaveisGlobais.ProducaoReceita.IdReceitaBase = Utilidades.VariaveisGlobais.listReceitas[index].id;
                 //Passa a Receita desejada para a produção Receita
                 Utilidades.VariaveisGlobais.ProducaoReceita.receita = Utilidades.VariaveisGlobais.listReceitas[index];
+
+                //Passa TempoPreMistura da receita desejada para a produção receita
+                Utilidades.VariaveisGlobais.ProducaoReceita.tempoPreMistura = Utilidades.VariaveisGlobais.ValoresEspecificacoesEquipamentos.TempoPreMistura;
+
+                //Passa TempoPosMistura da receita desejada para a produção receita
+                Utilidades.VariaveisGlobais.ProducaoReceita.tempoPosMistura = Utilidades.VariaveisGlobais.ValoresEspecificacoesEquipamentos.TempoPosMistura;
 
                 //Dispara evento para editar produtos.
                 if (this.EventoReceitaSelecionada != null)

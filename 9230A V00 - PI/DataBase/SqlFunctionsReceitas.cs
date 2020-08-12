@@ -72,14 +72,14 @@ namespace _9230A_V00___PI.DataBase
             }
         }
 
-        private static int Create_Table_Receita_Produtos(string tableName)
+        public static int Create_Table_Receita_Produtos()
         {
             int ret = -1;
             if (Utilidades.VariaveisGlobais.DB_Connected_GS)
             {
                 try
                 {
-                    string CommandString = "CREATE TABLE Produtos_" + tableName + " (" +
+                    string CommandString = "CREATE TABLE Produtos_Receita (" +
                         "IdReceita int not null," +
                         "CodigoProduto nvarchar(100) not null," +
                         "PesoProduto real, " +
@@ -110,7 +110,7 @@ namespace _9230A_V00___PI.DataBase
             return ret;
         }
 
-        public static int IntoDate_Table_Receita_Produtos(string NomeReceita, int IdReceita, string codigoProduto, float pesoProduto, string tipoDosagem)
+        public static int IntoDate_Table_Receita_Produtos(int IdReceita, string codigoProduto, float pesoProduto, string tipoDosagem)
         {
             int ret = -1;
 
@@ -121,7 +121,7 @@ namespace _9230A_V00___PI.DataBase
 
                     dynamic Call = SqlGlobalFuctions.ReturnCall(Utilidades.VariaveisGlobais.Connection_DB_Receitas_GS);
 
-                    string query = "INSERT into Produtos_" + NomeReceita + " (IdReceita, CodigoProduto, PesoProduto, TipoDosagem) VALUES (@IdReceita, @CodigoProduto, @PesoProduto, @TipoDosagem)";
+                    string query = "INSERT into Produtos_Receita (IdReceita, CodigoProduto, PesoProduto, TipoDosagem) VALUES (@IdReceita, @CodigoProduto, @PesoProduto, @TipoDosagem)";
                     dynamic Command = SqlGlobalFuctions.ReturnCommand(query, Call);
                     Command.Parameters.AddWithValue("@IdReceita", IdReceita);
                     Command.Parameters.AddWithValue("@CodigoProduto", codigoProduto);
@@ -198,7 +198,7 @@ namespace _9230A_V00___PI.DataBase
             return Data;
         }
 
-        public static DataTable getProdutosReceita(string NomeReceita)
+        public static DataTable getProdutosReceita(int IdReceita)
         {
             DataTable Data = new DataTable();
 
@@ -206,7 +206,7 @@ namespace _9230A_V00___PI.DataBase
             {
                 try
                 {
-                    string CommandString = "SELECT * FROM Produtos_"+ NomeReceita;
+                    string CommandString = "SELECT * FROM Produtos_Receita WHERE IdReceita = '" + IdReceita + "'";
 
                     dynamic Call = SqlGlobalFuctions.ReturnCall(Utilidades.VariaveisGlobais.Connection_DB_Receitas_GS);
 
@@ -228,26 +228,18 @@ namespace _9230A_V00___PI.DataBase
             //Retornos
             // 0 = Foi criado a receita com sucesso
             //-1 = Problema ao inserir a receita na tabela, possivel causa é nome da receita já existente.
-            //-2 = problema ao criar tabela de produtos da receita, possível causa problema de conexão com banco de dados.
-            //-3 = Pegando Id da receita atual, possivel causa é receita não existir
-            //-4 = inserindo produtos na tabela de produtos da receita, possível causa problema de conexão com banco de dados.
+            //-2 = Pegando Id da receita atual, possivel causa é receita não existir
+            //-3 = inserindo produtos na tabela de produtos da receita, possível causa problema de conexão com banco de dados.
 
             //Passo de inserção da receita no banco de dados
             //1 Passo precisamos inserir os dados da receita na tabel da receita.
-            //2 Passo precisamos criar a tabela dos produtos da receita criada
-            //3 Passo Inserir os dados na tabela de produtos da receita criada.
+            //2 Passo Inserir os dados na tabela de produtos da receita criada.
 
 
             //Executando Passo 1
             if (IntoDate_Table_Receita(Utilidades.VariaveisGlobais.ReceitaCadastro.nomeReceita, Utilidades.VariaveisGlobais.ReceitaCadastro.pesoBase, Utilidades.VariaveisGlobais.ReceitaCadastro.observacao) != 0)
             {
                 return -1;
-            }
-
-            //Executando Passo 2    
-            if (Create_Table_Receita_Produtos(Utilidades.VariaveisGlobais.ReceitaCadastro.nomeReceita) != 0)
-            {
-                return -2;
             }
 
             //Pegando o ID da receita
@@ -257,6 +249,7 @@ namespace _9230A_V00___PI.DataBase
             {
                 return -3;
             }
+
             //Ordenar a lista com as seguintes especificações:
             //1 - produtos que são matérias primas manuais
             //2 - produtos que são matérias primas automaticas
@@ -264,10 +257,10 @@ namespace _9230A_V00___PI.DataBase
 
 
 
-            //Executando Passo 3 
+            //Executando Passo 2
             foreach (var item in Utilidades.VariaveisGlobais.ReceitaCadastro.listProdutos)
             {
-                if (IntoDate_Table_Receita_Produtos(Utilidades.VariaveisGlobais.ReceitaCadastro.nomeReceita, IdReceita, item.produto.codigo, item.pesoPorProduto, item.tipoDosagemMateriaPrima) != 0)
+                if (IntoDate_Table_Receita_Produtos(IdReceita, item.produto.codigo, item.pesoPorProduto, item.tipoDosagemMateriaPrima) != 0)
                 {
                     return -4;
                 }
@@ -283,15 +276,23 @@ namespace _9230A_V00___PI.DataBase
             {
                 try
                 {
-                    string CommandString = "DROP TABLE Produtos_" + NomeReceita + "";
+                    //Pega o id da receita antes de apagar a receita
+                    int IdReceita = getIdReceita(NomeReceita);
 
+                    //Apaga os produtos da receita na tabela de Produtos_Receita
+                    
+                    string CommandString = "DELETE FROM Produtos_Receita WHERE IdReceita = '" + IdReceita + "';";
 
                     dynamic Call = SqlGlobalFuctions.ReturnCall(Utilidades.VariaveisGlobais.Connection_DB_Receitas_GS);
+
                     Call.Open();
 
                     dynamic Command = SqlGlobalFuctions.ReturnCommand(CommandString, Call);
+
                     Command.ExecuteNonQuery();
-                    CommandString = "DELETE FROM Receitas WHERE NomeReceita = '" + NomeReceita + "';";
+
+                    //Apaga a receita na tabela de receita
+                    CommandString = "DELETE FROM Receitas WHERE IdReceita = '" + IdReceita + "';";
 
                     Command = SqlGlobalFuctions.ReturnCommand(CommandString, Call);
                     Command.ExecuteNonQuery();
@@ -313,7 +314,7 @@ namespace _9230A_V00___PI.DataBase
             }
         }
 
-        public static int getExistReceita(string NomeReceita)
+        public static int getExistReceita(string IdReceita)
         {
             DataTable Data = new DataTable();
 
@@ -321,7 +322,7 @@ namespace _9230A_V00___PI.DataBase
             {
                 try
                 {
-                    string CommandString = "SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Produtos_"+ NomeReceita + "';";
+                    string CommandString = "SELECT * FROM Receitas WHERE NomeReceita = '"+ IdReceita + "';";
 
                     dynamic Adapter = SqlGlobalFuctions.ReturnAdapter(CommandString, Utilidades.VariaveisGlobais.Connection_DB_Receitas_GS);
 

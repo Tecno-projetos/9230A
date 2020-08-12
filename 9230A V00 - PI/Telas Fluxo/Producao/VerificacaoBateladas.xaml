@@ -142,6 +142,16 @@
                 <materialDesign:PackIcon Kind="ArrowRightBold" VerticalAlignment="Center" Foreground="White" Height="42" Width="42"/>
             </Grid>
         </Button>
+        <Button x:Name="btContinuar" Margin="329,609,315,26" Background="#FF505050" BorderBrush="Black" Height="Auto" Opacity="1" Click="btContinuar_Click" >
+            <Grid Width="150">
+                <TextBlock x:Name="lbTextButton5" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="42,1,23,-1" Width="85" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Continuar"/>
+            </Grid>
+        </Button>
+        <Button x:Name="btVoltar" Margin="329,541,315,94" Background="#FF505050" BorderBrush="Black" Height="Auto" Opacity="1" Click="btVoltar_Click" >
+            <Grid Width="150">
+                <TextBlock x:Name="lbTextButton1" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="56,1,9,-1" Width="85" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Voltar"/>
+            </Grid>
+        </Button>
 
     </Grid>
 </UserControl>

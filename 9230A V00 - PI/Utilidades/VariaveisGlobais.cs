@@ -573,7 +573,9 @@ namespace _9230A_V00___PI.Utilidades
             DataBase.SqlFunctionsEquips.ExistTable();
             DataBase.SqlFunctionsProdutos.ExistTable();
             DataBase.SqlFunctionsReceitas.Create_Table_Receita();
+            DataBase.SqlFunctionsReceitas.Create_Table_Receita_Produtos();
             DataBase.SQLFunctionsProducao.Create_Table_Producao();
+            DataBase.SQLFunctionsProducao.Create_Table_Bateladas();
         }
 
         public static List<Produto> listProdutos = new List<Produto>();
@@ -633,7 +635,7 @@ namespace _9230A_V00___PI.Utilidades
                 dummyReceita.pesoBase = (float)item.ItemArray[2];
                 dummyReceita.observacao = (string)item.ItemArray[3];
 
-                DataTable dtProdutosReceita = DataBase.SqlFunctionsReceitas.getProdutosReceita(dummyReceita.nomeReceita);
+                DataTable dtProdutosReceita = DataBase.SqlFunctionsReceitas.getProdutosReceita(dummyReceita.id);
 
                 foreach (DataRow item1 in dtProdutosReceita.Rows)
                 {
@@ -894,12 +896,12 @@ namespace _9230A_V00___PI.Utilidades
         public List<Batelada> batelada = new List<Batelada>(); //Lista das bateladas
 
         /// <summary>
-        /// 
+        /// Atualizado na tela ProduçãoTelaInicial
         /// </summary>
         public Int32 tempoPreMistura { get; set; } //Tempo de pré mistura
 
         /// <summary>
-        /// 
+        /// Atualizado na tela ProduçãoTelaInicial
         /// </summary>
         public Int32 tempoPosMistura { get; set; } //Tempo de pos mistura
 
@@ -916,25 +918,25 @@ namespace _9230A_V00___PI.Utilidades
         /// <summary>
         /// Atualizado na tela ConfiguracaoReceitaProducao
         /// </summary>
-        public string CodigoProdutoDosagemAutomaticaSilo1 { get; set; } //Codigo do produto que sera dosado automaticamente no silo 1.
+        public string CodigoProdutoDosagemAutomaticaSilo1 = ""; //Codigo do produto que sera dosado automaticamente no silo 1.
 
         /// <summary>
         /// Atualizado na tela ConfiguracaoReceitaProducao
         /// </summary>
-        public string CodigoProdutoDosagemAutomaticaSilo2 { get; set; } //Codigo do produto que sera dosado automaticamente no silo 2.
-        
-        /// <summary>
-        /// 
-        /// </summary>
-        public DateTime dateTimeInicioProducao { get; set; } //Data Inicio produção
-       
-        /// <summary>
-        /// 
-        /// </summary>
-        public DateTime dateTimeFimProducao { get; set; } //Data fim da produção
+        public string CodigoProdutoDosagemAutomaticaSilo2 = ""; //Codigo do produto que sera dosado automaticamente no silo 2.
 
         /// <summary>
-        /// 
+        /// Atualizado na tela VerificacaoBateladas
+        /// </summary>
+        public DateTime dateTimeInicioProducao = new DateTime(); //Data Inicio produção
+
+        /// <summary>
+        /// Atualizado na tela VerificacaoBateladas
+        /// </summary>
+        public DateTime dateTimeFimProducao = new DateTime(); //Data fim da produção
+
+        /// <summary>
+        /// Atualizado na tela VerificacaoBateladas
         /// </summary>
         public bool IniciouProducao { get; set; } //Iniciou Produção
 
