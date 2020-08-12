@@ -24,6 +24,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
         private int idexOLD = -1;
         private int idexNew = 0;
         private string nomeExportação = "";
+        DriveInfo[] allDrives;
 
         public discoExportar()
         {
@@ -34,7 +35,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
 
         public void atualizaDrivers()
         {
-            DriveInfo[] allDrives = DriveInfo.GetDrives();
+            allDrives = DriveInfo.GetDrives();
 
             if (listbox.Items.Count > 0)
             {
@@ -55,7 +56,6 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
                 {
                     boxItem.IsSelected = false;
                 }
-
                 boxItem.Width = 130;
                 boxItem.Height = 60;
                 boxItem.Content = drive.Name + " " + drive.VolumeLabel ;
@@ -91,12 +91,12 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
                     {
                         var row_listOld = (ListBoxItem)listbox.Items[idexOLD];
                         row_listOld.Background = new SolidColorBrush(Color.FromRgb(60, 60, 60));
-                        row_list.Foreground = new SolidColorBrush(Color.FromRgb(255, 255, 255));
+                        row_listOld.Foreground = new SolidColorBrush(Color.FromRgb(255, 255, 255));
                     }
 
                     idexOLD = idexNew;
 
-                    nomeExportação = (string)row_list.Content;
+                    nomeExportação = allDrives[idexNew].Name;
 
                 }
             }

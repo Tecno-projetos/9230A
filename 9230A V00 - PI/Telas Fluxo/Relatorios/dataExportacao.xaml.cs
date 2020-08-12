@@ -19,6 +19,8 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
 
         public event EventHandler bt_Exportar;
 
+        private string exportacao = "";
+
         public dataExportacao()
         {
             InitializeComponent();
@@ -67,6 +69,8 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
                 return Convert.ToDateTime((string)txtFIM.Content);
             }
         }
+
+        public string discoOrigem_GS { get => exportacao; set => exportacao = value; }
 
 
         #endregion
@@ -130,6 +134,8 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
 
         #endregion
 
+
+
         public void atualizaProjeto(String sFilename) 
         {       
             if (this.webBrowse != null)
@@ -151,8 +157,14 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
 
             if (inputDialog.ShowDialog() == true)
             {
+                exportacao = inputDialog.discoExportacao;
+
                 if (this.bt_Exportar != null)
                     this.bt_Exportar(this, e);
+
+
+     
+
             }
         }
 

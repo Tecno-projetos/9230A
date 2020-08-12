@@ -538,7 +538,7 @@ namespace _9230A_V00___PI.Utilidades
 
         #endregion
 
-        private static void createFolder(string folder) 
+        public static void createFolder(string folder) 
         {
           
             //Se o diretório não existir...
