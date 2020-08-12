@@ -22,7 +22,12 @@ namespace _9230A_V00___PI.Telas_Fluxo.Producao
     public partial class ConfiguracaoReceitaProducao : UserControl
     {
         int DosagemAutomaticaMateriaPrima1 = 0; //1 = Silo1, 2 = Silo2
+        Utilidades.messageBox inputDialog;
 
+        public event EventHandler ProximaTela;
+        public event EventHandler TelaAnterior;
+
+        bool contemMateriaPrimaDosagemAutomatica = false;
         public ConfiguracaoReceitaProducao()
         {
             InitializeComponent();
@@ -33,21 +38,25 @@ namespace _9230A_V00___PI.Telas_Fluxo.Producao
         private void btSilo1MateriaPrima1_Click(object sender, RoutedEventArgs e)
         {
             DosagemAutomaticaMateriaPrima1 = 1;
+            AtualizaBTDosagemAutomatica();
         }
 
         private void btSilo2MateriaPrima1_Click(object sender, RoutedEventArgs e)
         {
             DosagemAutomaticaMateriaPrima1 = 2;
+            AtualizaBTDosagemAutomatica();
         }
 
         private void btSilo1MateriaPrima2_Click(object sender, RoutedEventArgs e)
         {
             DosagemAutomaticaMateriaPrima1 = 2;
+            AtualizaBTDosagemAutomatica();
         }
 
         private void btSilo2MateriaPrima2_Click(object sender, RoutedEventArgs e)
         {
             DosagemAutomaticaMateriaPrima1 = 1;
+            AtualizaBTDosagemAutomatica();
         }
 
         private void AtualizaBTDosagemAutomatica()
@@ -72,7 +81,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Producao
                 btSilo1MateriaPrima2.Background = new SolidColorBrush(Color.FromArgb(255, 80, 80, 80));
 
                 VariaveisGlobais.ProducaoReceita.CodigoProdutoDosagemAutomaticaSilo1 = txtSiloMateriaPrima2.Text;
-                VariaveisGlobais.ProducaoReceita.CodigoProdutoDosagemAutomaticaSilo2 = txtSiloMateriaPrima1.Text;
+                VariaveisGlobais.ProducaoReceita.CodigoProdutoDosagemAutomaticaSilo2 = txtSiloMateriaPrima1.Text; 
             }
         }
 
@@ -89,6 +98,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Producao
                 //SÓ PODE TER DUAS MATÉRIAS PRIMAS COM DOSAGEM AUTOMÁTICA NO MÁXIMO, DEVIDO A QUANTIDADE DE SILO.
                 if (item.tipoDosagemMateriaPrima.Equals("Automático"))
                 {
+                    contemMateriaPrimaDosagemAutomatica = true;
                     if (count)
                     {
                         txtSiloMateriaPrima2.Text = item.produto.descricao;
@@ -104,6 +114,114 @@ namespace _9230A_V00___PI.Telas_Fluxo.Producao
 
             //Atualiza os botões de seleção dos silos
             AtualizaBTDosagemAutomatica();
+
+            //Atualiza Peso máximo e volume máximo suportado
+            txtPesoMaximoPermitido.Text = VariaveisGlobais.ValoresEspecificacoesEquipamentos.PesoMaximoPermitidoBatelada().ToString();
+
+            txtVolumeMaximoPermitido.Text = VariaveisGlobais.ValoresEspecificacoesEquipamentos.VolumeMaximoPermitidoBatelada().ToString();
+
+            //Atualiza Valores de peso desejado e quantidade de bateladas que ja estejam carregados.
+            atualizaValoresPesoVolumeQtdBatelada();
+        }
+
+        private bool calculaApartirPesoTotalDesejado(bool AddBateladas)
+        {
+            bool ret = false;
+            int pesoDesejado = 0;
+            int bateladas = 0;
+            int pesoResto = 0;
+            int countBatelada = 0;
+
+            if (!String.IsNullOrEmpty(txtPesoDesejado.Text))
+            {
+
+                if (Int32.TryParse(txtPesoDesejado.Text, out pesoDesejado))
+                {
+                    //atualiza o peso total da produção
+                    Utilidades.VariaveisGlobais.ProducaoReceita.pesoTotalProducao = pesoDesejado;
+
+                    //Calcula quantas bateladas inteiras terão utilizando o máximo permitido de peso
+                    bateladas = pesoDesejado / Convert.ToInt32(txtPesoMaximoPermitido.Text);
+
+                    //Calcula o peso da ultima batelada
+                    pesoResto = pesoDesejado % Convert.ToInt32(txtPesoMaximoPermitido.Text);
+
+                    if (AddBateladas)
+                    {
+                        Utilidades.VariaveisGlobais.ProducaoReceita.batelada.Clear();
+
+                        //cria um dummy da batelada para poder inserir cada peso desejado para cada batelada
+                        Utilidades.Batelada DummyBatelada = new Batelada();
+
+                        //passa por cada batelada e adiciona o peso das bateladas inteiras
+                        for (int i = 0; i < bateladas; i++)
+                        {
+                            countBatelada += 1;
+
+                            DummyBatelada = new Batelada();
+
+                            DummyBatelada.pesoDesejado = Convert.ToInt32(txtPesoMaximoPermitido.Text);
+                            DummyBatelada.numeroBatelada = countBatelada;
+                            Utilidades.VariaveisGlobais.ProducaoReceita.batelada.Add(DummyBatelada);
+                        }
+
+                        //Verifica se tem peso resto para adicionar na ultima batelada o restante (isso ira acontecer quando ocorrer valores que não forem multiplo do valor máximo permitido)
+                        if (pesoResto > 0)
+                        {
+                            bateladas += 1;
+                            countBatelada += 1;
+                            DummyBatelada = new Batelada();
+
+                            DummyBatelada.pesoDesejado = pesoResto;
+                            DummyBatelada.numeroBatelada = countBatelada;
+                            Utilidades.VariaveisGlobais.ProducaoReceita.batelada.Add(DummyBatelada);
+                        }
+                    }
+
+                    //Verifica se tem peso resto para adicionar na ultima batelada o restante (isso ira acontecer quando ocorrer valores que não forem multiplo do valor máximo permitido)
+                    if (pesoResto > 0)
+                    {
+                        bateladas += 1;
+                    }
+
+
+                    //passa para a produção receita a quantidade de bateladas.
+                    Utilidades.VariaveisGlobais.ProducaoReceita.quantidadeBateladas = bateladas;
+
+                    ret = true;
+                }
+                else
+                {
+                    if (AddBateladas)
+                    {
+                        inputDialog = new Utilidades.messageBox("Valor não é inteiro", "Por favor verifique se o valor pertecem aos números inteiros", MaterialDesignThemes.Wpf.PackIconKind.Error, "OK", "Fechar");
+
+                        inputDialog.ShowDialog();
+                    }
+
+                }
+
+            }
+            else
+            {
+                if (AddBateladas)
+                {
+                    inputDialog = new Utilidades.messageBox("Campo Necessário", "Por favor verifique se o campo Peso Total Desejado esta vazio!", MaterialDesignThemes.Wpf.PackIconKind.Error, "OK", "Fechar");
+
+                    inputDialog.ShowDialog();
+                }
+
+            }
+
+            atualizaValoresPesoVolumeQtdBatelada();
+
+            return ret;
+        }
+
+        private void atualizaValoresPesoVolumeQtdBatelada()
+        {
+            txtPesoDesejado.Text = Utilidades.VariaveisGlobais.ProducaoReceita.pesoTotalProducao.ToString();
+            txtQtdBateladas.Text = Utilidades.VariaveisGlobais.ProducaoReceita.quantidadeBateladas.ToString();
         }
 
         private void openKeyboard(object sender, MouseButtonEventArgs e)
@@ -111,9 +229,41 @@ namespace _9230A_V00___PI.Telas_Fluxo.Producao
             Teclados.keyboard.openKeyboard();
         }
 
-        private void btInicarProducaoReceita_Click(object sender, RoutedEventArgs e)
+        private void txtPesoDesejado_KeyUp(object sender, KeyEventArgs e)
         {
+            calculaApartirPesoTotalDesejado(false);
+        }
 
+        private void btContinuar_Click(object sender, RoutedEventArgs e)
+        {
+            //Verifica se o calculo das quantidades das bateladas esta correto
+            if (calculaApartirPesoTotalDesejado(true))
+            {
+                //verifica se tem dosagem automática de materia prima
+                if (contemMateriaPrimaDosagemAutomatica)
+                {
+                    //Verifica se foi selecionado silo para as dosagem automáticas
+                    if (DosagemAutomaticaMateriaPrima1 != 0)
+                    {
+                        //Chama proximo tela
+                        if (this.ProximaTela != null)
+                            this.ProximaTela(this, e);
+                    }
+                    else
+                    {
+                        inputDialog = new Utilidades.messageBox("Seleção Silo", "Falta Selecionar um silo de origem da Matéria Prima", MaterialDesignThemes.Wpf.PackIconKind.Error, "OK", "Fechar");
+
+                        inputDialog.ShowDialog();
+                    }
+                }
+                else
+                {
+                    //Chama proximo tela
+                    if (this.ProximaTela != null)
+                        this.ProximaTela(this, e);
+                }
+            }
+            
         }
     }
 }

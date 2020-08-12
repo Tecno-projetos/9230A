@@ -1,9 +1,9 @@
-﻿<UserControl x:Class="_9230A_V00___PI.Telas_Fluxo.Producao.ProducaoTelaInicial"
+﻿<UserControl x:Class="_9230A_V00___PI.Telas_Fluxo.Producao.VerificacaoBateladas"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:_9230A_V00___PI.Telas_Fluxo.Producao" xmlns:Utilidades="clr-namespace:_9230A_V00___PI.Utilidades" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:local="clr-namespace:_9230A_V00___PI.Telas_Fluxo.Producao" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:Utilidades="clr-namespace:_9230A_V00___PI.Utilidades"
              mc:Ignorable="d" 
              d:DesignHeight="675" d:DesignWidth="824" Loaded="UserControl_Loaded">
 
@@ -44,16 +44,16 @@
             </ResourceDictionary>
 
         </Grid.Resources>
-        <Label x:Name="lbTitle" Content="Selecionar Receita Para Produção" HorizontalAlignment="Left" VerticalAlignment="Top" Width="825" Foreground="White" VerticalContentAlignment="Center" FontWeight="Bold" HorizontalContentAlignment="Center" Margin="0,6,-1,0" Height="60" FontSize="30"/>
+        <Label x:Name="lbTitle" Content="Configuração Receita Para Produção" HorizontalAlignment="Left" VerticalAlignment="Top" Width="825" Foreground="White" VerticalContentAlignment="Center" FontWeight="Bold" HorizontalContentAlignment="Center" Margin="0,6,-1,0" Height="60" FontSize="30"/>
         <Rectangle Fill="White" HorizontalAlignment="Left" Height="5" Margin="0,76,-1,0" Stroke="White" VerticalAlignment="Top" Width="825"/>
-        <DataGrid x:Name="DataGrid_Receita" Margin="11,131,434,0" CanUserAddRows="False"
+        <DataGrid x:Name="DataGrid_Bateladas" Margin="11,131,434,0" CanUserAddRows="False"
             HorizontalAlignment="Stretch" VerticalAlignment="Top" FontWeight="Black" Foreground="Black"
             HorizontalGridLinesBrush="{DynamicResource {x:Static SystemColors.ControlTextColor}}"
             VerticalGridLinesBrush="{DynamicResource MaterialDesignDarkBackground}" BorderBrush="{x:Null}" BorderThickness="1"
             CanUserDeleteRows ="False" CanUserReorderColumns="False" CanUserResizeRows="False" CanUserSortColumns="False"   
             ScrollViewer.VerticalScrollBarVisibility="Auto" Height="383" Cursor="Hand" IsReadOnly="True" AlternatingRowBackground="#FF7F7F7F" 
             RowBackground="White" HorizontalScrollBarVisibility="Hidden" Background="White" FontSize="24" FontFamily="Segoe UI Emoji" GridLinesVisibility="All" 
-            SelectionMode="Single"  AutoGenerateColumns="True" RowHeight="40" MouseLeftButtonUp="DataGrid_Receita_MouseLeftButtonUp" LoadingRow="DataGrid_Receita_LoadingRow" >
+            SelectionMode="Single"  AutoGenerateColumns="True" RowHeight="40" LoadingRow="DataGrid_Bateladas_LoadingRow" PreviewMouseLeftButtonUp="DataGrid_Bateladas_PreviewMouseLeftButtonUp" >
 
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridCell}">
@@ -73,7 +73,7 @@
 
             </DataGrid.ColumnHeaderStyle>
         </DataGrid>
-        <Label Content="Receitas:" Height="34" Margin="13,97,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="209" Foreground="White" FontWeight="Bold" FontSize="16"/>
+        <Label Content="Bateladas:" Height="34" Margin="13,97,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="209" Foreground="White" FontWeight="Bold" FontSize="16"/>
         <Button x:Name="btUpList" Margin="122,544,625,81" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btUpList_Click" >
             <Grid Width="42" Height="42" Margin="0">
                 <materialDesign:PackIcon Kind="ArrowUpBold" VerticalAlignment="Center" Foreground="White" Height="42" Width="42"/>
@@ -121,7 +121,7 @@
 
             </DataGrid.ColumnHeaderStyle>
         </DataGrid>
-        <Label Content="Produtos Receita Selecionada:" Height="34" Margin="434,97,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="247" Foreground="White" FontWeight="Bold" FontSize="16"/>
+        <Label Content="Produtos Batelada Selecionada:" Height="34" Margin="434,97,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="247" Foreground="White" FontWeight="Bold" FontSize="16"/>
         <Button x:Name="btUpList_Produtos" Margin="632,544,115,81" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btUpList_Produtos_Click" >
             <Grid Width="42" Height="42" Margin="0">
                 <materialDesign:PackIcon Kind="ArrowUpBold" VerticalAlignment="Center" Foreground="White" Height="42" Width="42"/>
@@ -142,15 +142,6 @@
                 <materialDesign:PackIcon Kind="ArrowRightBold" VerticalAlignment="Center" Foreground="White" Height="42" Width="42"/>
             </Grid>
         </Button>
-        <Button x:Name="btSelecionaRota" Margin="299,569,293,56" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btSelecionaRota_Click" >
-            <Grid Width="150">
-                <materialDesign:PackIcon x:Name="packiconCadastrarEditar" Kind="Add" VerticalAlignment="Center" Foreground="#FF00FF0C" Margin="-31,-6,0,-7" Height="30" Width="30"/>
-                <TextBlock x:Name="lbTextButton" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="29,1,-9,-1" Width="130" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Selecionar Receita"/>
-            </Grid>
-        </Button>
-
-
-
 
     </Grid>
 </UserControl>

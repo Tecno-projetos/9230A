@@ -20,14 +20,29 @@ namespace _9230A_V00___PI.Telas_Fluxo
     /// </summary>
     public partial class producao : UserControl
     {
+        //Ração
         Telas_Fluxo.Producao.ProducaoTelaInicial TelaInicialProducao = new Producao.ProducaoTelaInicial();
         Telas_Fluxo.Producao.ConfiguracaoReceitaProducao TelaConfiguracaoReceitaProducao = new Producao.ConfiguracaoReceitaProducao();
+        Telas_Fluxo.Producao.VerificacaoBateladas TelaVerificaoBateladas = new Producao.VerificacaoBateladas();
+
+        Utilidades.messageBox inputDialog;
 
         public producao()
         {
             InitializeComponent();
 
             TelaInicialProducao.EventoReceitaSelecionada += new EventHandler(EventoReceitaSelecionada);
+
+            TelaConfiguracaoReceitaProducao.ProximaTela += new EventHandler(EventoProximaTela);
+        }
+
+        protected void EventoProximaTela(object sender, EventArgs e)
+        {
+            if (spControleProducao != null)
+            {
+                spControleProducao.Children.Clear();
+            }
+            spControleProducao.Children.Add(TelaVerificaoBateladas);
         }
 
         protected void EventoReceitaSelecionada(object sender, EventArgs e)
@@ -46,11 +61,24 @@ namespace _9230A_V00___PI.Telas_Fluxo
 
         private void btTelaInicialRacao_Click(object sender, RoutedEventArgs e)
         {
-            if (spControleProducao != null)
+
+            if (Utilidades.VariaveisGlobais.ValoresEspecificacoesEquipamentos.ValoresPreenchidos())
             {
-                spControleProducao.Children.Clear();
+                if (spControleProducao != null)
+                {
+                    spControleProducao.Children.Clear();
+                }
+                spControleProducao.Children.Add(TelaInicialProducao);
             }
-            spControleProducao.Children.Add(TelaInicialProducao);
+            else
+            {
+                //falta preencher algum valor
+                inputDialog = new Utilidades.messageBox("Falta informções", "Verifique se os valores na tela de configuração das especificações estão preenchidos!", MaterialDesignThemes.Wpf.PackIconKind.Error, "OK", "Fechar");
+
+                inputDialog.ShowDialog();
+            }
+
+
         }
     }
 }

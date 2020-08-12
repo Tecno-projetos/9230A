@@ -259,6 +259,9 @@
     <Compile Include="Telas Fluxo\Producao\ProducaoTelaInicial.xaml.cs">
       <DependentUpon>ProducaoTelaInicial.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Telas Fluxo\Producao\VerificacaoBateladas.xaml.cs">
+      <DependentUpon>VerificacaoBateladas.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Telas Fluxo\receitas.xaml.cs">
       <DependentUpon>receitas.xaml</DependentUpon>
     </Compile>
@@ -504,6 +507,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Telas Fluxo\Producao\ProducaoTelaInicial.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Telas Fluxo\Producao\VerificacaoBateladas.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

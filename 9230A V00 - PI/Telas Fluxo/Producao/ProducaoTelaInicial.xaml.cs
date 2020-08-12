@@ -141,6 +141,8 @@ namespace _9230A_V00___PI.Telas_Fluxo.Producao
 
                 var index = Utilidades.VariaveisGlobais.listReceitas.FindIndex(x => x.id == Convert.ToInt32(rowList.Row.ItemArray[0]));
 
+                Utilidades.VariaveisGlobais.ProducaoReceita.IdReceitaBase = Utilidades.VariaveisGlobais.listReceitas[index].id;
+                //Passa a Receita desejada para a produção Receita
                 Utilidades.VariaveisGlobais.ProducaoReceita.receita = Utilidades.VariaveisGlobais.listReceitas[index];
 
                 //Dispara evento para editar produtos.
