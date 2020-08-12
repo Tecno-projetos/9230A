@@ -27,16 +27,9 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
         /// <param name="dataExportacaoInicial"> Envia uma data para ser salvo no PDF e para mostrar quando foi iniciado a exportação</param>
         /// <param name="dataExportacaoFinal"> Envia uma data para ser salvo no PDF e para mostrar quando foi finalizado a exportação</param>
                
-        public static void ExportDataTableToPdf(String strPdfPath, List<Utilidades.Producao> PesquisaProducao, string strHeader, string Producao, DateTime dataExportacaoInicial, DateTime dataExportacaoFinal)
+        public static void exportProducao(String strPdfPath, List<Utilidades.Producao> PesquisaProducao, string strHeader, DateTime dataExportacaoInicial, DateTime dataExportacaoFinal)
         {
             #region Váriveis
-
-            BaseColor preto = new BaseColor(0, 0, 0);
-            BaseColor fundo = new BaseColor(200, 200, 200);
-            BaseColor branco = new BaseColor(255, 255, 255);
-            Font font = FontFactory.GetFont(BaseFont.TIMES_ROMAN, 10, Font.BOLD, preto);
-            Font titulo = FontFactory.GetFont(BaseFont.TIMES_ROMAN, 10, Font.BOLD, preto);
-
             float[] colsW = { 25, 25 };
 
 
@@ -44,8 +37,6 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
             double volumeTotalProduzido = 0;
             Int64 quantidadeProducoes = 0;
             Int64 quantidadeBateladas = 0;
-
-
 
             #endregion
 
@@ -125,47 +116,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
             //Add line break
             //document.Add(new Chunk("\n", fntHead));
 
-            //Add Data de exportação
-            BaseFont bfntParagraph = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
-            Font fntProducao = new Font(bfntParagraph, 12, 1, iTextSharp.text.BaseColor.BLACK);
-
             #endregion
-
-            //Cria a table para inserir os dados
-
-            #region Cabeçalho do Relatório
-
-
-
-
-            PdfPTable table_Linha1 = new PdfPTable(2);
-            PdfPTable table_Linha2 = new PdfPTable(2);
-            PdfPTable table_Linha3 = new PdfPTable(2);
-
-
-            table_Linha1 = createTable(table_Linha1, colsW);
-            table_Linha2 = createTable(table_Linha2, colsW);
-            table_Linha3 = createTable(table_Linha3, colsW);
-
-            table_Linha1.AddCell(getNewCell("Peso total produzido:" +"1500000" + " kg",  titulo, Element.ALIGN_LEFT, 10, PdfPCell.NO_BORDER, preto, branco));
-            table_Linha1.AddCell(getNewCell("Volume total produzido:" + "1500000" + " m³", titulo, Element.ALIGN_LEFT, 10, PdfPCell.NO_BORDER, preto, branco));
-
-            table_Linha2.AddCell(getNewCell("Quantidade total produzida:" + "150" + " produções", titulo, Element.ALIGN_LEFT, 10, PdfPCell.NO_BORDER, preto, branco));
-            table_Linha2.AddCell(getNewCell("Total de Bateladas prooduzidas:" + "150" + " und.", titulo, Element.ALIGN_LEFT, 10, PdfPCell.NO_BORDER, preto, branco));
-
-            table_Linha3.AddCell(getNewCell("Data Inicial pesquisa:" + dataExportacaoInicial.ToString(), titulo, Element.ALIGN_LEFT, 10, PdfPCell.NO_BORDER, preto, branco)); ;
-            table_Linha3.AddCell(getNewCell("Data Final pesquisa:" + dataExportacaoFinal, titulo, Element.ALIGN_LEFT, 10, PdfPCell.NO_BORDER, preto, branco));
-
-            #endregion
-
-            document.Add(table_Linha1);
-            document.Add(table_Linha2);
-            document.Add(table_Linha3);
-            document.Add(table_Linha3);
-
-            //Add a line seperation
-            Paragraph p1 = new Paragraph(new Chunk(new iTextSharp.text.pdf.draw.LineSeparator(0.0F, 100.0F, iTextSharp.text.BaseColor.BLACK, Element.ALIGN_LEFT, 1)));
-            document.Add(p1);
 
             //Quantidade de produçoes
             quantidadeProducoes = PesquisaProducao.Count;
@@ -174,62 +125,184 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
             {
                 //Quantidade de bateladas em produçao pesquisada.
                 quantidadeBateladas = quantidadeBateladas + item.batelada.Count;
-                pesoTotalproduzido = pesoTotalproduzido + item.pesoTotalProducao;
-                volumeTotalProduzido = volumeTotalProduzido + item.volumeTotalProducao;
-
-
+                pesoTotalproduzido = pesoTotalproduzido + item.pesoTotalProduzido;
+                volumeTotalProduzido = volumeTotalProduzido + item.volumeTotalProduzido;
 
             }
 
+            document.Add(tableProducao(colsW, "Peso total produzido: " + pesoTotalproduzido + " kg", "Volume total produzido: " + pesoTotalproduzido + " m³", false));
+            document.Add(tableProducao(colsW, "Quantidade total produzida: " + quantidadeProducoes + " produções", "Total de bateladas produzidas: " + quantidadeBateladas + " und.", false));
+            document.Add(tableProducao(colsW, "Data início produção: " + dataExportacaoInicial.ToShortDateString() + "\n" + dataExportacaoInicial.ToLongTimeString(), "Data fim produção: " + dataExportacaoFinal.ToShortDateString() + "\n" + dataExportacaoFinal.ToLongTimeString(), false)); ;
 
-            //document.Add(new Chunk("Produção Total = " + Producao));
-            //document.Add(new Chunk("\nExportado Data: " + dataExportacaoInicial + " a Data: " + dataExportacaoFinal));
 
+            //Add a line seperation
+            Paragraph p1 = new Paragraph(new Chunk(new iTextSharp.text.pdf.draw.LineSeparator(0.0F, 100.0F, iTextSharp.text.BaseColor.BLACK, Element.ALIGN_LEFT, 1)));
+            document.Add(p1);
 
-            ////Write the table
-            //PdfPTable table = new PdfPTable(dtblTable.Columns.Count);
-            ////Table header
-            //BaseFont btnColumnHeader = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
-            //Font fntColumnHeader = new Font(btnColumnHeader, 10, 1, iTextSharp.text.BaseColor.WHITE);
+            //Adiocona o detatalhamento da Produção
+            Paragraph Detalhamento = new Paragraph();
+            BaseFont btnDetalhamento = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
+            Font fntADetalhamento = FontFactory.GetFont(BaseFont.TIMES_ROMAN, 12, Font.BOLD, new BaseColor(0, 0, 0));
+            Detalhamento.Alignment = Element.ALIGN_CENTER;
+     
+            Detalhamento.Add(new Chunk("Detalhamento Produção", fntADetalhamento));
+            document.Add(Detalhamento);
 
-            ////Adiciona tabela
-            //for (int i = 0; i < dtblTable.Columns.Count; i++)
-            //{
-            //    PdfPCell cell = new PdfPCell();
-            //    cell.BackgroundColor = iTextSharp.text.BaseColor.GRAY;
-            //    cell.AddElement(new Chunk(dtblTable.Columns[i].ColumnName.ToUpper(), fntColumnHeader));
-            //    table.AddCell(cell);
-            //}
-            ////table Data
-            //for (int i = 0; i < dtblTable.Rows.Count; i++)
-            //{
-            //    for (int j = 0; j < dtblTable.Columns.Count; j++)
-            //    {
-            //        table.AddCell(dtblTable.Rows[i][j].ToString());
-            //    }
-            //}
-            //document.Add(table);
+            document.Add(new Chunk("\n", fntHead));
+
+            int cont = 0;
+            int mudanca = 3;
+
+            foreach (var item in PesquisaProducao)
+            {                
+                if (!(cont < mudanca))
+                {
+                    document.NewPage();
+                    cont = 0;
+                    mudanca = 4;
+                }
+
+                document.Add(tableProducao("Relatório produção N° produção: " + Convert.ToString(item.id), true));
+                document.Add(tableProducao(item.receita.nomeReceita, true));
+                document.Add(tableProducao(colsW, "Peso total produção: " + item.pesoTotalProducao + " kg", "Volume total produção: " + item.volumeTotalProducao + " m³", true));
+                document.Add(tableProducao(colsW, "Peso total produzido: " + item.pesoTotalProduzido + " kg", "Volume total produzido: " + item.volumeTotalProduzido + " m³", true));
+                document.Add(tableProducao("Quantidade de bateldas: " + item.quantidadeBateladas + " und.", true, Element.ALIGN_LEFT));
+                document.Add(tableProducao(colsW, "Tempo pré mistura: " + item.tempoPreMistura + " segundos", "Tempo pós mistura: " + item.tempoPosMistura + " segundos", true));
+                document.Add(tableProducao(colsW, "Data início produção: " + item.dateTimeInicioProducao, "Data fim produção: " + item.dateTimeFimProducao, true));
+                document.Add(new Chunk("\n", fntHead));
+
+                cont++;
+            }
 
             document.Close();
             writer.Close();
             fs.Close();
         }
 
-
-        private static PdfPTable createTable(PdfPTable tabela, float[] colsW) 
+        private static PdfPTable tableProducao(float[] colsW,string nomeColuna1, string  nomeColuna2, bool comBorda) 
         {
+
+            PdfPTable tabela = new PdfPTable(2);
+            tabela.KeepTogether = true;
+            BaseColor preto = new BaseColor(0, 0, 0);
+            BaseColor fundo = new BaseColor(200, 200, 200);
+            BaseColor branco = new BaseColor(255, 255, 255);
+            Font font = FontFactory.GetFont(BaseFont.TIMES_ROMAN, 10, Font.BOLD, preto);
+            Font titulo = FontFactory.GetFont(BaseFont.TIMES_ROMAN, 10, Font.BOLD, preto);
+
             tabela.SetWidths(colsW);
             tabela.HeaderRows = 0;
             tabela.WidthPercentage = 100f;
-            tabela.DefaultCell.Border = PdfPCell.NO_BORDER;
+
             tabela.DefaultCell.BorderColor = new BaseColor(255, 255, 255);
             tabela.DefaultCell.BorderColorBottom = new BaseColor(255, 255, 255);
-            tabela.DefaultCell.Padding = 10;
+            tabela.DefaultCell.Padding = 5;
+
+
+            if (comBorda)
+            {
+                tabela.DefaultCell.Border = PdfPCell.BOX;
+
+                tabela.AddCell(getNewCell(nomeColuna1, titulo, Element.ALIGN_LEFT,5, preto, branco));
+                tabela.AddCell(getNewCell(nomeColuna2, titulo, Element.ALIGN_LEFT,5, preto, branco));
+
+            }
+            else
+            {
+                tabela.DefaultCell.Border = PdfPCell.NO_BORDER;
+
+                tabela.AddCell(getNewCell(nomeColuna1, titulo, Element.ALIGN_LEFT, 5, PdfPCell.NO_BORDER, preto, branco));
+                tabela.AddCell(getNewCell(nomeColuna2, titulo, Element.ALIGN_LEFT, 5, PdfPCell.NO_BORDER, preto, branco));
+
+
+            }
 
             return tabela;
 
-        }
 
+        }
+       
+        private static PdfPTable tableProducao(string nomeColuna1, bool comBorda)
+        {
+
+            PdfPTable tabela = new PdfPTable(1);
+
+            tabela.KeepTogether = true;
+
+            BaseColor preto = new BaseColor(0, 0, 0);
+            BaseColor fundo = new BaseColor(200, 200, 200);
+            BaseColor branco = new BaseColor(255, 255, 255);
+            Font font = FontFactory.GetFont(BaseFont.TIMES_ROMAN, 10, Font.BOLD, preto);
+            Font titulo = FontFactory.GetFont(BaseFont.TIMES_ROMAN, 10, Font.BOLD, preto);
+
+            tabela.HeaderRows = 0;
+            tabela.WidthPercentage = 100f;
+
+            tabela.DefaultCell.BorderColor = new BaseColor(255, 255, 255);
+            tabela.DefaultCell.BorderColorBottom = new BaseColor(255, 255, 255);
+            tabela.DefaultCell.Padding = 5;
+
+
+            if (comBorda)
+            {
+                tabela.DefaultCell.Border = PdfPCell.BOX;
+
+                tabela.AddCell(getNewCell(nomeColuna1, titulo, Element.ALIGN_CENTER, 5, preto, branco));
+
+            }
+            else
+            {
+                tabela.DefaultCell.Border = PdfPCell.NO_BORDER;
+
+                tabela.AddCell(getNewCell(nomeColuna1, titulo, Element.ALIGN_CENTER, 5, PdfPCell.NO_BORDER, preto, branco));
+
+
+            }
+
+            return tabela;
+
+
+        }
+     
+        private static PdfPTable tableProducao(string nomeColuna1, bool comBorda, int alinhamento)
+        {
+
+            PdfPTable tabela = new PdfPTable(1);
+            tabela.KeepTogether = true;
+            BaseColor preto = new BaseColor(0, 0, 0);
+            BaseColor fundo = new BaseColor(200, 200, 200);
+            BaseColor branco = new BaseColor(255, 255, 255);
+            Font font = FontFactory.GetFont(BaseFont.TIMES_ROMAN, 10, Font.BOLD, preto);
+            Font titulo = FontFactory.GetFont(BaseFont.TIMES_ROMAN, 10, Font.BOLD, preto);
+
+            tabela.HeaderRows = 0;
+            tabela.WidthPercentage = 100f;
+
+            tabela.DefaultCell.BorderColor = new BaseColor(255, 255, 255);
+            tabela.DefaultCell.BorderColorBottom = new BaseColor(255, 255, 255);
+            tabela.DefaultCell.Padding = 5;
+
+
+            if (comBorda)
+            {
+                tabela.DefaultCell.Border = PdfPCell.BOX;
+
+                tabela.AddCell(getNewCell(nomeColuna1, titulo, alinhamento, 5, preto, branco));
+
+            }
+            else
+            {
+                tabela.DefaultCell.Border = PdfPCell.NO_BORDER;
+
+                tabela.AddCell(getNewCell(nomeColuna1, titulo, alinhamento, 5, PdfPCell.NO_BORDER, preto, branco));
+
+
+            }
+
+            return tabela;
+
+
+        }
 
         #endregion
 
@@ -363,15 +436,18 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
 
             return cell;
         }
+        private static PdfPCell getNewCell(string Texto, Font Fonte, int Alinhamento, float Espacamento, BaseColor CorBorda, BaseColor CorFundo)
+        {
+            var cell = new PdfPCell(new Phrase(Texto, Fonte));
+            cell.HorizontalAlignment = Alinhamento;
+            cell.Padding = Espacamento;
+            cell.Border = PdfPCell.BOX;
+            cell.BorderColor = CorBorda;
+            cell.BackgroundColor = CorFundo;
 
-        private static PdfPCell getNewCell(string Texto, Font Fonte, int Alinhamento, float Espacamento, int Borda, BaseColor CorBorda)
-        {
-            return getNewCell(Texto, Fonte, Alinhamento, Espacamento, Borda, CorBorda, new BaseColor(255, 255, 255));
+            return cell;
         }
-        private static PdfPCell getNewCell(string Texto, Font Fonte, int Alinhamento = 0, float Espacamento = 5, int Borda = 0)
-        {
-            return getNewCell(Texto, Fonte, Alinhamento, Espacamento, Borda, new BaseColor(0, 0, 0), new BaseColor(255, 255, 255));
-        }
+
 
 
     }

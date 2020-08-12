@@ -1,0 +1,124 @@
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
+
+namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
+{
+    /// <summary>
+    /// Lógica interna para discoExportar.xaml
+    /// </summary>
+    public partial class discoExportar : Window
+    {
+
+        private int idexOLD = -1;
+        private int idexNew = 0;
+        private string nomeExportação = "";
+
+        public discoExportar()
+        {
+            InitializeComponent();
+
+            atualizaDrivers();
+        }
+
+        public void atualizaDrivers()
+        {
+            DriveInfo[] allDrives = DriveInfo.GetDrives();
+
+            if (listbox.Items.Count > 0)
+            {
+                listbox.Items.Clear();
+            }
+
+
+            foreach (DriveInfo drive in allDrives)
+            {
+                ListBoxItem boxItem = new ListBoxItem();
+
+                if (drive.Name.Contains("C:"))
+                {
+                    boxItem.IsSelected = true;
+
+                }
+                else
+                {
+                    boxItem.IsSelected = false;
+                }
+
+                boxItem.Width = 60;
+                boxItem.Height = 60;
+                boxItem.Content = drive.Name;
+                boxItem.FontSize = 14;
+                boxItem.Foreground = new SolidColorBrush(Colors.White);
+                boxItem.VerticalAlignment = VerticalAlignment.Center;
+                boxItem.HorizontalAlignment = HorizontalAlignment.Center;
+                boxItem.Background = new SolidColorBrush(Color.FromRgb(60, 60, 60));
+                Thickness margin = boxItem.Margin;
+                margin.Top = 2;
+                boxItem.Margin = margin;
+                boxItem.IsEnabled = true;
+
+                listbox.Items.Add(boxItem);
+            }
+        }
+
+        private void listbox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            idexNew = listbox.SelectedIndex;
+
+            if (idexNew != -1)
+            {
+                var row_list = (ListBoxItem)listbox.Items[idexNew];
+
+                if (idexNew != idexOLD)
+                {
+                    row_list.Background = new SolidColorBrush(Color.FromRgb(0, 255, 0));
+                    if (idexOLD != -1)
+                    {
+                        var row_listOld = (ListBoxItem)listbox.Items[idexOLD];
+                        row_listOld.Background = new SolidColorBrush(Color.FromRgb(60, 60, 60));
+                    }
+
+                    idexOLD = idexNew;
+
+                    nomeExportação = (string)row_list.Content;
+
+                }
+            }
+        }
+
+
+
+
+        public string discoExportacao
+        {
+            get { return nomeExportação; }
+        }
+
+        private void btExportar_Click(object sender, RoutedEventArgs e)
+        {
+
+            string folder = nomeExportação + "Relátorio Becker";
+
+
+            if (!Directory.Exists(folder))
+            {
+                //Criamos um com o nome folder
+                Directory.CreateDirectory(folder);
+            }
+
+            this.DialogResult = true;
+        }
+    }
+}
