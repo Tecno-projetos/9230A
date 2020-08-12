@@ -206,7 +206,7 @@ namespace _9230A_V00___PI.DataBase
 
                             dynamic Command = SqlGlobalFuctions.ReturnCommand(query, Call);
                             Command.Parameters.AddWithValue("@IdProducao", producao.id);
-                            Command.Parameters.AddWithValue("@CodigoProduto", ProdBateladas.id);
+                            Command.Parameters.AddWithValue("@CodigoProduto", ProdBateladas.codigo);
                             Command.Parameters.AddWithValue("@ValorDesejado", ProdBateladas.pesoDesejado);
                             Command.Parameters.AddWithValue("@ValorDosado", ProdBateladas.pesoDosado);
                             Command.Parameters.AddWithValue("@NumeroBatelada", bateladas.numeroBatelada);

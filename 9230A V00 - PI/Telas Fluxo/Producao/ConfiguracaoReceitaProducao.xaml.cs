@@ -177,11 +177,13 @@ namespace _9230A_V00___PI.Telas_Fluxo.Producao
                             Utilidades.VariaveisGlobais.ProducaoReceita.batelada.Add(DummyBatelada);
                         }
                     }
-
-                    //Verifica se tem peso resto para adicionar na ultima batelada o restante (isso ira acontecer quando ocorrer valores que não forem multiplo do valor máximo permitido)
-                    if (pesoResto > 0)
+                    else
                     {
-                        bateladas += 1;
+                        //Verifica se tem peso resto para adicionar na ultima batelada o restante (isso ira acontecer quando ocorrer valores que não forem multiplo do valor máximo permitido)
+                        if (pesoResto > 0)
+                        {
+                            bateladas += 1;
+                        }
                     }
 
 
