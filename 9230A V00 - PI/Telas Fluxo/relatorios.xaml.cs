@@ -24,7 +24,7 @@ namespace _9230A_V00___PI.Telas_Fluxo
     public partial class relatorios : UserControl
     {
 
-        Relatorios.relatorioExportacao a = new relatorioExportacao();
+        Relatorios.relatorioProducao a = new relatorioProducao();
 
         public relatorios()
         {
