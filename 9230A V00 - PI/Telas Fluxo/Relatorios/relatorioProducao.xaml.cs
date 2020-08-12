@@ -39,7 +39,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
 
         private void Producao_bt_Pesquisar(object sender, EventArgs e)
         {
-           //Relatorios.ExportacaoRelatorios.exportProducao(filename, Utilidades.VariaveisGlobais.PesquisaProducao, "Produção Total", DateTime.Now, DateTime.Now);
+           Relatorios.ExportacaoRelatorios.exportProducao("", DataBase.SQLFunctionsProducao.PesquisaDateInDateOut(producao.dataInicial_GS, producao.dataFinal_GS), "Produção Total", DateTime.Now, DateTime.Now);
         }
 
         private void Producao_bt_Exportar(object sender, EventArgs e)
