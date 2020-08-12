@@ -1,4 +1,6 @@
-﻿using System;
+﻿using _9230A_V00___PI.Telas_Fluxo.Relatorios;
+using MaterialDesignThemes.Wpf;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -21,6 +23,9 @@ namespace _9230A_V00___PI.Telas_Fluxo
     /// </summary>
     public partial class relatorios : UserControl
     {
+
+        Relatorios.relatorioExportacao a = new relatorioExportacao();
+
         public relatorios()
         {
             InitializeComponent();
@@ -29,35 +34,74 @@ namespace _9230A_V00___PI.Telas_Fluxo
         private void btCriarUsuario_Click(object sender, RoutedEventArgs e)
         {
 
-            string filename = " ";
-
-            DataTable dtbl = new DataTable();
-
-            dtbl.Columns.Add("Inicial/Hora");
-            dtbl.Columns.Add("Final/Hora");
-            dtbl.Columns.Add("Quantidade Bateladas");
-
-
-            //Abre onde deseja salvar
-            Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
-            dlg.FileName = "Balanca_" + "" + "_" + DateTime.Now.Day + "_" + DateTime.Now.Month + "_" + DateTime.Now.Year; // Default file name
-            dlg.DefaultExt = ".pdf"; // Default file extension
-            dlg.Filter = "PDF documents (.pdf)|*.pdf"; // Filter files by extension
-
-            // Show save file dialog box
-            Nullable<bool> result = dlg.ShowDialog();
-            // Process save file dialog box results
-            if (result == true)
+            if (spRelatorio.Children != null)
             {
-                // Save document
-                filename = dlg.FileName;
+                spRelatorio.Children.Clear();
+            }
 
-                Relatorios.ExportacaoRelatorios.ExportDataTableToPdf(filename,Utilidades.VariaveisGlobais.PesquisaProducao, "Relátorio de Produção TOtal", "150", DateTime.Now, DateTime.Now);
+            spRelatorio.Children.Add(a);
 
 
-              System.Diagnostics.Process.Start(filename);
+            //string filename = " ";
+
+            ////Abre onde deseja salvar
+            //Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
+            //dlg.FileName = "Balanca_" + "" + "_" + DateTime.Now.Day + "_" + DateTime.Now.Month + "_" + DateTime.Now.Year; // Default file name
+            //dlg.DefaultExt = ".pdf"; // Default file extension
+            //dlg.Filter = "PDF documents (.pdf)|*.pdf"; // Filter files by extension
+
+            //// Show save file dialog box
+            //Nullable<bool> result = dlg.ShowDialog();
+            //// Process save file dialog box results
+            //if (result == true)
+            //{
+            //    // Save document
+            //    filename = dlg.FileName;
+
+            //    Relatorios.ExportacaoRelatorios.exportProducao(filename,Utilidades.VariaveisGlobais.PesquisaProducao, "Produção Total", DateTime.Now, DateTime.Now);
+
+
+            //  System.Diagnostics.Process.Start(filename);
                
+            //}
+        }
+
+        private void btInto_Click(object sender, RoutedEventArgs e)
+        {
+
+
+            for (int i = 0; i < 5; i++)
+            {
+                Utilidades.Producao aa = new Utilidades.Producao();
+                Utilidades.Receita receita = new Utilidades.Receita();
+
+                receita.nomeReceita = "Nome" + i;
+
+
+                DateTime dtin = new DateTime();
+
+                aa.id = i;
+                aa.IdReceitaBase = i;
+                aa.receita = receita;
+                aa.quantidadeBateladas = i;
+                aa.tempoPosMistura = i;
+                aa.tempoPreMistura = i;
+                aa.pesoTotalProducao = 1500;
+                aa.volumeTotalProducao = 500;
+                aa.pesoTotalProduzido = 1500;
+                aa.volumeTotalProduzido = 500;
+                aa.dateTimeInicioProducao = DateTime.Now;
+                aa.dateTimeFimProducao = DateTime.Now;
+
+
+                Utilidades.VariaveisGlobais.PesquisaProducao.Add(aa);
+
+
+
+
             }
         }
+
+
     }
 }
