@@ -233,7 +233,6 @@ namespace _9230A_V00___PI.DataBase
             }
         }
 
-
         public static int AddProducao(Utilidades.Producao producao)
         {
             Utilidades.messageBox inputDialog;
@@ -263,51 +262,21 @@ namespace _9230A_V00___PI.DataBase
             
         }
 
-        public static List<Utilidades.Producao> PesquisaDateInDateOut(DateTime dtIn, DateTime dtOut)
+        public static DataTable getBateladaFromIdProducaoANDNumeroBatelada(int IdProducao, int NumeroBatelada)
         {
-            List<Utilidades.Producao> listProducao = new List<Utilidades.Producao>();
+            DataTable Data = new DataTable();
 
             if (Utilidades.VariaveisGlobais.DB_Connected_GS)
             {
-                DataTable Data = new DataTable();
-                
-                Utilidades.Producao dummyProducao;
                 try
                 {
-                    dynamic DTIn;
-                    dynamic DTOut;
-
-                    if (Utilidades.VariaveisGlobais.SQLCe_GS)
-                    {
-                        DTIn = dtIn.ToString("yyyyMMdd") + " " + dtIn.Hour + ":" + dtIn.Minute;
-                        DTOut = dtOut.ToString("yyyyMMdd") + " " + dtOut.Hour + ":" + dtOut.Minute;
-                    }
-                    else
-                    {
-                        DTIn = dtIn;
-                        DTOut = dtOut;
-                    }
-
-                    string CommandString = "SELECT * FROM Producao Where FinalizouProducao = 'True' AND FinalizouProducao >= '" + DTIn + "' AND FinalizouProducao <= '" + DTOut + "'";
+                    string CommandString = "SELECT * FROM Producao WHERE IdProducao = '"+IdProducao+"' AND NumeroBatelada = '"+ NumeroBatelada+"'";
 
                     dynamic Call = SqlGlobalFuctions.ReturnCall(Utilidades.VariaveisGlobais.Connection_DB_Receitas_GS);
-                    Call.Open();
 
-                    dynamic Adapter = SqlGlobalFuctions.ReturnAdapter(CommandString, Utilidades.VariaveisGlobais.Connection_DB_Users_GS);
+                    dynamic Adapter = SqlGlobalFuctions.ReturnAdapter(CommandString, Utilidades.VariaveisGlobais.Connection_DB_Receitas_GS);
 
                     Adapter.Fill(Data);
-
-                    foreach (var item in Data.Rows)
-                    {
-                        dummyProducao = new Utilidades.Producao();
-
-                        //Chamar uma função que recebe uma linha do DB e retorna um tipo producao assim é só adicionar na lista
-
-
-                        //listProducao.Add()
-                    }
-
-                    Call.Close();
                 }
                 catch (Exception ex)
                 {
@@ -315,8 +284,10 @@ namespace _9230A_V00___PI.DataBase
                 }
             }
 
-            return listProducao;
+            return Data;
         }
+
+
 
     }
 }

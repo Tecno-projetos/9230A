@@ -1,4 +1,5 @@
-﻿using System;
+﻿using _9230A_V00___PI.DataBase;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
@@ -593,6 +594,9 @@ namespace _9230A_V00___PI.Utilidades
 
     public class functions
     {
+        /// <summary>
+        /// Atualiza a lista de produtos de acordo com o banco de dados
+        /// </summary>
         public static void atualizalistProdutos()
         {
             VariaveisGlobais.listProdutos.Clear();
@@ -616,6 +620,9 @@ namespace _9230A_V00___PI.Utilidades
             }
         }
 
+        /// <summary>
+        /// Atualiza a lista de receitas de acordo com o banco de dados
+        /// </summary>
         public static void atualizalistReceitas()
         {
             VariaveisGlobais.listReceitas.Clear();
@@ -658,6 +665,9 @@ namespace _9230A_V00___PI.Utilidades
 
         }
 
+        /// <summary>
+        /// Atualiza o produto a partir do codigo do produto
+        /// </summary>
         private static void ActualizeValuesProduto(ref Produto prod)
         {
             //Atualiza a lista de produtos a partir do banco de dados
@@ -673,9 +683,193 @@ namespace _9230A_V00___PI.Utilidades
             prod.tipoProduto = VariaveisGlobais.listProdutos[index].tipoProduto;
         }
 
+        /// <summary>
+        /// Função para pesquisa no banco de dados das produções realizadas entre datas.
+        /// </summary>
+        public static List<Utilidades.Producao> PesquisaDateInDateOut(DateTime dtIn, DateTime dtOut)
+        {
+            List<Utilidades.Producao> listProducao = new List<Utilidades.Producao>();
+
+            if (Utilidades.VariaveisGlobais.DB_Connected_GS)
+            {
+                DataTable Data = new DataTable();
+
+                Utilidades.Producao dummyProducao;
+                try
+                {
+                    dynamic DTIn;
+                    dynamic DTOut;
+
+                    if (Utilidades.VariaveisGlobais.SQLCe_GS)
+                    {
+                        DTIn = dtIn.ToString("yyyyMMdd") + " " + dtIn.Hour + ":" + dtIn.Minute;
+                        DTOut = dtOut.ToString("yyyyMMdd") + " " + dtOut.Hour + ":" + dtOut.Minute;
+                    }
+                    else
+                    {
+                        DTIn = dtIn;
+                        DTOut = dtOut;
+                    }
+
+                    string CommandString = "SELECT * FROM Producao Where FinalizouProducao = 'True' AND FinalizouProducao >= '" + DTIn + "' AND FinalizouProducao <= '" + DTOut + "'";
+
+                    dynamic Call = SqlGlobalFuctions.ReturnCall(Utilidades.VariaveisGlobais.Connection_DB_Receitas_GS);
+                    Call.Open();
+
+                    dynamic Adapter = SqlGlobalFuctions.ReturnAdapter(CommandString, Utilidades.VariaveisGlobais.Connection_DB_Users_GS);
+
+                    Adapter.Fill(Data);
+
+                    foreach (DataRow item in Data.Rows)
+                    {
+                        dummyProducao = new Utilidades.Producao();
+
+                        DataRow_To_Producao(item, ref dummyProducao);
+
+                        listProducao.Add(dummyProducao);
+                    }
+
+                    Call.Close();
+                }
+                catch (Exception ex)
+                {
+                    Utilidades.VariaveisGlobais.Window_Buffer_Diagnostic.List_Error = ex.ToString();
+                }
+            }
+
+            return listProducao;
+        }
+
+        /// <summary>
+        /// Retorna uma produção atualizada a partir do id da produção
+        /// </summary>
+        public static Utilidades.Producao GetProducaoFromIdProducao(int IdProducao)
+        {
+            Utilidades.Producao dummyProducao = new Producao();
+
+            if (Utilidades.VariaveisGlobais.DB_Connected_GS)
+            {
+                DataTable Data = new DataTable();
+
+                try
+                {
+                    string CommandString = "SELECT * FROM Producao Where Id = '"+IdProducao+"'";
+
+                    dynamic Call = SqlGlobalFuctions.ReturnCall(Utilidades.VariaveisGlobais.Connection_DB_Receitas_GS);
+                    Call.Open();
+
+                    dynamic Adapter = SqlGlobalFuctions.ReturnAdapter(CommandString, Utilidades.VariaveisGlobais.Connection_DB_Users_GS);
+
+                    Adapter.Fill(Data);
+
+                    DataRow_To_Producao(Data.Rows[0], ref dummyProducao);
+
+                    Call.Close();
+                }
+                catch (Exception ex)
+                {
+                    Utilidades.VariaveisGlobais.Window_Buffer_Diagnostic.List_Error = ex.ToString();
+                }
+            }
+
+            return dummyProducao;
+        }
+
+        /// <summary>
+        /// Recebe uma Row de produção do banco de dados e atualiza a produção enviada por referencia
+        /// </summary>
+        public static void DataRow_To_Producao(DataRow dr, ref Utilidades.Producao producao)
+        {
+            //Atualiza primeiro os valores que existem informações no DataRow
+            producao.id = Convert.ToInt32(dr.ItemArray[0]);
+            producao.IdReceitaBase = Convert.ToInt32(dr.ItemArray[1]);
+            producao.quantidadeBateladas = Convert.ToInt32(dr.ItemArray[2]);
+            producao.tempoPreMistura = Convert.ToInt32(dr.ItemArray[3]);
+            producao.tempoPosMistura = Convert.ToInt32(dr.ItemArray[4]);
+            producao.pesoTotalProducao = Convert.ToSingle(dr.ItemArray[5]);
+            producao.pesoTotalProduzido = Convert.ToSingle(dr.ItemArray[6]);
+            producao.volumeTotalProducao = Convert.ToSingle(dr.ItemArray[7]);
+            producao.volumeTotalProduzido = Convert.ToSingle(dr.ItemArray[8]);
+            producao.CodigoProdutoDosagemAutomaticaSilo1 = Convert.ToString(dr.ItemArray[9]);
+            producao.CodigoProdutoDosagemAutomaticaSilo2 = Convert.ToString(dr.ItemArray[10]);
+            producao.dateTimeInicioProducao = Convert.ToDateTime(dr.ItemArray[11]);
+            producao.dateTimeFimProducao = Convert.ToDateTime(dr.ItemArray[12]);
+            producao.IniciouProducao = Convert.ToBoolean(dr.ItemArray[13]);
+            producao.FinalizouProducao = Convert.ToBoolean(dr.ItemArray[14]);
+
+            //Após atualizar as info que existem, a partir delas devemos atualizar os seguintes itens
+            //Passo 1 - Tipo Receita Base -- Procurar através do IdReceitaBase a receita e atualizar o tipo receita da produção e também seus produtos.
+            //Passo 2 - Lista de bateladas -- Procurar através do Id da produção os produtos que contem cada batelada com suas informações de peso e adicionar cada produto em cada batelada.
+
+            //Passo 1
+            int idReceitaBase = producao.IdReceitaBase;
+            producao.receita = VariaveisGlobais.listReceitas.Find(x => x.id == idReceitaBase); //Pesquisa na lista de receitas a receita base da produção
+
+            //Passo 2
+            AtualizaListBatelada(producao.id, producao.quantidadeBateladas, ref producao.batelada); //Chama a função que atualiza as bateladas dessa produção
+
+        }
+
+        /// <summary>
+        /// Atualiza a lista de bateladas de uma produção, a partir o id da produção e a quantidade de bateladas.
+        /// </summary>
+        private static void AtualizaListBatelada(int IdProducao, int QtdBateladas, ref List<Utilidades.Batelada> listBatelada)
+        {
+            Utilidades.Batelada dummyBatelada;
+            Utilidades.Produto dummyProduto;
+            Utilidades.ProdutoBatelada dummyProdutoBatelada;
+
+            //Para cada batelada adiciona as informações da batelada e adiciona os produtos com seus campos
+            for (int i = 1; i <= QtdBateladas; i++)
+            {
+                
+                dummyBatelada = new Batelada();//cria uma nova batelada
+                float pesoTotalDesejado = 0;//zera o peso total desejado para ser somado com os produtos, já que nao tem um campo do total no banco
+                float pesoTotalDosado = 0;//zera o peso total dosado para ser somado com os produtos, já que nao tem um campo do total no banco
+
+                dummyBatelada.numeroBatelada = i; //passa o numero da batelada para a nova batelada
+
+                //pesquisa no banco os produtos que contem a batelada atual da produção solicitada
+                foreach (DataRow item in DataBase.SQLFunctionsProducao.getBateladaFromIdProducaoANDNumeroBatelada(IdProducao, i).Rows)
+                {
+                    //Colunas do banco
+                    //0 = IdProducao
+                    //1 = CodigoProduto
+                    //2 = ValorDesejado
+                    //3 = ValorDosado
+                    //4 = NumeroBatelada
+
+                    dummyProduto = new Produto(); //Cria um novo produto
+                    dummyProduto.codigo = Convert.ToString(item.ItemArray[1]); //Passa o código do produto para o novo produto
+                    pesoTotalDesejado += Convert.ToSingle(item.ItemArray[2]); //soma o peso total desejado
+                    pesoTotalDosado += Convert.ToSingle(item.ItemArray[3]); //soma o peso total dosado
+                    ActualizeValuesProduto(ref dummyProduto); // a partir do código do produto essa função atualiza o produto pesquisando na lista de produtos existentes
+
+                    dummyProdutoBatelada = new ProdutoBatelada(); //cria um novo produto batelada, diferente do produto, ele tem algumas informações a mais, e tem herança do produto.
+                    dummyProdutoBatelada.idProducao = IdProducao; //Passa Idprodução para o produto da batelada
+                    dummyProdutoBatelada.pesoDesejado = Convert.ToSingle(item.ItemArray[2]); //Passa peso desejado desse produto
+                    dummyProdutoBatelada.pesoDosado = Convert.ToSingle(item.ItemArray[3]); //Passa peso dosado desse produto
+                    dummyProdutoBatelada.id = dummyProduto.id; //Passa valor do produto para o produtobatelada
+                    dummyProdutoBatelada.codigo = dummyProduto.codigo;//Passa valor do produto para o produtobatelada
+                    dummyProdutoBatelada.descricao = dummyProduto.descricao;//Passa valor do produto para o produtobatelada
+                    dummyProdutoBatelada.densidade = dummyProduto.densidade;//Passa valor do produto para o produtobatelada
+                    dummyProdutoBatelada.tipoProduto = dummyProduto.tipoProduto;//Passa valor do produto para o produtobatelada
+                    dummyProdutoBatelada.observacao = dummyProduto.observacao;//Passa valor do produto para o produtobatelada
+
+                    //Produto esta atualizado, agora adicionamos um produtoBatelada na lista de produtosBatelada na batelada atual
+                    dummyBatelada.produtos.Add(dummyProdutoBatelada);
+
+                }
+
+                dummyBatelada.pesoDesejado = pesoTotalDesejado; //Passa o peso total desejado para a batelada atual
+                dummyBatelada.pesoDosado = pesoTotalDosado; //Passa o peso dosado para a batelada atual
+
+                listBatelada.Add(dummyBatelada); //adiciona na lista de batelada uma batelada
+            }
+        }
     }
 
-    //
+    
 
     public class EspecificacoesEquipamentos
     {
@@ -850,8 +1044,6 @@ namespace _9230A_V00___PI.Utilidades
         public float pesoDesejado { get; set; }
 
         public float pesoDosado { get; set; }
-
-        public float volumeDesejado { get; set; }
 
         public string statusItem { get; set; }
 

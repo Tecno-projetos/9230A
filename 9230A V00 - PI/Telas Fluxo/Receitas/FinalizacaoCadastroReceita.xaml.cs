@@ -103,6 +103,8 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
                             //Limpar Cadastro Receita Global
                             Utilidades.VariaveisGlobais.ReceitaCadastro = new Utilidades.Receita();
 
+                            Utilidades.functions.atualizalistReceitas();
+
                             if (this.FinalizadoCadastroReceita != null)
                                 this.FinalizadoCadastroReceita(this, e);
                         }

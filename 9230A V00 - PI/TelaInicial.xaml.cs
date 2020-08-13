@@ -149,6 +149,8 @@ namespace _9230A_V00___PI
 
 
             windowFirstLoading.Close();
+
+            Utilidades.functions.atualizalistReceitas();
         }
 
         private void timer1s_Tick(object sender, EventArgs e)
