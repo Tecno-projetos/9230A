@@ -22,9 +22,8 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
     /// </summary>
     public partial class pesquisaBatelada : UserControl
     {
-
-
         private List<Utilidades.Producao> pd = new List<Utilidades.Producao>();
+       
         public pesquisaBatelada()
         {
             InitializeComponent();
@@ -47,11 +46,18 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
 
         }
 
+        private void controlVisible(Visibility visibility)         
+        {
+            rec.Visibility = visibility;
+            lbNomeProduto.Visibility = visibility;
+            DataGrid_Receita.Visibility = visibility;
+        }
+
         #region Controle Calendario
 
         public void CombinedDialogOpenedEventHandler(object sender, DialogOpenedEventArgs eventArgs)
         {
-
+            controlVisible(Visibility.Hidden);
             CombinedCalendar.SelectedDate = ((PickersViewModel)DataContext).Date;
             CombinedClock.Time = ((PickersViewModel)DataContext).Time;
         }
@@ -71,12 +77,12 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
                 txtDataSelecionada.Content = Convert.ToString(combined.AddSeconds(-descontarsegundos));
             }
 
-
+            controlVisible(Visibility.Visible);
         }
 
         public void CombinedDialogOpenedEventHandler_FIM(object sender, DialogOpenedEventArgs eventArgs)
         {
-
+            controlVisible(Visibility.Hidden);
 
             CombinedCalendar_FIM.SelectedDate = ((PickersViewModel)DataContext).Date;
             CombinedClock_FIM.Time = ((PickersViewModel)DataContext).Time;
@@ -97,6 +103,8 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
 
                 txtFIM.Content = Convert.ToString(combined.AddSeconds(-descontarsegundos));
             }
+
+            controlVisible(Visibility.Visible);
 
 
         }
@@ -189,7 +197,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
         {
             var rowList = (DataGrid_Receita.ItemContainerGenerator.ContainerFromIndex(DataGrid_Receita.SelectedIndex) as DataGridRow).Item as DataRowView;
 
-            lbNomeProduto.Content = "N° Produção:" + (string)rowList.Row.ItemArray[0] + " - " + (string)rowList.Row.ItemArray[1];
+            lbNomeProduto.Content = "N° Produção: " + (string)rowList.Row.ItemArray[0] + " - Nome Receita: " + (string)rowList.Row.ItemArray[1];
         }
     }
 }

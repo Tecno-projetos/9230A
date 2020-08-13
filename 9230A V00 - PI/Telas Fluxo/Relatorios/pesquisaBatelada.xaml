@@ -143,15 +143,6 @@
                 <materialDesign:PackIcon Kind="Search" VerticalAlignment="Center" Foreground="White" Margin="0,0,0,20" HorizontalAlignment="Left" Width="53" Height="50"/>
             </Grid>
         </Button>
-        <Button x:Name="btExport" Margin="686,10,0,0" Background="#FF505050" BorderBrush="{x:Null}" HorizontalAlignment="Left" Width="85" Height="89" VerticalAlignment="Top">
-            <Grid Width="53" Height="70">
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                <Label Content="Exportar" Margin="-13,48,-15,-5" HorizontalContentAlignment="Center" FontWeight="Bold" Foreground="White" Height="27" FontSize="11"/>
-                <materialDesign:PackIcon Kind="FileExportOutline" VerticalAlignment="Center" Foreground="White" Margin="0,0,0,22" HorizontalAlignment="Left" Width="53" Height="48"/>
-            </Grid>
-        </Button>
         <DataGrid x:Name="DataGrid_Receita" Margin="28,165,53,0" CanUserAddRows="False"
             HorizontalAlignment="Stretch" VerticalAlignment="Top" FontWeight="Black" Foreground="Black"
             HorizontalGridLinesBrush="{DynamicResource {x:Static SystemColors.ControlTextColor}}"
@@ -179,33 +170,33 @@
 
             </DataGrid.ColumnHeaderStyle>
         </DataGrid>
-        <Button x:Name="btUpList" Margin="610,560,137,65" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btUpList_Click" >
+        <Button x:Name="btUpList" Margin="612,566,135,59" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btUpList_Click" >
             <Grid Width="42" Height="42" Margin="0">
                 <materialDesign:PackIcon Kind="ArrowUpBold" VerticalAlignment="Center" Foreground="White" Height="42" Width="42"/>
             </Grid>
         </Button>
-        <Button x:Name="btDownList" Margin="610,615,137,10" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btDownList_Click" >
+        <Button x:Name="btDownList" Margin="612,621,135,4" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btDownList_Click" >
             <Grid Width="42" Height="42" Margin="0">
                 <materialDesign:PackIcon Kind="ArrowDownBold" VerticalAlignment="Center" Foreground="White" Height="42" Width="42"/>
             </Grid>
         </Button>
-        <Button x:Name="btLeftList" Margin="528,585,219,40" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btLeftList_Click" >
+        <Button x:Name="btLeftList" Margin="530,591,217,34" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btLeftList_Click" >
             <Grid Width="42" Height="42" Margin="0">
                 <materialDesign:PackIcon Kind="ArrowLeftBold" VerticalAlignment="Center" Foreground="White" Height="42" Width="42"/>
             </Grid>
         </Button>
-        <Button x:Name="btRightList" Margin="692,585,55,40" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btRightList_Click" >
+        <Button x:Name="btRightList" Margin="694,591,53,34" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btRightList_Click" >
             <Grid Width="42" Height="42" Margin="0">
                 <materialDesign:PackIcon Kind="ArrowRightBold" VerticalAlignment="Center" Foreground="White" Height="42" Width="42"/>
             </Grid>
         </Button>
-        <Button x:Name="btExportar" Margin="217,585,391,40" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" >
+        <Button x:Name="btPesquisar_Copy" Margin="217,594,391,31" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btPesquisar_Click" >
             <Grid Width="150">
-                <materialDesign:PackIcon Kind="Search" VerticalAlignment="Center" Foreground="White" Margin="2,-6,0,-7" Height="30" Width="30"/>
-                <TextBlock  Text="Pesquisar" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="55,0,10,0" Width="85" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <materialDesign:PackIcon Kind="FileExportOutline" VerticalAlignment="Center" Foreground="White" Margin="2,-6,0,-7" Height="30" Width="30"/>
+                <TextBlock  Text="Exportar" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="55,0,30,0" Width="65" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center"/>
             </Grid>
         </Button>
-        <Rectangle Fill="White" HorizontalAlignment="Left" Height="5" Margin="0,110,-1,0" Stroke="White" VerticalAlignment="Top" Width="825"/>
+        <Rectangle x:Name="rec" Fill="White" HorizontalAlignment="Left" Height="5" Margin="0,110,-1,0" Stroke="White" VerticalAlignment="Top" Width="825"/>
         <Label x:Name="lbNomeProduto" Content="Produto selecionado" Height="40" Margin="10,121,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="803" Foreground="White" FontWeight="Bold" FontSize="22" Background="{x:Null}" HorizontalContentAlignment="Center" BorderBrush="Black"/>
 
 
