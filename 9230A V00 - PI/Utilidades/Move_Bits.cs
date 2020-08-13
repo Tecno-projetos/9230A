@@ -696,5 +696,43 @@ namespace _9230A_V00___PI.Utilidades
 
             return Command.DWord;
         }
+
+        //Command Complemento
+        //=====================================================================================================================================
+        public static VariaveisGlobais.Complemento ByteToComplementoBatelada(byte _byte, VariaveisGlobais.Complemento complemento)
+        {
+            bool[] bits = new bool[8];
+
+            Conversions.Byte_To_Bit(_byte, ref bits);
+
+            complemento.Habilitado_Inicio_Dosagem = bits[0];
+            complemento.Botao_Inicio_Fim_Dosagem_IHM = bits[1];
+            complemento.Item_Atual_Iniciado_Dosagem = bits[2];
+            complemento.Item_Atual_Finalizado_Dosagem = bits[3];
+            complemento.Finalizado_Dosagem_Complementos = bits[4];
+            complemento.Reserva = bits[5];
+            complemento.Reserva_1 = bits[6];
+            complemento.Reserva_2 = bits[7];
+
+            return complemento;
+        }
+
+
+        public static byte ComplementoToByteBatelada(VariaveisGlobais.Complemento complemento)
+        {
+            bool[] bits = new bool[8];
+
+            bits[0] = complemento.Habilitado_Inicio_Dosagem;
+            bits[1] = complemento.Botao_Inicio_Fim_Dosagem_IHM;
+            bits[2] = complemento.Item_Atual_Iniciado_Dosagem;
+            bits[3] = complemento.Item_Atual_Finalizado_Dosagem;
+            bits[4] = complemento.Finalizado_Dosagem_Complementos;
+            bits[5] = complemento.Reserva;
+            bits[6] = complemento.Reserva_1;
+            bits[7] = complemento.Reserva_2;
+
+            return Conversions.Bit_To_Byte(ref bits);
+        }
+
     }
 }

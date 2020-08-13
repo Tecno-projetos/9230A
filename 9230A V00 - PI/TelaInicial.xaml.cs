@@ -118,6 +118,13 @@ namespace _9230A_V00___PI
             Utilidades.VariaveisGlobais.Buffer_PLC[0].Enable_Read = true;
             Utilidades.VariaveisGlobais.Buffer_PLC[0].Enable_Write = false;
 
+            Utilidades.VariaveisGlobais.Buffer_PLC[1].Name = "DB Produção Automática";
+            Utilidades.VariaveisGlobais.Buffer_PLC[1].DBNumber = 15;
+            Utilidades.VariaveisGlobais.Buffer_PLC[1].Start = 0;
+            Utilidades.VariaveisGlobais.Buffer_PLC[1].Size = 78;
+            Utilidades.VariaveisGlobais.Buffer_PLC[1].Enable_Read = true;
+            Utilidades.VariaveisGlobais.Buffer_PLC[1].Enable_Write = false;
+
             for (int i = 0; i < Utilidades.VariaveisGlobais.Buffer_PLC.Length; i++)
             {
                 Utilidades.VariaveisGlobais.Buffer_PLC[i].Buffer = new byte[Utilidades.VariaveisGlobais.Buffer_PLC[i].Size];
@@ -234,6 +241,7 @@ namespace _9230A_V00___PI
             pckUser.Foreground = VariaveisGlobais.Branco;
 
         }
+
         private void InicialProducao_Bt3_Click(object sender, EventArgs e)
         {
             if (spInical != null)
@@ -258,6 +266,7 @@ namespace _9230A_V00___PI
             pckRelatorio.Foreground = VariaveisGlobais.Branco;
             pckUser.Foreground = VariaveisGlobais.Branco;
         }
+
         private void timer1s_Tick(object sender, EventArgs e)
         {
             //Chama a atulização da Manutenção
@@ -289,10 +298,17 @@ namespace _9230A_V00___PI
                 VariaveisGlobais.Fluxo.Motor_49.actualize_Equip = true;
                 VariaveisGlobais.Fluxo.Motor_62.actualize_Equip = true;
                 VariaveisGlobais.Fluxo.Motor_65.actualize_Equip = true;
-
-                VariaveisGlobais.Fluxo.Motor_26_Silo1.actualize_Equip = true;
-                VariaveisGlobais.Fluxo.Motor_26_Silo2.actualize_Equip = true;
+                //VariaveisGlobais.Fluxo.Motor_26_Silo1.actualize_Equip = true;
+                //VariaveisGlobais.Fluxo.Motor_26_Silo2.actualize_Equip = true;
                 VariaveisGlobais.Fluxo.Motor_23.actualize_Equip = true;
+
+                //Atualiza Execução Produção
+                if (true)
+                {
+
+                }
+
+                VariaveisGlobais.executaProducao.Produzir = true;
 
                 VariaveisGlobais.CommunicationPLC.writeBufferPLC();//Chama a escrita no PLC
             }

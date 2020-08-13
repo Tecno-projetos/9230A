@@ -1,4 +1,5 @@
 ﻿using _9230A_V00___PI.DataBase;
+using Org.BouncyCastle.Asn1.Mozilla;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -17,6 +18,9 @@ namespace _9230A_V00___PI.Utilidades
 
     public class VariaveisGlobais
     {
+        public static Utilidades.ExecutaProducao executaProducao = new ExecutaProducao(1);
+
+
         #region Structs
 
         public struct Complemento
@@ -60,6 +64,83 @@ namespace _9230A_V00___PI.Utilidades
             // 5 - Moagem e Transporte Pós Mistura
             // 6 - Pós Mistura
             // 7 - Transporte Para Produto Acabado
+
+            //Palavra de commando
+            public bool Solicita_Nova_Batelada;              //Slot Disponível para iniciar nova Batelada
+            public bool Iniciou;                             //Iniciou batelada
+            public bool Finalizou;                           //Finalizou batelada
+            public bool Reserva;
+            public bool Reserva_1;
+            public bool Reserva_2;
+            public bool Reserva_3;
+            public bool Reserva_4;
+            public bool Reserva_5;
+            public bool Reserva_6;
+            public bool Reserva_7;
+            public bool Reserva_8;
+            public bool Reserva_9;
+            public bool Reserva_10;
+            public bool Reserva_11;
+            public bool Reserva_12;
+            public bool Reserva_13;
+            public bool Reserva_14;
+            public bool Reserva_15;
+            public bool Reserva_16;
+            public bool Reserva_17;
+            public bool Reserva_18;
+            public bool Reserva_19;
+            public bool Reserva_20;
+            public bool Reserva_21;
+            public bool Reserva_22;
+            public bool Reserva_23;
+            public bool Reserva_24;
+            public bool Reserva_25;
+            public bool Reserva_26;
+            public bool Reserva_27;
+            public bool Reserva_28;
+
+        }
+
+        public struct ControleExecucaoProducao
+        {
+            public SlotBatelada Slot_1;
+
+            public short Bateladas_Iniciadas;
+            public short Bateladas_Finalizadas;
+
+            //Palavra de commando
+            public bool Iniciar_Producao;                    //Inica Produção
+            public bool Habilitado_Iniciar_Nova_Producao;
+            public bool Reserva_1;
+            public bool Reserva_2;
+            public bool Reserva_3;
+            public bool Reserva_4;
+            public bool Reserva_5;
+            public bool Reserva_6;
+            public bool Reserva_7;
+            public bool Reserva_8;
+            public bool Reserva_9;
+            public bool Reserva_10;
+            public bool Reserva_11;
+            public bool Reserva_12;
+            public bool Reserva_13;
+            public bool Reserva_14;
+            public bool Reserva_15;
+            public bool Reserva_16;
+            public bool Reserva_17;
+            public bool Reserva_18;
+            public bool Reserva_19;
+            public bool Reserva_20;
+            public bool Reserva_21;
+            public bool Reserva_22;
+            public bool Reserva_23;
+            public bool Reserva_24;
+            public bool Reserva_25;
+            public bool Reserva_26;
+            public bool Reserva_27;
+            public bool Reserva_28;
+            public bool Reserva_29;
+            public bool Reserva_30;
         }
 
         public struct type_SS
@@ -629,6 +710,8 @@ namespace _9230A_V00___PI.Utilidades
         public static Receita ReceitaCadastro = new Receita();
 
         public static Producao ProducaoReceita = new Producao();
+
+        public static Producao ProducaoExecucao = new Producao();
 
         public static List<Producao> PesquisaProducao = new List<Producao>();
 
