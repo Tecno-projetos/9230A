@@ -21,8 +21,8 @@
             </Button>
             <Button x:Name="btTelaInicialEnsaque" Margin="10,217,10,408" Background="#FF505050" BorderBrush="Black" Height="50" Click="btTelaInicialEnsaque_Click">
                 <Grid Width="170" Height="40">
-                    <materialDesign:PackIcon Kind="Plus" VerticalAlignment="Center" Foreground="#FF00FB22" Margin="2,-6,0,-7" Height="30" Width="30"/>
-                    <TextBlock TextAlignment="Center" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="36,12,15,10" Width="119" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Ensacar"/>
+                    <materialDesign:PackIcon Kind="GearBox" VerticalAlignment="Center" Foreground="White" Margin="2,-6,0,-7" Height="30" Width="30"/>
+                    <TextBlock TextAlignment="Center" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="36,12,15,10" Width="119" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Ensaque"/>
                 </Grid>
             </Button>
             <Button x:Name="btEmProducao" Margin="10,284,10,341" Background="#FF505050" BorderBrush="Black" Height="50" Click="btEmProducao_Click">
