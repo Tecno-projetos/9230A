@@ -31,8 +31,6 @@ namespace _9230A_V00___PI.Telas_Fluxo
         {
             InitializeComponent();
 
-
-
         }
 
         private void btSair_Click(object sender, RoutedEventArgs e)
@@ -42,7 +40,7 @@ namespace _9230A_V00___PI.Telas_Fluxo
               proc.Kill();
         }
 
-        private void btInformacoesSistema_Click(object sender, RoutedEventArgs e)
+        private void btInformacoesEspecificacoes_Click(object sender, RoutedEventArgs e)
         {
             if (spConfiguracao != null)
             {
@@ -50,7 +48,6 @@ namespace _9230A_V00___PI.Telas_Fluxo
             }
 
             spConfiguracao.Children.Add(especificaoes);
-
         }
     }
 }

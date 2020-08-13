@@ -30,6 +30,7 @@ namespace _9230A_V00___PI.Telas_Fluxo
 
         Manutenção.DiagnosticoCLP DiagCLP = new Manutenção.DiagnosticoCLP();
 
+        Manutenção.projetoEletrico prjEletrico = new Manutenção.projetoEletrico();
         public manutencao()
         {
             InitializeComponent();
@@ -89,6 +90,26 @@ namespace _9230A_V00___PI.Telas_Fluxo
             }
 
             spManutencao.Children.Add(DiagCLP);
+        }
+
+        private void btDiagnosticoSuP_Click(object sender, RoutedEventArgs e)
+        {
+            if (spManutencao != null)
+            {
+                spManutencao.Children.Clear();
+            }
+
+            spManutencao.Children.Add(Utilidades.VariaveisGlobais.Window_Buffer_Diagnostic);
+        }
+
+        private void btPrjEletrico_Click(object sender, RoutedEventArgs e)
+        {
+            if (spManutencao != null)
+            {
+                spManutencao.Children.Clear();
+            }
+
+            spManutencao.Children.Add(prjEletrico);
         }
     }
 }

@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:_9230A_V00___PI.Telas_Fluxo.Manutenção" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:Utilidades="clr-namespace:_9230A_V00___PI.Utilidades"
              mc:Ignorable="d" 
-             d:DesignHeight="675" d:DesignWidth="824" Loaded="UserControl_Loaded">
+             d:DesignHeight="675" d:DesignWidth="824" Loaded="UserControl_Loaded" Width="824" Height="675">
 
 
     <UserControl.Resources>

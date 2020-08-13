@@ -24,22 +24,23 @@ namespace _9230A_V00___PI.Telas_Fluxo
     public partial class relatorios : UserControl
     {
 
-        Relatorios.relatorioProducao a = new relatorioProducao();
-
+        Relatorios.relatorioProducao producao = new relatorioProducao();
+        Relatorios.pesquisaBatelada pesquisaBateladas = new pesquisaBatelada();
         public relatorios()
         {
             InitializeComponent();
         }
 
-        private void btCriarUsuario_Click(object sender, RoutedEventArgs e)
-        {
 
+
+        private void btProducao_Click(object sender, RoutedEventArgs e)
+        {
             if (spRelatorio.Children != null)
             {
                 spRelatorio.Children.Clear();
             }
 
-            spRelatorio.Children.Add(a);
+            spRelatorio.Children.Add(producao);
 
 
             //string filename = " ";
@@ -62,23 +63,46 @@ namespace _9230A_V00___PI.Telas_Fluxo
 
 
             //  System.Diagnostics.Process.Start(filename);
-               
+
             //}
         }
+
+        private void btBateladas_Click(object sender, RoutedEventArgs e)
+        {
+            if (spRelatorio.Children != null)
+            {
+                spRelatorio.Children.Clear();
+            }
+
+            spRelatorio.Children.Add(pesquisaBateladas);
+        }
+
 
         private void btInto_Click(object sender, RoutedEventArgs e)
         {
 
 
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 100; i++)
             {
                 Utilidades.Producao aa = new Utilidades.Producao();
                 Utilidades.Receita receita = new Utilidades.Receita();
 
-                receita.nomeReceita = "Nome" + i;
+                if (i%2==0)
+                {
+                    receita.nomeReceita = "Milho " + i;
+                    receita.id = i;
+                }
+                else
+                {
+                    receita.nomeReceita = "Mandioca " + i;
+                    receita.id = i;
+                }
+           
+               
 
 
-                DateTime dtin = new DateTime();
+
+
 
                 aa.id = i;
                 aa.IdReceitaBase = i;
@@ -101,7 +125,6 @@ namespace _9230A_V00___PI.Telas_Fluxo
 
             }
         }
-
 
     }
 }
