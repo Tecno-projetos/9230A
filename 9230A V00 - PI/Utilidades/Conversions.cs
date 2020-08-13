@@ -67,5 +67,48 @@ namespace _9230A_V00___PI.Utilidades
 
             return Dword;
         }
+
+        public static byte Bit_To_Byte(ref bool[] Bits)
+        {
+
+            Byte value = 1;
+            Byte _byte = 0;
+
+            for (int i = 0; i <= 7; i++)
+            {
+                if (Bits[i])
+                {
+                    _byte += value;
+                }
+
+                value = Convert.ToByte(value * 2);
+            }
+            return _byte;
+        }
+
+        public static void Byte_To_Bit(Byte _byte, ref bool[] Bits)
+        {
+
+            int value = 1;
+
+
+            for (int i = 0; i <= 7; i++)
+            {
+                if ((_byte & value) == value)
+                {
+                    Bits[i] = true;
+                }
+                else
+                {
+                    Bits[i] = false;
+                }
+
+                value = value * 2;
+            }
+
+        }
+
+
+
     }
 }
