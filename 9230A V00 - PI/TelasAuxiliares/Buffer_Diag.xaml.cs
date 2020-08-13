@@ -16,16 +16,18 @@ using System.Windows.Shapes;
 namespace _9230A_V00___PI.TelasAuxiliares
 {
     /// <summary>
-    /// Interaction logic for Buffer_Diag.xaml
+
     /// </summary>
-    public partial class Buffer_Diag : Window
+    public partial class Buffer_Diag : UserControl
     {
         #region Variáveis
 
         private string Error = null;
 
+
         Int64 Count = 0;
         Int64 Countlog = 0;
+
         #endregion
 
         public Buffer_Diag()
@@ -77,6 +79,7 @@ namespace _9230A_V00___PI.TelasAuxiliares
                             Countlog += 1;
                         }
                     }
+
                 }
                 catch (Exception ex)
                 {

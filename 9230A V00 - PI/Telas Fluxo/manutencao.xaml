@@ -50,16 +50,22 @@
                 <TextBlock  Text="Diagnóstico CLP" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="21,12,0,10" Width="149" FontSize="14" FontWeight="Normal" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center"/>
             </Grid>
         </Button>
-        <Button x:Name="btDiagnosticoCLP_Copy" Margin="10,412,834,213" Background="#FF505050" BorderBrush="Black" Height="50" Click="btDiagnosticoCLP_Click">
+        <Button x:Name="btPrjEletrico" Margin="10,467,834,158" Background="#FF505050" BorderBrush="Black" Height="50" Click="btPrjEletrico_Click">
             <Grid Width="170" Height="40">
                 <materialDesign:PackIcon Kind="Electricity" VerticalAlignment="Center" Foreground="White" Margin="2,-6,0,-7" Height="30" Width="30"/>
                 <TextBlock  Text="Projeto Elétrico" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="21,12,0,10" Width="149" FontSize="14" FontWeight="Normal" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center"/>
             </Grid>
         </Button>
-        <Button x:Name="btDiagnosticoCLP_Copy1" Margin="10,467,834,158" Background="#FF505050" BorderBrush="Black" Height="50" Click="btDiagnosticoCLP_Click">
+        <Button x:Name="btDiagnosticoCLP_Copy1" Margin="10,522,834,103" Background="#FF505050" BorderBrush="Black" Height="50" Click="btDiagnosticoCLP_Click">
             <Grid Width="170" Height="40">
                 <materialDesign:PackIcon Kind="Text" VerticalAlignment="Center" Foreground="White" Margin="2,-6,0,-7" Height="30" Width="30"/>
                 <TextBlock  Text="Manual Usuário" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="21,12,0,10" Width="149" FontSize="14" FontWeight="Normal" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            </Grid>
+        </Button>
+        <Button x:Name="btDiagnosticoSuP" Margin="10,412,834,213" Background="#FF505050" BorderBrush="Black" Height="50" Click="btDiagnosticoSuP_Click">
+            <Grid Width="170" Height="40">
+                <materialDesign:PackIcon Kind="GearBox" VerticalAlignment="Center" Foreground="White" Margin="2,-6,0,-7" Height="30" Width="30"/>
+                <TextBlock  Text="Diagnóstico SUP" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="21,12,0,10" Width="149" FontSize="14" FontWeight="Normal" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center"/>
             </Grid>
         </Button>
     </Grid>
