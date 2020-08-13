@@ -4,10 +4,48 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:_9230A_V00___PI.Telas_Fluxo.Controle_Produção"
-             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="_9230A_V00___PI.Telas_Fluxo.Controle_Produção.TelaStatusProducao"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="_9230A_V00___PI.Telas_Fluxo.Controle_Produção.TelaStatusProducao" xmlns:Utilidades="clr-namespace:_9230A_V00___PI.Utilidades"
              mc:Ignorable="d" Width="803.369" Height="517.855">
-    <Grid>
-        <Button Content="Dosar Manual" HorizontalAlignment="Left" Height="35" Margin="658,478,0,0" VerticalAlignment="Top" Width="133"/>
+
+
+    <UserControl.Resources>
+        <SolidColorBrush x:Key="brushWatermarkForeground" Color="White" />
+        <Utilidades:TextInputToVisibilityConverter x:Key="TextInputToVisibilityConverter" />
+
+        <SolidColorBrush x:Key="brushWatermarkBorder" Color="White" />
+
+        <Style x:Key="EntryFieldStyle" TargetType="{x:Type Grid}" >
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="20,0" />
+        </Style>
+
+    </UserControl.Resources>
+
+    <Grid Height="518" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="803">
+        <Grid.Resources  >
+            <ResourceDictionary>
+                <ResourceDictionary.MergedDictionaries>
+                    <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Blue.xaml" />
+                    <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Indigo.xaml" />
+                    <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                </ResourceDictionary.MergedDictionaries>
+
+                <SolidColorBrush x:Key="brushWatermarkBackground" Color="#FF505050" />
+                <SolidColorBrush x:Key="brushWatermarkForeground" Color="White" />
+                <Utilidades:TextInputToVisibilityConverter x:Key="TextInputToVisibilityConverter" />
+
+                <SolidColorBrush x:Key="brushWatermarkBorder" Color="White" />
+
+                <Style x:Key="EntryFieldStyle" TargetType="{x:Type Grid}" >
+                    <Setter Property="HorizontalAlignment" Value="Stretch" />
+                    <Setter Property="VerticalAlignment" Value="Center" />
+                    <Setter Property="Margin" Value="20,0" />
+                </Style>
+
+            </ResourceDictionary>
+
+        </Grid.Resources>
         <DataGrid x:Name="DataGrid_Produtos" Margin="8,6,0,0" CanUserAddRows="False"
             HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Black" Foreground="Black"
             HorizontalGridLinesBrush="{DynamicResource {x:Static SystemColors.ControlTextColor}}"
@@ -57,11 +95,36 @@
             </Grid>
         </Button>
         <Label Content="Dosagem Matéria Prima Automática" HorizontalAlignment="Left" VerticalAlignment="Top" Width="448" BorderBrush="Black" Background="{x:Null}" Foreground="#FF00FF0C" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="40" Padding="0" FontSize="24" FontWeight="Bold" Margin="355,8,0,0"/>
-        <Label Content="Peso Atual Balança:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="210" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="40" Padding="0" FontSize="18" FontWeight="Bold" Margin="360,106,0,0"/>
-        <Label Content="Tempo Restante Pré Mistura:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="315" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="40" Padding="0" FontSize="18" FontWeight="Bold" Margin="360,148,0,0"/>
-        <Label Content="Tempo Restante Pós Mistura:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="315" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="40" Padding="0" FontSize="18" FontWeight="Bold" Margin="360,190,0,0"/>
-        <Label Content="Tempo Passo Atual:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="315" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="40" Padding="0" FontSize="18" FontWeight="Bold" Margin="360,232,0,0"/>
-        <Label Content="Tempo Total Batelada:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="315" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="40" Padding="0" FontSize="18" FontWeight="Bold" Margin="360,274,0,0"/>
+        <Label Content="Peso Atual Balança:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="210" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="40" Padding="0" FontSize="18" FontWeight="Bold" Margin="374,106,0,0"/>
+        <Label Content="Tempo Restante Pré Mistura:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="315" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="40" Padding="0" FontSize="18" FontWeight="Bold" Margin="374,148,0,0"/>
+        <Label Content="Tempo Restante Pós Mistura:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="315" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="40" Padding="0" FontSize="18" FontWeight="Bold" Margin="374,190,0,0"/>
+        <Label Content="Tempo Passo Atual:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="315" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="40" Padding="0" FontSize="18" FontWeight="Bold" Margin="374,232,0,0"/>
+        <Label Content="Tempo Total Batelada:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="315" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="40" Padding="0" FontSize="18" FontWeight="Bold" Margin="374,274,0,0"/>
+        <Button x:Name="btCadastroProduto_Copy2" Margin="374,355,0,128" Background="#FF505050" BorderBrush="Black" Height="35" HorizontalAlignment="Left" Width="155">
+            <Grid Width="110" Height="23">
+                <TextBlock FontFamily="Champagne &amp; Limousines" TextAlignment="Center" Foreground="White" Margin="-7,0,0,2" Width="117" FontSize="14" FontWeight="Normal" VerticalAlignment="Bottom"  HorizontalAlignment="Center" Height="17"><Run Text="Dosar Manua"/><Run Text="l"/></TextBlock>
+            </Grid>
+        </Button>
+        <Button x:Name="btCadastroProduto_Copy1" Margin="432,454,0,10" Background="#FF505050" BorderBrush="Black" Height="Auto" HorizontalAlignment="Left" Width="68">
+            <Grid Width="52" Height="39">
+                <TextBlock FontFamily="Champagne &amp; Limousines" TextAlignment="Center" Foreground="White" FontSize="36" FontWeight="Normal" VerticalAlignment="Bottom" Height="39" Text="2" HorizontalAlignment="Left" Width="42" Margin="-3,0,0,0"/>
+            </Grid>
+        </Button>
+        <Button x:Name="btCadastroProduto_Copy4" Margin="623,463,0,20" Background="#FF505050" BorderBrush="Black" Height="35" HorizontalAlignment="Left" Width="155">
+            <Grid Width="110" Height="23">
+                <TextBlock FontFamily="Champagne &amp; Limousines" TextAlignment="Center" Foreground="White" Margin="-5,0,-2,2" Width="117" FontSize="14" FontWeight="Normal" VerticalAlignment="Bottom"  HorizontalAlignment="Center" Height="17" Text="Voltar Fluxo"/>
+            </Grid>
+        </Button>
+        <Button x:Name="btCadastroProduto_Copy" Margin="513,454,0,10" Background="#FF505050" BorderBrush="Black" Height="Auto" HorizontalAlignment="Left" Width="68">
+            <Grid Width="52" Height="39">
+                <TextBlock FontFamily="Champagne &amp; Limousines" TextAlignment="Center" Foreground="Red" FontSize="36" FontWeight="Normal" VerticalAlignment="Bottom" Height="39" Text="3" HorizontalAlignment="Left" Width="42" Margin="-3,0,0,0"/>
+            </Grid>
+        </Button>
+        <Button x:Name="btCadastroProduto_Copy3" Margin="351,454,0,10" Background="#FF505050" BorderBrush="Black" Height="Auto" HorizontalAlignment="Left" Width="68">
+            <Grid Width="52" Height="39">
+                <TextBlock FontFamily="Champagne &amp; Limousines" TextAlignment="Center" Foreground="#FF23FF00" FontSize="36" FontWeight="Normal" VerticalAlignment="Bottom" Height="39" Text="1" HorizontalAlignment="Left" Width="42" Margin="-3,0,0,0"/>
+            </Grid>
+        </Button>
 
     </Grid>
 </UserControl>

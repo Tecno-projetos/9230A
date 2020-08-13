@@ -229,6 +229,9 @@
     <Compile Include="Telas Fluxo\Configuracoes\Especificacoes.xaml.cs">
       <DependentUpon>Especificacoes.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Telas Fluxo\Controle Produção\Ensaque.xaml.cs">
+      <DependentUpon>Ensaque.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Telas Fluxo\Controle Produção\inicialControleProducao.xaml.cs">
       <DependentUpon>inicialControleProducao.xaml</DependentUpon>
     </Compile>
@@ -490,6 +493,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Telas Fluxo\Configuracoes\Especificacoes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Telas Fluxo\Controle Produção\Ensaque.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
