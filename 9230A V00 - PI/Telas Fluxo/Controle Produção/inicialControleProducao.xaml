@@ -8,125 +8,41 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800" Width="490" Height="295">
     <Grid Background="#FF646464">
-
-        <DataGrid x:Name="DG_Man" AutoGenerateColumns="False" CanUserAddRows="False"
-                Margin="195,5,5,0" HorizontalAlignment="Stretch" VerticalAlignment="Top"
-                RowBackground="#fff" FontWeight="Bold" Foreground="#525252"
-                ScrollViewer.CanContentScroll="False"
-                AlternatingRowBackground="#f2f2f2" BorderBrush="#000" BorderThickness="1"
-                ScrollViewer.HorizontalScrollBarVisibility="Visible"
-                CanUserDeleteRows ="False" CanUserReorderColumns="False" CanUserResizeRows="False" CanUserSortColumns="False"
-             
-                Height="217" Cursor="Hand" Background="{x:Null}" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Disabled">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Produto" Binding="{Binding ID}" IsReadOnly="True" />
-                <DataGridTextColumn Header="Valor Dosado" Binding="{Binding Descrição_Manutencao}" IsReadOnly="True" />
-                <DataGridTextColumn Header="Status Produção" Binding="{Binding Tempo_Manutencao}" IsReadOnly="True" Width="150" />
-
-
-            </DataGrid.Columns>
-        </DataGrid>
-        <Button x:Name="btCadastroProduto" Margin="5,117,0,150" Background="#FF505050" BorderBrush="Black" HorizontalAlignment="Left" Width="185">
+        <Button x:Name="bt1" Margin="5,155,0,112" Background="#FF505050" BorderBrush="Black" HorizontalAlignment="Left" Width="185" Click="bt1_Click">
             <Grid Width="183" Height="25">
                 <TextBlock FontFamily="Champagne &amp; Limousines" TextAlignment="Center" Foreground="White" Width="183" FontSize="14" FontWeight="Normal" VerticalAlignment="Bottom"  HorizontalAlignment="Center"  Text="Batelada 1" Height="15" Padding="0" Margin="0,0,0,5"/>
             </Grid>
         </Button>
-        <Label Content="Status Rota" HorizontalAlignment="Left" Margin="5,146,0,0" VerticalAlignment="Top" Width="185" BorderBrush="Black" Background="#FFAC0F0F" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="20" Padding="0"/>
-        <Button x:Name="btCadastroProduto_Copy" Margin="32,170,0,90" Background="#FF505050" BorderBrush="Black" Height="35" HorizontalAlignment="Left" Width="124">
-            <Grid Width="105" Height="23">
-                <materialDesign:PackIcon Kind="Mixer" VerticalAlignment="Center" Foreground="White" Margin="7,0,0,0" Height="23" Width="21"/>
-                <TextBlock FontFamily="Champagne &amp; Limousines" TextAlignment="Center" Foreground="White" Margin="28,0,0,2" Width="82" FontSize="14" FontWeight="Normal" VerticalAlignment="Bottom"  HorizontalAlignment="Left"  Text="Pré Mist." Height="17"/>
+        <Label Content="Status Rota" HorizontalAlignment="Left" Margin="195,155,0,0" VerticalAlignment="Top" Width="285" BorderBrush="Black" Background="#FFAC0F0F" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="28" Padding="0"/>
+        <Label Content="NOME DA RECEITA" HorizontalAlignment="Left" VerticalAlignment="Top" Width="490" BorderBrush="Black" Background="{x:Null}" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="25" Padding="0" FontSize="22" FontWeight="Bold" Margin="0,2,0,0"/>
+        <Label Content="N° Bateladas:" HorizontalAlignment="Left" Margin="150,39,0,0" VerticalAlignment="Top" Width="100" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="25" Padding="0" FontWeight="Bold" FontSize="15"/>
+        <Label Content="120" Margin="301,39,0,0" VerticalAlignment="Top" Width="34" BorderBrush="Black" Background="{x:Null}" Foreground="#FF1AD308" VerticalContentAlignment="Center" Height="24" Padding="0" FontWeight="Bold" HorizontalAlignment="Left" HorizontalContentAlignment="Right" FontSize="16"/>
+        <Label Content="und." HorizontalAlignment="Left" Margin="337,46,0,0" VerticalAlignment="Top" Width="25" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="17" Padding="0" FontWeight="Bold" FontSize="8"/>
+        <materialDesign:PackIcon Kind="DotsVerticalCircle" VerticalAlignment="Center" Foreground="White" Height="21" Margin="129,42,0,232" Width="20"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="5" Margin="5,31,0,0" Stroke="Black" VerticalAlignment="Top" Width="485"/>
+        <Label Content="Peso Total:" HorizontalAlignment="Left" Margin="150,76,0,0" VerticalAlignment="Top" Width="100" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="25" Padding="0" FontWeight="Bold" FontSize="15"/>
+        <Label Content="1000" Margin="301,77,0,0" VerticalAlignment="Top" Width="42" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="21" Padding="0" FontWeight="Bold" HorizontalAlignment="Left" HorizontalContentAlignment="Right" FontSize="16"/>
+        <Label Content="kg" HorizontalAlignment="Left" Margin="343,83,0,0" VerticalAlignment="Top" Width="25" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="17" Padding="0" FontWeight="Bold" FontSize="8"/>
+        <materialDesign:PackIcon Kind="Weight" VerticalAlignment="Center" Foreground="White" Height="20" Margin="129,79,0,196" Width="20"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="3" Margin="132,66,0,0" Stroke="Black" VerticalAlignment="Top" Width="185"/>
+        <Label Content="Batelada Concluidas:" HorizontalAlignment="Left" Margin="150,113,0,0" VerticalAlignment="Top" Width="153" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="25" Padding="0" FontWeight="Bold" FontSize="15"/>
+        <Label Content="5" Margin="296,118,0,0" VerticalAlignment="Top" Width="16" BorderBrush="Black" Background="{x:Null}" Foreground="#FF3AFF00" VerticalContentAlignment="Center" Height="17" Padding="0" FontWeight="Bold" HorizontalAlignment="Left" HorizontalContentAlignment="Right"/>
+        <Label Content="und." HorizontalAlignment="Left" Margin="340,119,0,0" VerticalAlignment="Top" Width="25" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="17" Padding="0" FontWeight="Bold" FontSize="8"/>
+        <materialDesign:PackIcon Kind="CheckBox" VerticalAlignment="Center" Foreground="White" Height="17" Margin="129,117,0,161" Width="20"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="3" Margin="132,111,0,0" Stroke="Black" VerticalAlignment="Top" Width="185"/>
+        <Label Content="/120" Margin="305,118,0,0" VerticalAlignment="Top" Width="35" BorderBrush="Black" Background="{x:Null}" Foreground="#FFFF002E" VerticalContentAlignment="Center" Height="17" Padding="0" FontWeight="Bold" HorizontalAlignment="Left" HorizontalContentAlignment="Right"/>
+        <Button x:Name="bt2" Margin="5,194,0,73" Background="#FF505050" BorderBrush="Black" HorizontalAlignment="Left" Width="185" Click="bt2_Click">
+            <Grid Width="183" Height="25">
+                <TextBlock FontFamily="Champagne &amp; Limousines" TextAlignment="Center" Foreground="White" Width="183" FontSize="14" FontWeight="Normal" VerticalAlignment="Bottom"  HorizontalAlignment="Center"  Text="Batelada 2" Height="15" Padding="0" Margin="0,0,0,5"/>
             </Grid>
         </Button>
-        <Label Content="Status Rota" HorizontalAlignment="Left" Margin="5,206,0,0" VerticalAlignment="Top" Width="185" BorderBrush="Black" Background="#FFAC0F0F" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="20" Padding="0"/>
-        <Button x:Name="btCadastroProduto_Copy1" Margin="32,230,0,30" Background="#FF505050" BorderBrush="Black" Height="35" HorizontalAlignment="Left" Width="124">
-            <Grid Width="105" Height="23">
-                <materialDesign:PackIcon Kind="Mixer" VerticalAlignment="Center" Foreground="White" Margin="7,0,0,0" Height="23" Width="21"/>
-                <TextBlock FontFamily="Champagne &amp; Limousines" TextAlignment="Center" Foreground="White" Margin="28,0,0,2" Width="82" FontSize="14" FontWeight="Normal" VerticalAlignment="Bottom"  HorizontalAlignment="Center"  Text="Pré Mist." Height="17"/>
+        <Label Content="Status Rota" HorizontalAlignment="Left" Margin="195,194,0,0" VerticalAlignment="Top" Width="285" BorderBrush="Black" Background="#FFAC0F0F" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="28" Padding="0"/>
+        <Button x:Name="bt3" Margin="5,235,0,32" Background="#FF505050" BorderBrush="Black" HorizontalAlignment="Left" Width="185" Click="bt3_Click">
+            <Grid Width="183" Height="25">
+                <TextBlock FontFamily="Champagne &amp; Limousines" TextAlignment="Center" Foreground="White" Width="183" FontSize="14" FontWeight="Normal" VerticalAlignment="Bottom"  HorizontalAlignment="Center"  Text="Batelada 3" Height="15" Padding="0" Margin="0,0,0,5"/>
             </Grid>
         </Button>
-        <Label Content="Status Rota" HorizontalAlignment="Left" Margin="5,267,0,0" VerticalAlignment="Top" Width="185" BorderBrush="Black" Background="#FFAC0F0F" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="20" Padding="0"/>
-        <Label Content="NOME DA RECEITA" HorizontalAlignment="Left" VerticalAlignment="Top" Width="195" BorderBrush="Black" Background="{x:Null}" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="25" Padding="0" FontSize="18" FontWeight="Bold" Margin="0,1,0,0"/>
-        <Label Content="N° Bateladas:" HorizontalAlignment="Left" Margin="23,31,0,0" VerticalAlignment="Top" Width="95" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="25" Padding="0" FontWeight="Bold" FontSize="14"/>
-        <Label Content="120" Margin="133,35,0,0" VerticalAlignment="Top" Width="34" BorderBrush="Black" Background="{x:Null}" Foreground="#FF1AD308" VerticalContentAlignment="Center" Height="17" Padding="0" FontWeight="Bold" HorizontalAlignment="Left" HorizontalContentAlignment="Right"/>
-        <Label Content="und." HorizontalAlignment="Left" Margin="168,35,0,0" VerticalAlignment="Top" Width="25" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="17" Padding="0" FontWeight="Bold" FontSize="8"/>
-        <materialDesign:PackIcon Kind="DotsVerticalCircle" VerticalAlignment="Center" Foreground="White" Height="17" Margin="2,35,0,243" Width="20"/>
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="5" Margin="5,26,0,0" Stroke="Black" VerticalAlignment="Top" Width="185"/>
-        <Label Content="Peso Bateldas:" HorizontalAlignment="Left" Margin="23,57,0,0" VerticalAlignment="Top" Width="100" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="25" Padding="0" FontWeight="Bold" FontSize="14"/>
-        <Label Content="1000" Margin="133,61,0,0" VerticalAlignment="Top" Width="34" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="17" Padding="0" FontWeight="Bold" HorizontalAlignment="Left" HorizontalContentAlignment="Right"/>
-        <Label Content="kg" HorizontalAlignment="Left" Margin="168,61,0,0" VerticalAlignment="Top" Width="25" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="17" Padding="0" FontWeight="Bold" FontSize="8"/>
-        <materialDesign:PackIcon Kind="Weight" VerticalAlignment="Center" Foreground="White" Height="17" Margin="2,61,0,217" Width="20"/>
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="3" Margin="5,55,0,0" Stroke="Black" VerticalAlignment="Top" Width="185"/>
-        <Label Content="Batelada Concluidas:" HorizontalAlignment="Left" Margin="23,84,0,0" VerticalAlignment="Top" Width="107" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="25" Padding="0" FontWeight="Bold" FontSize="14"/>
-        <Label Content="5" Margin="128,88,0,0" VerticalAlignment="Top" Width="12" BorderBrush="Black" Background="{x:Null}" Foreground="#FF3AFF00" VerticalContentAlignment="Center" Height="17" Padding="0" FontWeight="Bold" HorizontalAlignment="Left" HorizontalContentAlignment="Right"/>
-        <Label Content="und." HorizontalAlignment="Left" Margin="168,88,0,0" VerticalAlignment="Top" Width="25" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="17" Padding="0" FontWeight="Bold" FontSize="8"/>
-        <materialDesign:PackIcon Kind="CheckBox" VerticalAlignment="Center" Foreground="White" Height="17" Margin="2,88,0,190" Width="20"/>
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="3" Margin="5,82,0,0" Stroke="Black" VerticalAlignment="Top" Width="185"/>
-        <Button x:Name="btUpList" Margin="423,227,0,0" Background="#FF505050" BorderBrush="Black" Height="30" Opacity="1" HorizontalAlignment="Left" Width="57" VerticalAlignment="Top" >
-            <Button.Resources>
-                <ResourceDictionary>
-                    <ResourceDictionary.MergedDictionaries>
-                        <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Blue.xaml" />
-                        <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Indigo.xaml" />
-                        <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
-
-
-                    </ResourceDictionary.MergedDictionaries>
-                    <SolidColorBrush x:Key="brushWatermarkBackground" Color="White" />
-                    <SolidColorBrush x:Key="brushWatermarkForeground" Color="LightSteelBlue" />
-                    <SolidColorBrush x:Key="brushWatermarkBorder" Color="Black" />
-
-                    <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
-
-                    <Style x:Key="EntryFieldStyle" TargetType="{x:Type Grid}" >
-                        <Setter Property="HorizontalAlignment" Value="Stretch" />
-                        <Setter Property="VerticalAlignment" Value="Center" />
-                        <Setter Property="Margin" Value="20,0" />
-                    </Style>
-                </ResourceDictionary>
-
-            </Button.Resources>
-
-            <Grid Width="30" Height="25" Margin="0">
-                <materialDesign:PackIcon Kind="ArrowUpBold" VerticalAlignment="Center" Foreground="White" Height="30" Width="32" Margin="-2,-5,0,0"/>
-            </Grid>
-        </Button>
-        <Button x:Name="btCadastroProduto_Copy2" Margin="235,240,0,20" Background="#FF505050" BorderBrush="Black" Height="35" HorizontalAlignment="Left" Width="155">
-            <Grid Width="110" Height="23">
-                <materialDesign:PackIcon Kind="CheckBold" VerticalAlignment="Center" Foreground="White" Margin="7,0,0,0" Height="23" Width="21"/>
-                <TextBlock FontFamily="Champagne &amp; Limousines" TextAlignment="Center" Foreground="White" Margin="28,0,0,2" Width="82" FontSize="14" FontWeight="Normal" VerticalAlignment="Bottom"  HorizontalAlignment="Center"  Text="Dosagem" Height="17"/>
-            </Grid>
-        </Button>
-        <Label Content="/120" Margin="133,88,0,0" VerticalAlignment="Top" Width="34" BorderBrush="Black" Background="{x:Null}" Foreground="#FFFF002E" VerticalContentAlignment="Center" Height="17" Padding="0" FontWeight="Bold" HorizontalAlignment="Left" HorizontalContentAlignment="Right"/>
-        <Button x:Name="btUpList_Copy" Margin="423,257,0,0" Background="#FF505050" BorderBrush="Black" Height="30" Opacity="1" HorizontalAlignment="Left" Width="57" VerticalAlignment="Top" >
-            <Button.Resources>
-                <ResourceDictionary>
-                    <ResourceDictionary.MergedDictionaries>
-                        <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Blue.xaml" />
-                        <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Indigo.xaml" />
-                        <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
-
-
-                    </ResourceDictionary.MergedDictionaries>
-                    <SolidColorBrush x:Key="brushWatermarkBackground" Color="White" />
-                    <SolidColorBrush x:Key="brushWatermarkForeground" Color="LightSteelBlue" />
-                    <SolidColorBrush x:Key="brushWatermarkBorder" Color="Black" />
-
-                    <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
-
-                    <Style x:Key="EntryFieldStyle" TargetType="{x:Type Grid}" >
-                        <Setter Property="HorizontalAlignment" Value="Stretch" />
-                        <Setter Property="VerticalAlignment" Value="Center" />
-                        <Setter Property="Margin" Value="20,0" />
-                    </Style>
-                </ResourceDictionary>
-
-            </Button.Resources>
-
-            <Grid Width="30" Height="25" Margin="0">
-                <materialDesign:PackIcon Kind="ArrowDownBold" VerticalAlignment="Center" Foreground="White" Height="30" Width="32" Margin="-2,-5,0,0"/>
-            </Grid>
-        </Button>
+        <Label Content="Status Rota" HorizontalAlignment="Left" Margin="195,235,0,0" VerticalAlignment="Top" Width="285" BorderBrush="Black" Background="#FFAC0F0F" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="28" Padding="0"/>
 
     </Grid>
 

@@ -20,9 +20,31 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
     /// </summary>
     public partial class inicialControleProducao : UserControl
     {
+        public event EventHandler Bt1_Click;
+        public event EventHandler Bt2_Click;
+        public event EventHandler Bt3_Click;
+
         public inicialControleProducao()
         {
             InitializeComponent();
+        }
+
+        private void bt1_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.Bt1_Click != null)
+                this.Bt1_Click(this, e);
+        }
+
+        private void bt2_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.Bt2_Click != null)
+                this.Bt2_Click(this, e);
+        }
+
+        private void bt3_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.Bt3_Click != null)
+                this.Bt3_Click(this, e);
         }
     }
 }
