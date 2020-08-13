@@ -787,14 +787,18 @@ namespace _9230A_V00___PI.Utilidades
                         DTOut = dtOut;
                     }
 
-                    string CommandString = "SELECT * FROM Producao Where FinalizouProducao = 'True' AND FinalizouProducao >= '" + DTIn + "' AND FinalizouProducao <= '" + DTOut + "'";
+                    string CommandString = "SELECT * FROM Producao Where FinalizouProducao = 'True' AND DataFimProducao >= '" + DTIn + "' AND DataFimProducao <= '" + DTOut + "'";
 
                     dynamic Call = SqlGlobalFuctions.ReturnCall(Utilidades.VariaveisGlobais.Connection_DB_Receitas_GS);
                     Call.Open();
 
-                    dynamic Adapter = SqlGlobalFuctions.ReturnAdapter(CommandString, Utilidades.VariaveisGlobais.Connection_DB_Users_GS);
+        
+
+                    dynamic Adapter = SqlGlobalFuctions.ReturnAdapter(CommandString, Utilidades.VariaveisGlobais.Connection_DB_Receitas_GS);
 
                     Adapter.Fill(Data);
+
+                    Call.Close();
 
                     foreach (DataRow item in Data.Rows)
                     {
@@ -805,7 +809,7 @@ namespace _9230A_V00___PI.Utilidades
                         listProducao.Add(dummyProducao);
                     }
 
-                    Call.Close();
+    
                 }
                 catch (Exception ex)
                 {
@@ -834,7 +838,7 @@ namespace _9230A_V00___PI.Utilidades
                     dynamic Call = SqlGlobalFuctions.ReturnCall(Utilidades.VariaveisGlobais.Connection_DB_Receitas_GS);
                     Call.Open();
 
-                    dynamic Adapter = SqlGlobalFuctions.ReturnAdapter(CommandString, Utilidades.VariaveisGlobais.Connection_DB_Users_GS);
+                    dynamic Adapter = SqlGlobalFuctions.ReturnAdapter(CommandString, Utilidades.VariaveisGlobais.Connection_DB_Receitas_GS);
 
                     Adapter.Fill(Data);
 

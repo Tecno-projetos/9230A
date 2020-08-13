@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,7 +25,17 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
     public partial class pesquisaBatelada : UserControl
     {
         private List<Utilidades.Producao> pd = new List<Utilidades.Producao>();
-       
+        
+        private string fileName = "";
+        private string nameArquivo = "";
+        private string folder = @"C:\Temp";
+        private bool NecessitaApagar = false;
+        private string OldfileName = "";
+        private string exportacao = "";
+        private Int32 idproducao = -1;
+
+        Utilidades.messageBox inputDialog;
+
         public pesquisaBatelada()
         {
             InitializeComponent();
@@ -157,29 +169,30 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
             //Cria o datatable para inserir os dados.
             DataTable dt1 = new DataTable();
 
-            //Envia a lista pesquisada para a lista auxiliar.
-            pd = Utilidades.VariaveisGlobais.PesquisaProducao;
 
-            //if (pd.Count > 0)
-            //{
-            //    pd.Clear();
-            //}
-            //pd = DataBase.SQLFunctionsProducao.PesquisaDateInDateOut()(Convert.ToDateTime(txtDataSelecionada.Content), Convert.ToDateTime(txtFIM.Content));
+            if (pd.Count > 0)
+            {
+                pd.Clear();
+            }
+
+            pd = Utilidades.functions.PesquisaDateInDateOut(Convert.ToDateTime(txtDataSelecionada.Content), Convert.ToDateTime(txtFIM.Content));
+
 
             dt1.Columns.Add("N° Produção");
             dt1.Columns.Add("Nome Receita");
             dt1.Columns.Add("Total Produzido");
             dt1.Columns.Add("Bateladas");
-
+            dt1.Columns.Add("Data Produção");
 
             foreach (var item in pd)
             {
                 DataRow dr = dt1.NewRow();
 
-                dr["N° Produção"] = item.receita.id;
+                dr["N°"] = item.id;
                 dr["Nome Receita"] = item.receita.nomeReceita;
                 dr["Total Produzido"] = item.pesoTotalProduzido;
                 dr["Bateladas"] = item.quantidadeBateladas;
+                dr["Data Produção"] = item.dateTimeInicioProducao;
 
                 dt1.Rows.Add(dr);
             }
@@ -188,16 +201,132 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
 
         }
 
-        private void DataGrid_Receita_LoadingRow(object sender, DataGridRowEventArgs e)
-        {
-
-        }
-
         private void DataGrid_Receita_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             var rowList = (DataGrid_Receita.ItemContainerGenerator.ContainerFromIndex(DataGrid_Receita.SelectedIndex) as DataGridRow).Item as DataRowView;
 
+            idproducao = Convert.ToInt32((string)rowList.Row.ItemArray[0]);
+
             lbNomeProduto.Content = "N° Produção: " + (string)rowList.Row.ItemArray[0] + " - Nome Receita: " + (string)rowList.Row.ItemArray[1];
+        }
+
+        private void btExportar_Click(object sender, RoutedEventArgs e)
+        {
+            discoExportar exportacaoMessage = new discoExportar();
+
+            if (exportacaoMessage.ShowDialog() == true)
+            {
+                exportacao = exportacaoMessage.discoExportacao;
+
+                if (!String.IsNullOrEmpty((string)lbNomeProduto.Content))
+                {
+                    string destinationFile = exportacao + "\\" + nameArquivo;
+
+                    if (!File.Exists(destinationFile))
+                    {
+                        inputDialog = new Utilidades.messageBox("Exportando", "Isso pode levar alguns minutos, por favor aguarde.", MaterialDesignThemes.Wpf.PackIconKind.Information, "OK", "Fechar");
+
+                        inputDialog.ShowDialog();
+
+                        //Relatorios.ExportacaoRelatorios.exportProducao(destinationFile, Utilidades.VariaveisGlobais.PesquisaProducao, "Produção Total", DateTime.Now, DateTime.Now);
+
+                        //Original
+                        //Relatorios.ExportacaoRelatorios.exportProducao(fileName, DataBase.SQLFunctionsProducao.PesquisaDateInDateOut(producao.dataInicial_GS, producao.dataFinal_GS), "Produção Total", DateTime.Now, DateTime.Now);
+
+                        inputDialog = new Utilidades.messageBox("Arquivo exportado", "O arquivo foi exportado com sucesso", MaterialDesignThemes.Wpf.PackIconKind.Information, "OK", "Fechar");
+
+                        inputDialog.ShowDialog();
+
+                    }
+                    else
+                    {
+                        inputDialog = new Utilidades.messageBox("Arquivo já exportado", "O arquivo já foi exportado.", MaterialDesignThemes.Wpf.PackIconKind.Information, "OK", "Fechar");
+
+                        inputDialog.ShowDialog();
+
+                    }
+                }
+                else
+                {
+                    inputDialog = new Utilidades.messageBox("Realizar Pesquisa", "Para exportar algum arquivo é necessário realizar a pesquisa.", MaterialDesignThemes.Wpf.PackIconKind.Information, "OK", "Fechar");
+
+                    inputDialog.ShowDialog();
+                }
+            }
+            else
+            {
+                inputDialog = new Utilidades.messageBox("Operação Cancelada", "A exportação foi cancelada pelo usuário.", MaterialDesignThemes.Wpf.PackIconKind.Information, "OK", "Fechar");
+
+                inputDialog.ShowDialog();
+            }
+        }
+
+        private void KillRunningProcess()
+        {
+            Process[] tabtip = Process.GetProcessesByName("Acrord32");
+
+            if (null != tabtip)
+            {
+                tabtip.ToList().ForEach(a => { if (null != a) { a.Kill(); } });
+
+            }
+        }
+
+        private void btRelatorio_Click(object sender, RoutedEventArgs e)
+        {
+            if (!String.IsNullOrEmpty((string)lbNomeProduto.Content) && idproducao != -1)
+            {
+                inputDialog = new Utilidades.messageBox("Gerar relatório", "Deseja gerar o relátorio " + lbNomeProduto.Content, MaterialDesignThemes.Wpf.PackIconKind.Information, "OK", "Fechar");
+
+                if (inputDialog.ShowDialog() == true)
+                {
+
+                    string filename = " ";
+
+                    //Abre onde deseja salvar
+                    Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
+                    dlg.FileName = "Balanca_" + "" + "_" + DateTime.Now.Day + "_" + DateTime.Now.Month + "_" + DateTime.Now.Year; // Default file name
+                    dlg.DefaultExt = ".pdf"; // Default file extension
+                    dlg.Filter = "PDF documents (.pdf)|*.pdf"; // Filter files by extension
+
+                    // Show save file dialog box
+                    Nullable<bool> result = dlg.ShowDialog();
+                    // Process save file dialog box results
+                    if (result == true)
+                    {
+                        // Save document
+                        filename = dlg.FileName;
+
+                        //Original
+                        Relatorios.ExportacaoRelatorios.exportarBatelada(filename, Utilidades.functions.GetProducaoFromIdProducao(idproducao), "Produção Total");
+
+
+                        //Tester
+                        //Relatorios.ExportacaoRelatorios.exportarBatelada(filename, Utilidades.VariaveisGlobais.PesquisaProducao.ElementAt(idproducao), "Produção Total", DateTime.Now, DateTime.Now);
+
+
+                        System.Diagnostics.Process.Start(filename);
+
+                    }
+                }
+                else
+                {
+                    inputDialog = new Utilidades.messageBox("Operação Cancelada", "A exportação foi cancelada pelo usuário.", MaterialDesignThemes.Wpf.PackIconKind.Information, "OK", "Fechar");
+
+                    inputDialog.ShowDialog();
+                }
+            }
+            else
+            {
+                inputDialog = new Utilidades.messageBox("Selecione produção!", "Para gerar reletórios ", MaterialDesignThemes.Wpf.PackIconKind.Information, "OK", "Fechar");
+
+                inputDialog.ShowDialog();
+            }
+            
+            
+
+
+
         }
     }
 }

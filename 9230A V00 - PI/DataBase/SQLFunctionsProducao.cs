@@ -185,12 +185,15 @@ namespace _9230A_V00___PI.DataBase
             {
                 try
                 {
+                    dynamic Call = SqlGlobalFuctions.ReturnCall(Utilidades.VariaveisGlobais.Connection_DB_Receitas_GS);
+
+                    Call.Open();
 
                     foreach (var bateladas in producao.batelada)
                     {
                         foreach (var ProdBateladas in bateladas.produtos)
                         {
-                            dynamic Call = SqlGlobalFuctions.ReturnCall(Utilidades.VariaveisGlobais.Connection_DB_Receitas_GS);
+                            
 
                             string query = "INSERT into Bateladas (" +
                                 "IdProducao, " +
@@ -211,12 +214,13 @@ namespace _9230A_V00___PI.DataBase
                             Command.Parameters.AddWithValue("@ValorDosado", ProdBateladas.pesoDosado);
                             Command.Parameters.AddWithValue("@NumeroBatelada", bateladas.numeroBatelada);
 
-                            Call.Open();
                             ret = Command.ExecuteNonQuery();
-                            Call.Close();
+                            
                             ret = 0;
                         }
                     }
+
+                    Call.Close();
 
                 }
                 catch (Exception ex)
@@ -270,7 +274,7 @@ namespace _9230A_V00___PI.DataBase
             {
                 try
                 {
-                    string CommandString = "SELECT * FROM Producao WHERE IdProducao = '"+IdProducao+"' AND NumeroBatelada = '"+ NumeroBatelada+"'";
+                    string CommandString = "SELECT * FROM Bateladas WHERE IdProducao = '"+IdProducao+"' AND NumeroBatelada = '"+ NumeroBatelada+"'";
 
                     dynamic Call = SqlGlobalFuctions.ReturnCall(Utilidades.VariaveisGlobais.Connection_DB_Receitas_GS);
 

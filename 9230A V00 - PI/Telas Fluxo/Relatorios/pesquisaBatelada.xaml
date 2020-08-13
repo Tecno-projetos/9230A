@@ -150,7 +150,7 @@
             CanUserDeleteRows ="False" CanUserReorderColumns="False" CanUserResizeRows="False" CanUserSortColumns="False"   
             ScrollViewer.VerticalScrollBarVisibility="Auto" Height="390" Cursor="Hand" IsReadOnly="True" AlternatingRowBackground="#FF7F7F7F" 
             RowBackground="White" HorizontalScrollBarVisibility="Hidden" Background="White" FontSize="24" FontFamily="Segoe UI Emoji" GridLinesVisibility="All" 
-            SelectionMode="Single"  AutoGenerateColumns="True" RowHeight="40" MouseLeftButtonUp="DataGrid_Receita_MouseLeftButtonUp" LoadingRow="DataGrid_Receita_LoadingRow" >
+            SelectionMode="Single"  AutoGenerateColumns="True" RowHeight="40" MouseLeftButtonUp="DataGrid_Receita_MouseLeftButtonUp" >
 
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridCell}">
@@ -190,14 +190,27 @@
                 <materialDesign:PackIcon Kind="ArrowRightBold" VerticalAlignment="Center" Foreground="White" Height="42" Width="42"/>
             </Grid>
         </Button>
-        <Button x:Name="btPesquisar_Copy" Margin="217,594,391,31" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btPesquisar_Click" >
-            <Grid Width="150">
-                <materialDesign:PackIcon Kind="FileExportOutline" VerticalAlignment="Center" Foreground="White" Margin="2,-6,0,-7" Height="30" Width="30"/>
-                <TextBlock  Text="Exportar" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="55,0,30,0" Width="65" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Button x:Name="btExportar" Margin="28,584,580,41" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btExportar_Click" >
+            <Grid Width="158" Height="36">
+                <materialDesign:PackIcon Kind="FileExportOutline" VerticalAlignment="Center" Foreground="White" Height="36" Width="39"/>
+                <TextBlock  Text="Exportar" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="59,7,14,5" Width="85" FontSize="20" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center"/>
             </Grid>
         </Button>
         <Rectangle x:Name="rec" Fill="White" HorizontalAlignment="Left" Height="5" Margin="0,110,-1,0" Stroke="White" VerticalAlignment="Top" Width="825"/>
         <Label x:Name="lbNomeProduto" Content="Produto selecionado" Height="40" Margin="10,121,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="803" Foreground="White" FontWeight="Bold" FontSize="22" Background="{x:Null}" HorizontalContentAlignment="Center" BorderBrush="Black"/>
+        <Button x:Name="btRelatorio" Margin="270,560,338,65" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btRelatorio_Click" >
+            <Grid Width="160" Height="36">
+                <materialDesign:PackIcon Kind="File" VerticalAlignment="Center" Foreground="White" Height="36" Width="39" Margin="-12,0,0,0"/>
+                <TextBlock  Text="Relatório" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="59,7,14,5" Width="85" FontSize="20" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            </Grid>
+        </Button>
+        <WebBrowser HorizontalAlignment="Left" Height="434" Margin="28,121,0,0" VerticalAlignment="Top" Width="743"/>
+        <Button x:Name="btRelatorio_Copy" Margin="270,615,338,10" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btRelatorio_Click" >
+            <Grid Width="193" Height="36">
+                <materialDesign:PackIcon Kind="File" VerticalAlignment="Center" Foreground="White" Height="36" Width="39"/>
+                <TextBlock  Text="Fechar Relatório" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="39,8,5,5" Width="149" FontSize="20" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Height="23"/>
+            </Grid>
+        </Button>
 
 
 

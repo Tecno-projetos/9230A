@@ -64,7 +64,6 @@ namespace _9230A_V00___PI.Telas_Fluxo
 
             //  System.Diagnostics.Process.Start(filename);
 
-            //}
         }
 
         private void btBateladas_Click(object sender, RoutedEventArgs e)
@@ -86,6 +85,22 @@ namespace _9230A_V00___PI.Telas_Fluxo
             {
                 Utilidades.Producao aa = new Utilidades.Producao();
                 Utilidades.Receita receita = new Utilidades.Receita();
+                Utilidades.Batelada batelada = new Utilidades.Batelada();
+
+                Utilidades.Produto ProdutoBatelada = new Utilidades.ProdutoBatelada();
+
+
+                List<Utilidades.ProdutoBatelada> produtos = new List<Utilidades.ProdutoBatelada>();
+
+
+                //ProdutoBatelada. produtos = produtos;
+                //ProdutoBatelada.numeroBatelada = i;
+                //ProdutoBatelada.pesoDesejado = i;
+                //ProdutoBatelada.pesoDosado = i + i;
+                //ProdutoBatelada.volumeDesejado = i + i + i;
+               
+
+
 
                 if (i%2==0)
                 {
