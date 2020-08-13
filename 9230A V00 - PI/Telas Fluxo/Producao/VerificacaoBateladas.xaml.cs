@@ -150,29 +150,33 @@ namespace _9230A_V00___PI.Telas_Fluxo.Producao
 
         private void DataGrid_Bateladas_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            //Verifica a batelada selecionada e carrega para o datagrid os produtos com seu peso proporcional ao peso da batelada e a receita.
-
-            var rowList = (DataGrid_Bateladas.ItemContainerGenerator.ContainerFromIndex(DataGrid_Bateladas.SelectedIndex) as DataGridRow).Item as DataRowView;
-
-            var index = Utilidades.VariaveisGlobais.ProducaoReceita.batelada.FindIndex(x => x.numeroBatelada == Convert.ToInt32(rowList.Row.ItemArray[0]));
-                
-            DataTable dt = new DataTable();
-
-            dt.Columns.Add("Produto");
-            dt.Columns.Add("Peso(kg)");
-
-            foreach (var item in Utilidades.VariaveisGlobais.ProducaoReceita.batelada[index].produtos)
+            if (DataGrid_Bateladas.SelectedIndex != -1)
             {
-                DataRow dr = dt.NewRow();
+                //Verifica a batelada selecionada e carrega para o datagrid os produtos com seu peso proporcional ao peso da batelada e a receita.
 
-                dr["Produto"] = item.descricao;
-                dr["Peso(kg)"] = item.pesoDesejado;
+                var rowList = (DataGrid_Bateladas.ItemContainerGenerator.ContainerFromIndex(DataGrid_Bateladas.SelectedIndex) as DataGridRow).Item as DataRowView;
 
-                dt.Rows.Add(dr);
+                var index = Utilidades.VariaveisGlobais.ProducaoReceita.batelada.FindIndex(x => x.numeroBatelada == Convert.ToInt32(rowList.Row.ItemArray[0]));
+
+                DataTable dt = new DataTable();
+
+                dt.Columns.Add("Produto");
+                dt.Columns.Add("Peso(kg)");
+
+                foreach (var item in Utilidades.VariaveisGlobais.ProducaoReceita.batelada[index].produtos)
+                {
+                    DataRow dr = dt.NewRow();
+
+                    dr["Produto"] = item.descricao;
+                    dr["Peso(kg)"] = item.pesoDesejado;
+
+                    dt.Rows.Add(dr);
+                }
+
+                DataGrid_Produtos.Dispatcher.Invoke(delegate { DataGrid_Produtos.ItemsSource = dt.DefaultView; });
+
+
             }
-
-            DataGrid_Produtos.Dispatcher.Invoke(delegate { DataGrid_Produtos.ItemsSource = dt.DefaultView; });
-
 
         }
 

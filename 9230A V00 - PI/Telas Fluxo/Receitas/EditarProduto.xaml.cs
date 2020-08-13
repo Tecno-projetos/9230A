@@ -65,22 +65,26 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
 
         private void btEditarProduto_Click(object sender, RoutedEventArgs e)
         {
-            var rowList = (DataGrid.ItemContainerGenerator.ContainerFromIndex(DataGrid.SelectedIndex) as DataGridRow).Item as DataRowView;
-
-            if (rowList != null)
+            if (DataGrid.SelectedIndex != -1 )
             {
-                ProdutoEditar = Convert.ToInt32(rowList.Row.ItemArray[0]);
-                if (this.Bt_Editar_Click != null)
-                    this.Bt_Editar_Click(this, e);
-            }
-            else
-            {
-                inputDialog = new Utilidades.messageBox("Edição", "Verifique se selecionou algum produto!", MaterialDesignThemes.Wpf.PackIconKind.Error, "OK", "Fechar");
+                var rowList = (DataGrid.ItemContainerGenerator.ContainerFromIndex(DataGrid.SelectedIndex) as DataGridRow).Item as DataRowView;
 
-                inputDialog.ShowDialog();
+                if (rowList != null)
+                {
+                    ProdutoEditar = Convert.ToInt32(rowList.Row.ItemArray[0]);
+                    if (this.Bt_Editar_Click != null)
+                        this.Bt_Editar_Click(this, e);
+                }
+                else
+                {
+                    inputDialog = new Utilidades.messageBox("Edição", "Verifique se selecionou algum produto!", MaterialDesignThemes.Wpf.PackIconKind.Error, "OK", "Fechar");
 
-                ProdutoEditar = -1;
+                    inputDialog.ShowDialog();
+
+                    ProdutoEditar = -1;
+                }
             }
+
 
 
         }
@@ -124,9 +128,13 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
 
         private void DataGrid_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            var rowList = (DataGrid.ItemContainerGenerator.ContainerFromIndex(DataGrid.SelectedIndex) as DataGridRow).Item as DataRowView;
+            if (DataGrid.SelectedIndex != -1 )
+            {
+                var rowList = (DataGrid.ItemContainerGenerator.ContainerFromIndex(DataGrid.SelectedIndex) as DataGridRow).Item as DataRowView;
 
-            lbNomeProduto.Content = (string)rowList.Row.ItemArray[1] + " - " + (string)rowList.Row.ItemArray[2];
+                lbNomeProduto.Content = (string)rowList.Row.ItemArray[1] + " - " + (string)rowList.Row.ItemArray[2];
+            }
+
         }
 
         private void DataGrid_LoadingRow(object sender, DataGridRowEventArgs e)
