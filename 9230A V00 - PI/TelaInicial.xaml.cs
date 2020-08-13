@@ -156,6 +156,32 @@ namespace _9230A_V00___PI
             VariaveisGlobais.Fluxo.inicialProducao.Bt1_Click += InicialProducao_Bt1_Click;
             VariaveisGlobais.Fluxo.inicialProducao.Bt2_Click += InicialProducao_Bt2_Click;
             VariaveisGlobais.Fluxo.inicialProducao.Bt3_Click += InicialProducao_Bt3_Click;
+            VariaveisGlobais.Fluxo.ensque_Click += Fluxo_ensque_Click;
+        }
+
+        private void Fluxo_ensque_Click(object sender, EventArgs e)
+        {
+            if (spInical != null)
+            {
+                spInical.Children.Clear();
+
+            }
+            spInical.Children.Add(Utilidades.VariaveisGlobais.producao);
+
+            if (Utilidades.VariaveisGlobais.producao.spControleProducao.Children != null)
+            {
+                Utilidades.VariaveisGlobais.producao.spControleProducao.Children.Clear();
+            }
+
+            Utilidades.VariaveisGlobais.producao.spControleProducao.Children.Add(Utilidades.VariaveisGlobais.producao.TelaEnsaque);
+
+            pckManutencao.Foreground = VariaveisGlobais.Branco;
+            pckConfiguracoes.Foreground = VariaveisGlobais.Branco;
+            pckHome.Foreground = VariaveisGlobais.Branco;
+            pckProducao.Foreground = VariaveisGlobais.Verde;
+            pckReceitas.Foreground = VariaveisGlobais.Branco;
+            pckRelatorio.Foreground = VariaveisGlobais.Branco;
+            pckUser.Foreground = VariaveisGlobais.Branco;
         }
 
         private void InicialProducao_Bt1_Click(object sender, EventArgs e)
@@ -164,28 +190,73 @@ namespace _9230A_V00___PI
             {
                 spInical.Children.Clear();
 
-                spInical.Children.Add(Utilidades.VariaveisGlobais.producao);
-
-                pckManutencao.Foreground = VariaveisGlobais.Branco;
-                pckConfiguracoes.Foreground = VariaveisGlobais.Branco;
-                pckHome.Foreground = VariaveisGlobais.Branco;
-                pckProducao.Foreground = VariaveisGlobais.Verde;
-                pckReceitas.Foreground = VariaveisGlobais.Branco;
-                pckRelatorio.Foreground = VariaveisGlobais.Branco;
-                pckUser.Foreground = VariaveisGlobais.Branco;
-
-                Utilidades.VariaveisGlobais.producao.spControleProducao.Children.Add(Utilidades.VariaveisGlobais.producao.)
-
             }
+            spInical.Children.Add(Utilidades.VariaveisGlobais.producao);
+
+            if (Utilidades.VariaveisGlobais.producao.spControleProducao.Children != null)
+            {
+                Utilidades.VariaveisGlobais.producao.spControleProducao.Children.Clear();
+            }
+
+            Utilidades.VariaveisGlobais.producao.spControleProducao.Children.Add(Utilidades.VariaveisGlobais.producao.TelaControleProducao);
+
+            pckManutencao.Foreground = VariaveisGlobais.Branco;
+            pckConfiguracoes.Foreground = VariaveisGlobais.Branco;
+            pckHome.Foreground = VariaveisGlobais.Branco;
+            pckProducao.Foreground = VariaveisGlobais.Verde;
+            pckReceitas.Foreground = VariaveisGlobais.Branco;
+            pckRelatorio.Foreground = VariaveisGlobais.Branco;
+            pckUser.Foreground = VariaveisGlobais.Branco;
         }
     
         private void InicialProducao_Bt2_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            if (spInical != null)
+            {
+                spInical.Children.Clear();
+
+            }
+            spInical.Children.Add(Utilidades.VariaveisGlobais.producao);
+
+            if (Utilidades.VariaveisGlobais.producao.spControleProducao.Children != null)
+            {
+                Utilidades.VariaveisGlobais.producao.spControleProducao.Children.Clear();
+            }
+
+            Utilidades.VariaveisGlobais.producao.spControleProducao.Children.Add(Utilidades.VariaveisGlobais.producao.TelaControleProducao);
+
+            pckManutencao.Foreground = VariaveisGlobais.Branco;
+            pckConfiguracoes.Foreground = VariaveisGlobais.Branco;
+            pckHome.Foreground = VariaveisGlobais.Branco;
+            pckProducao.Foreground = VariaveisGlobais.Verde;
+            pckReceitas.Foreground = VariaveisGlobais.Branco;
+            pckRelatorio.Foreground = VariaveisGlobais.Branco;
+            pckUser.Foreground = VariaveisGlobais.Branco;
+
         }
         private void InicialProducao_Bt3_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            if (spInical != null)
+            {
+                spInical.Children.Clear();
+
+            }
+            spInical.Children.Add(Utilidades.VariaveisGlobais.producao);
+
+            if (Utilidades.VariaveisGlobais.producao.spControleProducao.Children != null)
+            {
+                Utilidades.VariaveisGlobais.producao.spControleProducao.Children.Clear();
+            }
+
+            Utilidades.VariaveisGlobais.producao.spControleProducao.Children.Add(Utilidades.VariaveisGlobais.producao.TelaControleProducao);
+
+            pckManutencao.Foreground = VariaveisGlobais.Branco;
+            pckConfiguracoes.Foreground = VariaveisGlobais.Branco;
+            pckHome.Foreground = VariaveisGlobais.Branco;
+            pckProducao.Foreground = VariaveisGlobais.Verde;
+            pckReceitas.Foreground = VariaveisGlobais.Branco;
+            pckRelatorio.Foreground = VariaveisGlobais.Branco;
+            pckUser.Foreground = VariaveisGlobais.Branco;
         }
         private void timer1s_Tick(object sender, EventArgs e)
         {

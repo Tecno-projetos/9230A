@@ -21,11 +21,11 @@ namespace _9230A_V00___PI.Telas_Fluxo
     public partial class producao : UserControl
     {
         //Ração
-        Telas_Fluxo.Producao.ProducaoTelaInicial TelaInicialProducao = new Producao.ProducaoTelaInicial();
-        Telas_Fluxo.Producao.ConfiguracaoReceitaProducao TelaConfiguracaoReceitaProducao = new Producao.ConfiguracaoReceitaProducao();
-        Telas_Fluxo.Producao.VerificacaoBateladas TelaVerificaoBateladas = new Producao.VerificacaoBateladas();
-        Telas_Fluxo.Controle_Produção.TelaControleProducao TelaControleProducao = new Controle_Produção.TelaControleProducao();
-        Telas_Fluxo.Controle_Produção.Ensaque TelaEnsaque = new Controle_Produção.Ensaque();
+        public Telas_Fluxo.Producao.ProducaoTelaInicial TelaInicialProducao = new Producao.ProducaoTelaInicial();
+        public Telas_Fluxo.Producao.ConfiguracaoReceitaProducao TelaConfiguracaoReceitaProducao = new Producao.ConfiguracaoReceitaProducao();
+        public Telas_Fluxo.Producao.VerificacaoBateladas TelaVerificaoBateladas = new Producao.VerificacaoBateladas();
+        public Telas_Fluxo.Controle_Produção.TelaControleProducao TelaControleProducao = new Controle_Produção.TelaControleProducao();
+        public Telas_Fluxo.Controle_Produção.Ensaque TelaEnsaque = new Controle_Produção.Ensaque();
 
         Utilidades.messageBox inputDialog;
 

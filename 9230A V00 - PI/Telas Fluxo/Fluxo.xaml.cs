@@ -20,9 +20,18 @@ namespace _9230A_V00___PI.Telas_Fluxo
     /// </summary>
     public partial class Fluxo : UserControl
     {
+
+        public event EventHandler ensque_Click;
+
         public Fluxo()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.ensque_Click != null)
+                this.ensque_Click(this, e);
         }
     }
 }

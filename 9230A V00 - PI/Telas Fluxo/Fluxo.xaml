@@ -487,8 +487,8 @@
             </Equipamentos:rosca.RenderTransform>
         </Equipamentos:rosca>
         <Label Content="65" HorizontalAlignment="Left" Height="40" Margin="847,460,0,0" VerticalAlignment="Top" Width="40" RenderTransformOrigin="0.5,0.5" FontSize="20" Foreground="#FFB8B8B8" FontWeight="Bold"/>
-        <Label Content="125(A)" HorizontalAlignment="Left" Height="24" Margin="849,530,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.5,0.5" FontSize="16" Foreground="#FFB8B8B8" FontWeight="Bold" Padding="0,0,5,0"/>
-        <Label Content="1800 RPM" HorizontalAlignment="Left" Height="18" Margin="847,512,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.5,0.5" Foreground="#FFB8B8B8" FontWeight="Bold" HorizontalContentAlignment="Right" Padding="0,0,5,0" FontSize="14"/>
+        <Label Content="125(A)" HorizontalAlignment="Left" Height="24" Margin="949,464,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.5,0.5" FontSize="16" Foreground="#FFB8B8B8" FontWeight="Bold" Padding="0,0,5,0"/>
+        <Label Content="1800 RPM" HorizontalAlignment="Left" Height="18" Margin="947,446,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.5,0.5" Foreground="#FFB8B8B8" FontWeight="Bold" HorizontalContentAlignment="Right" Padding="0,0,5,0" FontSize="14"/>
         <Label Content="63" HorizontalAlignment="Left" Height="40" Margin="953,229,0,0" VerticalAlignment="Top" Width="40" RenderTransformOrigin="0.5,0.5" FontSize="20" Foreground="#FFB8B8B8" FontWeight="Bold"/>
         <Label Content="100%" Height="18" Margin="262,478,0,0" VerticalAlignment="Top" Width="45" RenderTransformOrigin="0.5,0.5" Foreground="#FFB8B8B8" FontWeight="Bold" Padding="0,0,5,0" FontSize="14" HorizontalAlignment="Left"/>
         <Label Content="750,50" Height="27" Margin="138,554,0,0" VerticalAlignment="Top" Width="70" RenderTransformOrigin="0.5,0.5" Foreground="White" FontWeight="Bold" Padding="0,0,5,0" FontSize="20" HorizontalAlignment="Left"/>
@@ -515,6 +515,11 @@
                 </TransformGroup>
             </Equipamentos:dosadorOscilante.RenderTransform>
         </Equipamentos:dosadorOscilante>
+        <Label Content="30,7" Height="27" Margin="853,576,0,0" VerticalAlignment="Top" Width="70" RenderTransformOrigin="0.5,0.5" Foreground="White" FontWeight="Bold" Padding="0,0,5,0" FontSize="20" HorizontalAlignment="Left" HorizontalContentAlignment="Right"/>
+        <Label Content="kg" HorizontalAlignment="Left" Height="25" Margin="915,582,0,0" VerticalAlignment="Top" Width="22" RenderTransformOrigin="0.5,0.5" FontSize="10" Foreground="White" FontWeight="Bold" HorizontalContentAlignment="Center"/>
+        <Label Content="35" Height="27" Margin="846,602,0,0" VerticalAlignment="Top" Width="70" RenderTransformOrigin="0.5,0.5" Foreground="White" FontWeight="Bold" Padding="0,0,5,0" FontSize="20" HorizontalAlignment="Left" HorizontalContentAlignment="Right"/>
+        <Label Content="und." HorizontalAlignment="Left" Height="25" Margin="908,608,0,0" VerticalAlignment="Top" Width="32" RenderTransformOrigin="0.5,0.5" FontSize="10" Foreground="White" FontWeight="Bold" HorizontalContentAlignment="Center"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="860,554,0,0" VerticalAlignment="Top" Width="164" Height="88" Opacity="0" Click="Button_Click"/>
 
     </Grid>
 </UserControl>
