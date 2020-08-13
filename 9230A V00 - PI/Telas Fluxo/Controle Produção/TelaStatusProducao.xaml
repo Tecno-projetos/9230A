@@ -1,0 +1,67 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:_9230A_V00___PI.Telas_Fluxo.Controle_Produção"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="_9230A_V00___PI.Telas_Fluxo.Controle_Produção.TelaStatusProducao"
+             mc:Ignorable="d" Width="803.369" Height="517.855">
+    <Grid>
+        <Button Content="Dosar Manual" HorizontalAlignment="Left" Height="35" Margin="658,478,0,0" VerticalAlignment="Top" Width="133"/>
+        <DataGrid x:Name="DataGrid_Produtos" Margin="8,6,0,0" CanUserAddRows="False"
+            HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Black" Foreground="Black"
+            HorizontalGridLinesBrush="{DynamicResource {x:Static SystemColors.ControlTextColor}}"
+            VerticalGridLinesBrush="{DynamicResource MaterialDesignDarkBackground}" BorderBrush="{x:Null}" BorderThickness="1"
+            CanUserDeleteRows ="False" CanUserReorderColumns="False" CanUserResizeRows="False" CanUserSortColumns="False"   
+            ScrollViewer.VerticalScrollBarVisibility="Auto" Height="390" Cursor="Hand" IsReadOnly="True" AlternatingRowBackground="#FF7F7F7F" 
+            RowBackground="White" HorizontalScrollBarVisibility="Hidden" Background="White" FontSize="24" FontFamily="Segoe UI Emoji" GridLinesVisibility="All" 
+            SelectionMode="Single"  AutoGenerateColumns="True" RowHeight="40" Width="347" >
+
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type DataGridCell}">
+                    <Style.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Background" Value="#FF3C3C3C" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.Resources>
+
+
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="FontSize" Value="25"/>
+                </Style>
+
+            </DataGrid.ColumnHeaderStyle>
+        </DataGrid>
+
+        <Button x:Name="btUpList_Produtos" Margin="134,411,0,0" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btUpList_Produtos_Click" HorizontalAlignment="Left" Width="77" VerticalAlignment="Top" >
+            <Grid Width="42" Height="42" Margin="0">
+                <materialDesign:PackIcon Kind="ArrowUpBold" VerticalAlignment="Center" Foreground="White" Height="42" Width="42"/>
+            </Grid>
+        </Button>
+        <Button x:Name="btDownList_Produtos" Margin="134,466,0,0" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btDownList_Produtos_Click" HorizontalAlignment="Left" Width="77" VerticalAlignment="Top" >
+            <Grid Width="42" Height="42" Margin="0">
+                <materialDesign:PackIcon Kind="ArrowDownBold" VerticalAlignment="Center" Foreground="White" Height="42" Width="42"/>
+            </Grid>
+        </Button>
+        <Button x:Name="btLeftList_Produtos" Margin="52,436,0,0" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btLeftList_Produtos_Click" VerticalAlignment="Top" HorizontalAlignment="Left" Width="77" >
+            <Grid Width="42" Height="42" Margin="0">
+                <materialDesign:PackIcon Kind="ArrowLeftBold" VerticalAlignment="Center" Foreground="White" Height="42" Width="42"/>
+            </Grid>
+        </Button>
+        <Button x:Name="btRightList_Produtos" Margin="216,436,0,0" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btRightList_Produtos_Click" HorizontalAlignment="Left" Width="77" VerticalAlignment="Top" >
+            <Grid Width="42" Height="42" Margin="0">
+                <materialDesign:PackIcon Kind="ArrowRightBold" VerticalAlignment="Center" Foreground="White" Height="42" Width="42"/>
+            </Grid>
+        </Button>
+        <Label Content="Dosagem Matéria Prima Automática" HorizontalAlignment="Left" VerticalAlignment="Top" Width="448" BorderBrush="Black" Background="{x:Null}" Foreground="#FF00FF0C" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="40" Padding="0" FontSize="24" FontWeight="Bold" Margin="355,8,0,0"/>
+        <Label Content="Peso Atual Balança:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="210" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="40" Padding="0" FontSize="18" FontWeight="Bold" Margin="360,106,0,0"/>
+        <Label Content="Tempo Restante Pré Mistura:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="315" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="40" Padding="0" FontSize="18" FontWeight="Bold" Margin="360,148,0,0"/>
+        <Label Content="Tempo Restante Pós Mistura:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="315" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="40" Padding="0" FontSize="18" FontWeight="Bold" Margin="360,190,0,0"/>
+        <Label Content="Tempo Passo Atual:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="315" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="40" Padding="0" FontSize="18" FontWeight="Bold" Margin="360,232,0,0"/>
+        <Label Content="Tempo Total Batelada:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="315" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="40" Padding="0" FontSize="18" FontWeight="Bold" Margin="360,274,0,0"/>
+
+    </Grid>
+</UserControl>
