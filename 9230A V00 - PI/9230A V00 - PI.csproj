@@ -232,6 +232,12 @@
     <Compile Include="Telas Fluxo\Controle Produção\inicialControleProducao.xaml.cs">
       <DependentUpon>inicialControleProducao.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Telas Fluxo\Controle Produção\TelaControleProducao.xaml.cs">
+      <DependentUpon>TelaControleProducao.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Telas Fluxo\Controle Produção\TelaStatusProducao.xaml.cs">
+      <DependentUpon>TelaStatusProducao.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Telas Fluxo\Fluxo.xaml.cs">
       <DependentUpon>Fluxo.xaml</DependentUpon>
     </Compile>
@@ -333,6 +339,7 @@
     <Compile Include="Utilidades\Conversions.cs" />
     <Compile Include="Utilidades\convertTextInputToVisibility.cs" />
     <Compile Include="Utilidades\EquipsControl.cs" />
+    <Compile Include="Utilidades\ExecutaProducao.cs" />
     <Compile Include="Utilidades\ListtoDataTableConverter.cs" />
     <Compile Include="Utilidades\messageBox.xaml.cs">
       <DependentUpon>messageBox.xaml</DependentUpon>
@@ -481,6 +488,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Telas Fluxo\Controle Produção\inicialControleProducao.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Telas Fluxo\Controle Produção\TelaControleProducao.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Telas Fluxo\Controle Produção\TelaStatusProducao.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -18,6 +18,49 @@ namespace _9230A_V00___PI.Utilidades
     {
         #region Structs
 
+        public struct Complemento
+        {
+            public short Quantidade_Itens;                  //Qtd itens dosagem Manual
+            public short Item_Atual;                        //Item atual
+            public float Quantidade_Dosada_Item_Atual;      //Qtd dosada item Atual
+            public float Quantidade_Dosada_Total;           //Qtd dosada total
+            public bool Habilitado_Inicio_Dosagem;          //Habilita Iniciar a dosagem
+            public bool Botao_Inicio_Fim_Dosagem_IHM;       //BT Inicia ou finaliza Dosagem
+            public bool Item_Atual_Iniciado_Dosagem;        //Iniciado Dosagem item atual
+            public bool Item_Atual_Finalizado_Dosagem;      //Finalizado Dosagem item atual
+            public bool Finalizado_Dosagem_Complementos;    //Finalizado a dosagem de todos complementos
+            public bool Reserva;                            //Reserva
+            public bool Reserva_1;                          //Reserva
+            public bool Reserva_2;                          //Reserva
+        }
+
+        public struct SlotBatelada
+        {
+            public int Tempo_Pre_Mistura;                    //Tempo de pré Mistura
+            public int Tempo_Pos_Mistura;                    //Tempo de pós Mistura
+            public float Peso_Total_Batelada_Desejado;       //Peso total desejado da batelada
+            public float Dosagem_Materia_Prima_Silo_1;       //Dosagem Materia Prima no Silo 1
+            public float Dosagem_Materia_Prima_Silo_2;       //Dosagem Materia Prima no Silo 2
+            public float Dosado_Materia_Prima_Silo_1;        //Dosado Materia Prima no Silo 1
+            public float Dosado_Materia_Prima_Silo_2;        //Dosado Materia Prima no Silo 2
+
+            public Complemento Complemento_Pre;              //Complemento ou Matéria Prima dosada manualmente na Balança
+            public Complemento Complemento_Pos;              //Complemento ou Matéria Prima dosada manualmente na Pós Mistura
+
+            public int TempoAtualDesdeIniciado;              //Tempo total desde iniciado a produção da batelada
+            public int TempoAtualPasso;                      //Tempo atual de cada passo, como tempo em dosagem manual, tempo em pré mistura...
+
+            public int Status;                               //Status Batelada
+            // 0 - Sem Status
+            // 1 - Dosagem Matéria Prima Manual
+            // 2 - Dosagem Matéria Prima Automática
+            // 3 - Transporte Para Pré Mistura
+            // 4 - Pré Mistura
+            // 5 - Moagem e Transporte Pós Mistura
+            // 6 - Pós Mistura
+            // 7 - Transporte Para Produto Acabado
+        }
+
         public struct type_SS
         {
             public type_SS(string value) : this()
@@ -308,7 +351,6 @@ namespace _9230A_V00___PI.Utilidades
             public int offSet_SP_Posicao_Manual;
             public int offSet_PosicaoAtual;
         }
-
 
         //Padrão de bits, com todos os bits de todas as UDTs que existem no clp relacionada a equipamentos.
         public struct type_All
@@ -1148,8 +1190,6 @@ namespace _9230A_V00___PI.Utilidades
         public float volumeTotalProduzido { get; set; }//Volume total produzido
 
     }
-
-
 
 
 }

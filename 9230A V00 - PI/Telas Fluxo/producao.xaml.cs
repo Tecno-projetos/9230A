@@ -24,6 +24,7 @@ namespace _9230A_V00___PI.Telas_Fluxo
         Telas_Fluxo.Producao.ProducaoTelaInicial TelaInicialProducao = new Producao.ProducaoTelaInicial();
         Telas_Fluxo.Producao.ConfiguracaoReceitaProducao TelaConfiguracaoReceitaProducao = new Producao.ConfiguracaoReceitaProducao();
         Telas_Fluxo.Producao.VerificacaoBateladas TelaVerificaoBateladas = new Producao.VerificacaoBateladas();
+        Telas_Fluxo.Controle_Produção.TelaStatusProducao TelaStatusProducao = new Controle_Produção.TelaStatusProducao();
 
         Utilidades.messageBox inputDialog;
 
@@ -42,7 +43,6 @@ namespace _9230A_V00___PI.Telas_Fluxo
             TelaVerificaoBateladas.TelaAnterior += new EventHandler(EventoTelaAnteriorVerificacaoBateladas);
         }
 
-
         protected void EventoTelaAnteriorVerificacaoBateladas(object sender, EventArgs e)
         {
             if (spControleProducao != null)
@@ -60,7 +60,6 @@ namespace _9230A_V00___PI.Telas_Fluxo
             }
             //spControleProducao.Children.Add(TelaInicialProducao);
         }
-
 
         protected void EventoTelaAnterior(object sender, EventArgs e)
         {
@@ -114,6 +113,15 @@ namespace _9230A_V00___PI.Telas_Fluxo
             }
 
 
+        }
+
+        private void btEmProducao_Click(object sender, RoutedEventArgs e)
+        {
+            if (spControleProducao != null)
+            {
+                spControleProducao.Children.Clear();
+            }
+            spControleProducao.Children.Add(TelaStatusProducao);
         }
     }
 }
