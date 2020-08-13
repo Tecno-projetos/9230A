@@ -35,10 +35,7 @@
             </ResourceDictionary>
 
         </Grid.Resources>
-        <materialDesign:PackIcon Kind="Electricity" VerticalAlignment="Center" Foreground="White" Height="95" Margin="0,6,0,574" Width="824"/>
-        <Label Content="Projeto Elétrico" HorizontalAlignment="Left" VerticalAlignment="Top" Width="824" Foreground="White" FontSize="16" VerticalContentAlignment="Center" FontWeight="Bold" HorizontalContentAlignment="Center" Margin="0,98,0,0"/>
-        <Rectangle Fill="White" HorizontalAlignment="Left" Height="5" Margin="41,133,0,0" Stroke="White" VerticalAlignment="Top" Width="742"/>
-        <WebBrowser x:Name="webBrowse" HorizontalAlignment="Left" Height="515" VerticalAlignment="Top" Width="742" Margin="41,150,0,0"/>
+        <WebBrowser x:Name="webBrowse" HorizontalAlignment="Left" Height="655" VerticalAlignment="Top" Width="804" Margin="10,10,0,0"/>
 
 
     </Grid>
