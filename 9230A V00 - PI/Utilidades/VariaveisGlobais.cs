@@ -788,37 +788,37 @@ namespace _9230A_V00___PI.Utilidades
             {
                 label.Content = "Dosagem Matéria Prima Automática";
                 label.Background = new SolidColorBrush(Colors.Green);
-                label.Foreground = new SolidColorBrush(Colors.Black);
+                label.Foreground = new SolidColorBrush(Colors.White);
             }
             else if (status == 3)
             {
                 label.Content = "Transporte Para Pré Mistura";
                 label.Background = new SolidColorBrush(Colors.Green);
-                label.Foreground = new SolidColorBrush(Colors.Black);
+                label.Foreground = new SolidColorBrush(Colors.White);
             }
             else if (status == 4)
             {
                 label.Content = "Pré Mistura";
                 label.Background = new SolidColorBrush(Colors.Green);
-                label.Foreground = new SolidColorBrush(Colors.Black);
+                label.Foreground = new SolidColorBrush(Colors.White);
             }
             else if (status == 5)
             {
                 label.Content = "Moagem e Transporte Pós Mistura";
                 label.Background = new SolidColorBrush(Colors.Green);
-                label.Foreground = new SolidColorBrush(Colors.Black);
+                label.Foreground = new SolidColorBrush(Colors.White);
             }
             else if (status == 6)
             {
                 label.Content = "Pós Mistura";
                 label.Background = new SolidColorBrush(Colors.Green);
-                label.Foreground = new SolidColorBrush(Colors.Black);
+                label.Foreground = new SolidColorBrush(Colors.White);
             }
             else if (status == 7)
             {
                 label.Content = "Transporte Para Produto Acabado";
                 label.Background = new SolidColorBrush(Colors.Green);
-                label.Foreground = new SolidColorBrush(Colors.Black);
+                label.Foreground = new SolidColorBrush(Colors.White);
             }
             else
             {

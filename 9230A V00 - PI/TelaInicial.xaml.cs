@@ -35,7 +35,7 @@ namespace _9230A_V00___PI
 
 
         DispatcherTimer timer1s = new DispatcherTimer(); //Roda ciclos de 1 segundo
-        
+
         #endregion
 
         #region Equipamentos
@@ -58,7 +58,6 @@ namespace _9230A_V00___PI
 
 
         #endregion
-
 
         public TelaInicial()
         {
@@ -146,19 +145,9 @@ namespace _9230A_V00___PI
             #endregion
 
 
-            pckManutencao.Foreground = VariaveisGlobais.Branco;
-            pckConfiguracoes.Foreground = VariaveisGlobais.Branco;
-            pckHome.Foreground = VariaveisGlobais.Verde;
-            pckProducao.Foreground = VariaveisGlobais.Branco;
-            pckReceitas.Foreground = VariaveisGlobais.Branco;
-            pckRelatorio.Foreground = VariaveisGlobais.Branco;
-            pckUser.Foreground = VariaveisGlobais.Branco;
-
-
-            windowFirstLoading.Close();
+            AtualizaButton(pckHome);
 
             Utilidades.functions.atualizalistReceitas();
-
 
             VariaveisGlobais.Fluxo.inicialProducao.BtSlot1_Click += InicialProducao_Bt1_Click;
             VariaveisGlobais.Fluxo.inicialProducao.BtSlot2_Click += InicialProducao_Bt2_Click;
@@ -168,121 +157,17 @@ namespace _9230A_V00___PI
 
             //Verifica qual Produção esta em execução e carrega a produção
             DataBase.SQLFunctionsProducao.AtualizaProducaoEmExecucao();
+
+            windowFirstLoading.Close();
         }
 
-        private void Fluxo_ensque_Click(object sender, EventArgs e)
-        {
-            if (spInical != null)
-            {
-                spInical.Children.Clear();
-
-            }
-
-            spInical.Children.Add(Utilidades.VariaveisGlobais.producao);
-
-            if (Utilidades.VariaveisGlobais.producao.spControleProducao.Children != null)
-            {
-                Utilidades.VariaveisGlobais.producao.spControleProducao.Children.Clear();
-            }
-
-            Utilidades.VariaveisGlobais.producao.spControleProducao.Children.Add(Utilidades.VariaveisGlobais.producao.TelaEnsaque);
-
-            pckManutencao.Foreground = VariaveisGlobais.Branco;
-            pckConfiguracoes.Foreground = VariaveisGlobais.Branco;
-            pckHome.Foreground = VariaveisGlobais.Branco;
-            pckProducao.Foreground = VariaveisGlobais.Verde;
-            pckReceitas.Foreground = VariaveisGlobais.Branco;
-            pckRelatorio.Foreground = VariaveisGlobais.Branco;
-            pckUser.Foreground = VariaveisGlobais.Branco;
-        }
-
-        private void InicialProducao_Bt1_Click(object sender, EventArgs e)
-        {
-            if (spInical != null)
-            {
-                spInical.Children.Clear();
-
-            }
-            spInical.Children.Add(Utilidades.VariaveisGlobais.producao);
-
-            if (Utilidades.VariaveisGlobais.producao.spControleProducao.Children != null)
-            {
-                Utilidades.VariaveisGlobais.producao.spControleProducao.Children.Clear();
-            }
-
-            Utilidades.VariaveisGlobais.producao.TelaControleProducao.SlotSolicitado = 1;
-            Utilidades.VariaveisGlobais.producao.spControleProducao.Children.Add(Utilidades.VariaveisGlobais.producao.TelaControleProducao);
-
-            pckManutencao.Foreground = VariaveisGlobais.Branco;
-            pckConfiguracoes.Foreground = VariaveisGlobais.Branco;
-            pckHome.Foreground = VariaveisGlobais.Branco;
-            pckProducao.Foreground = VariaveisGlobais.Verde;
-            pckReceitas.Foreground = VariaveisGlobais.Branco;
-            pckRelatorio.Foreground = VariaveisGlobais.Branco;
-            pckUser.Foreground = VariaveisGlobais.Branco;
-        }
-    
-        private void InicialProducao_Bt2_Click(object sender, EventArgs e)
-        {
-            if (spInical != null)
-            {
-                spInical.Children.Clear();
-
-            }
-            spInical.Children.Add(Utilidades.VariaveisGlobais.producao);
-
-            if (Utilidades.VariaveisGlobais.producao.spControleProducao.Children != null)
-            {
-                Utilidades.VariaveisGlobais.producao.spControleProducao.Children.Clear();
-            }
-
-            Utilidades.VariaveisGlobais.producao.TelaControleProducao.SlotSolicitado = 2;
-            Utilidades.VariaveisGlobais.producao.spControleProducao.Children.Add(Utilidades.VariaveisGlobais.producao.TelaControleProducao);
-
-            pckManutencao.Foreground = VariaveisGlobais.Branco;
-            pckConfiguracoes.Foreground = VariaveisGlobais.Branco;
-            pckHome.Foreground = VariaveisGlobais.Branco;
-            pckProducao.Foreground = VariaveisGlobais.Verde;
-            pckReceitas.Foreground = VariaveisGlobais.Branco;
-            pckRelatorio.Foreground = VariaveisGlobais.Branco;
-            pckUser.Foreground = VariaveisGlobais.Branco;
-
-        }
-
-        private void InicialProducao_Bt3_Click(object sender, EventArgs e)
-        {
-            if (spInical != null)
-            {
-                spInical.Children.Clear();
-
-            }
-            spInical.Children.Add(Utilidades.VariaveisGlobais.producao);
-
-            if (Utilidades.VariaveisGlobais.producao.spControleProducao.Children != null)
-            {
-                Utilidades.VariaveisGlobais.producao.spControleProducao.Children.Clear();
-            }
-            Utilidades.VariaveisGlobais.producao.TelaControleProducao.SlotSolicitado = 3;
-            Utilidades.VariaveisGlobais.producao.spControleProducao.Children.Add(Utilidades.VariaveisGlobais.producao.TelaControleProducao);
-
-            pckManutencao.Foreground = VariaveisGlobais.Branco;
-            pckConfiguracoes.Foreground = VariaveisGlobais.Branco;
-            pckHome.Foreground = VariaveisGlobais.Branco;
-            pckProducao.Foreground = VariaveisGlobais.Verde;
-            pckReceitas.Foreground = VariaveisGlobais.Branco;
-            pckRelatorio.Foreground = VariaveisGlobais.Branco;
-            pckUser.Foreground = VariaveisGlobais.Branco;
-        }
-
+        #region Timer Ticks
         private void timer1s_Tick(object sender, EventArgs e)
         {
             //Chama a atulização da Manutenção
             VariaveisGlobais.manutencao.atualizaManutencao();
 
             VariaveisGlobais.Fluxo.actualiza_UI();
-
-
-
 
 
         }
@@ -311,8 +196,8 @@ namespace _9230A_V00___PI
                 VariaveisGlobais.Fluxo.Motor_49.actualize_Equip = true;
                 VariaveisGlobais.Fluxo.Motor_62.actualize_Equip = true;
                 VariaveisGlobais.Fluxo.Motor_65.actualize_Equip = true;
-                //VariaveisGlobais.Fluxo.Motor_26_Silo1.actualize_Equip = true;
-                //VariaveisGlobais.Fluxo.Motor_26_Silo2.actualize_Equip = true;
+                VariaveisGlobais.Fluxo.Motor_26_Silo1.actualize_Equip = true;
+                VariaveisGlobais.Fluxo.Motor_26_Silo2.actualize_Equip = true;
                 VariaveisGlobais.Fluxo.Motor_23.actualize_Equip = true;
 
                 //Atualiza Execução Produção
@@ -331,12 +216,93 @@ namespace _9230A_V00___PI
 
                 throw;
             }
+        }
+        #endregion
 
+        #region Click Ensaque e Bateladas
 
+        private void Fluxo_ensque_Click(object sender, EventArgs e)
+        {
+            if (spInical != null)
+            {
+                spInical.Children.Clear();
+
+            }
+
+            spInical.Children.Add(Utilidades.VariaveisGlobais.producao);
+
+            if (Utilidades.VariaveisGlobais.producao.spControleProducao.Children != null)
+            {
+                Utilidades.VariaveisGlobais.producao.spControleProducao.Children.Clear();
+            }
+
+            Utilidades.VariaveisGlobais.producao.spControleProducao.Children.Add(Utilidades.VariaveisGlobais.producao.TelaEnsaque);
+
+            AtualizaButton(pckHome);
+        }
+
+        private void InicialProducao_Bt1_Click(object sender, EventArgs e)
+        {
+            if (spInical != null)
+            {
+                spInical.Children.Clear();
+
+            }
+            spInical.Children.Add(Utilidades.VariaveisGlobais.producao);
+
+            if (Utilidades.VariaveisGlobais.producao.spControleProducao.Children != null)
+            {
+                Utilidades.VariaveisGlobais.producao.spControleProducao.Children.Clear();
+            }
+
+            Utilidades.VariaveisGlobais.producao.TelaControleProducao.SlotSolicitado = 1;
+            Utilidades.VariaveisGlobais.producao.spControleProducao.Children.Add(Utilidades.VariaveisGlobais.producao.TelaControleProducao);
+
+            AtualizaButton(pckProducao);
+        }
+
+        private void InicialProducao_Bt2_Click(object sender, EventArgs e)
+        {
+            if (spInical != null)
+            {
+                spInical.Children.Clear();
+
+            }
+            spInical.Children.Add(Utilidades.VariaveisGlobais.producao);
+
+            if (Utilidades.VariaveisGlobais.producao.spControleProducao.Children != null)
+            {
+                Utilidades.VariaveisGlobais.producao.spControleProducao.Children.Clear();
+            }
+
+            Utilidades.VariaveisGlobais.producao.TelaControleProducao.SlotSolicitado = 2;
+            Utilidades.VariaveisGlobais.producao.spControleProducao.Children.Add(Utilidades.VariaveisGlobais.producao.TelaControleProducao);
+
+            AtualizaButton(pckProducao);
 
         }
-        //-----------------------------------------------------------------------
-        //Emanuel
+
+        private void InicialProducao_Bt3_Click(object sender, EventArgs e)
+        {
+            if (spInical != null)
+            {
+                spInical.Children.Clear();
+
+            }
+            spInical.Children.Add(Utilidades.VariaveisGlobais.producao);
+
+            if (Utilidades.VariaveisGlobais.producao.spControleProducao.Children != null)
+            {
+                Utilidades.VariaveisGlobais.producao.spControleProducao.Children.Clear();
+            }
+            Utilidades.VariaveisGlobais.producao.TelaControleProducao.SlotSolicitado = 3;
+            Utilidades.VariaveisGlobais.producao.spControleProducao.Children.Add(Utilidades.VariaveisGlobais.producao.TelaControleProducao);
+
+            AtualizaButton(pckProducao);
+        }
+
+        #endregion
+
         #region Clicks Menu
 
         Utilidades.messageBox inputDialog;
@@ -421,12 +387,8 @@ namespace _9230A_V00___PI
 
         }
 
-        #endregion
-
-
-
         private void btLogin_Click(object sender, RoutedEventArgs e)
-        {          
+        {
             if (iconLogin.Kind == MaterialDesignThemes.Wpf.PackIconKind.Login)
             {
                 login();
@@ -437,119 +399,9 @@ namespace _9230A_V00___PI
 
                 spInical.Children.Clear();
 
-                pckManutencao.Foreground = VariaveisGlobais.Branco;
-                pckConfiguracoes.Foreground = VariaveisGlobais.Branco;
-                pckHome.Foreground = VariaveisGlobais.Verde;
-                pckProducao.Foreground = VariaveisGlobais.Branco;
-                pckReceitas.Foreground = VariaveisGlobais.Branco;
-                pckRelatorio.Foreground = VariaveisGlobais.Branco;
-                pckUser.Foreground = VariaveisGlobais.Branco;
+                AtualizaButton(pckHome);
 
                 spInical.Children.Add(Utilidades.VariaveisGlobais.Fluxo);
-
-
-
-            }
-        }
-
-        private void btHome_Click(object sender, RoutedEventArgs e)
-        {
-            if (spInical != null)
-            {
-                spInical.Children.Clear();
-
-                spInical.Children.Add(Utilidades.VariaveisGlobais.Fluxo);
-
-
-                pckManutencao.Foreground = VariaveisGlobais.Branco;
-                pckConfiguracoes.Foreground  = VariaveisGlobais.Branco;
-                pckHome.Foreground = VariaveisGlobais.Verde;
-                pckProducao.Foreground = VariaveisGlobais.Branco;
-                pckReceitas.Foreground = VariaveisGlobais.Branco;
-                pckRelatorio.Foreground = VariaveisGlobais.Branco;
-                pckUser.Foreground = VariaveisGlobais.Branco;
-
-
-
-
-            }
-
-
-
-        }
-
-        private void btProducao_Click(object sender, RoutedEventArgs e)
-        {
-            if (spInical != null)
-            {
-                spInical.Children.Clear();
-
-                spInical.Children.Add(Utilidades.VariaveisGlobais.producao);
-
-                pckManutencao.Foreground = VariaveisGlobais.Branco;
-                pckConfiguracoes.Foreground = VariaveisGlobais.Branco;
-                pckHome.Foreground = VariaveisGlobais.Branco;
-                pckProducao.Foreground = VariaveisGlobais.Verde;
-                pckReceitas.Foreground = VariaveisGlobais.Branco;
-                pckRelatorio.Foreground = VariaveisGlobais.Branco;
-                pckUser.Foreground = VariaveisGlobais.Branco;
-
-            }
-        }
-
-        private void btReceitas_Click(object sender, RoutedEventArgs e)
-        {
-            if (spInical != null)
-            {
-                spInical.Children.Clear();
-
-                spInical.Children.Add(Utilidades.VariaveisGlobais.receitas);
-
-                pckManutencao.Foreground = VariaveisGlobais.Branco;
-                pckConfiguracoes.Foreground = VariaveisGlobais.Branco;
-                pckHome.Foreground = VariaveisGlobais.Branco;
-                pckProducao.Foreground = VariaveisGlobais.Branco;
-                pckReceitas.Foreground = VariaveisGlobais.Verde;
-                pckRelatorio.Foreground = VariaveisGlobais.Branco;
-                pckUser.Foreground = VariaveisGlobais.Branco;
-
-            }
-        }
-
-        private void btConfiguracoes_Click(object sender, RoutedEventArgs e)
-        {
-            if (spInical != null)
-            {
-                spInical.Children.Clear();
-
-                spInical.Children.Add(Utilidades.VariaveisGlobais.configuracoes);
-
-                pckManutencao.Foreground = VariaveisGlobais.Branco;
-                pckConfiguracoes.Foreground = VariaveisGlobais.Verde;
-                pckHome.Foreground = VariaveisGlobais.Branco;
-                pckProducao.Foreground = VariaveisGlobais.Branco;
-                pckReceitas.Foreground = VariaveisGlobais.Branco;
-                pckRelatorio.Foreground = VariaveisGlobais.Branco;
-                pckUser.Foreground = VariaveisGlobais.Branco;
-
-            }
-        }
-
-        private void btRelatorio_Click(object sender, RoutedEventArgs e)
-        {
-            if (spInical != null)
-            {
-                spInical.Children.Clear();
-
-                spInical.Children.Add(Utilidades.VariaveisGlobais.relatorios);
-
-                pckManutencao.Foreground = VariaveisGlobais.Branco;
-                pckConfiguracoes.Foreground = VariaveisGlobais.Branco;
-                pckHome.Foreground = VariaveisGlobais.Branco;
-                pckProducao.Foreground = VariaveisGlobais.Branco;
-                pckReceitas.Foreground = VariaveisGlobais.Branco;
-                pckRelatorio.Foreground = VariaveisGlobais.Verde;
-                pckUser.Foreground = VariaveisGlobais.Branco;
 
             }
         }
@@ -569,7 +421,82 @@ namespace _9230A_V00___PI
             }
         }
 
+        private void txtSenha_PreviewKeyUp(object sender, KeyEventArgs e)
+        {
+            KeyConverter key = new KeyConverter();
+            if (e.Key == Key.Enter || e.Key == Key.DeadCharProcessed)
+            {
+                login();
+                btLogin.Focus();
+            }
+        }
         #endregion
+
+        #region Click Menu
+        private void btHome_Click(object sender, RoutedEventArgs e)
+        {
+            if (spInical != null)
+            {
+                spInical.Children.Clear();
+
+                spInical.Children.Add(Utilidades.VariaveisGlobais.Fluxo);
+
+
+                AtualizaButton(pckHome);
+
+            }
+        }
+
+        private void btProducao_Click(object sender, RoutedEventArgs e)
+        {
+            if (spInical != null)
+            {
+                spInical.Children.Clear();
+
+                spInical.Children.Add(Utilidades.VariaveisGlobais.producao);
+                AtualizaButton(pckProducao);
+
+            }
+        }
+
+        private void btReceitas_Click(object sender, RoutedEventArgs e)
+        {
+            if (spInical != null)
+            {
+                spInical.Children.Clear();
+
+                spInical.Children.Add(Utilidades.VariaveisGlobais.receitas);
+
+                AtualizaButton(pckReceitas);
+
+            }
+        }
+
+        private void btConfiguracoes_Click(object sender, RoutedEventArgs e)
+        {
+            if (spInical != null)
+            {
+                spInical.Children.Clear();
+
+                spInical.Children.Add(Utilidades.VariaveisGlobais.configuracoes);
+
+                AtualizaButton(pckConfiguracoes);
+
+            }
+        }
+
+        private void btRelatorio_Click(object sender, RoutedEventArgs e)
+        {
+            if (spInical != null)
+            {
+                spInical.Children.Clear();
+
+                spInical.Children.Add(Utilidades.VariaveisGlobais.relatorios);
+
+                AtualizaButton(pckRelatorio);
+
+            }
+        }
 
         private void btConfiguracoesUsuario_Click(object sender, RoutedEventArgs e)
         {
@@ -579,32 +506,16 @@ namespace _9230A_V00___PI
                 inputDialog.ShowDialog();
             }
             else
-            {          
+            {
                 spInical.Children.Clear();
 
                 spInical.Children.Add(Utilidades.VariaveisGlobais.controleUsuario);
 
                 Utilidades.VariaveisGlobais.controleUsuario.spControleUsuario.Children.Clear();
 
-                pckManutencao.Foreground = VariaveisGlobais.Branco;
-                pckConfiguracoes.Foreground = VariaveisGlobais.Branco;
-                pckHome.Foreground = VariaveisGlobais.Branco;
-                pckProducao.Foreground = VariaveisGlobais.Branco;
-                pckReceitas.Foreground = VariaveisGlobais.Branco;
-                pckRelatorio.Foreground = VariaveisGlobais.Branco;
-                pckUser.Foreground = VariaveisGlobais.Verde;
+                AtualizaButton(pckUser);
 
 
-            }
-        }
-
-        private void txtSenha_PreviewKeyUp(object sender, KeyEventArgs e)
-        {
-            KeyConverter key = new KeyConverter();
-            if (e.Key == Key.Enter || e.Key == Key.DeadCharProcessed)
-            {
-                login();
-                btLogin.Focus();
             }
         }
 
@@ -616,6 +527,22 @@ namespace _9230A_V00___PI
 
                 spInical.Children.Add(Utilidades.VariaveisGlobais.manutencao);
 
+                AtualizaButton(pckManutencao);
+
+
+            }
+        }
+
+        #endregion
+
+        #endregion
+
+        #region Funções
+
+        public void AtualizaButton(MaterialDesignThemes.Wpf.PackIcon packIcon)
+        {
+            if (packIcon.Name == pckManutencao.Name)
+            {
                 pckManutencao.Foreground = VariaveisGlobais.Verde;
                 pckConfiguracoes.Foreground = VariaveisGlobais.Branco;
                 pckHome.Foreground = VariaveisGlobais.Branco;
@@ -623,9 +550,71 @@ namespace _9230A_V00___PI
                 pckReceitas.Foreground = VariaveisGlobais.Branco;
                 pckRelatorio.Foreground = VariaveisGlobais.Branco;
                 pckUser.Foreground = VariaveisGlobais.Branco;
-
-
+            }
+            else if (packIcon.Name == pckConfiguracoes.Name)
+            {
+                pckManutencao.Foreground = VariaveisGlobais.Branco;
+                pckConfiguracoes.Foreground = VariaveisGlobais.Verde;
+                pckHome.Foreground = VariaveisGlobais.Branco;
+                pckProducao.Foreground = VariaveisGlobais.Branco;
+                pckReceitas.Foreground = VariaveisGlobais.Branco;
+                pckRelatorio.Foreground = VariaveisGlobais.Branco;
+                pckUser.Foreground = VariaveisGlobais.Branco;
+            }
+            else if (packIcon.Name == pckHome.Name)
+            {
+                pckManutencao.Foreground = VariaveisGlobais.Branco;
+                pckConfiguracoes.Foreground = VariaveisGlobais.Branco;
+                pckHome.Foreground = VariaveisGlobais.Verde;
+                pckProducao.Foreground = VariaveisGlobais.Branco;
+                pckReceitas.Foreground = VariaveisGlobais.Branco;
+                pckRelatorio.Foreground = VariaveisGlobais.Branco;
+                pckUser.Foreground = VariaveisGlobais.Branco;
+            }
+            else if (packIcon.Name == pckProducao.Name)
+            {
+                pckManutencao.Foreground = VariaveisGlobais.Branco;
+                pckConfiguracoes.Foreground = VariaveisGlobais.Branco;
+                pckHome.Foreground = VariaveisGlobais.Branco;
+                pckProducao.Foreground = VariaveisGlobais.Verde;
+                pckReceitas.Foreground = VariaveisGlobais.Branco;
+                pckRelatorio.Foreground = VariaveisGlobais.Branco;
+                pckUser.Foreground = VariaveisGlobais.Branco;
+            }
+            else if (packIcon.Name == pckReceitas.Name)
+            {
+                pckManutencao.Foreground = VariaveisGlobais.Branco;
+                pckConfiguracoes.Foreground = VariaveisGlobais.Branco;
+                pckHome.Foreground = VariaveisGlobais.Branco;
+                pckProducao.Foreground = VariaveisGlobais.Branco;
+                pckReceitas.Foreground = VariaveisGlobais.Verde;
+                pckRelatorio.Foreground = VariaveisGlobais.Branco;
+                pckUser.Foreground = VariaveisGlobais.Branco;
+            }
+            else if (packIcon.Name == pckRelatorio.Name)
+            {
+                pckManutencao.Foreground = VariaveisGlobais.Branco;
+                pckConfiguracoes.Foreground = VariaveisGlobais.Branco;
+                pckHome.Foreground = VariaveisGlobais.Branco;
+                pckProducao.Foreground = VariaveisGlobais.Branco;
+                pckReceitas.Foreground = VariaveisGlobais.Branco;
+                pckRelatorio.Foreground = VariaveisGlobais.Verde;
+                pckUser.Foreground = VariaveisGlobais.Branco;
+            }
+            else if (packIcon.Name == pckUser.Name)
+            {
+                pckManutencao.Foreground = VariaveisGlobais.Branco;
+                pckConfiguracoes.Foreground = VariaveisGlobais.Branco;
+                pckHome.Foreground = VariaveisGlobais.Branco;
+                pckProducao.Foreground = VariaveisGlobais.Branco;
+                pckReceitas.Foreground = VariaveisGlobais.Branco;
+                pckRelatorio.Foreground = VariaveisGlobais.Branco;
+                pckUser.Foreground = VariaveisGlobais.Verde;
             }
         }
+
+
+        #endregion
+
     }
 }
