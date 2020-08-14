@@ -164,6 +164,9 @@ namespace _9230A_V00___PI
             VariaveisGlobais.Fluxo.inicialProducao.Bt2_Click += InicialProducao_Bt2_Click;
             VariaveisGlobais.Fluxo.inicialProducao.Bt3_Click += InicialProducao_Bt3_Click;
             VariaveisGlobais.Fluxo.ensque_Click += Fluxo_ensque_Click;
+
+            //Verifica qual Produção esta em execução e carrega a produção
+            DataBase.SQLFunctionsProducao.AtualizaProducaoEmExecucao();
         }
 
         private void Fluxo_ensque_Click(object sender, EventArgs e)
@@ -303,12 +306,10 @@ namespace _9230A_V00___PI
                 VariaveisGlobais.Fluxo.Motor_23.actualize_Equip = true;
 
                 //Atualiza Execução Produção
-                if (true)
+                if (VariaveisGlobais.ProducaoReceita.IniciouProducao && !VariaveisGlobais.ProducaoReceita.FinalizouProducao)
                 {
-
+                    VariaveisGlobais.executaProducao.Produzir = true;
                 }
-
-                VariaveisGlobais.executaProducao.Produzir = true;
 
                 VariaveisGlobais.CommunicationPLC.writeBufferPLC();//Chama a escrita no PLC
             }

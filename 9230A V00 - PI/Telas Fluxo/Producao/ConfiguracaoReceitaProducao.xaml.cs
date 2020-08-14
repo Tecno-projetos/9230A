@@ -28,6 +28,8 @@ namespace _9230A_V00___PI.Telas_Fluxo.Producao
         public event EventHandler TelaAnterior;
 
         bool contemMateriaPrimaDosagemAutomatica = false;
+        string codigoProdutoMateriaPrima1 = "";
+        string codigoProdutoMateriaPrima2 = "";
         public ConfiguracaoReceitaProducao()
         {
             InitializeComponent();
@@ -69,19 +71,19 @@ namespace _9230A_V00___PI.Telas_Fluxo.Producao
                 btSilo2MateriaPrima2.Background = new SolidColorBrush(Colors.ForestGreen);
                 btSilo1MateriaPrima2.Background = new SolidColorBrush(Color.FromArgb(255, 80, 80, 80));
 
-                VariaveisGlobais.ProducaoReceita.CodigoProdutoDosagemAutomaticaSilo1 = txtSiloMateriaPrima1.Text;
-                VariaveisGlobais.ProducaoReceita.CodigoProdutoDosagemAutomaticaSilo2 = txtSiloMateriaPrima2.Text;
+                VariaveisGlobais.ProducaoReceita.CodigoProdutoDosagemAutomaticaSilo1 = codigoProdutoMateriaPrima1;
+                VariaveisGlobais.ProducaoReceita.CodigoProdutoDosagemAutomaticaSilo2 = codigoProdutoMateriaPrima2;
             }
             else if (DosagemAutomaticaMateriaPrima1 == 2)
             {
-                btSilo1MateriaPrima1.Background = new SolidColorBrush(Colors.ForestGreen);
-                btSilo2MateriaPrima1.Background = new SolidColorBrush(Color.FromArgb(255, 80, 80, 80));
+                btSilo2MateriaPrima1.Background = new SolidColorBrush(Colors.ForestGreen);
+                btSilo1MateriaPrima1.Background = new SolidColorBrush(Color.FromArgb(255, 80, 80, 80));
 
-                btSilo2MateriaPrima2.Background = new SolidColorBrush(Colors.ForestGreen);
-                btSilo1MateriaPrima2.Background = new SolidColorBrush(Color.FromArgb(255, 80, 80, 80));
+                btSilo1MateriaPrima2.Background = new SolidColorBrush(Colors.ForestGreen);
+                btSilo2MateriaPrima2.Background = new SolidColorBrush(Color.FromArgb(255, 80, 80, 80));
 
-                VariaveisGlobais.ProducaoReceita.CodigoProdutoDosagemAutomaticaSilo1 = txtSiloMateriaPrima2.Text;
-                VariaveisGlobais.ProducaoReceita.CodigoProdutoDosagemAutomaticaSilo2 = txtSiloMateriaPrima1.Text; 
+                VariaveisGlobais.ProducaoReceita.CodigoProdutoDosagemAutomaticaSilo1 = codigoProdutoMateriaPrima2;
+                VariaveisGlobais.ProducaoReceita.CodigoProdutoDosagemAutomaticaSilo2 = codigoProdutoMateriaPrima1;
             }
         }
 
@@ -102,11 +104,14 @@ namespace _9230A_V00___PI.Telas_Fluxo.Producao
                     if (count)
                     {
                         txtSiloMateriaPrima2.Text = item.produto.descricao;
+                        codigoProdutoMateriaPrima2 = item.produto.codigo;
                         break;
                     }
                     else
                     {
                         txtSiloMateriaPrima1.Text = item.produto.descricao;
+                        codigoProdutoMateriaPrima1 = item.produto.codigo;
+                        count = true;
                     }
                 }
 

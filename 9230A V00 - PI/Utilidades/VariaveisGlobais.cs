@@ -18,9 +18,6 @@ namespace _9230A_V00___PI.Utilidades
 
     public class VariaveisGlobais
     {
-        public static Utilidades.ExecutaProducao executaProducao = new ExecutaProducao(1);
-
-
         #region Structs
 
         public struct Complemento
@@ -711,12 +708,11 @@ namespace _9230A_V00___PI.Utilidades
 
         public static Producao ProducaoReceita = new Producao();
 
-        public static Producao ProducaoExecucao = new Producao();
-
         public static List<Producao> PesquisaProducao = new List<Producao>();
 
         public static EspecificacoesEquipamentos ValoresEspecificacoesEquipamentos = new EspecificacoesEquipamentos();
 
+        public static Utilidades.ExecutaProducao executaProducao = new ExecutaProducao(1);
     }
 
     public class convertToTable
@@ -1031,8 +1027,6 @@ namespace _9230A_V00___PI.Utilidades
             }
         }
     }
-
-    
 
     public class EspecificacoesEquipamentos
     {

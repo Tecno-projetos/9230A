@@ -192,6 +192,9 @@ namespace _9230A_V00___PI.Telas_Fluxo.Producao
                 Utilidades.VariaveisGlobais.ProducaoReceita.IniciouProducao = true;
 
                 DataBase.SQLFunctionsProducao.AddProducao(Utilidades.VariaveisGlobais.ProducaoReceita);
+
+                //Verifica qual Produção esta em execução e carrega a produção
+                DataBase.SQLFunctionsProducao.AtualizaProducaoEmExecucao();
             }
 
 

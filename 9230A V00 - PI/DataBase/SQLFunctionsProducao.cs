@@ -1,4 +1,5 @@
-﻿using System;
+﻿using _9230A_V00___PI.Utilidades;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -289,6 +290,39 @@ namespace _9230A_V00___PI.DataBase
             }
 
             return Data;
+        }
+
+        public static void AtualizaProducaoEmExecucao()
+        {
+            DataTable Data = new DataTable();
+
+            if (Utilidades.VariaveisGlobais.DB_Connected_GS)
+            {
+                try
+                {
+                    string CommandString = "SELECT * FROM Producao WHERE IniciouProducao = 'True' AND FinalizouProducao = 'False'";
+
+                    dynamic Call = SqlGlobalFuctions.ReturnCall(Utilidades.VariaveisGlobais.Connection_DB_Receitas_GS);
+
+                    dynamic Adapter = SqlGlobalFuctions.ReturnAdapter(CommandString, Utilidades.VariaveisGlobais.Connection_DB_Receitas_GS);
+
+                    Adapter.Fill(Data);
+                }
+                catch (Exception ex)
+                {
+                    Utilidades.VariaveisGlobais.Window_Buffer_Diagnostic.List_Error = ex.ToString();
+                }
+            }
+
+            if (!DBNull.Value.Equals(Data))
+            {
+                if (Data.Rows.Count >=1)
+                {
+                    functions.DataRow_To_Producao(Data.Rows[0], ref VariaveisGlobais.ProducaoReceita);
+                }
+
+            }
+                 
         }
 
 

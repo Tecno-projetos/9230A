@@ -734,5 +734,93 @@ namespace _9230A_V00___PI.Utilidades
             return Conversions.Bit_To_Byte(ref bits);
         }
 
+
+        //Command Slot Produção
+        //=====================================================================================================================================
+        public static VariaveisGlobais.SlotBatelada DwordToSlotBatelada(UInt32 DWord, VariaveisGlobais.SlotBatelada slot)
+        {
+            bool[] bits = new bool[32];
+
+            Conversions.Dword_To_Bit(DWord, ref bits, true);
+
+            slot.Solicita_Nova_Batelada = bits[0];
+            slot.Iniciou = bits[1];
+            slot.Finalizou = bits[2];
+            slot.Reserva = bits[3];
+            slot.Reserva_1 = bits[4];
+            slot.Reserva_2 = bits[5];
+            slot.Reserva_3 = bits[6];
+            slot.Reserva_4 = bits[7];
+            slot.Reserva_5 = bits[8];
+            slot.Reserva_6 = bits[9];
+            slot.Reserva_7 = bits[10];
+            slot.Reserva_8 = bits[11];
+            slot.Reserva_9 = bits[12];
+            slot.Reserva_10 = bits[13];
+            slot.Reserva_11 = bits[14];
+            slot.Reserva_12 = bits[15];
+            slot.Reserva_13 = bits[16];
+            slot.Reserva_14 = bits[17];
+            slot.Reserva_15 = bits[18];
+            slot.Reserva_16 = bits[19];
+            slot.Reserva_17 = bits[20];
+            slot.Reserva_18 = bits[21];
+            slot.Reserva_19 = bits[22];
+            slot.Reserva_20 = bits[23];
+            slot.Reserva_21 = bits[24];
+            slot.Reserva_22 = bits[25];
+            slot.Reserva_23 = bits[26];
+            slot.Reserva_24 = bits[27];
+            slot.Reserva_25 = bits[28];
+            slot.Reserva_26 = bits[29];
+            slot.Reserva_27 = bits[30];
+            slot.Reserva_28 = bits[31];
+
+            return slot;
+        }
+
+        public static UInt32 SlotToDwordBatelada(VariaveisGlobais.SlotBatelada slot)
+        {
+            bool[] bits = new bool[32];
+
+            bits[0] = slot.Solicita_Nova_Batelada;
+            bits[1] = slot.Iniciou;
+            bits[2] = slot.Finalizou;
+            bits[3] = slot.Reserva;
+            bits[4] = slot.Reserva_1;
+            bits[5] = slot.Reserva_2;
+            bits[6] = slot.Reserva_3;
+            bits[7] = slot.Reserva_4;
+            bits[8] = slot.Reserva_5;
+            bits[9] = slot.Reserva_6;
+            bits[10] = slot.Reserva_7;
+            bits[11] = slot.Reserva_8;
+            bits[12] = slot.Reserva_9;
+            bits[13] = slot.Reserva_10;
+            bits[14] = slot.Reserva_11;
+            bits[15] = slot.Reserva_12;
+            bits[16] = slot.Reserva_13;
+            bits[17] = slot.Reserva_14;
+            bits[18] = slot.Reserva_15;
+            bits[19] = slot.Reserva_16;
+            bits[20] = slot.Reserva_17;
+            bits[21] = slot.Reserva_18;
+            bits[22] = slot.Reserva_19;
+            bits[23] = slot.Reserva_20;
+            bits[24] = slot.Reserva_21;
+            bits[25] = slot.Reserva_22;
+            bits[26] = slot.Reserva_23;
+            bits[27] = slot.Reserva_24;
+            bits[28] = slot.Reserva_25;
+            bits[29] = slot.Reserva_26;
+            bits[30] = slot.Reserva_27;
+            bits[31] = slot.Reserva_28;
+
+            return Conversions.Bit_To_Dword(ref bits, true);
+        }
+
+
+
+
     }
 }
