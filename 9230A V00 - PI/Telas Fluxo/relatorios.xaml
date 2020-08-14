@@ -9,7 +9,7 @@
     xmlns:Utilidades="clr-namespace:_9230A_V00___PI.Utilidades" x:Class="_9230A_V00___PI.Telas_Fluxo.relatorios"
          
              mc:Ignorable="d" 
-             d:DesignHeight="675" d:DesignWidth="1024">
+             d:DesignHeight="675" d:DesignWidth="1024" Loaded="UserControl_Loaded">
     <Grid Background="#FF7F7F7F">
         <Grid.Resources  >
 
@@ -51,16 +51,10 @@
             <materialDesign:PackIcon Kind="ContentPaste" VerticalAlignment="Center" Foreground="White" Height="95" Margin="0,6,0,574" Width="200"/>
             <Label Content="Relatórios" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Foreground="White" FontSize="16" VerticalContentAlignment="Center" FontWeight="Bold" HorizontalContentAlignment="Center" Margin="0,101,0,0"/>
             <Rectangle Fill="White" HorizontalAlignment="Left" Height="5" Margin="10,133,0,0" Stroke="White" VerticalAlignment="Top" Width="180"/>
-            <Button x:Name="btInto" Margin="10,485,10,140" Background="#FF505050" BorderBrush="Black" Height="50" Click="btInto_Click">
-                <Grid Width="150" Height="40">
-                    <materialDesign:PackIcon Kind="Edit" VerticalAlignment="Center" Foreground="White" Margin="2,-6,0,-7" Height="30" Width="30"/>
-                    <TextBlock  Text="Into" TextAlignment="Center" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="41,1,24,-1" Width="85" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                </Grid>
-            </Button>
             <Button x:Name="btBateladas" Margin="10,206,10,419" Background="#FF505050" BorderBrush="Black" Height="50" Click="btBateladas_Click">
                 <Grid Width="150" Height="39">
                     <materialDesign:PackIcon Kind="FileReport" VerticalAlignment="Center" Foreground="White" Margin="2,-6,0,-7" Height="30" Width="30"/>
-                    <TextBlock  Text="Bateldas" TextAlignment="Center" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="41,12,10,10" Width="99" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    <TextBlock  Text="Bateladas" TextAlignment="Center" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="41,12,10,10" Width="99" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                 </Grid>
             </Button>
         </Grid>

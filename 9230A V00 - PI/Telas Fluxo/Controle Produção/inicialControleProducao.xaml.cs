@@ -24,6 +24,67 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
         public event EventHandler Bt2_Click;
         public event EventHandler Bt3_Click;
 
+        public void atualiza(ref Utilidades.ExecutaProducao executaProducao, ref Utilidades.Producao producao) 
+        {
+            lbNomeReceita.Content = producao.receita.nomeReceita;
+            numeroBateladas.Content = producao.quantidadeBateladas;
+            pesoTonelada.Content = producao.pesoTotalProducao;
+            totalbateladas.Content = "/" + producao.quantidadeBateladas;
+            bateladasconcluidas.Content = executaProducao.ControleExecucao.Bateladas_Finalizadas;
+
+
+            statusSlot1 = Utilidades.functions.controleStatus(executaProducao.ControleExecucao.Slot_1.Status);
+            statusSlot2 = Utilidades.functions.controleStatus(executaProducao.ControleExecucao.Slot_2.Status);
+            statusSlot3 = Utilidades.functions.controleStatus(executaProducao.ControleExecucao.Slot_3.Status);
+
+        }
+
+        public Label controleStatus(int status) 
+        {
+            Label label = new Label();
+
+            if (status == 0)
+            {
+                statusSlot1.Content = "Sem batelada";
+                statusSlot1.Background = new SolidColorBrush(Colors.Gray);
+                statusSlot1.Foreground = new SolidColorBrush(Colors.White);
+            }
+            else if (status == 1)
+            {
+
+            }
+            else if (status == 2)
+            {
+
+            }
+            else if (status == 3)
+            {
+
+            }
+            else if (status == 4)
+            {
+
+            }
+            else if (status == 5)
+            {
+
+            }
+            else if (status == 6)
+            {
+
+            }
+            else if (status == 7)
+            {
+
+            }
+
+
+
+
+        return label;
+        
+        }
+
         public inicialControleProducao()
         {
             InitializeComponent();

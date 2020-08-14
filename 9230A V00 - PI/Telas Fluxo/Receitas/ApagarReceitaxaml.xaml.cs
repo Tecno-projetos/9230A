@@ -99,30 +99,32 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
         private void DataGrid_Receita_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             //Atualiza o Grid de equipamentos com os equipamentos que pertencem a receita selecionada.
-
-            var rowList = (DataGrid_Receita.ItemContainerGenerator.ContainerFromIndex(DataGrid_Receita.SelectedIndex) as DataGridRow).Item as DataRowView;
-
-            Utilidades.functions.atualizalistReceitas();
-
-            var index = Utilidades.VariaveisGlobais.listReceitas.FindIndex(x => x.id == Convert.ToInt32(rowList.Row.ItemArray[0]));
-
-            DataTable dt = new DataTable();
-
-            dt.Columns.Add("Produto");
-            dt.Columns.Add("Peso(kg)");
-
-            foreach (var item in Utilidades.VariaveisGlobais.listReceitas[index].listProdutos)
+            if (DataGrid_Receita.SelectedIndex != -1 )
             {
-                DataRow dr = dt.NewRow();
+                var rowList = (DataGrid_Receita.ItemContainerGenerator.ContainerFromIndex(DataGrid_Receita.SelectedIndex) as DataGridRow).Item as DataRowView;
 
-                dr["Produto"] = item.produto.descricao;
-                dr["Peso(kg)"] = item.pesoPorProduto;
+                Utilidades.functions.atualizalistReceitas();
 
-                dt.Rows.Add(dr);
+                var index = Utilidades.VariaveisGlobais.listReceitas.FindIndex(x => x.id == Convert.ToInt32(rowList.Row.ItemArray[0]));
+
+                DataTable dt = new DataTable();
+
+                dt.Columns.Add("Produto");
+                dt.Columns.Add("Peso(kg)");
+
+                foreach (var item in Utilidades.VariaveisGlobais.listReceitas[index].listProdutos)
+                {
+                    DataRow dr = dt.NewRow();
+
+                    dr["Produto"] = item.produto.descricao;
+                    dr["Peso(kg)"] = item.pesoPorProduto;
+
+                    dt.Rows.Add(dr);
+                }
+
+                DataGrid_Produtos.Dispatcher.Invoke(delegate { DataGrid_Produtos.ItemsSource = dt.DefaultView; });
             }
-
-            DataGrid_Produtos.Dispatcher.Invoke(delegate { DataGrid_Produtos.ItemsSource = dt.DefaultView; });
-
+          
         }
 
         private void DataGrid_Receita_LoadingRow(object sender, DataGridRowEventArgs e)
@@ -138,13 +140,17 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
 
             if (inputDialog.DialogResult == true)
             {
-                var rowList = (DataGrid_Receita.ItemContainerGenerator.ContainerFromIndex(DataGrid_Receita.SelectedIndex) as DataGridRow).Item as DataRowView;
+                if (DataGrid_Receita.SelectedIndex != -1)
+                {
+                    var rowList = (DataGrid_Receita.ItemContainerGenerator.ContainerFromIndex(DataGrid_Receita.SelectedIndex) as DataGridRow).Item as DataRowView;
 
-                Utilidades.functions.atualizalistReceitas();
+                    Utilidades.functions.atualizalistReceitas();
 
-                var index = Utilidades.VariaveisGlobais.listReceitas.FindIndex(x => x.id == Convert.ToInt32(rowList.Row.ItemArray[0]));
+                    var index = Utilidades.VariaveisGlobais.listReceitas.FindIndex(x => x.id == Convert.ToInt32(rowList.Row.ItemArray[0]));
 
-                DataBase.SqlFunctionsReceitas.DeleteReceita(Utilidades.VariaveisGlobais.listReceitas[index].nomeReceita);
+                    DataBase.SqlFunctionsReceitas.DeleteReceita(Utilidades.VariaveisGlobais.listReceitas[index].nomeReceita);
+                }
+
             }
 
             if (this.EventoApagadoSucesso != null)

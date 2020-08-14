@@ -30,6 +30,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
         private string nameArquivo = "";
         private string folder = @"C:\Temp";
         private bool NecessitaApagar = false;
+        private bool pesquisou = false;
         private string OldfileName = "";
         private string exportacao = "";
         private Int32 idproducao = -1;
@@ -56,13 +57,15 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
 
             txtFIM.Content = DateTime.Now.AddSeconds(-descontarsegundos).AddMinutes(1).ToString();
 
+            webBrowse.Visibility = Visibility.Hidden;
+
         }
 
         private void controlVisible(Visibility visibility)         
         {
             rec.Visibility = visibility;
             lbNomeProduto.Visibility = visibility;
-            DataGrid_Receita.Visibility = visibility;
+            DataGrid_Receita.Visibility = visibility;           
         }
 
         #region Controle Calendario
@@ -70,6 +73,9 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
         public void CombinedDialogOpenedEventHandler(object sender, DialogOpenedEventArgs eventArgs)
         {
             controlVisible(Visibility.Hidden);
+            webBrowse.Visibility = Visibility.Hidden;
+
+
             CombinedCalendar.SelectedDate = ((PickersViewModel)DataContext).Date;
             CombinedClock.Time = ((PickersViewModel)DataContext).Time;
         }
@@ -90,11 +96,13 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
             }
 
             controlVisible(Visibility.Visible);
+            webBrowse.Visibility = Visibility.Hidden;
         }
 
         public void CombinedDialogOpenedEventHandler_FIM(object sender, DialogOpenedEventArgs eventArgs)
         {
             controlVisible(Visibility.Hidden);
+            webBrowse.Visibility = Visibility.Hidden;
 
             CombinedCalendar_FIM.SelectedDate = ((PickersViewModel)DataContext).Date;
             CombinedClock_FIM.Time = ((PickersViewModel)DataContext).Time;
@@ -117,6 +125,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
             }
 
             controlVisible(Visibility.Visible);
+            webBrowse.Visibility = Visibility.Hidden;
 
 
         }
@@ -163,12 +172,15 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
 
         #endregion
 
-
         private void btPesquisar_Click(object sender, RoutedEventArgs e)
         {
+            pesquisou = false;
+            lbNomeProduto.Content = "";
+            KillRunningProcess();
+            webBrowse.Visibility = Visibility.Hidden;
+
             //Cria o datatable para inserir os dados.
             DataTable dt1 = new DataTable();
-
 
             if (pd.Count > 0)
             {
@@ -178,7 +190,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
             pd = Utilidades.functions.PesquisaDateInDateOut(Convert.ToDateTime(txtDataSelecionada.Content), Convert.ToDateTime(txtFIM.Content));
 
 
-            dt1.Columns.Add("N° Produção");
+            dt1.Columns.Add("N°");
             dt1.Columns.Add("Nome Receita");
             dt1.Columns.Add("Total Produzido");
             dt1.Columns.Add("Bateladas");
@@ -203,63 +215,164 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
 
         private void DataGrid_Receita_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            var rowList = (DataGrid_Receita.ItemContainerGenerator.ContainerFromIndex(DataGrid_Receita.SelectedIndex) as DataGridRow).Item as DataRowView;
+            if (DataGrid_Receita.SelectedIndex != -1)
+            {
+                var rowList = (DataGrid_Receita.ItemContainerGenerator.ContainerFromIndex(DataGrid_Receita.SelectedIndex) as DataGridRow).Item as DataRowView;
 
-            idproducao = Convert.ToInt32((string)rowList.Row.ItemArray[0]);
+                idproducao = Convert.ToInt32((string)rowList.Row.ItemArray[0]);
 
-            lbNomeProduto.Content = "N° Produção: " + (string)rowList.Row.ItemArray[0] + " - Nome Receita: " + (string)rowList.Row.ItemArray[1];
+                lbNomeProduto.Content = "N° Produção: " + (string)rowList.Row.ItemArray[0] + " - Nome Receita: " + (string)rowList.Row.ItemArray[1];
+            }
         }
 
         private void btExportar_Click(object sender, RoutedEventArgs e)
         {
-            discoExportar exportacaoMessage = new discoExportar();
-
-            if (exportacaoMessage.ShowDialog() == true)
+            if (pesquisou)
             {
-                exportacao = exportacaoMessage.discoExportacao;
+                discoExportar exportacaoMessage = new discoExportar();
 
-                if (!String.IsNullOrEmpty((string)lbNomeProduto.Content))
+                if (exportacaoMessage.ShowDialog() == true)
                 {
-                    string destinationFile = exportacao + "\\" + nameArquivo;
+                    exportacao = exportacaoMessage.discoExportacao;
 
-                    if (!File.Exists(destinationFile))
+                    if (!String.IsNullOrEmpty((string)lbNomeProduto.Content))
                     {
-                        inputDialog = new Utilidades.messageBox("Exportando", "Isso pode levar alguns minutos, por favor aguarde.", MaterialDesignThemes.Wpf.PackIconKind.Information, "OK", "Fechar");
+                        string destinationFile = exportacao + "\\" + nameArquivo;
 
-                        inputDialog.ShowDialog();
+                        if (!File.Exists(destinationFile))
+                        {
+                            inputDialog = new Utilidades.messageBox("Exportando", "Isso pode levar alguns minutos, por favor aguarde.", MaterialDesignThemes.Wpf.PackIconKind.Information, "OK", "Fechar");
 
-                        //Relatorios.ExportacaoRelatorios.exportProducao(destinationFile, Utilidades.VariaveisGlobais.PesquisaProducao, "Produção Total", DateTime.Now, DateTime.Now);
+                            inputDialog.ShowDialog();
 
-                        //Original
-                        //Relatorios.ExportacaoRelatorios.exportProducao(fileName, DataBase.SQLFunctionsProducao.PesquisaDateInDateOut(producao.dataInicial_GS, producao.dataFinal_GS), "Produção Total", DateTime.Now, DateTime.Now);
+                            //Original
+                            Relatorios.ExportacaoRelatorios.exportarBatelada(destinationFile, Utilidades.functions.GetProducaoFromIdProducao(idproducao), "Detalhamento Produção");
 
-                        inputDialog = new Utilidades.messageBox("Arquivo exportado", "O arquivo foi exportado com sucesso", MaterialDesignThemes.Wpf.PackIconKind.Information, "OK", "Fechar");
 
-                        inputDialog.ShowDialog();
 
+                            inputDialog = new Utilidades.messageBox("Arquivo exportado", "O arquivo foi exportado com sucesso", MaterialDesignThemes.Wpf.PackIconKind.Information, "OK", "Fechar");
+
+                            inputDialog.ShowDialog();
+
+                        }
+                        else
+                        {
+                            inputDialog = new Utilidades.messageBox("Arquivo já exportado", "O arquivo já foi exportado.", MaterialDesignThemes.Wpf.PackIconKind.Information, "OK", "Fechar");
+
+                            inputDialog.ShowDialog();
+
+                        }
                     }
                     else
                     {
-                        inputDialog = new Utilidades.messageBox("Arquivo já exportado", "O arquivo já foi exportado.", MaterialDesignThemes.Wpf.PackIconKind.Information, "OK", "Fechar");
+                        inputDialog = new Utilidades.messageBox("Realizar Pesquisa", "Para exportar algum arquivo é necessário realizar a pesquisa.", MaterialDesignThemes.Wpf.PackIconKind.Information, "OK", "Fechar");
 
                         inputDialog.ShowDialog();
-
                     }
                 }
                 else
                 {
-                    inputDialog = new Utilidades.messageBox("Realizar Pesquisa", "Para exportar algum arquivo é necessário realizar a pesquisa.", MaterialDesignThemes.Wpf.PackIconKind.Information, "OK", "Fechar");
+                    inputDialog = new Utilidades.messageBox("Operação Cancelada", "A exportação foi cancelada pelo usuário.", MaterialDesignThemes.Wpf.PackIconKind.Information, "OK", "Fechar");
 
                     inputDialog.ShowDialog();
                 }
             }
             else
             {
-                inputDialog = new Utilidades.messageBox("Operação Cancelada", "A exportação foi cancelada pelo usuário.", MaterialDesignThemes.Wpf.PackIconKind.Information, "OK", "Fechar");
+                inputDialog = new Utilidades.messageBox("Gerar Relátorio", "Para exportar é necessário gerar o PDF no botão relátorio.", MaterialDesignThemes.Wpf.PackIconKind.Information, "OK", "Fechar");
+
+                inputDialog.ShowDialog();
+            }
+       
+
+        }
+        private void btRelatorio_Click(object sender, RoutedEventArgs e)
+        {
+            if (!String.IsNullOrEmpty((string)lbNomeProduto.Content) && idproducao != -1)
+            {
+                inputDialog = new Utilidades.messageBox("Gerar relatório", "Deseja gerar o relátorio " + lbNomeProduto.Content, MaterialDesignThemes.Wpf.PackIconKind.Information, "OK", "Fechar");
+
+                if (inputDialog.ShowDialog() == true)
+                {
+
+                    Utilidades.VariaveisGlobais.createFolder(folder);
+
+                    //Verifica se já possui um arquivo criado
+                    if (!String.IsNullOrEmpty(fileName))
+                    {
+                        KillRunningProcess();
+                        OldfileName = fileName;
+                        NecessitaApagar = true;
+                    }
+
+                    //recebe novo nome de arquivo
+                    nameArquivo = "Producao_Bateladas" + "_" + DateTime.Now.Day + "_" + DateTime.Now.Month + "_" + DateTime.Now.Year + "_" + DateTime.Now.Hour + "_" + DateTime.Now.Minute + "_" + DateTime.Now.Second + ".pdf";
+
+                    fileName = folder + "\\" + nameArquivo;
+
+                    //Verifica se o file já foi criado
+                    if (!File.Exists(fileName))
+                    {
+
+                        inputDialog = new Utilidades.messageBox("Pesquisando", "Isso pode levar alguns minutos, por favor aguarde.", MaterialDesignThemes.Wpf.PackIconKind.Information, "OK", "Fechar");
+
+                        inputDialog.ShowDialog();
+
+                        //Original
+                        Relatorios.ExportacaoRelatorios.exportarBatelada(fileName, Utilidades.functions.GetProducaoFromIdProducao(idproducao), "Detalhamento Produção");
+  
+                        atualizaProjeto(fileName);
+
+                        pesquisou = true;
+
+                        if (NecessitaApagar)
+                        {
+                            File.Delete(OldfileName);
+                            NecessitaApagar = false;
+                        }
+
+                    }
+                    else
+                    {
+
+                        atualizaProjeto(fileName);
+
+                        inputDialog = new Utilidades.messageBox("Arquivo já exportado", "O arquivo já foi exportado.", MaterialDesignThemes.Wpf.PackIconKind.Information, "OK", "Fechar");
+
+                        inputDialog.ShowDialog();
+
+                    }
+
+                    webBrowse.Visibility = Visibility.Visible;
+
+                }
+            }
+            else
+            {
+                inputDialog = new Utilidades.messageBox("Selecione produção!", "Para gerar reletórios ", MaterialDesignThemes.Wpf.PackIconKind.Information, "OK", "Fechar");
 
                 inputDialog.ShowDialog();
             }
         }
+
+        public void atualizaProjeto(String sFilename)
+        {
+            if (this.webBrowse != null)
+            {
+                this.webBrowse.Navigate(sFilename);
+            }
+
+        }
+
+        private void UserControl_Unloaded(object sender, RoutedEventArgs e)
+        {
+            KillRunningProcess();
+            webBrowse.Visibility = Visibility.Hidden;
+            lbNomeProduto.Content = "";
+            pesquisou = false;
+            DataGrid_Receita.Dispatcher.Invoke(delegate { DataGrid_Receita.ItemsSource = null; });
+        }
+
 
         private void KillRunningProcess()
         {
@@ -272,61 +385,13 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
             }
         }
 
-        private void btRelatorio_Click(object sender, RoutedEventArgs e)
+        private void btFecharRelatorio_Click(object sender, RoutedEventArgs e)
         {
-            if (!String.IsNullOrEmpty((string)lbNomeProduto.Content) && idproducao != -1)
-            {
-                inputDialog = new Utilidades.messageBox("Gerar relatório", "Deseja gerar o relátorio " + lbNomeProduto.Content, MaterialDesignThemes.Wpf.PackIconKind.Information, "OK", "Fechar");
-
-                if (inputDialog.ShowDialog() == true)
-                {
-
-                    string filename = " ";
-
-                    //Abre onde deseja salvar
-                    Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
-                    dlg.FileName = "Balanca_" + "" + "_" + DateTime.Now.Day + "_" + DateTime.Now.Month + "_" + DateTime.Now.Year; // Default file name
-                    dlg.DefaultExt = ".pdf"; // Default file extension
-                    dlg.Filter = "PDF documents (.pdf)|*.pdf"; // Filter files by extension
-
-                    // Show save file dialog box
-                    Nullable<bool> result = dlg.ShowDialog();
-                    // Process save file dialog box results
-                    if (result == true)
-                    {
-                        // Save document
-                        filename = dlg.FileName;
-
-                        //Original
-                        Relatorios.ExportacaoRelatorios.exportarBatelada(filename, Utilidades.functions.GetProducaoFromIdProducao(idproducao), "Produção Total");
-
-
-                        //Tester
-                        //Relatorios.ExportacaoRelatorios.exportarBatelada(filename, Utilidades.VariaveisGlobais.PesquisaProducao.ElementAt(idproducao), "Produção Total", DateTime.Now, DateTime.Now);
-
-
-                        System.Diagnostics.Process.Start(filename);
-
-                    }
-                }
-                else
-                {
-                    inputDialog = new Utilidades.messageBox("Operação Cancelada", "A exportação foi cancelada pelo usuário.", MaterialDesignThemes.Wpf.PackIconKind.Information, "OK", "Fechar");
-
-                    inputDialog.ShowDialog();
-                }
-            }
-            else
-            {
-                inputDialog = new Utilidades.messageBox("Selecione produção!", "Para gerar reletórios ", MaterialDesignThemes.Wpf.PackIconKind.Information, "OK", "Fechar");
-
-                inputDialog.ShowDialog();
-            }
-            
-            
-
-
-
+            pesquisou = false;
+            webBrowse.Visibility = Visibility.Hidden;
+            lbNomeProduto.Content = "";
+            KillRunningProcess();
+     
         }
     }
 }

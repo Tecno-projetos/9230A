@@ -146,53 +146,66 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
 
         private void btAddProdutoReceita_Click(object sender, RoutedEventArgs e)
         {
-            var rowList = (DataGrid_Produtos.ItemContainerGenerator.ContainerFromIndex(DataGrid_Produtos.SelectedIndex) as DataGridRow).Item as DataRowView;
-
-            //Verifica se ja não tem o item na lista 
-            if (true)
+            if (DataGrid_Produtos.SelectedIndex != -1)
             {
-                Utilidades.ProdutoReceita produtoReceita = new Utilidades.ProdutoReceita();
-                produtoReceita.produto = new Produto();
+                var rowList = (DataGrid_Produtos.ItemContainerGenerator.ContainerFromIndex(DataGrid_Produtos.SelectedIndex) as DataGridRow).Item as DataRowView;
 
-                produtoReceita.produto.id = Convert.ToInt32(rowList.Row.ItemArray[0]);
-                produtoReceita.produto.codigo = Convert.ToString(rowList.Row.ItemArray[1]);
-                produtoReceita.produto.descricao = Convert.ToString(rowList.Row.ItemArray[2]);
-                produtoReceita.produto.densidade = Convert.ToSingle(rowList.Row.ItemArray[3]);
-                produtoReceita.produto.tipoProduto = Convert.ToString(rowList.Row.ItemArray[4]);
-                produtoReceita.produto.observacao = Convert.ToString(rowList.Row.ItemArray[5]);
+                //Verifica se ja não tem o item na lista 
+                if (true)
+                {
+                    Utilidades.ProdutoReceita produtoReceita = new Utilidades.ProdutoReceita();
+                    produtoReceita.produto = new Produto();
 
-                //Abre tela para escolha do peso do produto na receita e se a matéria prima irá ser dosada manual ou automáticamente
-                Telas_Fluxo.Receitas.AdicionarProdutoReceitaPouUp adcionaProdutoReceita = new AdicionarProdutoReceitaPouUp(produtoReceita, 0, false, "");
-                adcionaProdutoReceita.ShowDialog();
-                loadDataReceitas();
+                    produtoReceita.produto.id = Convert.ToInt32(rowList.Row.ItemArray[0]);
+                    produtoReceita.produto.codigo = Convert.ToString(rowList.Row.ItemArray[1]);
+                    produtoReceita.produto.descricao = Convert.ToString(rowList.Row.ItemArray[2]);
+                    produtoReceita.produto.densidade = Convert.ToSingle(rowList.Row.ItemArray[3]);
+                    produtoReceita.produto.tipoProduto = Convert.ToString(rowList.Row.ItemArray[4]);
+                    produtoReceita.produto.observacao = Convert.ToString(rowList.Row.ItemArray[5]);
+
+                    //Abre tela para escolha do peso do produto na receita e se a matéria prima irá ser dosada manual ou automáticamente
+                    Telas_Fluxo.Receitas.AdicionarProdutoReceitaPouUp adcionaProdutoReceita = new AdicionarProdutoReceitaPouUp(produtoReceita, 0, false, "");
+                    adcionaProdutoReceita.ShowDialog();
+                    loadDataReceitas();
+                }
+                else
+                {
+                    //Avisa que não pode adicionar o mesmo item na lista
+                }
             }
-            else
-            {
-                //Avisa que não pode adicionar o mesmo item na lista
-            }
+           
         }
 
         private void btEditarProdutoReceita_Click(object sender, RoutedEventArgs e)
         {
-            var rowList = (DataGrid_Receita.ItemContainerGenerator.ContainerFromIndex(DataGrid_Receita.SelectedIndex) as DataGridRow).Item as DataRowView;
+            if (DataGrid_Receita.SelectedIndex != -1)
+            {
+                var rowList = (DataGrid_Receita.ItemContainerGenerator.ContainerFromIndex(DataGrid_Receita.SelectedIndex) as DataGridRow).Item as DataRowView;
 
-            var index = Utilidades.VariaveisGlobais.ReceitaCadastro.listProdutos.FindIndex(x => x.produto.id == Convert.ToInt32(rowList.Row.ItemArray[0]));
+                var index = Utilidades.VariaveisGlobais.ReceitaCadastro.listProdutos.FindIndex(x => x.produto.id == Convert.ToInt32(rowList.Row.ItemArray[0]));
 
-            //Abre tela para editar o produto
-            Telas_Fluxo.Receitas.AdicionarProdutoReceitaPouUp adcionaProdutoReceita = new AdicionarProdutoReceitaPouUp(Utilidades.VariaveisGlobais.ReceitaCadastro.listProdutos[index], Utilidades.VariaveisGlobais.ReceitaCadastro.listProdutos[index].pesoPorProduto, true, Utilidades.VariaveisGlobais.ReceitaCadastro.listProdutos[index].tipoDosagemMateriaPrima);
-            adcionaProdutoReceita.ShowDialog();
-            loadDataReceitas();
+                //Abre tela para editar o produto
+                Telas_Fluxo.Receitas.AdicionarProdutoReceitaPouUp adcionaProdutoReceita = new AdicionarProdutoReceitaPouUp(Utilidades.VariaveisGlobais.ReceitaCadastro.listProdutos[index], Utilidades.VariaveisGlobais.ReceitaCadastro.listProdutos[index].pesoPorProduto, true, Utilidades.VariaveisGlobais.ReceitaCadastro.listProdutos[index].tipoDosagemMateriaPrima);
+                adcionaProdutoReceita.ShowDialog();
+                loadDataReceitas();
+            }
+
+
         }
 
         private void btSubProdutoReceita_Click(object sender, RoutedEventArgs e)
         {
-            var rowList = (DataGrid_Receita.ItemContainerGenerator.ContainerFromIndex(DataGrid_Receita.SelectedIndex) as DataGridRow).Item as DataRowView;
+            if (DataGrid_Receita.SelectedIndex != -1)
+            {
+                var rowList = (DataGrid_Receita.ItemContainerGenerator.ContainerFromIndex(DataGrid_Receita.SelectedIndex) as DataGridRow).Item as DataRowView;
 
-            var index = Utilidades.VariaveisGlobais.ReceitaCadastro.listProdutos.FindIndex(x => x.produto.id == Convert.ToInt32(rowList.Row.ItemArray[0]));
+                var index = Utilidades.VariaveisGlobais.ReceitaCadastro.listProdutos.FindIndex(x => x.produto.id == Convert.ToInt32(rowList.Row.ItemArray[0]));
 
-            Utilidades.VariaveisGlobais.ReceitaCadastro.listProdutos.RemoveAt(index);
+                Utilidades.VariaveisGlobais.ReceitaCadastro.listProdutos.RemoveAt(index);
 
-            loadDataReceitas();
+                loadDataReceitas();
+            }
+
         }
 
         private void loadDataProdutos()

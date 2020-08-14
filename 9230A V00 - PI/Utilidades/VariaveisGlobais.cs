@@ -8,6 +8,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Navigation;
 
@@ -53,7 +54,7 @@ namespace _9230A_V00___PI.Utilidades
             public int TempoAtualPasso;                      //Tempo atual de cada passo, como tempo em dosagem manual, tempo em pré mistura...
 
             public int Status;                               //Status Batelada
-            // 0 - Sem Status
+            // 0 - Sem batelada
             // 1 - Dosagem Matéria Prima Manual
             // 2 - Dosagem Matéria Prima Automática
             // 3 - Transporte Para Pré Mistura
@@ -101,6 +102,8 @@ namespace _9230A_V00___PI.Utilidades
         public struct ControleExecucaoProducao
         {
             public SlotBatelada Slot_1;
+            public SlotBatelada Slot_2;
+            public SlotBatelada Slot_3;
 
             public short Bateladas_Iniciadas;
             public short Bateladas_Finalizadas;
@@ -749,6 +752,78 @@ namespace _9230A_V00___PI.Utilidades
 
     public class functions
     {
+        /// <summary>
+        /// Função para controla o status da produção
+        /// </summary>
+        /// <param name="status">Status da produção numero inteiro.</param>
+        /// <returns>Retorna um label com o content + foreground e Backgorund</returns>
+        public static Label controleStatus(int status)
+        {
+            Label label = new Label();
+
+            if (status == 0)
+            {
+                label.Content = "Sem batelada";
+                label.Background = new SolidColorBrush(Colors.Gray);
+                label.Foreground = new SolidColorBrush(Colors.White);
+            }
+            else if (status == 1)
+            {
+                label.Content = "Dosagem Matéria Prima Manual";
+                label.Background = new SolidColorBrush(Colors.Orange);
+                label.Foreground = new SolidColorBrush(Colors.Black);
+
+
+            }
+            else if (status == 2)
+            {
+                label.Content = "Dosagem Matéria Prima Automática";
+                label.Background = new SolidColorBrush(Colors.Green);
+                label.Foreground = new SolidColorBrush(Colors.Black);
+            }
+            else if (status == 3)
+            {
+                label.Content = "Transporte Para Pré Mistura";
+                label.Background = new SolidColorBrush(Colors.Green);
+                label.Foreground = new SolidColorBrush(Colors.Black);
+            }
+            else if (status == 4)
+            {
+                label.Content = "Pré Mistura";
+                label.Background = new SolidColorBrush(Colors.Green);
+                label.Foreground = new SolidColorBrush(Colors.Black);
+            }
+            else if (status == 5)
+            {
+                label.Content = "Moagem e Transporte Pós Mistura";
+                label.Background = new SolidColorBrush(Colors.Green);
+                label.Foreground = new SolidColorBrush(Colors.Black);
+            }
+            else if (status == 6)
+            {
+                label.Content = "Pós Mistura";
+                label.Background = new SolidColorBrush(Colors.Green);
+                label.Foreground = new SolidColorBrush(Colors.Black);
+            }
+            else if (status == 7)
+            {
+                label.Content = "Transporte Para Produto Acabado";
+                label.Background = new SolidColorBrush(Colors.Green);
+                label.Foreground = new SolidColorBrush(Colors.Black);
+            }
+            else
+            {
+                label.Content = "Sem Status";
+                label.Background = new SolidColorBrush(Colors.Red);
+                label.Foreground = new SolidColorBrush(Colors.White);
+            }
+
+
+            return label;
+
+        }
+
+
         /// <summary>
         /// Atualiza a lista de produtos de acordo com o banco de dados
         /// </summary>

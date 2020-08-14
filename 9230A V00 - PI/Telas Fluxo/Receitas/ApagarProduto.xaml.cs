@@ -82,9 +82,13 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
 
         private void DataGrid_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            var rowList = (DataGrid.ItemContainerGenerator.ContainerFromIndex(DataGrid.SelectedIndex) as DataGridRow).Item as DataRowView;
+            if (DataGrid.SelectedIndex != -1 )
+            {
+                var rowList = (DataGrid.ItemContainerGenerator.ContainerFromIndex(DataGrid.SelectedIndex) as DataGridRow).Item as DataRowView;
 
-            lbNomeProduto.Content = (string)rowList.Row.ItemArray[1] + " - " + (string)rowList.Row.ItemArray[2];
+                lbNomeProduto.Content = (string)rowList.Row.ItemArray[1] + " - " + (string)rowList.Row.ItemArray[2];
+            }
+
         }
 
         private void DataGrid_LoadingRow(object sender, DataGridRowEventArgs e)
@@ -112,33 +116,33 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
 
         private void btApagarProduto_Click(object sender, RoutedEventArgs e)
         {
-            var rowList = (DataGrid.ItemContainerGenerator.ContainerFromIndex(DataGrid.SelectedIndex) as DataGridRow).Item as DataRowView;
-
-            if (rowList != null)
+            if (DataGrid.SelectedIndex != -1)
             {
-                if (DataBase.SqlFunctionsProdutos.Delete_Rows(Convert.ToInt32(rowList.Row.ItemArray[0])))
-                {
-                    inputDialog = new Utilidades.messageBox("Apagar", "Produto apagado com sucesso!", MaterialDesignThemes.Wpf.PackIconKind.Error, "OK", "Fechar");
+                var rowList = (DataGrid.ItemContainerGenerator.ContainerFromIndex(DataGrid.SelectedIndex) as DataGridRow).Item as DataRowView;
 
-                    inputDialog.ShowDialog();
+                if (rowList != null)
+                {
+                    if (DataBase.SqlFunctionsProdutos.Delete_Rows(Convert.ToInt32(rowList.Row.ItemArray[0])))
+                    {
+                        inputDialog = new Utilidades.messageBox("Apagar", "Produto apagado com sucesso!", MaterialDesignThemes.Wpf.PackIconKind.Error, "OK", "Fechar");
+
+                        inputDialog.ShowDialog();
+                    }
+                    else
+                    {
+                        inputDialog = new Utilidades.messageBox("Apagar", "Ocorreu algum erro ao apagar!", MaterialDesignThemes.Wpf.PackIconKind.Error, "OK", "Fechar");
+
+                        inputDialog.ShowDialog();
+                    }
                 }
                 else
                 {
-                    inputDialog = new Utilidades.messageBox("Apagar", "Ocorreu algum erro ao apagar!", MaterialDesignThemes.Wpf.PackIconKind.Error, "OK", "Fechar");
+                    inputDialog = new Utilidades.messageBox("Apagar", "Verifique se selecionou algum produto!", MaterialDesignThemes.Wpf.PackIconKind.Error, "OK", "Fechar");
 
                     inputDialog.ShowDialog();
                 }
+
             }
-            else
-            {
-                inputDialog = new Utilidades.messageBox("Apagar", "Verifique se selecionou algum produto!", MaterialDesignThemes.Wpf.PackIconKind.Error, "OK", "Fechar");
-
-                inputDialog.ShowDialog();
-            }
-
-
-
-
         }
     }
 }
