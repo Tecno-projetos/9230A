@@ -20,9 +20,19 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
     /// </summary>
     public partial class TelaControleProducao : UserControl
     {
+        int slotSolicitado = 0;
+
+        public int SlotSolicitado { get => slotSolicitado; set => slotSolicitado = value; }
+
         public TelaControleProducao()
         {
             InitializeComponent();
+        }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+             Status_Controle_Producao.SlotSolicitado = slotSolicitado;
+
         }
     }
 }

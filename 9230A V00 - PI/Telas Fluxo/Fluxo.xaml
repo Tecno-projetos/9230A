@@ -519,7 +519,7 @@
         <Label Content="kg" HorizontalAlignment="Left" Height="25" Margin="915,582,0,0" VerticalAlignment="Top" Width="22" RenderTransformOrigin="0.5,0.5" FontSize="10" Foreground="White" FontWeight="Bold" HorizontalContentAlignment="Center"/>
         <Label Content="35" Height="27" Margin="846,602,0,0" VerticalAlignment="Top" Width="70" RenderTransformOrigin="0.5,0.5" Foreground="White" FontWeight="Bold" Padding="0,0,5,0" FontSize="20" HorizontalAlignment="Left" HorizontalContentAlignment="Right"/>
         <Label Content="und." HorizontalAlignment="Left" Height="25" Margin="908,608,0,0" VerticalAlignment="Top" Width="32" RenderTransformOrigin="0.5,0.5" FontSize="10" Foreground="White" FontWeight="Bold" HorizontalContentAlignment="Center"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="860,554,0,0" VerticalAlignment="Top" Width="164" Height="88" Opacity="0" Click="Button_Click"/>
+        <Button x:Name="bt_Ensaque" Content="Button" HorizontalAlignment="Left" Margin="860,554,0,0" VerticalAlignment="Top" Width="164" Height="88" Opacity="0" Click="bt_Ensaque_Click"/>
 
     </Grid>
 </UserControl>

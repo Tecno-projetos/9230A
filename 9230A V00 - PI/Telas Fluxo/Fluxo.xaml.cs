@@ -38,7 +38,7 @@ namespace _9230A_V00___PI.Telas_Fluxo
             lbVelocidade65.Content = Motor_65.Equip_GS.Command_Get.INV.Velocidade_Atual + " RPM";
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void bt_Ensaque_Click(object sender, RoutedEventArgs e)
         {
             if (this.ensque_Click != null)
                 this.ensque_Click(this, e);

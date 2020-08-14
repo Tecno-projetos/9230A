@@ -53,7 +53,13 @@ namespace _9230A_V00___PI.Utilidades
             public int TempoAtualDesdeIniciado;              //Tempo total desde iniciado a produção da batelada
             public int TempoAtualPasso;                      //Tempo atual de cada passo, como tempo em dosagem manual, tempo em pré mistura...
 
-            public int Status;                               //Status Batelada
+            public int TempoRestantePreMistura;              //Tempo restante da pré mistura
+            public int TempoRestantePosMistura;              //Tempo restante da pos mistura
+            public short Quantidade_Total_Produtos;          //Quantidade Total de produtos na batelada
+            public short Produto_Atual_Em_Producao;          //Qual produto da lista de produtos esta em produção 
+            public short Status_Produto_Atual_Em_Producao;   //Status do produto atual que esta em produção
+
+            public short Status_Batelada;                      //Status Batelada 
             // 0 - Sem batelada
             // 1 - Dosagem Matéria Prima Manual
             // 2 - Dosagem Matéria Prima Automática

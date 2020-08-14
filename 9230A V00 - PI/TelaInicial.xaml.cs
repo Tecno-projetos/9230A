@@ -121,7 +121,7 @@ namespace _9230A_V00___PI
             Utilidades.VariaveisGlobais.Buffer_PLC[1].Name = "DB Produção Automática";
             Utilidades.VariaveisGlobais.Buffer_PLC[1].DBNumber = 15;
             Utilidades.VariaveisGlobais.Buffer_PLC[1].Start = 0;
-            Utilidades.VariaveisGlobais.Buffer_PLC[1].Size = 78;
+            Utilidades.VariaveisGlobais.Buffer_PLC[1].Size = 92;
             Utilidades.VariaveisGlobais.Buffer_PLC[1].Enable_Read = true;
             Utilidades.VariaveisGlobais.Buffer_PLC[1].Enable_Write = false;
 
@@ -160,9 +160,10 @@ namespace _9230A_V00___PI
             Utilidades.functions.atualizalistReceitas();
 
 
-            VariaveisGlobais.Fluxo.inicialProducao.Bt1_Click += InicialProducao_Bt1_Click;
-            VariaveisGlobais.Fluxo.inicialProducao.Bt2_Click += InicialProducao_Bt2_Click;
-            VariaveisGlobais.Fluxo.inicialProducao.Bt3_Click += InicialProducao_Bt3_Click;
+            VariaveisGlobais.Fluxo.inicialProducao.BtSlot1_Click += InicialProducao_Bt1_Click;
+            VariaveisGlobais.Fluxo.inicialProducao.BtSlot2_Click += InicialProducao_Bt2_Click;
+            VariaveisGlobais.Fluxo.inicialProducao.BtSlot3_Click += InicialProducao_Bt3_Click;
+
             VariaveisGlobais.Fluxo.ensque_Click += Fluxo_ensque_Click;
 
             //Verifica qual Produção esta em execução e carrega a produção
@@ -176,6 +177,7 @@ namespace _9230A_V00___PI
                 spInical.Children.Clear();
 
             }
+
             spInical.Children.Add(Utilidades.VariaveisGlobais.producao);
 
             if (Utilidades.VariaveisGlobais.producao.spControleProducao.Children != null)
@@ -208,6 +210,7 @@ namespace _9230A_V00___PI
                 Utilidades.VariaveisGlobais.producao.spControleProducao.Children.Clear();
             }
 
+            Utilidades.VariaveisGlobais.producao.TelaControleProducao.SlotSolicitado = 1;
             Utilidades.VariaveisGlobais.producao.spControleProducao.Children.Add(Utilidades.VariaveisGlobais.producao.TelaControleProducao);
 
             pckManutencao.Foreground = VariaveisGlobais.Branco;
@@ -233,6 +236,7 @@ namespace _9230A_V00___PI
                 Utilidades.VariaveisGlobais.producao.spControleProducao.Children.Clear();
             }
 
+            Utilidades.VariaveisGlobais.producao.TelaControleProducao.SlotSolicitado = 2;
             Utilidades.VariaveisGlobais.producao.spControleProducao.Children.Add(Utilidades.VariaveisGlobais.producao.TelaControleProducao);
 
             pckManutencao.Foreground = VariaveisGlobais.Branco;
@@ -258,7 +262,7 @@ namespace _9230A_V00___PI
             {
                 Utilidades.VariaveisGlobais.producao.spControleProducao.Children.Clear();
             }
-
+            Utilidades.VariaveisGlobais.producao.TelaControleProducao.SlotSolicitado = 3;
             Utilidades.VariaveisGlobais.producao.spControleProducao.Children.Add(Utilidades.VariaveisGlobais.producao.TelaControleProducao);
 
             pckManutencao.Foreground = VariaveisGlobais.Branco;

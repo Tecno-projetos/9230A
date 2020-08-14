@@ -20,9 +20,9 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
     /// </summary>
     public partial class inicialControleProducao : UserControl
     {
-        public event EventHandler Bt1_Click;
-        public event EventHandler Bt2_Click;
-        public event EventHandler Bt3_Click;
+        public event EventHandler BtSlot1_Click;
+        public event EventHandler BtSlot2_Click;
+        public event EventHandler BtSlot3_Click;
 
         public void atualiza(ref Utilidades.ExecutaProducao executaProducao, ref Utilidades.Producao producao) 
         {
@@ -32,15 +32,15 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
             bateladasconcluidas.Content = executaProducao.ControleExecucao.Bateladas_Finalizadas;
 
 
-            statusSlot1 = Utilidades.functions.controleStatus(executaProducao.ControleExecucao.Slot_1.Status, statusSlot1);
-            statusSlot2 = Utilidades.functions.controleStatus(executaProducao.ControleExecucao.Slot_2.Status, statusSlot2);
-            statusSlot3 = Utilidades.functions.controleStatus(executaProducao.ControleExecucao.Slot_3.Status, statusSlot3);
+            statusSlot1 = Utilidades.functions.controleStatus(executaProducao.ControleExecucao.Slot_1.Status_Batelada, statusSlot1);
+            statusSlot2 = Utilidades.functions.controleStatus(executaProducao.ControleExecucao.Slot_2.Status_Batelada, statusSlot2);
+            statusSlot3 = Utilidades.functions.controleStatus(executaProducao.ControleExecucao.Slot_3.Status_Batelada, statusSlot3);
 
-            bt1 = Utilidades.functions.controleStatus(executaProducao.ControleExecucao.Slot_1.Status, bt1, executaProducao, 1, executaProducao.ControleExecucao.Slot_1.NumeroBatelada);
+            bt1 = Utilidades.functions.controleStatus(executaProducao.ControleExecucao.Slot_1.Status_Batelada, bt1, executaProducao, 1, executaProducao.ControleExecucao.Slot_1.NumeroBatelada);
 
-            bt2 = Utilidades.functions.controleStatus(executaProducao.ControleExecucao.Slot_2.Status, bt2, executaProducao, 2, executaProducao.ControleExecucao.Slot_2.NumeroBatelada);
+            bt2 = Utilidades.functions.controleStatus(executaProducao.ControleExecucao.Slot_2.Status_Batelada, bt2, executaProducao, 2, executaProducao.ControleExecucao.Slot_2.NumeroBatelada);
 
-            bt3 = Utilidades.functions.controleStatus(executaProducao.ControleExecucao.Slot_3.Status, bt3, executaProducao, 3, executaProducao.ControleExecucao.Slot_3.NumeroBatelada);
+            bt3 = Utilidades.functions.controleStatus(executaProducao.ControleExecucao.Slot_3.Status_Batelada, bt3, executaProducao, 3, executaProducao.ControleExecucao.Slot_3.NumeroBatelada);
 
 
         }
@@ -52,20 +52,20 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
 
         private void bt1_Click(object sender, RoutedEventArgs e)
         {
-            if (this.Bt1_Click != null)
-                this.Bt1_Click(this, e);
+            if (this.BtSlot1_Click != null)
+                this.BtSlot1_Click(this, e);
         }
 
         private void bt2_Click(object sender, RoutedEventArgs e)
         {
-            if (this.Bt2_Click != null)
-                this.Bt2_Click(this, e);
+            if (this.BtSlot2_Click != null)
+                this.BtSlot2_Click(this, e);
         }
 
         private void bt3_Click(object sender, RoutedEventArgs e)
         {
-            if (this.Bt3_Click != null)
-                this.Bt3_Click(this, e);
+            if (this.BtSlot3_Click != null)
+                this.BtSlot3_Click(this, e);
         }
     }
 }

@@ -292,7 +292,7 @@ namespace _9230A_V00___PI.DataBase
                     Command.ExecuteNonQuery();
 
                     //Apaga a receita na tabela de receita
-                    CommandString = "DELETE FROM Receitas WHERE IdReceita = '" + IdReceita + "';";
+                    CommandString = "DELETE FROM Receitas WHERE Id = '" + IdReceita + "';";
 
                     Command = SqlGlobalFuctions.ReturnCommand(CommandString, Call);
                     Command.ExecuteNonQuery();
