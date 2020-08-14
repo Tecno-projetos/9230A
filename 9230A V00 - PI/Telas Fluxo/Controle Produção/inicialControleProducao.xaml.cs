@@ -29,7 +29,6 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
             lbNomeReceita.Content = producao.receita.nomeReceita;
             numeroBateladas.Content = producao.quantidadeBateladas;
             pesoTonelada.Content = producao.pesoTotalProducao;
-            totalbateladas.Content = "/" + producao.quantidadeBateladas;
             bateladasconcluidas.Content = executaProducao.ControleExecucao.Bateladas_Finalizadas;
 
 
@@ -37,6 +36,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
             statusSlot2 = Utilidades.functions.controleStatus(executaProducao.ControleExecucao.Slot_2.Status, statusSlot2);
             statusSlot3 = Utilidades.functions.controleStatus(executaProducao.ControleExecucao.Slot_3.Status, statusSlot3);
 
+            bt1 = Utilidades.functions.controleStatus(executaProducao.ControleExecucao.Slot_1.Status,bt1, executaProducao, 1, )
         }
 
         public inicialControleProducao()

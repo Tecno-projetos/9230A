@@ -756,6 +756,7 @@ namespace _9230A_V00___PI.Utilidades
         /// Função para controla o status da produção
         /// </summary>
         /// <param name="status">Status da produção numero inteiro.</param>
+        /// <param name="label">Label que deseja alterar.</param>
         /// <returns>Retorna um label com o content + foreground e Backgorund</returns>
         public static Label controleStatus(int status, Label label)
         {
@@ -817,6 +818,66 @@ namespace _9230A_V00___PI.Utilidades
 
 
             return label;
+
+        }
+
+        /// <summary>
+        /// Função para controla o botão da produção
+        /// </summary>
+        /// <param name="status">Status da produção numero inteiro.</param>
+        /// <param name="Button">Botão que deseja alterar</param>
+        /// <param name="executaProducao">Classe executa produção para controle de status</param>
+        /// <param name="slotProducao">Qual slot pertence o botão 1 - 2 ou 3</param>
+        /// <param name="numeroBatelada">Numero da batelada que o slot está</param>
+        /// <returns></returns>
+        public static Button controleStatus(int status, Button Button, Utilidades.ExecutaProducao executaProducao, int slotProducao, string numeroBatelada)
+        {
+            bool slotDosagemMateriaPrima = false;
+            bool slotDosagemComplemento = false;
+
+            if (slotProducao == 1)
+            {
+                slotDosagemMateriaPrima = executaProducao.ControleExecucao.Slot_1.Complemento_Pre.Habilitado_Inicio_Dosagem;
+                slotDosagemComplemento = executaProducao.ControleExecucao.Slot_1.Complemento_Pos.Habilitado_Inicio_Dosagem;
+            }
+            else if (slotProducao == 2)
+            {
+                slotDosagemMateriaPrima = executaProducao.ControleExecucao.Slot_2.Complemento_Pre.Habilitado_Inicio_Dosagem;
+                slotDosagemComplemento = executaProducao.ControleExecucao.Slot_2.Complemento_Pos.Habilitado_Inicio_Dosagem;
+            }
+            else if (slotProducao == 3)
+            {
+                slotDosagemMateriaPrima = executaProducao.ControleExecucao.Slot_3.Complemento_Pre.Habilitado_Inicio_Dosagem;
+                slotDosagemComplemento = executaProducao.ControleExecucao.Slot_3.Complemento_Pos.Habilitado_Inicio_Dosagem;
+            }
+
+            if (status == 0)
+            {
+                Button.Content = "Sem batelada";
+                Button.Background = new SolidColorBrush(Colors.Gray);
+                Button.Foreground = new SolidColorBrush(Colors.White);
+            }
+            else if (status == 1 && slotDosagemMateriaPrima)
+            {
+                Button.Content = "Batelada: " + numeroBatelada;
+                Button.Background = new SolidColorBrush(Colors.Yellow);
+                Button.Foreground = new SolidColorBrush(Colors.Black);
+            }
+            else if (status == 6 && slotDosagemComplemento)
+            {
+                Button.Content = "Batelada: " + numeroBatelada;
+                Button.Background = new SolidColorBrush(Colors.Yellow);
+                Button.Foreground = new SolidColorBrush(Colors.Black);
+            }         
+            else
+            {
+                Button.Content = "Batelada: " + numeroBatelada;
+                Button.Background = new SolidColorBrush(Colors.Gray);
+                Button.Foreground = new SolidColorBrush(Colors.White);
+            }
+
+
+            return Button;
 
         }
 
