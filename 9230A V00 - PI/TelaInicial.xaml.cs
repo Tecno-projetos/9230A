@@ -124,6 +124,13 @@ namespace _9230A_V00___PI
             Utilidades.VariaveisGlobais.Buffer_PLC[1].Enable_Read = true;
             Utilidades.VariaveisGlobais.Buffer_PLC[1].Enable_Write = false;
 
+            Utilidades.VariaveisGlobais.Buffer_PLC[2].Name = "DB Produção Ensaque";
+            Utilidades.VariaveisGlobais.Buffer_PLC[2].DBNumber = 25;
+            Utilidades.VariaveisGlobais.Buffer_PLC[2].Start = 0;
+            Utilidades.VariaveisGlobais.Buffer_PLC[2].Size = 16;
+            Utilidades.VariaveisGlobais.Buffer_PLC[2].Enable_Read = true;
+            Utilidades.VariaveisGlobais.Buffer_PLC[2].Enable_Write = false;
+
             for (int i = 0; i < Utilidades.VariaveisGlobais.Buffer_PLC.Length; i++)
             {
                 Utilidades.VariaveisGlobais.Buffer_PLC[i].Buffer = new byte[Utilidades.VariaveisGlobais.Buffer_PLC[i].Size];
@@ -209,6 +216,8 @@ namespace _9230A_V00___PI
                     VariaveisGlobais.Fluxo.inicialProducao.atualiza(ref VariaveisGlobais.executaProducao, ref VariaveisGlobais.ProducaoReceita);
 
                 }
+
+                VariaveisGlobais.executaEnsaque.Ensacar = true;
 
                 VariaveisGlobais.CommunicationPLC.writeBufferPLC();//Chama a escrita no PLC
             }

@@ -21,6 +21,99 @@ namespace _9230A_V00___PI.Utilidades
     {
         #region Structs
 
+         
+        public struct diagnosticoProfinet
+        {
+
+            //'Bit 1 - Disabled
+ 
+            //'Bit 2 - Maintenance required
+ 
+            //'Bit 3 - Maintenance demanded
+ 
+            //'Bit 4 - Error
+ 
+            //'Bit 5 - Hardware component not reachable - Hardware component cannot be accessed.
+ 
+            //'Bit 6 - Qualified: Bit 6 = 1 if at least one qualified diagnostics is available
+ 
+            //'Bit 7 - I/O data not available - I/O data not available
+ 
+            //'8 to 14 - Reserved (always = 0)
+ 
+            //'Bit 15 - Network/hardware fault 'S7-1200: Reserved(always = 0) 'S7-1500: If bit 4 = 1 or bit 5 = 1:
+
+            //'Bit 15 = 0: Network error
+
+            //'Bit 15 = 1: Hardware error
+
+            public bool Good;
+            public bool Disabled;
+            public bool Maintenancerequired;
+            public bool Maintenancedemanded;
+            public bool Error;
+            public bool Hardwarecomponentnotreachable;
+            public bool Qualified;
+            public bool IODatanotavailable;
+            public bool Reserved;
+            public bool Reserved1;
+            public bool Reserved2;
+            public bool Reserved3;
+            public bool Reserved4;
+            public bool Reserved5;
+            public bool Reserved6;
+            public bool Reserved7;
+
+        }
+
+        public struct controleEnsaque
+        {
+            public bool IniciaEnsaque;                  //Inicia o ensaque
+            public bool TerminaEnsaque;                 //Termina o ensaque
+            public bool EnsaqueConcluido;               //Ensaque Concluido
+            public bool EnsaqueDosando;                  //Ensaque Concluido
+            public bool Reserva_1;
+            public bool Reserva_2;
+            public bool Reserva_3;
+            public bool Reserva_4;
+            public bool Reserva_5;
+            public bool Reserva_6;
+            public bool Reserva_7;
+            public bool Reserva_8;
+            public bool Reserva_9;
+            public bool Reserva_10;
+            public bool Reserva_11;
+            public bool Reserva_12;
+            public bool Reserva_13;
+            public bool Reserva_14;
+            public bool Reserva_15;
+            public bool Reserva_16;
+            public bool Reserva_17;
+            public bool Reserva_18;
+            public bool Reserva_19;
+            public bool Reserva_20;
+            public bool Reserva_21;
+            public bool Reserva_22;
+            public bool Reserva_23;
+            public bool Reserva_24;
+            public bool Reserva_25;
+            public bool Reserva_26;
+            public bool Reserva_27;
+            public bool Reserva_28;
+
+            public float pesoDesejado;                  //Peso desejado por Saco
+            public float pesoEnsacado;                  //Peso ensacado no saco 
+            public Int32 quantidadeEnsaques;            //Quantidade ensacada
+
+        }
+
+        public struct Ensaque 
+        {
+            public controleEnsaque controleEnsaque;
+            public int IdProducao;
+        
+        }
+
         public struct IndicadorPesagem
         {
             public float Valor_Atual_Indicador;
@@ -741,6 +834,9 @@ namespace _9230A_V00___PI.Utilidades
         public static EspecificacoesEquipamentos ValoresEspecificacoesEquipamentos = new EspecificacoesEquipamentos();
 
         public static Utilidades.ExecutaProducao executaProducao = new ExecutaProducao(1);
+
+        public static Utilidades.executaEnsaque executaEnsaque = new Utilidades.executaEnsaque(2);
+
     }
 
     public class convertToTable
