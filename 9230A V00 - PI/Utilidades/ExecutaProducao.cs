@@ -108,6 +108,8 @@ namespace _9230A_V00___PI.Utilidades
         {
             VariaveisGlobais.Buffer_PLC[bufferPlc].Enable_Read = false; //Desabilita a leitura do buffer
 
+
+            controleExecucao.Slot_1.NumeroBatelada = numeroBatelada;
             controleExecucao.Slot_1.Tempo_Pre_Mistura = VariaveisGlobais.ProducaoReceita.tempoPreMistura;               //Tempo Pré Mistura
             controleExecucao.Slot_1.Tempo_Pos_Mistura = VariaveisGlobais.ProducaoReceita.tempoPreMistura;               //Tempo Pós Mistura
 
@@ -158,7 +160,7 @@ namespace _9230A_V00___PI.Utilidades
             }
 
             controleExecucao.Slot_1.Complemento_Pos.Quantidade_Itens = count; //Passa quantidade de itens para dosar manualmente na pós mistura
-            controleExecucao.Slot_1.Solicita_Nova_Batelada = false;
+            controleExecucao.Slot_1.Carregou_Nova_Batelada = true;
 
             writeVariablesSlotIntoBuffer(slot);
             VariaveisGlobais.Buffer_PLC[bufferPlc].Enable_Write = true;
@@ -174,14 +176,12 @@ namespace _9230A_V00___PI.Utilidades
             //Verifica se a quantidade de bateladas iniciadas é diferente da quantidade de bateladas existentes, cado for igual significa que ja foi iniciado todas as bateladas
             if (controleExecucao.Bateladas_Iniciadas != Utilidades.VariaveisGlobais.ProducaoReceita.quantidadeBateladas)
             {
-                if (controleExecucao.Slot_1.Solicita_Nova_Batelada) //Verifica se o slot 1 do CLP pode receber uma batelada
+                if (controleExecucao.Slot_1.Solicita_Nova_Batelada && !controleExecucao.Slot_1.Carregou_Nova_Batelada) //Verifica se o slot 1 do CLP pode receber uma batelada
                 {
                     //Adiciona a batelada no slot 1
                     addInfoBateladaSlot(1, controleExecucao.Bateladas_Iniciadas);
                 }
             }
-
-
         }
 
 

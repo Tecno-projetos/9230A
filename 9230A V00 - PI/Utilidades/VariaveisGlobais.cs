@@ -67,7 +67,7 @@ namespace _9230A_V00___PI.Utilidades
             public bool Solicita_Nova_Batelada;              //Slot Disponível para iniciar nova Batelada
             public bool Iniciou;                             //Iniciou batelada
             public bool Finalizou;                           //Finalizou batelada
-            public bool Reserva;
+            public bool Carregou_Nova_Batelada;              //Quando o supervisório carregou uma batelada no slot
             public bool Reserva_1;
             public bool Reserva_2;
             public bool Reserva_3;
@@ -97,6 +97,7 @@ namespace _9230A_V00___PI.Utilidades
             public bool Reserva_27;
             public bool Reserva_28;
 
+            public int NumeroBatelada;                      //Controle interno para saber o numero da batelada em execução
         }
 
         public struct ControleExecucaoProducao
@@ -141,6 +142,8 @@ namespace _9230A_V00___PI.Utilidades
             public bool Reserva_28;
             public bool Reserva_29;
             public bool Reserva_30;
+
+            
         }
 
         public struct type_SS
