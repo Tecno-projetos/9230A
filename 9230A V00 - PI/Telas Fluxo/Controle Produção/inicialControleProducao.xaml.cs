@@ -36,7 +36,13 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
             statusSlot2 = Utilidades.functions.controleStatus(executaProducao.ControleExecucao.Slot_2.Status, statusSlot2);
             statusSlot3 = Utilidades.functions.controleStatus(executaProducao.ControleExecucao.Slot_3.Status, statusSlot3);
 
-            bt1 = Utilidades.functions.controleStatus(executaProducao.ControleExecucao.Slot_1.Status,bt1, executaProducao, 1, )
+            bt1 = Utilidades.functions.controleStatus(executaProducao.ControleExecucao.Slot_1.Status, bt1, executaProducao, 1, executaProducao.ControleExecucao.Slot_1.NumeroBatelada);
+
+            bt2 = Utilidades.functions.controleStatus(executaProducao.ControleExecucao.Slot_2.Status, bt2, executaProducao, 2, executaProducao.ControleExecucao.Slot_2.NumeroBatelada);
+
+            bt3 = Utilidades.functions.controleStatus(executaProducao.ControleExecucao.Slot_3.Status, bt3, executaProducao, 3, executaProducao.ControleExecucao.Slot_3.NumeroBatelada);
+
+
         }
 
         public inicialControleProducao()

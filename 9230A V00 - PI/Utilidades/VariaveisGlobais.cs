@@ -833,7 +833,7 @@ namespace _9230A_V00___PI.Utilidades
         /// <param name="slotProducao">Qual slot pertence o botão 1 - 2 ou 3</param>
         /// <param name="numeroBatelada">Numero da batelada que o slot está</param>
         /// <returns></returns>
-        public static Button controleStatus(int status, Button Button, Utilidades.ExecutaProducao executaProducao, int slotProducao, string numeroBatelada)
+        public static Button controleStatus(int status, Button Button, Utilidades.ExecutaProducao executaProducao, int slotProducao, int numeroBatelada)
         {
             bool slotDosagemMateriaPrima = false;
             bool slotDosagemComplemento = false;
