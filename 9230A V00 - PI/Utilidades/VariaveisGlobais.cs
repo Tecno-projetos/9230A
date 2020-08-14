@@ -21,6 +21,54 @@ namespace _9230A_V00___PI.Utilidades
     {
         #region Structs
 
+        public struct controleEnsaque
+        {
+            public bool IniciaEnsaque;                  //Inicia o ensaque
+            public bool TerminaEnsaque;                 //Termina o ensaque
+            public bool EnsaqueConcluido;               //Ensaque Concluido
+            public bool EnsaqueDosando;                  //Ensaque Concluido
+            public bool Reserva_1;
+            public bool Reserva_2;
+            public bool Reserva_3;
+            public bool Reserva_4;
+            public bool Reserva_5;
+            public bool Reserva_6;
+            public bool Reserva_7;
+            public bool Reserva_8;
+            public bool Reserva_9;
+            public bool Reserva_10;
+            public bool Reserva_11;
+            public bool Reserva_12;
+            public bool Reserva_13;
+            public bool Reserva_14;
+            public bool Reserva_15;
+            public bool Reserva_16;
+            public bool Reserva_17;
+            public bool Reserva_18;
+            public bool Reserva_19;
+            public bool Reserva_20;
+            public bool Reserva_21;
+            public bool Reserva_22;
+            public bool Reserva_23;
+            public bool Reserva_24;
+            public bool Reserva_25;
+            public bool Reserva_26;
+            public bool Reserva_27;
+            public bool Reserva_28;
+
+            public float pesoDesejado;                  //Peso desejado por Saco
+            public float pesoEnsacado;                  //Peso ensacado no saco 
+            public Int32 quantidadeEnsaques;            //Quantidade ensacada
+
+        }
+
+        public struct Ensaque 
+        {
+            public controleEnsaque controleEnsaque;
+            public int IdProducao;
+        
+        }
+
         public struct Complemento
         {
             public short Quantidade_Itens;                  //Qtd itens dosagem Manual
@@ -727,6 +775,9 @@ namespace _9230A_V00___PI.Utilidades
         public static EspecificacoesEquipamentos ValoresEspecificacoesEquipamentos = new EspecificacoesEquipamentos();
 
         public static Utilidades.ExecutaProducao executaProducao = new ExecutaProducao(1);
+
+        public static Utilidades.executaEnsaque executaEnsaque = new Utilidades.executaEnsaque(2);
+
     }
 
     public class convertToTable

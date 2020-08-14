@@ -345,6 +345,7 @@
     <Compile Include="Utilidades\Conversions.cs" />
     <Compile Include="Utilidades\convertTextInputToVisibility.cs" />
     <Compile Include="Utilidades\EquipsControl.cs" />
+    <Compile Include="Utilidades\executaEnsaque.cs" />
     <Compile Include="Utilidades\ExecutaProducao.cs" />
     <Compile Include="Utilidades\ListtoDataTableConverter.cs" />
     <Compile Include="Utilidades\messageBox.xaml.cs">

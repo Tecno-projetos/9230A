@@ -824,6 +824,90 @@ namespace _9230A_V00___PI.Utilidades
             return Conversions.Bit_To_Dword(ref bits, true);
         }
 
+        //Command Ensaque
+        //=====================================================================================================================================
+        public static VariaveisGlobais.controleEnsaque DwordTocontroleEnsaque(UInt32 DWord, VariaveisGlobais.controleEnsaque controleEnsaque)
+        {
+            bool[] bits = new bool[32];
+
+            Conversions.Dword_To_Bit(DWord, ref bits, true);
+
+            controleEnsaque.IniciaEnsaque = bits[0];
+            controleEnsaque.TerminaEnsaque = bits[1];
+            controleEnsaque.EnsaqueConcluido = bits[2];
+            controleEnsaque.EnsaqueDosando = bits[3];
+            controleEnsaque.Reserva_1 = bits[4];
+            controleEnsaque.Reserva_2 = bits[5];
+            controleEnsaque.Reserva_3 = bits[6];
+            controleEnsaque.Reserva_4 = bits[7];
+            controleEnsaque.Reserva_5 = bits[8];
+            controleEnsaque.Reserva_6 = bits[9];
+            controleEnsaque.Reserva_7 = bits[10];
+            controleEnsaque.Reserva_8 = bits[11];
+            controleEnsaque.Reserva_9 = bits[12];
+            controleEnsaque.Reserva_10 = bits[13];
+            controleEnsaque.Reserva_11 = bits[14];
+            controleEnsaque.Reserva_12 = bits[15];
+            controleEnsaque.Reserva_13 = bits[16];
+            controleEnsaque.Reserva_14 = bits[17];
+            controleEnsaque.Reserva_15 = bits[18];
+            controleEnsaque.Reserva_16 = bits[19];
+            controleEnsaque.Reserva_17 = bits[20];
+            controleEnsaque.Reserva_18 = bits[21];
+            controleEnsaque.Reserva_19 = bits[22];
+            controleEnsaque.Reserva_20 = bits[23];
+            controleEnsaque.Reserva_21 = bits[24];
+            controleEnsaque.Reserva_22 = bits[25];
+            controleEnsaque.Reserva_23 = bits[26];
+            controleEnsaque.Reserva_24 = bits[27];
+            controleEnsaque.Reserva_25 = bits[28];
+            controleEnsaque.Reserva_26 = bits[29];
+            controleEnsaque.Reserva_27 = bits[30];
+            controleEnsaque.Reserva_28 = bits[31];
+
+            return controleEnsaque;
+        }
+
+        public static UInt32 EnsaqueToDwordControleEnsaque(VariaveisGlobais.controleEnsaque controleEnsaque)
+        {
+            bool[] bits = new bool[32];
+
+            bits[0] = controleEnsaque.IniciaEnsaque;
+            bits[1] = controleEnsaque.TerminaEnsaque;
+            bits[2] = controleEnsaque.EnsaqueConcluido;
+            bits[3] = controleEnsaque.EnsaqueDosando;
+            bits[4] = controleEnsaque.Reserva_1;
+            bits[5] = controleEnsaque.Reserva_2;
+            bits[6] = controleEnsaque.Reserva_3;
+            bits[7] = controleEnsaque.Reserva_4;
+            bits[8] = controleEnsaque.Reserva_5;
+            bits[9] = controleEnsaque.Reserva_6;
+            bits[10] = controleEnsaque.Reserva_7;
+            bits[11] = controleEnsaque.Reserva_8;
+            bits[12] = controleEnsaque.Reserva_9;
+            bits[13] = controleEnsaque.Reserva_10;
+            bits[14] = controleEnsaque.Reserva_11;
+            bits[15] = controleEnsaque.Reserva_12;
+            bits[16] = controleEnsaque.Reserva_13;
+            bits[17] = controleEnsaque.Reserva_14;
+            bits[18] = controleEnsaque.Reserva_15;
+            bits[19] = controleEnsaque.Reserva_16;
+            bits[20] = controleEnsaque.Reserva_17;
+            bits[21] = controleEnsaque.Reserva_18;
+            bits[22] = controleEnsaque.Reserva_19;
+            bits[23] = controleEnsaque.Reserva_20;
+            bits[24] = controleEnsaque.Reserva_21;
+            bits[25] = controleEnsaque.Reserva_22;
+            bits[26] = controleEnsaque.Reserva_23;
+            bits[27] = controleEnsaque.Reserva_24;
+            bits[28] = controleEnsaque.Reserva_25;
+            bits[29] = controleEnsaque.Reserva_26;
+            bits[30] = controleEnsaque.Reserva_27;
+            bits[31] = controleEnsaque.Reserva_28;
+
+            return Conversions.Bit_To_Dword(ref bits, true);
+        }
+
 
 
 
