@@ -180,7 +180,7 @@ namespace _9230A_V00___PI.Equipamentos
             #endregion
 
         }
-
+        public EquipsControl Equip_GS { get => equip; }
         public bool actualize_Equip
         {
             set

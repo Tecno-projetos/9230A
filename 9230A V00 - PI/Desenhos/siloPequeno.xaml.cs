@@ -308,6 +308,8 @@ namespace _9230A_V00___PI.Desenhos
             loadedEquip = true;
         }
 
+        public EquipsControl Equip_GS { get => equip; }
+
         public void actualize_UI()
         {
             if (loadedEquip)

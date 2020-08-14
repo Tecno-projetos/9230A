@@ -20,12 +20,22 @@ namespace _9230A_V00___PI.Telas_Fluxo
     /// </summary>
     public partial class Fluxo : UserControl
     {
-
         public event EventHandler ensque_Click;
 
         public Fluxo()
         {
             InitializeComponent();
+        }
+
+        public void actualiza_UI() 
+        {
+            lbCorrenteMoinho.Content = Motor_44.Equip_GS.Command_Get.SS.Corrente_Atual + "  (A)";
+            lbCorrente43.Content = Motor_43.Equip_GS.Command_Get.INV.Corrente_Atual + "  (A)";
+            lbVelocidade43.Content = Motor_43.Equip_GS.Command_Get.INV.Velocidade_Atual + " RPM";
+            lbCorrente62.Content = Motor_62.Equip_GS.Command_Get.INV.Corrente_Atual + "  (A)";
+            lbVelocidade62.Content = Motor_62.Equip_GS.Command_Get.INV.Velocidade_Atual + " RPM";
+            lbCorrente65.Content = Motor_65.Equip_GS.Command_Get.INV.Corrente_Atual + "  (A)";
+            lbVelocidade65.Content = Motor_65.Equip_GS.Command_Get.INV.Velocidade_Atual + " RPM";
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

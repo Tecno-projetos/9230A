@@ -597,7 +597,7 @@ namespace _9230A_V00___PI.Equipamentos
             equip = new EquipsControl(Equip, TCommand, initialOffSet, bufferPlc, nome, tag, numeroPartida, paginaProjeto);
             loadedEquip = true;
         }
-
+        public EquipsControl Equip_GS { get => equip; }
         public void actualize_UI()
         {
             if (loadedEquip)

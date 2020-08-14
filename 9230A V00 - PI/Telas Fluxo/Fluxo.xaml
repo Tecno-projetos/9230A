@@ -414,9 +414,9 @@
         </Equipamentos:alimentador>
         <Label Content="44" HorizontalAlignment="Left" Height="40" Margin="458,506,0,0" VerticalAlignment="Top" Width="40" RenderTransformOrigin="0.5,0.5" FontSize="20" Foreground="#FFB8B8B8" FontWeight="Bold"/>
         <Label Content="43" HorizontalAlignment="Left" Height="40" Margin="460,432,0,0" VerticalAlignment="Top" Width="40" RenderTransformOrigin="0.5,0.5" FontSize="20" Foreground="#FFB8B8B8" FontWeight="Bold"/>
-        <Label Content="125(A)" HorizontalAlignment="Left" Height="24" Margin="515,419,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.5,0.5" FontSize="16" Foreground="#FFB8B8B8" FontWeight="Bold" HorizontalContentAlignment="Right" Padding="0,0,5,0"/>
-        <Label Content="1800 RPM" HorizontalAlignment="Left" Height="18" Margin="515,443,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.5,0.5" Foreground="#FFB8B8B8" FontWeight="Bold" HorizontalContentAlignment="Right" Padding="0,0,5,0" FontSize="14"/>
-        <Label Content="125(A)" HorizontalAlignment="Left" Height="24" Margin="531,522,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.5,0.5" FontSize="16" Foreground="#FFB8B8B8" FontWeight="Bold" HorizontalContentAlignment="Right" Padding="0,0,5,0"/>
+        <Label x:Name="lbCorrente43" Content="125(A)" HorizontalAlignment="Left" Height="24" Margin="515,419,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.5,0.5" FontSize="16" Foreground="#FFB8B8B8" FontWeight="Bold" HorizontalContentAlignment="Right" Padding="0,0,5,0"/>
+        <Label x:Name="lbVelocidade43" Content="1800 RPM" HorizontalAlignment="Left" Height="18" Margin="515,443,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.5,0.5" Foreground="#FFB8B8B8" FontWeight="Bold" HorizontalContentAlignment="Right" Padding="0,0,5,0" FontSize="14"/>
+        <Label x:Name="lbCorrenteMoinho" Content="125(A)" HorizontalAlignment="Left" Height="24" Margin="531,522,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.5,0.5" FontSize="16" Foreground="#FFB8B8B8" FontWeight="Bold" HorizontalContentAlignment="Right" Padding="0,0,5,0"/>
         <Desenhos:siloPequeno x:Name="Motor_48" HorizontalAlignment="Left" Height="147" Margin="655,322,0,0" VerticalAlignment="Top" Width="119" RenderTransformOrigin="0.5,0.5">
             <Desenhos:siloPequeno.RenderTransform>
                 <TransformGroup>
@@ -474,8 +474,8 @@
         <Rectangle Fill="#FF97FF00" HorizontalAlignment="Left" Height="62" Margin="780,545,0,0" VerticalAlignment="Top" Width="6"/>
         <ed:Arc EndAngle="90" HorizontalAlignment="Left" Height="15" Margin="770,539,0,0" StartAngle="0" VerticalAlignment="Top" Width="16" StrokeThickness="6" Stretch="None" RenderTransformOrigin="0.5,0.5" Stroke="#FF97FF00"/>
         <Label Content="100%" Height="18" Margin="71,479,0,0" VerticalAlignment="Top" Width="45" RenderTransformOrigin="0.5,0.5" Foreground="#FFB8B8B8" FontWeight="Bold" Padding="0,0,5,0" FontSize="14" HorizontalAlignment="Left" HorizontalContentAlignment="Right"/>
-        <Label Content="125(A)" HorizontalAlignment="Left" Height="24" Margin="837,17,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.5,0.5" FontSize="16" Foreground="#FFB8B8B8" FontWeight="Bold" HorizontalContentAlignment="Right" Padding="0,0,5,0"/>
-        <Label Content="1800 RPM" HorizontalAlignment="Left" Height="18" Margin="837,41,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.5,0.5" Foreground="#FFB8B8B8" FontWeight="Bold" HorizontalContentAlignment="Right" Padding="0,0,5,0" FontSize="14"/>
+        <Label x:Name="lbCorrente62" Content="125(A)" HorizontalAlignment="Left" Height="24" Margin="837,17,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.5,0.5" FontSize="16" Foreground="#FFB8B8B8" FontWeight="Bold" HorizontalContentAlignment="Right" Padding="0,0,5,0"/>
+        <Label x:Name="lbVelocidade62" Content="1800 RPM" HorizontalAlignment="Left" Height="18" Margin="837,41,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.5,0.5" Foreground="#FFB8B8B8" FontWeight="Bold" HorizontalContentAlignment="Right" Padding="0,0,5,0" FontSize="14"/>
         <Equipamentos:rosca x:Name="Motor_65" HorizontalAlignment="Left" Height="16" Margin="880,494,0,0" VerticalAlignment="Top" Width="105" RenderTransformOrigin="0.5,0.5">
             <Equipamentos:rosca.RenderTransform>
                 <TransformGroup>
@@ -487,8 +487,8 @@
             </Equipamentos:rosca.RenderTransform>
         </Equipamentos:rosca>
         <Label Content="65" HorizontalAlignment="Left" Height="40" Margin="847,460,0,0" VerticalAlignment="Top" Width="40" RenderTransformOrigin="0.5,0.5" FontSize="20" Foreground="#FFB8B8B8" FontWeight="Bold"/>
-        <Label Content="125(A)" HorizontalAlignment="Left" Height="24" Margin="949,464,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.5,0.5" FontSize="16" Foreground="#FFB8B8B8" FontWeight="Bold" Padding="0,0,5,0"/>
-        <Label Content="1800 RPM" HorizontalAlignment="Left" Height="18" Margin="947,446,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.5,0.5" Foreground="#FFB8B8B8" FontWeight="Bold" HorizontalContentAlignment="Right" Padding="0,0,5,0" FontSize="14"/>
+        <Label x:Name="lbCorrente65" Content="125(A)" HorizontalAlignment="Left" Height="24" Margin="949,464,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.5,0.5" FontSize="16" Foreground="#FFB8B8B8" FontWeight="Bold" Padding="0,0,5,0"/>
+        <Label x:Name="lbVelocidade65" Content="1800 RPM" HorizontalAlignment="Left" Height="18" Margin="947,446,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.5,0.5" Foreground="#FFB8B8B8" FontWeight="Bold" HorizontalContentAlignment="Right" Padding="0,0,5,0" FontSize="14"/>
         <Label Content="63" HorizontalAlignment="Left" Height="40" Margin="953,229,0,0" VerticalAlignment="Top" Width="40" RenderTransformOrigin="0.5,0.5" FontSize="20" Foreground="#FFB8B8B8" FontWeight="Bold"/>
         <Label Content="100%" Height="18" Margin="262,478,0,0" VerticalAlignment="Top" Width="45" RenderTransformOrigin="0.5,0.5" Foreground="#FFB8B8B8" FontWeight="Bold" Padding="0,0,5,0" FontSize="14" HorizontalAlignment="Left"/>
         <Label Content="750,50" Height="27" Margin="138,554,0,0" VerticalAlignment="Top" Width="70" RenderTransformOrigin="0.5,0.5" Foreground="White" FontWeight="Bold" Padding="0,0,5,0" FontSize="20" HorizontalAlignment="Left"/>

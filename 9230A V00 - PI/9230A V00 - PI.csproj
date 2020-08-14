@@ -160,9 +160,6 @@
     <Compile Include="Equipamentos\rosca.xaml.cs">
       <DependentUpon>rosca.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Equipamentos\roscaTransversal.xaml.cs">
-      <DependentUpon>roscaTransversal.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Partidas\Controle\controleAtuadorAnalogico.xaml.cs">
       <DependentUpon>controleAtuadorAnalogico.xaml</DependentUpon>
     </Compile>
@@ -405,10 +402,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Equipamentos\rosca.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Equipamentos\roscaTransversal.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

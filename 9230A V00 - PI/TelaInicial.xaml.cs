@@ -85,7 +85,7 @@ namespace _9230A_V00___PI
 
             VariaveisGlobais.Fluxo.Motor_43.loadEquip(Utilidades.typeEquip.INV, Utilidades.typeCommand.INV, 116, 0, "Rosca", "43", "43", "12");
 
-            VariaveisGlobais.Fluxo.Motor_44.loadEquip(Utilidades.typeEquip.SS, Utilidades.typeCommand.SS, 168, 0, "Rosca", "44", "44", "0");
+            VariaveisGlobais.Fluxo.Motor_44.loadEquip(Utilidades.typeEquip.SS, Utilidades.typeCommand.SS, 168, 0, "Moinho", "44", "44", "0");
 
             VariaveisGlobais.Fluxo.Motor_45.loadEquip(Utilidades.typeEquip.PD, Utilidades.typeCommand.PD, 204, 0, "Rosca", "45", "45", "0");
 
@@ -97,7 +97,7 @@ namespace _9230A_V00___PI
 
             VariaveisGlobais.Fluxo.Motor_62.loadEquip(Utilidades.typeEquip.INV, Utilidades.typeCommand.INV, 268, 0, "Elevador", "62", "62", "10");
 
-            VariaveisGlobais.Fluxo.Motor_65.loadEquip(Utilidades.typeEquip.INV, Utilidades.typeCommand.INV, 320, 0, "Elevador", "65", "65", "10");
+            VariaveisGlobais.Fluxo.Motor_65.loadEquip(Utilidades.typeEquip.INV, Utilidades.typeCommand.INV, 320, 0, "Rosca", "65", "65", "10");
 
             VariaveisGlobais.Fluxo.Motor_26_Silo1.loadEquip(Utilidades.typeEquip.Atuador, Utilidades.typeCommand.Atuador_Analogico, 24, 0, "Atuador", "26 Silo 1", "62", "10");
 
@@ -272,6 +272,12 @@ namespace _9230A_V00___PI
             //Chama a atulização da Manutenção
             VariaveisGlobais.manutencao.atualizaManutencao();
 
+            VariaveisGlobais.Fluxo.actualiza_UI();
+
+
+
+
+
         }
 
         void timer_Tick(object sender, EventArgs e)
@@ -423,7 +429,17 @@ namespace _9230A_V00___PI
 
                 spInical.Children.Clear();
 
+                pckManutencao.Foreground = VariaveisGlobais.Branco;
+                pckConfiguracoes.Foreground = VariaveisGlobais.Branco;
+                pckHome.Foreground = VariaveisGlobais.Verde;
+                pckProducao.Foreground = VariaveisGlobais.Branco;
+                pckReceitas.Foreground = VariaveisGlobais.Branco;
+                pckRelatorio.Foreground = VariaveisGlobais.Branco;
+                pckUser.Foreground = VariaveisGlobais.Branco;
+
                 spInical.Children.Add(Utilidades.VariaveisGlobais.Fluxo);
+
+
 
             }
         }

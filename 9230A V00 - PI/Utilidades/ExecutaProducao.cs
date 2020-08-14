@@ -201,7 +201,6 @@ namespace _9230A_V00___PI.Utilidades
 
         }
 
-
-
+        public VariaveisGlobais.ControleExecucaoProducao ControleExecucao { get => controleExecucao;}
     }
 }
