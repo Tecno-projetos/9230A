@@ -907,9 +907,60 @@ namespace _9230A_V00___PI.Utilidades
 
             return Conversions.Bit_To_Dword(ref bits, true);
         }
+        
+        //Command Profinet
+        //=====================================================================================================================================
+        public static Utilidades.VariaveisGlobais.diagnosticoProfinet WordToDiagnosticoProfinet(UInt16 Word,  VariaveisGlobais.diagnosticoProfinet diagnosticoProfinet)
+        {
+            bool[] bits = new bool[15];
+
+            Conversions.Word_To_Bit(Word, ref bits, true);
 
 
+            diagnosticoProfinet.Good = bits[0];
+            diagnosticoProfinet.Disabled = bits[1];
+            diagnosticoProfinet.Maintenancerequired = bits[2];
+            diagnosticoProfinet.Maintenancedemanded = bits[3];
+            diagnosticoProfinet.Error = bits[4];
+            diagnosticoProfinet.Hardwarecomponentnotreachable = bits[5];
+            diagnosticoProfinet.Qualified = bits[6];
+            diagnosticoProfinet.IODatanotavailable = bits[7];
+            diagnosticoProfinet.Reserved = bits[8];
+            diagnosticoProfinet.Reserved1 = bits[9];
+            diagnosticoProfinet.Reserved2 = bits[10];
+            diagnosticoProfinet.Reserved3 = bits[11];
+            diagnosticoProfinet.Reserved4 = bits[12];
+            diagnosticoProfinet.Reserved5 = bits[13];
+            diagnosticoProfinet.Reserved6 = bits[14];
+            diagnosticoProfinet.Reserved7 = bits[15];
 
+
+            return diagnosticoProfinet;
+        }
+
+        public static UInt16 DiagToWordProfinet(VariaveisGlobais.diagnosticoProfinet diagnosticoProfinet)
+        {
+            bool[] bits = new bool[15];
+
+            bits[0] = diagnosticoProfinet.Good;
+            bits[1] = diagnosticoProfinet.Disabled;
+            bits[2] = diagnosticoProfinet.Maintenancerequired;
+            bits[3] = diagnosticoProfinet.Maintenancedemanded;
+            bits[4] = diagnosticoProfinet.Error;
+            bits[5] = diagnosticoProfinet.Hardwarecomponentnotreachable;
+            bits[6] = diagnosticoProfinet.Qualified;
+            bits[7] = diagnosticoProfinet.IODatanotavailable;
+            bits[8] = diagnosticoProfinet.Reserved;
+            bits[9] = diagnosticoProfinet.Reserved1;
+            bits[10] = diagnosticoProfinet.Reserved2;
+            bits[11] = diagnosticoProfinet.Reserved3;
+            bits[12] = diagnosticoProfinet.Reserved4;
+            bits[13] = diagnosticoProfinet.Reserved5;
+            bits[14] = diagnosticoProfinet.Reserved6;
+            bits[15] = diagnosticoProfinet.Reserved7;
+
+            return Conversions.Bit_To_Word(ref bits, true);
+        }
 
     }
 }

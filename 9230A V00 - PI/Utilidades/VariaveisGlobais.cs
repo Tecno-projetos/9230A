@@ -21,6 +21,51 @@ namespace _9230A_V00___PI.Utilidades
     {
         #region Structs
 
+         
+        public struct diagnosticoProfinet
+        {
+
+            //'Bit 1 - Disabled
+ 
+            //'Bit 2 - Maintenance required
+ 
+            //'Bit 3 - Maintenance demanded
+ 
+            //'Bit 4 - Error
+ 
+            //'Bit 5 - Hardware component not reachable - Hardware component cannot be accessed.
+ 
+            //'Bit 6 - Qualified: Bit 6 = 1 if at least one qualified diagnostics is available
+ 
+            //'Bit 7 - I/O data not available - I/O data not available
+ 
+            //'8 to 14 - Reserved (always = 0)
+ 
+            //'Bit 15 - Network/hardware fault 'S7-1200: Reserved(always = 0) 'S7-1500: If bit 4 = 1 or bit 5 = 1:
+
+            //'Bit 15 = 0: Network error
+
+            //'Bit 15 = 1: Hardware error
+
+            public bool Good;
+            public bool Disabled;
+            public bool Maintenancerequired;
+            public bool Maintenancedemanded;
+            public bool Error;
+            public bool Hardwarecomponentnotreachable;
+            public bool Qualified;
+            public bool IODatanotavailable;
+            public bool Reserved;
+            public bool Reserved1;
+            public bool Reserved2;
+            public bool Reserved3;
+            public bool Reserved4;
+            public bool Reserved5;
+            public bool Reserved6;
+            public bool Reserved7;
+
+        }
+
         public struct controleEnsaque
         {
             public bool IniciaEnsaque;                  //Inicia o ensaque
