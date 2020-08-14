@@ -201,7 +201,6 @@ namespace _9230A_V00___PI.Utilidades
 
         }
 
-
         #region Events Window
 
         private void Window_PD_Closing(object sender, System.ComponentModel.CancelEventArgs e)
@@ -1000,22 +999,6 @@ namespace _9230A_V00___PI.Utilidades
 
         #endregion
 
-        private bool Help_Click_Left()
-        {
-            //if (string.Equals(Utilidades.VariaveisGlobais.UserLogged_GS, ""))
-            //{
-            //    Command.ResetClicks = true;
-            //    TopMost.TopMostMessageBox.Show("Por favor faça o login para interagir na aplicação!", "Falta Login", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
-
-            //    return false;
-            //}
-            //else
-            //{ 
-            //    Command.ResetClicks = true;
-                return true;
-            //}
-        }
-
         #region Encapulate Fields
 
         public bool actualize_Equip
@@ -1223,149 +1206,6 @@ namespace _9230A_V00___PI.Utilidades
         }
 
         #endregion
-
-        //Carrega informações na tela
-        public void LoadInfo(int index)
-        {
-
-            //if (Command.TypeEquip == Utility.typeEquip.PD)
-            //{
-
-            //    Command.indexList = index;
-
-            //    PDHome.controlPD_Tela.LoadInfo(Command);
-
-       
-            //    //manutencaoMotor.LoadInfo(Command);
-
-
-            //        if (Command.Tag != null)
-            //        {
-
-            //            //if (!AutomasulGUI.DataBase.SQLManutencao.ExistTable(Command.Tag))
-            //            //{
-            //            //    AutomasulGUI.DataBase.SQLManutencao.CreateTable_Manutencao(Command.Tag);
-            //            //}
-            //            //AutomasulGUI.DataBase.SQLManutencao.CreateTable_HistoricoManutencao(Command.Tag);
-
-            //            PDHome.Command = Command;
-
-            //            Window_PD.Title = Command.Tag;
-
-            //            if (Command.HabilitaCorrente)
-            //            {                     
-            //                string str;
-
-            //                str = Replace(Command.Tag);
-            //                if (!DataBase.SqlFunctionsCurrent.ExistTable(str))
-            //                {
-            //                    DataBase.SqlFunctionsCurrent.CreateTable(str);
-            //                }
-                            
-            //            }
-            //        }
-            //}
-            //else if (Command.TypeEquip == Utility.typeEquip.PSSI)
-            //{
-
-            //}
-            //else if (Command.TypeEquip == Utility.typeEquip.PSSM)
-            //{
-
-            //}
-            //else if (Command.TypeEquip == Utility.typeEquip.INV)
-            //{
-            //    Command.indexList = index;
-
-            //    INVHome.controleINV_Tela.LoadInfo(Command);
-
-            //    if (Command.Tag != null)
-            //    {
-            //        INVHome.Command = Command;
-
-            //        Window_INV.Title = Command.Tag;
-
-            //        if (Command.HabilitaCorrente)
-            //        {
-
-            //            string str;
-
-            //            str = Replace(Command.Tag);
-            //            if (!DataBase.SqlFunctionsCurrent.ExistTable(str))
-            //            {
-            //                DataBase.SqlFunctionsCurrent.CreateTable(str);
-            //            }
-            //        }
-
-            //    }
-            //}
-            //else if (Command.TypeEquip == Utility.typeEquip.PC)
-            //{
-
-            //    Command.indexList = index;
-
-            //    if (Command.Tag != null)
-            //    {
-            //        PCHome.Command = Command;
-
-            //        Window_PC.Title = Command.Tag;
-            //    }
-
-            //    PCHome.controlPC_Tela.LoadInfo(Command);
-            //}
-            //else if (Command.TypeEquip == Utility.typeEquip.PCM)
-            //{
-
-            //    Command.indexList = index;
-
-            //    PCMHome.controlePCM_Tela.LoadInfo(Command);
-            //    //Cria Tabela de Corrente dos motores.
-
-            //    if (Command.Tag != null)
-            //    {
-            //        PCMHome.Command = Command;
-
-
-            //        Window_PCM.Title = Command.Tag;
-
-            //        if (Command.HabilitaCorrente)
-            //        {
-
-            //            string str;
-
-            //            str = Replace(Command.Tag);
-            //            if (!DataBase.SqlFunctionsCurrent.ExistTable(str))
-            //            {
-            //                DataBase.SqlFunctionsCurrent.CreateTable(str);
-            //            }
-            //        }
-
-            //    }
-            //}
-            //else if (Command.TypeEquip == Utility.typeEquip.REG)
-            //{
-            //    Command.indexList = index;
-
-            //    REGHome.controlPREG_Tela.LoadInfo(Command);
-
-            //    if (Command.Tag != null)
-            //    {
-            //        REGHome.Command = Command;
-
-            //        Window_Preg.Title = Command.Tag;
-            //    }
-            //}
-            //else if (Command.TypeEquip == Utility.typeEquip.BF)
-            //{
-
-            //}
-            //else if (Command.TypeEquip == Utility.typeEquip.TRF)
-            //{
-
-            //}
-
-        }
-
     }
 
 }
