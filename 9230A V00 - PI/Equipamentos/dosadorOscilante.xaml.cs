@@ -217,7 +217,15 @@ namespace _9230A_V00___PI.Equipamentos
 
                 layoutAbertura = 40 - Convert.ToInt32(posicoAberta);
 
-                recAbertura.Width = layoutAbertura;
+                if (!(layoutAbertura < 0))
+                {
+                    recAbertura.Width = layoutAbertura;
+                }
+                else
+                {
+                    recAbertura.Width = 3;
+                }
+           
 
                 #endregion
             }

@@ -144,6 +144,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
         }
         private void btLeftList_Click(object sender, RoutedEventArgs e)
         {
+
             var scroll = (VisualTreeHelper.GetChild(DataGrid_Receita, 0) as Decorator).Child as ScrollViewer;
 
             scroll.ScrollToHorizontalOffset(scroll.HorizontalOffset - 20);
@@ -178,6 +179,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
             lbNomeProduto.Content = "";
             KillRunningProcess();
             webBrowse.Visibility = Visibility.Hidden;
+            EsconderMoverLista(Visibility.Visible);
 
             //Cria o datatable para inserir os dados.
             DataTable dt1 = new DataTable();
@@ -345,6 +347,8 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
 
                     webBrowse.Visibility = Visibility.Visible;
 
+                    EsconderMoverLista(Visibility.Hidden);
+
                 }
             }
             else
@@ -364,6 +368,15 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
 
         }
 
+        public void EsconderMoverLista(Visibility visibility) 
+        {
+            btDownList.Visibility = visibility;
+            btUpList.Visibility = visibility;
+            btLeftList.Visibility = visibility;
+            btRightList.Visibility = visibility;
+
+
+        }
         private void UserControl_Unloaded(object sender, RoutedEventArgs e)
         {
             KillRunningProcess();
@@ -371,6 +384,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
             lbNomeProduto.Content = "";
             pesquisou = false;
             DataGrid_Receita.Dispatcher.Invoke(delegate { DataGrid_Receita.ItemsSource = null; });
+            EsconderMoverLista(Visibility.Visible);
         }
 
 
@@ -391,7 +405,8 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
             webBrowse.Visibility = Visibility.Hidden;
             lbNomeProduto.Content = "";
             KillRunningProcess();
-     
+            EsconderMoverLista(Visibility.Visible);
+
         }
     }
 }
