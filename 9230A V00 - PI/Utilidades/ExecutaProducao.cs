@@ -61,7 +61,9 @@ namespace _9230A_V00___PI.Utilidades
 
                 Comunicacao.Sharp7.S7.SetIntAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 72, controleExecucao.Slot_1.Quantidade_Total_Produtos);
 
-                Comunicacao.Sharp7.S7.SetDWordAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 80, Move_Bits.SlotToDwordBatelada(controleExecucao.Slot_1)); //Atualiza os Bits do command
+                Comunicacao.Sharp7.S7.SetIntAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 80, controleExecucao.Slot_1.NumeroBatelada);
+
+                Comunicacao.Sharp7.S7.SetDWordAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 82, Move_Bits.SlotToDwordBatelada(controleExecucao.Slot_1)); //Atualiza os Bits do command
 
 
             }
@@ -103,9 +105,15 @@ namespace _9230A_V00___PI.Utilidades
                 controleExecucao.Slot_1.Produto_Atual_Em_Producao = Comunicacao.Sharp7.S7.GetIntAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 74);
                 controleExecucao.Slot_1.Status_Produto_Atual_Em_Producao = Comunicacao.Sharp7.S7.GetIntAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 76);
                 controleExecucao.Slot_1.Status_Batelada = Comunicacao.Sharp7.S7.GetIntAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 78);
+                controleExecucao.Slot_1.NumeroBatelada = Comunicacao.Sharp7.S7.GetIntAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 80);
 
-                controleExecucao.Slot_1 = Move_Bits.DwordToSlotBatelada(Comunicacao.Sharp7.S7.GetDWordAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 80), controleExecucao.Slot_1);
+                controleExecucao.Slot_1 = Move_Bits.DwordToSlotBatelada(Comunicacao.Sharp7.S7.GetDWordAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 82), controleExecucao.Slot_1);
             }
+
+            controleExecucao.Bateladas_Iniciadas = Comunicacao.Sharp7.S7.GetIntAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 86);
+            controleExecucao.Bateladas_Finalizadas = Comunicacao.Sharp7.S7.GetIntAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 88);
+
+
         }
 
 
@@ -113,12 +121,12 @@ namespace _9230A_V00___PI.Utilidades
         /// <summary>
         /// Adiciona as variaveis necessarias para iniciar a produção da batelada em um determinado slot do CLP
         /// </summary>
-        private bool addInfoBateladaSlot(int slot, int numeroBatelada)
+        private bool addInfoBateladaSlot(int slot, short numeroBatelada)
         {
             VariaveisGlobais.Buffer_PLC[bufferPlc].Enable_Read = false; //Desabilita a leitura do buffer
 
 
-            controleExecucao.Slot_1.NumeroBatelada = numeroBatelada+1;
+            controleExecucao.Slot_1.NumeroBatelada = Convert.ToInt16(numeroBatelada + 1);
             controleExecucao.Slot_1.Tempo_Pre_Mistura = VariaveisGlobais.ProducaoReceita.tempoPreMistura;               //Tempo Pré Mistura
             controleExecucao.Slot_1.Tempo_Pos_Mistura = VariaveisGlobais.ProducaoReceita.tempoPreMistura;               //Tempo Pós Mistura
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using _9230A_V00___PI.Utilidades;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -31,7 +32,21 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-             Status_Controle_Producao.SlotSolicitado = slotSolicitado;
+            Status_Controle_Producao.SlotSolicitado = slotSolicitado;
+            lb_Producao_Receita.Content = "Produção Nº: " + VariaveisGlobais.ProducaoReceita.id +" "+ VariaveisGlobais.ProducaoReceita.receita.nomeReceita;
+
+            if (slotSolicitado == 1)
+            {
+                lb_NumeroBatelada.Content = "Batelada: " + VariaveisGlobais.executaProducao.ControleExecucao.Slot_1.NumeroBatelada;
+            }
+            else if (slotSolicitado == 2)
+            {
+                lb_NumeroBatelada.Content = "Batelada: " + VariaveisGlobais.executaProducao.ControleExecucao.Slot_2.NumeroBatelada;
+            }
+            else if (slotSolicitado == 3)
+            {
+                lb_NumeroBatelada.Content = "Batelada: " + VariaveisGlobais.executaProducao.ControleExecucao.Slot_3.NumeroBatelada;
+            }
 
         }
     }

@@ -53,7 +53,7 @@
             CanUserDeleteRows ="False" CanUserReorderColumns="False" CanUserResizeRows="False" CanUserSortColumns="False"   
             ScrollViewer.VerticalScrollBarVisibility="Auto" Height="390" Cursor="Hand" IsReadOnly="True" AlternatingRowBackground="#FF7F7F7F" 
             RowBackground="White" HorizontalScrollBarVisibility="Hidden" Background="White" FontSize="24" FontFamily="Segoe UI Emoji" GridLinesVisibility="All" 
-            SelectionMode="Single"  AutoGenerateColumns="True" RowHeight="40" Width="347" LoadingRow="DataGrid_Produtos_LoadingRow" >
+            SelectionMode="Single"  AutoGenerateColumns="True" RowHeight="40" Width="361" LoadingRow="DataGrid_Produtos_LoadingRow" >
 
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridCell}">
@@ -94,13 +94,13 @@
                 <materialDesign:PackIcon Kind="ArrowRightBold" VerticalAlignment="Center" Foreground="White" Height="42" Width="42"/>
             </Grid>
         </Button>
-        <Label Content="Dosagem Matéria Prima Automática" HorizontalAlignment="Left" VerticalAlignment="Top" Width="448" BorderBrush="Black" Background="{x:Null}" Foreground="#FF00FF0C" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="40" Padding="0" FontSize="24" FontWeight="Bold" Margin="355,8,0,0"/>
-        <Label Content="Peso Atual Balança:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="210" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="40" Padding="0" FontSize="18" FontWeight="Bold" Margin="374,106,0,0"/>
-        <Label Content="Tempo Restante Pré Mistura:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="315" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="40" Padding="0" FontSize="18" FontWeight="Bold" Margin="374,148,0,0"/>
-        <Label Content="Tempo Restante Pós Mistura:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="315" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="40" Padding="0" FontSize="18" FontWeight="Bold" Margin="374,190,0,0"/>
-        <Label Content="Tempo Passo Atual:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="315" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="40" Padding="0" FontSize="18" FontWeight="Bold" Margin="374,232,0,0"/>
-        <Label Content="Tempo Total Batelada:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="315" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="40" Padding="0" FontSize="18" FontWeight="Bold" Margin="374,274,0,0"/>
-        <Button x:Name="btDosarManual" Margin="374,355,0,128" Background="#FF505050" BorderBrush="Black" Height="35" HorizontalAlignment="Left" Width="210">
+        <Label x:Name="lb_Status_Batelada" Content="Dosagem Matéria Prima Automática" HorizontalAlignment="Left" VerticalAlignment="Top" Width="429" BorderBrush="Black" Background="{x:Null}" Foreground="#FF00FF0C" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="40" Padding="0" FontSize="24" FontWeight="Bold" Margin="374,8,0,0"/>
+        <Label Content="Peso Atual Balança:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="210" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="40" Padding="0" FontSize="18" FontWeight="Bold" Margin="381,106,0,0"/>
+        <Label Content="Tempo Restante Pré Mistura:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="315" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="40" Padding="0" FontSize="18" FontWeight="Bold" Margin="381,148,0,0"/>
+        <Label Content="Tempo Restante Pós Mistura:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="315" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="40" Padding="0" FontSize="18" FontWeight="Bold" Margin="381,190,0,0"/>
+        <Label Content="Tempo Passo Atual:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="315" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="40" Padding="0" FontSize="18" FontWeight="Bold" Margin="381,232,0,0"/>
+        <Label Content="Tempo Total Batelada:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="315" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="40" Padding="0" FontSize="18" FontWeight="Bold" Margin="381,274,0,0"/>
+        <Button x:Name="btDosarManual" Margin="381,355,0,128" Background="#FF505050" BorderBrush="Black" Height="35" HorizontalAlignment="Left" Width="210">
             <Grid Width="110" Height="23">
                 <TextBlock FontFamily="Champagne &amp; Limousines" TextAlignment="Center" Foreground="White" Margin="-7,0,0,2" Width="117" FontSize="14" FontWeight="Normal" VerticalAlignment="Bottom"  HorizontalAlignment="Center" Height="17"><Run Text="Dosar Manua"/><Run Text="l"/></TextBlock>
             </Grid>

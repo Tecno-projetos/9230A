@@ -60,6 +60,8 @@ namespace _9230A_V00___PI.Utilidades
             public short Status_Produto_Atual_Em_Producao;   //Status do produto atual que esta em produção
 
             public short Status_Batelada;                      //Status Batelada 
+            public short NumeroBatelada;                         //O numero da batelada em execução no Slot Solicitado
+
             // 0 - Sem batelada
             // 1 - Dosagem Matéria Prima Manual
             // 2 - Dosagem Matéria Prima Automática
@@ -103,7 +105,7 @@ namespace _9230A_V00___PI.Utilidades
             public bool Reserva_27;
             public bool Reserva_28;
 
-            public int NumeroBatelada;                      //Controle interno para saber o numero da batelada em execução
+
         }
 
         public struct ControleExecucaoProducao

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using _9230A_V00___PI.Utilidades;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -58,24 +59,8 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
             scroll.ScrollToVerticalOffset(scroll.VerticalOffset - 5);
         }
 
-        public void AtualizaBateladaTela (ref Utilidades.VariaveisGlobais.SlotBatelada batelada)
-        {
-            //Atualiza Peso Atual
 
-            //Atualiza Tempo Restante Pré Mistura
-
-            //Atualiza Tempo Restante Pos Mistura
-
-            //Atualiza Tempo Passo Atual
-
-            //Atualiza Tempo Total Batelada
-
-
-            //Atualiza Grid dos produtos da batelada
-            atualizaGridProdutos(ref batelada);
-        }
-
-        public void atualizaGridProdutos(ref Utilidades.VariaveisGlobais.SlotBatelada batelada)
+        public void atualizaGridProdutos(Utilidades.VariaveisGlobais.SlotBatelada batelada)
         {
             DataTable dt = new DataTable();
 
@@ -102,46 +87,56 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
         {
             var teste = slotSolicitado;
 
-            atualizaBotoesSlots();
+
+            atualizaStatusSlots();
         }
 
         private void btSlot1_Click(object sender, RoutedEventArgs e)
         {
             SlotSolicitado = 1;
-            atualizaBotoesSlots();
+            atualizaStatusSlots();
         }
 
         private void btSlot2_Click(object sender, RoutedEventArgs e)
         {
             SlotSolicitado = 2;
-            atualizaBotoesSlots();
+            atualizaStatusSlots();
         }
 
         private void btSlot3_Click(object sender, RoutedEventArgs e)
         {
             SlotSolicitado = 3;
-            atualizaBotoesSlots();
+            atualizaStatusSlots();
         }
 
-        private void atualizaBotoesSlots()
+        private void atualizaStatusSlots()
         {
             if (SlotSolicitado ==1)
             {
                 btSlot1.Background = new SolidColorBrush(Colors.Green);
                 btSlot2.Background = new SolidColorBrush(Colors.Gray);
                 btSlot3.Background = new SolidColorBrush(Colors.Gray);
+                lb_Status_Batelada = Utilidades.functions.controleStatus(VariaveisGlobais.executaProducao.ControleExecucao.Slot_1.Status_Batelada, lb_Status_Batelada);
+
+                atualizaGridProdutos(VariaveisGlobais.executaProducao.ControleExecucao.Slot_1);
             }
             else if (SlotSolicitado == 2)
             {
                 btSlot1.Background = new SolidColorBrush(Colors.Gray);
                 btSlot2.Background = new SolidColorBrush(Colors.Green);
                 btSlot3.Background = new SolidColorBrush(Colors.Gray);
+                lb_Status_Batelada = Utilidades.functions.controleStatus(VariaveisGlobais.executaProducao.ControleExecucao.Slot_2.Status_Batelada, lb_Status_Batelada);
+
+                atualizaGridProdutos(VariaveisGlobais.executaProducao.ControleExecucao.Slot_2);
             }
             else if (SlotSolicitado == 3)
             {
                 btSlot1.Background = new SolidColorBrush(Colors.Gray);
                 btSlot2.Background = new SolidColorBrush(Colors.Gray);
                 btSlot3.Background = new SolidColorBrush(Colors.Green);
+                lb_Status_Batelada = Utilidades.functions.controleStatus(VariaveisGlobais.executaProducao.ControleExecucao.Slot_3.Status_Batelada, lb_Status_Batelada);
+
+                atualizaGridProdutos(VariaveisGlobais.executaProducao.ControleExecucao.Slot_3);
             }
 
             
@@ -149,7 +144,36 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
 
         private void DataGrid_Produtos_LoadingRow(object sender, DataGridRowEventArgs e)
         {
-            var teste = e.Row.GetIndex();
+            int IndexAtual = e.Row.GetIndex();
+
+            //Verifica o slot que esta selecionado
+            if (SlotSolicitado == 1)
+            {
+                //Verifica o item atual é o mesmo que o produto atual que esta em produção
+                if (IndexAtual == VariaveisGlobais.executaProducao.ControleExecucao.Slot_1.Produto_Atual_Em_Producao)
+                {
+                    if (VariaveisGlobais.executaProducao.ControleExecucao.Slot_1.Complemento_Pre.Habilitado_Inicio_Dosagem)
+                    {
+                        e.Row.Background = new SolidColorBrush(Colors.Yellow);
+                        e.Row.Foreground = new SolidColorBrush(Color.FromRgb(0, 0, 0));
+                    }
+                    else
+                    {
+                        e.Row.Background = new SolidColorBrush(Colors.ForestGreen);
+                        e.Row.Foreground = new SolidColorBrush(Color.FromRgb(255, 255, 255));
+                    }
+
+                }
+            }
+            else if (SlotSolicitado == 2)
+            {
+
+            }
+            else if (SlotSolicitado == 3)
+            {
+
+            }
+
 
         }
     }
