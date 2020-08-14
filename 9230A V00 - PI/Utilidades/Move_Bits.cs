@@ -902,6 +902,8 @@ namespace _9230A_V00___PI.Utilidades
             bits[6] = indicador.Reserva_4;
             bits[7] = indicador.Reserva_5;
 
+            return Conversions.Bit_To_Byte(ref bits);
+        }
         public static UInt32 EnsaqueToDwordControleEnsaque(VariaveisGlobais.controleEnsaque controleEnsaque)
         {
             bool[] bits = new bool[32];

@@ -60,8 +60,6 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
 
         private void btCadastrarIniciarCadastro_Click(object sender, RoutedEventArgs e)
         {
-            Utilidades.VariaveisGlobais.executaEnsaque.Ensaque_GS.controleEnsaque.IniciaEnsaque = true;
-
 
         }
     }
