@@ -39,52 +39,6 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
 
         }
 
-        public Label controleStatus(int status) 
-        {
-            Label label = new Label();
-
-            if (status == 0)
-            {
-                statusSlot1.Content = "Sem batelada";
-                statusSlot1.Background = new SolidColorBrush(Colors.Gray);
-                statusSlot1.Foreground = new SolidColorBrush(Colors.White);
-            }
-            else if (status == 1)
-            {
-
-            }
-            else if (status == 2)
-            {
-
-            }
-            else if (status == 3)
-            {
-
-            }
-            else if (status == 4)
-            {
-
-            }
-            else if (status == 5)
-            {
-
-            }
-            else if (status == 6)
-            {
-
-            }
-            else if (status == 7)
-            {
-
-            }
-
-
-
-
-        return label;
-        
-        }
-
         public inicialControleProducao()
         {
             InitializeComponent();
