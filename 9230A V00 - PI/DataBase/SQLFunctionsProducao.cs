@@ -10,8 +10,6 @@ namespace _9230A_V00___PI.DataBase
 {
     class SQLFunctionsProducao
     {
-
-
         public static void Create_Table_Producao()
         {
             if (Utilidades.VariaveisGlobais.DB_Connected_GS)
@@ -324,8 +322,6 @@ namespace _9230A_V00___PI.DataBase
             }
                  
         }
-
-
 
     }
 }

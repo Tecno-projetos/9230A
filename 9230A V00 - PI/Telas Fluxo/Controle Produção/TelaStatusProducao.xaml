@@ -100,9 +100,9 @@
         <Label Content="Tempo Restante Pós Mistura:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="315" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="40" Padding="0" FontSize="18" FontWeight="Bold" Margin="381,190,0,0"/>
         <Label Content="Tempo Passo Atual:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="315" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="40" Padding="0" FontSize="18" FontWeight="Bold" Margin="381,232,0,0"/>
         <Label Content="Tempo Total Batelada:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="315" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="40" Padding="0" FontSize="18" FontWeight="Bold" Margin="381,274,0,0"/>
-        <Button x:Name="btDosarManual" Margin="381,355,0,128" Background="#FF505050" BorderBrush="Black" Height="35" HorizontalAlignment="Left" Width="210">
-            <Grid Width="110" Height="23">
-                <TextBlock FontFamily="Champagne &amp; Limousines" TextAlignment="Center" Foreground="White" Margin="-7,0,0,2" Width="117" FontSize="14" FontWeight="Normal" VerticalAlignment="Bottom"  HorizontalAlignment="Center" Height="17"><Run Text="Dosar Manua"/><Run Text="l"/></TextBlock>
+        <Button x:Name="btDosarManual" Margin="381,355,0,128" Background="#FFFFD100" BorderBrush="Black" Height="35" HorizontalAlignment="Left" Width="259" Click="btDosarManual_Click">
+            <Grid Width="231" Height="23">
+                <TextBlock x:Name="txtDosarManual" FontFamily="Champagne &amp; Limousines" TextAlignment="Center" Foreground="White" Margin="10,0,10,2" Width="211" FontSize="14" FontWeight="Normal" VerticalAlignment="Bottom"  HorizontalAlignment="Center" Height="17" Text="Finalizar Dosagem Manual"/>
             </Grid>
         </Button>
         <Button x:Name="btSlot2" Margin="432,454,0,10" Background="#FF505050" BorderBrush="Black" Height="Auto" HorizontalAlignment="Left" Width="68" Click="btSlot2_Click">
@@ -120,6 +120,11 @@
                 <TextBlock FontFamily="Champagne &amp; Limousines" TextAlignment="Center" Foreground="White" FontSize="36" FontWeight="Normal" VerticalAlignment="Bottom" Height="39" Text="1" HorizontalAlignment="Left" Width="42" Margin="-3,0,0,0"/>
             </Grid>
         </Button>
+        <Rectangle HorizontalAlignment="Left" Height="393" VerticalAlignment="Top" Width="369" Margin="5,3,0,0">
+            <Rectangle.Fill>
+                <SolidColorBrush Color="Blue" Opacity="0"/>
+            </Rectangle.Fill>
+        </Rectangle>
 
     </Grid>
 </UserControl>

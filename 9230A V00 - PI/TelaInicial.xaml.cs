@@ -159,6 +159,7 @@ namespace _9230A_V00___PI
             DataBase.SQLFunctionsProducao.AtualizaProducaoEmExecucao();
 
             windowFirstLoading.Close();
+
         }
 
         #region Timer Ticks

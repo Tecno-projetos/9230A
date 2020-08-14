@@ -81,7 +81,11 @@ namespace _9230A_V00___PI.Utilidades
                     _byte += value;
                 }
 
-                value = Convert.ToByte(value * 2);
+                if (i != 7 )
+                {
+                    value = Convert.ToByte(value * 2);
+                }
+
             }
             return _byte;
         }

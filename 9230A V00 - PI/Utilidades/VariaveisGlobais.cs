@@ -21,6 +21,20 @@ namespace _9230A_V00___PI.Utilidades
     {
         #region Structs
 
+        public struct IndicadorPesagem
+        {
+            public float Valor_Atual_Indicador;
+            public bool Comando_Zero;
+            public bool Comando_Tara;
+            public bool Erro_Leitura;
+            public bool Reserva_1;
+            public bool Reserva_2;
+            public bool Reserva_3;
+            public bool Reserva_4;
+            public bool Reserva_5;
+
+        }
+
         public struct Complemento
         {
             public short Quantidade_Itens;                  //Qtd itens dosagem Manual
@@ -60,7 +74,7 @@ namespace _9230A_V00___PI.Utilidades
             public short Status_Produto_Atual_Em_Producao;   //Status do produto atual que esta em produção
 
             public short Status_Batelada;                      //Status Batelada 
-            public short NumeroBatelada;                         //O numero da batelada em execução no Slot Solicitado
+            public short NumeroBatelada;                       //O numero da batelada em execução no Slot Solicitado
 
             // 0 - Sem batelada
             // 1 - Dosagem Matéria Prima Manual

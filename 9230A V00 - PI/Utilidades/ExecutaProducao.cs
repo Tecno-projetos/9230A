@@ -201,7 +201,6 @@ namespace _9230A_V00___PI.Utilidades
             }
         }
 
-
         public bool Produzir
         {
             set
@@ -211,22 +210,70 @@ namespace _9230A_V00___PI.Utilidades
                 {
                     //Slot 1
                     readVariablesBuffer(1);
-
-
-
                 }
-
-
-
-
                 //Após Leitura das Variáveis
 
 
                 //Verifica disponibilidade de slot
                 verificaDisponibilidadeSlot();
+            }
 
+        }
+
+        /// <summary>
+        /// Inicia a dosagem manual do complemento pre
+        /// </summary>
+        public void InicioDosagemManualComplementoPre(int slot)
+        {
+            VariaveisGlobais.Buffer_PLC[bufferPlc].Enable_Read = false; //Desabilita a leitura do buffer
+
+            if (slot ==1)
+            {
+                controleExecucao.Slot_1.Complemento_Pre.Botao_Inicio_Fim_Dosagem_IHM = true;
+                Comunicacao.Sharp7.S7.SetByteAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 40, Move_Bits.ComplementoToByteBatelada(controleExecucao.Slot_1.Complemento_Pre));
+            }
+            else if (slot == 2)
+            {
+                controleExecucao.Slot_2.Complemento_Pre.Botao_Inicio_Fim_Dosagem_IHM = true;
 
             }
+            else if (slot == 3)
+            {
+                controleExecucao.Slot_3.Complemento_Pre.Botao_Inicio_Fim_Dosagem_IHM = true;
+            }
+
+
+            
+
+            VariaveisGlobais.Buffer_PLC[bufferPlc].Enable_Write = true;
+
+        }
+
+
+        /// <summary>
+        /// Inicia a dosagem manual do complemento pos
+        /// </summary>
+        public void InicioDosagemManualComplementoPos(int slot)
+        {
+            VariaveisGlobais.Buffer_PLC[bufferPlc].Enable_Read = false; //Desabilita a leitura do buffer
+
+            if (slot == 1)
+            {
+                controleExecucao.Slot_1.Complemento_Pos.Botao_Inicio_Fim_Dosagem_IHM = true;
+                Comunicacao.Sharp7.S7.SetByteAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 54, Move_Bits.ComplementoToByteBatelada(controleExecucao.Slot_1.Complemento_Pos));
+            }
+            else if (slot == 2)
+            {
+                controleExecucao.Slot_2.Complemento_Pos.Botao_Inicio_Fim_Dosagem_IHM = true;
+            }
+            else if (slot == 3)
+            {
+                controleExecucao.Slot_3.Complemento_Pos.Botao_Inicio_Fim_Dosagem_IHM = true;
+            }
+
+            
+
+            VariaveisGlobais.Buffer_PLC[bufferPlc].Enable_Write = true;
 
         }
 

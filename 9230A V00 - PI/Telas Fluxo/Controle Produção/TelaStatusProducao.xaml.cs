@@ -68,7 +68,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
             dt.Columns.Add("Peso");
             dt.Columns.Add("Peso Dosado");
 
-            foreach (var item in Utilidades.VariaveisGlobais.ProducaoReceita.batelada[batelada.NumeroBatelada].produtos)
+            foreach (var item in Utilidades.VariaveisGlobais.ProducaoReceita.batelada[batelada.NumeroBatelada -1].produtos)
             {
                 DataRow dr = dt.NewRow();
 
@@ -118,7 +118,46 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
                 btSlot3.Background = new SolidColorBrush(Colors.Gray);
                 lb_Status_Batelada = Utilidades.functions.controleStatus(VariaveisGlobais.executaProducao.ControleExecucao.Slot_1.Status_Batelada, lb_Status_Batelada);
 
+                //Atualiza produtos no data grid
                 atualizaGridProdutos(VariaveisGlobais.executaProducao.ControleExecucao.Slot_1);
+
+
+                //Atualiza o botão 
+                if (VariaveisGlobais.executaProducao.ControleExecucao.Slot_1.Complemento_Pre.Item_Atual_Iniciado_Dosagem ||
+                    VariaveisGlobais.executaProducao.ControleExecucao.Slot_1.Complemento_Pos.Item_Atual_Iniciado_Dosagem
+                    )
+                {
+                    if (VariaveisGlobais.executaProducao.ControleExecucao.Slot_1.Complemento_Pre.Item_Atual_Finalizado_Dosagem ||
+                        VariaveisGlobais.executaProducao.ControleExecucao.Slot_1.Complemento_Pos.Item_Atual_Finalizado_Dosagem
+                        )
+                    {
+                        btDosarManual.Background = new SolidColorBrush(Colors.Orange);
+                        txtDosarManual.Foreground = new SolidColorBrush(Colors.Black);
+                        txtDosarManual.Text = "Salvando Valor Dosagem";
+                    }
+                    else
+                    {
+                        btDosarManual.Background = new SolidColorBrush(Colors.Orange);
+                        txtDosarManual.Foreground = new SolidColorBrush(Colors.Black);
+                        txtDosarManual.Text = "Finalizar Dosagem Manual";
+                    }
+                }
+                else
+                {
+                    if (VariaveisGlobais.executaProducao.ControleExecucao.Slot_1.Complemento_Pre.Habilitado_Inicio_Dosagem ||
+                        VariaveisGlobais.executaProducao.ControleExecucao.Slot_1.Complemento_Pos.Habilitado_Inicio_Dosagem
+                        )
+                    {
+                        btDosarManual.Background = new SolidColorBrush(Colors.Yellow);
+                        txtDosarManual.Foreground = new SolidColorBrush(Colors.Black);
+                    }
+                    else
+                    {
+                        btDosarManual.Background = new SolidColorBrush(Colors.Gray);
+                        txtDosarManual.Foreground = new SolidColorBrush(Colors.Black);
+                    }
+                }
+
             }
             else if (SlotSolicitado == 2)
             {
@@ -152,7 +191,9 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
                 //Verifica o item atual é o mesmo que o produto atual que esta em produção
                 if (IndexAtual == VariaveisGlobais.executaProducao.ControleExecucao.Slot_1.Produto_Atual_Em_Producao)
                 {
-                    if (VariaveisGlobais.executaProducao.ControleExecucao.Slot_1.Complemento_Pre.Habilitado_Inicio_Dosagem)
+                    if (VariaveisGlobais.executaProducao.ControleExecucao.Slot_1.Complemento_Pre.Habilitado_Inicio_Dosagem ||
+                        VariaveisGlobais.executaProducao.ControleExecucao.Slot_1.Complemento_Pos.Habilitado_Inicio_Dosagem
+                        )
                     {
                         e.Row.Background = new SolidColorBrush(Colors.Yellow);
                         e.Row.Foreground = new SolidColorBrush(Color.FromRgb(0, 0, 0));
@@ -174,6 +215,21 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
 
             }
 
+
+        }
+
+        private void btDosarManual_Click(object sender, RoutedEventArgs e)
+        {
+
+            if (VariaveisGlobais.executaProducao.ControleExecucao.Slot_1.Complemento_Pre.Habilitado_Inicio_Dosagem)
+            {
+                VariaveisGlobais.executaProducao.InicioDosagemManualComplementoPre(SlotSolicitado);
+            }
+
+            if (VariaveisGlobais.executaProducao.ControleExecucao.Slot_1.Complemento_Pos.Habilitado_Inicio_Dosagem)
+            {
+                VariaveisGlobais.executaProducao.InicioDosagemManualComplementoPre(SlotSolicitado);
+            }
 
         }
     }

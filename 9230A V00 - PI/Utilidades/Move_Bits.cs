@@ -825,7 +825,43 @@ namespace _9230A_V00___PI.Utilidades
         }
 
 
+        //Command Indicador de Pesagem
+        //=====================================================================================================================================
 
+        public static VariaveisGlobais.IndicadorPesagem ByteToIndicadorPesagem(byte _byte, VariaveisGlobais.IndicadorPesagem indicador)
+        {
+            bool[] bits = new bool[8];
+
+            Conversions.Byte_To_Bit(_byte, ref bits);
+
+            indicador.Comando_Zero = bits[0];
+            indicador.Comando_Tara = bits[1];
+            indicador.Erro_Leitura = bits[2];
+            indicador.Reserva_1 = bits[3];
+            indicador.Reserva_2 = bits[4];
+            indicador.Reserva_3 = bits[5];
+            indicador.Reserva_4 = bits[6];
+            indicador.Reserva_5 = bits[7];
+
+            return indicador;
+        }
+
+
+        public static byte IndicadorPesagemToByte(VariaveisGlobais.IndicadorPesagem indicador)
+        {
+            bool[] bits = new bool[8];
+
+            bits[0] = indicador.Comando_Zero;
+            bits[1] = indicador.Comando_Tara;
+            bits[2] = indicador.Erro_Leitura;
+            bits[3] = indicador.Reserva_1;
+            bits[4] = indicador.Reserva_2;
+            bits[5] = indicador.Reserva_3;
+            bits[6] = indicador.Reserva_4;
+            bits[7] = indicador.Reserva_5;
+
+            return Conversions.Bit_To_Byte(ref bits);
+        }
 
     }
 }
