@@ -588,6 +588,9 @@ namespace _9230A_V00___PI.Utilidades
             Command.Standard.falhaPosicionamento = Command.AtuadorA.falhaPosicionamento;
             Command.Standard.falhaLeituraPosicao = Command.AtuadorA.falhaLeituraPosicao;
             Command.Standard.Reset = Command.AtuadorA.reset;
+            Command.Standard.AcionaLado1 = Command.AtuadorA.acionaLado1;
+            Command.Standard.AcionaLado2 = Command.AtuadorA.acionaLado2;
+                
             return Command;
 
         }
@@ -607,6 +610,8 @@ namespace _9230A_V00___PI.Utilidades
             Command.AtuadorA.falhaPosicionamento = Command.Standard.falhaPosicionamento;
             Command.AtuadorA.falhaLeituraPosicao = Command.Standard.falhaLeituraPosicao;
             Command.AtuadorA.reset = Command.Standard.Reset;
+            Command.AtuadorA.acionaLado1 = Command.Standard.AcionaLado1;
+            Command.AtuadorA.acionaLado2 = Command.Standard.AcionaLado2;
             return Command;
         }
 
@@ -632,8 +637,8 @@ namespace _9230A_V00___PI.Utilidades
             Command.AtuadorA.falhaPosicionamento = bits[10];
             Command.AtuadorA.falhaLeituraPosicao = bits[11];
             Command.AtuadorA.reset = bits[12];
-            Command.AtuadorA.bitReserva = bits[12];
-            Command.AtuadorA.bitReserva_1 = bits[13];
+            Command.AtuadorA.acionaLado1 = bits[12];
+            Command.AtuadorA.acionaLado2 = bits[13];
             Command.AtuadorA.bitReserva_2 = bits[15];
             Command.AtuadorA.bitReserva_3 = bits[16];
             Command.AtuadorA.bitReserva_4 = bits[17];
@@ -672,8 +677,8 @@ namespace _9230A_V00___PI.Utilidades
             bits[10] = Command.AtuadorA.falhaPosicionamento;
             bits[11] = Command.AtuadorA.falhaLeituraPosicao;
             bits[12] = Command.AtuadorA.reset;
-            bits[13] = Command.AtuadorA.bitReserva;
-            bits[14] = Command.AtuadorA.bitReserva_1;
+            bits[13] = Command.AtuadorA.acionaLado1;
+            bits[14] = Command.AtuadorA.acionaLado2;
             bits[15] = Command.AtuadorA.bitReserva_2;
             bits[16] = Command.AtuadorA.bitReserva_3;
             bits[17] = Command.AtuadorA.bitReserva_4;

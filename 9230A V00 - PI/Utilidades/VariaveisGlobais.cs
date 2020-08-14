@@ -408,8 +408,8 @@ namespace _9230A_V00___PI.Utilidades
             public bool falhaPosicionamento;
             public bool falhaLeituraPosicao;
             public bool reset;
-            public bool bitReserva;
-            public bool bitReserva_1;
+            public bool acionaLado1;
+            public bool acionaLado2;
             public bool bitReserva_2;
             public bool bitReserva_3;
             public bool bitReserva_4;
