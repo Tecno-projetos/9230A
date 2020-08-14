@@ -746,7 +746,7 @@ namespace _9230A_V00___PI.Utilidades
             slot.Solicita_Nova_Batelada = bits[0];
             slot.Iniciou = bits[1];
             slot.Finalizou = bits[2];
-            slot.Reserva = bits[3];
+            slot.Carregou_Nova_Batelada = bits[3];
             slot.Reserva_1 = bits[4];
             slot.Reserva_2 = bits[5];
             slot.Reserva_3 = bits[6];
@@ -786,7 +786,7 @@ namespace _9230A_V00___PI.Utilidades
             bits[0] = slot.Solicita_Nova_Batelada;
             bits[1] = slot.Iniciou;
             bits[2] = slot.Finalizou;
-            bits[3] = slot.Reserva;
+            bits[3] = slot.Carregou_Nova_Batelada;
             bits[4] = slot.Reserva_1;
             bits[5] = slot.Reserva_2;
             bits[6] = slot.Reserva_3;
