@@ -33,9 +33,9 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
             bateladasconcluidas.Content = executaProducao.ControleExecucao.Bateladas_Finalizadas;
 
 
-            statusSlot1 = Utilidades.functions.controleStatus(executaProducao.ControleExecucao.Slot_1.Status);
-            statusSlot2 = Utilidades.functions.controleStatus(executaProducao.ControleExecucao.Slot_2.Status);
-            statusSlot3 = Utilidades.functions.controleStatus(executaProducao.ControleExecucao.Slot_3.Status);
+            statusSlot1 = Utilidades.functions.controleStatus(executaProducao.ControleExecucao.Slot_1.Status, statusSlot1);
+            statusSlot2 = Utilidades.functions.controleStatus(executaProducao.ControleExecucao.Slot_2.Status, statusSlot2);
+            statusSlot3 = Utilidades.functions.controleStatus(executaProducao.ControleExecucao.Slot_3.Status, statusSlot3);
 
         }
 

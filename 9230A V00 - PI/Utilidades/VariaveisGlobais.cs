@@ -757,9 +757,8 @@ namespace _9230A_V00___PI.Utilidades
         /// </summary>
         /// <param name="status">Status da produção numero inteiro.</param>
         /// <returns>Retorna um label com o content + foreground e Backgorund</returns>
-        public static Label controleStatus(int status)
+        public static Label controleStatus(int status, Label label)
         {
-            Label label = new Label();
 
             if (status == 0)
             {
@@ -772,8 +771,6 @@ namespace _9230A_V00___PI.Utilidades
                 label.Content = "Dosagem Matéria Prima Manual";
                 label.Background = new SolidColorBrush(Colors.Orange);
                 label.Foreground = new SolidColorBrush(Colors.Black);
-
-
             }
             else if (status == 2)
             {
