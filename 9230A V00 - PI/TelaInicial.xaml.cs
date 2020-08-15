@@ -131,6 +131,14 @@ namespace _9230A_V00___PI
             Utilidades.VariaveisGlobais.Buffer_PLC[2].Enable_Read = true;
             Utilidades.VariaveisGlobais.Buffer_PLC[2].Enable_Write = false;
 
+
+            Utilidades.VariaveisGlobais.Buffer_PLC[3].Name = "DB Auxiliares";
+            Utilidades.VariaveisGlobais.Buffer_PLC[3].DBNumber = 22;
+            Utilidades.VariaveisGlobais.Buffer_PLC[3].Start = 0;
+            Utilidades.VariaveisGlobais.Buffer_PLC[3].Size = 32;
+            Utilidades.VariaveisGlobais.Buffer_PLC[3].Enable_Read = true;
+            Utilidades.VariaveisGlobais.Buffer_PLC[3].Enable_Write = false;
+
             for (int i = 0; i < Utilidades.VariaveisGlobais.Buffer_PLC.Length; i++)
             {
                 Utilidades.VariaveisGlobais.Buffer_PLC[i].Buffer = new byte[Utilidades.VariaveisGlobais.Buffer_PLC[i].Size];

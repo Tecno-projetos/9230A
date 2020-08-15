@@ -64,7 +64,7 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <Rectangle Fill="#FF46FF00" HorizontalAlignment="Left" Height="44" Margin="57,325,0,0" Stroke="#FF46FF00" VerticalAlignment="Top" Width="5"/>
+        <Rectangle Fill="{Binding Fill, ElementName=rec1u1}" HorizontalAlignment="Left" Height="44" Margin="57,325,0,0" VerticalAlignment="Top" Width="5"/>
         <Image HorizontalAlignment="Left" Height="826" Margin="230,-21,0,-130" VerticalAlignment="Top" Width="435" Source="/9230A V00 - PI;component/Imagens/scalance.png" RenderTransformOrigin="0.5,0.5">
             <Image.RenderTransform>
                 <TransformGroup>
@@ -75,7 +75,7 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <Rectangle Fill="#FF46FF00" HorizontalAlignment="Left" Height="352" Margin="233,190,0,0" Stroke="#FF46FF00" VerticalAlignment="Top" Width="6" RenderTransformOrigin="0.5,0.5">
+        <Rectangle Fill="{Binding Fill, ElementName=rec1u1}" HorizontalAlignment="Left" Height="352" Margin="233,190,0,0" VerticalAlignment="Top" Width="6" RenderTransformOrigin="0.5,0.5">
             <Rectangle.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -145,8 +145,8 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <Rectangle Fill="#FF46FF00" HorizontalAlignment="Left" Height="104" Margin="330,280,0,0" Stroke="#FF46FF00" VerticalAlignment="Top" Width="5"/>
-        <Rectangle Fill="#FF46FF00" HorizontalAlignment="Left" Height="78" Margin="369,342,0,0" Stroke="#FF46FF00" VerticalAlignment="Top" Width="6" RenderTransformOrigin="0.5,0.5">
+        <Rectangle Fill="{Binding Fill, ElementName=rec1u2}" HorizontalAlignment="Left" Height="104" Margin="330,280,0,0" VerticalAlignment="Top" Width="5"/>
+        <Rectangle Fill="{Binding Fill, ElementName=rec1u2}" HorizontalAlignment="Left" Height="78" Margin="369,342,0,0" VerticalAlignment="Top" Width="6" RenderTransformOrigin="0.5,0.5">
             <Rectangle.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -166,8 +166,8 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <Rectangle Fill="#FF46FF00" HorizontalAlignment="Left" Height="104" Margin="377,295,0,0" Stroke="#FF46FF00" VerticalAlignment="Top" Width="5"/>
-        <Rectangle Fill="#FF46FF00" HorizontalAlignment="Left" Height="34" Margin="392,379,0,0" Stroke="#FF46FF00" VerticalAlignment="Top" Width="6" RenderTransformOrigin="0.5,0.5">
+        <Rectangle Fill="{Binding Fill, ElementName=rec43g1}" HorizontalAlignment="Left" Height="104" Margin="377,295,0,0" VerticalAlignment="Top" Width="5"/>
+        <Rectangle Fill="{Binding Fill, ElementName=rec43g1}" HorizontalAlignment="Left" Height="34" Margin="392,379,0,0" VerticalAlignment="Top" Width="6" RenderTransformOrigin="0.5,0.5">
             <Rectangle.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -177,7 +177,7 @@
                 </TransformGroup>
             </Rectangle.RenderTransform>
         </Rectangle>
-        <Rectangle Fill="#FF46FF00" HorizontalAlignment="Left" Height="88" Margin="418,254,0,0" Stroke="#FF46FF00" VerticalAlignment="Top" Width="6" RenderTransformOrigin="0.5,0.5">
+        <Rectangle Fill="{Binding Fill, ElementName=rec43g1}" HorizontalAlignment="Left" Height="88" Margin="418,254,0,0" VerticalAlignment="Top" Width="6" RenderTransformOrigin="0.5,0.5">
             <Rectangle.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -207,7 +207,7 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <Rectangle Fill="#FF46FF00" HorizontalAlignment="Left" Height="42" Margin="689,410,0,0" Stroke="#FF46FF00" VerticalAlignment="Top" Width="6" RenderTransformOrigin="0.5,0.5">
+        <Rectangle Fill="{Binding Fill, ElementName=rec65g1}" HorizontalAlignment="Left" Height="34" Margin="684,414,0,0" VerticalAlignment="Top" Width="6" RenderTransformOrigin="0.5,0.5">
             <Rectangle.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -217,8 +217,8 @@
                 </TransformGroup>
             </Rectangle.RenderTransform>
         </Rectangle>
-        <Rectangle Fill="#FF46FF00" HorizontalAlignment="Left" Height="135" Margin="588,300,0,0" Stroke="#FF46FF00" VerticalAlignment="Top" Width="5"/>
-        <Rectangle Fill="#FF46FF00" HorizontalAlignment="Left" Height="46" Margin="610,409,0,0" Stroke="#FF46FF00" VerticalAlignment="Top" Width="6" RenderTransformOrigin="0.5,0.5">
+        <Rectangle Fill="{Binding Fill, ElementName=rec62g1}" HorizontalAlignment="Left" Height="135" Margin="588,300,0,0" VerticalAlignment="Top" Width="5"/>
+        <Rectangle Fill="{Binding Fill, ElementName=rec62g1}"  HorizontalAlignment="Left" Height="52" Margin="612,406,0,0" VerticalAlignment="Top" Width="6" RenderTransformOrigin="0.5,0.5">
             <Rectangle.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -228,7 +228,7 @@
                 </TransformGroup>
             </Rectangle.RenderTransform>
         </Rectangle>
-        <Rectangle Fill="#FF46FF00" HorizontalAlignment="Left" Height="34" Margin="391,396,0,0" Stroke="#FF46FF00" VerticalAlignment="Top" Width="6" RenderTransformOrigin="0.5,0.5">
+        <Rectangle Fill="{Binding Fill, ElementName=rec1u3}" HorizontalAlignment="Left" Height="34" Margin="391,396,0,0" VerticalAlignment="Top" Width="6" RenderTransformOrigin="0.5,0.5">
             <Rectangle.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -238,8 +238,8 @@
                 </TransformGroup>
             </Rectangle.RenderTransform>
         </Rectangle>
-        <Rectangle Fill="#FF46FF00" HorizontalAlignment="Left" Height="49" Margin="377,411,0,0" Stroke="#FF46FF00" VerticalAlignment="Top" Width="5"/>
-        <Rectangle Fill="#FF46FF00" HorizontalAlignment="Left" Height="42" Margin="564,271,0,0" Stroke="#FF46FF00" VerticalAlignment="Top" Width="6" RenderTransformOrigin="0.5,0.5">
+        <Rectangle Fill="{Binding Fill, ElementName=rec1u3}" HorizontalAlignment="Left" Height="49" Margin="377,411,0,0" VerticalAlignment="Top" Width="5"/>
+        <Rectangle Fill="{Binding Fill, ElementName=rec1u3}" HorizontalAlignment="Left" Height="42" Margin="564,271,0,0" VerticalAlignment="Top" Width="6" RenderTransformOrigin="0.5,0.5">
             <Rectangle.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -249,8 +249,8 @@
                 </TransformGroup>
             </Rectangle.RenderTransform>
         </Rectangle>
-        <Rectangle Fill="#FF46FF00" HorizontalAlignment="Left" Height="170" Margin="546,290,0,0" Stroke="#FF46FF00" VerticalAlignment="Top" Width="5"/>
-        <Rectangle Fill="#FF46FF00" HorizontalAlignment="Left" Height="174" Margin="461,371,0,0" Stroke="#FF46FF00" VerticalAlignment="Top" Width="6" RenderTransformOrigin="0.5,0.5">
+        <Rectangle Fill="{Binding Fill, ElementName=rec1u3}" HorizontalAlignment="Left" Height="170" Margin="546,290,0,0" VerticalAlignment="Top" Width="5"/>
+        <Rectangle Fill="{Binding Fill, ElementName=rec1u3}" HorizontalAlignment="Left" Height="174" Margin="461,371,0,0" VerticalAlignment="Top" Width="6" RenderTransformOrigin="0.5,0.5">
             <Rectangle.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -260,15 +260,11 @@
                 </TransformGroup>
             </Rectangle.RenderTransform>
         </Rectangle>
-        <GroupBox Header="IP" HorizontalAlignment="Left" Height="207" Margin="304,466,0,0" VerticalAlignment="Top" Width="228"/>
-        <Label Content="1U1 - 192.168.0.11" Margin="312,499,296,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Foreground="White"/>
-        <Label Content="1U2 - 192.168.0.10" Margin="312,528,296,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Foreground="White"/>
-        <Label Content="1U3 - 192.168.0.12" Margin="312,557,296,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Foreground="White"/>
-        <Label Content="43G1 - 192.168.0.12" Margin="312,586,296,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Foreground="White"/>
-        <Label Content="62G1 - 192.168.0.13" Margin="312,615,296,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Foreground="White"/>
-        <Label Content="65G1 - 192.168.0.15" Margin="312,644,296,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Foreground="White"/>
+        <GroupBox Header="IP" HorizontalAlignment="Left" Height="159" Margin="304,466,0,0" VerticalAlignment="Top" Width="228"/>
+        <Label Content="1U2 - 192.168.0.10" Margin="312,507,296,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Foreground="White"/>
+        <Label Content="43G1 - 192.168.0.12" Margin="312,541,296,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Foreground="White"/>
         <Label Content="1U1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Foreground="Black" FontSize="16" VerticalContentAlignment="Center" FontWeight="Bold" HorizontalContentAlignment="Center" Margin="48,186,0,0"/>
-        <Label Content="2U1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="21" Foreground="Black" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="121,218,0,0" FontSize="10" Padding="0" RenderTransformOrigin="0.5,0.5" Background="#FFF3ECEC">
+        <Label Content="2U1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="34" Foreground="Black" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="114,221,0,0" FontSize="14" Padding="0" RenderTransformOrigin="0.5,0.5" Background="#FFF3ECEC">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -278,7 +274,7 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Label Content="3U1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="21" Foreground="Black" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="136,218,0,0" FontSize="10" Padding="0" RenderTransformOrigin="0.5,0.5" Background="#FFF3ECEC">
+        <Label Content="3U1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="33" Foreground="Black" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="130,221,0,0" FontSize="14" Padding="0" RenderTransformOrigin="0.5,0.5" Background="#FFF3ECEC">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -288,7 +284,7 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Label Content="4U1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="21" Foreground="Black" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="151,218,0,0" FontSize="10" Padding="0" RenderTransformOrigin="0.5,0.5" Background="#FFF3ECEC">
+        <Label Content="4U1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="34" Foreground="Black" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="145,221,0,0" FontSize="14" Padding="0" RenderTransformOrigin="0.5,0.5" Background="#FFF3ECEC">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -298,7 +294,7 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Label Content="5U1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="21" Foreground="Black" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="166,218,0,0" FontSize="10" Padding="0" RenderTransformOrigin="0.5,0.5" Background="#FFF3ECEC">
+        <Label Content="5U1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="34" Foreground="Black" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="159,221,0,0" FontSize="14" Padding="0" RenderTransformOrigin="0.5,0.5" Background="#FFF3ECEC">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -351,38 +347,58 @@
             </Image.RenderTransform>
         </Image>
         <Label Content="1U3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Foreground="Black" FontSize="16" VerticalContentAlignment="Center" FontWeight="Bold" HorizontalContentAlignment="Center" Margin="582,186,0,0"/>
-        <Label Content="2U3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="21" Foreground="Black" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="655,218,0,0" FontSize="10" Padding="0" RenderTransformOrigin="0.5,0.5" Background="#FFF3ECEC">
-            <Label.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="90"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Label.RenderTransform>
-        </Label>
-        <Label Content="3U3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="21" Foreground="Black" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="670,218,0,0" FontSize="10" Padding="0" RenderTransformOrigin="0.5,0.5" Background="#FFF3ECEC">
-            <Label.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="90"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Label.RenderTransform>
-        </Label>
-        <Label Content="4U3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="21" Foreground="Black" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="685,218,0,0" FontSize="10" Padding="0" RenderTransformOrigin="0.5,0.5" Background="#FFF3ECEC">
-            <Label.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="90"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Label.RenderTransform>
-        </Label>
         <Label Content="62G1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Foreground="Black" FontSize="16" VerticalContentAlignment="Center" FontWeight="Bold" HorizontalContentAlignment="Center" Margin="585,340,0,0"/>
         <Label Content="65G1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Foreground="Black" FontSize="16" VerticalContentAlignment="Center" FontWeight="Bold" HorizontalContentAlignment="Center" Margin="728,340,0,0"/>
+        <Rectangle x:Name="rec1u1" HorizontalAlignment="Left" Height="34" Margin="48,215,0,0" Stroke="Black" VerticalAlignment="Top" Width="32" Fill="Red"/>
+        <Rectangle x:Name="rec2u1" HorizontalAlignment="Left" Height="20" Margin="122,335,0,0" Stroke="Black" VerticalAlignment="Top" Width="15" Fill="Red"/>
+        <Rectangle x:Name="rec3u1" HorizontalAlignment="Left" Height="20" Margin="138,335,0,0" Stroke="Black" VerticalAlignment="Top" Width="15" Fill="Red"/>
+        <Rectangle x:Name="rec4u1" HorizontalAlignment="Left" Height="20" Margin="154,335,0,0" Stroke="Black" VerticalAlignment="Top" Width="15" Fill="Red"/>
+        <Rectangle x:Name="rec5u1" HorizontalAlignment="Left" Height="20" Margin="170,335,0,0" Stroke="Black" VerticalAlignment="Top" Width="15" Fill="Red"/>
+        <Rectangle x:Name="rec1u2" HorizontalAlignment="Left" Height="34" Margin="319,217,0,0" Stroke="Black" VerticalAlignment="Top" Width="32" Fill="Red"/>
+        <Rectangle x:Name="rec2u2" HorizontalAlignment="Left" Height="20" Margin="385,229,0,0" Stroke="Black" VerticalAlignment="Top" Width="15" Fill="Red"/>
+        <Rectangle x:Name="rec43g1" HorizontalAlignment="Left" Height="25" Margin="465,235,0,0" Stroke="Black" VerticalAlignment="Top" Width="30" Fill="Red"/>
+        <Rectangle x:Name="rec1u3" HorizontalAlignment="Left" Height="34" Margin="582,215,0,0" Stroke="Black" VerticalAlignment="Top" Width="32" Fill="Red"/>
+        <Label Content="2U3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="34" Foreground="Black" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="646,220,0,0" FontSize="14" Padding="0" RenderTransformOrigin="0.5,0.5" Background="#FFF3ECEC">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label Content="3U3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="33" Foreground="Black" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="662,220,0,0" FontSize="14" Padding="0" RenderTransformOrigin="0.5,0.5" Background="#FFF3ECEC">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label Content="4U3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="34" Foreground="Black" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="677,220,0,0" FontSize="14" Padding="0" RenderTransformOrigin="0.5,0.5" Background="#FFF3ECEC">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Rectangle x:Name="rec2u3" HorizontalAlignment="Left" Height="20" Margin="654,187,0,0" Stroke="Black" VerticalAlignment="Top" Width="15" Fill="Red"/>
+        <Rectangle x:Name="rec3u3" HorizontalAlignment="Left" Height="20" Margin="670,187,0,0" Stroke="Black" VerticalAlignment="Top" Width="15" Fill="Red"/>
+        <Rectangle x:Name="rec4u3" HorizontalAlignment="Left" Height="20" Margin="686,187,0,0" Stroke="Black" VerticalAlignment="Top" Width="15" Fill="Red"/>
+        <Rectangle x:Name="rec62g1" HorizontalAlignment="Left" Height="25" Margin="645,369,0,0" Stroke="Black" VerticalAlignment="Top" Width="30" Fill="Red"/>
+        <Rectangle x:Name="rec65g1" HorizontalAlignment="Left" Height="25" Margin="705,369,0,0" Stroke="Black" VerticalAlignment="Top" Width="30" Fill="Red"/>
+        <GroupBox Header="IP" HorizontalAlignment="Left" Height="159" Margin="41,466,0,0" VerticalAlignment="Top" Width="228"/>
+        <Label Content="1U1 - 192.168.0.11" Margin="49,499,559,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Foreground="White"/>
+        <GroupBox Header="IP" HorizontalAlignment="Left" Height="159" Margin="572,466,0,0" VerticalAlignment="Top" Width="228"/>
+        <Label Content="1U3 - 192.168.0.12" Margin="580,507,28,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Foreground="White"/>
+        <Label Content="62G1 - 192.168.0.13" Margin="582,541,26,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Foreground="White"/>
+        <Label Content="65G1 - 192.168.0.15" Margin="582,575,26,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Foreground="White"/>
 
     </Grid>
 </UserControl>

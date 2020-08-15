@@ -1,4 +1,6 @@
 ﻿using System.Windows.Controls;
+using System.Windows.Media;
+using System.Windows.Shapes;
 
 namespace _9230A_V00___PI.Telas_Fluxo.Manutenção
 {
@@ -82,23 +84,39 @@ namespace _9230A_V00___PI.Telas_Fluxo.Manutenção
             _1U2 = Utilidades.Move_Bits.WordToDiagnosticoProfinet(Comunicacao.Sharp7.S7.GetWordAt(Utilidades.VariaveisGlobais.Buffer_PLC[buffer].Buffer, 28), _1U2);
 
             _2U2 = Utilidades.Move_Bits.WordToDiagnosticoProfinet(Comunicacao.Sharp7.S7.GetWordAt(Utilidades.VariaveisGlobais.Buffer_PLC[buffer].Buffer, 30), _2U2);
-        
-       
-        
+
+            rec1u1 = atualizaProfinet(_1U1, rec1u1);
+            rec2u1 = atualizaProfinet(_2U1, rec2u1);
+            rec3u1 = atualizaProfinet(_3U1, rec3u1);
+            rec4u1 = atualizaProfinet(_4U1, rec4u1);
+            rec5u1 = atualizaProfinet(_5U1, rec5u1);
+
+            rec1u3 = atualizaProfinet(_1U3, rec1u3);
+            rec2u3 = atualizaProfinet(_2U3, rec2u3);
+            rec3u3 = atualizaProfinet(_3U3, rec3u3);
+            rec3u3 = atualizaProfinet(_4U3, rec4u3);
+
+            rec43g1 = atualizaProfinet(_43G1, rec43g1);
+
+            rec62g1 = atualizaProfinet(_62G1, rec62g1);
+
+            rec65g1 = atualizaProfinet(_65G1, rec65g1);
+
+            rec1u2 = atualizaProfinet(_1U2, rec1u2);
+            rec2u2 = atualizaProfinet(_2U2, rec2u2);
         }
 
-        private void atualizaProfinet(Utilidades.VariaveisGlobais.diagnosticoProfinet diagnosticoProfinet) 
+        private Rectangle atualizaProfinet(Utilidades.VariaveisGlobais.diagnosticoProfinet diagnosticoProfinet, Rectangle rectangle) 
         {
-
             if (diagnosticoProfinet.Good)
             {
-
+                rectangle.Fill = new SolidColorBrush(Colors.Green);
             }
             else
             {
-
+                rectangle.Fill = new SolidColorBrush(Colors.Red);
             }
-
+            return rectangle;
         }
     }
 }
