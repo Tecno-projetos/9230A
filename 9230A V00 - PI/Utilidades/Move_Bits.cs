@@ -948,7 +948,7 @@ namespace _9230A_V00___PI.Utilidades
         //=====================================================================================================================================
         public static Utilidades.VariaveisGlobais.diagnosticoProfinet WordToDiagnosticoProfinet(UInt16 Word,  VariaveisGlobais.diagnosticoProfinet diagnosticoProfinet)
         {
-            bool[] bits = new bool[15];
+            bool[] bits = new bool[16];
 
             Conversions.Word_To_Bit(Word, ref bits, true);
 
@@ -968,7 +968,7 @@ namespace _9230A_V00___PI.Utilidades
             diagnosticoProfinet.Reserved4 = bits[12];
             diagnosticoProfinet.Reserved5 = bits[13];
             diagnosticoProfinet.Reserved6 = bits[14];
-            diagnosticoProfinet.Reserved7 = bits[15];
+            
 
 
             return diagnosticoProfinet;
@@ -976,7 +976,7 @@ namespace _9230A_V00___PI.Utilidades
 
         public static UInt16 DiagToWordProfinet(VariaveisGlobais.diagnosticoProfinet diagnosticoProfinet)
         {
-            bool[] bits = new bool[15];
+            bool[] bits = new bool[16];
 
             bits[0] = diagnosticoProfinet.Good;
             bits[1] = diagnosticoProfinet.Disabled;
@@ -993,7 +993,7 @@ namespace _9230A_V00___PI.Utilidades
             bits[12] = diagnosticoProfinet.Reserved4;
             bits[13] = diagnosticoProfinet.Reserved5;
             bits[14] = diagnosticoProfinet.Reserved6;
-            bits[15] = diagnosticoProfinet.Reserved7;
+       
 
             return Conversions.Bit_To_Word(ref bits, true);
         }
