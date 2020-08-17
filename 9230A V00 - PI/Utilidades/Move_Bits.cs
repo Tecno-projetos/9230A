@@ -311,6 +311,8 @@ namespace _9230A_V00___PI.Utilidades
             Command.Standard.Falha_Geral = Command.SS.falhaGeral;
             Command.Standard.inverterSentidoGiro = Command.SS.inverterSentidoGiro;
             Command.Standard.SentidoGiro = Command.SS.sentidoGiro;
+            Command.Standard.confirmaSentidoGiroAlimentador = Command.SS.confirmaSentidoGiroAlimentador;
+            Command.Standard.SentidoGiroMotorMudou = Command.SS.SentidoGiroMotorMudou;
             return Command;
 
         }
@@ -339,6 +341,8 @@ namespace _9230A_V00___PI.Utilidades
             Command.SS.falhaGeral = Command.Standard.Falha_Geral;
             Command.SS.inverterSentidoGiro = Command.Standard.inverterSentidoGiro;
             Command.SS.sentidoGiro = Command.Standard.SentidoGiro;
+            Command.SS.confirmaSentidoGiroAlimentador = Command.Standard.confirmaSentidoGiroAlimentador;
+            Command.SS.SentidoGiroMotorMudou = Command.Standard.SentidoGiroMotorMudou;
             return Command;
         }
 
@@ -374,8 +378,8 @@ namespace _9230A_V00___PI.Utilidades
             Command.SS.falhaGeral = bits[19];
             Command.SS.inverterSentidoGiro = bits[20];
             Command.SS.sentidoGiro = bits[21];
-            Command.SS.bitReserva = bits[22];
-            Command.SS.bitReserva_1 = bits[23];
+            Command.SS.confirmaSentidoGiroAlimentador = bits[22];
+            Command.SS.SentidoGiroMotorMudou = bits[23];
             Command.SS.bitReserva_2 = bits[24];
             Command.SS.bitReserva_3 = bits[25];
             Command.SS.bitReserva_4 = bits[26];
@@ -414,8 +418,8 @@ namespace _9230A_V00___PI.Utilidades
             bits[19] = Command.SS.falhaGeral;
             bits[20] = Command.SS.inverterSentidoGiro;
             bits[21] = Command.SS.sentidoGiro;
-            bits[22] = Command.SS.bitReserva;
-            bits[23] = Command.SS.bitReserva_1;
+            bits[22] = Command.SS.confirmaSentidoGiroAlimentador;
+            bits[23] = Command.SS.SentidoGiroMotorMudou;
             bits[24] = Command.SS.bitReserva_2;
             bits[25] = Command.SS.bitReserva_3;
             bits[26] = Command.SS.bitReserva_4;

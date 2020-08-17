@@ -123,6 +123,7 @@ namespace _9230A_V00___PI.Utilidades
                 Window_SS.Bt_Fechar_Click += new EventHandler(SS_Bt_Fechar_Click);
 
                 Window_SS.controleMoinho.Bt_Inverte_Click += new EventHandler(SS_Bt_InverterSentido_Click);
+                Window_SS.controleMoinho.Bt_Confirma_Sentido_Alimentador_Moinho += new EventHandler(SS_Bt_Confirma_Sentido_Alimentador_Moinho_Click);
 
                 Window_SS.configuracoesMOINHO.atualizaSPMotorVazio_Click += new EventHandler(SS_Bt_atualizarCorrenteVazio_Click);
                 Window_SS.configuracoesMOINHO.atualizaSPTempoReversao_Click += new EventHandler(SS_Bt_atualizarTempoReversao_Click);
@@ -640,6 +641,21 @@ namespace _9230A_V00___PI.Utilidades
             VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Enable_Read = false;
 
             Comunicacao.Sharp7.S7.SetDIntAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + Command.SS.offSet_Tempo_Limpeza, Convert.ToInt32(Window_SS.configuracoesMOINHO.SpLimpeza));
+
+            VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Enable_Write = true;
+        }
+
+        
+
+        private void SS_Bt_Confirma_Sentido_Alimentador_Moinho_Click(object sender, EventArgs e)
+        {
+            VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Enable_Read = false;
+
+            Command.SS.confirmaSentidoGiroAlimentador = true;
+
+            Command.SS.SentidoGiroMotorMudou = false;
+
+            Comunicacao.Sharp7.S7.SetDWordAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet, Utilidades.Move_Bits.typeSS_TO_Dword(Utilidades.Move_Bits.typeStandardGUI_TO_typeSS(Command)));
 
             VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Enable_Write = true;
         }

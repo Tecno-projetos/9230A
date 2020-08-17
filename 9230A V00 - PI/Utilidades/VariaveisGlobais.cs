@@ -340,8 +340,8 @@ namespace _9230A_V00___PI.Utilidades
             public bool falhaGeral;
             public bool inverterSentidoGiro;
             public bool sentidoGiro;
-            public bool bitReserva;
-            public bool bitReserva_1;
+            public bool confirmaSentidoGiroAlimentador;
+            public bool SentidoGiroMotorMudou;
             public bool bitReserva_2;
             public bool bitReserva_3;
             public bool bitReserva_4;
@@ -638,6 +638,8 @@ namespace _9230A_V00___PI.Utilidades
             public bool Libera_Bloqueio;
             public bool Reset;
             public bool inverterSentidoGiro;
+            public bool confirmaSentidoGiroAlimentador;
+            public bool SentidoGiroMotorMudou;
 
             //Comandos Atuadores
             public bool AcionaLado1;
