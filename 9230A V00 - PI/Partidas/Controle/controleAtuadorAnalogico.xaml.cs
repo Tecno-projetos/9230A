@@ -166,9 +166,9 @@ namespace _9230A_V00___PI.Partidas.Controle
             }
             else
             {
-                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Content = "Sem Poisção"; });
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Content = "Desligado"; });
                 lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Foreground = new SolidColorBrush(Colors.White); });
-                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Background = new SolidColorBrush(Colors.Red); });
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Background = new SolidColorBrush(Colors.Gray); });
             }
 
             lbPosicaoAtual.Dispatcher.Invoke(delegate { lbPosicaoAtual.Foreground = new SolidColorBrush(Colors.White); });

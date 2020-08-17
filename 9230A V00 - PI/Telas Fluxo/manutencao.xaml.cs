@@ -31,6 +31,10 @@ namespace _9230A_V00___PI.Telas_Fluxo
         Manutenção.DiagnosticoCLP DiagCLP = new Manutenção.DiagnosticoCLP();
 
         Manutenção.projetoEletrico prjEletrico = new Manutenção.projetoEletrico();
+
+        Manutenção.manualUsuario manual = new Manutenção.manualUsuario();
+
+        Manutenção.alarmes alarmes = new Manutenção.alarmes();
         public manutencao()
         {
             InitializeComponent();
@@ -78,8 +82,7 @@ namespace _9230A_V00___PI.Telas_Fluxo
         {
             informacoesSistema.atualizaSistema();
             conexoes.atualizaConexoes();
-            //rede.atualizaRede();
-     
+            rede.atualizaRede(3); // Buffer 3    
         }
 
         private void btDiagnosticoCLP_Click(object sender, RoutedEventArgs e)
@@ -110,6 +113,35 @@ namespace _9230A_V00___PI.Telas_Fluxo
             }
 
             spManutencao.Children.Add(prjEletrico);
+        }
+
+
+        private void btManual_Click(object sender, RoutedEventArgs e)
+        {
+            if (spManutencao != null)
+            {
+                spManutencao.Children.Clear();
+            }
+
+            spManutencao.Children.Add(manual);
+        }
+
+        private void btAlarmes_Click(object sender, RoutedEventArgs e)
+        {
+            if (spManutencao != null)
+            {
+                spManutencao.Children.Clear();
+            }
+
+            spManutencao.Children.Add(alarmes);
+        }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (spManutencao != null)
+            {
+                spManutencao.Children.Clear();
+            }
         }
     }
 }

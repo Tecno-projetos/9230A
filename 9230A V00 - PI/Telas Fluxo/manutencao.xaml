@@ -7,7 +7,7 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:Receitas="clr-namespace:_9230A_V00___PI.Telas_Fluxo.Receitas" x:Class="_9230A_V00___PI.Telas_Fluxo.manutencao"
              mc:Ignorable="d" 
-             d:DesignHeight="675" d:DesignWidth="1024">
+             d:DesignHeight="675" d:DesignWidth="1024" Loaded="UserControl_Loaded">
     <Grid Background="#FF7F7F7F">
         <Grid HorizontalAlignment="Left" Height="675" VerticalAlignment="Top" Width="200" Background="#FF3C3C3C"/>
         <StackPanel x:Name="spManutencao" HorizontalAlignment="Left" Height="675" Margin="200,0,0,0" VerticalAlignment="Top" Width="824"/>
@@ -38,7 +38,7 @@
                 <TextBlock  Text="Rede" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="32,4,0,2" Width="138" FontSize="14" FontWeight="Normal" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center"/>
             </Grid>
         </Button>
-        <Button x:Name="btAlarmes" Margin="10,301,834,324" Background="#FF505050" BorderBrush="Black" Height="50">
+        <Button x:Name="btAlarmes" Margin="10,301,834,324" Background="#FF505050" BorderBrush="Black" Height="50" Click="btAlarmes_Click">
             <Grid Width="170" Height="40">
                 <materialDesign:PackIcon Kind="Warning" VerticalAlignment="Center" Foreground="White" Margin="2,-6,0,-7" Height="30" Width="30"/>
                 <TextBlock  Text="Alarmes" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="32,4,0,2" Width="138" FontSize="14" FontWeight="Normal" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center"/>
@@ -56,7 +56,7 @@
                 <TextBlock  Text="Projeto Elétrico" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="21,12,0,10" Width="149" FontSize="14" FontWeight="Normal" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center"/>
             </Grid>
         </Button>
-        <Button x:Name="btDiagnosticoCLP_Copy1" Margin="10,522,834,103" Background="#FF505050" BorderBrush="Black" Height="50" Click="btDiagnosticoCLP_Click">
+        <Button x:Name="btManual" Margin="10,522,834,103" Background="#FF505050" BorderBrush="Black" Height="50" Click="btManual_Click">
             <Grid Width="170" Height="40">
                 <materialDesign:PackIcon Kind="Text" VerticalAlignment="Center" Foreground="White" Margin="2,-6,0,-7" Height="30" Width="30"/>
                 <TextBlock  Text="Manual Usuário" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="21,12,0,10" Width="149" FontSize="14" FontWeight="Normal" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center"/>

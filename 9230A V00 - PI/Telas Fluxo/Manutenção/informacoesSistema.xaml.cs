@@ -92,6 +92,8 @@ namespace _9230A_V00___PI.Telas_Fluxo.Manutenção
 
         private void GetCpuUsage()
         {
+
+
             cpuCounter.CategoryName = "Processor";
             cpuCounter.CounterName = "% Processor Time";
             cpuCounter.InstanceName = "_Total";
@@ -106,9 +108,9 @@ namespace _9230A_V00___PI.Telas_Fluxo.Manutenção
         {
             try
             {
+                ramCounter = new PerformanceCounter("Memory", "Available MBytes", true);
 
-                lbFree.Content = "Uso Memória Ram: "+ ramCounter.NextValue() + " MB";
-
+                lbFree.Content = "Memória Ram dispinível: " + Convert.ToInt32(ramCounter.NextValue()).ToString() + "Mb";
 
             }
             catch (Exception)

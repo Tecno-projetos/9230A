@@ -244,6 +244,9 @@
     <Compile Include="Telas Fluxo\manutencao.xaml.cs">
       <DependentUpon>manutencao.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Telas Fluxo\Manutenção\alarmes.xaml.cs">
+      <DependentUpon>alarmes.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Telas Fluxo\Manutenção\conexoes.xaml.cs">
       <DependentUpon>conexoes.xaml</DependentUpon>
     </Compile>
@@ -255,6 +258,9 @@
     </Compile>
     <Compile Include="Telas Fluxo\Manutenção\informacoesSistema.xaml.cs">
       <DependentUpon>informacoesSistema.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Telas Fluxo\Manutenção\manualUsuario.xaml.cs">
+      <DependentUpon>manualUsuario.xaml</DependentUpon>
     </Compile>
     <Compile Include="Telas Fluxo\Manutenção\projetoEletrico.xaml.cs">
       <DependentUpon>projetoEletrico.xaml</DependentUpon>
@@ -342,6 +348,7 @@
     <Compile Include="Usuarios\removerUsuario.xaml.cs">
       <DependentUpon>removerUsuario.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Utilidades\controleBalanca.cs" />
     <Compile Include="Utilidades\Conversions.cs" />
     <Compile Include="Utilidades\convertTextInputToVisibility.cs" />
     <Compile Include="Utilidades\EquipsControl.cs" />
@@ -514,6 +521,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Telas Fluxo\Manutenção\alarmes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Telas Fluxo\Manutenção\conexoes.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -527,6 +538,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Telas Fluxo\Manutenção\informacoesSistema.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Telas Fluxo\Manutenção\manualUsuario.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

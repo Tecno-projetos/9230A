@@ -42,7 +42,7 @@ namespace _9230A_V00___PI.DataBase
                 if (!ExistTableDBCA("Automasul"))
                 {
                     CreateTableDBCA("Automasul");
-                    IntoDateDBCA("Automasul", MD5Cryptography("8887"), "Administrador", "automacao@automasul.com", "Created");
+                    IntoDateDBCA("Automasul", MD5Cryptography("8887"), "Administrador", "automacao@automasul.com", "Criou");
                 }
                 return false;
             }

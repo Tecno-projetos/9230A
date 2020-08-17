@@ -292,7 +292,7 @@ namespace _9230A_V00___PI.Usuarios
                     else
                     {
                         //mensagem que criou corretamente
-                        inputDialog = new Utilidades.messageBox("Senhas não conhecidem", "Por favor as senhas não conhecidem, digitar novamente o campo senha", MaterialDesignThemes.Wpf.PackIconKind.UserAdd, "OK", "Fechar");
+                        inputDialog = new Utilidades.messageBox("Senhas não coincidem", "Por favor as senhas não coincidem, digitar novamente o campo senha", MaterialDesignThemes.Wpf.PackIconKind.UserAdd, "OK", "Fechar");
 
                         inputDialog.ShowDialog();
                     }

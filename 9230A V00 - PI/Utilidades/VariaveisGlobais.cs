@@ -21,31 +21,75 @@ namespace _9230A_V00___PI.Utilidades
     {
         #region Structs
 
-        public struct diagnosticoProfinet
+        public struct AuxiliaresProcesso
         {
 
-            //'Bit 1 - Disabled
- 
-            //'Bit 2 - Maintenance required
- 
-            //'Bit 3 - Maintenance demanded
- 
-            //'Bit 4 - Error
- 
-            //'Bit 5 - Hardware component not reachable - Hardware component cannot be accessed.
- 
-            //'Bit 6 - Qualified: Bit 6 = 1 if at least one qualified diagnostics is available
- 
-            //'Bit 7 - I/O data not available - I/O data not available
- 
-            //'8 to 14 - Reserved (always = 0)
- 
-            //'Bit 15 - Network/hardware fault 'S7-1200: Reserved(always = 0) 'S7-1500: If bit 4 = 1 or bit 5 = 1:
+            //Region estrutura de máquinas
+            public float Volume_Maximo_Silo1_2;                       //Maximo silo produto acabado
+            public float Volume_Maximo_Balanca;                       //Maximo silo 1 materia prima.
+            public float Volume_Maximo_Pre_Misturador;                //Maximo silo 2 materia prima.
+            public float Volume_Maximo_Pos_Misturador;                //Maximo silo 2 materia prima.
+            public float Peso_Maximo_Silo1_2;                         //Maximo pré misturador.
+            public float Peso_Maximo_Balanca;                         //Maximo pré misturador.
+            public float Peso_Maximo_Pre_Misturador;                  //Maximo pré misturador.
+            public float Peso_Maximo_Pos_Misturador;                  //Maximo pré misturador.
 
-            //'Bit 15 = 0: Network error
+            public int TempoPosMisturador;                  //Maximo pré misturador.
+            public int TempoPreMisturador;                  //Maximo pré misturador.
 
-            //'Bit 15 = 1: Hardware error
+            //Region estrutura dos registros 1 e  2 
+            //Registro 1
+            public float Abertura_Máxima_Silo1;                      //Maximo abertura sulo 1                                                             
+            public float Inicio_Reducao_Silo1;                      //Inicio redução registro silo 1
+            public float Fechamento_Antecipado_Silo1;               //Fechamento antecipado silo 1
 
+            //Registro 2
+            public float Abertura_Máxima_Silo2;                      //Maximo abertura sulo 2                                                             
+            public float Inicio_Reducao_Silo2;                      //Inicio redução registro silo 2
+            public float Fechamento_Antecipado_Silo2;               //Fechamento antecipado silo 2
+
+
+            //Region Geral
+            //Palavra de controle
+            public bool Habilita_Setar_Balanca_Vazia_Manual;                  //Habilita setar balança vazia em manual
+            public bool Habilita_Setar_Balanca_Vazia_Automatica;              //Habilita setar balança vazia em automatico
+            public bool Seta_Balnca_Vazia;                                    //Setar balança vazia
+            public bool Reserva_0;                      
+            public bool Reserva_1;
+            public bool Reserva_2;
+            public bool Reserva_3;
+            public bool Reserva_4;
+            public bool Reserva_5;
+            public bool Reserva_6;
+            public bool Reserva_7;
+            public bool Reserva_8;
+            public bool Reserva_9;
+            public bool Reserva_10;
+            public bool Reserva_11;
+            public bool Reserva_12;
+            public bool Reserva_13;
+            public bool Reserva_14;
+            public bool Reserva_15;
+            public bool Reserva_16;
+            public bool Reserva_17;
+            public bool Reserva_18;
+            public bool Reserva_19;
+            public bool Reserva_20;
+            public bool Reserva_21;
+            public bool Reserva_22;
+            public bool Reserva_23;
+            public bool Reserva_24;
+            public bool Reserva_25;
+            public bool Reserva_26;
+            public bool Reserva_27;
+            public bool Reserva_28;
+
+            public float Percentual_Habilita_Balanca_Vazia_Automatica;                      //Maximo abertura sulo 2    
+            public float Percentual_Habilita_Balanca_Vazia_Manual;                         //Maximo abertura sulo 2    
+        }
+
+        public struct diagnosticoProfinet
+        {
             public bool Good;
             public bool Disabled;
             public bool Maintenancerequired;
@@ -832,6 +876,9 @@ namespace _9230A_V00___PI.Utilidades
         public static Utilidades.ExecutaProducao executaProducao = new ExecutaProducao(1);
 
         public static Utilidades.executaEnsaque executaEnsaque = new Utilidades.executaEnsaque(2);
+
+        public static Utilidades.controleBalanca controleBalanca = new controleBalanca(4, 0);
+
 
     }
 

@@ -16,17 +16,17 @@ using System.Windows.Shapes;
 namespace _9230A_V00___PI.Telas_Fluxo.Manutenção
 {
     /// <summary>
-    /// Interação lógica para projetoEletrico.xam
+    /// Interação lógica para manualUsuario.xam
     /// </summary>
-    public partial class projetoEletrico : UserControl
+    public partial class manualUsuario : UserControl
     {
-        public projetoEletrico()
+        public manualUsuario()
         {
             InitializeComponent();
 
             if (this.webBrowse != null)
             {
-              this.webBrowse.Navigate(@"C:\Projetos\PAINEIS_BECKER.pdf");
+                this.webBrowse.Navigate(@"C:\Projetos\Manual.pdf");
             }
 
         }

@@ -867,43 +867,7 @@ namespace _9230A_V00___PI.Utilidades
 
             return controleEnsaque;
         }
-        //Command Indicador de Pesagem
-        //=====================================================================================================================================
 
-        public static VariaveisGlobais.IndicadorPesagem ByteToIndicadorPesagem(byte _byte, VariaveisGlobais.IndicadorPesagem indicador)
-        {
-            bool[] bits = new bool[8];
-
-            Conversions.Byte_To_Bit(_byte, ref bits);
-
-            indicador.Comando_Zero = bits[0];
-            indicador.Comando_Tara = bits[1];
-            indicador.Erro_Leitura = bits[2];
-            indicador.Reserva_1 = bits[3];
-            indicador.Reserva_2 = bits[4];
-            indicador.Reserva_3 = bits[5];
-            indicador.Reserva_4 = bits[6];
-            indicador.Reserva_5 = bits[7];
-
-            return indicador;
-        }
-
-
-        public static byte IndicadorPesagemToByte(VariaveisGlobais.IndicadorPesagem indicador)
-        {
-            bool[] bits = new bool[8];
-
-            bits[0] = indicador.Comando_Zero;
-            bits[1] = indicador.Comando_Tara;
-            bits[2] = indicador.Erro_Leitura;
-            bits[3] = indicador.Reserva_1;
-            bits[4] = indicador.Reserva_2;
-            bits[5] = indicador.Reserva_3;
-            bits[6] = indicador.Reserva_4;
-            bits[7] = indicador.Reserva_5;
-
-            return Conversions.Bit_To_Byte(ref bits);
-        }
         public static UInt32 EnsaqueToDwordControleEnsaque(VariaveisGlobais.controleEnsaque controleEnsaque)
         {
             bool[] bits = new bool[32];
@@ -943,12 +907,49 @@ namespace _9230A_V00___PI.Utilidades
 
             return Conversions.Bit_To_Dword(ref bits, true);
         }
-        
+
+        //Command Indicador de Pesagem
+        //=====================================================================================================================================
+
+        public static VariaveisGlobais.IndicadorPesagem ByteToIndicadorPesagem(byte _byte, VariaveisGlobais.IndicadorPesagem indicador)
+        {
+            bool[] bits = new bool[8];
+
+            Conversions.Byte_To_Bit(_byte, ref bits);
+
+            indicador.Comando_Zero = bits[0];
+            indicador.Comando_Tara = bits[1];
+            indicador.Erro_Leitura = bits[2];
+            indicador.Reserva_1 = bits[3];
+            indicador.Reserva_2 = bits[4];
+            indicador.Reserva_3 = bits[5];
+            indicador.Reserva_4 = bits[6];
+            indicador.Reserva_5 = bits[7];
+
+            return indicador;
+        }
+
+        public static byte IndicadorPesagemToByte(VariaveisGlobais.IndicadorPesagem indicador)
+        {
+            bool[] bits = new bool[8];
+
+            bits[0] = indicador.Comando_Zero;
+            bits[1] = indicador.Comando_Tara;
+            bits[2] = indicador.Erro_Leitura;
+            bits[3] = indicador.Reserva_1;
+            bits[4] = indicador.Reserva_2;
+            bits[5] = indicador.Reserva_3;
+            bits[6] = indicador.Reserva_4;
+            bits[7] = indicador.Reserva_5;
+
+            return Conversions.Bit_To_Byte(ref bits);
+        }
+             
         //Command Profinet
         //=====================================================================================================================================
         public static Utilidades.VariaveisGlobais.diagnosticoProfinet WordToDiagnosticoProfinet(UInt16 Word,  VariaveisGlobais.diagnosticoProfinet diagnosticoProfinet)
         {
-            bool[] bits = new bool[15];
+            bool[] bits = new bool[16];
 
             Conversions.Word_To_Bit(Word, ref bits, true);
 
@@ -968,7 +969,7 @@ namespace _9230A_V00___PI.Utilidades
             diagnosticoProfinet.Reserved4 = bits[12];
             diagnosticoProfinet.Reserved5 = bits[13];
             diagnosticoProfinet.Reserved6 = bits[14];
-            diagnosticoProfinet.Reserved7 = bits[15];
+            
 
 
             return diagnosticoProfinet;
@@ -976,7 +977,7 @@ namespace _9230A_V00___PI.Utilidades
 
         public static UInt16 DiagToWordProfinet(VariaveisGlobais.diagnosticoProfinet diagnosticoProfinet)
         {
-            bool[] bits = new bool[15];
+            bool[] bits = new bool[16];
 
             bits[0] = diagnosticoProfinet.Good;
             bits[1] = diagnosticoProfinet.Disabled;
@@ -993,10 +994,94 @@ namespace _9230A_V00___PI.Utilidades
             bits[12] = diagnosticoProfinet.Reserved4;
             bits[13] = diagnosticoProfinet.Reserved5;
             bits[14] = diagnosticoProfinet.Reserved6;
-            bits[15] = diagnosticoProfinet.Reserved7;
+       
 
             return Conversions.Bit_To_Word(ref bits, true);
         }
 
+
+        //Command Auxiliares Processo
+        //=====================================================================================================================================
+        public static VariaveisGlobais.AuxiliaresProcesso DwordTocontroleAuxiliaresProcesso(UInt32 DWord, VariaveisGlobais.AuxiliaresProcesso auxiliaresProcesso )
+        {
+            bool[] bits = new bool[32];
+
+            Conversions.Dword_To_Bit(DWord, ref bits, true);
+
+            auxiliaresProcesso.Habilita_Setar_Balanca_Vazia_Manual = bits[0];
+            auxiliaresProcesso.Habilita_Setar_Balanca_Vazia_Automatica = bits[1];
+            auxiliaresProcesso.Seta_Balnca_Vazia = bits[2];
+            auxiliaresProcesso.Reserva_0 = bits[3];
+            auxiliaresProcesso.Reserva_1 = bits[4];
+            auxiliaresProcesso.Reserva_2 = bits[5];
+            auxiliaresProcesso.Reserva_3 = bits[6];
+            auxiliaresProcesso.Reserva_4 = bits[7];
+            auxiliaresProcesso.Reserva_5 = bits[8];
+            auxiliaresProcesso.Reserva_6 = bits[9];
+            auxiliaresProcesso.Reserva_7 = bits[10];
+            auxiliaresProcesso.Reserva_8 = bits[11];
+            auxiliaresProcesso.Reserva_9 = bits[12];
+            auxiliaresProcesso.Reserva_10 = bits[13];
+            auxiliaresProcesso.Reserva_11 = bits[14];
+            auxiliaresProcesso.Reserva_12 = bits[15];
+            auxiliaresProcesso.Reserva_13 = bits[16];
+            auxiliaresProcesso.Reserva_14 = bits[17];
+            auxiliaresProcesso.Reserva_15 = bits[18];
+            auxiliaresProcesso.Reserva_16 = bits[19];
+            auxiliaresProcesso.Reserva_17 = bits[20];
+            auxiliaresProcesso.Reserva_18 = bits[21];
+            auxiliaresProcesso.Reserva_19 = bits[22];
+            auxiliaresProcesso.Reserva_20 = bits[23];
+            auxiliaresProcesso.Reserva_21 = bits[24];
+            auxiliaresProcesso.Reserva_22 = bits[25];
+            auxiliaresProcesso.Reserva_23 = bits[26];
+            auxiliaresProcesso.Reserva_24 = bits[27];
+            auxiliaresProcesso.Reserva_25 = bits[28];
+            auxiliaresProcesso.Reserva_26 = bits[29];
+            auxiliaresProcesso.Reserva_27 = bits[30];
+            auxiliaresProcesso.Reserva_28 = bits[31];
+
+            return auxiliaresProcesso;
+        }
+
+        public static UInt32 AuxiliaresProcessoToDword(VariaveisGlobais.AuxiliaresProcesso auxiliaresProcesso)
+        {
+            bool[] bits = new bool[32];
+
+            bits[0] = auxiliaresProcesso.Habilita_Setar_Balanca_Vazia_Manual;
+            bits[1] = auxiliaresProcesso.Habilita_Setar_Balanca_Vazia_Automatica;
+            bits[2] = auxiliaresProcesso.Seta_Balnca_Vazia;
+            bits[3] = auxiliaresProcesso.Reserva_0;
+            bits[4] = auxiliaresProcesso.Reserva_1;
+            bits[5] = auxiliaresProcesso.Reserva_2;
+            bits[6] = auxiliaresProcesso.Reserva_3;
+            bits[7] = auxiliaresProcesso.Reserva_4;
+            bits[8] = auxiliaresProcesso.Reserva_5;
+            bits[9] = auxiliaresProcesso.Reserva_6;
+            bits[10] = auxiliaresProcesso.Reserva_7;
+            bits[11] = auxiliaresProcesso.Reserva_8;
+            bits[12] = auxiliaresProcesso.Reserva_9;
+            bits[13] = auxiliaresProcesso.Reserva_10;
+            bits[14] = auxiliaresProcesso.Reserva_11;
+            bits[15] = auxiliaresProcesso.Reserva_12;
+            bits[16] = auxiliaresProcesso.Reserva_13;
+            bits[17] = auxiliaresProcesso.Reserva_14;
+            bits[18] = auxiliaresProcesso.Reserva_15;
+            bits[19] = auxiliaresProcesso.Reserva_16;
+            bits[20] = auxiliaresProcesso.Reserva_17;
+            bits[21] = auxiliaresProcesso.Reserva_18;
+            bits[22] = auxiliaresProcesso.Reserva_19;
+            bits[23] = auxiliaresProcesso.Reserva_20;
+            bits[24] = auxiliaresProcesso.Reserva_21;
+            bits[25] = auxiliaresProcesso.Reserva_22;
+            bits[26] = auxiliaresProcesso.Reserva_23;
+            bits[27] = auxiliaresProcesso.Reserva_24;
+            bits[28] = auxiliaresProcesso.Reserva_25;
+            bits[29] = auxiliaresProcesso.Reserva_26;
+            bits[30] = auxiliaresProcesso.Reserva_27;
+            bits[31] = auxiliaresProcesso.Reserva_28;
+
+            return Conversions.Bit_To_Dword(ref bits, true);
+        }
     }
 }

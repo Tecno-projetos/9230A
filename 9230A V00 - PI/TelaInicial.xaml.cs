@@ -102,7 +102,7 @@ namespace _9230A_V00___PI
 
             VariaveisGlobais.Fluxo.Motor_26_Silo2.loadEquip(Utilidades.typeEquip.Atuador, Utilidades.typeCommand.Atuador_Analogico, 40, 0, "Atuador", "26 Silo 2", "62", "10");
 
-            VariaveisGlobais.Fluxo.Motor_65.loadEquip(Utilidades.typeEquip.INV, Utilidades.typeCommand.INV, 320, 0, "Elevador", "65", "65", "10");
+            VariaveisGlobais.Fluxo.Motor_65.loadEquip(Utilidades.typeEquip.INV, Utilidades.typeCommand.INV, 320, 0, "Rosca", "65", "65", "10");
 
 
 
@@ -130,6 +130,21 @@ namespace _9230A_V00___PI
             Utilidades.VariaveisGlobais.Buffer_PLC[2].Size = 16;
             Utilidades.VariaveisGlobais.Buffer_PLC[2].Enable_Read = true;
             Utilidades.VariaveisGlobais.Buffer_PLC[2].Enable_Write = false;
+
+            Utilidades.VariaveisGlobais.Buffer_PLC[3].Name = "DB Auxiliares";
+            Utilidades.VariaveisGlobais.Buffer_PLC[3].DBNumber = 22;
+            Utilidades.VariaveisGlobais.Buffer_PLC[3].Start = 0;
+            Utilidades.VariaveisGlobais.Buffer_PLC[3].Size = 32;
+            Utilidades.VariaveisGlobais.Buffer_PLC[3].Enable_Read = true;
+            Utilidades.VariaveisGlobais.Buffer_PLC[3].Enable_Write = false;
+
+            Utilidades.VariaveisGlobais.Buffer_PLC[4].Name = "DB Configuracoes Auxiliares Processo";
+            Utilidades.VariaveisGlobais.Buffer_PLC[4].DBNumber = 23;
+            Utilidades.VariaveisGlobais.Buffer_PLC[4].Start = 0;
+            Utilidades.VariaveisGlobais.Buffer_PLC[4].Size = 62;
+            Utilidades.VariaveisGlobais.Buffer_PLC[4].Enable_Read = true;
+            Utilidades.VariaveisGlobais.Buffer_PLC[4].Enable_Write = false;
+
 
             for (int i = 0; i < Utilidades.VariaveisGlobais.Buffer_PLC.Length; i++)
             {
@@ -178,6 +193,9 @@ namespace _9230A_V00___PI
             VariaveisGlobais.Fluxo.actualiza_UI();
 
 
+
+
+
         }
 
         void timer_Tick(object sender, EventArgs e)
@@ -216,6 +234,10 @@ namespace _9230A_V00___PI
                     VariaveisGlobais.Fluxo.inicialProducao.atualiza(ref VariaveisGlobais.executaProducao, ref VariaveisGlobais.ProducaoReceita);
 
                 }
+
+                Utilidades.VariaveisGlobais.controleBalanca.readVariablesBuffer_AuxiliaresProcesso();
+
+
 
                 VariaveisGlobais.executaEnsaque.Ensacar = true;
 
