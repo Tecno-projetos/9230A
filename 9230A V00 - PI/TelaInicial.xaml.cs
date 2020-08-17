@@ -120,7 +120,7 @@ namespace _9230A_V00___PI
             Utilidades.VariaveisGlobais.Buffer_PLC[1].Name = "DB Produção Automática";
             Utilidades.VariaveisGlobais.Buffer_PLC[1].DBNumber = 15;
             Utilidades.VariaveisGlobais.Buffer_PLC[1].Start = 0;
-            Utilidades.VariaveisGlobais.Buffer_PLC[1].Size = 92;
+            Utilidades.VariaveisGlobais.Buffer_PLC[1].Size = 266;
             Utilidades.VariaveisGlobais.Buffer_PLC[1].Enable_Read = true;
             Utilidades.VariaveisGlobais.Buffer_PLC[1].Enable_Write = false;
 
@@ -141,7 +141,7 @@ namespace _9230A_V00___PI
             Utilidades.VariaveisGlobais.Buffer_PLC[4].Name = "DB Configuracoes Auxiliares Processo";
             Utilidades.VariaveisGlobais.Buffer_PLC[4].DBNumber = 23;
             Utilidades.VariaveisGlobais.Buffer_PLC[4].Start = 0;
-            Utilidades.VariaveisGlobais.Buffer_PLC[4].Size = 78;
+            Utilidades.VariaveisGlobais.Buffer_PLC[4].Size = 76;
             Utilidades.VariaveisGlobais.Buffer_PLC[4].Enable_Read = true;
             Utilidades.VariaveisGlobais.Buffer_PLC[4].Enable_Write = false;
 
@@ -156,7 +156,7 @@ namespace _9230A_V00___PI
 
             #region Configuração Dispatcher
 
-            timer50ms.Interval = TimeSpan.FromMilliseconds(1);
+            timer50ms.Interval = TimeSpan.FromMilliseconds(50);
             timer50ms.Tick += timer_Tick;
             timer50ms.Start();
             //====================================================
@@ -165,7 +165,6 @@ namespace _9230A_V00___PI
             timer1s.Start();
 
             #endregion
-
 
             AtualizaButton(pckHome);
 
@@ -192,10 +191,7 @@ namespace _9230A_V00___PI
 
             VariaveisGlobais.Fluxo.actualiza_UI();
 
-
-
-
-
+            VariaveisGlobais.configuracoes.atualizaValoresConfiguracoes();
         }
 
         void timer_Tick(object sender, EventArgs e)

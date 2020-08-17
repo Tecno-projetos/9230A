@@ -49,8 +49,8 @@ namespace _9230A_V00___PI.Telas_Fluxo.Configuracoes
             Comunicacao.Sharp7.S7.SetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 20, Utilidades.VariaveisGlobais.auxiliaresProcesso.Peso_Maximo_Balanca);
             Comunicacao.Sharp7.S7.SetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 24, Utilidades.VariaveisGlobais.auxiliaresProcesso.Peso_Maximo_Pre_Misturador);
             Comunicacao.Sharp7.S7.SetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 28, Utilidades.VariaveisGlobais.auxiliaresProcesso.Peso_Maximo_Pos_Misturador);
-            Comunicacao.Sharp7.S7.SetDIntAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 70, Utilidades.VariaveisGlobais.auxiliaresProcesso.TempoPreMisturador);
-            Comunicacao.Sharp7.S7.SetDIntAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 74, Utilidades.VariaveisGlobais.auxiliaresProcesso.TempoPosMisturador);
+            Comunicacao.Sharp7.S7.SetDIntAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 68, Utilidades.VariaveisGlobais.auxiliaresProcesso.TempoPreMisturador);
+            Comunicacao.Sharp7.S7.SetDIntAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 72, Utilidades.VariaveisGlobais.auxiliaresProcesso.TempoPosMisturador);
 
             VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Enable_Write = true;
 
@@ -59,16 +59,16 @@ namespace _9230A_V00___PI.Telas_Fluxo.Configuracoes
         private void readVariablesBuffer_AuxiliaresProcesso(int bufferPlc_Auxiliares)
         {
             //Controle Máquinas
-            Utilidades.VariaveisGlobais.auxiliaresProcesso.Volume_Maximo_Silo1_2 = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 0);
-            Utilidades.VariaveisGlobais.auxiliaresProcesso.Volume_Maximo_Balanca = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 4);
-            Utilidades.VariaveisGlobais.auxiliaresProcesso.Volume_Maximo_Pre_Misturador = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 8);
-            Utilidades.VariaveisGlobais.auxiliaresProcesso.Volume_Maximo_Pos_Misturador = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 12);
-            Utilidades.VariaveisGlobais.auxiliaresProcesso.Peso_Maximo_Silo1_2 = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 16);
-            Utilidades.VariaveisGlobais.auxiliaresProcesso.Peso_Maximo_Balanca = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 20);
-            Utilidades.VariaveisGlobais.auxiliaresProcesso.Peso_Maximo_Pre_Misturador = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 24);
-            Utilidades.VariaveisGlobais.auxiliaresProcesso.Peso_Maximo_Pos_Misturador = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 28);
-            Utilidades.VariaveisGlobais.auxiliaresProcesso.TempoPreMisturador = Comunicacao.Sharp7.S7.GetDIntAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 70);
-            Utilidades.VariaveisGlobais.auxiliaresProcesso.TempoPosMisturador = Comunicacao.Sharp7.S7.GetDIntAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 74);
+            VariaveisGlobais.ValoresEspecificacoesEquipamentos.VolumeMaximoPermitidoSilo1_2 = Utilidades.VariaveisGlobais.auxiliaresProcesso.Volume_Maximo_Silo1_2 = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 0);
+            VariaveisGlobais.ValoresEspecificacoesEquipamentos.VolumeMaximoPermitidoBalanca = Utilidades.VariaveisGlobais.auxiliaresProcesso.Volume_Maximo_Balanca = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 4);
+            VariaveisGlobais.ValoresEspecificacoesEquipamentos.VolumeMaximoPermitidoPreMisturador = Utilidades.VariaveisGlobais.auxiliaresProcesso.Volume_Maximo_Pre_Misturador = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 8);
+            VariaveisGlobais.ValoresEspecificacoesEquipamentos.VolumeMaximoPermitidoPosMisturador = Utilidades.VariaveisGlobais.auxiliaresProcesso.Volume_Maximo_Pos_Misturador = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 12);
+            VariaveisGlobais.ValoresEspecificacoesEquipamentos.PesoMaximoPermitidoSilo1_2 = Utilidades.VariaveisGlobais.auxiliaresProcesso.Peso_Maximo_Silo1_2 = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 16);
+            VariaveisGlobais.ValoresEspecificacoesEquipamentos.PesoMaximoPermitidoBalanca = Utilidades.VariaveisGlobais.auxiliaresProcesso.Peso_Maximo_Balanca = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 20);
+            VariaveisGlobais.ValoresEspecificacoesEquipamentos.PesoMaximoPermitidoPreMisturador = Utilidades.VariaveisGlobais.auxiliaresProcesso.Peso_Maximo_Pre_Misturador = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 24);
+            VariaveisGlobais.ValoresEspecificacoesEquipamentos.PesoMaximoPermitidoPosMisturador = Utilidades.VariaveisGlobais.auxiliaresProcesso.Peso_Maximo_Pos_Misturador = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 28);
+            VariaveisGlobais.ValoresEspecificacoesEquipamentos.TempoPreMistura = Utilidades.VariaveisGlobais.auxiliaresProcesso.TempoPreMisturador = Comunicacao.Sharp7.S7.GetDIntAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 68);
+            VariaveisGlobais.ValoresEspecificacoesEquipamentos.TempoPosMistura = Utilidades.VariaveisGlobais.auxiliaresProcesso.TempoPosMisturador = Comunicacao.Sharp7.S7.GetDIntAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 72);
 
         }
 
@@ -188,7 +188,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Configuracoes
 
         #region Funções
 
-        private void LeituraInformacoes()
+        public void LeituraInformacoes()
         {
             readVariablesBuffer_AuxiliaresProcesso(4);
 

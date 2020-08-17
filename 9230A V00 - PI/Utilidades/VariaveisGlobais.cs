@@ -242,10 +242,10 @@ namespace _9230A_V00___PI.Utilidades
             public bool Producao_Carregou_Dados_Iniciais_Batelada_No_Processo;    //Carregou os dados iniciais no processo para iniciar a dosagem manual e a dosagem automática.
             public bool Liberado_Nova_Batelada;                                   //Slot Disponível para iniciar nova Batelada
             public bool Supervisao_Carregou_Dados_Batelada;                       //Quando o Supervisorio carregou os dados da nova batelada
-            public bool Reserva_3;
-            public bool Reserva_4;
-            public bool Reserva_5;
-            public bool Reserva_6;
+            public bool Finalizou_Dosagem_Automatica_Silo_1;                      //Quando o CLP finalizou de dosar automaticamente o silo 1
+            public bool Finalizou_Dosagem_Automatica_Silo_2;                      //Quando o CLP finalizou de dosar automaticamente o silo 2
+            public bool Supervisorio_Salvou_Dados_Silo_1;                         //Quando Supervisorio salvou os dados do silo 1
+            public bool Supervisorio_Salvou_Dados_Silo_2;                         //Quando Supervisorio salvou os dados do silo 2
             public bool Reserva_7;
             public bool Reserva_8;
             public bool Reserva_9;
@@ -1352,6 +1352,8 @@ namespace _9230A_V00___PI.Utilidades
         public float VolumeMaximoPermitidoPosMisturador { get; set; } //Volume máximo permitido no Pos Misturador
 
         public float PesoMaximoPermitidoBalanca { get; set; } //Peso máximo permitido na balança
+
+        public float PesoMaximoPermitidoSilo1_2 { get; set; } //Peso máximo permitido no silo 1 e 2
 
         public float PesoMaximoPermitidoPreMisturador { get; set; } //Peso máximo permitido no Pré Misturador
 

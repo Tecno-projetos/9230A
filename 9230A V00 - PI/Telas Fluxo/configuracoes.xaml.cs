@@ -60,5 +60,10 @@ namespace _9230A_V00___PI.Telas_Fluxo
                 spConfiguracao.Children.Clear();
             }
         }
+
+        public void atualizaValoresConfiguracoes()
+        {
+            especificaoes.LeituraInformacoes();
+        }
     }
 }
