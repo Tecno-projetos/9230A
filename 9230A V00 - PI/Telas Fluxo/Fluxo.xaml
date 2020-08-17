@@ -141,7 +141,7 @@
                 </TransformGroup>
             </Rectangle.RenderTransform>
         </Rectangle>
-        <Desenhos:balanca HorizontalAlignment="Left" Height="163" Margin="94,491,0,0" VerticalAlignment="Top" Width="180" RenderTransformOrigin="0.5,0.5">
+        <Desenhos:balanca x:Name="indicadorPesagem" HorizontalAlignment="Left" Height="163" Margin="94,491,0,0" VerticalAlignment="Top" Width="180" RenderTransformOrigin="0.5,0.5">
             <Desenhos:balanca.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="0.8" ScaleY="0.8"/>
@@ -151,7 +151,6 @@
                 </TransformGroup>
             </Desenhos:balanca.RenderTransform>
         </Desenhos:balanca>
-        <Label Content="BALANÇA" HorizontalAlignment="Left" Height="25" Margin="118,518,0,0" VerticalAlignment="Top" Width="130" RenderTransformOrigin="0.5,0.5" FontSize="10" Foreground="White" FontWeight="Bold" HorizontalContentAlignment="Center"/>
         <Equipamentos:rosca x:Name="Motor_43" HorizontalAlignment="Left" Height="16" Margin="484,466,0,0" VerticalAlignment="Top" Width="79" RenderTransformOrigin="0.5,0.5">
             <Equipamentos:rosca.RenderTransform>
                 <TransformGroup>
@@ -357,7 +356,7 @@
         </Equipamentos:bifurcadaDireita>
         <Label Content="26" HorizontalAlignment="Left" Height="40" Margin="148,458,0,0" VerticalAlignment="Top" Width="40" RenderTransformOrigin="0.5,0.5" FontSize="20" Foreground="#FFB8B8B8" FontWeight="Bold"/>
         <Label Content="26" HorizontalAlignment="Left" Height="40" Margin="192,458,0,0" VerticalAlignment="Top" Width="40" RenderTransformOrigin="0.5,0.5" FontSize="20" Foreground="#FFB8B8B8" FontWeight="Bold"/>
-        <Label Content="27" HorizontalAlignment="Left" Height="40" Margin="118,518,0,0" VerticalAlignment="Top" Width="40" RenderTransformOrigin="0.5,0.5" FontSize="20" Foreground="#FFB8B8B8" FontWeight="Bold"/>
+        <Label Content="27" HorizontalAlignment="Left" Height="40" Margin="85,511,0,0" VerticalAlignment="Top" Width="40" RenderTransformOrigin="0.5,0.5" FontSize="20" Foreground="#FFB8B8B8" FontWeight="Bold"/>
         <Label Content="29" HorizontalAlignment="Left" Height="40" Margin="101,640,0,-5" VerticalAlignment="Top" Width="40" RenderTransformOrigin="0.5,0.5" FontSize="20" Foreground="#FFB8B8B8" FontWeight="Bold"/>
         <Label Content="30" HorizontalAlignment="Left" Height="40" Margin="320,640,0,-5" VerticalAlignment="Top" Width="40" RenderTransformOrigin="0.5,0.5" FontSize="20" Foreground="#FFB8B8B8" FontWeight="Bold"/>
         <Equipamentos:alimentador HorizontalAlignment="Left" Height="35" Margin="347,380,0,0" VerticalAlignment="Top" Width="29" RenderTransformOrigin="0.5,0.5">
@@ -471,8 +470,6 @@
         <Label x:Name="lbVelocidade65" Content="1800 RPM" HorizontalAlignment="Left" Height="18" Margin="947,446,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.5,0.5" Foreground="#FFB8B8B8" FontWeight="Bold" HorizontalContentAlignment="Right" Padding="0,0,5,0" FontSize="14"/>
         <Label Content="63" HorizontalAlignment="Left" Height="40" Margin="953,229,0,0" VerticalAlignment="Top" Width="40" RenderTransformOrigin="0.5,0.5" FontSize="20" Foreground="#FFB8B8B8" FontWeight="Bold"/>
         <Label x:Name="lbposicao26B" Content="100%" Height="18" Margin="265,482,0,0" VerticalAlignment="Top" Width="45" RenderTransformOrigin="0.5,0.5" Foreground="#FFB8B8B8" FontWeight="Bold" Padding="0,0,5,0" FontSize="14" HorizontalAlignment="Left"/>
-        <Label Content="750,50" Height="27" Margin="138,554,0,0" VerticalAlignment="Top" Width="70" RenderTransformOrigin="0.5,0.5" Foreground="White" FontWeight="Bold" Padding="0,0,5,0" FontSize="20" HorizontalAlignment="Left"/>
-        <Label Content="kg" HorizontalAlignment="Left" Height="25" Margin="200,560,0,0" VerticalAlignment="Top" Width="22" RenderTransformOrigin="0.5,0.5" FontSize="10" Foreground="White" FontWeight="Bold" HorizontalContentAlignment="Center"/>
 
         <Controle_Produção:inicialControleProducao x:Name="inicialProducao" HorizontalAlignment="Left" Height="295" Margin="288,9,0,0" VerticalAlignment="Top" Width="499"/>
         <Equipamentos:dosadorOscilante x:Name="Motor_26_Silo2" HorizontalAlignment="Left" Height="31" Margin="206,474,0,0" VerticalAlignment="Top" Width="54" RenderTransformOrigin="0.5,0.5">

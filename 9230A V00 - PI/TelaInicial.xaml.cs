@@ -113,7 +113,7 @@ namespace _9230A_V00___PI
             Utilidades.VariaveisGlobais.Buffer_PLC[0].Name = "DB Controle Todos Equipamentos";
             Utilidades.VariaveisGlobais.Buffer_PLC[0].DBNumber = 2;
             Utilidades.VariaveisGlobais.Buffer_PLC[0].Start = 0;
-            Utilidades.VariaveisGlobais.Buffer_PLC[0].Size = 372;
+            Utilidades.VariaveisGlobais.Buffer_PLC[0].Size = 400;
             Utilidades.VariaveisGlobais.Buffer_PLC[0].Enable_Read = true;
             Utilidades.VariaveisGlobais.Buffer_PLC[0].Enable_Write = false;
 
@@ -176,11 +176,28 @@ namespace _9230A_V00___PI
 
             VariaveisGlobais.Fluxo.ensque_Click += Fluxo_ensque_Click;
 
+            VariaveisGlobais.Fluxo.indicadorPesagem.abreTela += IndicadorPesagem_abreTela;
+
+            VariaveisGlobais.telabalanca.Closing += Telabalanca_Closing;
+
             //Verifica qual Produção esta em execução e carrega a produção
             DataBase.SQLFunctionsProducao.AtualizaProducaoEmExecucao();
 
             windowFirstLoading.Close();
 
+        }
+
+        private void Telabalanca_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            e.Cancel = true;
+            VariaveisGlobais.telabalanca.Hide();
+        }
+
+        private void IndicadorPesagem_abreTela(object sender, EventArgs e)
+        {
+
+            VariaveisGlobais.telabalanca.atualizaTela();
+            VariaveisGlobais.telabalanca.ShowDialog();
         }
 
         #region Timer Ticks
@@ -222,6 +239,10 @@ namespace _9230A_V00___PI
                 VariaveisGlobais.Fluxo.Motor_26_Silo2.actualize_Equip = true;
                 VariaveisGlobais.Fluxo.Motor_23.actualize_Equip = true;
 
+                VariaveisGlobais.telabalanca.atualiza_Balanca();
+                VariaveisGlobais.Fluxo.indicadorPesagem.Actualize_UI(VariaveisGlobais.indicadorPesagem);
+
+
                 //Atualiza Execução Produção
                 if (VariaveisGlobais.ProducaoReceita.IniciouProducao && !VariaveisGlobais.ProducaoReceita.FinalizouProducao)
                 {
@@ -230,6 +251,10 @@ namespace _9230A_V00___PI
                     VariaveisGlobais.Fluxo.inicialProducao.atualiza(ref VariaveisGlobais.executaProducao, ref VariaveisGlobais.ProducaoReceita);
 
                 }
+
+
+
+
 
                 VariaveisGlobais.executaEnsaque.Ensacar = true;
 
