@@ -159,8 +159,8 @@ namespace _9230A_V00___PI.Usuarios
                     DataGridHistory.Columns[3].Header = "Evento";
                     DataGridHistory.Columns[4].Header = "E-mail";
                     DataGridHistory.Columns[5].Header = "Data/Hora";
+                    DataGridHistory.Columns[6].Visibility = Visibility.Hidden;
 
-                    
 
                 }
                 else

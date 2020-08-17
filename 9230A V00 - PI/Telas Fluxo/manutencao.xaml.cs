@@ -110,5 +110,13 @@ namespace _9230A_V00___PI.Telas_Fluxo
 
             spManutencao.Children.Add(prjEletrico);
         }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (spManutencao != null)
+            {
+                spManutencao.Children.Clear();
+            }
+        }
     }
 }

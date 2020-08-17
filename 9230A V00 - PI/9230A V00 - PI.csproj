@@ -342,6 +342,7 @@
     <Compile Include="Usuarios\removerUsuario.xaml.cs">
       <DependentUpon>removerUsuario.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Utilidades\controleBalanca.cs" />
     <Compile Include="Utilidades\Conversions.cs" />
     <Compile Include="Utilidades\convertTextInputToVisibility.cs" />
     <Compile Include="Utilidades\EquipsControl.cs" />

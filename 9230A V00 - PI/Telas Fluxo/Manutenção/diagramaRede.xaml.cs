@@ -24,7 +24,6 @@ namespace _9230A_V00___PI.Telas_Fluxo.Manutenção
         Utilidades.VariaveisGlobais.diagnosticoProfinet _1U2 = new Utilidades.VariaveisGlobais.diagnosticoProfinet();
         Utilidades.VariaveisGlobais.diagnosticoProfinet _2U2 = new Utilidades.VariaveisGlobais.diagnosticoProfinet();
 
-
         public diagramaRede()
         {
             InitializeComponent();
