@@ -150,11 +150,13 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
                     {
                         btDosarManual.Background = new SolidColorBrush(Colors.Yellow);
                         txtDosarManual.Foreground = new SolidColorBrush(Colors.Black);
+                        txtDosarManual.Text = "Iniciar Dosagem Manual";
                     }
                     else
                     {
                         btDosarManual.Background = new SolidColorBrush(Colors.Gray);
                         txtDosarManual.Foreground = new SolidColorBrush(Colors.Black);
+                        txtDosarManual.Text = "Salvando Valor Dosagem";
                     }
                 }
 
@@ -221,12 +223,16 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
         private void btDosarManual_Click(object sender, RoutedEventArgs e)
         {
 
-            if (VariaveisGlobais.executaProducao.ControleExecucao.Slot_1.Complemento_Pre.Habilitado_Inicio_Dosagem)
+            if (VariaveisGlobais.executaProducao.ControleExecucao.Slot_1.Complemento_Pre.Habilitado_Inicio_Dosagem ||
+                (VariaveisGlobais.executaProducao.ControleExecucao.Slot_1.Complemento_Pre.Item_Atual_Iniciado_Dosagem && !VariaveisGlobais.executaProducao.ControleExecucao.Slot_1.Complemento_Pre.Item_Atual_Finalizado_Dosagem)
+                )
             {
                 VariaveisGlobais.executaProducao.InicioDosagemManualComplementoPre(SlotSolicitado);
             }
 
-            if (VariaveisGlobais.executaProducao.ControleExecucao.Slot_1.Complemento_Pos.Habilitado_Inicio_Dosagem)
+            if (VariaveisGlobais.executaProducao.ControleExecucao.Slot_1.Complemento_Pos.Habilitado_Inicio_Dosagem ||
+                (VariaveisGlobais.executaProducao.ControleExecucao.Slot_1.Complemento_Pos.Item_Atual_Iniciado_Dosagem && !VariaveisGlobais.executaProducao.ControleExecucao.Slot_1.Complemento_Pos.Item_Atual_Finalizado_Dosagem)
+                )
             {
                 VariaveisGlobais.executaProducao.InicioDosagemManualComplementoPre(SlotSolicitado);
             }

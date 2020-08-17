@@ -57,6 +57,8 @@ namespace _9230A_V00___PI.Utilidades
 
                 Comunicacao.Sharp7.S7.SetIntAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 28, controleExecucao.Slot_1.Complemento_Pre.Quantidade_Itens); //Escreve no Buffer Quantidade de itens dosagem manual matéria prima
 
+                Comunicacao.Sharp7.S7.SetByteAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 40, Move_Bits.ComplementoToByteBatelada(controleExecucao.Slot_1.Complemento_Pre));
+
                 Comunicacao.Sharp7.S7.SetIntAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 42, controleExecucao.Slot_1.Complemento_Pos.Quantidade_Itens); //Escreve no Buffer Quantidade de itens dosagem manual pós mistura
 
                 Comunicacao.Sharp7.S7.SetIntAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 72, controleExecucao.Slot_1.Quantidade_Total_Produtos);
@@ -113,10 +115,7 @@ namespace _9230A_V00___PI.Utilidades
             controleExecucao.Bateladas_Iniciadas = Comunicacao.Sharp7.S7.GetIntAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 86);
             controleExecucao.Bateladas_Finalizadas = Comunicacao.Sharp7.S7.GetIntAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 88);
 
-
         }
-
-
 
         /// <summary>
         /// Adiciona as variaveis necessarias para iniciar a produção da batelada em um determinado slot do CLP
@@ -177,7 +176,7 @@ namespace _9230A_V00___PI.Utilidades
             }
 
             controleExecucao.Slot_1.Complemento_Pos.Quantidade_Itens = count; //Passa quantidade de itens para dosar manualmente na pós mistura
-            controleExecucao.Slot_1.Carregou_Nova_Batelada = true;
+            controleExecucao.Slot_1.Supervisao_Carregou_Dados_Batelada = true;
 
             writeVariablesSlotIntoBuffer(slot);
             VariaveisGlobais.Buffer_PLC[bufferPlc].Enable_Write = true;
@@ -193,7 +192,7 @@ namespace _9230A_V00___PI.Utilidades
             //Verifica se a quantidade de bateladas iniciadas é diferente da quantidade de bateladas existentes, cado for igual significa que ja foi iniciado todas as bateladas
             if (controleExecucao.Bateladas_Iniciadas != Utilidades.VariaveisGlobais.ProducaoReceita.quantidadeBateladas)
             {
-                if (controleExecucao.Slot_1.Solicita_Nova_Batelada && !controleExecucao.Slot_1.Carregou_Nova_Batelada) //Verifica se o slot 1 do CLP pode receber uma batelada
+                if (controleExecucao.Slot_1.Solicita_Nova_Batelada && !controleExecucao.Slot_1.Supervisao_Carregou_Dados_Batelada) //Verifica se o slot 1 do CLP pode receber uma batelada
                 {
                     //Adiciona a batelada no slot 1
                     addInfoBateladaSlot(1, controleExecucao.Bateladas_Iniciadas);
@@ -216,8 +215,41 @@ namespace _9230A_V00___PI.Utilidades
 
                 //Verifica disponibilidade de slot
                 verificaDisponibilidadeSlot();
+
+                //Salva Pesos Dosados
+                salva_Peso_Dosado_Item_Produzindo();
             }
 
+        }
+
+        private void salva_Peso_Dosado_Item_Produzindo()
+        {
+            //Verifica qual slot iniciou a produção
+            if (controleExecucao.Slot_1.Iniciou_Producao_No_Processo)
+            {
+                //Verifica se tem item da dosagem de complemento pré para salvar e salva no banco de dados, após libera para a prx dosagem de complemento
+                if (controleExecucao.Slot_1.Complemento_Pre.Item_Atual_Finalizado_Dosagem)
+                {
+
+                    DataBase.SQLFunctionsProducao.Update_PesoDosado_ProdutoBatelada(
+                        VariaveisGlobais.ProducaoReceita.id,
+                        controleExecucao.Slot_1.NumeroBatelada,
+                        VariaveisGlobais.ProducaoReceita.batelada[controleExecucao.Slot_1.NumeroBatelada -1].produtos[controleExecucao.Slot_1.Produto_Atual_Em_Producao -1].codigo,
+                        controleExecucao.Slot_1.Complemento_Pre.Quantidade_Dosada_Item_Atual);
+
+                    //Atualiza o produto batelada
+                    VariaveisGlobais.ProducaoReceita.batelada[controleExecucao.Slot_1.NumeroBatelada - 1].produtos[controleExecucao.Slot_1.Produto_Atual_Em_Producao - 1].pesoDosado = controleExecucao.Slot_1.Complemento_Pre.Quantidade_Dosada_Item_Atual;
+
+                    //Reseta o finalizado dosagem de complemento
+                    VariaveisGlobais.Buffer_PLC[bufferPlc].Enable_Read = false;
+
+                    controleExecucao.Slot_1.Complemento_Pre.Supervisao_Salvou_Dados_Dosado_Item_Atual = true;
+
+                    writeVariablesSlotIntoBuffer(1);
+
+                    VariaveisGlobais.Buffer_PLC[bufferPlc].Enable_Write = true;
+                }
+            }
         }
 
         /// <summary>

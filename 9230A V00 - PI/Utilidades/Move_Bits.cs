@@ -715,7 +715,7 @@ namespace _9230A_V00___PI.Utilidades
             complemento.Item_Atual_Iniciado_Dosagem = bits[2];
             complemento.Item_Atual_Finalizado_Dosagem = bits[3];
             complemento.Finalizado_Dosagem_Complementos = bits[4];
-            complemento.Reserva = bits[5];
+            complemento.Supervisao_Salvou_Dados_Dosado_Item_Atual = bits[5];
             complemento.Reserva_1 = bits[6];
             complemento.Reserva_2 = bits[7];
 
@@ -732,7 +732,7 @@ namespace _9230A_V00___PI.Utilidades
             bits[2] = complemento.Item_Atual_Iniciado_Dosagem;
             bits[3] = complemento.Item_Atual_Finalizado_Dosagem;
             bits[4] = complemento.Finalizado_Dosagem_Complementos;
-            bits[5] = complemento.Reserva;
+            bits[5] = complemento.Supervisao_Salvou_Dados_Dosado_Item_Atual;
             bits[6] = complemento.Reserva_1;
             bits[7] = complemento.Reserva_2;
 
@@ -749,11 +749,11 @@ namespace _9230A_V00___PI.Utilidades
             Conversions.Dword_To_Bit(DWord, ref bits, true);
 
             slot.Solicita_Nova_Batelada = bits[0];
-            slot.Iniciou = bits[1];
-            slot.Finalizou = bits[2];
-            slot.Carregou_Nova_Batelada = bits[3];
-            slot.Reserva_1 = bits[4];
-            slot.Reserva_2 = bits[5];
+            slot.Iniciou_Producao_No_Processo = bits[1];
+            slot.Finalizou_Producao_No_Processo = bits[2];
+            slot.Producao_Carregou_Dados_Iniciais_Batelada_No_Processo = bits[3];
+            slot.Liberado_Nova_Batelada = bits[4];
+            slot.Supervisao_Carregou_Dados_Batelada = bits[5];
             slot.Reserva_3 = bits[6];
             slot.Reserva_4 = bits[7];
             slot.Reserva_5 = bits[8];
@@ -789,11 +789,11 @@ namespace _9230A_V00___PI.Utilidades
             bool[] bits = new bool[32];
 
             bits[0] = slot.Solicita_Nova_Batelada;
-            bits[1] = slot.Iniciou;
-            bits[2] = slot.Finalizou;
-            bits[3] = slot.Carregou_Nova_Batelada;
-            bits[4] = slot.Reserva_1;
-            bits[5] = slot.Reserva_2;
+            bits[1] = slot.Iniciou_Producao_No_Processo;
+            bits[2] = slot.Finalizou_Producao_No_Processo;
+            bits[3] = slot.Producao_Carregou_Dados_Iniciais_Batelada_No_Processo;
+            bits[4] = slot.Liberado_Nova_Batelada;
+            bits[5] = slot.Supervisao_Carregou_Dados_Batelada;
             bits[6] = slot.Reserva_3;
             bits[7] = slot.Reserva_4;
             bits[8] = slot.Reserva_5;

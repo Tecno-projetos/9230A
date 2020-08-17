@@ -323,5 +323,38 @@ namespace _9230A_V00___PI.DataBase
                  
         }
 
+        public static int Update_PesoDosado_ProdutoBatelada(int idProducao, int numeroBatelada, string codigoProduto, float valorDosado)
+        {
+            int ret = -1;
+            if (Utilidades.VariaveisGlobais.DB_Connected_GS)
+            {
+                try
+                {
+                    string CommandString = "UPDATE Bateladas SET ValorDosado = '" + valorDosado + "' WHERE IdProducao = " + idProducao + " AND " +
+                        "CodigoProduto = "+codigoProduto+" AND " +
+                        "NumeroBatelada = "+numeroBatelada+";";
+
+                    dynamic Call = SqlGlobalFuctions.ReturnCall(Utilidades.VariaveisGlobais.Connection_DB_Receitas_GS);
+                    dynamic Command = SqlGlobalFuctions.ReturnCommand(CommandString, Call);
+
+                    Call.Open();
+                    ret = Command.ExecuteNonQuery();
+                    Call.Close();
+                    return ret;
+                }
+                catch (Exception ex)
+                {
+                    Utilidades.VariaveisGlobais.Window_Buffer_Diagnostic.List_Error = ex.ToString();
+                    ret = -1;
+                    return ret;
+                }
+            }
+            else
+            {
+                return ret;
+            }
+
+        }
+
     }
 }
