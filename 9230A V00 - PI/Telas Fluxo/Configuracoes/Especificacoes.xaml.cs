@@ -59,6 +59,9 @@ namespace _9230A_V00___PI.Telas_Fluxo.Configuracoes
 
         private void btInjetarInfo_Click(object sender, RoutedEventArgs e)
         {
+
+
+
             Utilidades.VariaveisGlobais.ValoresEspecificacoesEquipamentos.VolumeMaximoPermitidoSilo1_2 = 7.1f;
             Utilidades.VariaveisGlobais.ValoresEspecificacoesEquipamentos.VolumeMaximoPermitidoBalanca = 1.2f;
             Utilidades.VariaveisGlobais.ValoresEspecificacoesEquipamentos.VolumeMaximoPermitidoPreMisturador = 1.8f;

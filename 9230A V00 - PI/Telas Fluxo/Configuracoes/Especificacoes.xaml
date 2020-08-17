@@ -63,7 +63,7 @@
                     </MultiBinding>
                 </TextBlock.Visibility>
             </TextBlock>
-            <TextBox x:Name="txtVolumeSilo1_2" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" PreviewMouseLeftButtonUp="openKeyboard" />
+            <TextBox x:Name="txtVolumeSilo1_2" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" />
         </Grid>
         <materialDesign:PackIcon Kind="Pencil" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="14,142,772,492" BorderBrush="#FF040404"/>
         <Label Content="Volume Máximo Permitido na Balança (m³):" Height="34" Margin="52,193,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="371" Foreground="White" FontWeight="Bold" FontSize="16"/>
@@ -76,7 +76,7 @@
                     </MultiBinding>
                 </TextBlock.Visibility>
             </TextBlock>
-            <TextBox x:Name="txtVolumeBalanca" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" PreviewMouseLeftButtonUp="openKeyboard" />
+            <TextBox x:Name="txtVolumeBalanca" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" />
         </Grid>
         <materialDesign:PackIcon Kind="Pencil" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="14,232,772,402" BorderBrush="#FF040404"/>
         <Label Content="Volume Máximo Permitido Pré Misturador (m³):" Height="34" Margin="52,283,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="371" Foreground="White" FontWeight="Bold" FontSize="16"/>
@@ -89,7 +89,7 @@
                     </MultiBinding>
                 </TextBlock.Visibility>
             </TextBlock>
-            <TextBox x:Name="txtVolumePreMisturador" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" PreviewMouseLeftButtonUp="openKeyboard" />
+            <TextBox x:Name="txtVolumePreMisturador" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" />
         </Grid>
         <materialDesign:PackIcon Kind="Pencil" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="14,322,772,312" BorderBrush="#FF040404"/>
         <Label Content="Volume Máximo Permitido Pós Misturador (m³):" Height="34" Margin="52,373,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="371" Foreground="White" FontWeight="Bold" FontSize="16"/>
@@ -102,7 +102,7 @@
                     </MultiBinding>
                 </TextBlock.Visibility>
             </TextBlock>
-            <TextBox x:Name="txtVolumePosMisturador" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" PreviewMouseLeftButtonUp="openKeyboard" />
+            <TextBox x:Name="txtVolumePosMisturador" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" />
         </Grid>
         <materialDesign:PackIcon Kind="Pencil" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="14,412,772,222" BorderBrush="#FF040404"/>
         <Label Content="Peso Máximo Permitido na Balança (kg):" Height="34" Margin="52,463,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="371" Foreground="White" FontWeight="Bold" FontSize="16"/>
@@ -115,7 +115,7 @@
                     </MultiBinding>
                 </TextBlock.Visibility>
             </TextBlock>
-            <TextBox x:Name="txtPesoBalanca" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" PreviewMouseLeftButtonUp="openKeyboard" />
+            <TextBox x:Name="txtPesoBalanca" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" />
         </Grid>
         <materialDesign:PackIcon Kind="Pencil" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="14,502,772,132" BorderBrush="#FF040404"/>
         <Label Content="Peso Máximo Permitido no Pré Misturador(kg):" Height="34" Margin="52,553,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="371" Foreground="White" FontWeight="Bold" FontSize="16"/>
@@ -128,7 +128,7 @@
                     </MultiBinding>
                 </TextBlock.Visibility>
             </TextBlock>
-            <TextBox x:Name="txtPesoPreMisturador" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" PreviewMouseLeftButtonUp="openKeyboard" />
+            <TextBox x:Name="txtPesoPreMisturador" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" />
         </Grid>
         <materialDesign:PackIcon Kind="Pencil" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="14,592,772,42" BorderBrush="#FF040404"/>
         <Label Content="Peso Máximo Permitido no Pós Misturador(kg):" Height="34" Margin="451,103,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="371" Foreground="White" FontWeight="Bold" FontSize="16"/>
@@ -141,10 +141,10 @@
                     </MultiBinding>
                 </TextBlock.Visibility>
             </TextBlock>
-            <TextBox x:Name="txtPesoPosMisturador" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" PreviewMouseLeftButtonUp="openKeyboard" />
+            <TextBox x:Name="txtPesoPosMisturador" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" />
         </Grid>
         <materialDesign:PackIcon Kind="Pencil" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="413,142,373,492" BorderBrush="#FF040404"/>
-        <Button x:Name="btSalvarInformacoes" Margin="599,592,18,42" Background="#FF505050" BorderBrush="Black" Height="Auto" Opacity="1" Click="btSalvarInformacoes_Click" >
+        <Button x:Name="btSalvarInformacoes" Margin="451,592,18,42" Background="#FF505050" BorderBrush="Black" Height="Auto" Opacity="1" Click="btSalvarInformacoes_Click" >
             <Grid Width="150">
                 <materialDesign:PackIcon x:Name="packiconCadastrarEditar" Kind="ContentSave" VerticalAlignment="Center" Foreground="White" Margin="-15,-6,0,-7" Height="30" Width="30"/>
                 <TextBlock x:Name="lbTextButton" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="31,1,-9,-1" Width="128" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Salvar Informações"/>
@@ -160,7 +160,7 @@
                     </MultiBinding>
                 </TextBlock.Visibility>
             </TextBlock>
-            <TextBox x:Name="txtTempoPreMistura" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" PreviewMouseLeftButtonUp="openKeyboard" />
+            <TextBox x:Name="txtTempoPreMistura" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" />
         </Grid>
         <materialDesign:PackIcon Kind="Pencil" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="413,231,373,403" BorderBrush="#FF040404"/>
         <Label Content="Tempo Pós Mistura(s):" Height="34" Margin="451,282,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="371" Foreground="White" FontWeight="Bold" FontSize="16"/>
@@ -173,15 +173,9 @@
                     </MultiBinding>
                 </TextBlock.Visibility>
             </TextBlock>
-            <TextBox x:Name="txtTempoPosMistura" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" PreviewMouseLeftButtonUp="openKeyboard" />
+            <TextBox x:Name="txtTempoPosMistura" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" />
         </Grid>
         <materialDesign:PackIcon Kind="Pencil" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="413,321,373,313" BorderBrush="#FF040404"/>
-        <Button x:Name="btInjetarInfo" Margin="522,456,95,178" Background="#FF505050" BorderBrush="Black" Height="Auto" Opacity="1" Click="btInjetarInfo_Click" >
-            <Grid Width="150">
-                <materialDesign:PackIcon x:Name="packiconCadastrarEditar1" Kind="ContentSave" VerticalAlignment="Center" Foreground="White" Margin="-15,-6,0,-7" Height="30" Width="30"/>
-                <TextBlock x:Name="lbTextButton1" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="31,1,-9,-1" Width="128" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Injetar INFO"/>
-            </Grid>
-        </Button>
 
 
     </Grid>

@@ -31,28 +31,33 @@ namespace _9230A_V00___PI.Utilidades
         public void readVariablesBuffer_AuxiliaresProcesso()
         {
             //Controle Máquinas
-            auxiliaresProcesso.Maximo_Silo_Produto_Acabado = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 0);
-            auxiliaresProcesso.Maximo_Silo1_Materia_Prima = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 4);
-            auxiliaresProcesso.Maximo_Silo2_Materia_Prima = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 8);
-            auxiliaresProcesso.Maximo_Balanca = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 12);
-            auxiliaresProcesso.Maximo_PreMisturador = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 16);
-            auxiliaresProcesso.Maximo_PosMisturador = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 20);
+            auxiliaresProcesso.Volume_Maximo_Silo1_2 = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 0);
+            auxiliaresProcesso.Volume_Maximo_Balanca = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 4);
+            auxiliaresProcesso.Volume_Maximo_Pre_Misturador = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 8);
+            auxiliaresProcesso.Volume_Maximo_Pos_Misturador = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 12);
+            auxiliaresProcesso.Peso_Maximo_Silo1_2 = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 16);
+            auxiliaresProcesso.Peso_Maximo_Balanca = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 20);
+            auxiliaresProcesso.Peso_Maximo_Pre_Misturador = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 24);
+            auxiliaresProcesso.Peso_Maximo_Pos_Misturador = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 28);
 
 
             //Controle Registro
-            auxiliaresProcesso.Abertura_Máxima_Silo1 = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 24);
-            auxiliaresProcesso.Inicio_Reducao_Silo1 = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 28);
-            auxiliaresProcesso.Fechamento_Antecipado_Silo1 = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 32);
+            auxiliaresProcesso.Abertura_Máxima_Silo1 = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 32);
+            auxiliaresProcesso.Inicio_Reducao_Silo1 = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 36);
+            auxiliaresProcesso.Fechamento_Antecipado_Silo1 = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 40);
 
-            auxiliaresProcesso.Abertura_Máxima_Silo2 = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 36);
-            auxiliaresProcesso.Inicio_Reducao_Silo2 = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 40);
-            auxiliaresProcesso.Fechamento_Antecipado_Silo2 = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 44);
+            auxiliaresProcesso.Abertura_Máxima_Silo2 = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 44);
+            auxiliaresProcesso.Inicio_Reducao_Silo2 = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 48);
+            auxiliaresProcesso.Fechamento_Antecipado_Silo2 = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 52);
 
 
             //Geral
-            auxiliaresProcesso = Move_Bits.DwordTocontroleAuxiliaresProcesso(Comunicacao.Sharp7.S7.GetByteAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 48), auxiliaresProcesso);
-            auxiliaresProcesso.Percentual_Habilita_Balanca_Vazia_Automatica = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 54);
-            auxiliaresProcesso.Percentual_Habilita_Balanca_Vazia_Manual = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 58);
+            auxiliaresProcesso = Move_Bits.DwordTocontroleAuxiliaresProcesso(Comunicacao.Sharp7.S7.GetByteAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 56), auxiliaresProcesso);
+            auxiliaresProcesso.Percentual_Habilita_Balanca_Vazia_Automatica = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 62);
+            auxiliaresProcesso.Percentual_Habilita_Balanca_Vazia_Manual = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 66);
+
+            auxiliaresProcesso.TempoPreMisturador = Comunicacao.Sharp7.S7.GetDIntAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 70);
+            auxiliaresProcesso.TempoPosMisturador = Comunicacao.Sharp7.S7.GetDIntAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 74);
 
         }
 
@@ -65,26 +70,29 @@ namespace _9230A_V00___PI.Utilidades
             VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Enable_Read = false;
 
             //Controle Máquinas
-            Comunicacao.Sharp7.S7.SetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 0, auxiliaresProcesso.Maximo_Silo_Produto_Acabado);
-            Comunicacao.Sharp7.S7.SetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 4, auxiliaresProcesso.Maximo_Silo1_Materia_Prima);
-            Comunicacao.Sharp7.S7.SetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 8, auxiliaresProcesso.Maximo_Silo2_Materia_Prima);
-            Comunicacao.Sharp7.S7.SetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 12, auxiliaresProcesso.Maximo_Balanca);
-            Comunicacao.Sharp7.S7.SetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 16, auxiliaresProcesso.Maximo_PreMisturador);
-            Comunicacao.Sharp7.S7.SetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 20, auxiliaresProcesso.Maximo_PosMisturador);
-
+            Comunicacao.Sharp7.S7.SetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 0, auxiliaresProcesso.Volume_Maximo_Silo1_2);
+            Comunicacao.Sharp7.S7.SetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 4, auxiliaresProcesso.Volume_Maximo_Balanca);
+            Comunicacao.Sharp7.S7.SetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 8, auxiliaresProcesso.Volume_Maximo_Pre_Misturador);
+            Comunicacao.Sharp7.S7.SetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 12, auxiliaresProcesso.Volume_Maximo_Pos_Misturador);
+            Comunicacao.Sharp7.S7.SetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 16, auxiliaresProcesso.Peso_Maximo_Silo1_2);
+            Comunicacao.Sharp7.S7.SetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 20, auxiliaresProcesso.Peso_Maximo_Balanca);
+            Comunicacao.Sharp7.S7.SetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 24, auxiliaresProcesso.Peso_Maximo_Pre_Misturador);
+            Comunicacao.Sharp7.S7.SetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 28, auxiliaresProcesso.Peso_Maximo_Pos_Misturador);
 
             //Controle Registro
-            Comunicacao.Sharp7.S7.SetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 24, auxiliaresProcesso.Abertura_Máxima_Silo1);
-            Comunicacao.Sharp7.S7.SetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 28, auxiliaresProcesso.Inicio_Reducao_Silo1);
-            Comunicacao.Sharp7.S7.SetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 32, auxiliaresProcesso.Fechamento_Antecipado_Silo1);
+            Comunicacao.Sharp7.S7.SetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 32, auxiliaresProcesso.Abertura_Máxima_Silo1);
+            Comunicacao.Sharp7.S7.SetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 36, auxiliaresProcesso.Inicio_Reducao_Silo1);
+            Comunicacao.Sharp7.S7.SetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 40, auxiliaresProcesso.Fechamento_Antecipado_Silo1);
 
-            Comunicacao.Sharp7.S7.SetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 36, auxiliaresProcesso.Abertura_Máxima_Silo2);
-            Comunicacao.Sharp7.S7.SetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 40, auxiliaresProcesso.Inicio_Reducao_Silo2);
-            Comunicacao.Sharp7.S7.SetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 44, auxiliaresProcesso.Fechamento_Antecipado_Silo2);
+            Comunicacao.Sharp7.S7.SetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 44, auxiliaresProcesso.Abertura_Máxima_Silo2);
+            Comunicacao.Sharp7.S7.SetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 48, auxiliaresProcesso.Inicio_Reducao_Silo2);
+            Comunicacao.Sharp7.S7.SetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 52, auxiliaresProcesso.Fechamento_Antecipado_Silo2);
             //Geral
-            Comunicacao.Sharp7.S7.SetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 54, auxiliaresProcesso.Percentual_Habilita_Balanca_Vazia_Automatica);
-            Comunicacao.Sharp7.S7.SetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 58, auxiliaresProcesso.Percentual_Habilita_Balanca_Vazia_Manual);
+            Comunicacao.Sharp7.S7.SetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 62, auxiliaresProcesso.Percentual_Habilita_Balanca_Vazia_Automatica);
+            Comunicacao.Sharp7.S7.SetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 66, auxiliaresProcesso.Percentual_Habilita_Balanca_Vazia_Manual);
 
+            Comunicacao.Sharp7.S7.SetDIntAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 70, auxiliaresProcesso.TempoPreMisturador);
+            Comunicacao.Sharp7.S7.SetDIntAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 74, auxiliaresProcesso.TempoPosMisturador);
 
             VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Enable_Write = true;
 
@@ -98,7 +106,7 @@ namespace _9230A_V00___PI.Utilidades
             set
             {
                 VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Enable_Read = false;
-                Comunicacao.Sharp7.S7.SetDWordAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 48, Move_Bits.AuxiliaresProcessoToDword(auxiliaresProcesso)); //Atualiza os Bits do command
+                Comunicacao.Sharp7.S7.SetDWordAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 56, Move_Bits.AuxiliaresProcessoToDword(auxiliaresProcesso)); //Atualiza os Bits do command
                 VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Enable_Write = true;
             }
 

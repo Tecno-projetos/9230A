@@ -25,13 +25,17 @@ namespace _9230A_V00___PI.Utilidades
         {
 
             //Region estrutura de máquinas
-            public float Maximo_Silo_Produto_Acabado;                 //Maximo silo produto acabado
-            public float Maximo_Silo1_Materia_Prima;                  //Maximo silo 1 materia prima.
-            public float Maximo_Silo2_Materia_Prima;                  //Maximo silo 2 materia prima.
-            public float Maximo_Balanca;                              //Maximo silo 2 materia prima.
-            public float Maximo_PreMisturador;                        //Maximo pré misturador.
-            public float Maximo_PosMisturador;                        //Maximo pré misturador.
+            public float Volume_Maximo_Silo1_2;                       //Maximo silo produto acabado
+            public float Volume_Maximo_Balanca;                       //Maximo silo 1 materia prima.
+            public float Volume_Maximo_Pre_Misturador;                //Maximo silo 2 materia prima.
+            public float Volume_Maximo_Pos_Misturador;                //Maximo silo 2 materia prima.
+            public float Peso_Maximo_Silo1_2;                         //Maximo pré misturador.
+            public float Peso_Maximo_Balanca;                         //Maximo pré misturador.
+            public float Peso_Maximo_Pre_Misturador;                  //Maximo pré misturador.
+            public float Peso_Maximo_Pos_Misturador;                  //Maximo pré misturador.
 
+            public int TempoPosMisturador;                  //Maximo pré misturador.
+            public int TempoPreMisturador;                  //Maximo pré misturador.
 
             //Region estrutura dos registros 1 e  2 
             //Registro 1
@@ -83,7 +87,6 @@ namespace _9230A_V00___PI.Utilidades
             public float Percentual_Habilita_Balanca_Vazia_Automatica;                      //Maximo abertura sulo 2    
             public float Percentual_Habilita_Balanca_Vazia_Manual;                         //Maximo abertura sulo 2    
         }
-
 
         public struct diagnosticoProfinet
         {

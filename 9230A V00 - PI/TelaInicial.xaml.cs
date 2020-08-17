@@ -102,7 +102,7 @@ namespace _9230A_V00___PI
 
             VariaveisGlobais.Fluxo.Motor_26_Silo2.loadEquip(Utilidades.typeEquip.Atuador, Utilidades.typeCommand.Atuador_Analogico, 40, 0, "Atuador", "26 Silo 2", "62", "10");
 
-            VariaveisGlobais.Fluxo.Motor_65.loadEquip(Utilidades.typeEquip.INV, Utilidades.typeCommand.INV, 320, 0, "Elevador", "65", "65", "10");
+            VariaveisGlobais.Fluxo.Motor_65.loadEquip(Utilidades.typeEquip.INV, Utilidades.typeCommand.INV, 320, 0, "Rosca", "65", "65", "10");
 
 
 
