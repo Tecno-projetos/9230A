@@ -56,9 +56,10 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
+            atualizaFiltroDataReceita();
+
             loadDataReceitas();
 
-            atualizaFiltroDataReceita();
 
         }
 
@@ -70,11 +71,32 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
 
             var listReceitaFiltered = filter.ToList();
 
-            Utilidades.ListtoDataTableConverter converter = new Utilidades.ListtoDataTableConverter();
+            //Utilidades.ListtoDataTableConverter converter = new Utilidades.ListtoDataTableConverter();
 
-            DataTable dt = converter.ToDataTable(listReceitaFiltered);
+            //DataTable dt = converter.ToDataTable(listReceitaFiltered);
+            DataTable dt = new DataTable();
+
+            dt.Columns.Add("Nome");
+            dt.Columns.Add("Peso Base");
+            dt.Columns.Add("Quantidade Produtos");
+            dt.Columns.Add("Observação");
+
+            foreach (var item in listReceitaFiltered)
+            {
+                DataRow dr = dt.NewRow();
+
+                dr["Nome"] = item.nomeReceita;
+                dr["Peso Base"] = item.pesoBase;
+                dr["Quantidade Produtos"] = item.listProdutos.Count;
+                dr["Observação"] = item.observacao;
+
+                dt.Rows.Add(dr);
+            }
+
 
             DataGrid_Receita.Dispatcher.Invoke(delegate { DataGrid_Receita.ItemsSource = dt.DefaultView; });
+
+
         }
 
 
@@ -82,9 +104,10 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
         {
             DataTable dt = new DataTable();
 
-            dt.Columns.Add("Id");
-            dt.Columns.Add("Produto");
-            dt.Columns.Add("Peso(kg)");
+            dt.Columns.Add("Nome");
+            dt.Columns.Add("Peso Base");
+            dt.Columns.Add("Quantidade Produtos");
+            dt.Columns.Add("Observação");
 
             foreach (var item in Utilidades.VariaveisGlobais.listReceitas)
             {

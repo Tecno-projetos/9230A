@@ -92,22 +92,22 @@
             </TextBlock>
             <TextBox x:Name="txtDesc" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" PreviewMouseLeftButtonUp="openKeyboard" />
         </Grid>
-        <Button x:Name="btUpList_Produtos" Margin="538,529,209,96" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btUpList_Produtos_Click" >
+        <Button x:Name="btUpList_Produtos" Margin="632,544,115,81" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btUpList_Produtos_Click" >
             <Grid Width="42" Height="42" Margin="0">
                 <materialDesign:PackIcon Kind="ArrowUpBold" VerticalAlignment="Center" Foreground="White" Height="42" Width="42"/>
             </Grid>
         </Button>
-        <Button x:Name="btDownList_Produtos" Margin="538,584,209,41" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btDownList_Produtos_Click" >
+        <Button x:Name="btDownList_Produtos" Margin="632,599,115,26" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btDownList_Produtos_Click" >
             <Grid Width="42" Height="42" Margin="0">
                 <materialDesign:PackIcon Kind="ArrowDownBold" VerticalAlignment="Center" Foreground="White" Height="42" Width="42"/>
             </Grid>
         </Button>
-        <Button x:Name="btLeftList_Produtos" Margin="456,554,291,71" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btLeftList_Produtos_Click" >
+        <Button x:Name="btLeftList_Produtos" Margin="550,569,197,56" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btLeftList_Produtos_Click" >
             <Grid Width="42" Height="42" Margin="0">
                 <materialDesign:PackIcon Kind="ArrowLeftBold" VerticalAlignment="Center" Foreground="White" Height="42" Width="42"/>
             </Grid>
         </Button>
-        <Button x:Name="btRightList_Produtos" Margin="620,554,127,71" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btRightList_Produtos_Click" >
+        <Button x:Name="btRightList_Produtos" Margin="714,569,33,56" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btRightList_Produtos_Click" >
             <Grid Width="42" Height="42" Margin="0">
                 <materialDesign:PackIcon Kind="ArrowRightBold" VerticalAlignment="Center" Foreground="White" Height="42" Width="42"/>
             </Grid>

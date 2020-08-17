@@ -71,11 +71,6 @@ namespace _9230A_V00___PI.Telas_Fluxo
 
 
 
-
-            InjetoIntoProjeto();
-
-
-
         }
 
 
@@ -383,6 +378,9 @@ namespace _9230A_V00___PI.Telas_Fluxo
             }
         }
 
-
+        private void btInject_Click(object sender, RoutedEventArgs e)
+        {
+            InjetoIntoProjeto();
+        }
     }
 }

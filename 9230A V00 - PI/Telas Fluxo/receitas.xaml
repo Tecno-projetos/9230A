@@ -63,6 +63,12 @@
                     <TextBlock TextAlignment="Center" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="36,12,15,10" Width="119" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Pesquisar Produto"/>
                 </Grid>
             </Button>
+            <Button x:Name="btInject" Margin="9,640,11,5" Background="#FF505050" BorderBrush="Black" Click="btInject_Click">
+                <Grid Width="170" Height="30">
+                    <materialDesign:PackIcon Kind="Sigma" VerticalAlignment="Center" Foreground="White" Margin="2,-6,0,-7" Height="30" Width="30"/>
+                    <TextBlock TextAlignment="Center" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="36,6,15,0" Width="119" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Inject" Height="24"/>
+                </Grid>
+            </Button>
         </Grid>
         <StackPanel x:Name="spReceitas" HorizontalAlignment="Left" Height="675" Margin="200,0,0,0" VerticalAlignment="Top" Width="824"/>
     </Grid>

@@ -94,22 +94,22 @@
         </Grid>
         <Label x:Name="lbTitle" Content="Pesquisar Receita" HorizontalAlignment="Left" VerticalAlignment="Top" Width="824" Foreground="White" VerticalContentAlignment="Center" FontWeight="Bold" HorizontalContentAlignment="Center" Margin="0,6,0,0" Height="58" FontSize="30"/>
         <Rectangle Fill="White" HorizontalAlignment="Left" Height="5" Margin="0,76,-1,0" Stroke="White" VerticalAlignment="Top" Width="825"/>
-        <Button x:Name="btUpList" Margin="655,540,92,85" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btUpList_Click" >
+        <Button x:Name="btUpList" Margin="632,544,115,81" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btUpList_Click" >
             <Grid Width="42" Height="42" Margin="0">
                 <materialDesign:PackIcon Kind="ArrowUpBold" VerticalAlignment="Center" Foreground="White" Height="42" Width="42"/>
             </Grid>
         </Button>
-        <Button x:Name="btDownList" Margin="655,595,92,30" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btDownList_Click" >
+        <Button x:Name="btDownList" Margin="632,599,115,26" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btDownList_Click" >
             <Grid Width="42" Height="42" Margin="0">
                 <materialDesign:PackIcon Kind="ArrowDownBold" VerticalAlignment="Center" Foreground="White" Height="42" Width="42"/>
             </Grid>
         </Button>
-        <Button x:Name="btLeftList" Margin="573,565,174,60" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btLeftList_Click" >
+        <Button x:Name="btLeftList" Margin="550,569,197,56" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btLeftList_Click" >
             <Grid Width="42" Height="42" Margin="0">
                 <materialDesign:PackIcon Kind="ArrowLeftBold" VerticalAlignment="Center" Foreground="White" Height="42" Width="42"/>
             </Grid>
         </Button>
-        <Button x:Name="btRightList" Margin="737,565,10,60" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btRightList_Click" >
+        <Button x:Name="btRightList" Margin="714,569,33,56" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btRightList_Click" >
             <Grid Width="42" Height="42" Margin="0">
                 <materialDesign:PackIcon Kind="ArrowRightBold" VerticalAlignment="Center" Foreground="White" Height="42" Width="42"/>
             </Grid>
