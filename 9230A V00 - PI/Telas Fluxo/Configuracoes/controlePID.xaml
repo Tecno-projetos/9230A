@@ -1,0 +1,152 @@
+﻿<UserControl x:Class="_9230A_V00___PI.Telas_Fluxo.Configuracoes.controlePID"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+         xmlns:local="clr-namespace:_9230A_V00___PI.Telas_Fluxo.Configuracoes" xmlns:Utilidades="clr-namespace:_9230A_V00___PI.Utilidades" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             d:DesignHeight="675" d:DesignWidth="824" Loaded="UserControl_Loaded">
+
+    <UserControl.Resources>
+        <SolidColorBrush x:Key="brushWatermarkForeground" Color="White" />
+        <Utilidades:TextInputToVisibilityConverter x:Key="TextInputToVisibilityConverter" />
+
+        <SolidColorBrush x:Key="brushWatermarkBorder" Color="White" />
+
+        <Style x:Key="EntryFieldStyle" TargetType="{x:Type Grid}" >
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="20,0" />
+        </Style>
+
+
+
+    </UserControl.Resources>
+    <Grid Background="#FF7F7F7F">
+
+        <Grid.Resources  >
+
+            <ResourceDictionary>
+                <ResourceDictionary.MergedDictionaries>
+                    <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Blue.xaml" />
+                    <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Indigo.xaml" />
+                    <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                </ResourceDictionary.MergedDictionaries>
+
+
+                <SolidColorBrush x:Key="brushWatermarkBackground" Color="#FF505050" />
+                <SolidColorBrush x:Key="brushWatermarkForeground" Color="White" />
+                <Utilidades:TextInputToVisibilityConverter x:Key="TextInputToVisibilityConverter" />
+
+                <SolidColorBrush x:Key="brushWatermarkBorder" Color="White" />
+
+                <Style x:Key="EntryFieldStyle" TargetType="{x:Type Grid}" >
+                    <Setter Property="HorizontalAlignment" Value="Stretch" />
+                    <Setter Property="VerticalAlignment" Value="Center" />
+                    <Setter Property="Margin" Value="20,0" />
+                </Style>
+
+
+
+            </ResourceDictionary>
+
+        </Grid.Resources>
+        <Image HorizontalAlignment="Left" Height="424" Margin="24,86,0,0" VerticalAlignment="Top" Width="780" Source="/9230A V00 - PI;component/Imagens/PID.png"/>
+
+
+        <Label x:Name="lbTitle" Content="PID" HorizontalAlignment="Left" VerticalAlignment="Top" Width="825" Foreground="White" VerticalContentAlignment="Center" FontWeight="Bold" HorizontalContentAlignment="Center" Margin="0,6,-1,0" Height="60" FontSize="30"/>
+        <Rectangle Fill="White" HorizontalAlignment="Left" Height="5" Margin="0,76,-1,0" Stroke="White" VerticalAlignment="Top" Width="825"/>
+        <Label Content="SP" Height="34" Margin="35,96,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="136" Foreground="White" FontWeight="Bold" FontSize="16"/>
+        <Grid Style="{StaticResource EntryFieldStyle}" Margin="35,130,653,504" Height="41" Background="#FF3C3C3C" >
+            <TextBlock Margin="5,0,6,5" Text="Exemplo: 7,0" Foreground="#FF919191" VerticalAlignment="Bottom" FontSize="14" >
+                <TextBlock.Visibility>
+                    <MultiBinding Converter="{StaticResource TextInputToVisibilityConverter}">
+                        <Binding ElementName="txtSP" Path="Text.IsEmpty" />
+                        <Binding ElementName="txtSP" Path="IsFocused" />
+                    </MultiBinding>
+                </TextBlock.Visibility>
+            </TextBlock>
+            <TextBox x:Name="txtSP" PreviewMouseLeftButtonUp="floatingPreviewMouseLeftButtonUp" GotFocus="TB_GotFocus" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" />
+        </Grid>
+        <materialDesign:PackIcon Kind="Pencil" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="-3,130,789,504" BorderBrush="#FF040404"/>
+        <Label Content="Kp" Height="27" Margin="353,86,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="137" Foreground="White" FontWeight="Bold" FontSize="16"/>
+        <Grid Style="{StaticResource EntryFieldStyle}" Margin="353,113,311,521" Height="41" Background="#FF3C3C3C" >
+            <TextBlock Margin="5,0,6,5" Text="Exemplo: 1,5" Foreground="#FF919191" VerticalAlignment="Bottom" FontSize="14" >
+                <TextBlock.Visibility>
+                    <MultiBinding Converter="{StaticResource TextInputToVisibilityConverter}">
+                        <Binding ElementName="txtKp" Path="Text.IsEmpty" />
+                        <Binding ElementName="txtKp" Path="IsFocused" />
+                    </MultiBinding>
+                </TextBlock.Visibility>
+            </TextBlock>
+            <TextBox x:Name="txtKp" GotFocus="TB_GotFocus" PreviewMouseLeftButtonUp="floatingPreviewMouseLeftButtonUp" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" />
+        </Grid>
+        <materialDesign:PackIcon Kind="Pencil" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="315,113,471,521" BorderBrush="#FF040404"/>
+        <Label Content="Ki" Height="29" Margin="353,191,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="137" Foreground="White" FontWeight="Bold" FontSize="16"/>
+        <Grid Style="{StaticResource EntryFieldStyle}" Margin="353,220,311,414" Height="41" Background="#FF3C3C3C" >
+            <TextBlock Margin="5,0,6,5" Text="Exemplo: 1,8" Foreground="#FF919191" VerticalAlignment="Bottom" FontSize="14" >
+                <TextBlock.Visibility>
+                    <MultiBinding Converter="{StaticResource TextInputToVisibilityConverter}">
+                        <Binding ElementName="txtKi" Path="Text.IsEmpty" />
+                        <Binding ElementName="txtKi" Path="IsFocused" />
+                    </MultiBinding>
+                </TextBlock.Visibility>
+            </TextBlock>
+            <TextBox x:Name="txtKi" GotFocus="TB_GotFocus" PreviewMouseLeftButtonUp="floatingPreviewMouseLeftButtonUp" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" />
+        </Grid>
+        <materialDesign:PackIcon Kind="Pencil" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="315,220,471,414" BorderBrush="#FF040404"/>
+        <Label Content="Kd" Height="29" Margin="353,340,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="160" Foreground="White" FontWeight="Bold" FontSize="16"/>
+        <Grid Style="{StaticResource EntryFieldStyle}" Margin="353,369,311,265" Height="41" Background="#FF3C3C3C" >
+            <TextBlock Margin="5,0,6,5" Text="Exemplo: 2,0" Foreground="#FF919191" VerticalAlignment="Bottom" FontSize="14" >
+                <TextBlock.Visibility>
+                    <MultiBinding Converter="{StaticResource TextInputToVisibilityConverter}">
+                        <Binding ElementName="txtKd" Path="Text.IsEmpty" />
+                        <Binding ElementName="txtKd" Path="IsFocused" />
+                    </MultiBinding>
+                </TextBlock.Visibility>
+            </TextBlock>
+            <TextBox x:Name="txtKd"  GotFocus="TB_GotFocus" PreviewMouseLeftButtonUp="floatingPreviewMouseLeftButtonUp" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" />
+        </Grid>
+        <materialDesign:PackIcon Kind="Pencil" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="315,369,471,265" BorderBrush="#FF040404"/>
+        <Label Content="Limite Máximo Atuador:" Height="34" Margin="80,476,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="193" Foreground="White" FontWeight="Bold" FontSize="16"/>
+        <Grid Style="{StaticResource EntryFieldStyle}" Margin="80,510,551,124" Height="41" Background="#FF3C3C3C" >
+            <TextBlock Margin="5,0,6,5" Text="Exemplo: 1000" Foreground="#FF919191" VerticalAlignment="Bottom" FontSize="14" >
+                <TextBlock.Visibility>
+                    <MultiBinding Converter="{StaticResource TextInputToVisibilityConverter}">
+                        <Binding ElementName="txtMax" Path="Text.IsEmpty" />
+                        <Binding ElementName="txtMax" Path="IsFocused" />
+                    </MultiBinding>
+                </TextBlock.Visibility>
+            </TextBlock>
+            <TextBox x:Name="txtMax"  GotFocus="TB_GotFocus" PreviewMouseLeftButtonUp="floatingPreviewMouseLeftButtonUp" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" />
+        </Grid>
+        <materialDesign:PackIcon Kind="Pencil" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="42,510,744,124" BorderBrush="#FF040404"/>
+        <Label Content="Limite Minimo Atuador:" Height="34" Margin="80,564,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="193" Foreground="White" FontWeight="Bold" FontSize="16"/>
+        <Grid Style="{StaticResource EntryFieldStyle}" Margin="80,600,551,34" Height="41" Background="#FF3C3C3C" >
+            <TextBlock Margin="5,0,6,5" Text="Exemplo: 1000" Foreground="#FF919191" VerticalAlignment="Bottom" FontSize="14" >
+                <TextBlock.Visibility>
+                    <MultiBinding Converter="{StaticResource TextInputToVisibilityConverter}">
+                        <Binding ElementName="txtMin" Path="Text.IsEmpty" />
+                        <Binding ElementName="txtMin" Path="IsFocused" />
+                    </MultiBinding>
+                </TextBlock.Visibility>
+            </TextBlock>
+            <TextBox x:Name="txtMin" GotFocus="TB_GotFocus" PreviewMouseLeftButtonUp="floatingPreviewMouseLeftButtonUp" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" />
+        </Grid>
+        <materialDesign:PackIcon Kind="Pencil" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="42,600,744,34" BorderBrush="#FF040404"/>
+        <Button x:Name="btSalvarInformacoes" Margin="353,600,220,34" Background="#FF505050" BorderBrush="Black" Height="Auto" Opacity="1" Click="btSalvarInformacoes_Click" >
+            <Grid Width="150">
+                <materialDesign:PackIcon x:Name="packiconCadastrarEditar" Kind="ContentSave" VerticalAlignment="Center" Foreground="White" Margin="-15,-6,0,-7" Height="30" Width="30"/>
+                <TextBlock x:Name="lbTextButton" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="31,1,-9,-1" Width="128" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Salvar Informações"/>
+            </Grid>
+        </Button>
+        <Button x:Name="btHabilita" Margin="588,220,44,414" Background="#FF505050" BorderBrush="Black" Height="Auto" Opacity="1" Click="btHabilita_Click" >
+            <Grid Width="150">
+                <materialDesign:PackIcon x:Name="pckIcon" Kind="Close" VerticalAlignment="Stretch" Foreground="White" Margin="-4,-6,0,-7" Height="Auto" Width="30"/>
+                <TextBlock x:Name="lbTextButton1" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="46,1,-2,-1" Width="106" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Habilita PID"/>
+            </Grid>
+        </Button>
+
+
+    </Grid>
+</UserControl>

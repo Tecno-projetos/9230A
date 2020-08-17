@@ -54,8 +54,8 @@ xmlns:Utilidades="clr-namespace:_9230A_V00___PI.Utilidades" xmlns:materialDesign
         </Grid.Resources>
         <Label x:Name="lbTitle" Content="Especificações Registros" HorizontalAlignment="Left" VerticalAlignment="Top" Width="825" Foreground="White" VerticalContentAlignment="Center" FontWeight="Bold" HorizontalContentAlignment="Center" Margin="0,6,-1,0" Height="60" FontSize="30"/>
         <Rectangle Fill="White" HorizontalAlignment="Left" Height="5" Margin="0,76,-1,0" Stroke="White" VerticalAlignment="Top" Width="825"/>
-        <Label Content="Abertura Máxima Silo 1 (%)" Height="34" Margin="40,101,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="355" Foreground="White" FontWeight="Bold" FontSize="16"/>
-        <Grid Style="{StaticResource EntryFieldStyle}" Margin="40,140,429,494" Height="41" Background="#FF3C3C3C" >
+        <Label Content="Abertura Máxima Silo 1 (%)" Height="34" Margin="52,103,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="355" Foreground="White" FontWeight="Bold" FontSize="16"/>
+        <Grid Style="{StaticResource EntryFieldStyle}" Margin="52,142,417,492" Height="41" Background="#FF3C3C3C" >
             <TextBlock Margin="5,0,6,5" Text="Exemplo: 100%" Foreground="#FF919191" VerticalAlignment="Bottom" FontSize="14" >
                 <TextBlock.Visibility>
                     <MultiBinding Converter="{StaticResource TextInputToVisibilityConverter}">
@@ -66,9 +66,9 @@ xmlns:Utilidades="clr-namespace:_9230A_V00___PI.Utilidades" xmlns:materialDesign
             </TextBlock>
             <TextBox x:Name="txtAberturaMaximaSilo1" PreviewMouseLeftButtonUp="floatingPreviewMouseLeftButtonUp" GotFocus="TB_GotFocus" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" />
         </Grid>
-        <materialDesign:PackIcon Kind="Pencil" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="2,140,784,494" BorderBrush="#FF040404"/>
-        <Label Content="Inicio Redução Silo 1 (%)" Height="34" Margin="40,191,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="371" Foreground="White" FontWeight="Bold" FontSize="16"/>
-        <Grid Style="{StaticResource EntryFieldStyle}" Margin="40,230,429,404" Height="41" Background="#FF3C3C3C" >
+        <materialDesign:PackIcon Kind="Pencil" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="14,142,772,492" BorderBrush="#FF040404"/>
+        <Label Content="Inicio Redução Silo 1 (%)" Height="34" Margin="52,193,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="371" Foreground="White" FontWeight="Bold" FontSize="16"/>
+        <Grid Style="{StaticResource EntryFieldStyle}" Margin="52,232,417,402" Height="41" Background="#FF3C3C3C" >
             <TextBlock Margin="5,0,6,5" Text="Exemplo: 100%" Foreground="#FF919191" VerticalAlignment="Bottom" FontSize="14" >
                 <TextBlock.Visibility>
                     <MultiBinding Converter="{StaticResource TextInputToVisibilityConverter}">
@@ -79,9 +79,9 @@ xmlns:Utilidades="clr-namespace:_9230A_V00___PI.Utilidades" xmlns:materialDesign
             </TextBlock>
             <TextBox x:Name="txtInicioReducaoSilo1" GotFocus="TB_GotFocus" PreviewMouseLeftButtonUp="floatingPreviewMouseLeftButtonUp" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" />
         </Grid>
-        <materialDesign:PackIcon Kind="Pencil" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="2,230,784,404" BorderBrush="#FF040404"/>
-        <Label Content="Fechamento Antecipado Silo 1 (%)" Height="34" Margin="40,281,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="371" Foreground="White" FontWeight="Bold" FontSize="16"/>
-        <Grid Style="{StaticResource EntryFieldStyle}" Margin="40,320,429,314" Height="41" Background="#FF3C3C3C" >
+        <materialDesign:PackIcon Kind="Pencil" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="14,232,772,402" BorderBrush="#FF040404"/>
+        <Label Content="Fechamento Antecipado Silo 1 (%)" Height="34" Margin="52,283,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="371" Foreground="White" FontWeight="Bold" FontSize="16"/>
+        <Grid Style="{StaticResource EntryFieldStyle}" Margin="52,322,417,312" Height="41" Background="#FF3C3C3C" >
             <TextBlock Margin="5,0,6,5" Text="Exemplo: 100%" Foreground="#FF919191" VerticalAlignment="Bottom" FontSize="14" >
                 <TextBlock.Visibility>
                     <MultiBinding Converter="{StaticResource TextInputToVisibilityConverter}">
@@ -92,8 +92,8 @@ xmlns:Utilidades="clr-namespace:_9230A_V00___PI.Utilidades" xmlns:materialDesign
             </TextBlock>
             <TextBox x:Name="txtFechamentoAntecipadoSilo1" GotFocus="TB_GotFocus" PreviewMouseLeftButtonUp="floatingPreviewMouseLeftButtonUp" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" />
         </Grid>
-        <materialDesign:PackIcon Kind="Pencil" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="2,320,784,314" BorderBrush="#FF040404"/>
-        <Grid Style="{StaticResource EntryFieldStyle}" Margin="443,140,26,494" Height="41" Background="#FF3C3C3C" >
+        <materialDesign:PackIcon Kind="Pencil" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="14,322,772,312" BorderBrush="#FF040404"/>
+        <Grid Style="{StaticResource EntryFieldStyle}" Margin="451,141,18,493" Height="41" Background="#FF3C3C3C" >
             <TextBlock Margin="5,0,6,5" Text="Exemplo: 100%" Foreground="#FF919191" VerticalAlignment="Bottom" FontSize="14" >
                 <TextBlock.Visibility>
                     <MultiBinding Converter="{StaticResource TextInputToVisibilityConverter}">
@@ -104,8 +104,8 @@ xmlns:Utilidades="clr-namespace:_9230A_V00___PI.Utilidades" xmlns:materialDesign
             </TextBlock>
             <TextBox x:Name="txtAberturaMaximaSilo2"  GotFocus="TB_GotFocus" PreviewMouseLeftButtonUp="floatingPreviewMouseLeftButtonUp" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" />
         </Grid>
-        <materialDesign:PackIcon Kind="Pencil" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="405,140,381,494" BorderBrush="#FF040404"/>
-        <Grid Style="{StaticResource EntryFieldStyle}" Margin="443,230,26,404" Height="41" Background="#FF3C3C3C" >
+        <materialDesign:PackIcon Kind="Pencil" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="413,141,373,493" BorderBrush="#FF040404"/>
+        <Grid Style="{StaticResource EntryFieldStyle}" Margin="451,231,18,403" Height="41" Background="#FF3C3C3C" >
             <TextBlock Margin="5,0,6,5" Text="Exemplo: 100%" Foreground="#FF919191" VerticalAlignment="Bottom" FontSize="14" >
                 <TextBlock.Visibility>
                     <MultiBinding Converter="{StaticResource TextInputToVisibilityConverter}">
@@ -116,8 +116,8 @@ xmlns:Utilidades="clr-namespace:_9230A_V00___PI.Utilidades" xmlns:materialDesign
             </TextBlock>
             <TextBox x:Name="txtInicioReducaoSilo2"  GotFocus="TB_GotFocus" PreviewMouseLeftButtonUp="floatingPreviewMouseLeftButtonUp" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" />
         </Grid>
-        <materialDesign:PackIcon Kind="Pencil" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="405,230,381,404" BorderBrush="#FF040404"/>
-        <Grid Style="{StaticResource EntryFieldStyle}" Margin="443,320,26,314" Height="41" Background="#FF3C3C3C" >
+        <materialDesign:PackIcon Kind="Pencil" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="413,231,373,403" BorderBrush="#FF040404"/>
+        <Grid Style="{StaticResource EntryFieldStyle}" Margin="451,321,18,313" Height="41" Background="#FF3C3C3C" >
             <TextBlock Margin="5,0,6,5" Text="Exemplo: 100%" Foreground="#FF919191" VerticalAlignment="Bottom" FontSize="14" >
                 <TextBlock.Visibility>
                     <MultiBinding Converter="{StaticResource TextInputToVisibilityConverter}">
@@ -128,16 +128,20 @@ xmlns:Utilidades="clr-namespace:_9230A_V00___PI.Utilidades" xmlns:materialDesign
             </TextBlock>
             <TextBox x:Name="txtFechamentoAntecipadoSilo2" GotFocus="TB_GotFocus" PreviewMouseLeftButtonUp="floatingPreviewMouseLeftButtonUp" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" />
         </Grid>
-        <materialDesign:PackIcon Kind="Pencil" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="405,320,381,314" BorderBrush="#FF040404"/>
+        <materialDesign:PackIcon Kind="Pencil" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="413,321,373,313" BorderBrush="#FF040404"/>
         <Button x:Name="btSalvarInformacoes" Margin="451,592,18,42" Background="#FF505050" BorderBrush="Black" Height="Auto" Opacity="1" Click="btSalvarInformacoes_Click" >
             <Grid Width="150">
                 <materialDesign:PackIcon x:Name="packiconCadastrarEditar" Kind="ContentSave" VerticalAlignment="Center" Foreground="White" Margin="-15,-6,0,-7" Height="30" Width="30"/>
                 <TextBlock x:Name="lbTextButton" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="31,1,-9,-1" Width="128" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Salvar Informações"/>
             </Grid>
         </Button>
-        <Label Content="Abertura Máxima Silo 2 (%)" Height="34" Margin="443,101,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="355" Foreground="White" FontWeight="Bold" FontSize="16"/>
-        <Label Content="Inicio Redução Silo 2 (%)" Height="34" Margin="443,191,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="371" Foreground="White" FontWeight="Bold" FontSize="16"/>
-        <Label Content="Fechamento Antecipado Silo 2 (%)" Height="34" Margin="443,281,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="371" Foreground="White" FontWeight="Bold" FontSize="16"/>
+        <Label Content="Abertura Máxima Silo 2 (%)" Height="34" Margin="451,102,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="355" Foreground="White" FontWeight="Bold" FontSize="16"/>
+        <Label Content="Inicio Redução Silo 2 (%)" Height="34" Margin="451,192,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="371" Foreground="White" FontWeight="Bold" FontSize="16"/>
+        <Label Content="Fechamento Antecipado Silo 2 (%)" Height="34" Margin="451,282,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="371" Foreground="White" FontWeight="Bold" FontSize="16"/>
+        <materialDesign:PackIcon Kind="Pencil" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="14,142,772,492" BorderBrush="#FF040404"/>
+        <materialDesign:PackIcon Kind="Pencil" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="14,232,772,402" BorderBrush="#FF040404"/>
+        <materialDesign:PackIcon Kind="Pencil" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="413,142,373,492" BorderBrush="#FF040404"/>
+        <materialDesign:PackIcon Kind="Pencil" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="413,231,373,403" BorderBrush="#FF040404"/>
 
 
     </Grid>

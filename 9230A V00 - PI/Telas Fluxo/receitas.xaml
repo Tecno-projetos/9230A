@@ -22,7 +22,7 @@
             <Button x:Name="btCadastroProduto" Margin="10,420,10,205" Background="#FF505050" BorderBrush="Black" Height="50" Click="btCadastroProduto_Click">
                 <Grid Width="170" Height="40">
                     <materialDesign:PackIcon Kind="Plus" VerticalAlignment="Center" Foreground="#FF00FB22" Margin="2,-6,0,-7" Height="30" Width="30"/>
-                    <TextBlock TextAlignment="Center" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="35,12,3,10" Width="132" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center"><Run Text="Cadastr"/><Run Text="ar"/><Run Text=" "/><Run Text="Produto"/></TextBlock>
+                    <TextBlock TextAlignment="Center" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="28,12,10,10" Width="132" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center"><Run Text="Cadastr"/><Run Text="ar"/><Run Text=" "/><Run Text="Produto"/></TextBlock>
                 </Grid>
             </Button>
             <Label Content="Produtos" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Foreground="White" FontSize="16" VerticalContentAlignment="Center" FontWeight="Bold" HorizontalContentAlignment="Center" Margin="0,373,0,0"/>
@@ -58,9 +58,9 @@
                 </Grid>
             </Button>
             <Button x:Name="btPesquisarProduto" Margin="9,585,11,40" Background="#FF505050" BorderBrush="Black" Height="50" Click="btPesquisarProduto_Click">
-                <Grid Width="186" Height="40">
+                <Grid Width="196" Height="40">
                     <materialDesign:PackIcon Kind="Search" VerticalAlignment="Center" Foreground="White" Margin="2,-6,0,-7" Height="30" Width="30"/>
-                    <TextBlock TextAlignment="Center" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="35,12,10,10" Width="141" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Pesquisar Produto"/>
+                    <TextBlock TextAlignment="Center" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="25,13,42,10" Width="129" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Pesquisar Produto"/>
                 </Grid>
             </Button>
             <Button x:Name="btInject" Margin="9,640,11,5" Background="#FF505050" BorderBrush="Black" Click="btInject_Click">

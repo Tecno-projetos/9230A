@@ -21,6 +21,29 @@ namespace _9230A_V00___PI.Utilidades
     {
         #region Structs
 
+        public struct PID 
+        {
+            public float SetPoint;
+            public float Ki;
+            public float kp;
+            public float kd;
+
+            public float limiteMaximo;
+            public float limiteMinimo;
+
+            //Palavra de Comando
+            public bool Habilita_PID;
+            public bool Reserva;
+            public bool Reserva_1;
+            public bool Reserva_2;
+            public bool Reserva_3;
+            public bool Reserva_4;
+            public bool Reserva_5;
+            public bool Reserva_6;
+ 
+        }
+
+
         public struct AuxiliaresProcesso
         {
             //Region estrutura de máquinas
@@ -895,7 +918,7 @@ namespace _9230A_V00___PI.Utilidades
 
         public static IndicadorPesagem indicadorPesagem = new IndicadorPesagem();
 
-
+        public static PID controlePID = new PID();
     }
 
     public class convertToTable

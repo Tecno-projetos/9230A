@@ -83,7 +83,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
             DataGrid_Produtos.Columns[2].Header = "Descrição";
             DataGrid_Produtos.Columns[3].Header = "Densidade";
             DataGrid_Produtos.Columns[4].Header = "Tipo Produto";
-            DataGrid_Produtos.Columns[4].Header = "Observação";
+            DataGrid_Produtos.Columns[5].Header = "Observação";
         }
 
         private void filtroMateriaPrima()

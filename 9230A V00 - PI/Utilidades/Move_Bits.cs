@@ -1087,5 +1087,43 @@ namespace _9230A_V00___PI.Utilidades
 
             return Conversions.Bit_To_Dword(ref bits, true);
         }
+
+
+        //Command PID
+        //=====================================================================================================================================
+
+        public static VariaveisGlobais.PID ByteToPID(byte _byte, VariaveisGlobais.PID PID)
+        {
+            bool[] bits = new bool[8];
+
+            Conversions.Byte_To_Bit(_byte, ref bits);
+
+            PID.Habilita_PID = bits[0];
+            PID.Reserva = bits[1];
+            PID.Reserva_1 = bits[2];
+            PID.Reserva_2 = bits[3];
+            PID.Reserva_3 = bits[4];
+            PID.Reserva_4 = bits[5];
+            PID.Reserva_5 = bits[6];
+            PID.Reserva_6 = bits[7];
+
+            return PID;
+        }
+
+        public static byte PIDToByte(VariaveisGlobais.PID PID)
+        {
+            bool[] bits = new bool[8];
+
+            bits[0] = PID.Habilita_PID;
+            bits[1] = PID.Reserva;
+            bits[2] = PID.Reserva_1;
+            bits[3] = PID.Reserva_2;
+            bits[4] = PID.Reserva_3;
+            bits[5] = PID.Reserva_4;
+            bits[6] = PID.Reserva_5;
+            bits[7] = PID.Reserva_6;
+
+            return Conversions.Bit_To_Byte(ref bits);
+        }
     }
 }

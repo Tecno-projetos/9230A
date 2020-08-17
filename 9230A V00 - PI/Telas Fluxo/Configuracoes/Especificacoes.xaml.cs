@@ -56,7 +56,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Configuracoes
 
         }
 
-        private void readVariablesBuffer_AuxiliaresProcesso(int bufferPlc_Auxiliares)
+        public void readVariablesBuffer_AuxiliaresProcesso(int bufferPlc_Auxiliares)
         {
             //Controle Máquinas
             VariaveisGlobais.ValoresEspecificacoesEquipamentos.VolumeMaximoPermitidoSilo1_2 = Utilidades.VariaveisGlobais.auxiliaresProcesso.Volume_Maximo_Silo1_2 = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 0);
@@ -188,7 +188,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Configuracoes
 
         #region Funções
 
-        public void LeituraInformacoes()
+        private void LeituraInformacoes()
         {
             readVariablesBuffer_AuxiliaresProcesso(4);
 

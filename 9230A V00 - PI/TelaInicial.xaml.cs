@@ -141,7 +141,7 @@ namespace _9230A_V00___PI
             Utilidades.VariaveisGlobais.Buffer_PLC[4].Name = "DB Configuracoes Auxiliares Processo";
             Utilidades.VariaveisGlobais.Buffer_PLC[4].DBNumber = 23;
             Utilidades.VariaveisGlobais.Buffer_PLC[4].Start = 0;
-            Utilidades.VariaveisGlobais.Buffer_PLC[4].Size = 76;
+            Utilidades.VariaveisGlobais.Buffer_PLC[4].Size = 102;
             Utilidades.VariaveisGlobais.Buffer_PLC[4].Enable_Read = true;
             Utilidades.VariaveisGlobais.Buffer_PLC[4].Enable_Write = false;
 
