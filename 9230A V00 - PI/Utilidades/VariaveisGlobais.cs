@@ -23,7 +23,6 @@ namespace _9230A_V00___PI.Utilidades
 
         public struct AuxiliaresProcesso
         {
-
             //Region estrutura de máquinas
             public float Volume_Maximo_Silo1_2;                       //Maximo silo produto acabado
             public float Volume_Maximo_Balanca;                       //Maximo silo 1 materia prima.
@@ -51,9 +50,9 @@ namespace _9230A_V00___PI.Utilidades
 
             //Region Geral
             //Palavra de controle
-            public bool Habilita_Setar_Balanca_Vazia_Manual;                  //Habilita setar balança vazia em manual
-            public bool Habilita_Setar_Balanca_Vazia_Automatica;              //Habilita setar balança vazia em automatico
-            public bool Seta_Balnca_Vazia;                                    //Setar balança vazia
+            public bool Reserva29;                  
+            public bool Reserva30;        
+            public bool reserva31;                    
             public bool Reserva_0;                      
             public bool Reserva_1;
             public bool Reserva_2;
@@ -83,9 +82,15 @@ namespace _9230A_V00___PI.Utilidades
             public bool Reserva_26;
             public bool Reserva_27;
             public bool Reserva_28;
+            public bool Reserva_29;
+            public bool Reserva_30;
+            public bool Reserva_31;
 
-            public float Percentual_Habilita_Balanca_Vazia_Automatica;                      //Maximo abertura sulo 2    
-            public float Percentual_Habilita_Balanca_Vazia_Manual;                         //Maximo abertura sulo 2    
+            public float reserva_Real_1;                      //Maximo abertura sulo 2    
+            public float reserva_Real_2;                         //Maximo abertura sulo 2    
+
+
+
         }
 
         public struct diagnosticoProfinet
@@ -168,6 +173,16 @@ namespace _9230A_V00___PI.Utilidades
             public bool Reserva_3;
             public bool Reserva_4;
             public bool Reserva_5;
+
+
+
+
+
+
+
+
+
+
         }
 
         public struct Complemento
@@ -877,8 +892,9 @@ namespace _9230A_V00___PI.Utilidades
 
         public static Utilidades.executaEnsaque executaEnsaque = new Utilidades.executaEnsaque(2);
 
-        public static Utilidades.controleBalanca controleBalanca = new controleBalanca(4, 0);
+        //public static Utilidades.controleBalanca controleBalanca = new controleBalanca(4, 0);
 
+        public static AuxiliaresProcesso auxiliaresProcesso = new AuxiliaresProcesso();
 
     }
 
