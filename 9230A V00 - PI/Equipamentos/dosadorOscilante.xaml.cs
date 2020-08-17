@@ -34,7 +34,7 @@ namespace _9230A_V00___PI.Equipamentos
         //================================================================================================================================
 
         SolidColorBrush VM = new SolidColorBrush(Colors.Red);
-        SolidColorBrush CZ = new SolidColorBrush(Colors.Gray);
+        SolidColorBrush CZ = new SolidColorBrush(Colors.DarkGray);
         SolidColorBrush AZ = new SolidColorBrush(Colors.Blue);
         SolidColorBrush AM = new SolidColorBrush(Colors.Yellow);
         SolidColorBrush VD = new SolidColorBrush(Colors.Green);

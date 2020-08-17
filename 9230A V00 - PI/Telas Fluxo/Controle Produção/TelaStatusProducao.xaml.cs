@@ -234,7 +234,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
                 (VariaveisGlobais.executaProducao.ControleExecucao.Slot_1.Complemento_Pos.Item_Atual_Iniciado_Dosagem && !VariaveisGlobais.executaProducao.ControleExecucao.Slot_1.Complemento_Pos.Item_Atual_Finalizado_Dosagem)
                 )
             {
-                VariaveisGlobais.executaProducao.InicioDosagemManualComplementoPre(SlotSolicitado);
+                VariaveisGlobais.executaProducao.InicioDosagemManualComplementoPos(SlotSolicitado);
             }
 
         }
