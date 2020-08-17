@@ -226,6 +226,12 @@
     <Compile Include="Telas Fluxo\Configuracoes\Especificacoes.xaml.cs">
       <DependentUpon>Especificacoes.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Telas Fluxo\Configuracoes\especificacoesRegistros.xaml.cs">
+      <DependentUpon>especificacoesRegistros.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Telas Fluxo\Controle Produção\controleBalanca.xaml.cs">
+      <DependentUpon>controleBalanca.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Telas Fluxo\Controle Produção\Ensaque.xaml.cs">
       <DependentUpon>Ensaque.xaml</DependentUpon>
     </Compile>
@@ -307,6 +313,12 @@
     <Compile Include="Telas Fluxo\Receitas\FinalizacaoCadastroReceita.xaml.cs">
       <DependentUpon>FinalizacaoCadastroReceita.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Telas Fluxo\Receitas\pesquisaProduto.xaml.cs">
+      <DependentUpon>pesquisaProduto.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Telas Fluxo\Receitas\pesquisaReceita.xaml.cs">
+      <DependentUpon>pesquisaReceita.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Telas Fluxo\relatorios.xaml.cs">
       <DependentUpon>relatorios.xaml</DependentUpon>
     </Compile>
@@ -348,7 +360,6 @@
     <Compile Include="Usuarios\removerUsuario.xaml.cs">
       <DependentUpon>removerUsuario.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Utilidades\controleBalanca.cs" />
     <Compile Include="Utilidades\Conversions.cs" />
     <Compile Include="Utilidades\convertTextInputToVisibility.cs" />
     <Compile Include="Utilidades\EquipsControl.cs" />
@@ -497,6 +508,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Telas Fluxo\Configuracoes\especificacoesRegistros.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Telas Fluxo\Controle Produção\controleBalanca.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Telas Fluxo\Controle Produção\Ensaque.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -602,6 +621,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Telas Fluxo\Receitas\FinalizacaoCadastroReceita.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Telas Fluxo\Receitas\pesquisaProduto.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Telas Fluxo\Receitas\pesquisaReceita.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

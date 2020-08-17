@@ -25,19 +25,11 @@ namespace _9230A_V00___PI.Telas_Fluxo
 
         Telas_Fluxo.Configuracoes.Especificacoes especificaoes = new Configuracoes.Especificacoes();
 
-
-
+        Telas_Fluxo.Configuracoes.especificacoesRegistros especificaoesRegistro = new Configuracoes.especificacoesRegistros();
         public configuracoes()
         {
             InitializeComponent();
 
-        }
-
-        private void btSair_Click(object sender, RoutedEventArgs e)
-        {
-              App.Current.Shutdown();
-              Process proc = Process.GetCurrentProcess();
-              proc.Kill();
         }
 
         private void btInformacoesEspecificacoes_Click(object sender, RoutedEventArgs e)
@@ -48,6 +40,25 @@ namespace _9230A_V00___PI.Telas_Fluxo
             }
 
             spConfiguracao.Children.Add(especificaoes);
+        }
+
+
+        private void btInformacoesEspecificacoesRegistro_Click(object sender, RoutedEventArgs e)
+        {
+            if (spConfiguracao != null)
+            {
+                spConfiguracao.Children.Clear();
+            }
+
+            spConfiguracao.Children.Add(especificaoesRegistro);
+        }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (spConfiguracao != null)
+            {
+                spConfiguracao.Children.Clear();
+            }
         }
     }
 }

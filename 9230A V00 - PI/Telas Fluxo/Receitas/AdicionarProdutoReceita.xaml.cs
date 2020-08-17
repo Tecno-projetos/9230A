@@ -113,10 +113,10 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
 
         private void DataGrid_Produtos_LoadingRow(object sender, DataGridRowEventArgs e)
         {
-            DataGrid_Produtos.Columns[0].Visibility = Visibility.Hidden;
-            DataGrid_Produtos.Columns[3].Visibility = Visibility.Hidden;
-            DataGrid_Produtos.Columns[4].Visibility = Visibility.Hidden;
-            DataGrid_Produtos.Columns[5].Visibility = Visibility.Hidden;
+            DataGrid_Produtos.Columns[0].Visibility = Visibility.Visible;
+            DataGrid_Produtos.Columns[3].Visibility = Visibility.Visible;
+            DataGrid_Produtos.Columns[4].Visibility = Visibility.Visible;
+            DataGrid_Produtos.Columns[5].Visibility = Visibility.Visible;
 
             DataGrid_Produtos.Columns[1].Header = "Código";
             DataGrid_Produtos.Columns[2].Header = "Descrição";
@@ -273,9 +273,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
         {
             Utilidades.functions.atualizalistProdutos();
 
-            var filter = from p in Utilidades.VariaveisGlobais.listProdutos
-                         where p.descricao.Contains(txtDesc.Text) &&
-                         p.tipoProduto.Contains(filtroTipoProduto)
+            var filter = from p in Utilidades.VariaveisGlobais.listProdutos where p.descricao.Contains(txtDesc.Text) && p.tipoProduto.Contains(filtroTipoProduto)
                          select p;
 
             var listProdutosFiltered = filter.ToList();

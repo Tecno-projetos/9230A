@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:_9230A_V00___PI.Telas_Fluxo"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:Equipamentos="clr-namespace:_9230A_V00___PI.Equipamentos" x:Class="_9230A_V00___PI.Telas_Fluxo.configuracoes"
              mc:Ignorable="d" 
-             d:DesignHeight="675" d:DesignWidth="1024">
+             d:DesignHeight="675" d:DesignWidth="1024" Loaded="UserControl_Loaded">
     <Grid Background="#FF7F7F7F">
         <Grid HorizontalAlignment="Left" Height="675" VerticalAlignment="Top" Width="200" Background="#FF3C3C3C">
             <materialDesign:PackIcon Kind="GearBox" VerticalAlignment="Center" Foreground="White" Height="95" Margin="0,6,0,574" Width="200"/>
@@ -18,16 +18,16 @@
                     <TextBlock  Text="Especificações" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="32,4,0,2" Width="138" FontSize="14" FontWeight="Normal" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                 </Grid>
             </Button>
-            <Button x:Name="btPID" Margin="10,265,10,360" Background="#FF505050" BorderBrush="Black" Height="50">
+            <Button x:Name="btPID" Margin="10,270,10,355" Background="#FF505050" BorderBrush="Black" Height="50">
                 <Grid Width="170" Height="40">
                     <materialDesign:PackIcon Kind="CalculatorVariant" VerticalAlignment="Center" Foreground="White" Margin="2,-6,0,-7" Height="30" Width="30"/>
                     <TextBlock  Text="PID" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="32,4,0,2" Width="138" FontSize="14" FontWeight="Normal" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                 </Grid>
             </Button>
-            <Button x:Name="btInformacoesEspecificacoes_Copy" Margin="10,191,10,434" Background="#FF505050" BorderBrush="Black" Height="50" Click="btInformacoesEspecificacoes_Click">
+            <Button x:Name="btInformacoesEspecificacoesRegistro" Margin="10,191,10,434" Background="#FF505050" BorderBrush="Black" Height="50" Click="btInformacoesEspecificacoesRegistro_Click">
                 <Grid Width="170" Height="40">
-                    <materialDesign:PackIcon Kind="StateMachine" VerticalAlignment="Center" Foreground="White" Margin="2,-6,0,-7" Height="30" Width="30"/>
-                    <TextBlock  Text="Máquinas" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="32,4,0,2" Width="138" FontSize="14" FontWeight="Normal" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    <materialDesign:PackIcon Kind="HammerScrewdriver" VerticalAlignment="Center" Foreground="White" Margin="2,-6,0,-7" Height="30" Width="30"/>
+                    <TextBlock  Text="Conf. Registro" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="32,4,0,2" Width="138" FontSize="14" FontWeight="Normal" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                 </Grid>
             </Button>
         </Grid>
