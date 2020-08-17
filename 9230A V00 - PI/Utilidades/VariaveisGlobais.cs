@@ -50,10 +50,8 @@ namespace _9230A_V00___PI.Utilidades
 
             //Region Geral
             //Palavra de controle
-            public bool Reserva29;                  
-            public bool Reserva30;        
-            public bool reserva31;                    
-            public bool Reserva_0;                      
+                 
+            public bool Set_Automatico_Equipamentos;                      
             public bool Reserva_1;
             public bool Reserva_2;
             public bool Reserva_3;
@@ -87,7 +85,7 @@ namespace _9230A_V00___PI.Utilidades
             public bool Reserva_31;
 
             public float reserva_Real_1;                      //Maximo abertura sulo 2    
-            public float reserva_Real_2;                         //Maximo abertura sulo 2    
+            public float reserva_Real_2;                      //Maximo abertura sulo 2    
 
 
 
@@ -164,23 +162,21 @@ namespace _9230A_V00___PI.Utilidades
 
         public struct IndicadorPesagem
         {
+
             public float Valor_Atual_Indicador;
+
+            public float Percentual_Habilita_Balanca_Vazia_Automatica;
+
+            public float Percentual_Habilita_Balanca_Vazia_Manual;
+
             public bool Comando_Zero;
             public bool Comando_Tara;
             public bool Erro_Leitura;
-            public bool Reserva_1;
-            public bool Reserva_2;
-            public bool Reserva_3;
+            public bool Balanca_Vazia_Manual;
+            public bool Habilita_Setar_Balanca_Vazia;
+            public bool Seta_Balanca_Vazia;
             public bool Reserva_4;
             public bool Reserva_5;
-
-
-
-
-
-
-
-
 
 
         }
@@ -759,6 +755,7 @@ namespace _9230A_V00___PI.Utilidades
 
         public static Telas_Fluxo.relatorios relatorios = new Telas_Fluxo.relatorios();
 
+        public static Telas_Fluxo.Controle_Produção.controleBalanca telabalanca = new Telas_Fluxo.Controle_Produção.controleBalanca(0);
 
         #endregion
 
@@ -892,9 +889,10 @@ namespace _9230A_V00___PI.Utilidades
 
         public static Utilidades.executaEnsaque executaEnsaque = new Utilidades.executaEnsaque(2);
 
-        //public static Utilidades.controleBalanca controleBalanca = new controleBalanca(4, 0);
-
         public static AuxiliaresProcesso auxiliaresProcesso = new AuxiliaresProcesso();
+
+        public static IndicadorPesagem indicadorPesagem = new IndicadorPesagem();
+
 
     }
 

@@ -1,12 +1,135 @@
-﻿<Window x:Class="_9230A_V00___PI.Telas_Fluxo.Controle_Produção.controleBalanca"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_9230A_V00___PI.Telas_Fluxo.Controle_Produção"
+        xmlns:Utilidades="clr-namespace:_9230A_V00___PI.Utilidades" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="_9230A_V00___PI.Telas_Fluxo.Controle_Produção.controleBalanca"
         mc:Ignorable="d"
-        Title="controleBalanca" Height="322" Width="339" ResizeMode="NoResize" SizeToContent="WidthAndHeight" Topmost="True" WindowStartupLocation="CenterScreen">
-    <Grid>
-        
+        Title="Controle Balança" Height="401" Width="518" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Icon="/9230A V00 - PI;component/Imagens/Automasul.ico" WindowStyle="None">
+    <Window.Resources>
+        <Utilidades:TextInputToVisibilityConverter x:Key="TextInputToVisibilityConverter" />
+
+        <SolidColorBrush x:Key="brushWatermarkBorder" Color="White" />
+
+        <Style x:Key="EntryFieldStyle" TargetType="{x:Type Grid}" >
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="20,0" />
+        </Style>
+
+
+
+    </Window.Resources>
+    <Grid Background="#FF787878">
+        <Grid.Resources  >
+
+            <ResourceDictionary>
+                <ResourceDictionary.MergedDictionaries>
+                    <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Blue.xaml" />
+                    <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Indigo.xaml" />
+                    <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                </ResourceDictionary.MergedDictionaries>
+
+
+                <SolidColorBrush x:Key="brushWatermarkBackground" Color="#FF505050" />
+                <SolidColorBrush x:Key="brushWatermarkForeground" Color="White" />
+                <Utilidades:TextInputToVisibilityConverter x:Key="TextInputToVisibilityConverter" />
+
+                <SolidColorBrush x:Key="brushWatermarkBorder" Color="White" />
+
+                <Style x:Key="EntryFieldStyle" TargetType="{x:Type Grid}" >
+                    <Setter Property="HorizontalAlignment" Value="Stretch" />
+                    <Setter Property="VerticalAlignment" Value="Center" />
+                    <Setter Property="Margin" Value="20,0" />
+                </Style>
+
+
+
+            </ResourceDictionary>
+
+        </Grid.Resources>
+        <Button x:Name="btComandoZero" Margin="20,188,275,163" Background="#FF505050" BorderBrush="Black" Height="50" Click="btComandoZero_Click">
+            <Grid Width="135" Height="40">
+                <TextBlock TextAlignment="Center" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="-5,14,-3,10" Width="143" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Comando Zero"/>
+            </Grid>
+        </Button>
+        <Button x:Name="btComandoTara" Margin="20,248,275,103" Background="#FF505050" BorderBrush="Black" Height="50" Click="btComandoTara_Click">
+            <Grid Width="135" Height="40">
+                <TextBlock TextAlignment="Center" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="-5,14,-3,10" Width="143" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Comando Tara"/>
+            </Grid>
+        </Button>
+        <GroupBox Header="Configurações Balança Vazia" HorizontalAlignment="Left" Height="381" Margin="258,10,0,0" VerticalAlignment="Top" Width="252" Foreground="White"/>
+        <Button x:Name="btManualAuotmatico" Margin="287,68,20,254" Background="#FF505050" BorderBrush="Black" Height="50" Click="btManualAuotmatico_Click">
+            <Grid Width="193" Height="40">
+                <TextBlock x:Name="txtManual1" TextAlignment="Center" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="5,14,31,10" Width="157" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Manual"/>
+            </Grid>
+        </Button>
+
+        <Label Content="Percentual Manual (%)" Height="34" Margin="287,151,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="196" Foreground="White" FontWeight="Bold" FontSize="16"/>
+        <Grid Style="{StaticResource EntryFieldStyle}" Margin="287,173,20,158" Height="41" Background="#FF3C3C3C" >
+            <TextBlock Margin="5,0,6,5" Text="Exemplo: 7,0" Foreground="#FF919191" VerticalAlignment="Bottom" FontSize="14" >
+                <TextBlock.Visibility>
+                    <MultiBinding Converter="{StaticResource TextInputToVisibilityConverter}">
+                        <Binding ElementName="txtManual" Path="Text.IsEmpty" />
+                        <Binding ElementName="txtManual" Path="IsFocused" />
+                    </MultiBinding>
+                </TextBlock.Visibility>
+            </TextBlock>
+            <TextBox x:Name="txtManual" PreviewMouseLeftButtonUp="floatingPreviewMouseLeftButtonUp" GotFocus="TB_GotFocus" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" />
+        </Grid>
+        <materialDesign:PackIcon Kind="Pencil" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="259,173,232,158" BorderBrush="#FF040404"/>
+        <Label Content="Percentual Automático (%)" Height="34" Margin="287,244,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="215" Foreground="White" FontWeight="Bold" FontSize="16"/>
+        <Grid Style="{StaticResource EntryFieldStyle}" Margin="287,262,20,69" Height="41" Background="#FF3C3C3C" >
+            <TextBlock Margin="5,0,6,5" Text="Exemplo: 1,5" Foreground="#FF919191" VerticalAlignment="Bottom" FontSize="14" >
+                <TextBlock.Visibility>
+                    <MultiBinding Converter="{StaticResource TextInputToVisibilityConverter}">
+                        <Binding ElementName="txtAutomatico" Path="Text.IsEmpty" />
+                        <Binding ElementName="txtAutomatico" Path="IsFocused" />
+                    </MultiBinding>
+                </TextBlock.Visibility>
+            </TextBlock>
+            <TextBox x:Name="txtAutomatico" GotFocus="TB_GotFocus" PreviewMouseLeftButtonUp="floatingPreviewMouseLeftButtonUp" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" />
+        </Grid>
+        <materialDesign:PackIcon Kind="Pencil" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="260,262,231,69" BorderBrush="#FF040404"/>
+        <Button x:Name="btBalancaVazia" Margin="287,315,20,7" Background="#FF505050" BorderBrush="Black" Height="50" Click="btBalancaVazia_Click">
+            <Grid Width="178" Height="40">
+                <TextBlock TextAlignment="Center" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="10,14,16,5" Width="152" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Balança Vazia" Height="21"/>
+            </Grid>
+        </Button>
+        <Label Content="Peso Atual Balança" Height="47" Margin="20,10,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="225" Foreground="White" FontWeight="Bold" FontSize="24"/>
+        <Label x:Name="lbPesoBalnca" Content="1500 kg" Height="93" Margin="0,66,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="258" Foreground="White" FontWeight="Bold" FontSize="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Button x:Name="btFechar"  Margin="20,336,0,0" Background="Red" BorderBrush="Black" Height="44" VerticalAlignment="Top" HorizontalAlignment="Left" Width="223" IsCancel="True">
+            <Button.Resources>
+                <ResourceDictionary>
+                    <ResourceDictionary.MergedDictionaries>
+                        <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Blue.xaml" />
+                        <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Indigo.xaml" />
+                        <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+
+
+                    </ResourceDictionary.MergedDictionaries>
+                    <SolidColorBrush x:Key="brushWatermarkBackground" Color="White" />
+                    <SolidColorBrush x:Key="brushWatermarkForeground" Color="LightSteelBlue" />
+                    <SolidColorBrush x:Key="brushWatermarkBorder" Color="Black" />
+
+                    <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+
+                    <Style x:Key="EntryFieldStyle" TargetType="{x:Type Grid}" >
+                        <Setter Property="HorizontalAlignment" Value="Stretch" />
+                        <Setter Property="VerticalAlignment" Value="Center" />
+                        <Setter Property="Margin" Value="20,0" />
+                    </Style>
+                </ResourceDictionary>
+
+            </Button.Resources>
+
+            <Grid Width="150">
+                <materialDesign:PackIcon Kind="Close" VerticalAlignment="Center" Foreground="White" Height="30" Margin="-22,-4,0,-4" Width="42"/>
+                <TextBlock HorizontalAlignment="Center" Text="Fechar" FontFamily="Champagne &amp; Limousines" Foreground="White" FontSize="18" Margin="49,1,49,-1"/>
+            </Grid>
+        </Button>
+        <Label x:Name="lbStatusMotor" Content="Balança Em Funcionamento" Margin="20,304,0,0" BorderBrush="Black" BorderThickness="1" Background="#FF0CFF00" HorizontalContentAlignment="Center" Height="29" VerticalAlignment="Top" HorizontalAlignment="Left" Width="223" ToolTip="Status do motor, falhas e alarmes." Cursor="No" FontSize="13"/>
+
     </Grid>
 </Window>
