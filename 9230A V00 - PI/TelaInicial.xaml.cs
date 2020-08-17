@@ -235,10 +235,6 @@ namespace _9230A_V00___PI
 
                 }
 
-                Utilidades.VariaveisGlobais.controleBalanca.readVariablesBuffer_AuxiliaresProcesso();
-
-
-
                 VariaveisGlobais.executaEnsaque.Ensacar = true;
 
                 VariaveisGlobais.CommunicationPLC.writeBufferPLC();//Chama a escrita no PLC
