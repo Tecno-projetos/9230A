@@ -168,23 +168,22 @@ namespace _9230A_V00___PI.Utilidades
             public bool Reserva_3;
             public bool Reserva_4;
             public bool Reserva_5;
-
         }
 
         public struct Complemento
         {
-            public short Quantidade_Itens;                  //Qtd itens dosagem Manual
-            public short Item_Atual;                        //Item atual
-            public float Quantidade_Dosada_Item_Atual;      //Qtd dosada item Atual
-            public float Quantidade_Dosada_Total;           //Qtd dosada total
-            public bool Habilitado_Inicio_Dosagem;          //Habilita Iniciar a dosagem
-            public bool Botao_Inicio_Fim_Dosagem_IHM;       //BT Inicia ou finaliza Dosagem
-            public bool Item_Atual_Iniciado_Dosagem;        //Iniciado Dosagem item atual
-            public bool Item_Atual_Finalizado_Dosagem;      //Finalizado Dosagem item atual
-            public bool Finalizado_Dosagem_Complementos;    //Finalizado a dosagem de todos complementos
-            public bool Reserva;                            //Reserva
-            public bool Reserva_1;                          //Reserva
-            public bool Reserva_2;                          //Reserva
+            public short Quantidade_Itens;                          //Qtd itens dosagem Manual
+            public short Item_Atual;                                //Item atual
+            public float Quantidade_Dosada_Item_Atual;              //Qtd dosada item Atual
+            public float Quantidade_Dosada_Total;                   //Qtd dosada total
+            public bool Habilitado_Inicio_Dosagem;                  //Habilita Iniciar a dosagem
+            public bool Botao_Inicio_Fim_Dosagem_IHM;               //BT Inicia ou finaliza Dosagem
+            public bool Item_Atual_Iniciado_Dosagem;                //Iniciado Dosagem item atual
+            public bool Item_Atual_Finalizado_Dosagem;              //Finalizado Dosagem item atual
+            public bool Finalizado_Dosagem_Complementos;            //Finalizado a dosagem de todos complementos
+            public bool Supervisao_Salvou_Dados_Dosado_Item_Atual;  //Supervisao salvou os dados de dosagem do item atual
+            public bool Reserva_1;                                  //Reserva
+            public bool Reserva_2;                                  //Reserva
         }
 
         public struct SlotBatelada
@@ -222,12 +221,12 @@ namespace _9230A_V00___PI.Utilidades
             // 7 - Transporte Para Produto Acabado
 
             //Palavra de commando
-            public bool Solicita_Nova_Batelada;              //Slot Disponível para iniciar nova Batelada
-            public bool Iniciou;                             //Iniciou batelada
-            public bool Finalizou;                           //Finalizou batelada
-            public bool Carregou_Nova_Batelada;              //Quando o supervisório carregou uma batelada no slot
-            public bool Reserva_1;
-            public bool Reserva_2;
+            public bool Solicita_Nova_Batelada;                                   //Slot Disponível para iniciar nova Batelada
+            public bool Iniciou_Producao_No_Processo;                             //Iniciou batelada
+            public bool Finalizou_Producao_No_Processo;                           //Finalizou batelada
+            public bool Producao_Carregou_Dados_Iniciais_Batelada_No_Processo;    //Carregou os dados iniciais no processo para iniciar a dosagem manual e a dosagem automática.
+            public bool Liberado_Nova_Batelada;                                   //Slot Disponível para iniciar nova Batelada
+            public bool Supervisao_Carregou_Dados_Batelada;                       //Quando o Supervisorio carregou os dados da nova batelada
             public bool Reserva_3;
             public bool Reserva_4;
             public bool Reserva_5;
@@ -546,11 +545,9 @@ namespace _9230A_V00___PI.Utilidades
 
             public type_AtuadorAnalogico(string value) : this()
             {
-                offSet_PosicaoSolicitadaAutomatico = 28;
-                offSet_SP_Posicao_Manual = 32;
-                offSet_PosicaoAtual = 36;
-
-
+                offSet_PosicaoSolicitadaAutomatico = 4;
+                offSet_SP_Posicao_Manual = 8;
+                offSet_PosicaoAtual = 12;
             }
 
             public bool ligaManual;
