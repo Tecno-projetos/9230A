@@ -273,9 +273,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
         {
             Utilidades.functions.atualizalistProdutos();
 
-            var filter = from p in Utilidades.VariaveisGlobais.listProdutos
-                         where p.descricao.Contains(txtDesc.Text) &&
-                         p.tipoProduto.Contains(filtroTipoProduto)
+            var filter = from p in Utilidades.VariaveisGlobais.listProdutos where p.descricao.Contains(txtDesc.Text) && p.tipoProduto.Contains(filtroTipoProduto)
                          select p;
 
             var listProdutosFiltered = filter.ToList();
