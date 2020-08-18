@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -137,8 +138,9 @@ namespace _9230A_V00___PI.DataBase
             {
                 try
                 {
-                    densidade = (float)densidade;
-                    string CommandString = "UPDATE Produtos SET Codigo = '"+ codigo + "', Descricao = '" + descricao + "', Densidade = '" + densidade + "', TipoProduto = '" + tipoProduto + "', Observacao = '" + observacao + "' WHERE Id = " + id + ";";
+                   string densi = densidade.ToString(CultureInfo.GetCultureInfo("en-US"));
+
+                   string CommandString = "UPDATE Produtos SET Codigo = '"+ codigo + "', Descricao = '" + descricao + "', Densidade = '" + densi + "', TipoProduto = '" + tipoProduto + "', Observacao = '" + observacao + "' WHERE Id = " + id + ";".ToString(CultureInfo.GetCultureInfo("en-US"));
 
                     dynamic Call = SqlGlobalFuctions.ReturnCall(Utilidades.VariaveisGlobais.Connection_DB_Receitas_GS);
                     dynamic Command = SqlGlobalFuctions.ReturnCommand(CommandString, Call);

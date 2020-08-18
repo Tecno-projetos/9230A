@@ -26,6 +26,45 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
             InitializeComponent();
         }
 
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            Utilidades.functions.atualizalistReceitas();
+
+            loadDataReceitas();
+
+
+        }
+
+        #region Move List
+
+        private void btLeftList_Produtos_Click(object sender, RoutedEventArgs e)
+        {
+            var scroll = (VisualTreeHelper.GetChild(DataGrid_Produtos, 0) as Decorator).Child as ScrollViewer;
+
+            scroll.ScrollToHorizontalOffset(scroll.HorizontalOffset - 20);
+        }
+
+        private void btDownList_Produtos_Click(object sender, RoutedEventArgs e)
+        {
+            var scroll = (VisualTreeHelper.GetChild(DataGrid_Produtos, 0) as Decorator).Child as ScrollViewer;
+
+            scroll.ScrollToVerticalOffset(scroll.VerticalOffset + 5);
+        }
+
+        private void btRightList_Produtos_Click(object sender, RoutedEventArgs e)
+        {
+            var scroll = (VisualTreeHelper.GetChild(DataGrid_Produtos, 0) as Decorator).Child as ScrollViewer;
+
+            scroll.ScrollToHorizontalOffset(scroll.HorizontalOffset + 20);
+        }
+
+        private void btUpList_Produtos_Click(object sender, RoutedEventArgs e)
+        {
+            var scroll = (VisualTreeHelper.GetChild(DataGrid_Produtos, 0) as Decorator).Child as ScrollViewer;
+
+            scroll.ScrollToVerticalOffset(scroll.VerticalOffset - 5);
+        }
+
         private void btLeftList_Click(object sender, RoutedEventArgs e)
         {
             var scroll = (VisualTreeHelper.GetChild(DataGrid_Receita, 0) as Decorator).Child as ScrollViewer;
@@ -54,14 +93,8 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
             scroll.ScrollToVerticalOffset(scroll.VerticalOffset - 5);
         }
 
-        private void UserControl_Loaded(object sender, RoutedEventArgs e)
-        {
-            atualizaFiltroDataReceita();
+        #endregion
 
-            loadDataReceitas();
-
-
-        }
         private void TB_GotFocus(object sender, RoutedEventArgs e)
         {
             try
@@ -93,19 +126,20 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
 
             //DataTable dt = converter.ToDataTable(listReceitaFiltered);
             DataTable dt = new DataTable();
-
+            dt.Columns.Add("Id");
             dt.Columns.Add("Nome");
             dt.Columns.Add("Peso Base");
-            dt.Columns.Add("Quantidade Produtos");
+            dt.Columns.Add("Produção");
             dt.Columns.Add("Observação");
 
             foreach (var item in listReceitaFiltered)
             {
                 DataRow dr = dt.NewRow();
 
+                dr["Id"] = item.id;
                 dr["Nome"] = item.nomeReceita;
                 dr["Peso Base"] = item.pesoBase;
-                dr["Quantidade Produtos"] = item.listProdutos.Count;
+                dr["Produção"] = item.listProdutos.Count;
                 dr["Observação"] = item.observacao;
 
                 dt.Rows.Add(dr);
@@ -113,7 +147,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
 
 
             DataGrid_Receita.Dispatcher.Invoke(delegate { DataGrid_Receita.ItemsSource = dt.DefaultView; });
-
+            DataGrid_Receita.Columns[0].Visibility = Visibility.Hidden;
 
         }
 
@@ -122,26 +156,63 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
         {
             DataTable dt = new DataTable();
 
+            dt.Columns.Add("Id");
             dt.Columns.Add("Nome");
             dt.Columns.Add("Peso Base");
-            dt.Columns.Add("Quantidade Produtos");
+            dt.Columns.Add("Produção");
             dt.Columns.Add("Observação");
 
             foreach (var item in Utilidades.VariaveisGlobais.listReceitas)
             {
                 DataRow dr = dt.NewRow();
 
+                dr["Id"] = item.id;
                 dr["Nome"] = item.nomeReceita;
                 dr["Peso Base"] = item.pesoBase;
-                dr["Quantidade Produtos"] = item.listProdutos.Count;
+                dr["Produção"] = item.listProdutos.Count;
                 dr["Observação"] = item.observacao;
 
                 dt.Rows.Add(dr);
             }
 
-
             DataGrid_Receita.Dispatcher.Invoke(delegate { DataGrid_Receita.ItemsSource = dt.DefaultView; });
+
+            DataGrid_Receita.Columns[0].Visibility = Visibility.Hidden;
+
         }
+
+        private void DataGrid_Receita_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            //Atualiza o Grid de equipamentos com os equipamentos que pertencem a receita selecionada.
+            if (DataGrid_Receita.SelectedIndex != -1)
+            {
+
+                var rowList = (DataGrid_Receita.ItemContainerGenerator.ContainerFromIndex(DataGrid_Receita.SelectedIndex) as DataGridRow).Item as DataRowView;
+
+                Utilidades.functions.atualizalistReceitas();
+
+                var index = Utilidades.VariaveisGlobais.listReceitas.FindIndex(x => x.id == Convert.ToInt32(rowList.Row.ItemArray[0]));
+
+                DataTable dt = new DataTable();
+
+                dt.Columns.Add("Produto");
+                dt.Columns.Add("Peso(kg)");
+       
+
+                foreach (var item in Utilidades.VariaveisGlobais.listReceitas[index].listProdutos)
+                {
+                    DataRow dr = dt.NewRow();
+
+                    dr["Produto"] = item.produto.descricao;
+                    dr["Peso(kg)"] = item.pesoPorProduto;
+
+                    dt.Rows.Add(dr);
+                }
+
+                DataGrid_Produtos.Dispatcher.Invoke(delegate { DataGrid_Produtos.ItemsSource = dt.DefaultView; });
+            }
+        }
+
 
         private void btPesquisar_Click(object sender, RoutedEventArgs e)
         {

@@ -49,12 +49,15 @@ namespace _9230A_V00___PI.Desenhos
                 ticktack = !ticktack;
 
             }
+            else if (indicadorPesagem.Habilita_Setar_Balanca_Vazia)
+            {
+                recPrincipal.Fill = new SolidColorBrush(Colors.ForestGreen);
+            }
             else
             {
+
                 recPrincipal.Fill = new SolidColorBrush(Color.FromRgb(127, 127, 127));
             }
-
-
         }
 
         private void UserControl_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)

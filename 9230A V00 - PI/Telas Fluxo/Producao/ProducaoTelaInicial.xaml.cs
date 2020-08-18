@@ -113,6 +113,8 @@ namespace _9230A_V00___PI.Telas_Fluxo.Producao
 
                 dt.Columns.Add("Produto");
                 dt.Columns.Add("Peso(kg)");
+                dt.Columns.Add("Tipo");
+                dt.Columns.Add("Modo Dosagem"); 
 
                 foreach (var item in Utilidades.VariaveisGlobais.listReceitas[index].listProdutos)
                 {
@@ -120,6 +122,32 @@ namespace _9230A_V00___PI.Telas_Fluxo.Producao
 
                     dr["Produto"] = item.produto.descricao;
                     dr["Peso(kg)"] = item.pesoPorProduto;
+                   
+                    if (item.produto.tipoProduto.Contains("Complemento"))
+                    {
+                        dr["Tipo"] = "Comple.";
+                    }
+                    else if (item.produto.tipoProduto.Contains("Matéria"))
+                    {
+                        dr["Tipo"] = "M. P.";
+                    }
+                    else
+                    {
+                        dr["Tipo"] = "N/A";
+                    }
+
+                    if (item.tipoDosagemMateriaPrima.Contains("Auto"))
+                    {
+                        dr["Modo Dosagem"] = "Automática";
+                    }
+                    else if (item.tipoDosagemMateriaPrima.Contains("Manual"))
+                    {
+                        dr["Modo Dosagem"] = "Manual";
+                    }
+                    else
+                    {
+                        dr["Modo Dosagem"] = "N/A";
+                    }    
 
                     dt.Rows.Add(dr);
                 }
