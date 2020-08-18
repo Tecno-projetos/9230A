@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-      Title="keypad" Height="313" Width="299" ShowInTaskbar="False" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Icon="/9230A V00 - PI;component/Imagens/Automasul.ico" Topmost="True" >
+      Title="keypad" Height="431" Width="358" ShowInTaskbar="False" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Icon="/9230A V00 - PI;component/Imagens/Automasul.ico" Topmost="True" >
     <Window.Resources>
         <DropShadowEffect x:Key="DropShadowEffect" 
 						  ShadowDepth="1" 
@@ -18,7 +18,7 @@
             <GradientStop Color="#FF9097A3" Offset="0"/>
             <GradientStop Color="#FF444D5B" Offset="1"/>
         </LinearGradientBrush>
-    
+
         <Style x:Key="buttonBorder" TargetType="Border" >
             <Setter Property="Button.Effect" Value="{StaticResource DropShadowEffect}"/>
             <Setter Property="Margin" Value="4"/>

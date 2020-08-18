@@ -2,6 +2,7 @@
 using _9230A_V00___PI.Utilidades;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -83,7 +84,10 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
 
             Utilidades.VariaveisGlobais.indicadorPesagem = Move_Bits.ByteToIndicadorPesagem(Comunicacao.Sharp7.S7.GetByteAt(VariaveisGlobais.Buffer_PLC[bufferClp].Buffer, 384), Utilidades.VariaveisGlobais.indicadorPesagem);
 
-            lbPesoBalnca.Content = Convert.ToString(Utilidades.VariaveisGlobais.indicadorPesagem.Valor_Atual_Indicador) + " kg";
+            lbPesoBalnca.Content = Utilidades.VariaveisGlobais.indicadorPesagem.Valor_Atual_Indicador.ToString("N", CultureInfo.GetCultureInfo("pt-BR")) + " kg";
+
+
+
 
             if (Utilidades.VariaveisGlobais.indicadorPesagem.Erro_Leitura)
             {

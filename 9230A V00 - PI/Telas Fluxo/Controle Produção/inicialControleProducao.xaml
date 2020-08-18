@@ -16,7 +16,7 @@
         <materialDesign:PackIcon Kind="DotsVerticalCircle" VerticalAlignment="Top" Foreground="White" Height="21" Margin="109,50,0,0" Width="20"/>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="5" Margin="5,31,0,0" Stroke="Black" VerticalAlignment="Top" Width="485"/>
         <Label Content="Peso Total:" HorizontalAlignment="Left" Margin="130,84,0,0" VerticalAlignment="Top" Width="100" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="25" Padding="0" FontWeight="Bold" FontSize="15"/>
-        <Label x:Name="pesoTonelada" Content="1000" Margin="247,83,0,0" VerticalAlignment="Top" Width="89" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="25" Padding="0" FontWeight="Bold" HorizontalAlignment="Left" HorizontalContentAlignment="Right" FontSize="20"/>
+        <Label x:Name="pesoTonelada" Content="1000" Margin="210,83,0,0" VerticalAlignment="Top" Width="126" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="25" Padding="0" FontWeight="Bold" HorizontalAlignment="Left" HorizontalContentAlignment="Right" FontSize="20"/>
         <Label Content="kg" HorizontalAlignment="Left" Margin="338,90,0,0" VerticalAlignment="Top" Width="25" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="17" Padding="0" FontWeight="Bold"/>
         <materialDesign:PackIcon Kind="Weight" VerticalAlignment="Top" Foreground="White" Height="20" Margin="109,87,0,0" Width="20"/>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="3" Margin="112,74,0,0" Stroke="Black" VerticalAlignment="Top" Width="263"/>

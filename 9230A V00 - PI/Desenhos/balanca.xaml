@@ -30,7 +30,7 @@
         </ed:RegularPolygon>
         <Rectangle x:Name="recPrincipal" HorizontalAlignment="Left" Height="93.246" Margin="5.86,10,0,0" VerticalAlignment="Top" Width="166.105" Stroke="Black" Fill="#FF7F7F7F"/>
         <Rectangle HorizontalAlignment="Left" Height="32.218" Margin="65.484,103.169,0,0" VerticalAlignment="Top" Width="47.106" Fill="{Binding Fill, ElementName=recPrincipal}" />
-        <Label x:Name="LbPeso" Content="175,00 kg" HorizontalAlignment="Left" Margin="37,66,0,0" VerticalAlignment="Top" Width="102" FontSize="20" Foreground="White" FontWeight="Bold"/>
+        <Label x:Name="LbPeso" Content="10.500,47 Kg" HorizontalAlignment="Left" Margin="7,66,0,0" VerticalAlignment="Top" Width="164" FontSize="20" Foreground="White" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
         <Label Content="BALANÇA" HorizontalAlignment="Left" Margin="7,11,0,0" VerticalAlignment="Top" Width="164" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="White" FontSize="22"/>
         <Label Content="Peso Atual:" HorizontalAlignment="Left" Margin="51,49,0,0" VerticalAlignment="Top" Width="79" FontSize="14" Foreground="White"/>
 
