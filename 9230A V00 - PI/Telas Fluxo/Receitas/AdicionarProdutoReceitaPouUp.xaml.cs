@@ -197,12 +197,13 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
             if (mainWindow.ShowDialog() == true)
             {
                 //Recebe Valor antigo digitado no Textbox
-                double oldValue = Convert.ToDouble(txtReceber.Text);
+                double oldValue;
+
+                _ = double.TryParse(txtReceber.Text, out oldValue);
+
                 //Recebe o novo valor digitado no Keypad
-
-
-                double newValue = Convert.ToDouble(mainWindow.Result.Replace('.', ','));
-
+                double newValue;
+                _ = double.TryParse(mainWindow.Result.Replace('.', ','), out newValue);
 
                 bool isNumeric = float.TryParse(txtReceber.Text, out floatPoint);
 
@@ -236,12 +237,13 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
             if (mainWindow.ShowDialog() == true)
             {
                 //Recebe Valor antigo digitado no Textbox
-                double oldValue = Convert.ToInt32(txtReceber.Text);
+                double oldValue;
+
+                _ = double.TryParse(txtReceber.Text, out oldValue);
+
                 //Recebe o novo valor digitado no Keypad
-
-
-                double newValue = Convert.ToInt32(mainWindow.Result.Replace('.', ','));
-
+                double newValue;
+                _ = double.TryParse(mainWindow.Result.Replace('.', ','), out newValue);
 
                 int intPoint;
                 bool isNumeric = Int32.TryParse(txtReceber.Text, out intPoint);
