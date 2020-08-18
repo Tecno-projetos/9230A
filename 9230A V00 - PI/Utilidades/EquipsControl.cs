@@ -651,9 +651,9 @@ namespace _9230A_V00___PI.Utilidades
         {
             VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Enable_Read = false;
 
-            Command.SS.confirmaSentidoGiroAlimentador = true;
+            Command.Standard.confirmaSentidoGiroAlimentador = true;
 
-            Command.SS.SentidoGiroMotorMudou = false;
+            Command.Standard.SentidoGiroMotorMudou = false;
 
             Comunicacao.Sharp7.S7.SetDWordAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet, Utilidades.Move_Bits.typeSS_TO_Dword(Utilidades.Move_Bits.typeStandardGUI_TO_typeSS(Command)));
 

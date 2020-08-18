@@ -95,11 +95,10 @@
             </Grid>
         </Button>
         <Label x:Name="lb_Status_Batelada" Content="Dosagem Matéria Prima Automática" HorizontalAlignment="Left" VerticalAlignment="Top" Width="429" BorderBrush="Black" Background="{x:Null}" Foreground="#FF00FF0C" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="40" Padding="0" FontSize="24" FontWeight="Bold" Margin="374,8,0,0"/>
-        <Label Content="Peso Atual Balança:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="210" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="40" Padding="0" FontSize="18" FontWeight="Bold" Margin="381,106,0,0"/>
-        <Label Content="Tempo Restante Pré Mistura:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="315" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="40" Padding="0" FontSize="18" FontWeight="Bold" Margin="381,148,0,0"/>
-        <Label Content="Tempo Restante Pós Mistura:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="315" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="40" Padding="0" FontSize="18" FontWeight="Bold" Margin="381,190,0,0"/>
-        <Label Content="Tempo Passo Atual:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="315" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="40" Padding="0" FontSize="18" FontWeight="Bold" Margin="381,232,0,0"/>
-        <Label Content="Tempo Total Batelada:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="315" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="40" Padding="0" FontSize="18" FontWeight="Bold" Margin="381,274,0,0"/>
+        <Label Content="Peso Atual Balança:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="210" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="40" Padding="0" FontSize="18" FontWeight="Bold" Margin="381,92,0,0"/>
+        <Label Content="Tempo Restante Pré Mistura:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="315" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="40" Padding="0" FontSize="18" FontWeight="Bold" Margin="381,189,0,0"/>
+        <Label Content="Tempo Restante Pós Mistura:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="315" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="40" Padding="0" FontSize="18" FontWeight="Bold" Margin="381,235,0,0"/>
+        <Label Content="Tempo Total Batelada:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="246" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="40" Padding="0" FontSize="18" FontWeight="Bold" Margin="381,285,0,0"/>
         <Button x:Name="btDosarManual" Margin="381,355,0,128" Background="#FFFFD100" BorderBrush="Black" Height="35" HorizontalAlignment="Left" Width="259" Click="btDosarManual_Click">
             <Grid Width="231" Height="23">
                 <TextBlock x:Name="txtDosarManual" FontFamily="Champagne &amp; Limousines" TextAlignment="Center" Foreground="White" Margin="10,0,10,2" Width="211" FontSize="14" FontWeight="Normal" VerticalAlignment="Bottom"  HorizontalAlignment="Center" Height="17" Text="Finalizar Dosagem Manual"/>
@@ -125,6 +124,18 @@
                 <SolidColorBrush Color="Blue" Opacity="0"/>
             </Rectangle.Fill>
         </Rectangle>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="3" Margin="381,129,0,0" Stroke="Black" VerticalAlignment="Top" Width="360"/>
+        <Label Content="Peso Produto Atual:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="210" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="40" Padding="0" FontSize="18" FontWeight="Bold" Margin="381,141,0,0"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="3" Margin="381,178,0,0" Stroke="Black" VerticalAlignment="Top" Width="360"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="3" Margin="381,226,0,0" Stroke="Black" VerticalAlignment="Top" Width="360"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="3" Margin="381,273,0,0" Stroke="Black" VerticalAlignment="Top" Width="360"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="3" Margin="381,320,0,0" Stroke="Black" VerticalAlignment="Top" Width="360"/>
+        <Label x:Name="TempoRestantePreMistura" Content="1000" Margin="626,200,0,0" VerticalAlignment="Top" Width="89" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="25" Padding="0" FontWeight="Bold" HorizontalAlignment="Left" HorizontalContentAlignment="Right" FontSize="20"/>
+        <Label Content="min" HorizontalAlignment="Left" Margin="717,207,0,0" VerticalAlignment="Top" Width="25" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="17" Padding="0" FontWeight="Bold"/>
+        <Label x:Name="TempoRestantePosMistura" Content="1000" Margin="626,247,0,0" VerticalAlignment="Top" Width="89" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="25" Padding="0" FontWeight="Bold" HorizontalAlignment="Left" HorizontalContentAlignment="Right" FontSize="20"/>
+        <Label Content="min" HorizontalAlignment="Left" Margin="717,254,0,0" VerticalAlignment="Top" Width="25" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="17" Padding="0" FontWeight="Bold"/>
+        <Label x:Name="TempoTotalBatelada" Content="1000" Margin="626,294,0,0" VerticalAlignment="Top" Width="89" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="25" Padding="0" FontWeight="Bold" HorizontalAlignment="Left" HorizontalContentAlignment="Right" FontSize="20"/>
+        <Label Content="min" HorizontalAlignment="Left" Margin="717,301,0,0" VerticalAlignment="Top" Width="25" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="17" Padding="0" FontWeight="Bold"/>
 
     </Grid>
 </UserControl>
