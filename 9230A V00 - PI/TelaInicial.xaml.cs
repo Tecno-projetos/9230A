@@ -113,7 +113,7 @@ namespace _9230A_V00___PI
             Utilidades.VariaveisGlobais.Buffer_PLC[0].Name = "DB Controle Todos Equipamentos";
             Utilidades.VariaveisGlobais.Buffer_PLC[0].DBNumber = 2;
             Utilidades.VariaveisGlobais.Buffer_PLC[0].Start = 0;
-            Utilidades.VariaveisGlobais.Buffer_PLC[0].Size = 400;
+            Utilidades.VariaveisGlobais.Buffer_PLC[0].Size = 402;
             Utilidades.VariaveisGlobais.Buffer_PLC[0].Enable_Read = true;
             Utilidades.VariaveisGlobais.Buffer_PLC[0].Enable_Write = false;
 
@@ -156,7 +156,7 @@ namespace _9230A_V00___PI
 
             #region Configuração Dispatcher
 
-            timer50ms.Interval = TimeSpan.FromMilliseconds(50);
+            timer50ms.Interval = TimeSpan.FromMilliseconds(800);
             timer50ms.Tick += timer_Tick;
             timer50ms.Start();
             //====================================================
@@ -222,49 +222,42 @@ namespace _9230A_V00___PI
 
                 VariaveisGlobais.CommunicationPLC.readBuffersPLC(); //Chama a leitura no PLC
 
-                //Atualiza Niveis Silos
-                Utilidades.VariaveisGlobais.niveis = Move_Bits.Dword_TO_NIveis(Comunicacao.Sharp7.S7.GetDWordAt(Utilidades.VariaveisGlobais.Buffer_PLC[3].Buffer, 0), Utilidades.VariaveisGlobais.niveis);
-
-
-
-                VariaveisGlobais.telabalanca.atualiza_Balanca();
-
-
-                //Atualização Equip
-                VariaveisGlobais.Fluxo.Motor_22.actualize_Equip = true;
-                VariaveisGlobais.Fluxo.Motor_29.actualize_Equip = true;
-                VariaveisGlobais.Fluxo.Motor_30.actualize_Equip = true;
-                VariaveisGlobais.Fluxo.Motor_42.actualize_Equip = true;
-                VariaveisGlobais.Fluxo.Motor_43.actualize_Equip = true;
-                VariaveisGlobais.Fluxo.Motor_44.actualize_Equip = true;
-                VariaveisGlobais.Fluxo.Motor_45.actualize_Equip = true;
-                VariaveisGlobais.Fluxo.Motor_46.actualize_Equip = true;
-                VariaveisGlobais.Fluxo.Motor_48.actualize_Equip = true;
-                VariaveisGlobais.Fluxo.Motor_49.actualize_Equip = true;
-                VariaveisGlobais.Fluxo.Motor_62.actualize_Equip = true;
-                VariaveisGlobais.Fluxo.Motor_65.actualize_Equip = true;
-                VariaveisGlobais.Fluxo.Motor_26_Silo1.actualize_Equip = true;
-                VariaveisGlobais.Fluxo.Motor_26_Silo2.actualize_Equip = true;
-                VariaveisGlobais.Fluxo.Motor_23.actualize_Equip = true;
-
-                VariaveisGlobais.Fluxo.actualiza_UI();
-
-
-
-
-
-
-                //Atualiza Execução Produção
-                if (VariaveisGlobais.ProducaoReceita.IniciouProducao && !VariaveisGlobais.ProducaoReceita.FinalizouProducao)
+                //Verifica se esta lendo valor válido do CLP
+                if (Comunicacao.Sharp7.S7.GetIntAt(Utilidades.VariaveisGlobais.Buffer_PLC[0].Buffer, 400) == 1000)
                 {
-                    VariaveisGlobais.executaProducao.Produzir = true;
+                    //Atualiza Niveis Silos
+                    Utilidades.VariaveisGlobais.niveis = Move_Bits.Dword_TO_NIveis(Comunicacao.Sharp7.S7.GetDWordAt(Utilidades.VariaveisGlobais.Buffer_PLC[3].Buffer, 0), Utilidades.VariaveisGlobais.niveis);
 
+                    VariaveisGlobais.telabalanca.atualiza_Balanca();
+
+                    //Atualização Equip
+                    VariaveisGlobais.Fluxo.Motor_22.actualize_Equip = true;
+                    VariaveisGlobais.Fluxo.Motor_29.actualize_Equip = true;
+                    VariaveisGlobais.Fluxo.Motor_30.actualize_Equip = true;
+                    VariaveisGlobais.Fluxo.Motor_42.actualize_Equip = true;
+                    VariaveisGlobais.Fluxo.Motor_43.actualize_Equip = true;
+                    VariaveisGlobais.Fluxo.Motor_44.actualize_Equip = true;
+                    VariaveisGlobais.Fluxo.Motor_45.actualize_Equip = true;
+                    VariaveisGlobais.Fluxo.Motor_46.actualize_Equip = true;
+                    VariaveisGlobais.Fluxo.Motor_48.actualize_Equip = true;
+                    VariaveisGlobais.Fluxo.Motor_49.actualize_Equip = true;
+                    VariaveisGlobais.Fluxo.Motor_62.actualize_Equip = true;
+                    VariaveisGlobais.Fluxo.Motor_65.actualize_Equip = true;
+                    VariaveisGlobais.Fluxo.Motor_26_Silo1.actualize_Equip = true;
+                    VariaveisGlobais.Fluxo.Motor_26_Silo2.actualize_Equip = true;
+                    VariaveisGlobais.Fluxo.Motor_23.actualize_Equip = true;
+
+                    VariaveisGlobais.Fluxo.actualiza_UI();
+
+                    //Atualiza Execução Produção
+                    if (VariaveisGlobais.ProducaoReceita.IniciouProducao && !VariaveisGlobais.ProducaoReceita.FinalizouProducao)
+                    {
+                        VariaveisGlobais.executaProducao.Produzir = true;
+                        VariaveisGlobais.producao.atualizaTela();
+                    }
+
+                    VariaveisGlobais.executaEnsaque.Ensacar = true;
                 }
-
-
-
-
-                VariaveisGlobais.executaEnsaque.Ensacar = true;
 
                 VariaveisGlobais.CommunicationPLC.writeBufferPLC();//Chama a escrita no PLC
             }

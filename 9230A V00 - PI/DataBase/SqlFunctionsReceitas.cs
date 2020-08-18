@@ -264,8 +264,6 @@ namespace _9230A_V00___PI.DataBase
                 if (item.tipoDosagemMateriaPrima.Equals("Manual"))
                 {
                     listDummy.Add(item);
-
-                    Utilidades.VariaveisGlobais.ReceitaCadastro.listProdutos.Remove(item);
                 }
             }
 
@@ -275,8 +273,6 @@ namespace _9230A_V00___PI.DataBase
                 if (item.tipoDosagemMateriaPrima.Equals("Automático"))
                 {
                     listDummy.Add(item);
-
-                    Utilidades.VariaveisGlobais.ReceitaCadastro.listProdutos.Remove(item);
                 }
             }
 
@@ -286,8 +282,6 @@ namespace _9230A_V00___PI.DataBase
                 if (item.produto.tipoProduto.Equals("Complemento"))
                 {
                     listDummy.Add(item);
-
-                    Utilidades.VariaveisGlobais.ReceitaCadastro.listProdutos.Remove(item);
                 }
             }
 

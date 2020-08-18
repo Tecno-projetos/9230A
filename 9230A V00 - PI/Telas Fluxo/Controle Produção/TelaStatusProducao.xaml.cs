@@ -91,9 +91,6 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            var teste = slotSolicitado;
-
-
             atualizaStatusSlots();
         }
 
@@ -367,6 +364,11 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
                 VariaveisGlobais.executaProducao.InicioDosagemManualComplementoPos(SlotSolicitado);
             }
 
+        }
+
+        public void atualizaTela()
+        {
+            atualizaStatusSlots();
         }
     }
 }

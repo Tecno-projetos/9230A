@@ -260,7 +260,7 @@ namespace _9230A_V00___PI.Utilidades
             {
                 controleExecucao.Slot_1.NumeroBatelada = Convert.ToInt16(numeroBatelada + 1);
                 controleExecucao.Slot_1.Tempo_Pre_Mistura = VariaveisGlobais.ProducaoReceita.tempoPreMistura;               //Tempo Pré Mistura
-                controleExecucao.Slot_1.Tempo_Pos_Mistura = VariaveisGlobais.ProducaoReceita.tempoPreMistura;               //Tempo Pós Mistura
+                controleExecucao.Slot_1.Tempo_Pos_Mistura = VariaveisGlobais.ProducaoReceita.tempoPosMistura;               //Tempo Pós Mistura
 
                 pesoBatelada = 0;
                 foreach (var item in VariaveisGlobais.ProducaoReceita.batelada[numeroBatelada].produtos)
@@ -491,6 +491,17 @@ namespace _9230A_V00___PI.Utilidades
                     readVariablesBuffer(3);
                 }
                 //Após Leitura das Variáveis
+
+                //Verifica se foi solicitado iniciar a produção, se não inicia
+                if (!controleExecucao.Iniciar_Producao)
+                {
+                    VariaveisGlobais.Buffer_PLC[bufferPlc].Enable_Read = false; //Desabilita a leitura do buffer
+
+
+                    controleExecucao.Iniciar_Producao = true;
+                    writeVariablesSlotIntoBuffer(0);
+                    VariaveisGlobais.Buffer_PLC[bufferPlc].Enable_Write = true; //Desabilita a leitura do buffer
+                }
 
                 //Verifica se é possível a finalização da produção
                 finaliza_Producao();

@@ -32,10 +32,17 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
+            atualizaTela();
+        }
+
+        public void atualizaTela()
+        {
             //Verifica se existe produção
             if (VariaveisGlobais.ProducaoReceita.id != 0)
             {
                 Status_Controle_Producao.SlotSolicitado = slotSolicitado;
+
+                Status_Controle_Producao.atualizaTela();
                 lb_Producao_Receita.Content = "Produção Nº: " + VariaveisGlobais.ProducaoReceita.id + " " + VariaveisGlobais.ProducaoReceita.receita.nomeReceita;
 
                 if (slotSolicitado == 1)
@@ -57,8 +64,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
                 lb_NumeroBatelada.Content = "Batelada: -1";
             }
 
-
-
+            
         }
     }
 }
