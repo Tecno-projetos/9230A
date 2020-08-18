@@ -250,11 +250,52 @@ namespace _9230A_V00___PI.DataBase
                 return -3;
             }
 
+            //========================================================================================================================================================
             //Ordenar a lista com as seguintes especificações:
             //1 - produtos que são matérias primas manuais
             //2 - produtos que são matérias primas automaticas
             //3 - produtos que são complementos
 
+            List<Utilidades.ProdutoReceita> listDummy = new List<Utilidades.ProdutoReceita>();
+
+            //Adiciona os produtos em manuais e apaga da lista
+            foreach (var item in Utilidades.VariaveisGlobais.ReceitaCadastro.listProdutos)
+            {
+                if (item.tipoDosagemMateriaPrima.Equals("Manual"))
+                {
+                    listDummy.Add(item);
+
+                    Utilidades.VariaveisGlobais.ReceitaCadastro.listProdutos.Remove(item);
+                }
+            }
+
+            //Adiciona os produtos automáticos e apaga os manuais
+            foreach (var item in Utilidades.VariaveisGlobais.ReceitaCadastro.listProdutos)
+            {
+                if (item.tipoDosagemMateriaPrima.Equals("Automático"))
+                {
+                    listDummy.Add(item);
+
+                    Utilidades.VariaveisGlobais.ReceitaCadastro.listProdutos.Remove(item);
+                }
+            }
+
+            //Adiciona os produtos automáticos e apaga os manuais
+            foreach (var item in Utilidades.VariaveisGlobais.ReceitaCadastro.listProdutos)
+            {
+                if (item.produto.tipoProduto.Equals("Complemento"))
+                {
+                    listDummy.Add(item);
+
+                    Utilidades.VariaveisGlobais.ReceitaCadastro.listProdutos.Remove(item);
+                }
+            }
+
+            //limpar a lista de produtos de receita cadastro e passar a lista dummy
+            Utilidades.VariaveisGlobais.ReceitaCadastro.listProdutos.Clear();
+            Utilidades.VariaveisGlobais.ReceitaCadastro.listProdutos = listDummy;
+
+            //========================================================================================================================================================
 
 
             //Executando Passo 2
