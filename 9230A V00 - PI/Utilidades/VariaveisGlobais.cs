@@ -956,6 +956,8 @@ namespace _9230A_V00___PI.Utilidades
 
         public static PID controlePID = new PID();
 
+        public static Niveis niveis = new Niveis();
+
         #region Contole teclado
 
         private static bool ativaTecladoVirtual = false;

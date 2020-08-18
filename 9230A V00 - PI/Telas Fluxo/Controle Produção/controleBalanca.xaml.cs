@@ -87,8 +87,6 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
             lbPesoBalnca.Content = Utilidades.VariaveisGlobais.indicadorPesagem.Valor_Atual_Indicador.ToString("N", CultureInfo.GetCultureInfo("pt-BR")) + " kg";
 
 
-
-
             if (Utilidades.VariaveisGlobais.indicadorPesagem.Erro_Leitura)
             {
                 lbStatusMotor.Content = "Balança não operável";

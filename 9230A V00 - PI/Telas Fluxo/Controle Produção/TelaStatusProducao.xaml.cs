@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -62,21 +63,26 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
 
         public void atualizaGridProdutos(Utilidades.VariaveisGlobais.SlotBatelada batelada)
         {
+
             DataTable dt = new DataTable();
 
             dt.Columns.Add("Produto");
             dt.Columns.Add("Peso");
             dt.Columns.Add("Peso Dosado");
 
-            foreach (var item in Utilidades.VariaveisGlobais.ProducaoReceita.batelada[batelada.NumeroBatelada -1].produtos)
+            //Verifica se existe produção
+            if (VariaveisGlobais.ProducaoReceita.id != 0 && (batelada.NumeroBatelada - 1)>=0 )
             {
-                DataRow dr = dt.NewRow();
+                foreach (var item in Utilidades.VariaveisGlobais.ProducaoReceita.batelada[batelada.NumeroBatelada - 1].produtos)
+                {
+                    DataRow dr = dt.NewRow();
 
-                dr["Produto"] = item.descricao;
-                dr["Peso"] = item.pesoDesejado;
-                dr["Peso Dosado"] = item.pesoDosado;
+                    dr["Produto"] = item.descricao;
+                    dr["Peso"] = item.pesoDesejado;
+                    dr["Peso Dosado"] = item.pesoDosado;
 
-                dt.Rows.Add(dr);
+                    dt.Rows.Add(dr);
+                }
             }
 
             DataGrid_Produtos.Dispatcher.Invoke(delegate { DataGrid_Produtos.ItemsSource = dt.DefaultView; });
@@ -111,12 +117,22 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
 
         private void atualizaStatusSlots()
         {
-            if (SlotSolicitado ==1)
+            if (SlotSolicitado == 1)
             {
+                //Atualiza cor dos slots
                 btSlot1.Background = new SolidColorBrush(Colors.Green);
                 btSlot2.Background = new SolidColorBrush(Colors.Gray);
                 btSlot3.Background = new SolidColorBrush(Colors.Gray);
+
+                //Atualiza status da batelada
                 lb_Status_Batelada = Utilidades.functions.controleStatus(VariaveisGlobais.executaProducao.ControleExecucao.Slot_1.Status_Batelada, lb_Status_Batelada);
+
+                //Atualiza valores 
+                PesoAtualBalanca.Content = Utilidades.VariaveisGlobais.indicadorPesagem.Valor_Atual_Indicador.ToString("N", CultureInfo.GetCultureInfo("pt-BR"));
+                PesoProdutoAtual.Content = RetornaPesoProdutoAtualDosandoSlot(1).ToString("N", CultureInfo.GetCultureInfo("pt-BR"));
+                TempoRestantePreMistura.Content = Utilidades.VariaveisGlobais.executaProducao.ControleExecucao.Slot_1.TempoRestantePreMistura.ToString("N", CultureInfo.GetCultureInfo("pt-BR"));
+                TempoRestantePosMistura.Content = Utilidades.VariaveisGlobais.executaProducao.ControleExecucao.Slot_1.TempoRestantePosMistura.ToString("N", CultureInfo.GetCultureInfo("pt-BR"));
+
 
                 //Atualiza produtos no data grid
                 atualizaGridProdutos(VariaveisGlobais.executaProducao.ControleExecucao.Slot_1);
@@ -217,8 +233,21 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
 
                 atualizaGridProdutos(VariaveisGlobais.executaProducao.ControleExecucao.Slot_3);
             }
+        }
 
-            
+        private float RetornaPesoProdutoAtualDosandoSlot(int slot)
+        {
+            if (true)
+            {
+
+            }
+
+            if (slot == 1)
+            {
+
+            }
+
+            return 1.0f;
         }
 
         private void DataGrid_Produtos_LoadingRow(object sender, DataGridRowEventArgs e)

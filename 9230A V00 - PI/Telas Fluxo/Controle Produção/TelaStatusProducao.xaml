@@ -136,6 +136,10 @@
         <Label Content="min" HorizontalAlignment="Left" Margin="717,254,0,0" VerticalAlignment="Top" Width="25" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="17" Padding="0" FontWeight="Bold"/>
         <Label x:Name="TempoTotalBatelada" Content="1000" Margin="626,294,0,0" VerticalAlignment="Top" Width="89" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="25" Padding="0" FontWeight="Bold" HorizontalAlignment="Left" HorizontalContentAlignment="Right" FontSize="20"/>
         <Label Content="min" HorizontalAlignment="Left" Margin="717,301,0,0" VerticalAlignment="Top" Width="25" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="17" Padding="0" FontWeight="Bold"/>
+        <Label x:Name="PesoProdutoAtual" Content="1000" Margin="626,152,0,0" VerticalAlignment="Top" Width="89" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="25" Padding="0" FontWeight="Bold" HorizontalAlignment="Left" HorizontalContentAlignment="Right" FontSize="20"/>
+        <Label Content="kg" HorizontalAlignment="Left" Margin="718,159,0,0" VerticalAlignment="Top" Width="25" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="17" Padding="0" FontWeight="Bold"/>
+        <Label x:Name="PesoAtualBalanca" Content="1000" Margin="626,102,0,0" VerticalAlignment="Top" Width="89" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="25" Padding="0" FontWeight="Bold" HorizontalAlignment="Left" HorizontalContentAlignment="Right" FontSize="20"/>
+        <Label Content="kg" HorizontalAlignment="Left" Margin="718,109,0,0" VerticalAlignment="Top" Width="25" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="17" Padding="0" FontWeight="Bold"/>
 
     </Grid>
 </UserControl>

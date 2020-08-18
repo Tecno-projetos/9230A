@@ -372,6 +372,7 @@ namespace _9230A_V00___PI.DataBase
                 try
                 {
                     dynamic DTnow = new DateTime();
+                    DTnow = DateTime.Now;
 
                     DTnow = DTnow.ToString("yyyyMMdd") + " " + DateTime.Now.Hour + ":" + DateTime.Now.Minute;
 

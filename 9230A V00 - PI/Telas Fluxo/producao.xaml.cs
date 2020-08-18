@@ -1,4 +1,5 @@
-﻿using System;
+﻿using _9230A_V00___PI.Utilidades;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -103,11 +104,22 @@ namespace _9230A_V00___PI.Telas_Fluxo
 
             if (Utilidades.VariaveisGlobais.ValoresEspecificacoesEquipamentos.ValoresPreenchidos())
             {
-                if (spControleProducao != null)
+                if (!VariaveisGlobais.niveis.Inferior_Silo_Exp)
                 {
-                    spControleProducao.Children.Clear();
+                    if (spControleProducao != null)
+                    {
+                        spControleProducao.Children.Clear();
+                    }
+                    spControleProducao.Children.Add(TelaInicialProducao);
                 }
-                spControleProducao.Children.Add(TelaInicialProducao);
+                else
+                {
+                    //falta preencher algum valor
+                    inputDialog = new Utilidades.messageBox("Silo Expedição", "Para iniciar uma nova produção o silo de expedição precisa estar vazio!", MaterialDesignThemes.Wpf.PackIconKind.Error, "OK", "Fechar");
+
+                    inputDialog.ShowDialog();
+                }
+
             }
             else
             {

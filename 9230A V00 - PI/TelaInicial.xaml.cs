@@ -248,11 +248,9 @@ namespace _9230A_V00___PI
                 {
                     VariaveisGlobais.executaProducao.Produzir = true;
 
-                    VariaveisGlobais.Fluxo.inicialProducao.atualiza(ref VariaveisGlobais.executaProducao, ref VariaveisGlobais.ProducaoReceita);
-
                 }
 
-
+                VariaveisGlobais.Fluxo.inicialProducao.atualiza(ref VariaveisGlobais.executaProducao, ref VariaveisGlobais.ProducaoReceita);
 
 
 

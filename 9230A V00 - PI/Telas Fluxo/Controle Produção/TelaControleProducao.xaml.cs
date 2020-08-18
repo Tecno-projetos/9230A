@@ -21,7 +21,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
     /// </summary>
     public partial class TelaControleProducao : UserControl
     {
-        int slotSolicitado = 0;
+        int slotSolicitado = 1;
 
         public int SlotSolicitado { get => slotSolicitado; set => slotSolicitado = value; }
 
@@ -32,21 +32,32 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            Status_Controle_Producao.SlotSolicitado = slotSolicitado;
-            lb_Producao_Receita.Content = "Produção Nº: " + VariaveisGlobais.ProducaoReceita.id +" "+ VariaveisGlobais.ProducaoReceita.receita.nomeReceita;
+            //Verifica se existe produção
+            if (VariaveisGlobais.ProducaoReceita.id != 0)
+            {
+                Status_Controle_Producao.SlotSolicitado = slotSolicitado;
+                lb_Producao_Receita.Content = "Produção Nº: " + VariaveisGlobais.ProducaoReceita.id + " " + VariaveisGlobais.ProducaoReceita.receita.nomeReceita;
 
-            if (slotSolicitado == 1)
-            {
-                lb_NumeroBatelada.Content = "Batelada: " + VariaveisGlobais.executaProducao.ControleExecucao.Slot_1.NumeroBatelada;
+                if (slotSolicitado == 1)
+                {
+                    lb_NumeroBatelada.Content = "Batelada: " + VariaveisGlobais.executaProducao.ControleExecucao.Slot_1.NumeroBatelada;
+                }
+                else if (slotSolicitado == 2)
+                {
+                    lb_NumeroBatelada.Content = "Batelada: " + VariaveisGlobais.executaProducao.ControleExecucao.Slot_2.NumeroBatelada;
+                }
+                else if (slotSolicitado == 3)
+                {
+                    lb_NumeroBatelada.Content = "Batelada: " + VariaveisGlobais.executaProducao.ControleExecucao.Slot_3.NumeroBatelada;
+                }
             }
-            else if (slotSolicitado == 2)
+            else
             {
-                lb_NumeroBatelada.Content = "Batelada: " + VariaveisGlobais.executaProducao.ControleExecucao.Slot_2.NumeroBatelada;
+                lb_Producao_Receita.Content = "Sem Receita em Produção";
+                lb_NumeroBatelada.Content = "Batelada: -1";
             }
-            else if (slotSolicitado == 3)
-            {
-                lb_NumeroBatelada.Content = "Batelada: " + VariaveisGlobais.executaProducao.ControleExecucao.Slot_3.NumeroBatelada;
-            }
+
+
 
         }
     }
