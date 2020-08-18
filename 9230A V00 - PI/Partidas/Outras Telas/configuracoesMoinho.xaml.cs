@@ -132,153 +132,55 @@ namespace _9230A_V00___PI.Partidas.Outras_Telas
 
         private void TB_SPMantencao_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            keypad mainWindow = new keypad(true, 4);
-            if (mainWindow.ShowDialog() == true)
-            {
-                //Recebe Valor antigo digitado no Textbox
-                int oldValue = Convert.ToInt32(TB_SPMantencao.Text);
-                //Recebe o novo valor digitado no Keypad
-                int newValue = Convert.ToInt32(mainWindow.Result);
+            TextBox txtReceber = (TextBox)sender;
 
-                bool isNumeric = int.TryParse(TB_SPMantencao.Text, out n);
+            txtReceber.Text = Utilidades.VariaveisGlobais.IntergerKeypad(txtReceber.Text, 4,99999).ToString();
+            //Retira o foco do textbox.
+            Keyboard.ClearFocus();
 
-                if (isNumeric)
-                {
-                    if (oldValue != newValue)
-                    {
-                        TB_SPMantencao.Text = Convert.ToString(newValue);
-
-
-                        //Retira o foco do textbox.
-                        Keyboard.ClearFocus();
-
-                        //Dispara o evento de atualizar a váriavel no CLP.
-                        if (this.atualizaSPManutencao_Click != null)
-                            this.atualizaSPManutencao_Click(this, e);
-
-                    }
-                }
-                else
-                {
-                    //Envia o oldValue pois o valor máximo ultrapassou o limite.
-                    TB_SPMantencao.Text = Convert.ToString(oldValue);
-                }
-
-            }
+            //Dispara o evento de atualizar a váriavel no CLP.
+            if (this.atualizaSPManutencao_Click != null)
+                this.atualizaSPManutencao_Click(this, e);
         }
 
         private void TB_SPLimpeza_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            keypad mainWindow = new keypad(true, 1);
-            if (mainWindow.ShowDialog() == true)
-            {
-                //Recebe Valor antigo digitado no Textbox
-                int oldValue = Convert.ToInt32(TB_SPLimpeza.Text);
-                //Recebe o novo valor digitado no Keypad
-                int newValue = Convert.ToInt32(mainWindow.Result);
+            TextBox txtReceber = (TextBox)sender;
 
-                bool isNumeric = int.TryParse(TB_SPLimpeza.Text, out n);
+            txtReceber.Text = Utilidades.VariaveisGlobais.IntergerKeypad(txtReceber.Text, 1, 99).ToString();
+            //Retira o foco do textbox.
+            Keyboard.ClearFocus();
 
-                if (isNumeric)
-                {
-                    if (oldValue != newValue)
-                    {
-                        TB_SPLimpeza.Text = Convert.ToString(newValue);
+            //Dispara o evento de atualizar a váriavel no CLP.
+            if (this.atualizaSPLimpeza_Click != null)
+            this.atualizaSPLimpeza_Click(this, e);
 
 
-                        //Retira o foco do textbox.
-                        Keyboard.ClearFocus();
-
-                        //Dispara o evento de atualizar a váriavel no CLP.
-                        if (this.atualizaSPLimpeza_Click != null)
-                            this.atualizaSPLimpeza_Click(this, e);
-
-                    }
-                }
-                else
-                {
-                    //Envia o oldValue pois o valor máximo ultrapassou o limite.
-                    TB_SPLimpeza.Text = Convert.ToString(oldValue);
-                }
-
-            }
         }
 
         private void tbMotorVazio_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            keypad mainWindow = new keypad(false, 5);
-            if (mainWindow.ShowDialog() == true)
-            {
-                //Recebe Valor antigo digitado no Textbox
-                double oldValue = Convert.ToDouble(tbMotorVazio.Text);
-                //Recebe o novo valor digitado no Keypad
+            TextBox txtReceber = (TextBox)sender;
 
+            txtReceber.Text = Utilidades.VariaveisGlobais.floatingKeypad(txtReceber.Text, 6).ToString();
 
-                double newValue = Convert.ToDouble(mainWindow.Result.Replace('.', ','));
+            //Dispara o evento de atualizar a váriavel no CLP.
+            if (this.atualizaSPMotorVazio_Click != null)
+                this.atualizaSPMotorVazio_Click(this, e);
 
-
-                bool isNumeric = float.TryParse(tbMotorVazio.Text, out floatPoint);
-
-                if (isNumeric)
-                {
-                    if (oldValue != newValue)
-                    {
-                        tbMotorVazio.Text = Convert.ToString(newValue);
-
-
-                        //Retira o foco do textbox.
-                        Keyboard.ClearFocus();
-
-                        //Dispara o evento de atualizar a váriavel no CLP.
-                        if (this.atualizaSPMotorVazio_Click != null)
-                            this.atualizaSPMotorVazio_Click(this, e);
-
-                    }
-                }
-                else
-                {
-                    //Envia o oldValue pois o valor máximo ultrapassou o limite.
-                    tbMotorVazio.Text = Convert.ToString(oldValue);
-                }
-
-            }
+          
         }
 
         private void tbTempoReversao_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            keypad mainWindow = new keypad(true, 4);
-            if (mainWindow.ShowDialog() == true)
-            {
-                //Recebe Valor antigo digitado no Textbox
-                int oldValue = Convert.ToInt32(tbTempoReversao.Text);
-                //Recebe o novo valor digitado no Keypad
-                int newValue = Convert.ToInt32(mainWindow.Result);
+            TextBox txtReceber = (TextBox)sender;
 
-                bool isNumeric = int.TryParse(tbTempoReversao.Text, out n);
+            txtReceber.Text = Utilidades.VariaveisGlobais.IntergerKeypad(txtReceber.Text, 4, 9999).ToString();
 
-                if (isNumeric)
-                {
-                    if (oldValue != newValue)
-                    {
-                        tbTempoReversao.Text = Convert.ToString(newValue);
+            //Dispara o evento de atualizar a váriavel no CLP.
+            if (this.atualizaSPTempoReversao_Click != null)
+                this.atualizaSPTempoReversao_Click(this, e);
 
-
-                        //Retira o foco do textbox.
-                        Keyboard.ClearFocus();
-
-                        //Dispara o evento de atualizar a váriavel no CLP.
-                        if (this.atualizaSPTempoReversao_Click != null)
-                            this.atualizaSPTempoReversao_Click(this, e);
-
-                    }
-                }
-                else
-                {
-                    //Envia o oldValue pois o valor máximo ultrapassou o limite.
-                    tbTempoReversao.Text = Convert.ToString(oldValue);
-                }
-
-            }
         }
     }
 }

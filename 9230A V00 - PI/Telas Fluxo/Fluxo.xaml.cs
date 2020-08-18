@@ -1,4 +1,5 @@
-﻿using Microsoft.Expression.Shapes;
+﻿using _9230A_V00___PI.Utilidades;
+using Microsoft.Expression.Shapes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -56,6 +57,22 @@ namespace _9230A_V00___PI.Telas_Fluxo
             rec49 = AtulizaCano(rec49, Motor_49.Equip_GS.Command_Get.AtuadorD.acionandoLado1 || Motor_49.Equip_GS.Command_Get.AtuadorD.acionandoAutomatico);
             rec62 = AtulizaCano(rec62, Motor_62.Equip_GS.Command_Get.INV.ligado);
             rec65 = AtulizaCano(rec65, Motor_65.Equip_GS.Command_Get.INV.ligado);
+
+
+            silo1.Nivel_Alto_GS = Utilidades.VariaveisGlobais.niveis.Superior_Silo_1;
+            silo2.Nivel_Alto_GS = Utilidades.VariaveisGlobais.niveis.Superior_Silo_2;
+
+            silo1.Nivel_Baixo_GS = Utilidades.VariaveisGlobais.niveis.Inferior_Silo_1;
+            silo2.Nivel_Baixo_GS = Utilidades.VariaveisGlobais.niveis.Inferior_Silo_2;
+
+            siloexp.Nivel_Baixo_GS = Utilidades.VariaveisGlobais.niveis.Superior_Silo_Exp;
+            siloexp.Nivel_Baixo_GS = Utilidades.VariaveisGlobais.niveis.Inferior_Silo_Exp;
+
+            Motor_42.Nivel_Baixo_GS = Utilidades.VariaveisGlobais.niveis.Inferior_Pre_Misturador;
+            Motor_48.Nivel_Baixo_GS = Utilidades.VariaveisGlobais.niveis.Inferior_Pos_Misturador;
+
+            VariaveisGlobais.Fluxo.inicialProducao.atualiza(ref VariaveisGlobais.executaProducao, ref VariaveisGlobais.ProducaoReceita);
+            VariaveisGlobais.Fluxo.indicadorPesagem.Actualize_UI(VariaveisGlobais.indicadorPesagem);
         }
 
         private void bt_Ensaque_Click(object sender, RoutedEventArgs e)

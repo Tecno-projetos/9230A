@@ -30,7 +30,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
         Utilidades.messageBox inputDialog;
 
         int bufferClp;
-        private float floatPoint;
+
 
         private event EventHandler atualizaPalavradeComando;
         private event EventHandler atualizaReais;
@@ -240,52 +240,13 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
         {
             TextBox txtReceber = (TextBox)sender;
 
-            keypad mainWindow = new keypad(false, 3);
+            txtReceber.Text = Utilidades.VariaveisGlobais.IntergerKeypad(txtReceber.Text, 3, 100).ToString();
+            //Retira o foco do textbox.
+            Keyboard.ClearFocus();
 
+            if (this.atualizaReais != null)
+                this.atualizaReais(this, e);
 
-            if (mainWindow.ShowDialog() == true)
-            {
-                //Recebe Valor antigo digitado no Textbox
-                double oldValue = Convert.ToDouble(txtReceber.Text);
-                //Recebe o novo valor digitado no Keypad
-
-
-                double newValue = Convert.ToDouble(mainWindow.Result.Replace('.', ','));
-
-
-                bool isNumeric = float.TryParse(txtReceber.Text, out floatPoint);
-
-                if (isNumeric)
-                {
-                    if (oldValue != newValue)
-                    {
-                        //Verifica se o novo valor é menor que 100
-                        if (newValue <= 100)
-                        {
-                            txtReceber.Text = Convert.ToString(newValue);
-
-                            dummyIndicador = Utilidades.VariaveisGlobais.indicadorPesagem;
-
-                            if (this.atualizaReais != null)
-                                this.atualizaReais(this, e);
-
-                        }
-                        else
-                        {
-                            //Envia o oldValue pois o valor máximo ultrapassou o limite.
-                            txtReceber.Text = Convert.ToString(oldValue);
-                        }
-                        //Retira o foco do textbox.
-                        Keyboard.ClearFocus();
-
-                    }
-                }
-                else
-                {
-                    //Envia o oldValue pois o valor máximo ultrapassou o limite.
-                    txtReceber.Text = Convert.ToString(oldValue);
-                }
-            }
 
         }
         #endregion

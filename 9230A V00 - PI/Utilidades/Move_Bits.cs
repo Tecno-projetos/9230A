@@ -1210,5 +1210,53 @@ namespace _9230A_V00___PI.Utilidades
 
             return Conversions.Bit_To_Byte(ref bits);
         }
+
+
+        //Command Niveis
+        //=====================================================================================================================================
+        public static Utilidades.VariaveisGlobais.Niveis Dword_TO_NIveis(UInt32 DWord, Utilidades.VariaveisGlobais.Niveis Command)
+        {
+            bool[] bits = new bool[32];
+
+            Conversions.Dword_To_Bit(DWord, ref bits, true);
+
+            Command.Superior_Silo_1 = bits[0];
+            Command.Superior_Silo_2 = bits[1];
+            Command.Superior_Silo_Exp = bits[2];
+            Command.Inferior_Silo_1 = bits[3];
+            Command.Inferior_Silo_2 = bits[4];
+            Command.Inferior_Silo_Exp = bits[5];
+            Command.Inferior_Pre_Misturador = bits[6];
+            Command.Inferior_Pos_Misturador = bits[7];
+            Command.Reserva_2 = bits[8];
+            Command.Reserva_3 = bits[9];
+            Command.Reserva_4 = bits[10];
+            Command.Reserva_5 = bits[11];
+            Command.Reserva_6 = bits[12];
+            Command.Reserva_7 = bits[13];
+            Command.Reserva_8 = bits[14];
+            Command.Reserva_9 = bits[15];
+            Command.Reserva_10 = bits[16];
+            Command.Reserva_11 = bits[17];
+            Command.Reserva_12 = bits[18];
+            Command.Reserva_13 = bits[19];
+            Command.Reserva_14 = bits[20];
+            Command.Reserva_15 = bits[21];
+            Command.Reserva_16= bits[22];
+            Command.Reserva_17 = bits[23];
+            Command.Reserva_18 = bits[24];
+            Command.Reserva_19= bits[25];
+            Command.Reserva_20 = bits[26];
+            Command.Reserva_21 = bits[27];
+            Command.Reserva_22 = bits[28];
+            Command.Reserva_23 = bits[29];
+            Command.Reserva_24 = bits[30];
+            Command.Reserva_25 = bits[31];
+
+            return Command;
+        }
+
+
+
     }
 }

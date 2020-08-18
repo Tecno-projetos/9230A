@@ -75,48 +75,13 @@ namespace _9230A_V00___PI.Telas_Fluxo.Configuracoes
 
         private void floatingPreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+
             TextBox txtReceber = (TextBox)sender;
 
-            keypad mainWindow = new keypad(false, 3);
+            txtReceber.Text = Utilidades.VariaveisGlobais.IntergerKeypad(txtReceber.Text, 3, 100).ToString();
+            //Retira o foco do textbox.
+            Keyboard.ClearFocus();
 
-
-            if (mainWindow.ShowDialog() == true)
-            {
-                //Recebe Valor antigo digitado no Textbox
-                double oldValue = Convert.ToDouble(txtReceber.Text);
-                //Recebe o novo valor digitado no Keypad
-
-
-                double newValue = Convert.ToDouble(mainWindow.Result.Replace('.', ','));
-
-
-                bool isNumeric = float.TryParse(txtReceber.Text, out floatPoint);
-
-                if (isNumeric)
-                {
-                    if (oldValue != newValue)
-                    {
-                        //Verifica se o novo valor é menor que 100
-                        if (newValue <= 100)
-                        {
-                            txtReceber.Text = Convert.ToString(newValue);
-                        }
-                        else
-                        {
-                            //Envia o oldValue pois o valor máximo ultrapassou o limite.
-                            txtReceber.Text = Convert.ToString(oldValue);
-                        }
-                        //Retira o foco do textbox.
-                        Keyboard.ClearFocus();
-
-                    }
-                }
-                else
-                {
-                    //Envia o oldValue pois o valor máximo ultrapassou o limite.
-                    txtReceber.Text = Convert.ToString(oldValue);
-                }
-            }
         }
 
         private void TB_GotFocus(object sender, RoutedEventArgs e)

@@ -61,6 +61,7 @@ namespace _9230A_V00___PI.Teclados
         private void button_Click(object sender, RoutedEventArgs e)
         {
             Button button = sender as Button;
+
             switch (button.CommandParameter.ToString())
             {
                 case "ESC":

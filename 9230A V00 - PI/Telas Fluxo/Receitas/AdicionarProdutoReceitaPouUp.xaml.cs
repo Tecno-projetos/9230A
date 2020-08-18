@@ -191,81 +191,19 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
         {
             TextBox txtReceber = (TextBox)sender;
 
-            keypad mainWindow = new keypad(false, 10);
+            txtReceber.Text = Utilidades.VariaveisGlobais.floatingKeypad(txtReceber.Text, 10).ToString();
+            //Retira o foco do textbox.
+            Keyboard.ClearFocus();
 
-
-            if (mainWindow.ShowDialog() == true)
-            {
-                //Recebe Valor antigo digitado no Textbox
-                double oldValue;
-
-                _ = double.TryParse(txtReceber.Text, out oldValue);
-
-                //Recebe o novo valor digitado no Keypad
-                double newValue;
-                _ = double.TryParse(mainWindow.Result.Replace('.', ','), out newValue);
-
-                bool isNumeric = float.TryParse(txtReceber.Text, out floatPoint);
-
-                if (isNumeric)
-                {
-                    if (oldValue != newValue)
-                    {
-                        txtReceber.Text = Convert.ToString(newValue);
-
-                        //Retira o foco do textbox.
-                        Keyboard.ClearFocus();
-
-                    }
-                }
-                else
-                {
-                    //Envia o oldValue pois o valor máximo ultrapassou o limite.
-                    txtReceber.Text = Convert.ToString(oldValue);
-                }
-
-            }
         }
 
         private void IntergerPreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             TextBox txtReceber = (TextBox)sender;
 
-            keypad mainWindow = new keypad(true, 6);
-
-
-            if (mainWindow.ShowDialog() == true)
-            {
-                //Recebe Valor antigo digitado no Textbox
-                double oldValue;
-
-                _ = double.TryParse(txtReceber.Text, out oldValue);
-
-                //Recebe o novo valor digitado no Keypad
-                double newValue;
-                _ = double.TryParse(mainWindow.Result.Replace('.', ','), out newValue);
-
-                int intPoint;
-                bool isNumeric = Int32.TryParse(txtReceber.Text, out intPoint);
-
-                if (isNumeric)
-                {
-                    if (oldValue != newValue)
-                    {
-                        txtReceber.Text = Convert.ToString(newValue);
-
-                        //Retira o foco do textbox.
-                        Keyboard.ClearFocus();
-
-                    }
-                }
-                else
-                {
-                    //Envia o oldValue pois o valor máximo ultrapassou o limite.
-                    txtReceber.Text = Convert.ToString(oldValue);
-                }
-
-            }
+            txtReceber.Text = Utilidades.VariaveisGlobais.IntergerKeypad(txtReceber.Text, 6, 9999999).ToString();
+            //Retira o foco do textbox.
+            Keyboard.ClearFocus();
         }
 
         private void TB_GotFocus(object sender, RoutedEventArgs e)
