@@ -400,6 +400,7 @@ namespace _9230A_V00___PI
 
 
                     iconLogin.Kind = MaterialDesignThemes.Wpf.PackIconKind.Logout;
+                    iconLogin.Foreground = new SolidColorBrush(Colors.Red);
 
                     return true;
 
@@ -441,6 +442,7 @@ namespace _9230A_V00___PI
             VariaveisGlobais.NumberOfGroup_GS = 0;
 
             iconLogin.Kind = MaterialDesignThemes.Wpf.PackIconKind.Login;
+            iconLogin.Foreground = new SolidColorBrush(Colors.White);
 
         }
 

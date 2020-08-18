@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:_9230A_V00___PI.Desenhos"
              xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing" x:Class="_9230A_V00___PI.Desenhos.balanca"
              mc:Ignorable="d" Height="139.75" Width="178" PreviewMouseLeftButtonUp="UserControl_PreviewMouseLeftButtonUp">
-    <Grid>
+    <Grid Cursor="Hand">
         <Rectangle HorizontalAlignment="Left" Height="56.224" Margin="50.818,80.105,0,0" VerticalAlignment="Top" Width="88.481" Fill="White" Stroke="Black"/>
         <ed:RegularPolygon Fill="{Binding Fill, ElementName=recPrincipal}" HorizontalAlignment="Left" Height="83.643" InnerRadius="1" Margin="96.833,61.275,0,-5.168" PointCount="6" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="66.502" RenderTransformOrigin="0.5,0.5">
             <ed:RegularPolygon.RenderTransform>

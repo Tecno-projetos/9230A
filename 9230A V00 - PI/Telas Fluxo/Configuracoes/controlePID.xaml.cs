@@ -107,7 +107,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Configuracoes
 
         #region Funções
 
-        public void LeituraInformacoes()
+        private void LeituraInformacoes()
         {
             readVariablesBuffer(4);
 
@@ -169,7 +169,16 @@ namespace _9230A_V00___PI.Telas_Fluxo.Configuracoes
         }
 
 
+
+
         #endregion
+
+        public void AtualizaValoresAtuais() 
+        {
+            lbAmper.Content = Utilidades.VariaveisGlobais.Fluxo.Motor_44.Equip_GS.Command_Get.SS.Corrente_Atual + " (A)";
+            lbRPM.Content = Utilidades.VariaveisGlobais.Fluxo.Motor_43.Equip_GS.Command_Get.INV.Velocidade_Automatica_Solicita + " RPM";
+
+        }
 
         private void btHabilita_Click(object sender, RoutedEventArgs e)
         {

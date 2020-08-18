@@ -51,13 +51,13 @@
             </ResourceDictionary>
 
         </Grid.Resources>
-        <Image HorizontalAlignment="Left" Height="424" Margin="24,86,0,0" VerticalAlignment="Top" Width="780" Source="/9230A V00 - PI;component/Imagens/PID.png"/>
+        <Image HorizontalAlignment="Left" Height="424" Margin="24,86,0,0" VerticalAlignment="Top" Width="780" Source="/9230A V00 - PI;component/Imagens/PID1.png"/>
 
 
         <Label x:Name="lbTitle" Content="PID" HorizontalAlignment="Left" VerticalAlignment="Top" Width="825" Foreground="White" VerticalContentAlignment="Center" FontWeight="Bold" HorizontalContentAlignment="Center" Margin="0,6,-1,0" Height="60" FontSize="30"/>
         <Rectangle Fill="White" HorizontalAlignment="Left" Height="5" Margin="0,76,-1,0" Stroke="White" VerticalAlignment="Top" Width="825"/>
         <Label Content="SP" Height="34" Margin="35,96,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="136" Foreground="White" FontWeight="Bold" FontSize="16"/>
-        <Grid Style="{StaticResource EntryFieldStyle}" Margin="35,130,653,504" Height="41" Background="#FF3C3C3C" >
+        <Grid Style="{StaticResource EntryFieldStyle}" Margin="35,130,664,504" Height="41" Background="#FF3C3C3C" >
             <TextBlock Margin="5,0,6,5" Text="Exemplo: 7,0" Foreground="#FF919191" VerticalAlignment="Bottom" FontSize="14" >
                 <TextBlock.Visibility>
                     <MultiBinding Converter="{StaticResource TextInputToVisibilityConverter}">
@@ -69,8 +69,8 @@
             <TextBox x:Name="txtSP" PreviewMouseLeftButtonUp="floatingPreviewMouseLeftButtonUp" GotFocus="TB_GotFocus" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" />
         </Grid>
         <materialDesign:PackIcon Kind="Pencil" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="-3,130,789,504" BorderBrush="#FF040404"/>
-        <Label Content="Kp" Height="27" Margin="353,86,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="137" Foreground="White" FontWeight="Bold" FontSize="16"/>
-        <Grid Style="{StaticResource EntryFieldStyle}" Margin="353,113,311,521" Height="41" Background="#FF3C3C3C" >
+        <Label Content="Kp" Height="27" Margin="395,86,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="137" Foreground="White" FontWeight="Bold" FontSize="16"/>
+        <Grid Style="{StaticResource EntryFieldStyle}" Margin="394,113,292,521" Height="41" Background="#FF3C3C3C" >
             <TextBlock Margin="5,0,6,5" Text="Exemplo: 1,5" Foreground="#FF919191" VerticalAlignment="Bottom" FontSize="14" >
                 <TextBlock.Visibility>
                     <MultiBinding Converter="{StaticResource TextInputToVisibilityConverter}">
@@ -81,9 +81,9 @@
             </TextBlock>
             <TextBox x:Name="txtKp" GotFocus="TB_GotFocus" PreviewMouseLeftButtonUp="floatingPreviewMouseLeftButtonUp" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" />
         </Grid>
-        <materialDesign:PackIcon Kind="Pencil" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="315,113,471,521" BorderBrush="#FF040404"/>
-        <Label Content="Ki" Height="29" Margin="353,191,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="137" Foreground="White" FontWeight="Bold" FontSize="16"/>
-        <Grid Style="{StaticResource EntryFieldStyle}" Margin="353,220,311,414" Height="41" Background="#FF3C3C3C" >
+        <materialDesign:PackIcon Kind="Pencil" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="357,113,429,521" BorderBrush="#FF040404"/>
+        <Label Content="Ki" Height="29" Margin="395,191,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="137" Foreground="White" FontWeight="Bold" FontSize="16"/>
+        <Grid Style="{StaticResource EntryFieldStyle}" Margin="395,220,291,414" Height="41" Background="#FF3C3C3C" >
             <TextBlock Margin="5,0,6,5" Text="Exemplo: 1,8" Foreground="#FF919191" VerticalAlignment="Bottom" FontSize="14" >
                 <TextBlock.Visibility>
                     <MultiBinding Converter="{StaticResource TextInputToVisibilityConverter}">
@@ -94,9 +94,9 @@
             </TextBlock>
             <TextBox x:Name="txtKi" GotFocus="TB_GotFocus" PreviewMouseLeftButtonUp="floatingPreviewMouseLeftButtonUp" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" />
         </Grid>
-        <materialDesign:PackIcon Kind="Pencil" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="315,220,471,414" BorderBrush="#FF040404"/>
-        <Label Content="Kd" Height="29" Margin="353,340,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="160" Foreground="White" FontWeight="Bold" FontSize="16"/>
-        <Grid Style="{StaticResource EntryFieldStyle}" Margin="353,369,311,265" Height="41" Background="#FF3C3C3C" >
+        <materialDesign:PackIcon Kind="Pencil" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="357,220,429,414" BorderBrush="#FF040404"/>
+        <Label Content="Kd" Height="29" Margin="395,340,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="160" Foreground="White" FontWeight="Bold" FontSize="16"/>
+        <Grid Style="{StaticResource EntryFieldStyle}" Margin="395,369,291,265" Height="41" Background="#FF3C3C3C" >
             <TextBlock Margin="5,0,6,5" Text="Exemplo: 2,0" Foreground="#FF919191" VerticalAlignment="Bottom" FontSize="14" >
                 <TextBlock.Visibility>
                     <MultiBinding Converter="{StaticResource TextInputToVisibilityConverter}">
@@ -107,7 +107,7 @@
             </TextBlock>
             <TextBox x:Name="txtKd"  GotFocus="TB_GotFocus" PreviewMouseLeftButtonUp="floatingPreviewMouseLeftButtonUp" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" />
         </Grid>
-        <materialDesign:PackIcon Kind="Pencil" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="315,369,471,265" BorderBrush="#FF040404"/>
+        <materialDesign:PackIcon Kind="Pencil" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="357,369,429,265" BorderBrush="#FF040404"/>
         <Label Content="Limite Máximo Atuador:" Height="34" Margin="80,476,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="193" Foreground="White" FontWeight="Bold" FontSize="16"/>
         <Grid Style="{StaticResource EntryFieldStyle}" Margin="80,510,551,124" Height="41" Background="#FF3C3C3C" >
             <TextBlock Margin="5,0,6,5" Text="Exemplo: 1000" Foreground="#FF919191" VerticalAlignment="Bottom" FontSize="14" >
@@ -140,12 +140,14 @@
                 <TextBlock x:Name="lbTextButton" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="31,1,-9,-1" Width="128" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Salvar Informações"/>
             </Grid>
         </Button>
-        <Button x:Name="btHabilita" Margin="588,220,44,414" Background="#FF505050" BorderBrush="Black" Height="Auto" Opacity="1" Click="btHabilita_Click" >
+        <Button x:Name="btHabilita" Margin="612,220,20,414" Background="#FF505050" BorderBrush="Black" Height="Auto" Opacity="1" Click="btHabilita_Click" >
             <Grid Width="150">
                 <materialDesign:PackIcon x:Name="pckIcon" Kind="Close" VerticalAlignment="Stretch" Foreground="White" Margin="-4,-6,0,-7" Height="Auto" Width="30"/>
                 <TextBlock x:Name="lbTextButton1" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="46,1,-2,-1" Width="106" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Habilita PID"/>
             </Grid>
         </Button>
+        <Label x:Name="lbAmper" Content="160 (A)" HorizontalAlignment="Left" Margin="65,309,0,0" VerticalAlignment="Top" FontSize="25" FontWeight="Bold" Foreground="White" Width="255" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label x:Name="lbRPM" Content="1800 RPM" HorizontalAlignment="Left" Margin="588,130,0,0" VerticalAlignment="Top" FontSize="25" FontWeight="Bold" Foreground="White" Width="226" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
 
 
     </Grid>

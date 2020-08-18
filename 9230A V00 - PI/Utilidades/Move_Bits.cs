@@ -1040,7 +1040,7 @@ namespace _9230A_V00___PI.Utilidades
         {
             bool[] bits = new bool[16];
 
-            Conversions.Word_To_Bit(Word, ref bits, true);
+            Conversions.Word_To_Bit(Word, ref bits, false);
 
 
             diagnosticoProfinet.Good = bits[0];

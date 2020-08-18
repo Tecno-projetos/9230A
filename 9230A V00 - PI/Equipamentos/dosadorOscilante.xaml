@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:_9230A_V00___PI.Equipamentos"
              xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing" x:Class="_9230A_V00___PI.Equipamentos.dosadorOscilante"
-             mc:Ignorable="d" Height="27.004" Width="54.121">
+             mc:Ignorable="d" Height="27.004" Width="54.121" Cursor="Hand">
     <Grid>
         <Rectangle x:Name="rec1" Fill="White" HorizontalAlignment="Left" Height="13" Margin="10,14,0,0" VerticalAlignment="Top" Width="37"/>
         <Rectangle Fill="Black" HorizontalAlignment="Left" Height="14" Margin="1,10,0,0" VerticalAlignment="Top" Width="6" RenderTransformOrigin="0.5,0.5">
@@ -19,6 +19,6 @@
             </Rectangle.RenderTransform>
         </Rectangle>
         <Rectangle x:Name="recAbertura" Fill="Black" HorizontalAlignment="Left" Height="7" Margin="7,17,0,0" VerticalAlignment="Top" Width="40"/>
-        <Label x:Name="LB_M_A" Content="M" HorizontalAlignment="Left" Height="20" Margin="4,-2,0,0" VerticalAlignment="Top" Width="17" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Franklin Gothic Medium" FontSize="14" Padding="0" Cursor="Hand"/>
+        <Label x:Name="LB_M_A" Content="M" HorizontalAlignment="Left" Height="20" Margin="4,-3,0,0" VerticalAlignment="Top" Width="17" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Franklin Gothic Medium" FontSize="14" Padding="0" Cursor="Hand"/>
     </Grid>
 </UserControl>
