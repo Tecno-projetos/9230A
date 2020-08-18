@@ -7,6 +7,7 @@
              xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing"
              mc:Ignorable="d" Height="205.5" Width="60">
 
+
     <UserControl.Resources>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
         <AlternationConverter x:Key="AlternationConverter"/>
@@ -23,6 +24,7 @@
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
     </UserControl.Resources>
+
 
     <Grid Margin="0,0,0,-4">
 
@@ -43,6 +45,355 @@
                 </LinearGradientBrush>
             </Rectangle.Fill>
         </Rectangle>
+
+        <Grid x:Name="grid" HorizontalAlignment="Left" Margin="5,31,0,126" Width="11" RenderTransformOrigin="0.5,0.5">
+            <Grid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Grid.RenderTransform>
+            <Rectangle Fill="#FFF9F902" HorizontalAlignment="Left" Height="2.167" Margin="2.074,0.996,0,0" Stroke="Black" VerticalAlignment="Top" Width="6.541" StrokeThickness="0" d:LayoutOverrides="VerticalAlignment"/>
+            <Rectangle Fill="#FFF9F902" HorizontalAlignment="Left" Height="1.521" Margin="3.344,2.829,0,0" Stroke="Black" VerticalAlignment="Top" Width="5.438" StrokeThickness="0" d:LayoutOverrides="VerticalAlignment"/>
+
+            <ed:Arc ArcThickness="0" ArcThicknessUnit="Pixel" EndAngle="90" Fill="#FF505050" HorizontalAlignment="Left" Height="6.812" Margin="1.556,-1.915,0,0" Stretch="None" Stroke="Black" StartAngle="0" VerticalAlignment="Top" Width="7.364" RenderTransformOrigin="0.5,0.5" d:LayoutOverrides="VerticalAlignment">
+                <ed:Arc.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180.337"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </ed:Arc.RenderTransform>
+            </ed:Arc>
+            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FF505050" HorizontalAlignment="Left" Height="1" Margin="4.599,3.912,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="5.209" d:LayoutOverrides="VerticalAlignment"/>
+            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FF505050" HorizontalAlignment="Left" Height="1" Margin="6.436,1.857,-0.113,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="4.734" RenderTransformOrigin="0.5,0.5" d:LayoutOverrides="VerticalAlignment">
+                <Path.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Path.RenderTransform>
+            </Path>
+            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FF505050" HorizontalAlignment="Left" Height="1" Margin="1.057,0.5,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="8.459" d:LayoutOverrides="VerticalAlignment"/>
+            <Rectangle Fill="#FFF9F902" HorizontalAlignment="Left" Height="2.167" Margin="2.074,5.996,0,0" Stroke="Black" VerticalAlignment="Top" Width="6.541" StrokeThickness="0" d:LayoutOverrides="VerticalAlignment"/>
+            <Rectangle Fill="#FFF9F902" HorizontalAlignment="Left" Height="1.521" Margin="3.344,7.829,0,0" Stroke="Black" VerticalAlignment="Top" Width="5.438" StrokeThickness="0" d:LayoutOverrides="VerticalAlignment"/>
+            <ed:Arc ArcThickness="0" ArcThicknessUnit="Pixel" EndAngle="90" Fill="#FF505050" HorizontalAlignment="Left" Height="6.812" Margin="1.556,3.085,0,0" Stretch="None" Stroke="Black" StartAngle="0" VerticalAlignment="Top" Width="7.364" RenderTransformOrigin="0.5,0.5" d:LayoutOverrides="VerticalAlignment">
+                <ed:Arc.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180.337"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </ed:Arc.RenderTransform>
+            </ed:Arc>
+            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FF505050" HorizontalAlignment="Left" Height="1" Margin="4.599,8.912,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="5.209" d:LayoutOverrides="VerticalAlignment"/>
+            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FF505050" HorizontalAlignment="Left" Height="1" Margin="6.436,6.857,-0.113,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="4.734" RenderTransformOrigin="0.5,0.5" d:LayoutOverrides="VerticalAlignment">
+                <Path.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Path.RenderTransform>
+            </Path>
+            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FF505050" HorizontalAlignment="Left" Height="1" Margin="1.057,5.5,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="8.459" d:LayoutOverrides="VerticalAlignment"/>
+            <Rectangle Fill="#FFF9F902" HorizontalAlignment="Left" Height="2.167" Margin="2.074,10.996,0,0" Stroke="Black" VerticalAlignment="Top" Width="6.541" StrokeThickness="0" d:LayoutOverrides="VerticalAlignment"/>
+            <Rectangle Fill="#FFF9F902" HorizontalAlignment="Left" Height="1.521" Margin="3.344,12.829,0,0" Stroke="Black" VerticalAlignment="Top" Width="5.438" StrokeThickness="0" d:LayoutOverrides="VerticalAlignment"/>
+            <ed:Arc ArcThickness="0" ArcThicknessUnit="Pixel" EndAngle="90" Fill="#FF505050" HorizontalAlignment="Left" Height="6.812" Margin="1.556,8.085,0,0" Stretch="None" Stroke="Black" StartAngle="0" VerticalAlignment="Top" Width="7.364" RenderTransformOrigin="0.5,0.5" d:LayoutOverrides="VerticalAlignment">
+                <ed:Arc.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180.337"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </ed:Arc.RenderTransform>
+            </ed:Arc>
+            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FF505050" HorizontalAlignment="Left" Height="1" Margin="4.599,13.912,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="5.209" d:LayoutOverrides="VerticalAlignment"/>
+            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FF505050" HorizontalAlignment="Left" Height="1" Margin="6.436,11.857,-0.113,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="4.734" RenderTransformOrigin="0.5,0.5" d:LayoutOverrides="VerticalAlignment">
+                <Path.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Path.RenderTransform>
+            </Path>
+            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FF505050" HorizontalAlignment="Left" Height="1" Margin="1.057,10.5,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="8.459" d:LayoutOverrides="VerticalAlignment"/>
+            <Rectangle Fill="#FFF9F902" HorizontalAlignment="Left" Height="2.167" Margin="2.074,15.996,0,0" Stroke="Black" VerticalAlignment="Top" Width="6.541" StrokeThickness="0" d:LayoutOverrides="VerticalAlignment"/>
+            <Rectangle Fill="#FFF9F902" HorizontalAlignment="Left" Height="1.521" Margin="3.344,17.829,0,0" Stroke="Black" VerticalAlignment="Top" Width="5.438" StrokeThickness="0" d:LayoutOverrides="VerticalAlignment"/>
+            <ed:Arc ArcThickness="0" ArcThicknessUnit="Pixel" EndAngle="90" Fill="#FF505050" HorizontalAlignment="Left" Height="6.812" Margin="1.556,13.085,0,0" Stretch="None" Stroke="Black" StartAngle="0" VerticalAlignment="Top" Width="7.364" RenderTransformOrigin="0.5,0.5" d:LayoutOverrides="VerticalAlignment">
+                <ed:Arc.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180.337"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </ed:Arc.RenderTransform>
+            </ed:Arc>
+            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FF505050" HorizontalAlignment="Left" Height="1" Margin="4.599,18.912,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="5.209" d:LayoutOverrides="VerticalAlignment"/>
+            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FF505050" HorizontalAlignment="Left" Height="1" Margin="6.436,16.857,-0.113,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="4.734" RenderTransformOrigin="0.5,0.5" d:LayoutOverrides="VerticalAlignment">
+                <Path.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Path.RenderTransform>
+            </Path>
+            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FF505050" HorizontalAlignment="Left" Height="1" Margin="1.057,15.5,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="8.459" d:LayoutOverrides="VerticalAlignment"/>
+            <Rectangle Fill="#FFF9F902" HorizontalAlignment="Left" Height="2.167" Margin="2.074,0.996,0,0" Stroke="Black" VerticalAlignment="Top" Width="6.541" StrokeThickness="0" d:LayoutOverrides="VerticalAlignment"/>
+            <Rectangle Fill="#FFF9F902" HorizontalAlignment="Left" Height="1.521" Margin="3.344,2.829,0,0" Stroke="Black" VerticalAlignment="Top" Width="5.438" StrokeThickness="0" d:LayoutOverrides="VerticalAlignment"/>
+            <ed:Arc ArcThickness="0" ArcThicknessUnit="Pixel" EndAngle="90" Fill="#FF505050" HorizontalAlignment="Left" Height="6.812" Margin="1.556,-1.915,0,0" Stretch="None" Stroke="Black" StartAngle="0" VerticalAlignment="Top" Width="7.364" RenderTransformOrigin="0.5,0.5" d:LayoutOverrides="VerticalAlignment">
+                <ed:Arc.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180.337"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </ed:Arc.RenderTransform>
+            </ed:Arc>
+            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FF505050" HorizontalAlignment="Left" Height="1" Margin="4.599,3.912,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="5.209" d:LayoutOverrides="VerticalAlignment"/>
+            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FF505050" HorizontalAlignment="Left" Height="1" Margin="6.436,1.857,-0.113,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="4.734" RenderTransformOrigin="0.5,0.5" d:LayoutOverrides="VerticalAlignment">
+                <Path.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Path.RenderTransform>
+            </Path>
+            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FF505050" HorizontalAlignment="Left" Height="1" Margin="1.057,0.5,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="8.459" d:LayoutOverrides="VerticalAlignment"/>
+            <Rectangle Fill="#FFF9F902" HorizontalAlignment="Left" Height="2.167" Margin="2.074,5.996,0,0" Stroke="Black" VerticalAlignment="Top" Width="6.541" StrokeThickness="0" d:LayoutOverrides="VerticalAlignment"/>
+            <Rectangle Fill="#FFF9F902" HorizontalAlignment="Left" Height="1.521" Margin="3.344,7.829,0,0" Stroke="Black" VerticalAlignment="Top" Width="5.438" StrokeThickness="0" d:LayoutOverrides="VerticalAlignment"/>
+            <ed:Arc ArcThickness="0" ArcThicknessUnit="Pixel" EndAngle="90" Fill="#FF505050" HorizontalAlignment="Left" Height="6.812" Margin="1.556,3.085,0,0" Stretch="None" Stroke="Black" StartAngle="0" VerticalAlignment="Top" Width="7.364" RenderTransformOrigin="0.5,0.5" d:LayoutOverrides="VerticalAlignment">
+                <ed:Arc.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180.337"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </ed:Arc.RenderTransform>
+            </ed:Arc>
+            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FF505050" HorizontalAlignment="Left" Height="1" Margin="4.599,8.912,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="5.209" d:LayoutOverrides="VerticalAlignment"/>
+            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FF505050" HorizontalAlignment="Left" Height="1" Margin="6.436,6.857,-0.113,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="4.734" RenderTransformOrigin="0.5,0.5" d:LayoutOverrides="VerticalAlignment">
+                <Path.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Path.RenderTransform>
+            </Path>
+            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FF505050" HorizontalAlignment="Left" Height="1" Margin="1.057,5.5,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="8.459" d:LayoutOverrides="VerticalAlignment"/>
+            <Rectangle Fill="#FFF9F902" HorizontalAlignment="Left" Height="2.167" Margin="2.074,10.996,0,0" Stroke="Black" VerticalAlignment="Top" Width="6.541" StrokeThickness="0" d:LayoutOverrides="VerticalAlignment"/>
+            <Rectangle Fill="#FFF9F902" HorizontalAlignment="Left" Height="1.521" Margin="3.344,12.829,0,0" Stroke="Black" VerticalAlignment="Top" Width="5.438" StrokeThickness="0" d:LayoutOverrides="VerticalAlignment"/>
+            <ed:Arc ArcThickness="0" ArcThicknessUnit="Pixel" EndAngle="90" Fill="#FF505050" HorizontalAlignment="Left" Height="6.812" Margin="1.556,8.085,0,0" Stretch="None" Stroke="Black" StartAngle="0" VerticalAlignment="Top" Width="7.364" RenderTransformOrigin="0.5,0.5" d:LayoutOverrides="VerticalAlignment">
+                <ed:Arc.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180.337"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </ed:Arc.RenderTransform>
+            </ed:Arc>
+            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FF505050" HorizontalAlignment="Left" Height="1" Margin="4.599,13.912,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="5.209" d:LayoutOverrides="VerticalAlignment"/>
+            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FF505050" HorizontalAlignment="Left" Height="1" Margin="6.436,11.857,-0.113,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="4.734" RenderTransformOrigin="0.5,0.5" d:LayoutOverrides="VerticalAlignment">
+                <Path.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Path.RenderTransform>
+            </Path>
+            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FF505050" HorizontalAlignment="Left" Height="1" Margin="1.057,10.5,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="8.459" d:LayoutOverrides="VerticalAlignment"/>
+            <Rectangle Fill="#FFF9F902" HorizontalAlignment="Left" Height="2.167" Margin="2.074,15.996,0,0" Stroke="Black" VerticalAlignment="Top" Width="6.541" StrokeThickness="0" d:LayoutOverrides="VerticalAlignment"/>
+            <Rectangle Fill="#FFF9F902" HorizontalAlignment="Left" Height="1.521" Margin="3.344,17.829,0,0" Stroke="Black" VerticalAlignment="Top" Width="5.438" StrokeThickness="0" d:LayoutOverrides="VerticalAlignment"/>
+            <ed:Arc ArcThickness="0" ArcThicknessUnit="Pixel" EndAngle="90" Fill="#FF505050" HorizontalAlignment="Left" Height="6.812" Margin="1.556,13.085,0,0" Stretch="None" Stroke="Black" StartAngle="0" VerticalAlignment="Top" Width="7.364" RenderTransformOrigin="0.5,0.5" d:LayoutOverrides="VerticalAlignment">
+                <ed:Arc.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180.337"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </ed:Arc.RenderTransform>
+            </ed:Arc>
+            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FF505050" HorizontalAlignment="Left" Height="1" Margin="4.599,18.912,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="5.209" d:LayoutOverrides="VerticalAlignment"/>
+            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FF505050" HorizontalAlignment="Left" Height="1" Margin="6.436,16.857,-0.113,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="4.734" RenderTransformOrigin="0.5,0.5" d:LayoutOverrides="VerticalAlignment">
+                <Path.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Path.RenderTransform>
+            </Path>
+            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FF505050" HorizontalAlignment="Left" Height="1" Margin="1.057,15.5,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="8.459" d:LayoutOverrides="VerticalAlignment"/>
+            <Rectangle Fill="#FFF9F902" HorizontalAlignment="Left" Height="2.167" Margin="2.074,20.996,0,0" Stroke="Black" VerticalAlignment="Top" Width="6.541" StrokeThickness="0" d:LayoutOverrides="VerticalAlignment"/>
+            <Rectangle Fill="#FFF9F902" HorizontalAlignment="Left" Height="1.521" Margin="3.344,22.829,0,0" Stroke="Black" VerticalAlignment="Top" Width="5.438" StrokeThickness="0" d:LayoutOverrides="VerticalAlignment"/>
+            <ed:Arc ArcThickness="0" ArcThicknessUnit="Pixel" EndAngle="90" Fill="#FF505050" HorizontalAlignment="Left" Height="6.812" Margin="1.556,18.085,0,0" Stretch="None" Stroke="Black" StartAngle="0" VerticalAlignment="Top" Width="7.364" RenderTransformOrigin="0.5,0.5" d:LayoutOverrides="VerticalAlignment">
+                <ed:Arc.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180.337"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </ed:Arc.RenderTransform>
+            </ed:Arc>
+            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FF505050" HorizontalAlignment="Left" Height="1" Margin="4.599,23.912,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="5.209" d:LayoutOverrides="VerticalAlignment"/>
+            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FF505050" HorizontalAlignment="Left" Height="1" Margin="6.436,21.857,-0.113,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="4.734" RenderTransformOrigin="0.5,0.5" d:LayoutOverrides="VerticalAlignment">
+                <Path.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Path.RenderTransform>
+            </Path>
+            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FF505050" HorizontalAlignment="Left" Height="1" Margin="1.057,20.5,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="8.459" d:LayoutOverrides="VerticalAlignment"/>
+            <Rectangle Fill="#FFF9F902" HorizontalAlignment="Left" Height="2.167" Margin="2.074,25.996,0,0" Stroke="Black" VerticalAlignment="Top" Width="6.541" StrokeThickness="0"/>
+            <Rectangle Fill="#FFF9F902" HorizontalAlignment="Left" Height="1.521" Margin="3.344,27.829,0,0" Stroke="Black" VerticalAlignment="Top" Width="5.438" StrokeThickness="0"/>
+            <ed:Arc ArcThickness="0" ArcThicknessUnit="Pixel" EndAngle="90" Fill="#FF505050" HorizontalAlignment="Left" Height="6.812" Margin="1.556,23.085,0,0" Stretch="None" Stroke="Black" StartAngle="0" VerticalAlignment="Top" Width="7.364" RenderTransformOrigin="0.5,0.5">
+                <ed:Arc.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180.337"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </ed:Arc.RenderTransform>
+            </ed:Arc>
+            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FF505050" HorizontalAlignment="Left" Height="1" Margin="4.599,28.912,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="5.209"/>
+            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FF505050" HorizontalAlignment="Left" Height="1" Margin="6.436,26.857,-0.113,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="4.734" RenderTransformOrigin="0.5,0.5">
+                <Path.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Path.RenderTransform>
+            </Path>
+            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FF505050" HorizontalAlignment="Left" Height="1" Margin="1.057,25.5,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="8.459" d:LayoutOverrides="VerticalAlignment"/>
+            <Rectangle Fill="#FFF9F902" HorizontalAlignment="Left" Height="2.167" Margin="2.074,30.996,0,0" Stroke="Black" VerticalAlignment="Top" Width="6.541" StrokeThickness="0"/>
+            <Rectangle Fill="#FFF9F902" HorizontalAlignment="Left" Height="1.521" Margin="3.344,32.829,0,0" Stroke="Black" VerticalAlignment="Top" Width="5.438" StrokeThickness="0"/>
+            <ed:Arc ArcThickness="0" ArcThicknessUnit="Pixel" EndAngle="90" Fill="#FF505050" HorizontalAlignment="Left" Height="6.812" Margin="1.556,28.085,0,0" Stretch="None" Stroke="Black" StartAngle="0" VerticalAlignment="Top" Width="7.364" RenderTransformOrigin="0.5,0.5">
+                <ed:Arc.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180.337"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </ed:Arc.RenderTransform>
+            </ed:Arc>
+            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FF505050" HorizontalAlignment="Left" Height="1" Margin="4.599,33.912,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="5.209"/>
+            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FF505050" HorizontalAlignment="Left" Height="1" Margin="6.436,31.857,-0.113,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="4.734" RenderTransformOrigin="0.5,0.5">
+                <Path.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Path.RenderTransform>
+            </Path>
+            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FF505050" HorizontalAlignment="Left" Height="1" Margin="1.057,30.5,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="8.459"/>
+            <Rectangle Fill="#FFF9F902" HorizontalAlignment="Left" Height="2.167" Margin="2.074,35.996,0,0" Stroke="Black" VerticalAlignment="Top" Width="6.541" StrokeThickness="0"/>
+            <Rectangle Fill="#FFF9F902" HorizontalAlignment="Left" Height="1.521" Margin="3.344,37.829,0,0" Stroke="Black" VerticalAlignment="Top" Width="5.438" StrokeThickness="0"/>
+            <ed:Arc ArcThickness="0" ArcThicknessUnit="Pixel" EndAngle="90" Fill="#FF505050" HorizontalAlignment="Left" Height="6.812" Margin="1.556,33.085,0,0" Stretch="None" Stroke="Black" StartAngle="0" VerticalAlignment="Top" Width="7.364" RenderTransformOrigin="0.5,0.5">
+                <ed:Arc.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180.337"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </ed:Arc.RenderTransform>
+            </ed:Arc>
+            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FF505050" HorizontalAlignment="Left" Height="1" Margin="4.599,38.912,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="5.209"/>
+            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FF505050" HorizontalAlignment="Left" Height="1" Margin="6.436,36.857,-0.113,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="4.734" RenderTransformOrigin="0.5,0.5">
+                <Path.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Path.RenderTransform>
+            </Path>
+            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FF505050" HorizontalAlignment="Left" Height="1" Margin="1.057,35.5,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="8.459"/>
+            <Rectangle Fill="#FFF9F902" HorizontalAlignment="Left" Height="2.167" Margin="2.074,40.996,0,0" Stroke="Black" VerticalAlignment="Top" Width="6.541" StrokeThickness="0"/>
+            <Rectangle Fill="#FFF9F902" HorizontalAlignment="Left" Height="1.521" Margin="3.344,42.829,0,0" Stroke="Black" VerticalAlignment="Top" Width="5.438" StrokeThickness="0"/>
+            <ed:Arc ArcThickness="0" ArcThicknessUnit="Pixel" EndAngle="90" Fill="#FF505050" HorizontalAlignment="Left" Height="6.812" Margin="1.556,38.085,0,0" Stretch="None" Stroke="Black" StartAngle="0" VerticalAlignment="Top" Width="7.364" RenderTransformOrigin="0.5,0.5">
+                <ed:Arc.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180.337"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </ed:Arc.RenderTransform>
+            </ed:Arc>
+            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FF505050" HorizontalAlignment="Left" Height="1" Margin="4.599,43.912,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="5.209"/>
+            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FF505050" HorizontalAlignment="Left" Height="1" Margin="6.436,41.857,-0.113,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="4.734" RenderTransformOrigin="0.5,0.5">
+                <Path.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Path.RenderTransform>
+            </Path>
+            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FF505050" HorizontalAlignment="Left" Height="1" Margin="1.057,40.5,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="8.459"/>
+            <Rectangle Fill="#FFF9F902" HorizontalAlignment="Left" Height="2.167" Margin="2.074,45.996,0,0" Stroke="Black" VerticalAlignment="Top" Width="6.541" StrokeThickness="0"/>
+            <Rectangle Fill="#FFF9F902" HorizontalAlignment="Left" Height="1.521" Margin="3.344,47.829,0,0" Stroke="Black" VerticalAlignment="Top" Width="5.438" StrokeThickness="0"/>
+            <ed:Arc ArcThickness="0" ArcThicknessUnit="Pixel" EndAngle="90" Fill="#FF505050" HorizontalAlignment="Left" Height="6.812" Margin="1.556,43.085,0,0" Stretch="None" Stroke="Black" StartAngle="0" VerticalAlignment="Top" Width="7.364" RenderTransformOrigin="0.5,0.5">
+                <ed:Arc.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180.337"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </ed:Arc.RenderTransform>
+            </ed:Arc>
+            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FF505050" HorizontalAlignment="Left" Height="1" Margin="4.599,48.912,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="5.209"/>
+            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FF505050" HorizontalAlignment="Left" Height="1" Margin="6.436,46.857,-0.113,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="4.734" RenderTransformOrigin="0.5,0.5">
+                <Path.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Path.RenderTransform>
+            </Path>
+            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FF505050" HorizontalAlignment="Left" Height="1" Margin="1.057,45.5,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="8.459"/>
+        </Grid>
+
         <Rectangle x:Name="Head_7" Margin="16,21.667,0,0" Stroke="Black" StrokeThickness="0.5" HorizontalAlignment="Left" Width="10" Cursor="Hand" Height="62" VerticalAlignment="Top">
             <Rectangle.Fill>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -60,74 +411,8 @@
                 </LinearGradientBrush>
             </Rectangle.Fill>
         </Rectangle>
-        <Rectangle x:Name="Head_1" Fill="#FF505050" Stroke="Black" StrokeThickness="0" HorizontalAlignment="Left" Width="15" Height="10.782" VerticalAlignment="Top" Margin="5.75,0.611,0,0" Cursor="Hand"/>
-        <Path Data="M1.75,11 L15.6875,11" HorizontalAlignment="Left" Height="0.5" Margin="5.953,0.594,0,0" Stretch="Fill" Stroke="Black" StrokeThickness="0.5" VerticalAlignment="Top" Width="15.063">
-            <Path.Fill>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#FF0B7C1F" Offset="0"/>
-                    <GradientStop Color="#FF0B7C1F" Offset="1"/>
-                    <GradientStop Color="#FF00FF2B" Offset="0.5"/>
-                </LinearGradientBrush>
-            </Path.Fill>
-        </Path>
-        <Path Data="M26.25,30.166667 L31.5,51.791667" HorizontalAlignment="Left" Margin="15.248,19.916,0,30.591" Stretch="Fill" Stroke="Black" Width="1" RenderTransformOrigin="0.5,0.5">
-            <Path.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform ScaleX="-1"/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Path.RenderTransform>
-            <Path.Fill>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#FF0B7C1F" Offset="0"/>
-                    <GradientStop Color="#FF0B7C1F" Offset="1"/>
-                    <GradientStop Color="#FF00FF2B" Offset="0.5"/>
-                </LinearGradientBrush>
-            </Path.Fill>
-        </Path>
-        <ed:Arc x:Name="arc" ArcThickness="3" ArcThicknessUnit="Pixel" EndAngle="90" Fill="#FFDEF11E" HorizontalAlignment="Left" Margin="3.718,30.594,0,31.389" Stretch="None" Stroke="Black" StrokeThickness="0" StartAngle="0" Width="12.86" RenderTransformOrigin="0.5,0.5" Visibility="Hidden">
-            <ed:Arc.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform ScaleY="-1.3" ScaleX="-1.2"/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </ed:Arc.RenderTransform>
-        </ed:Arc>
-        <ed:Arc x:Name="arc1" ArcThickness="3" ArcThicknessUnit="Pixel" EndAngle="90" Fill="#FFDEF11E" HorizontalAlignment="Left" Margin="3.718,0,0,25.968" Stretch="None" Stroke="Black" StrokeThickness="0" StartAngle="0" Width="12.86" RenderTransformOrigin="0.5,0.5" Height="6.017" VerticalAlignment="Bottom" Visibility="Hidden">
-            <ed:Arc.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform ScaleY="-1.3" ScaleX="-1.2"/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </ed:Arc.RenderTransform>
-        </ed:Arc>
-        <ed:Arc x:Name="arc2" ArcThickness="3" ArcThicknessUnit="Pixel" EndAngle="90" Fill="#FFDEF11E" HorizontalAlignment="Left" Margin="3.718,0,0,20.547" Stretch="None" Stroke="Black" StrokeThickness="0" StartAngle="0" Width="12.86" RenderTransformOrigin="0.5,0.5" Height="6.017" VerticalAlignment="Bottom" Visibility="Hidden">
-            <ed:Arc.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform ScaleY="-1.3" ScaleX="-1.2"/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </ed:Arc.RenderTransform>
-        </ed:Arc>
-        <ed:Arc x:Name="arc3" ArcThickness="3" ArcThicknessUnit="Pixel" EndAngle="90" Fill="#FFDEF11E" HorizontalAlignment="Left" Margin="3.718,0,0,15.126" Stretch="None" Stroke="Black" StrokeThickness="0" StartAngle="0" Width="12.86" RenderTransformOrigin="0.5,0.5" Height="6.017" VerticalAlignment="Bottom" Visibility="Hidden">
-            <ed:Arc.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform ScaleY="-1.3" ScaleX="-1.2"/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </ed:Arc.RenderTransform>
-        </ed:Arc>
-        <Grid x:Name="grid1" Margin="15.331,8.875,0,0" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" Width="10" Height="69" VerticalAlignment="Top">
+
+        <Grid x:Name="grid1" Margin="15,11,0,134" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" Width="10">
             <Grid.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -156,6 +441,46 @@
                     </TransformGroup>
                 </Rectangle.RenderTransform>
             </Rectangle>
+            <ed:Arc ArcThickness="0" ArcThicknessUnit="Pixel" EndAngle="90" Fill="#FFFFF7F7" HorizontalAlignment="Left" Height="6.812" Margin="1.746,20.693,0,0" Stretch="None" Stroke="Black" StartAngle="0" VerticalAlignment="Top" Width="7.364" RenderTransformOrigin="0.5,0.5" d:LayoutOverrides="VerticalAlignment">
+                <ed:Arc.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="360.4"/>
+                        <TranslateTransform X="0.388"/>
+                    </TransformGroup>
+                </ed:Arc.RenderTransform>
+            </ed:Arc>
+            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FFFFF7F7" HorizontalAlignment="Left" Height="1" Margin="4.789,26.52,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="5.209" RenderTransformOrigin="0.5,0.5" d:LayoutOverrides="VerticalAlignment">
+                <Path.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180.063"/>
+                        <TranslateTransform X="-3.539" Y="-5.844"/>
+                    </TransformGroup>
+                </Path.RenderTransform>
+            </Path>
+            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FFFFF7F7" HorizontalAlignment="Left" Height="1" Margin="6.626,24.465,-1.36,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="4.734" RenderTransformOrigin="0.5,0.5" d:LayoutOverrides="VerticalAlignment">
+                <Path.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="270.063"/>
+                        <TranslateTransform X="-6.739" Y="-1.736"/>
+                    </TransformGroup>
+                </Path.RenderTransform>
+            </Path>
+            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FFFFF7F7" HorizontalAlignment="Left" Height="1" Margin="1.247,23.109,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="8.459" RenderTransformOrigin="0.5,0.5" d:LayoutOverrides="VerticalAlignment">
+                <Path.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180.063"/>
+                        <TranslateTransform X="0.291" Y="0.982"/>
+                    </TransformGroup>
+                </Path.RenderTransform>
+            </Path>
             <Rectangle Fill="#FFFFF7F7" HorizontalAlignment="Left" Height="2.166" Margin="2.264,28.793,0,0" Stroke="Black" VerticalAlignment="Top" Width="6.541" StrokeThickness="0" RenderTransformOrigin="0.5,0.5" d:LayoutOverrides="VerticalAlignment">
                 <Rectangle.RenderTransform>
                     <TransformGroup>
@@ -816,394 +1141,75 @@
                     </TransformGroup>
                 </Path.RenderTransform>
             </Path>
-            <ed:Arc ArcThickness="0" ArcThicknessUnit="Pixel" EndAngle="90" Fill="#FFFFF7F7" HorizontalAlignment="Left" Height="6.812" Margin="1.737,20.799,0,0" Stretch="None" Stroke="Black" StartAngle="0" VerticalAlignment="Top" Width="7.364" RenderTransformOrigin="0.5,0.5">
-                <ed:Arc.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="360.4"/>
-                        <TranslateTransform X="0.388"/>
-                    </TransformGroup>
-                </ed:Arc.RenderTransform>
-            </ed:Arc>
-            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FFFFF7F7" HorizontalAlignment="Left" Height="1" Margin="4.78,26.626,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="5.209" RenderTransformOrigin="0.5,0.5">
-                <Path.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="180.063"/>
-                        <TranslateTransform X="-3.539" Y="-5.844"/>
-                    </TransformGroup>
-                </Path.RenderTransform>
-            </Path>
-            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FFFFF7F7" HorizontalAlignment="Left" Height="1" Margin="6.617,24.571,-1.351,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="4.734" RenderTransformOrigin="0.5,0.5">
-                <Path.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="270.063"/>
-                        <TranslateTransform X="-6.739" Y="-1.736"/>
-                    </TransformGroup>
-                </Path.RenderTransform>
-            </Path>
-            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FFFFF7F7" HorizontalAlignment="Left" Height="1" Margin="1.238,23.216,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="8.459" RenderTransformOrigin="0.5,0.5">
-                <Path.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="180.063"/>
-                        <TranslateTransform X="0.291" Y="0.982"/>
-                    </TransformGroup>
-                </Path.RenderTransform>
-            </Path>
         </Grid>
-        <Grid x:Name="grid" HorizontalAlignment="Left" Margin="5,24,0,0" Width="11" RenderTransformOrigin="0.5,0.5" Height="55" VerticalAlignment="Top">
-            <Grid.RenderTransform>
+
+        <Rectangle x:Name="Head_1" Fill="#FF505050" Stroke="Black" StrokeThickness="0" HorizontalAlignment="Left" Width="15" Height="10.782" VerticalAlignment="Top" Margin="5.75,0.611,0,0" Cursor="Hand"/>
+        <Path Data="M1.75,11 L15.6875,11" HorizontalAlignment="Left" Height="0.5" Margin="5.953,0.594,0,0" Stretch="Fill" Stroke="Black" StrokeThickness="0.5" VerticalAlignment="Top" Width="15.063">
+            <Path.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF0B7C1F" Offset="0"/>
+                    <GradientStop Color="#FF0B7C1F" Offset="1"/>
+                    <GradientStop Color="#FF00FF2B" Offset="0.5"/>
+                </LinearGradientBrush>
+            </Path.Fill>
+        </Path>
+        <Path Data="M26.25,30.166667 L31.5,51.791667" HorizontalAlignment="Left" Margin="15.248,19.916,0,30.591" Stretch="Fill" Stroke="Black" Width="1" RenderTransformOrigin="0.5,0.5">
+            <Path.RenderTransform>
                 <TransformGroup>
-                    <ScaleTransform/>
+                    <ScaleTransform ScaleX="-1"/>
                     <SkewTransform/>
                     <RotateTransform/>
                     <TranslateTransform/>
                 </TransformGroup>
-            </Grid.RenderTransform>
-            <Rectangle Fill="#FFF9F902" HorizontalAlignment="Left" Height="2.167" Margin="2.074,0.996,0,0" Stroke="Black" VerticalAlignment="Top" Width="6.541" StrokeThickness="0" d:LayoutOverrides="VerticalAlignment"/>
-            <Rectangle Fill="#FFF9F902" HorizontalAlignment="Left" Height="1.521" Margin="3.344,2.829,0,0" Stroke="Black" VerticalAlignment="Top" Width="5.438" StrokeThickness="0" d:LayoutOverrides="VerticalAlignment"/>
-
-            <ed:Arc ArcThickness="0" ArcThicknessUnit="Pixel" EndAngle="90" Fill="#FF505050" HorizontalAlignment="Left" Height="6.812" Margin="1.556,-1.915,0,0" Stretch="None" Stroke="Black" StartAngle="0" VerticalAlignment="Top" Width="7.364" RenderTransformOrigin="0.5,0.5" d:LayoutOverrides="VerticalAlignment">
-                <ed:Arc.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="180.337"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </ed:Arc.RenderTransform>
-            </ed:Arc>
-            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FF505050" HorizontalAlignment="Left" Height="1" Margin="4.599,3.912,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="5.209" d:LayoutOverrides="VerticalAlignment"/>
-            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FF505050" HorizontalAlignment="Left" Height="1" Margin="6.436,1.857,-0.113,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="4.734" RenderTransformOrigin="0.5,0.5" d:LayoutOverrides="VerticalAlignment">
-                <Path.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="90"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </Path.RenderTransform>
-            </Path>
-            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FF505050" HorizontalAlignment="Left" Height="1" Margin="1.057,0.5,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="8.459" d:LayoutOverrides="VerticalAlignment"/>
-            <Rectangle Fill="#FFF9F902" HorizontalAlignment="Left" Height="2.167" Margin="2.074,5.996,0,0" Stroke="Black" VerticalAlignment="Top" Width="6.541" StrokeThickness="0" d:LayoutOverrides="VerticalAlignment"/>
-            <Rectangle Fill="#FFF9F902" HorizontalAlignment="Left" Height="1.521" Margin="3.344,7.829,0,0" Stroke="Black" VerticalAlignment="Top" Width="5.438" StrokeThickness="0" d:LayoutOverrides="VerticalAlignment"/>
-            <ed:Arc ArcThickness="0" ArcThicknessUnit="Pixel" EndAngle="90" Fill="#FF505050" HorizontalAlignment="Left" Height="6.812" Margin="1.556,3.085,0,0" Stretch="None" Stroke="Black" StartAngle="0" VerticalAlignment="Top" Width="7.364" RenderTransformOrigin="0.5,0.5" d:LayoutOverrides="VerticalAlignment">
-                <ed:Arc.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="180.337"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </ed:Arc.RenderTransform>
-            </ed:Arc>
-            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FF505050" HorizontalAlignment="Left" Height="1" Margin="4.599,8.912,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="5.209" d:LayoutOverrides="VerticalAlignment"/>
-            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FF505050" HorizontalAlignment="Left" Height="1" Margin="6.436,6.857,-0.113,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="4.734" RenderTransformOrigin="0.5,0.5" d:LayoutOverrides="VerticalAlignment">
-                <Path.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="90"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </Path.RenderTransform>
-            </Path>
-            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FF505050" HorizontalAlignment="Left" Height="1" Margin="1.057,5.5,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="8.459" d:LayoutOverrides="VerticalAlignment"/>
-            <Rectangle Fill="#FFF9F902" HorizontalAlignment="Left" Height="2.167" Margin="2.074,10.996,0,0" Stroke="Black" VerticalAlignment="Top" Width="6.541" StrokeThickness="0" d:LayoutOverrides="VerticalAlignment"/>
-            <Rectangle Fill="#FFF9F902" HorizontalAlignment="Left" Height="1.521" Margin="3.344,12.829,0,0" Stroke="Black" VerticalAlignment="Top" Width="5.438" StrokeThickness="0" d:LayoutOverrides="VerticalAlignment"/>
-            <ed:Arc ArcThickness="0" ArcThicknessUnit="Pixel" EndAngle="90" Fill="#FF505050" HorizontalAlignment="Left" Height="6.812" Margin="1.556,8.085,0,0" Stretch="None" Stroke="Black" StartAngle="0" VerticalAlignment="Top" Width="7.364" RenderTransformOrigin="0.5,0.5" d:LayoutOverrides="VerticalAlignment">
-                <ed:Arc.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="180.337"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </ed:Arc.RenderTransform>
-            </ed:Arc>
-            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FF505050" HorizontalAlignment="Left" Height="1" Margin="4.599,13.912,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="5.209" d:LayoutOverrides="VerticalAlignment"/>
-            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FF505050" HorizontalAlignment="Left" Height="1" Margin="6.436,11.857,-0.113,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="4.734" RenderTransformOrigin="0.5,0.5" d:LayoutOverrides="VerticalAlignment">
-                <Path.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="90"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </Path.RenderTransform>
-            </Path>
-            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FF505050" HorizontalAlignment="Left" Height="1" Margin="1.057,10.5,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="8.459" d:LayoutOverrides="VerticalAlignment"/>
-            <Rectangle Fill="#FFF9F902" HorizontalAlignment="Left" Height="2.167" Margin="2.074,15.996,0,0" Stroke="Black" VerticalAlignment="Top" Width="6.541" StrokeThickness="0" d:LayoutOverrides="VerticalAlignment"/>
-            <Rectangle Fill="#FFF9F902" HorizontalAlignment="Left" Height="1.521" Margin="3.344,17.829,0,0" Stroke="Black" VerticalAlignment="Top" Width="5.438" StrokeThickness="0" d:LayoutOverrides="VerticalAlignment"/>
-            <ed:Arc ArcThickness="0" ArcThicknessUnit="Pixel" EndAngle="90" Fill="#FF505050" HorizontalAlignment="Left" Height="6.812" Margin="1.556,13.085,0,0" Stretch="None" Stroke="Black" StartAngle="0" VerticalAlignment="Top" Width="7.364" RenderTransformOrigin="0.5,0.5" d:LayoutOverrides="VerticalAlignment">
-                <ed:Arc.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="180.337"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </ed:Arc.RenderTransform>
-            </ed:Arc>
-            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FF505050" HorizontalAlignment="Left" Height="1" Margin="4.599,18.912,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="5.209" d:LayoutOverrides="VerticalAlignment"/>
-            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FF505050" HorizontalAlignment="Left" Height="1" Margin="6.436,16.857,-0.113,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="4.734" RenderTransformOrigin="0.5,0.5" d:LayoutOverrides="VerticalAlignment">
-                <Path.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="90"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </Path.RenderTransform>
-            </Path>
-            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FF505050" HorizontalAlignment="Left" Height="1" Margin="1.057,15.5,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="8.459" d:LayoutOverrides="VerticalAlignment"/>
-            <Rectangle Fill="#FFF9F902" HorizontalAlignment="Left" Height="2.167" Margin="2.074,0.996,0,0" Stroke="Black" VerticalAlignment="Top" Width="6.541" StrokeThickness="0" d:LayoutOverrides="VerticalAlignment"/>
-            <Rectangle Fill="#FFF9F902" HorizontalAlignment="Left" Height="1.521" Margin="3.344,2.829,0,0" Stroke="Black" VerticalAlignment="Top" Width="5.438" StrokeThickness="0" d:LayoutOverrides="VerticalAlignment"/>
-            <ed:Arc ArcThickness="0" ArcThicknessUnit="Pixel" EndAngle="90" Fill="#FF505050" HorizontalAlignment="Left" Height="6.812" Margin="1.556,-1.915,0,0" Stretch="None" Stroke="Black" StartAngle="0" VerticalAlignment="Top" Width="7.364" RenderTransformOrigin="0.5,0.5" d:LayoutOverrides="VerticalAlignment">
-                <ed:Arc.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="180.337"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </ed:Arc.RenderTransform>
-            </ed:Arc>
-            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FF505050" HorizontalAlignment="Left" Height="1" Margin="4.599,3.912,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="5.209" d:LayoutOverrides="VerticalAlignment"/>
-            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FF505050" HorizontalAlignment="Left" Height="1" Margin="6.436,1.857,-0.113,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="4.734" RenderTransformOrigin="0.5,0.5" d:LayoutOverrides="VerticalAlignment">
-                <Path.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="90"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </Path.RenderTransform>
-            </Path>
-            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FF505050" HorizontalAlignment="Left" Height="1" Margin="1.057,0.5,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="8.459" d:LayoutOverrides="VerticalAlignment"/>
-            <Rectangle Fill="#FFF9F902" HorizontalAlignment="Left" Height="2.167" Margin="2.074,5.996,0,0" Stroke="Black" VerticalAlignment="Top" Width="6.541" StrokeThickness="0" d:LayoutOverrides="VerticalAlignment"/>
-            <Rectangle Fill="#FFF9F902" HorizontalAlignment="Left" Height="1.521" Margin="3.344,7.829,0,0" Stroke="Black" VerticalAlignment="Top" Width="5.438" StrokeThickness="0" d:LayoutOverrides="VerticalAlignment"/>
-            <ed:Arc ArcThickness="0" ArcThicknessUnit="Pixel" EndAngle="90" Fill="#FF505050" HorizontalAlignment="Left" Height="6.812" Margin="1.556,3.085,0,0" Stretch="None" Stroke="Black" StartAngle="0" VerticalAlignment="Top" Width="7.364" RenderTransformOrigin="0.5,0.5" d:LayoutOverrides="VerticalAlignment">
-                <ed:Arc.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="180.337"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </ed:Arc.RenderTransform>
-            </ed:Arc>
-            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FF505050" HorizontalAlignment="Left" Height="1" Margin="4.599,8.912,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="5.209" d:LayoutOverrides="VerticalAlignment"/>
-            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FF505050" HorizontalAlignment="Left" Height="1" Margin="6.436,6.857,-0.113,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="4.734" RenderTransformOrigin="0.5,0.5" d:LayoutOverrides="VerticalAlignment">
-                <Path.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="90"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </Path.RenderTransform>
-            </Path>
-            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FF505050" HorizontalAlignment="Left" Height="1" Margin="1.057,5.5,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="8.459" d:LayoutOverrides="VerticalAlignment"/>
-            <Rectangle Fill="#FFF9F902" HorizontalAlignment="Left" Height="2.167" Margin="2.074,10.996,0,0" Stroke="Black" VerticalAlignment="Top" Width="6.541" StrokeThickness="0" d:LayoutOverrides="VerticalAlignment"/>
-            <Rectangle Fill="#FFF9F902" HorizontalAlignment="Left" Height="1.521" Margin="3.344,12.829,0,0" Stroke="Black" VerticalAlignment="Top" Width="5.438" StrokeThickness="0" d:LayoutOverrides="VerticalAlignment"/>
-            <ed:Arc ArcThickness="0" ArcThicknessUnit="Pixel" EndAngle="90" Fill="#FF505050" HorizontalAlignment="Left" Height="6.812" Margin="1.556,8.085,0,0" Stretch="None" Stroke="Black" StartAngle="0" VerticalAlignment="Top" Width="7.364" RenderTransformOrigin="0.5,0.5" d:LayoutOverrides="VerticalAlignment">
-                <ed:Arc.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="180.337"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </ed:Arc.RenderTransform>
-            </ed:Arc>
-            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FF505050" HorizontalAlignment="Left" Height="1" Margin="4.599,13.912,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="5.209" d:LayoutOverrides="VerticalAlignment"/>
-            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FF505050" HorizontalAlignment="Left" Height="1" Margin="6.436,11.857,-0.113,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="4.734" RenderTransformOrigin="0.5,0.5" d:LayoutOverrides="VerticalAlignment">
-                <Path.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="90"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </Path.RenderTransform>
-            </Path>
-            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FF505050" HorizontalAlignment="Left" Height="1" Margin="1.057,10.5,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="8.459" d:LayoutOverrides="VerticalAlignment"/>
-            <Rectangle Fill="#FFF9F902" HorizontalAlignment="Left" Height="2.167" Margin="2.074,15.996,0,0" Stroke="Black" VerticalAlignment="Top" Width="6.541" StrokeThickness="0" d:LayoutOverrides="VerticalAlignment"/>
-            <Rectangle Fill="#FFF9F902" HorizontalAlignment="Left" Height="1.521" Margin="3.344,17.829,0,0" Stroke="Black" VerticalAlignment="Top" Width="5.438" StrokeThickness="0" d:LayoutOverrides="VerticalAlignment"/>
-            <ed:Arc ArcThickness="0" ArcThicknessUnit="Pixel" EndAngle="90" Fill="#FF505050" HorizontalAlignment="Left" Height="6.812" Margin="1.556,13.085,0,0" Stretch="None" Stroke="Black" StartAngle="0" VerticalAlignment="Top" Width="7.364" RenderTransformOrigin="0.5,0.5" d:LayoutOverrides="VerticalAlignment">
-                <ed:Arc.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="180.337"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </ed:Arc.RenderTransform>
-            </ed:Arc>
-            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FF505050" HorizontalAlignment="Left" Height="1" Margin="4.599,18.912,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="5.209" d:LayoutOverrides="VerticalAlignment"/>
-            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FF505050" HorizontalAlignment="Left" Height="1" Margin="6.436,16.857,-0.113,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="4.734" RenderTransformOrigin="0.5,0.5" d:LayoutOverrides="VerticalAlignment">
-                <Path.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="90"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </Path.RenderTransform>
-            </Path>
-            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FF505050" HorizontalAlignment="Left" Height="1" Margin="1.057,15.5,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="8.459" d:LayoutOverrides="VerticalAlignment"/>
-            <Rectangle Fill="#FFF9F902" HorizontalAlignment="Left" Height="2.167" Margin="2.074,20.996,0,0" Stroke="Black" VerticalAlignment="Top" Width="6.541" StrokeThickness="0" d:LayoutOverrides="VerticalAlignment"/>
-            <Rectangle Fill="#FFF9F902" HorizontalAlignment="Left" Height="1.521" Margin="3.344,22.829,0,0" Stroke="Black" VerticalAlignment="Top" Width="5.438" StrokeThickness="0" d:LayoutOverrides="VerticalAlignment"/>
-            <ed:Arc ArcThickness="0" ArcThicknessUnit="Pixel" EndAngle="90" Fill="#FF505050" HorizontalAlignment="Left" Height="6.812" Margin="1.556,18.085,0,0" Stretch="None" Stroke="Black" StartAngle="0" VerticalAlignment="Top" Width="7.364" RenderTransformOrigin="0.5,0.5" d:LayoutOverrides="VerticalAlignment">
-                <ed:Arc.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="180.337"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </ed:Arc.RenderTransform>
-            </ed:Arc>
-            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FF505050" HorizontalAlignment="Left" Height="1" Margin="4.599,23.912,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="5.209" d:LayoutOverrides="VerticalAlignment"/>
-            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FF505050" HorizontalAlignment="Left" Height="1" Margin="6.436,21.857,-0.113,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="4.734" RenderTransformOrigin="0.5,0.5" d:LayoutOverrides="VerticalAlignment">
-                <Path.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="90"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </Path.RenderTransform>
-            </Path>
-            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FF505050" HorizontalAlignment="Left" Height="1" Margin="1.057,20.5,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="8.459" d:LayoutOverrides="VerticalAlignment"/>
-            <Rectangle Fill="#FFF9F902" HorizontalAlignment="Left" Height="2.167" Margin="2.074,25.996,0,0" Stroke="Black" VerticalAlignment="Top" Width="6.541" StrokeThickness="0"/>
-            <Rectangle Fill="#FFF9F902" HorizontalAlignment="Left" Height="1.521" Margin="3.344,27.829,0,0" Stroke="Black" VerticalAlignment="Top" Width="5.438" StrokeThickness="0"/>
-            <ed:Arc ArcThickness="0" ArcThicknessUnit="Pixel" EndAngle="90" Fill="#FF505050" HorizontalAlignment="Left" Height="6.812" Margin="1.556,23.085,0,0" Stretch="None" Stroke="Black" StartAngle="0" VerticalAlignment="Top" Width="7.364" RenderTransformOrigin="0.5,0.5">
-                <ed:Arc.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="180.337"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </ed:Arc.RenderTransform>
-            </ed:Arc>
-            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FF505050" HorizontalAlignment="Left" Height="1" Margin="4.599,28.912,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="5.209"/>
-            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FF505050" HorizontalAlignment="Left" Height="1" Margin="6.436,26.857,-0.113,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="4.734" RenderTransformOrigin="0.5,0.5">
-                <Path.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="90"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </Path.RenderTransform>
-            </Path>
-            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FF505050" HorizontalAlignment="Left" Height="1" Margin="1.057,25.5,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="8.459" d:LayoutOverrides="VerticalAlignment"/>
-            <Rectangle Fill="#FFF9F902" HorizontalAlignment="Left" Height="2.167" Margin="2.074,30.996,0,0" Stroke="Black" VerticalAlignment="Top" Width="6.541" StrokeThickness="0"/>
-            <Rectangle Fill="#FFF9F902" HorizontalAlignment="Left" Height="1.521" Margin="3.344,32.829,0,0" Stroke="Black" VerticalAlignment="Top" Width="5.438" StrokeThickness="0"/>
-            <ed:Arc ArcThickness="0" ArcThicknessUnit="Pixel" EndAngle="90" Fill="#FF505050" HorizontalAlignment="Left" Height="6.812" Margin="1.556,28.085,0,0" Stretch="None" Stroke="Black" StartAngle="0" VerticalAlignment="Top" Width="7.364" RenderTransformOrigin="0.5,0.5">
-                <ed:Arc.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="180.337"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </ed:Arc.RenderTransform>
-            </ed:Arc>
-            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FF505050" HorizontalAlignment="Left" Height="1" Margin="4.599,33.912,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="5.209"/>
-            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FF505050" HorizontalAlignment="Left" Height="1" Margin="6.436,31.857,-0.113,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="4.734" RenderTransformOrigin="0.5,0.5">
-                <Path.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="90"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </Path.RenderTransform>
-            </Path>
-            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FF505050" HorizontalAlignment="Left" Height="1" Margin="1.057,30.5,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="8.459"/>
-            <Rectangle Fill="#FFF9F902" HorizontalAlignment="Left" Height="2.167" Margin="2.074,35.996,0,0" Stroke="Black" VerticalAlignment="Top" Width="6.541" StrokeThickness="0"/>
-            <Rectangle Fill="#FFF9F902" HorizontalAlignment="Left" Height="1.521" Margin="3.344,37.829,0,0" Stroke="Black" VerticalAlignment="Top" Width="5.438" StrokeThickness="0"/>
-            <ed:Arc ArcThickness="0" ArcThicknessUnit="Pixel" EndAngle="90" Fill="#FF505050" HorizontalAlignment="Left" Height="6.812" Margin="1.556,33.085,0,0" Stretch="None" Stroke="Black" StartAngle="0" VerticalAlignment="Top" Width="7.364" RenderTransformOrigin="0.5,0.5">
-                <ed:Arc.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="180.337"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </ed:Arc.RenderTransform>
-            </ed:Arc>
-            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FF505050" HorizontalAlignment="Left" Height="1" Margin="4.599,38.912,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="5.209"/>
-            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FF505050" HorizontalAlignment="Left" Height="1" Margin="6.436,36.857,-0.113,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="4.734" RenderTransformOrigin="0.5,0.5">
-                <Path.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="90"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </Path.RenderTransform>
-            </Path>
-            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FF505050" HorizontalAlignment="Left" Height="1" Margin="1.057,35.5,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="8.459"/>
-            <Rectangle Fill="#FFF9F902" HorizontalAlignment="Left" Height="2.167" Margin="2.074,40.996,0,0" Stroke="Black" VerticalAlignment="Top" Width="6.541" StrokeThickness="0"/>
-            <Rectangle Fill="#FFF9F902" HorizontalAlignment="Left" Height="1.521" Margin="3.344,42.829,0,0" Stroke="Black" VerticalAlignment="Top" Width="5.438" StrokeThickness="0"/>
-            <ed:Arc ArcThickness="0" ArcThicknessUnit="Pixel" EndAngle="90" Fill="#FF505050" HorizontalAlignment="Left" Height="6.812" Margin="1.556,38.085,0,0" Stretch="None" Stroke="Black" StartAngle="0" VerticalAlignment="Top" Width="7.364" RenderTransformOrigin="0.5,0.5">
-                <ed:Arc.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="180.337"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </ed:Arc.RenderTransform>
-            </ed:Arc>
-            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FF505050" HorizontalAlignment="Left" Height="1" Margin="4.599,43.912,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="5.209"/>
-            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FF505050" HorizontalAlignment="Left" Height="1" Margin="6.436,41.857,-0.113,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="4.734" RenderTransformOrigin="0.5,0.5">
-                <Path.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="90"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </Path.RenderTransform>
-            </Path>
-            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FF505050" HorizontalAlignment="Left" Height="1" Margin="1.057,40.5,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="8.459"/>
-            <Rectangle Fill="#FFF9F902" HorizontalAlignment="Left" Height="2.167" Margin="2.074,45.996,0,0" Stroke="Black" VerticalAlignment="Top" Width="6.541" StrokeThickness="0"/>
-            <Rectangle Fill="#FFF9F902" HorizontalAlignment="Left" Height="1.521" Margin="3.344,47.829,0,0" Stroke="Black" VerticalAlignment="Top" Width="5.438" StrokeThickness="0"/>
-            <ed:Arc ArcThickness="0" ArcThicknessUnit="Pixel" EndAngle="90" Fill="#FF505050" HorizontalAlignment="Left" Height="6.812" Margin="1.556,43.085,0,0" Stretch="None" Stroke="Black" StartAngle="0" VerticalAlignment="Top" Width="7.364" RenderTransformOrigin="0.5,0.5">
-                <ed:Arc.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="180.337"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </ed:Arc.RenderTransform>
-            </ed:Arc>
-            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FF505050" HorizontalAlignment="Left" Height="1" Margin="4.599,48.912,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="5.209"/>
-            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FF505050" HorizontalAlignment="Left" Height="1" Margin="6.436,46.857,-0.113,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="4.734" RenderTransformOrigin="0.5,0.5">
-                <Path.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="90"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </Path.RenderTransform>
-            </Path>
-            <Path Data="M36.099333,50.916667 L41.391,50.916667" Fill="#FF505050" HorizontalAlignment="Left" Height="1" Margin="1.057,45.5,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="8.459"/>
-        </Grid>
+            </Path.RenderTransform>
+            <Path.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF0B7C1F" Offset="0"/>
+                    <GradientStop Color="#FF0B7C1F" Offset="1"/>
+                    <GradientStop Color="#FF00FF2B" Offset="0.5"/>
+                </LinearGradientBrush>
+            </Path.Fill>
+        </Path>
+        <ed:Arc x:Name="arc" ArcThickness="3" ArcThicknessUnit="Pixel" EndAngle="90" Fill="#FFDEF11E" HorizontalAlignment="Left" Margin="3.718,30.594,0,31.389" Stretch="None" Stroke="Black" StrokeThickness="0" StartAngle="0" Width="12.86" RenderTransformOrigin="0.5,0.5" Visibility="Hidden">
+            <ed:Arc.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="-1.3" ScaleX="-1.2"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </ed:Arc.RenderTransform>
+        </ed:Arc>
+        <ed:Arc x:Name="arc1" ArcThickness="3" ArcThicknessUnit="Pixel" EndAngle="90" Fill="#FFDEF11E" HorizontalAlignment="Left" Margin="3.718,0,0,25.968" Stretch="None" Stroke="Black" StrokeThickness="0" StartAngle="0" Width="12.86" RenderTransformOrigin="0.5,0.5" Height="6.017" VerticalAlignment="Bottom" Visibility="Hidden">
+            <ed:Arc.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="-1.3" ScaleX="-1.2"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </ed:Arc.RenderTransform>
+        </ed:Arc>
+        <ed:Arc x:Name="arc2" ArcThickness="3" ArcThicknessUnit="Pixel" EndAngle="90" Fill="#FFDEF11E" HorizontalAlignment="Left" Margin="3.718,0,0,20.547" Stretch="None" Stroke="Black" StrokeThickness="0" StartAngle="0" Width="12.86" RenderTransformOrigin="0.5,0.5" Height="6.017" VerticalAlignment="Bottom" Visibility="Hidden">
+            <ed:Arc.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="-1.3" ScaleX="-1.2"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </ed:Arc.RenderTransform>
+        </ed:Arc>
+        <ed:Arc x:Name="arc3" ArcThickness="3" ArcThicknessUnit="Pixel" EndAngle="90" Fill="#FFDEF11E" HorizontalAlignment="Left" Margin="3.718,0,0,15.126" Stretch="None" Stroke="Black" StrokeThickness="0" StartAngle="0" Width="12.86" RenderTransformOrigin="0.5,0.5" Height="6.017" VerticalAlignment="Bottom" Visibility="Hidden">
+            <ed:Arc.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="-1.3" ScaleX="-1.2"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </ed:Arc.RenderTransform>
+        </ed:Arc>
         <ed:Arc x:Name="arc4" ArcThickness="3" ArcThicknessUnit="Pixel" EndAngle="90" Fill="#FFDEF11E" HorizontalAlignment="Left" Margin="3.718,0,0,9.952" Stretch="None" Stroke="Black" StrokeThickness="0" StartAngle="0" Width="12.86" RenderTransformOrigin="0.5,0.5" Height="6.017" VerticalAlignment="Bottom" Visibility="Hidden">
             <ed:Arc.RenderTransform>
                 <TransformGroup>
