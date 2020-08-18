@@ -520,7 +520,9 @@ namespace _9230A_V00___PI.Utilidades
                     //Atualiza no banco de dados 
                     DataBase.SQLFunctionsProducao.Update_Finaliza_Producao();
 
-                    //Retira da lista de produção
+                    //Atualiza a produção que esta em execução
+                    //se não encontrar nada em produção no banco de dados, instancia uma nova produção
+                    DataBase.SQLFunctionsProducao.AtualizaProducaoEmExecucao();
                 }
             }
         }

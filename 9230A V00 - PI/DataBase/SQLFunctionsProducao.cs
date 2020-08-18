@@ -318,7 +318,15 @@ namespace _9230A_V00___PI.DataBase
                 {
                     functions.DataRow_To_Producao(Data.Rows[0], ref VariaveisGlobais.ProducaoReceita);
                 }
+                else
+                {
+                    VariaveisGlobais.ProducaoReceita = new Producao();
+                }
 
+            }
+            else
+            {
+                VariaveisGlobais.ProducaoReceita = new Producao();
             }
                  
         }
