@@ -279,5 +279,15 @@ namespace _9230A_V00___PI.Telas_Fluxo.Producao
             if (this.TelaAnterior != null)
                 this.TelaAnterior(this, e);
         }
+
+        private void txtPesoDesejado_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+
+            TextBox txtReceber = (TextBox)sender;
+
+            txtReceber.Text = Utilidades.VariaveisGlobais.floatingKeypad(txtReceber.Text, 6).ToString();
+
+
+        }
     }
 }

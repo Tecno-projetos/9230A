@@ -46,25 +46,40 @@
             </ResourceDictionary>
 
         </Grid.Resources>
-        <Button x:Name="btPesquisar" Margin="275,575,485,59" Background="#FF505050" BorderBrush="Black" Height="Auto" Opacity="1" Click="btPesquisar_Click" >
+        <Button x:Name="btPesquisar" Margin="480,574,280,60" Background="#FF505050" BorderBrush="Black" Height="Auto" Opacity="1" Click="btPesquisar_Click" >
             <Grid Width="46" Height="31">
                 <materialDesign:PackIcon Kind="Search" VerticalAlignment="Top" Foreground="White" Margin="-4,-2,0,-4" Height="37" Width="42"/>
             </Grid>
         </Button>
 
-        <DataGrid x:Name="DataGrid_Receita" Margin="10,86,10,0" CanUserAddRows="False"
+        <Label Content="Contém Nome: " Height="34" Margin="286,544,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="189" Foreground="White" FontWeight="Bold" FontSize="16"/>
+        <Grid Style="{StaticResource EntryFieldStyle}" Margin="286,574,349,60" Height="41" Background="#FF3C3C3C" >
+            <TextBlock Margin="5,0,6,5" Text="Exemplo: Milho" Foreground="#FF919191" VerticalAlignment="Bottom" FontSize="14" >
+                <TextBlock.Visibility>
+                    <MultiBinding Converter="{StaticResource TextInputToVisibilityConverter}">
+                        <Binding ElementName="txtDesc" Path="Text.IsEmpty" />
+                        <Binding ElementName="txtDesc" Path="IsFocused" />
+                    </MultiBinding>
+                </TextBlock.Visibility>
+            </TextBlock>
+            <TextBox x:Name="txtDesc" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" PreviewMouseLeftButtonUp="openKeyboard" GotFocus="TB_GotFocus" />
+        </Grid>
+        <Label x:Name="lbTitle" Content="Pesquisar Receita" HorizontalAlignment="Left" VerticalAlignment="Top" Width="824" Foreground="White" VerticalContentAlignment="Center" FontWeight="Bold" HorizontalContentAlignment="Center" Margin="0,6,0,0" Height="58" FontSize="30"/>
+        <Rectangle Fill="White" HorizontalAlignment="Left" Height="5" Margin="0,76,-1,0" Stroke="White" VerticalAlignment="Top" Width="825"/>
+        <Rectangle Fill="White" HorizontalAlignment="Left" Height="5" Margin="0,76,-1,0" Stroke="White" VerticalAlignment="Top" Width="825"/>
+        <DataGrid x:Name="DataGrid_Receita" Margin="11,131,434,0" CanUserAddRows="False"
             HorizontalAlignment="Stretch" VerticalAlignment="Top" FontWeight="Black" Foreground="Black"
             HorizontalGridLinesBrush="{DynamicResource {x:Static SystemColors.ControlTextColor}}"
             VerticalGridLinesBrush="{DynamicResource MaterialDesignDarkBackground}" BorderBrush="{x:Null}" BorderThickness="1"
             CanUserDeleteRows ="False" CanUserReorderColumns="False" CanUserResizeRows="False" CanUserSortColumns="False"   
-            ScrollViewer.VerticalScrollBarVisibility="Auto" Height="428" Cursor="Hand" IsReadOnly="True" AlternatingRowBackground="#FF7F7F7F" 
+            ScrollViewer.VerticalScrollBarVisibility="Auto" Height="383" Cursor="Hand" IsReadOnly="True" AlternatingRowBackground="#FF7F7F7F" 
             RowBackground="White" HorizontalScrollBarVisibility="Hidden" Background="White" FontSize="24" FontFamily="Segoe UI Emoji" GridLinesVisibility="All" 
-            SelectionMode="Single"  AutoGenerateColumns="True" RowHeight="40" >
+            SelectionMode="Single"  AutoGenerateColumns="True" RowHeight="40" MouseLeftButtonUp="DataGrid_Receita_MouseLeftButtonUp" >
 
             <DataGrid.Resources>
-                <Style TargetType="DataGridCell">
+                <Style TargetType="{x:Type DataGridCell}">
                     <Style.Triggers>
-                        <Trigger Property="DataGridCell.IsSelected" Value="True">
+                        <Trigger Property="IsSelected" Value="True">
                             <Setter Property="Background" Value="#FF3C3C3C" />
                         </Trigger>
                     </Style.Triggers>
@@ -79,37 +94,71 @@
 
             </DataGrid.ColumnHeaderStyle>
         </DataGrid>
-
-        <Label Content="Contém Nome: " Height="34" Margin="19,544,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="181" Foreground="White" FontWeight="Bold" FontSize="16"/>
-        <Grid Style="{StaticResource EntryFieldStyle}" Margin="22,575,554,59" Height="41" Background="#FF3C3C3C" >
-            <TextBlock Margin="5,0,6,5" Text="Exemplo: Milho" Foreground="#FF919191" VerticalAlignment="Bottom" FontSize="14" >
-                <TextBlock.Visibility>
-                    <MultiBinding Converter="{StaticResource TextInputToVisibilityConverter}">
-                        <Binding ElementName="txtDesc" Path="Text.IsEmpty" />
-                        <Binding ElementName="txtDesc" Path="IsFocused" />
-                    </MultiBinding>
-                </TextBlock.Visibility>
-            </TextBlock>
-            <TextBox x:Name="txtDesc" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" PreviewMouseLeftButtonUp="openKeyboard" GotFocus="TB_GotFocus" />
-        </Grid>
-        <Label x:Name="lbTitle" Content="Pesquisar Receita" HorizontalAlignment="Left" VerticalAlignment="Top" Width="824" Foreground="White" VerticalContentAlignment="Center" FontWeight="Bold" HorizontalContentAlignment="Center" Margin="0,6,0,0" Height="58" FontSize="30"/>
-        <Rectangle Fill="White" HorizontalAlignment="Left" Height="5" Margin="0,76,-1,0" Stroke="White" VerticalAlignment="Top" Width="825"/>
-        <Button x:Name="btUpList" Margin="632,544,115,81" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btUpList_Click" >
+        <Label Content="Receitas:" Height="34" Margin="13,97,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="209" Foreground="White" FontWeight="Bold" FontSize="16"/>
+        <Button x:Name="btUpList" Margin="122,544,625,81" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btUpList_Click" >
             <Grid Width="42" Height="42" Margin="0">
                 <materialDesign:PackIcon Kind="ArrowUpBold" VerticalAlignment="Center" Foreground="White" Height="42" Width="42"/>
             </Grid>
         </Button>
-        <Button x:Name="btDownList" Margin="632,599,115,26" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btDownList_Click" >
+        <Button x:Name="btDownList" Margin="122,599,625,26" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btDownList_Click" >
             <Grid Width="42" Height="42" Margin="0">
                 <materialDesign:PackIcon Kind="ArrowDownBold" VerticalAlignment="Center" Foreground="White" Height="42" Width="42"/>
             </Grid>
         </Button>
-        <Button x:Name="btLeftList" Margin="550,569,197,56" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btLeftList_Click" >
+        <Button x:Name="btLeftList" Margin="40,569,707,56" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btLeftList_Click" >
             <Grid Width="42" Height="42" Margin="0">
                 <materialDesign:PackIcon Kind="ArrowLeftBold" VerticalAlignment="Center" Foreground="White" Height="42" Width="42"/>
             </Grid>
         </Button>
-        <Button x:Name="btRightList" Margin="714,569,33,56" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btRightList_Click" >
+        <Button x:Name="btRightList" Margin="204,569,543,56" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btRightList_Click" >
+            <Grid Width="42" Height="42" Margin="0">
+                <materialDesign:PackIcon Kind="ArrowRightBold" VerticalAlignment="Center" Foreground="White" Height="42" Width="42"/>
+            </Grid>
+        </Button>
+        <DataGrid x:Name="DataGrid_Produtos" Margin="432,131,13,0" CanUserAddRows="False"
+            HorizontalAlignment="Stretch" VerticalAlignment="Top" FontWeight="Black" Foreground="Black"
+            HorizontalGridLinesBrush="{DynamicResource {x:Static SystemColors.ControlTextColor}}"
+            VerticalGridLinesBrush="{DynamicResource MaterialDesignDarkBackground}" BorderBrush="{x:Null}" BorderThickness="1"
+            CanUserDeleteRows ="False" CanUserReorderColumns="False" CanUserResizeRows="False" CanUserSortColumns="False"   
+            ScrollViewer.VerticalScrollBarVisibility="Auto" Height="383" Cursor="Hand" IsReadOnly="True" AlternatingRowBackground="#FF7F7F7F" 
+            RowBackground="White" HorizontalScrollBarVisibility="Hidden" Background="White" FontSize="24" FontFamily="Segoe UI Emoji" GridLinesVisibility="All" 
+            SelectionMode="Single"  AutoGenerateColumns="True" RowHeight="40" MouseLeftButtonUp="DataGrid_Receita_MouseLeftButtonUp" >
+
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type DataGridCell}">
+                    <Style.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Background" Value="#FF3C3C3C" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.Resources>
+
+
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="FontSize" Value="25"/>
+                </Style>
+
+            </DataGrid.ColumnHeaderStyle>
+        </DataGrid>
+        <Label Content="Produtos Receita Selecionada:" Height="34" Margin="434,97,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="247" Foreground="White" FontWeight="Bold" FontSize="16"/>
+        <Button x:Name="btUpList_Produtos" Margin="632,544,115,81" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btUpList_Produtos_Click" >
+            <Grid Width="42" Height="42" Margin="0">
+                <materialDesign:PackIcon Kind="ArrowUpBold" VerticalAlignment="Center" Foreground="White" Height="42" Width="42"/>
+            </Grid>
+        </Button>
+        <Button x:Name="btDownList_Produtos" Margin="632,599,115,26" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btDownList_Produtos_Click" >
+            <Grid Width="42" Height="42" Margin="0">
+                <materialDesign:PackIcon Kind="ArrowDownBold" VerticalAlignment="Center" Foreground="White" Height="42" Width="42"/>
+            </Grid>
+        </Button>
+        <Button x:Name="btLeftList_Produtos" Margin="550,569,197,56" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btLeftList_Produtos_Click" >
+            <Grid Width="42" Height="42" Margin="0">
+                <materialDesign:PackIcon Kind="ArrowLeftBold" VerticalAlignment="Center" Foreground="White" Height="42" Width="42"/>
+            </Grid>
+        </Button>
+        <Button x:Name="btRightList_Produtos" Margin="714,569,33,56" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btRightList_Produtos_Click" >
             <Grid Width="42" Height="42" Margin="0">
                 <materialDesign:PackIcon Kind="ArrowRightBold" VerticalAlignment="Center" Foreground="White" Height="42" Width="42"/>
             </Grid>

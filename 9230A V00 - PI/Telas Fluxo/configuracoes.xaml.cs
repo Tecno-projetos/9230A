@@ -78,6 +78,9 @@ namespace _9230A_V00___PI.Telas_Fluxo
         public void atualizaValoresConfiguracoes()
         {
             especificaoes.readVariablesBuffer_AuxiliaresProcesso(4);
+
+            controlePID.AtualizaValoresAtuais();
+
         }
 
         Utilidades.VariaveisGlobais.AuxiliaresProcesso dummyAuxiliaresProcesso = new Utilidades.VariaveisGlobais.AuxiliaresProcesso();

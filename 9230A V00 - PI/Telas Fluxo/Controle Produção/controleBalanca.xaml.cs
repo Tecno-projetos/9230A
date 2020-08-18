@@ -240,7 +240,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
         {
             TextBox txtReceber = (TextBox)sender;
 
-            txtReceber.Text = Utilidades.VariaveisGlobais.IntergerKeypad(txtReceber.Text, 3, 100).ToString();
+            txtReceber.Text = Utilidades.VariaveisGlobais.floatingKeypad(txtReceber.Text, 3).ToString();
             //Retira o foco do textbox.
             Keyboard.ClearFocus();
 

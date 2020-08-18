@@ -65,7 +65,7 @@ namespace _9230A_V00___PI.Telas_Fluxo
             silo1.Nivel_Baixo_GS = Utilidades.VariaveisGlobais.niveis.Inferior_Silo_1;
             silo2.Nivel_Baixo_GS = Utilidades.VariaveisGlobais.niveis.Inferior_Silo_2;
 
-            siloexp.Nivel_Baixo_GS = Utilidades.VariaveisGlobais.niveis.Superior_Silo_Exp;
+            siloexp.Nivel_Alto_GS = Utilidades.VariaveisGlobais.niveis.Superior_Silo_Exp;
             siloexp.Nivel_Baixo_GS = Utilidades.VariaveisGlobais.niveis.Inferior_Silo_Exp;
 
             Motor_42.Nivel_Baixo_GS = Utilidades.VariaveisGlobais.niveis.Inferior_Pre_Misturador;
