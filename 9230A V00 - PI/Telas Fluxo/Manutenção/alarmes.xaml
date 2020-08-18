@@ -7,7 +7,7 @@
               xmlns:Utilidades="clr-namespace:_9230A_V00___PI.Utilidades"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800" Width="824" Height="675">
+             d:DesignHeight="450" d:DesignWidth="800" Width="824" Height="675" Loaded="UserControl_Loaded" >
     <UserControl.Resources>
 
         <ResourceDictionary>
@@ -143,7 +143,54 @@
                 <materialDesign:PackIcon Kind="Search" VerticalAlignment="Center" Foreground="White" Margin="0,0,0,20" HorizontalAlignment="Left" Width="53" Height="50"/>
             </Grid>
         </Button>
-        <DataGrid x:Name="DataGrid_Search_Alarme" HorizontalAlignment="Left" Margin="10,120,0,10" Width="804" LoadingRow="DataGrid_Search_Alarme_LoadingRow" IsReadOnly="True" GridLinesVisibility="None"/>
+        <DataGrid x:Name="DataGrid_Search" 
+                  Margin="10,120,5,0" 
+                   HorizontalAlignment="Stretch" VerticalAlignment="Top" FontWeight="Black" Foreground="Black"
+            HorizontalGridLinesBrush="{DynamicResource {x:Static SystemColors.ControlTextColor}}"
+            VerticalGridLinesBrush="{DynamicResource MaterialDesignDarkBackground}" BorderBrush="{x:Null}" BorderThickness="1"
+            CanUserDeleteRows ="False" CanUserReorderColumns="False" CanUserResizeRows="False" CanUserSortColumns="False"   
+            ScrollViewer.VerticalScrollBarVisibility="Auto" Height="415" Cursor="Hand" IsReadOnly="True" AlternatingRowBackground="#FF7F7F7F" 
+            RowBackground="White" HorizontalScrollBarVisibility="Hidden" Background="White" FontSize="12" FontFamily="Segoe UI Emoji" GridLinesVisibility="All"
+                  LoadingRow="DataGrid_Search_Alarme_LoadingRow">
+            <DataGrid.Resources>
+                <Style TargetType="DataGridCell">
+                    <Style.Triggers>
+                        <Trigger Property="DataGridCell.IsSelected" Value="True">
+                            <Setter Property="Background" Value="#FF3C3C3C" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.Resources>
+
+
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="FontSize" Value="14"/>
+                </Style>
+
+            </DataGrid.ColumnHeaderStyle>
+        </DataGrid>
+        <Button x:Name="btUpList_Produtos" Margin="649,544,98,81" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btUpList_Produtos_Click" >
+            <Grid Width="42" Height="42" Margin="0">
+                <materialDesign:PackIcon Kind="ArrowUpBold" VerticalAlignment="Center" Foreground="White" Height="42" Width="42"/>
+            </Grid>
+        </Button>
+        <Button x:Name="btDownList_Produtos" Margin="649,599,98,26" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btDownList_Produtos_Click" >
+            <Grid Width="42" Height="42" Margin="0">
+                <materialDesign:PackIcon Kind="ArrowDownBold" VerticalAlignment="Center" Foreground="White" Height="42" Width="42"/>
+            </Grid>
+        </Button>
+        <Button x:Name="btLeftList_Produtos" Margin="567,569,180,56" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btLeftList_Produtos_Click" >
+            <Grid Width="42" Height="42" Margin="0">
+                <materialDesign:PackIcon Kind="ArrowLeftBold" VerticalAlignment="Center" Foreground="White" Height="42" Width="42"/>
+            </Grid>
+        </Button>
+        <Button x:Name="btRightList_Produtos" Margin="731,569,16,56" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btRightList_Produtos_Click" >
+            <Grid Width="42" Height="42" Margin="0">
+                <materialDesign:PackIcon Kind="ArrowRightBold" VerticalAlignment="Center" Foreground="White" Height="42" Width="42"/>
+            </Grid>
+        </Button>
+        <Grid  x:Name="gridNoclick" HorizontalAlignment="Left" Height="415" Margin="10,120,0,0" VerticalAlignment="Top" Width="804" Background="Red" Opacity="0" />
 
     </Grid>
 </UserControl>

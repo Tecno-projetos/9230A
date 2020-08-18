@@ -29,7 +29,22 @@ namespace _9230A_V00___PI.Utilidades
 
         //Palavra de comando geral
         Utilidades.VariaveisGlobais.type_All Command = new Utilidades.VariaveisGlobais.type_All("");
-        
+
+
+        #region Alarmes
+        private bool Aux_Tempo_Manutencao = false;
+        private bool Aux_Contator_Nao_Ligou = false;
+        private bool Aux_Partida_Desligou = false;
+        private bool Aux_Partida_Nao_Desligou = false;
+        private bool Aux_Falha_Leitura_Corrente_Entrada_Analógica = false;
+        private bool Aux_FalhaLado1 = false;
+        private bool Aux_FalhaLado2 = false;
+        private bool Aux_Falha2PosicoesAtiva = false;
+        private bool Aux_FalhaPosicionamento = false;
+        private bool Aux_falhaLeituraPosicao = false;
+
+        #endregion
+
         #endregion
 
         public EquipsControl(typeEquip Equip, typeCommand TCommand, int initialOffSet, int bufferPlc, string nome, string tag, string numeroPartida, string paginaProjeto)
@@ -201,6 +216,301 @@ namespace _9230A_V00___PI.Utilidades
             }
 
         }
+
+
+        public void Generate_Faults_DB(Utilidades.VariaveisGlobais.type_All Command, string UserLogged, string GroupUserLogged)
+        {
+            //========================================================================================================================================================================================================================================
+
+            if (Command.Standard.Tempo_Manutencao)
+            {
+                if (!Aux_Tempo_Manutencao)
+                {
+                    if (!DataBase.SqlFunctionsEquips.GetBoolLastRowActive_Table_EquipAlarmEvent("_" + Command.Tag, "Tempo de Manutenção do Motor Atingido"))
+                    {
+                        DataBase.SqlFunctionsEquips.IntoDate_Table_EquipAlarmEvent("_" + Command.Tag, "Tempo de Manutenção do Motor Atingido", false, true, 1, false, "", UserLogged, GroupUserLogged, DateTime.Now.ToString(), "", "", DateTime.Now, "");
+                    }
+
+                    Aux_Tempo_Manutencao = true;
+                }
+            }
+            else
+            {
+                if (Aux_Tempo_Manutencao)
+                {
+                    if (DataBase.SqlFunctionsEquips.GetBoolLastRowActive_Table_EquipAlarmEvent("_" + Command.Tag, "Tempo de Manutenção do Motor Atingido"))
+                    {
+                        DataBase.SqlFunctionsEquips.UpdateActiveFalse_Table_EquipAlarmEvent("_" + Command.Tag, DataBase.SqlFunctionsEquips.GetIntLastRowActive_Table_EquipAlarmEvent("_" + Command.Tag, "Tempo de Manutenção do Motor Atingido"));
+                        Aux_Tempo_Manutencao = false;
+                    }
+
+                }
+            }
+
+            //========================================================================================================================================================================================================================================
+
+            if (Command.Standard.Falha_Partida_Nao_Confirmou)
+            {
+                if (!Aux_Contator_Nao_Ligou)
+                {
+                    if (!DataBase.SqlFunctionsEquips.GetBoolLastRowActive_Table_EquipAlarmEvent("_" + Command.Tag, "Falha Contator Não Ligou"))
+                    {
+                        DataBase.SqlFunctionsEquips.IntoDate_Table_EquipAlarmEvent("_" + Command.Tag, "Falha Contator Não Ligou", false, true, 1, false, "", UserLogged, GroupUserLogged, DateTime.Now.ToString(), "", "", DateTime.Now, "");
+
+                    }
+
+                    Aux_Contator_Nao_Ligou = true;
+                }
+
+            }
+            else
+            {
+                if (Aux_Contator_Nao_Ligou)
+                {
+                    if (DataBase.SqlFunctionsEquips.GetBoolLastRowActive_Table_EquipAlarmEvent("_" + Command.Tag, "Falha Contator Não Ligou"))
+                    {
+                        DataBase.SqlFunctionsEquips.UpdateActiveFalse_Table_EquipAlarmEvent("_" + Command.Tag, DataBase.SqlFunctionsEquips.GetIntLastRowActive_Table_EquipAlarmEvent("_" + Command.Tag, "Falha Contator Não Ligou"));
+                        Aux_Contator_Nao_Ligou = false;
+                    }
+
+
+                }
+            }
+
+            //========================================================================================================================================================================================================================================
+            if (Command.Standard.Falha_Disjuntor_Desligou || Command.Standard.Falha_Contator_Desligou)
+            {
+                if (!Aux_Partida_Desligou)
+                {
+                    if (!DataBase.SqlFunctionsEquips.GetBoolLastRowActive_Table_EquipAlarmEvent("_" + Command.Tag, "Falha Partida Desligou"))
+                    {
+                        DataBase.SqlFunctionsEquips.IntoDate_Table_EquipAlarmEvent("_" + Command.Tag, "Falha Partida Desligou", false, true, 1, false, "", UserLogged, GroupUserLogged, DateTime.Now.ToString(), "", "", DateTime.Now, "");
+
+                    }
+
+                    Aux_Partida_Desligou = true;
+                }
+            }
+            else
+            {
+                if (Aux_Partida_Desligou)
+                {
+                    if (DataBase.SqlFunctionsEquips.GetBoolLastRowActive_Table_EquipAlarmEvent("_" + Command.Tag, "Falha Partida Desligou"))
+                    {
+                        DataBase.SqlFunctionsEquips.UpdateActiveFalse_Table_EquipAlarmEvent("_" + Command.Tag, DataBase.SqlFunctionsEquips.GetIntLastRowActive_Table_EquipAlarmEvent("_" + Command.Tag, "Falha Partida Desligou"));
+
+                        Aux_Partida_Desligou = false;
+                    }
+                }
+
+            }
+            //========================================================================================================================================================================================================================================
+
+            if (Command.Standard.Falha_Partida_Nao_Desligou)
+            {
+                if (!Aux_Partida_Nao_Desligou)
+                {
+                    if (!DataBase.SqlFunctionsEquips.GetBoolLastRowActive_Table_EquipAlarmEvent("_" + Command.Tag, "Falha Contator Não Desligou"))
+                    {
+                        DataBase.SqlFunctionsEquips.IntoDate_Table_EquipAlarmEvent("_" + Command.Tag, "Falha Contator Não Desligou", false, true, 1, false, "", UserLogged, GroupUserLogged, DateTime.Now.ToString(), "", "", DateTime.Now, "");
+
+                    }
+
+                    Aux_Partida_Nao_Desligou = true;
+                }
+
+            }
+            else
+            {
+                if (Aux_Partida_Nao_Desligou)
+                {
+                    if (DataBase.SqlFunctionsEquips.GetBoolLastRowActive_Table_EquipAlarmEvent("_" + Command.Tag, "Falha Contator Não Desligou"))
+                    {
+                        DataBase.SqlFunctionsEquips.UpdateActiveFalse_Table_EquipAlarmEvent("_" + Command.Tag, DataBase.SqlFunctionsEquips.GetIntLastRowActive_Table_EquipAlarmEvent("_" + Command.Tag, "Falha Contator Não Desligou"));
+
+                        Aux_Partida_Nao_Desligou = false;
+                    }
+                }
+
+            }
+
+            //========================================================================================================================================================================================================================================
+
+            if (Command.Standard.FalhaAcionandoLado1 || Command.Standard.FalhaConfirmacaoContatorLado1)
+            {
+                if (!Aux_FalhaLado1)
+                {
+                    if (!DataBase.SqlFunctionsEquips.GetBoolLastRowActive_Table_EquipAlarmEvent("_" + Command.Tag, "Falha acionar Esquerda"))
+                    {
+                        DataBase.SqlFunctionsEquips.IntoDate_Table_EquipAlarmEvent("_" + Command.Tag, "Falha acionar Esquerda", false, true, 1, false, "", UserLogged, GroupUserLogged, DateTime.Now.ToString(), "", "", DateTime.Now, "");
+
+                    }
+
+                    Aux_FalhaLado1 = true;
+                }
+            }
+            else
+            {
+                if (Aux_FalhaLado1)
+                {
+                    if (DataBase.SqlFunctionsEquips.GetBoolLastRowActive_Table_EquipAlarmEvent("_" + Command.Tag, "Falha acionar Esquerda"))
+                    {
+                        DataBase.SqlFunctionsEquips.UpdateActiveFalse_Table_EquipAlarmEvent("_" + Command.Tag, DataBase.SqlFunctionsEquips.GetIntLastRowActive_Table_EquipAlarmEvent("_" + Command.Tag, "Falha acionar Esquerda"));
+                    }
+
+                    Aux_FalhaLado1 = false;
+                }
+
+            }
+
+            //========================================================================================================================================================================================================================================
+
+            if (Command.Standard.FalhaAcionandoLado2 || Command.Standard.FalhaConfirmacaoContatorLado2)
+            {
+                if (!Aux_FalhaLado2)
+                {
+                    if (!DataBase.SqlFunctionsEquips.GetBoolLastRowActive_Table_EquipAlarmEvent("_" + Command.Tag, "Falha acionar Direita"))
+                    {
+                        DataBase.SqlFunctionsEquips.IntoDate_Table_EquipAlarmEvent("_" + Command.Tag, "Falha acionar Direita", false, true, 1, false, "", UserLogged, GroupUserLogged, DateTime.Now.ToString(), "", "", DateTime.Now, "");
+
+                    }
+
+                    Aux_FalhaLado2 = true;
+                }
+            }
+            else
+            {
+                if (Aux_FalhaLado2)
+                {
+                    if (DataBase.SqlFunctionsEquips.GetBoolLastRowActive_Table_EquipAlarmEvent("_" + Command.Tag, "Falha acionar Direita"))
+                    {
+                        DataBase.SqlFunctionsEquips.UpdateActiveFalse_Table_EquipAlarmEvent("_" + Command.Tag, DataBase.SqlFunctionsEquips.GetIntLastRowActive_Table_EquipAlarmEvent("_" + Command.Tag, "Falha acionar Direita"));
+                    }
+
+                    Aux_FalhaLado2 = false;
+                }
+
+            }
+
+            //========================================================================================================================================================================================================================================
+
+            if (Command.Standard.Falha2PosicoesAtiva)
+            {
+                if (!Aux_Falha2PosicoesAtiva)
+                {
+                    if (!DataBase.SqlFunctionsEquips.GetBoolLastRowActive_Table_EquipAlarmEvent("_" + Command.Tag, "Falha sensores Ativos"))
+                    {
+                        DataBase.SqlFunctionsEquips.IntoDate_Table_EquipAlarmEvent("_" + Command.Tag, "Falha sensores Ativos", false, true, 1, false, "", UserLogged, GroupUserLogged, DateTime.Now.ToString(), "", "", DateTime.Now, "");
+
+                    }
+
+                    Aux_Falha2PosicoesAtiva = true;
+                }
+            }
+            else
+            {
+                if (Aux_Falha2PosicoesAtiva)
+                {
+                    if (DataBase.SqlFunctionsEquips.GetBoolLastRowActive_Table_EquipAlarmEvent("_" + Command.Tag, "Falha sensores Ativos"))
+                    {
+                        DataBase.SqlFunctionsEquips.UpdateActiveFalse_Table_EquipAlarmEvent("_" + Command.Tag, DataBase.SqlFunctionsEquips.GetIntLastRowActive_Table_EquipAlarmEvent("_" + Command.Tag, "Falha sensores Ativos"));
+                    }
+
+                    Aux_Falha2PosicoesAtiva = false;
+                }
+
+            }
+
+            //========================================================================================================================================================================================================================================
+
+            if (Command.Standard.falhaPosicionamento)
+            {
+                if (!Aux_FalhaPosicionamento)
+                {
+                    if (!DataBase.SqlFunctionsEquips.GetBoolLastRowActive_Table_EquipAlarmEvent("_" + Command.Tag, "Falha posicionar Atuador"))
+                    {
+                        DataBase.SqlFunctionsEquips.IntoDate_Table_EquipAlarmEvent("_" + Command.Tag, "Falha posicionar Atuador", false, true, 1, false, "", UserLogged, GroupUserLogged, DateTime.Now.ToString(), "", "", DateTime.Now, "");
+
+                    }
+
+                    Aux_FalhaPosicionamento = true;
+                }
+            }
+            else
+            {
+                if (Aux_FalhaPosicionamento)
+                {
+                    if (DataBase.SqlFunctionsEquips.GetBoolLastRowActive_Table_EquipAlarmEvent("_" + Command.Tag, "Falha posicionar Atuador"))
+                    {
+                        DataBase.SqlFunctionsEquips.UpdateActiveFalse_Table_EquipAlarmEvent("_" + Command.Tag, DataBase.SqlFunctionsEquips.GetIntLastRowActive_Table_EquipAlarmEvent("_" + Command.Tag, "Falha posicionar Atuador"));
+                    }
+
+                    Aux_FalhaPosicionamento = false;
+                }
+
+            }
+
+            //========================================================================================================================================================================================================================================
+
+
+            if (Command.Standard.falhaLeituraPosicao)
+            {
+                if (!Aux_falhaLeituraPosicao)
+                {
+                    if (!DataBase.SqlFunctionsEquips.GetBoolLastRowActive_Table_EquipAlarmEvent("_" + Command.Tag, "Falha leitura posição Atuador"))
+                    {
+                        DataBase.SqlFunctionsEquips.IntoDate_Table_EquipAlarmEvent("_" + Command.Tag, "Falha leitura posição Atuador", false, true, 1, false, "", UserLogged, GroupUserLogged, DateTime.Now.ToString(), "", "", DateTime.Now, "");
+
+                    }
+
+                    Aux_falhaLeituraPosicao = true;
+                }
+            }
+            else
+            {
+                if (Aux_falhaLeituraPosicao)
+                {
+                    if (DataBase.SqlFunctionsEquips.GetBoolLastRowActive_Table_EquipAlarmEvent("_" + Command.Tag, "Falha leitura posição Atuador"))
+                    {
+                        DataBase.SqlFunctionsEquips.UpdateActiveFalse_Table_EquipAlarmEvent("_" + Command.Tag, DataBase.SqlFunctionsEquips.GetIntLastRowActive_Table_EquipAlarmEvent("_" + Command.Tag, "Falha leitura posição Atuador"));
+                    }
+
+                    Aux_falhaLeituraPosicao = false;
+                }
+
+            }
+
+            //========================================================================================================================================================================================================================================
+            if (Command.SS.Corrente_Atual == 32767 || Command.INV.Corrente_Atual == 32767)
+            {
+                if (!Aux_Falha_Leitura_Corrente_Entrada_Analógica)
+                {
+                    if (!DataBase.SqlFunctionsEquips.GetBoolLastRowActive_Table_EquipAlarmEvent("_" + Command.Tag, "Falha Leitura Corrente Entrada Analógica"))
+                    {
+                        DataBase.SqlFunctionsEquips.IntoDate_Table_EquipAlarmEvent("_" + Command.Tag, "Falha Leitura Corrente Entrada Analógica", false, true, 1, false, "", UserLogged, GroupUserLogged, DateTime.Now.ToString(), "", "", DateTime.Now, "");
+                    }
+
+
+                    Aux_Falha_Leitura_Corrente_Entrada_Analógica = true;
+                }
+            }
+            else
+            {
+                if (Aux_Falha_Leitura_Corrente_Entrada_Analógica)
+                {
+                    if (DataBase.SqlFunctionsEquips.GetBoolLastRowActive_Table_EquipAlarmEvent("_" + Command.Tag, "Falha Leitura Corrente Entrada Analógica"))
+                    {
+                        DataBase.SqlFunctionsEquips.UpdateActiveFalse_Table_EquipAlarmEvent("_" + Command.Tag, DataBase.SqlFunctionsEquips.GetIntLastRowActive_Table_EquipAlarmEvent("_" + Command.Tag, "Falha Leitura Corrente Entrada Analógica"));
+                    }
+
+                    Aux_Falha_Leitura_Corrente_Entrada_Analógica = false;
+                }
+
+            }
+            //========================================================================================================================================================================================================================================
+        }
+
+
 
         #region Events Window
 
@@ -1041,6 +1351,9 @@ namespace _9230A_V00___PI.Utilidades
                         //Segundo atualiza o standard GUI
                         Command = Utilidades.Move_Bits.typePD_TO_typeStandardGUI(Command);
 
+
+                        Generate_Faults_DB(Command, Utilidades.VariaveisGlobais.UserLogged_GS, Utilidades.VariaveisGlobais.GroupUserLogged_GS);
+
                     }
                     else if (Command_Get.TypeEquip == typeEquip.INV && Command_Get.TypeCommand == typeCommand.INV)
                     {
@@ -1066,6 +1379,7 @@ namespace _9230A_V00___PI.Utilidades
 
                         //Segundo atualiza o standard GUI
                         Command = Utilidades.Move_Bits.typeINV_TO_typeStandardGUI(Command);
+                        Generate_Faults_DB(Command, Utilidades.VariaveisGlobais.UserLogged_GS, Utilidades.VariaveisGlobais.GroupUserLogged_GS);
                     }
                     else if (Command_Get.TypeEquip == typeEquip.SS && Command_Get.TypeCommand == typeCommand.SS)
                     {
@@ -1088,6 +1402,7 @@ namespace _9230A_V00___PI.Utilidades
 
                         //Segundo atualiza o standard GUI
                         Command = Utilidades.Move_Bits.typeSS_TO_typeStandardGUI(Command);
+                        Generate_Faults_DB(Command, Utilidades.VariaveisGlobais.UserLogged_GS, Utilidades.VariaveisGlobais.GroupUserLogged_GS);
                     }
                     else if (Command_Get.TypeEquip == typeEquip.Atuador && Command_Get.TypeCommand == typeCommand.Atuador_Digital)
                     {
@@ -1101,6 +1416,7 @@ namespace _9230A_V00___PI.Utilidades
 
                         //Segundo atualiza o standard GUI
                         Command = Utilidades.Move_Bits.typeAtuadorD_TO_typeStandardGUI(Command);
+                        Generate_Faults_DB(Command, Utilidades.VariaveisGlobais.UserLogged_GS, Utilidades.VariaveisGlobais.GroupUserLogged_GS);
                     }
                     else if (Command_Get.TypeEquip == typeEquip.Atuador && Command_Get.TypeCommand == typeCommand.Atuador_Analogico)
                     {
@@ -1119,6 +1435,7 @@ namespace _9230A_V00___PI.Utilidades
 
                         //Segundo atualiza o standard GUI
                         Command = Utilidades.Move_Bits.typeAtuadorA_TO_typeStandardGUI(Command);
+                        Generate_Faults_DB(Command, Utilidades.VariaveisGlobais.UserLogged_GS, Utilidades.VariaveisGlobais.GroupUserLogged_GS);
                     }
                     else if (Command_Get.TypeEquip == typeEquip.BF && Command_Get.TypeCommand == typeCommand.Atuador_Digital)
                     {
@@ -1132,6 +1449,7 @@ namespace _9230A_V00___PI.Utilidades
 
                         //Segundo atualiza o standard GUI
                         Command = Utilidades.Move_Bits.typeAtuadorD_TO_typeStandardGUI(Command);
+                        Generate_Faults_DB(Command, Utilidades.VariaveisGlobais.UserLogged_GS, Utilidades.VariaveisGlobais.GroupUserLogged_GS);
                     }
                 }
 
