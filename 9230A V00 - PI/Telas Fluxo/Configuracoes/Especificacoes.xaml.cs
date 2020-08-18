@@ -165,7 +165,6 @@ namespace _9230A_V00___PI.Telas_Fluxo.Configuracoes
             }
         }
 
-
         private void TB_GotFocus(object sender, RoutedEventArgs e)
         {
             try

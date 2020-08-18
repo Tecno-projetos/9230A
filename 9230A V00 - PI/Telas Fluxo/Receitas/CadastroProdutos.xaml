@@ -64,7 +64,7 @@
                     </MultiBinding>
                 </TextBlock.Visibility>
             </TextBlock>
-            <TextBox x:Name="txtCod" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" PreviewMouseLeftButtonUp="openKeyboard" />
+            <TextBox x:Name="txtCod" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" GotFocus="TB_GotFocus" PreviewMouseLeftButtonUp="openKeyboard" />
         </Grid>
 
         <materialDesign:PackIcon Kind="Receipt" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="14,102,772,539" BorderBrush="#FF040404"/>
@@ -85,7 +85,7 @@
                     </MultiBinding>
                 </TextBlock.Visibility>
             </TextBlock>
-            <TextBox x:Name="txtDesc" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" PreviewMouseLeftButtonUp="openKeyboard" />
+            <TextBox x:Name="txtDesc" GotFocus="TB_GotFocus" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" PreviewMouseLeftButtonUp="openKeyboard" />
         </Grid>
         <materialDesign:PackIcon Kind="Receipt" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="14,182,772,459" BorderBrush="#FF040404"/>
         <materialDesign:PackIcon Kind="Pencil" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="14,222,772,412" BorderBrush="#FF040404"/>
@@ -99,7 +99,7 @@
                     </MultiBinding>
                 </TextBlock.Visibility>
             </TextBlock>
-            <TextBox x:Name="txtDensidade" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" PreviewMouseLeftButtonUp="openKeyboard" />
+            <TextBox x:Name="txtDensidade" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" PreviewMouseLeftButtonUp="floatingPreviewMouseLeftButtonUp" GotFocus="TB_GotFocus" />
         </Grid>
         <materialDesign:PackIcon Kind="Receipt" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="14,262,772,379" BorderBrush="#FF040404"/>
         <materialDesign:PackIcon Kind="Pencil" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="14,302,772,332" BorderBrush="#FF040404"/>
@@ -113,7 +113,7 @@
                     </MultiBinding>
                 </TextBlock.Visibility>
             </TextBlock>
-            <TextBox x:Name="txtObs" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" PreviewMouseLeftButtonUp="openKeyboard" />
+            <TextBox x:Name="txtObs" GotFocus="TB_GotFocus" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" PreviewMouseLeftButtonUp="openKeyboard" />
         </Grid>
         <materialDesign:PackIcon Kind="Receipt" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="14,342,772,299" BorderBrush="#FF040404"/>
         <materialDesign:PackIcon Kind="Pencil" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="14,382,772,252" BorderBrush="#FF040404"/>

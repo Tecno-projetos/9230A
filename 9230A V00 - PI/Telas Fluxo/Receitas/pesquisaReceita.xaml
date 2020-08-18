@@ -90,7 +90,7 @@
                     </MultiBinding>
                 </TextBlock.Visibility>
             </TextBlock>
-            <TextBox x:Name="txtDesc" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" PreviewMouseLeftButtonUp="openKeyboard" />
+            <TextBox x:Name="txtDesc" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" PreviewMouseLeftButtonUp="openKeyboard" GotFocus="TB_GotFocus" />
         </Grid>
         <Label x:Name="lbTitle" Content="Pesquisar Receita" HorizontalAlignment="Left" VerticalAlignment="Top" Width="824" Foreground="White" VerticalContentAlignment="Center" FontWeight="Bold" HorizontalContentAlignment="Center" Margin="0,6,0,0" Height="58" FontSize="30"/>
         <Rectangle Fill="White" HorizontalAlignment="Left" Height="5" Margin="0,76,-1,0" Stroke="White" VerticalAlignment="Top" Width="825"/>
