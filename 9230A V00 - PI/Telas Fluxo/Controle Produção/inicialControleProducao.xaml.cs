@@ -29,7 +29,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
         {
             lbNomeReceita.Content = producao.receita.nomeReceita;
             numeroBateladas.Content = producao.quantidadeBateladas;
-            pesoTonelada.Content = producao.pesoTotalProducao.ToString("N", CultureInfo.GetCultureInfo("pt-BR")) +" kg";
+            pesoTonelada.Content = producao.pesoTotalProducao.ToString("N", CultureInfo.GetCultureInfo("pt-BR"));
             bateladasconcluidas.Content = executaProducao.ControleExecucao.Bateladas_Finalizadas;
 
 

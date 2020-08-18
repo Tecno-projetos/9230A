@@ -144,5 +144,24 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
 
             }
         }
+
+        private void TB_GotFocus(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                TextBox tb = (TextBox)e.OriginalSource;
+                tb.Dispatcher.BeginInvoke(
+                    new Action(delegate
+                    {
+                        tb.SelectAll();
+                    }), System.Windows.Threading.DispatcherPriority.Input);
+            }
+            catch (Exception ex)
+            {
+                Utilidades.VariaveisGlobais.Window_Buffer_Diagnostic.List_Error = ex.ToString();
+
+            }
+        }
+
     }
 }

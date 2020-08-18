@@ -848,6 +848,7 @@ namespace _9230A_V00___PI.Utilidades
         public static string PasswordLogged_GS { get => Users.passwordLogged; set => Users.passwordLogged = value; }
         public static int NumberOfGroup_GS { get => Users.numberOfGroup; set => Users.numberOfGroup = value; }
 
+
         #endregion
 
         #region Cor de Fundo Icones
@@ -919,6 +920,15 @@ namespace _9230A_V00___PI.Utilidades
         public static IndicadorPesagem indicadorPesagem = new IndicadorPesagem();
 
         public static PID controlePID = new PID();
+
+        #region Contole teclado
+
+        private static bool ativaTecladoVirtual = false;
+
+        public static bool AtivaDesativaTecladoVirtual { get => ativaTecladoVirtual; set => ativaTecladoVirtual = value; }
+
+        #endregion
+
     }
 
     public class convertToTable

@@ -16,7 +16,7 @@ namespace _9230A_V00___PI.Teclados
 
     public class keyboard
     {
-
+        private static bool possuiTeclado = false;
        /// <summary>
        /// Abre teclado virtual para digitação
        /// </summary>
@@ -30,13 +30,19 @@ namespace _9230A_V00___PI.Teclados
             {
                 if (!keyboard.GetPropertyValue("Name").Equals(""))
                 {
-
+                    possuiTeclado = true;
                 }
 
             }
-
-            closeKeyboard();
-            Process.Start(touchKeyboardPath);
+            if (possuiTeclado && Utilidades.VariaveisGlobais.AtivaDesativaTecladoVirtual)
+            {
+                closeKeyboard();
+            }
+            else
+            {
+                closeKeyboard();
+                Process.Start(touchKeyboardPath);
+            }
         }
 
         /// <summary>

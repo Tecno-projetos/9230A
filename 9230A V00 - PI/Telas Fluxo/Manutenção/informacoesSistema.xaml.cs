@@ -119,7 +119,49 @@ namespace _9230A_V00___PI.Telas_Fluxo.Manutenção
             }
         }
 
+        private void btAtivaDesativa_Click(object sender, RoutedEventArgs e)
+        {
+            if (Utilidades.VariaveisGlobais.AtivaDesativaTecladoVirtual)
+            {
 
+                Utilidades.VariaveisGlobais.AtivaDesativaTecladoVirtual = false;
+
+                btAtivaDesativa.Background = new SolidColorBrush(Colors.Green);
+                txtVirtual.Text = "Desabilitar teclado virtual";
+                txtVirtual.Foreground = new SolidColorBrush(Colors.Black);
+                pckIcon.Foreground = new SolidColorBrush(Colors.Black);
+
+
+            }
+            else
+            {
+                Utilidades.VariaveisGlobais.AtivaDesativaTecladoVirtual = true;
+
+                btAtivaDesativa.Background = new SolidColorBrush(Colors.Red);
+                txtVirtual.Text = "Habilitar teclado virtual";
+                txtVirtual.Foreground = new SolidColorBrush(Colors.White);
+                pckIcon.Foreground = new SolidColorBrush(Colors.White);
+
+            }
+        }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (Utilidades.VariaveisGlobais.AtivaDesativaTecladoVirtual)
+            {
+                btAtivaDesativa.Background = new SolidColorBrush(Colors.Red);
+                txtVirtual.Text = "Habilitar teclado virtual";
+                txtVirtual.Foreground = new SolidColorBrush(Colors.White);
+                pckIcon.Foreground = new SolidColorBrush(Colors.White);
+            }
+            else
+            {
+                btAtivaDesativa.Background = new SolidColorBrush(Colors.Green);
+                txtVirtual.Text = "Desabilitar teclado virtual";
+                txtVirtual.Foreground = new SolidColorBrush(Colors.Black);
+                pckIcon.Foreground = new SolidColorBrush(Colors.Black);
+            }
+        }
     }
 
 
