@@ -23,12 +23,13 @@
         <Rectangle HorizontalAlignment="Left" Height="3.768" Margin="18.198,274.82,0,0" Stroke="Black" VerticalAlignment="Top" Width="102.37"/>
         <Rectangle HorizontalAlignment="Left" Height="3.768" Margin="18.198,216.07,0,0" Stroke="Black" VerticalAlignment="Top" Width="102.37"/>
         <Rectangle HorizontalAlignment="Left" Height="3.768" Margin="18.198,234.82,0,0" Stroke="Black" VerticalAlignment="Top" Width="102.37"/>
-        <ed:Arc x:Name="nivelSIlo" ArcThicknessUnit="Percent" EndAngle="360" HorizontalAlignment="Left" Height="25" Margin="54.883,42.319,0,0" Stretch="None" StartAngle="0" VerticalAlignment="Top" Width="25" Fill="#FFA2FF00" ArcThickness="1" Stroke="Black"/>
+        <ed:Arc x:Name="nivelSIlo_Superior" ArcThicknessUnit="Percent" EndAngle="360" HorizontalAlignment="Left" Height="25" Margin="56,42,0,0" Stretch="None" StartAngle="0" VerticalAlignment="Top" Width="25" Fill="#FFA2FF00" ArcThickness="1" Stroke="Black"/>
         <Rectangle HorizontalAlignment="Left" Height="3.768" Margin="18.198,104.819,0,0" Stroke="Black" VerticalAlignment="Top" Width="102.37"/>
         <Rectangle HorizontalAlignment="Left" Height="3.768" Margin="18.198,122.319,0,0" Stroke="Black" VerticalAlignment="Top" Width="102.37"/>
         <Rectangle HorizontalAlignment="Left" Height="3.768" Margin="18.198,141.07,0,0" Stroke="Black" VerticalAlignment="Top" Width="102.37"/>
         <Rectangle HorizontalAlignment="Left" Height="3.768" Margin="18.198,37.319,0,0" Stroke="Black" VerticalAlignment="Top" Width="102.37"/>
         <Rectangle HorizontalAlignment="Left" Height="3.768" Margin="18.198,72.319,0,0" Stroke="Black" VerticalAlignment="Top" Width="102.37"/>
         <Rectangle HorizontalAlignment="Left" Height="3.768" Margin="18.198,89.819,0,0" Stroke="Black" VerticalAlignment="Top" Width="102.37"/>
+        <ed:Arc x:Name="nivelSIlo_Inferior" ArcThicknessUnit="Percent" EndAngle="360" HorizontalAlignment="Left" Height="25" Margin="56,304,0,0" Stretch="None" StartAngle="0" VerticalAlignment="Top" Width="25" Fill="#FFA2FF00" ArcThickness="1" Stroke="Black"/>
     </Grid>
 </UserControl>

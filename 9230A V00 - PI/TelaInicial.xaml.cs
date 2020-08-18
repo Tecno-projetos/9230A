@@ -206,9 +206,10 @@ namespace _9230A_V00___PI
             //Chama a atulização da Manutenção
             VariaveisGlobais.manutencao.atualizaManutencao();
 
-            VariaveisGlobais.Fluxo.actualiza_UI();
+
 
             VariaveisGlobais.configuracoes.atualizaValoresConfiguracoes();
+
         }
 
         void timer_Tick(object sender, EventArgs e)
@@ -220,6 +221,13 @@ namespace _9230A_V00___PI
                 lbHorario.Content = DateTime.Now.ToLongTimeString();
 
                 VariaveisGlobais.CommunicationPLC.readBuffersPLC(); //Chama a leitura no PLC
+
+                //Atualiza Niveis Silos
+                Utilidades.VariaveisGlobais.niveis = Move_Bits.Dword_TO_NIveis(Comunicacao.Sharp7.S7.GetDWordAt(Utilidades.VariaveisGlobais.Buffer_PLC[3].Buffer, 0), Utilidades.VariaveisGlobais.niveis);
+
+
+
+                VariaveisGlobais.telabalanca.atualiza_Balanca();
 
 
                 //Atualização Equip
@@ -239,8 +247,11 @@ namespace _9230A_V00___PI
                 VariaveisGlobais.Fluxo.Motor_26_Silo2.actualize_Equip = true;
                 VariaveisGlobais.Fluxo.Motor_23.actualize_Equip = true;
 
-                VariaveisGlobais.telabalanca.atualiza_Balanca();
-                VariaveisGlobais.Fluxo.indicadorPesagem.Actualize_UI(VariaveisGlobais.indicadorPesagem);
+                VariaveisGlobais.Fluxo.actualiza_UI();
+
+
+
+
 
 
                 //Atualiza Execução Produção
@@ -250,7 +261,6 @@ namespace _9230A_V00___PI
 
                 }
 
-                VariaveisGlobais.Fluxo.inicialProducao.atualiza(ref VariaveisGlobais.executaProducao, ref VariaveisGlobais.ProducaoReceita);
 
 
 

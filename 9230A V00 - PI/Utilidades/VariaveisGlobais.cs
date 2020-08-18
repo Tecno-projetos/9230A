@@ -1,4 +1,5 @@
 ﻿using _9230A_V00___PI.DataBase;
+using _9230A_V00___PI.Teclados;
 using Org.BouncyCastle.Asn1.Mozilla;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Navigation;
 
@@ -907,6 +909,7 @@ namespace _9230A_V00___PI.Utilidades
 
         }
 
+
         public static void Load_Connection()
         {
             //Cria pastas para Apliacação
@@ -966,6 +969,101 @@ namespace _9230A_V00___PI.Utilidades
 
         #endregion
 
+
+        public static float floatingKeypad(string OldValue, short numeroMaximoCasas)
+        {
+            keypad mainWindow = new keypad(false, numeroMaximoCasas);          
+            float floatPoint;
+            float oldValue = 0;
+            float newValue = 0;
+            bool isNumeric;
+            isNumeric = float.TryParse(OldValue, out floatPoint);
+
+            if (isNumeric)
+            {
+                //Recebe Valor antigo digitado no Textbox
+                oldValue = Convert.ToSingle(OldValue);
+                //Recebe o novo valor digitado no Keypad
+            }
+
+            if (mainWindow.ShowDialog() == true)
+            {
+             isNumeric = float.TryParse(mainWindow.Result, out floatPoint);
+
+                if (isNumeric)
+                {
+                    newValue = floatPoint;
+
+                    if (oldValue != newValue)
+                    {
+                        //Retira o foco do textbox.
+                        Keyboard.ClearFocus();
+                        return newValue;
+
+                    }
+                }
+                else
+                {
+                    //Envia o oldValue pois o valor máximo ultrapassou o limite.
+                    return oldValue;
+                }
+
+            }
+
+            //Envia o oldValue pois o valor máximo ultrapassou o limite.
+            return oldValue;
+        }
+
+        public static Int32 IntergerKeypad(string OldValue, short numeroMaximoCasas, Int32 limite)
+        {
+            keypad mainWindow = new keypad(true, numeroMaximoCasas);
+           
+            Int32 IntergerPoint;
+            Int32 oldValue = 0;
+            Int32 newValue = 0;
+           
+            bool isNumeric;
+            isNumeric = Int32.TryParse(OldValue, out IntergerPoint);
+
+            if (isNumeric)
+            {
+                //Recebe Valor antigo digitado no Textbox
+                oldValue = Convert.ToInt32(OldValue);
+                //Recebe o novo valor digitado no Keypad
+            }
+
+            if (mainWindow.ShowDialog() == true)
+            {       
+                isNumeric = Int32.TryParse(mainWindow.Result, out IntergerPoint);
+
+                if (isNumeric)
+                {
+                    if (IntergerPoint <= limite)
+                    {
+                        newValue = IntergerPoint;
+
+                        if (oldValue != newValue)
+                        {
+                            //Retira o foco do textbox.
+                            Keyboard.ClearFocus();
+                            return newValue;
+                        }
+                    }
+                    else
+                    {
+                        return oldValue;
+                    }
+
+                }
+                else
+                {
+                    //Envia o oldValue pois o valor máximo ultrapassou o limite.
+                    return oldValue;
+                }    
+            }
+            //Envia o oldValue pois o valor máximo ultrapassou o limite.
+            return oldValue;
+        }
     }
 
     public class convertToTable
