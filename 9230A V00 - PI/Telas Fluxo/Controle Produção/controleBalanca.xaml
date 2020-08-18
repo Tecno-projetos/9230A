@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:_9230A_V00___PI.Telas_Fluxo.Controle_Produção"
         xmlns:Utilidades="clr-namespace:_9230A_V00___PI.Utilidades" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="_9230A_V00___PI.Telas_Fluxo.Controle_Produção.controleBalanca"
         mc:Ignorable="d"
-        Title="Controle Balança" Height="401" Width="518" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Icon="/9230A V00 - PI;component/Imagens/Automasul.ico" WindowStyle="None">
+        Title="Controle Balança" Height="426" Width="548" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Icon="/9230A V00 - PI;component/Imagens/Automasul.ico">
     <Window.Resources>
         <Utilidades:TextInputToVisibilityConverter x:Key="TextInputToVisibilityConverter" />
 
@@ -49,25 +49,25 @@
             </ResourceDictionary>
 
         </Grid.Resources>
-        <Button x:Name="btComandoZero" Margin="20,188,275,163" Background="#FF505050" BorderBrush="Black" Height="50" Click="btComandoZero_Click">
+        <Button x:Name="btComandoZero" Margin="20,164,0,0" Background="#FF505050" BorderBrush="Black" Height="50" Click="btComandoZero_Click" HorizontalAlignment="Left" Width="217" VerticalAlignment="Top">
             <Grid Width="135" Height="40">
                 <TextBlock TextAlignment="Center" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="-5,14,-3,10" Width="143" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Comando Zero"/>
             </Grid>
         </Button>
-        <Button x:Name="btComandoTara" Margin="20,248,275,103" Background="#FF505050" BorderBrush="Black" Height="50" Click="btComandoTara_Click">
+        <Button x:Name="btComandoTara" Margin="20,228,0,0" Background="#FF505050" BorderBrush="Black" Height="50" Click="btComandoTara_Click" HorizontalAlignment="Left" Width="217" VerticalAlignment="Top">
             <Grid Width="135" Height="40">
                 <TextBlock TextAlignment="Center" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="-5,14,-3,10" Width="143" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Comando Tara"/>
             </Grid>
         </Button>
-        <GroupBox Header="Configurações Balança Vazia" HorizontalAlignment="Left" Height="381" Margin="258,10,0,0" VerticalAlignment="Top" Width="252" Foreground="White"/>
-        <Button x:Name="btManualAuotmatico" Margin="287,68,20,254" Background="#FF505050" BorderBrush="Black" Height="50" Click="btManualAuotmatico_Click">
+        <GroupBox Header="Configurações Balança Vazia" HorizontalAlignment="Left" Height="360" Margin="258,2,0,0" VerticalAlignment="Top" Width="252" Foreground="White"/>
+        <Button x:Name="btManualAuotmatico" Margin="287,45,0,0" Background="#FF505050" BorderBrush="Black" Height="50" Click="btManualAuotmatico_Click" HorizontalAlignment="Left" Width="205" VerticalAlignment="Top">
             <Grid Width="193" Height="40">
                 <TextBlock x:Name="txtManual1" TextAlignment="Center" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="5,14,31,10" Width="157" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Manual"/>
             </Grid>
         </Button>
 
-        <Label Content="Percentual Manual (%)" Height="34" Margin="287,151,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="196" Foreground="White" FontWeight="Bold" FontSize="16"/>
-        <Grid Style="{StaticResource EntryFieldStyle}" Margin="287,173,20,158" Height="41" Background="#FF3C3C3C" >
+        <Label Content="Percentual Manual (%)" Height="34" Margin="287,115,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="196" Foreground="White" FontWeight="Bold" FontSize="16"/>
+        <Grid Style="{StaticResource EntryFieldStyle}" Margin="288,144,0,0" Height="41" Background="#FF3C3C3C" HorizontalAlignment="Left" Width="205" VerticalAlignment="Top" >
             <TextBlock Margin="5,0,6,5" Text="Exemplo: 7,0" Foreground="#FF919191" VerticalAlignment="Bottom" FontSize="14" >
                 <TextBlock.Visibility>
                     <MultiBinding Converter="{StaticResource TextInputToVisibilityConverter}">
@@ -78,9 +78,9 @@
             </TextBlock>
             <TextBox x:Name="txtManual" PreviewMouseLeftButtonUp="floatingPreviewMouseLeftButtonUp" GotFocus="TB_GotFocus" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" />
         </Grid>
-        <materialDesign:PackIcon Kind="Pencil" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="259,173,232,158" BorderBrush="#FF040404"/>
-        <Label Content="Percentual Automático (%)" Height="34" Margin="287,244,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="215" Foreground="White" FontWeight="Bold" FontSize="16"/>
-        <Grid Style="{StaticResource EntryFieldStyle}" Margin="287,262,20,69" Height="41" Background="#FF3C3C3C" >
+        <materialDesign:PackIcon Kind="Pencil" VerticalAlignment="Top" Foreground="White" HorizontalAlignment="Left" Width="21" Height="41" Margin="266,142,0,0" BorderBrush="#FF040404"/>
+        <Label Content="Percentual Automático (%)" Height="34" Margin="287,196,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="215" Foreground="White" FontWeight="Bold" FontSize="16"/>
+        <Grid Style="{StaticResource EntryFieldStyle}" Margin="288,230,0,0" Height="41" Background="#FF3C3C3C" VerticalAlignment="Top" HorizontalAlignment="Left" Width="205" >
             <TextBlock Margin="5,0,6,5" Text="Exemplo: 1,5" Foreground="#FF919191" VerticalAlignment="Bottom" FontSize="14" >
                 <TextBlock.Visibility>
                     <MultiBinding Converter="{StaticResource TextInputToVisibilityConverter}">
@@ -91,15 +91,15 @@
             </TextBlock>
             <TextBox x:Name="txtAutomatico" GotFocus="TB_GotFocus" PreviewMouseLeftButtonUp="floatingPreviewMouseLeftButtonUp" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" />
         </Grid>
-        <materialDesign:PackIcon Kind="Pencil" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="260,262,231,69" BorderBrush="#FF040404"/>
-        <Button x:Name="btBalancaVazia" Margin="287,315,20,7" Background="#FF505050" BorderBrush="Black" Height="50" Click="btBalancaVazia_Click">
+        <materialDesign:PackIcon Kind="Pencil" VerticalAlignment="Top" Foreground="White" HorizontalAlignment="Left" Width="21" Height="41" Margin="266,230,0,0" BorderBrush="#FF040404"/>
+        <Button x:Name="btBalancaVazia" Margin="287,286,0,0" Background="#FF505050" BorderBrush="Black" Height="50" Click="btBalancaVazia_Click" HorizontalAlignment="Left" Width="205" VerticalAlignment="Top">
             <Grid Width="178" Height="40">
                 <TextBlock TextAlignment="Center" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="10,14,16,5" Width="152" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Balança Vazia" Height="21"/>
             </Grid>
         </Button>
         <Label Content="Peso Atual Balança" Height="47" Margin="20,10,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="225" Foreground="White" FontWeight="Bold" FontSize="24"/>
-        <Label x:Name="lbPesoBalnca" Content="1500 kg" Height="93" Margin="0,66,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="258" Foreground="White" FontWeight="Bold" FontSize="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <Button x:Name="btFechar"  Margin="20,336,0,0" Background="Red" BorderBrush="Black" Height="44" VerticalAlignment="Top" HorizontalAlignment="Left" Width="223" IsCancel="True">
+        <Label x:Name="lbPesoBalnca" Content="10.500,25 kg" Height="93" Margin="0,66,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="258" Foreground="White" FontWeight="Bold" FontSize="40" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Button x:Name="btFechar"  Margin="20,318,0,0" Background="Red" BorderBrush="Black" Height="44" VerticalAlignment="Top" HorizontalAlignment="Left" Width="217" IsCancel="True">
             <Button.Resources>
                 <ResourceDictionary>
                     <ResourceDictionary.MergedDictionaries>
@@ -129,7 +129,7 @@
                 <TextBlock HorizontalAlignment="Center" Text="Fechar" FontFamily="Champagne &amp; Limousines" Foreground="White" FontSize="18" Margin="49,1,49,-1"/>
             </Grid>
         </Button>
-        <Label x:Name="lbStatusMotor" Content="Balança Em Funcionamento" Margin="20,304,0,0" BorderBrush="Black" BorderThickness="1" Background="#FF0CFF00" HorizontalContentAlignment="Center" Height="29" VerticalAlignment="Top" HorizontalAlignment="Left" Width="223" ToolTip="Status do motor, falhas e alarmes." Cursor="No" FontSize="13"/>
+        <Label x:Name="lbStatusMotor" Content="Balança Em Funcionamento" Margin="20,284,0,0" BorderBrush="Black" BorderThickness="1" Background="#FF0CFF00" HorizontalContentAlignment="Center" Height="29" VerticalAlignment="Top" HorizontalAlignment="Left" Width="217" ToolTip="" Cursor="No" FontSize="13"/>
 
     </Grid>
 </Window>

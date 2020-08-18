@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,7 +32,7 @@ namespace _9230A_V00___PI.Desenhos
         public void Actualize_UI(Utilidades.VariaveisGlobais.IndicadorPesagem indicadorPesagem) 
         {
 
-            LbPeso.Content = Convert.ToString(indicadorPesagem.Valor_Atual_Indicador) + " (kg)";
+            LbPeso.Content = Utilidades.VariaveisGlobais.indicadorPesagem.Valor_Atual_Indicador.ToString("N", CultureInfo.GetCultureInfo("pt-BR")) + " kg";
 
 
             if (indicadorPesagem.Erro_Leitura)
