@@ -828,6 +828,91 @@ namespace _9230A_V00___PI.Utilidades
             return Conversions.Bit_To_Dword(ref bits, true);
         }
 
+
+        //Commando Producao
+        //=====================================================================================================================================
+        public static VariaveisGlobais.ControleExecucaoProducao DwordToControleExecucaoProducao(UInt32 DWord, VariaveisGlobais.ControleExecucaoProducao execucaoProducao)
+        {
+            bool[] bits = new bool[32];
+
+            Conversions.Dword_To_Bit(DWord, ref bits, true);
+
+            execucaoProducao.Iniciar_Producao = bits[0];
+            execucaoProducao.Habilitado_Iniciar_Nova_Producao = bits[1];
+            execucaoProducao.Reserva_1 = bits[2];
+            execucaoProducao.Reserva_2 = bits[3];
+            execucaoProducao.Reserva_3 = bits[4];
+            execucaoProducao.Reserva_4 = bits[5];
+            execucaoProducao.Reserva_5 = bits[6];
+            execucaoProducao.Reserva_6 = bits[7];
+            execucaoProducao.Reserva_7 = bits[8];
+            execucaoProducao.Reserva_8 = bits[9];
+            execucaoProducao.Reserva_9 = bits[10];
+            execucaoProducao.Reserva_10 = bits[11];
+            execucaoProducao.Reserva_11 = bits[12];
+            execucaoProducao.Reserva_12 = bits[13];
+            execucaoProducao.Reserva_13 = bits[14];
+            execucaoProducao.Reserva_14 = bits[15];
+            execucaoProducao.Reserva_15 = bits[16];
+            execucaoProducao.Reserva_16 = bits[17];
+            execucaoProducao.Reserva_17 = bits[18];
+            execucaoProducao.Reserva_18 = bits[19];
+            execucaoProducao.Reserva_19 = bits[20];
+            execucaoProducao.Reserva_20 = bits[21];
+            execucaoProducao.Reserva_21 = bits[22];
+            execucaoProducao.Reserva_22 = bits[23];
+            execucaoProducao.Reserva_23 = bits[24];
+            execucaoProducao.Reserva_24 = bits[25];
+            execucaoProducao.Reserva_25 = bits[26];
+            execucaoProducao.Reserva_26 = bits[27];
+            execucaoProducao.Reserva_27 = bits[28];
+            execucaoProducao.Reserva_28 = bits[29];
+            execucaoProducao.Reserva_29 = bits[30];
+            execucaoProducao.Reserva_30 = bits[31];
+
+            return execucaoProducao;
+        }
+
+        public static UInt32 ControleExecucaoProducaoToDword(VariaveisGlobais.ControleExecucaoProducao execucaoProducao)
+        {
+            bool[] bits = new bool[32];
+
+            bits[0] = execucaoProducao.Iniciar_Producao;
+            bits[1] = execucaoProducao.Habilitado_Iniciar_Nova_Producao;
+            bits[2] = execucaoProducao.Reserva_1;
+            bits[3] = execucaoProducao.Reserva_2;
+            bits[4] = execucaoProducao.Reserva_3;
+            bits[5] = execucaoProducao.Reserva_4;
+            bits[6] = execucaoProducao.Reserva_5;
+            bits[7] = execucaoProducao.Reserva_6;
+            bits[8] = execucaoProducao.Reserva_7;
+            bits[9] = execucaoProducao.Reserva_8;
+            bits[10] = execucaoProducao.Reserva_9;
+            bits[11] = execucaoProducao.Reserva_10;
+            bits[12] = execucaoProducao.Reserva_11;
+            bits[13] = execucaoProducao.Reserva_12;
+            bits[14] = execucaoProducao.Reserva_13;
+            bits[15] = execucaoProducao.Reserva_14;
+            bits[16] = execucaoProducao.Reserva_15;
+            bits[17] = execucaoProducao.Reserva_16;
+            bits[18] = execucaoProducao.Reserva_17;
+            bits[19] = execucaoProducao.Reserva_18;
+            bits[20] = execucaoProducao.Reserva_19;
+            bits[21] = execucaoProducao.Reserva_20;
+            bits[22] = execucaoProducao.Reserva_21;
+            bits[23] = execucaoProducao.Reserva_22;
+            bits[24] = execucaoProducao.Reserva_23;
+            bits[25] = execucaoProducao.Reserva_24;
+            bits[26] = execucaoProducao.Reserva_25;
+            bits[27] = execucaoProducao.Reserva_26;
+            bits[28] = execucaoProducao.Reserva_27;
+            bits[29] = execucaoProducao.Reserva_28;
+            bits[30] = execucaoProducao.Reserva_29;
+            bits[31] = execucaoProducao.Reserva_30;
+
+            return Conversions.Bit_To_Dword(ref bits, true);
+        }
+
         //Command Ensaque
         //=====================================================================================================================================
         public static VariaveisGlobais.controleEnsaque DwordTocontroleEnsaque(UInt32 DWord, VariaveisGlobais.controleEnsaque controleEnsaque)

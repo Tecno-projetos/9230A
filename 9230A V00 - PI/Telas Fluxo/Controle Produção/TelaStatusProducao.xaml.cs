@@ -168,6 +168,44 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
                 btSlot3.Background = new SolidColorBrush(Colors.Gray);
                 lb_Status_Batelada = Utilidades.functions.controleStatus(VariaveisGlobais.executaProducao.ControleExecucao.Slot_2.Status_Batelada, lb_Status_Batelada);
 
+                //Atualiza o botão 
+                if (VariaveisGlobais.executaProducao.ControleExecucao.Slot_2.Complemento_Pre.Item_Atual_Iniciado_Dosagem ||
+                    VariaveisGlobais.executaProducao.ControleExecucao.Slot_2.Complemento_Pos.Item_Atual_Iniciado_Dosagem
+                    )
+                {
+                    if (VariaveisGlobais.executaProducao.ControleExecucao.Slot_2.Complemento_Pre.Item_Atual_Finalizado_Dosagem ||
+                        VariaveisGlobais.executaProducao.ControleExecucao.Slot_2.Complemento_Pos.Item_Atual_Finalizado_Dosagem
+                        )
+                    {
+                        btDosarManual.Background = new SolidColorBrush(Colors.Orange);
+                        txtDosarManual.Foreground = new SolidColorBrush(Colors.Black);
+                        txtDosarManual.Text = "Salvando Valor Dosagem";
+                    }
+                    else
+                    {
+                        btDosarManual.Background = new SolidColorBrush(Colors.Orange);
+                        txtDosarManual.Foreground = new SolidColorBrush(Colors.Black);
+                        txtDosarManual.Text = "Finalizar Dosagem Manual";
+                    }
+                }
+                else
+                {
+                    if (VariaveisGlobais.executaProducao.ControleExecucao.Slot_2.Complemento_Pre.Habilitado_Inicio_Dosagem ||
+                        VariaveisGlobais.executaProducao.ControleExecucao.Slot_2.Complemento_Pos.Habilitado_Inicio_Dosagem
+                        )
+                    {
+                        btDosarManual.Background = new SolidColorBrush(Colors.Yellow);
+                        txtDosarManual.Foreground = new SolidColorBrush(Colors.Black);
+                        txtDosarManual.Text = "Iniciar Dosagem Manual";
+                    }
+                    else
+                    {
+                        btDosarManual.Background = new SolidColorBrush(Colors.Gray);
+                        txtDosarManual.Foreground = new SolidColorBrush(Colors.Black);
+                        txtDosarManual.Text = "Salvando Valor Dosagem";
+                    }
+                }
+
                 atualizaGridProdutos(VariaveisGlobais.executaProducao.ControleExecucao.Slot_2);
             }
             else if (SlotSolicitado == 3)
@@ -210,11 +248,43 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
             }
             else if (SlotSolicitado == 2)
             {
+                //Verifica o item atual é o mesmo que o produto atual que esta em produção
+                if (IndexAtual == VariaveisGlobais.executaProducao.ControleExecucao.Slot_2.Produto_Atual_Em_Producao)
+                {
+                    if (VariaveisGlobais.executaProducao.ControleExecucao.Slot_2.Complemento_Pre.Habilitado_Inicio_Dosagem ||
+                        VariaveisGlobais.executaProducao.ControleExecucao.Slot_2.Complemento_Pos.Habilitado_Inicio_Dosagem
+                        )
+                    {
+                        e.Row.Background = new SolidColorBrush(Colors.Yellow);
+                        e.Row.Foreground = new SolidColorBrush(Color.FromRgb(0, 0, 0));
+                    }
+                    else
+                    {
+                        e.Row.Background = new SolidColorBrush(Colors.ForestGreen);
+                        e.Row.Foreground = new SolidColorBrush(Color.FromRgb(255, 255, 255));
+                    }
 
+                }
             }
             else if (SlotSolicitado == 3)
             {
+                //Verifica o item atual é o mesmo que o produto atual que esta em produção
+                if (IndexAtual == VariaveisGlobais.executaProducao.ControleExecucao.Slot_3.Produto_Atual_Em_Producao)
+                {
+                    if (VariaveisGlobais.executaProducao.ControleExecucao.Slot_3.Complemento_Pre.Habilitado_Inicio_Dosagem ||
+                        VariaveisGlobais.executaProducao.ControleExecucao.Slot_3.Complemento_Pos.Habilitado_Inicio_Dosagem
+                        )
+                    {
+                        e.Row.Background = new SolidColorBrush(Colors.Yellow);
+                        e.Row.Foreground = new SolidColorBrush(Color.FromRgb(0, 0, 0));
+                    }
+                    else
+                    {
+                        e.Row.Background = new SolidColorBrush(Colors.ForestGreen);
+                        e.Row.Foreground = new SolidColorBrush(Color.FromRgb(255, 255, 255));
+                    }
 
+                }
             }
 
 
@@ -222,16 +292,47 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
 
         private void btDosarManual_Click(object sender, RoutedEventArgs e)
         {
-
+            //SLOT 1 PRÉ
             if (VariaveisGlobais.executaProducao.ControleExecucao.Slot_1.Complemento_Pre.Habilitado_Inicio_Dosagem ||
                 (VariaveisGlobais.executaProducao.ControleExecucao.Slot_1.Complemento_Pre.Item_Atual_Iniciado_Dosagem && !VariaveisGlobais.executaProducao.ControleExecucao.Slot_1.Complemento_Pre.Item_Atual_Finalizado_Dosagem)
                 )
             {
                 VariaveisGlobais.executaProducao.InicioDosagemManualComplementoPre(SlotSolicitado);
             }
-
+            //SLOT 1 POS
             if (VariaveisGlobais.executaProducao.ControleExecucao.Slot_1.Complemento_Pos.Habilitado_Inicio_Dosagem ||
                 (VariaveisGlobais.executaProducao.ControleExecucao.Slot_1.Complemento_Pos.Item_Atual_Iniciado_Dosagem && !VariaveisGlobais.executaProducao.ControleExecucao.Slot_1.Complemento_Pos.Item_Atual_Finalizado_Dosagem)
+                )
+            {
+                VariaveisGlobais.executaProducao.InicioDosagemManualComplementoPos(SlotSolicitado);
+            }
+
+            //SLOT 2 PRÉ
+            if (VariaveisGlobais.executaProducao.ControleExecucao.Slot_2.Complemento_Pre.Habilitado_Inicio_Dosagem ||
+                (VariaveisGlobais.executaProducao.ControleExecucao.Slot_2.Complemento_Pre.Item_Atual_Iniciado_Dosagem && !VariaveisGlobais.executaProducao.ControleExecucao.Slot_2.Complemento_Pre.Item_Atual_Finalizado_Dosagem)
+                )
+            {
+                VariaveisGlobais.executaProducao.InicioDosagemManualComplementoPre(SlotSolicitado);
+            }
+
+            //SLOT 2 PÓS
+            if (VariaveisGlobais.executaProducao.ControleExecucao.Slot_2.Complemento_Pos.Habilitado_Inicio_Dosagem ||
+                (VariaveisGlobais.executaProducao.ControleExecucao.Slot_2.Complemento_Pos.Item_Atual_Iniciado_Dosagem && !VariaveisGlobais.executaProducao.ControleExecucao.Slot_2.Complemento_Pos.Item_Atual_Finalizado_Dosagem)
+                )
+            {
+                VariaveisGlobais.executaProducao.InicioDosagemManualComplementoPos(SlotSolicitado);
+            }
+
+            //SLOT 3 PRÉ
+            if (VariaveisGlobais.executaProducao.ControleExecucao.Slot_3.Complemento_Pre.Habilitado_Inicio_Dosagem ||
+                (VariaveisGlobais.executaProducao.ControleExecucao.Slot_3.Complemento_Pre.Item_Atual_Iniciado_Dosagem && !VariaveisGlobais.executaProducao.ControleExecucao.Slot_3.Complemento_Pre.Item_Atual_Finalizado_Dosagem)
+                )
+            {
+                VariaveisGlobais.executaProducao.InicioDosagemManualComplementoPre(SlotSolicitado);
+            }
+            //SLOT 3 PÓS
+            if (VariaveisGlobais.executaProducao.ControleExecucao.Slot_3.Complemento_Pos.Habilitado_Inicio_Dosagem ||
+                (VariaveisGlobais.executaProducao.ControleExecucao.Slot_3.Complemento_Pos.Item_Atual_Iniciado_Dosagem && !VariaveisGlobais.executaProducao.ControleExecucao.Slot_3.Complemento_Pos.Item_Atual_Finalizado_Dosagem)
                 )
             {
                 VariaveisGlobais.executaProducao.InicioDosagemManualComplementoPos(SlotSolicitado);

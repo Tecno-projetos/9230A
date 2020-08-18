@@ -121,6 +121,7 @@ namespace _9230A_V00___PI.Utilidades
 
             }
 
+            Comunicacao.Sharp7.S7.SetDWordAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 262, Move_Bits.ControleExecucaoProducaoToDword(controleExecucao));
 
         }
 
@@ -178,14 +179,14 @@ namespace _9230A_V00___PI.Utilidades
                 controleExecucao.Slot_2.Complemento_Pre.Item_Atual = Comunicacao.Sharp7.S7.GetIntAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 116);
                 controleExecucao.Slot_2.Complemento_Pre.Quantidade_Dosada_Item_Atual = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 118);
                 controleExecucao.Slot_2.Complemento_Pre.Quantidade_Dosada_Total = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 122);
-                controleExecucao.Slot_2.Complemento_Pre = Move_Bits.ByteToComplementoBatelada(Comunicacao.Sharp7.S7.GetByteAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 126), controleExecucao.Slot_1.Complemento_Pre);
+                controleExecucao.Slot_2.Complemento_Pre = Move_Bits.ByteToComplementoBatelada(Comunicacao.Sharp7.S7.GetByteAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 126), controleExecucao.Slot_2.Complemento_Pre);
 
                 //Complemento Pós
                 controleExecucao.Slot_2.Complemento_Pos.Quantidade_Itens = Comunicacao.Sharp7.S7.GetIntAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 128);
                 controleExecucao.Slot_2.Complemento_Pos.Item_Atual = Comunicacao.Sharp7.S7.GetIntAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 130);
                 controleExecucao.Slot_2.Complemento_Pos.Quantidade_Dosada_Item_Atual = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 132);
                 controleExecucao.Slot_2.Complemento_Pos.Quantidade_Dosada_Total = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 136);
-                controleExecucao.Slot_2.Complemento_Pos = Move_Bits.ByteToComplementoBatelada(Comunicacao.Sharp7.S7.GetByteAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 140), controleExecucao.Slot_1.Complemento_Pos);
+                controleExecucao.Slot_2.Complemento_Pos = Move_Bits.ByteToComplementoBatelada(Comunicacao.Sharp7.S7.GetByteAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 140), controleExecucao.Slot_2.Complemento_Pos);
 
                 controleExecucao.Slot_2.TempoAtualDesdeIniciado = Comunicacao.Sharp7.S7.GetDIntAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 142);
                 controleExecucao.Slot_2.TempoAtualPasso = Comunicacao.Sharp7.S7.GetDIntAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 146);
@@ -197,7 +198,7 @@ namespace _9230A_V00___PI.Utilidades
                 controleExecucao.Slot_2.Status_Batelada = Comunicacao.Sharp7.S7.GetIntAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 164);
                 controleExecucao.Slot_2.NumeroBatelada = Comunicacao.Sharp7.S7.GetIntAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 166);
 
-                controleExecucao.Slot_2 = Move_Bits.DwordToSlotBatelada(Comunicacao.Sharp7.S7.GetDWordAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 168), controleExecucao.Slot_1);
+                controleExecucao.Slot_2 = Move_Bits.DwordToSlotBatelada(Comunicacao.Sharp7.S7.GetDWordAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 168), controleExecucao.Slot_2);
             }
 
             if (slot == 3)
@@ -215,14 +216,14 @@ namespace _9230A_V00___PI.Utilidades
                 controleExecucao.Slot_3.Complemento_Pre.Item_Atual = Comunicacao.Sharp7.S7.GetIntAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 202);
                 controleExecucao.Slot_3.Complemento_Pre.Quantidade_Dosada_Item_Atual = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 204);
                 controleExecucao.Slot_3.Complemento_Pre.Quantidade_Dosada_Total = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 208);
-                controleExecucao.Slot_3.Complemento_Pre = Move_Bits.ByteToComplementoBatelada(Comunicacao.Sharp7.S7.GetByteAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 212), controleExecucao.Slot_1.Complemento_Pre);
+                controleExecucao.Slot_3.Complemento_Pre = Move_Bits.ByteToComplementoBatelada(Comunicacao.Sharp7.S7.GetByteAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 212), controleExecucao.Slot_3.Complemento_Pre);
 
                 //Complemento Pós
                 controleExecucao.Slot_3.Complemento_Pos.Quantidade_Itens = Comunicacao.Sharp7.S7.GetIntAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 214);
                 controleExecucao.Slot_3.Complemento_Pos.Item_Atual = Comunicacao.Sharp7.S7.GetIntAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 216);
                 controleExecucao.Slot_3.Complemento_Pos.Quantidade_Dosada_Item_Atual = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 218);
                 controleExecucao.Slot_3.Complemento_Pos.Quantidade_Dosada_Total = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 222);
-                controleExecucao.Slot_3.Complemento_Pos = Move_Bits.ByteToComplementoBatelada(Comunicacao.Sharp7.S7.GetByteAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 226), controleExecucao.Slot_1.Complemento_Pos);
+                controleExecucao.Slot_3.Complemento_Pos = Move_Bits.ByteToComplementoBatelada(Comunicacao.Sharp7.S7.GetByteAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 226), controleExecucao.Slot_3.Complemento_Pos);
 
                 controleExecucao.Slot_3.TempoAtualDesdeIniciado = Comunicacao.Sharp7.S7.GetDIntAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 228);
                 controleExecucao.Slot_3.TempoAtualPasso = Comunicacao.Sharp7.S7.GetDIntAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 232);
@@ -234,11 +235,12 @@ namespace _9230A_V00___PI.Utilidades
                 controleExecucao.Slot_3.Status_Batelada = Comunicacao.Sharp7.S7.GetIntAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 250);
                 controleExecucao.Slot_3.NumeroBatelada = Comunicacao.Sharp7.S7.GetIntAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 252);
 
-                controleExecucao.Slot_3 = Move_Bits.DwordToSlotBatelada(Comunicacao.Sharp7.S7.GetDWordAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 254), controleExecucao.Slot_1);
+                controleExecucao.Slot_3 = Move_Bits.DwordToSlotBatelada(Comunicacao.Sharp7.S7.GetDWordAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 254), controleExecucao.Slot_3);
             }
 
             controleExecucao.Bateladas_Iniciadas = Comunicacao.Sharp7.S7.GetIntAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 258);
             controleExecucao.Bateladas_Finalizadas = Comunicacao.Sharp7.S7.GetIntAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 260);
+            controleExecucao = Move_Bits.DwordToControleExecucaoProducao(Comunicacao.Sharp7.S7.GetDWordAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 262), controleExecucao);
 
         }
 
@@ -447,25 +449,29 @@ namespace _9230A_V00___PI.Utilidades
         /// </summary>
         private void verificaDisponibilidadeSlot()
         {
-            //Verifica se a quantidade de bateladas iniciadas é diferente da quantidade de bateladas existentes, cado for igual significa que ja foi iniciado todas as bateladas
-            if (controleExecucao.Bateladas_Iniciadas < Utilidades.VariaveisGlobais.ProducaoReceita.quantidadeBateladas)
+            if (controleExecucao.Iniciar_Producao)
             {
-                if (controleExecucao.Slot_1.Solicita_Nova_Batelada && !controleExecucao.Slot_1.Supervisao_Carregou_Dados_Batelada) //Verifica se o slot 1 do CLP pode receber uma batelada
+                //Verifica se a quantidade de bateladas iniciadas é diferente da quantidade de bateladas existentes, cado for igual significa que ja foi iniciado todas as bateladas
+                if (controleExecucao.Bateladas_Iniciadas < Utilidades.VariaveisGlobais.ProducaoReceita.quantidadeBateladas)
                 {
-                    //Adiciona a batelada no slot 1
-                    addInfoBateladaSlot(1, controleExecucao.Bateladas_Iniciadas);
-                }
-                else if (controleExecucao.Slot_2.Solicita_Nova_Batelada && !controleExecucao.Slot_2.Supervisao_Carregou_Dados_Batelada) //Verifica se o slot 2 do CLP pode receber uma batelada
-                {
-                    //Adiciona a batelada no slot 2
-                    addInfoBateladaSlot(2, controleExecucao.Bateladas_Iniciadas);
-                }
-                else if (controleExecucao.Slot_3.Solicita_Nova_Batelada && !controleExecucao.Slot_3.Supervisao_Carregou_Dados_Batelada) //Verifica se o slot 3 do CLP pode receber uma batelada
-                {
-                    //Adiciona a batelada no slot 3
-                    addInfoBateladaSlot(3, controleExecucao.Bateladas_Iniciadas);
+                    if (controleExecucao.Slot_1.Solicita_Nova_Batelada && !controleExecucao.Slot_1.Supervisao_Carregou_Dados_Batelada) //Verifica se o slot 1 do CLP pode receber uma batelada
+                    {
+                        //Adiciona a batelada no slot 1
+                        addInfoBateladaSlot(1, controleExecucao.Bateladas_Iniciadas);
+                    }
+                    else if (controleExecucao.Slot_2.Solicita_Nova_Batelada && !controleExecucao.Slot_2.Supervisao_Carregou_Dados_Batelada) //Verifica se o slot 2 do CLP pode receber uma batelada
+                    {
+                        //Adiciona a batelada no slot 2
+                        addInfoBateladaSlot(2, controleExecucao.Bateladas_Iniciadas);
+                    }
+                    else if (controleExecucao.Slot_3.Solicita_Nova_Batelada && !controleExecucao.Slot_3.Supervisao_Carregou_Dados_Batelada) //Verifica se o slot 3 do CLP pode receber uma batelada
+                    {
+                        //Adiciona a batelada no slot 3
+                        addInfoBateladaSlot(3, controleExecucao.Bateladas_Iniciadas);
+                    }
                 }
             }
+
         }
 
         public bool Produzir
@@ -477,9 +483,17 @@ namespace _9230A_V00___PI.Utilidades
                 {
                     //Slot 1
                     readVariablesBuffer(1);
+
+                    //Slot 2
+                    readVariablesBuffer(2);
+
+                    //Slot 3
+                    readVariablesBuffer(3);
                 }
                 //Após Leitura das Variáveis
 
+                //Verifica se é possível a finalização da produção
+                finaliza_Producao();
 
                 //Verifica disponibilidade de slot
                 verificaDisponibilidadeSlot();
@@ -497,15 +511,18 @@ namespace _9230A_V00___PI.Utilidades
 
         private void finaliza_Producao()
         {
-            ////Verifica qual slot iniciou a produção
-            //if (controleExecucao.Slot_1.Iniciou_Producao_No_Processo)
-            //{
-            //    //Se for igual a 8 finalizou o transporte do produto acabado
-            //    if (controleExecucao.Slot_1.Status_Batelada == 8)
-            //    {
+            //Se iniciou a produção
+            if (controleExecucao.Iniciar_Producao)
+            {
+                //Verifica se a quantidade de bateladas é igual a quantidade de bateladas finalizadas, se for finaliza a batelada
+                if (controleExecucao.Bateladas_Finalizadas == (short)Utilidades.VariaveisGlobais.ProducaoReceita.quantidadeBateladas)
+                {
+                    //Atualiza no banco de dados 
+                    DataBase.SQLFunctionsProducao.Update_Finaliza_Producao();
 
-            //    }
-            //}
+                    //Retira da lista de produção
+                }
+            }
         }
 
         private void salva_Peso_Dosado_Item_Produzindo()
@@ -635,7 +652,7 @@ namespace _9230A_V00___PI.Utilidades
 
                     controleExecucao.Slot_2.Complemento_Pre.Supervisao_Salvou_Dados_Dosado_Item_Atual = true;
 
-                    writeVariablesSlotIntoBuffer(1);
+                    writeVariablesSlotIntoBuffer(2);
 
                     VariaveisGlobais.Buffer_PLC[bufferPlc].Enable_Write = true;
                 }
@@ -658,7 +675,7 @@ namespace _9230A_V00___PI.Utilidades
 
                     controleExecucao.Slot_2.Complemento_Pos.Supervisao_Salvou_Dados_Dosado_Item_Atual = true;
 
-                    writeVariablesSlotIntoBuffer(1);
+                    writeVariablesSlotIntoBuffer(2);
 
                     VariaveisGlobais.Buffer_PLC[bufferPlc].Enable_Write = true;
                 }
@@ -682,7 +699,7 @@ namespace _9230A_V00___PI.Utilidades
 
                     controleExecucao.Slot_2.Finalizou_Dosagem_Automatica_Silo_1 = false;
 
-                    writeVariablesSlotIntoBuffer(1);
+                    writeVariablesSlotIntoBuffer(2);
 
                     VariaveisGlobais.Buffer_PLC[bufferPlc].Enable_Write = true;
                 }
@@ -706,7 +723,7 @@ namespace _9230A_V00___PI.Utilidades
 
                     controleExecucao.Slot_2.Finalizou_Dosagem_Automatica_Silo_2 = false;
 
-                    writeVariablesSlotIntoBuffer(1);
+                    writeVariablesSlotIntoBuffer(2);
 
                     VariaveisGlobais.Buffer_PLC[bufferPlc].Enable_Write = true;
                 }
@@ -736,7 +753,7 @@ namespace _9230A_V00___PI.Utilidades
 
                     controleExecucao.Slot_3.Complemento_Pre.Supervisao_Salvou_Dados_Dosado_Item_Atual = true;
 
-                    writeVariablesSlotIntoBuffer(1);
+                    writeVariablesSlotIntoBuffer(3);
 
                     VariaveisGlobais.Buffer_PLC[bufferPlc].Enable_Write = true;
                 }
@@ -759,7 +776,7 @@ namespace _9230A_V00___PI.Utilidades
 
                     controleExecucao.Slot_3.Complemento_Pos.Supervisao_Salvou_Dados_Dosado_Item_Atual = true;
 
-                    writeVariablesSlotIntoBuffer(1);
+                    writeVariablesSlotIntoBuffer(3);
 
                     VariaveisGlobais.Buffer_PLC[bufferPlc].Enable_Write = true;
                 }
@@ -783,7 +800,7 @@ namespace _9230A_V00___PI.Utilidades
 
                     controleExecucao.Slot_3.Finalizou_Dosagem_Automatica_Silo_1 = false;
 
-                    writeVariablesSlotIntoBuffer(1);
+                    writeVariablesSlotIntoBuffer(3);
 
                     VariaveisGlobais.Buffer_PLC[bufferPlc].Enable_Write = true;
                 }
@@ -807,7 +824,7 @@ namespace _9230A_V00___PI.Utilidades
 
                     controleExecucao.Slot_3.Finalizou_Dosagem_Automatica_Silo_2 = false;
 
-                    writeVariablesSlotIntoBuffer(1);
+                    writeVariablesSlotIntoBuffer(3);
 
                     VariaveisGlobais.Buffer_PLC[bufferPlc].Enable_Write = true;
                 }
@@ -832,11 +849,12 @@ namespace _9230A_V00___PI.Utilidades
             else if (slot == 2)
             {
                 controleExecucao.Slot_2.Complemento_Pre.Botao_Inicio_Fim_Dosagem_IHM = true;
-
+                Comunicacao.Sharp7.S7.SetByteAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 126, Move_Bits.ComplementoToByteBatelada(controleExecucao.Slot_2.Complemento_Pre));
             }
             else if (slot == 3)
             {
                 controleExecucao.Slot_3.Complemento_Pre.Botao_Inicio_Fim_Dosagem_IHM = true;
+                Comunicacao.Sharp7.S7.SetByteAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 212, Move_Bits.ComplementoToByteBatelada(controleExecucao.Slot_3.Complemento_Pre));
             }
 
 
@@ -862,10 +880,13 @@ namespace _9230A_V00___PI.Utilidades
             else if (slot == 2)
             {
                 controleExecucao.Slot_2.Complemento_Pos.Botao_Inicio_Fim_Dosagem_IHM = true;
+                Comunicacao.Sharp7.S7.SetByteAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 140, Move_Bits.ComplementoToByteBatelada(controleExecucao.Slot_2.Complemento_Pos));
+
             }
             else if (slot == 3)
             {
                 controleExecucao.Slot_3.Complemento_Pos.Botao_Inicio_Fim_Dosagem_IHM = true;
+                Comunicacao.Sharp7.S7.SetByteAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 226, Move_Bits.ComplementoToByteBatelada(controleExecucao.Slot_3.Complemento_Pos));
             }
 
             
