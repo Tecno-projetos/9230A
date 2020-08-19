@@ -144,6 +144,8 @@ namespace _9230A_V00___PI.Telas_Fluxo
         public void atualizaTela()
         {
             TelaControleProducao.atualizaTela();
+
+            TelaEnsaque.Actualize_UI();
         }
     }
 }
