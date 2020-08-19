@@ -89,7 +89,6 @@ namespace _9230A_V00___PI.Utilidades
 
         }
 
-
         #region Escritas CLP
 
         /// <summary>
@@ -131,7 +130,7 @@ namespace _9230A_V00___PI.Utilidades
         /// <summary>
         /// Função para escrever peso desejado de cada saco.
         /// </summary>
-        public void WritePesoDoasado(float pesoDesejado)
+        public void WritePesoDesejado(float pesoDesejado)
         {
                 VariaveisGlobais.Buffer_PLC[bufferPlcEnsaque].Enable_Read = false;
 
@@ -142,16 +141,30 @@ namespace _9230A_V00___PI.Utilidades
 
         }
 
+        /// <summary>
+        /// Função para setar bit de supervisorio salvou dados do saco no banco de dados
+        /// </summary>
+        public void SetBitSalvouDadosSacoBD()
+        {
+
+            VariaveisGlobais.Buffer_PLC[bufferPlcEnsaque].Enable_Read = false;
+
+            ensaque.controleEnsaque.Supervisorio_Salvou_Saco_Atual = true;
+
+            Comunicacao.Sharp7.S7.SetDWordAt(VariaveisGlobais.Buffer_PLC[bufferPlcEnsaque].Buffer, 266, Move_Bits.EnsaqueToDwordControleEnsaque(ensaque.controleEnsaque)); //Atualiza os Bits do command
+
+            VariaveisGlobais.Buffer_PLC[bufferPlcEnsaque].Enable_Write = true;
+
+            
+        }
 
 
         #endregion
-
 
         #region Banco de Dados
         public void producaoEnsaque(int IdProducao) 
         {
             DataBase.SqlFunctionsEnsaques.IntoDate_Table_ProducaoEnsaque(IdProducao, ensaque.controleEnsaque.pesoDesejado, DateTime.Now, DateTime.Now, "");
-
         }
 
         public void updateProducaoTerminou() 
@@ -163,8 +176,21 @@ namespace _9230A_V00___PI.Utilidades
 
         public void ensaques() 
         {
-        
 
+            if (ensaque.controleEnsaque.Saco_Atual_Finalizado && !ensaque.controleEnsaque.Supervisorio_Salvou_Saco_Atual)
+            {
+                if (DataBase.SqlFunctionsEnsaques.IntoDate_Table_Ensaques(DataBase.SqlFunctionsEnsaques.getIdProducaoEnsaque(VariaveisGlobais.Id_Producao_No_Silo_Expedicao), ensaque.controleEnsaque.pesoSacoAtual, "") != -1 )
+                {
+                    SetBitSalvouDadosSacoBD();
+                }
+                else
+                {
+                    Utilidades.VariaveisGlobais.Window_Buffer_Diagnostic.List_Error = "Não escreveu no banco de dados o saco do ensaque da produção: " + VariaveisGlobais.Id_Producao_No_Silo_Expedicao.ToString() + " com peso: " + ensaque.controleEnsaque.pesoSacoAtual.ToString() +" kg!!";
+                }
+                
+
+
+            }
         
         }
 

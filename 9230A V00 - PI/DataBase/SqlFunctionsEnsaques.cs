@@ -51,9 +51,10 @@ namespace _9230A_V00___PI.DataBase
                         "PesoDejado real," +
                         "DataInicioProducao datetime," +
                         "DataFimProducao datetime," +
-                      "FinalizouProducao bit," +
+                        "FinalizouProducao bit," +
                         "CONSTRAINT FK_IdProducao FOREIGN KEY (IdProducao) REFERENCES Producao(Id), " +
-                        "Observacao nvarchar(300));";
+                        "Observacao nvarchar(300)," +
+                        "PRIMARY KEY (Id));";
 
                     dynamic Call = SqlGlobalFuctions.ReturnCall(Utilidades.VariaveisGlobais.Connection_DB_Receitas_GS);
                     Call.Open();
@@ -98,14 +99,12 @@ namespace _9230A_V00___PI.DataBase
                     Call = SqlGlobalFuctions.ReturnCall(Utilidades.VariaveisGlobais.Connection_DB_Receitas_GS);
 
                     string query = "INSERT into ProducaoEnsaque (" +
-                        "Id, " +
                         "IdProducao, " +
                         "PesoDejado, " +
                         "DataInicioProducao, " +
                         "DataFimProducao, " +
                         "FinalizouProducao, " +
                         "Observacao) VALUES (" +
-                        "@Id, " +
                         "@IdProducao, " +
                         "@PesoDejado, " +
                         "@DataInicioProducao, " +
@@ -114,7 +113,6 @@ namespace _9230A_V00___PI.DataBase
                         "@Observacao)";
 
                     Command = SqlGlobalFuctions.ReturnCommand(query, Call);
-                    Command.Parameters.AddWithValue("@Id", id);
                     Command.Parameters.AddWithValue("@IdProducao", idProducao);
                     Command.Parameters.AddWithValue("@PesoDejado", pesoDessejado);
                     Command.Parameters.AddWithValue("@DataInicioProducao", dataIncioProducao);
@@ -175,6 +173,32 @@ namespace _9230A_V00___PI.DataBase
             }
         }
 
+        public static int getIdProducaoEnsaque(int IdProducao)
+        {
+            DataTable Data = new DataTable();
+
+            if (Utilidades.VariaveisGlobais.DB_Connected_GS)
+            {
+                try
+                {
+                    string CommandString = "SELECT Id FROM ProducaoEnsaque WHERE IdProducao = '" + IdProducao + "' ";
+
+                    dynamic Call = SqlGlobalFuctions.ReturnCall(Utilidades.VariaveisGlobais.Connection_DB_Receitas_GS);
+
+                    dynamic Adapter = SqlGlobalFuctions.ReturnAdapter(CommandString, Utilidades.VariaveisGlobais.Connection_DB_Receitas_GS);
+
+                    Adapter.Fill(Data);
+                }
+                catch (Exception ex)
+                {
+                    Utilidades.VariaveisGlobais.Window_Buffer_Diagnostic.List_Error = ex.ToString();
+                    return -1;
+                }
+            }
+
+            return Convert.ToInt32(Data.Rows[0][0]);
+        }
+
         #endregion
 
         #region Ensaque
@@ -216,8 +240,9 @@ namespace _9230A_V00___PI.DataBase
                         "Id bigint not null IDENTITY(1,1)," +
                         "IdEnsaque int," +    //FK do Id da receita     
                         "PesoDosado real," +
-                        "CONSTRAINT FK_IdProducao FOREIGN KEY (IdEnsaque) REFERENCES ProducaoEnsaque(Id), " +
-                        "Observacao nvarchar(300));";
+                        "CONSTRAINT FK_IdEnsaque FOREIGN KEY (IdEnsaque) REFERENCES ProducaoEnsaque(Id), " +
+                        "Observacao nvarchar(300)," +
+                        "PRIMARY KEY (Id));";
 
                     dynamic Call = SqlGlobalFuctions.ReturnCall(Utilidades.VariaveisGlobais.Connection_DB_Receitas_GS);
                     Call.Open();
@@ -232,6 +257,48 @@ namespace _9230A_V00___PI.DataBase
                 {
                     Utilidades.VariaveisGlobais.Window_Buffer_Diagnostic.List_Error = ex.ToString();
                 }
+            }
+        }
+
+        public static int IntoDate_Table_Ensaques(int idEnsaque, float pesoDosado, string Observacao)
+        {
+            int ret = -1;
+
+            if (Utilidades.VariaveisGlobais.DB_Connected_GS)
+            {
+                try
+                {
+                    dynamic Call = SqlGlobalFuctions.ReturnCall(Utilidades.VariaveisGlobais.Connection_DB_Receitas_GS);
+
+                    Call.Open();
+
+                    string query = "INSERT into Ensaques (" +
+                        "IdEnsaque, " +
+                        "PesoDosado," +
+                        "Observacao) VALUES (" +
+                        "@IdEnsaque, " +
+                        "@PesoDosado, " +
+                        "@Observacao)";
+
+                    dynamic Command = SqlGlobalFuctions.ReturnCommand(query, Call);
+                    Command.Parameters.AddWithValue("@IdEnsaque", idEnsaque);
+                    Command.Parameters.AddWithValue("@PesoDosado", pesoDosado);
+                    Command.Parameters.AddWithValue("@Observacao", Observacao);
+                    ret = Command.ExecuteNonQuery();
+                    Call.Close();
+                    ret = 0;
+                }
+                catch (Exception ex)
+                {
+                    Utilidades.VariaveisGlobais.Window_Buffer_Diagnostic.List_Error = ex.ToString();
+                    ret = -1;
+                }
+
+                return ret;
+            }
+            else
+            {
+                return ret;
             }
         }
 

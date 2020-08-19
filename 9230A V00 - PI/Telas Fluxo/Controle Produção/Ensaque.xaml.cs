@@ -1,4 +1,5 @@
-﻿using System;
+﻿using _9230A_V00___PI.Utilidades;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -69,7 +70,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
 
             txtReceber.Text = Utilidades.VariaveisGlobais.IntergerKeypad(txtReceber.Text, 3, 9999).ToString();
 
-            Utilidades.VariaveisGlobais.executaEnsaque.WritePesoDoasado(Convert.ToSingle(txtReceber.Text));
+            Utilidades.VariaveisGlobais.executaEnsaque.WritePesoDesejado(Convert.ToSingle(txtReceber.Text));
 
         }
 
@@ -79,30 +80,37 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
             //Atualiza Váriaveis
             Utilidades.VariaveisGlobais.executaEnsaque.Actualize();
 
+            //Chama atualização de sacos no ensaque
+            Utilidades.VariaveisGlobais.executaEnsaque.ensaques();
+
             //Verifica se abriu tela e atualiza os valores
             if (abriuTela)
             {
-                if (Utilidades.VariaveisGlobais.executaEnsaque.Ensaque_Get.controleEnsaque.Saco_Atual_Dosando)
+
+                if (Utilidades.VariaveisGlobais.executaEnsaque.Ensaque_Get.controleEnsaque.IniciaEnsaque)
                 {
-                    lbStatusEnsaque.Content = "Dosando Saco";
-                    lbStatusEnsaque.Background = new SolidColorBrush(Colors.Green);
-                    lbStatusBalança.Foreground = new SolidColorBrush(Colors.Black);
+                    if (Utilidades.VariaveisGlobais.executaEnsaque.Ensaque_Get.controleEnsaque.Saco_Atual_Dosando)
+                    {
+                        lbStatusEnsaque.Content = "Dosando Saco";
+                        lbStatusEnsaque.Background = new SolidColorBrush(Colors.Green);
+                        lbStatusBalança.Foreground = new SolidColorBrush(Colors.Black);
+                    }
+                    else if (Utilidades.VariaveisGlobais.executaEnsaque.Ensaque_Get.controleEnsaque.Saco_Atual_Finalizado)
+                    {
+                        lbStatusEnsaque.Content = "Dosagem Concluída";
+                        lbStatusEnsaque.Background = new SolidColorBrush(Colors.Green);
+                        lbStatusBalança.Foreground = new SolidColorBrush(Colors.Black);
+                    }
+                    else
+                    {
+                        lbStatusEnsaque.Content = "Aguardando Inicío de Dosagem";
+                        lbStatusEnsaque.Background = new SolidColorBrush(Colors.Gray);
+                        lbStatusBalança.Foreground = new SolidColorBrush(Colors.White);
+                    }
                 }
-                else if (Utilidades.VariaveisGlobais.executaEnsaque.Ensaque_Get.controleEnsaque.Saco_Atual_Finalizado)
-                {
-                    lbStatusEnsaque.Content = "Dosagem Concluída";
-                    lbStatusEnsaque.Background = new SolidColorBrush(Colors.Green);
-                    lbStatusBalança.Foreground = new SolidColorBrush(Colors.Black);
-                }
-                else if (Utilidades.VariaveisGlobais.executaEnsaque.Ensaque_Get.controleEnsaque.Habilita_Iniciar_Ensaque)
+                else if (!Utilidades.VariaveisGlobais.executaEnsaque.Ensaque_Get.controleEnsaque.Habilita_Iniciar_Ensaque)
                 {
                     lbStatusEnsaque.Content = "Aguardando Habilitar Ensaque";
-                    lbStatusEnsaque.Background = new SolidColorBrush(Colors.Red);
-                    lbStatusBalança.Foreground = new SolidColorBrush(Colors.White);
-                }
-                else if (Utilidades.VariaveisGlobais.executaEnsaque.Ensaque_Get.controleEnsaque.HabilitaFinalizarEnsaque)
-                {
-                    lbStatusEnsaque.Content = "Aguardando Finalizar Ensaque";
                     lbStatusEnsaque.Background = new SolidColorBrush(Colors.Red);
                     lbStatusBalança.Foreground = new SolidColorBrush(Colors.White);
                 }
@@ -112,6 +120,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
                     lbStatusEnsaque.Background = new SolidColorBrush(Colors.Gray);
                     lbStatusBalança.Foreground = new SolidColorBrush(Colors.White);
                 }
+
 
                 //Atualiza Peso da balança
                  lbPesoBalnca.Content = Utilidades.VariaveisGlobais.executaEnsaque.IndicadorPesagem_Get.Valor_Atual_Indicador.ToString("N", CultureInfo.GetCultureInfo("pt-BR")) + " kg";
@@ -133,7 +142,12 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
 
             }
 
+
+
+            
+
         }
+
         private void btIniaEnsaque_Click(object sender, RoutedEventArgs e)
         {
             if (Utilidades.VariaveisGlobais.executaEnsaque.Ensaque_Get.controleEnsaque.pesoDesejado > 0)
@@ -143,7 +157,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
                     Utilidades.VariaveisGlobais.executaEnsaque.InverbitIniciouEnsaque();
 
                     //Iniciou com a produção X
-                    Utilidades.VariaveisGlobais.executaEnsaque.producaoEnsaque(-1);
+                    Utilidades.VariaveisGlobais.executaEnsaque.producaoEnsaque(VariaveisGlobais.Id_Producao_No_Silo_Expedicao);
 
 
                 }
@@ -185,14 +199,8 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
         {
             abriuTela = true;
 
-            if (Utilidades.VariaveisGlobais.executaEnsaque.Ensaque_Get.controleEnsaque.IniciaEnsaque)
-            {
-                txtQtdEnsaque.Text = Utilidades.VariaveisGlobais.executaEnsaque.Ensaque_Get.controleEnsaque.pesoDesejado.ToString();
-            }
-            else
-            {
-                txtQtdEnsaque.Text = "";
-            }  
+            txtQtdEnsaque.Text = Utilidades.VariaveisGlobais.executaEnsaque.Ensaque_Get.controleEnsaque.pesoDesejado.ToString();
+
         }
 
         private void UserControl_Unloaded(object sender, RoutedEventArgs e)

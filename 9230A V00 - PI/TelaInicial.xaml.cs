@@ -255,6 +255,9 @@ namespace _9230A_V00___PI
                     //Atualiza Execução Produção
                     AtualizaExecucaoProducao();
 
+                    //Atualiza execução do ensaque
+                    VariaveisGlobais.producao.atualizaTelaEnsaque();
+
                 }
 
                 VariaveisGlobais.CommunicationPLC.writeBufferPLC();//Chama a escrita no PLC
@@ -595,7 +598,7 @@ namespace _9230A_V00___PI
             if (VariaveisGlobais.ProducaoReceita.IniciouProducao && !VariaveisGlobais.ProducaoReceita.FinalizouProducao)
             {
                 VariaveisGlobais.executaProducao.Produzir = true;
-                VariaveisGlobais.producao.atualizaTela();
+                VariaveisGlobais.producao.atualizaTelaEmProducao();
             }
             else
             {

@@ -141,10 +141,13 @@ namespace _9230A_V00___PI.Telas_Fluxo
             spControleProducao.Children.Add(TelaControleProducao);
         }
 
-        public void atualizaTela()
+        public void atualizaTelaEmProducao()
         {
             TelaControleProducao.atualizaTela();
+        }
 
+        public void atualizaTelaEnsaque()
+        {
             TelaEnsaque.Actualize_UI();
         }
     }

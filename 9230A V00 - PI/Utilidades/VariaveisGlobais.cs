@@ -953,7 +953,7 @@ namespace _9230A_V00___PI.Utilidades
 
         public static Utilidades.ExecutaProducao executaProducao = new ExecutaProducao(1);
 
-        public static Utilidades.executaEnsaque executaEnsaque = new Utilidades.executaEnsaque(2,4);
+        public static Utilidades.executaEnsaque executaEnsaque = new Utilidades.executaEnsaque(1,0);
 
         public static AuxiliaresProcesso auxiliaresProcesso = new AuxiliaresProcesso();
 
