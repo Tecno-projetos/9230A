@@ -927,7 +927,7 @@ namespace _9230A_V00___PI.Utilidades
             controleEnsaque.Saco_Atual_Dosando = bits[3];
             controleEnsaque.Supervisorio_Salvou_Saco_Atual = bits[4];
             controleEnsaque.HabilitaFinalizarEnsaque = bits[5];
-            controleEnsaque.Reserva_3 = bits[6];
+            controleEnsaque.Habilita_Iniciar_Ensaque = bits[6];
             controleEnsaque.Reserva_4 = bits[7];
             controleEnsaque.Reserva_5 = bits[8];
             controleEnsaque.Reserva_6 = bits[9];
@@ -967,7 +967,7 @@ namespace _9230A_V00___PI.Utilidades
             bits[3] = controleEnsaque.Saco_Atual_Dosando;
             bits[4] = controleEnsaque.Supervisorio_Salvou_Saco_Atual;
             bits[5] = controleEnsaque.HabilitaFinalizarEnsaque;
-            bits[6] = controleEnsaque.Reserva_3;
+            bits[6] = controleEnsaque.Habilita_Iniciar_Ensaque;
             bits[7] = controleEnsaque.Reserva_4;
             bits[8] = controleEnsaque.Reserva_5;
             bits[9] = controleEnsaque.Reserva_6;
