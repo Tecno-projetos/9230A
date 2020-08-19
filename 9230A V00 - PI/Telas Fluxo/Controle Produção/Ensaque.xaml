@@ -125,7 +125,6 @@
             </Grid>
         </Button>
         <Label Content="Sacos Ensacados:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="210" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="40" Padding="0" FontSize="18" FontWeight="Bold" Margin="10,101,0,0"/>
-        <Label Content="Tempo Ensacando:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="210" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="40" Padding="0" FontSize="18" FontWeight="Bold" Margin="407,348,0,0"/>
         <Label Content="Receita:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="210" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="40" Padding="0" FontSize="18" FontWeight="Bold" Margin="407,300,0,0"/>
         <Button Margin="659,630,0,10" Background="#FF505050" BorderBrush="Black" Height="35" HorizontalAlignment="Left" Width="155">
             <Grid Width="110" Height="23">

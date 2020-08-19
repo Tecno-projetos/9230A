@@ -174,12 +174,12 @@ namespace _9230A_V00___PI.Utilidades
 
         public struct controleEnsaque
         {
-            public bool IniciaEnsaque;                  //Inicia o ensaque
-            public bool TerminaEnsaque;                 //Termina o ensaque
-            public bool EnsaqueConcluido;               //Ensaque Concluido
-            public bool EnsaqueDosando;                  //Ensaque Concluido
-            public bool Reserva_1;
-            public bool Reserva_2;
+            public bool IniciaEnsaque;                       //Inicia o ensaque
+            public bool TerminaEnsaque;                      //Termina o ensaque
+            public bool Saco_Atual_Finalizado;               //Ensaque Concluido
+            public bool Saco_Atual_Dosando;                  //Ensaque Concluido
+            public bool Supervisorio_Salvou_Saco_Atual;      //Supervisório salvou os dados do saco no banco de dados
+            public bool HabilitaFinalizarEnsaque;            //Habilita finalizar ensaque
             public bool Reserva_3;
             public bool Reserva_4;
             public bool Reserva_5;
@@ -207,9 +207,9 @@ namespace _9230A_V00___PI.Utilidades
             public bool Reserva_27;
             public bool Reserva_28;
 
-            public float pesoDesejado;                  //Peso desejado por Saco
-            public float pesoEnsacado;                  //Peso ensacado no saco 
-            public Int32 quantidadeEnsaques;            //Quantidade ensacada
+            public float pesoDesejado;                   //Peso desejado por Saco
+            public float pesoSacoAtual;                  //Peso ensacado no saco 
+            public Int32 quantidadeEnsaques;             //Quantidade ensacada
 
         }
 
@@ -1788,6 +1788,5 @@ namespace _9230A_V00___PI.Utilidades
         public float volumeTotalProduzido { get; set; }//Volume total produzido
 
     }
-
 
 }
