@@ -22,7 +22,7 @@ namespace _9230A_V00___PI.Utilidades
             //Leitura Controle
             ensaque.controleEnsaque.quantidadeEnsaques = Comunicacao.Sharp7.S7.GetDIntAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 4);
             ensaque.controleEnsaque.pesoDesejado = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 8);
-            ensaque.controleEnsaque.pesoEnsacado = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 12);
+            ensaque.controleEnsaque.pesoSacoAtual = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 12);
             ensaque.controleEnsaque = Move_Bits.DwordTocontroleEnsaque(Comunicacao.Sharp7.S7.GetDWordAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 0), ensaque.controleEnsaque);
 
         }

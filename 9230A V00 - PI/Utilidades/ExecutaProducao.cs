@@ -512,8 +512,20 @@ namespace _9230A_V00___PI.Utilidades
                 //Finaliza a produção
                 finaliza_Producao();
 
-            }
+                //Verifica se tem nível no silo de expedição e adiciona o Id da produção no silo de expedição
+                if (VariaveisGlobais.niveis.Inferior_Silo_Exp)
+                {
+                    if (VariaveisGlobais.Id_Producao_No_Silo_Expedicao != VariaveisGlobais.ProducaoReceita.id)
+                    {
+                        VariaveisGlobais.Buffer_PLC[1].Enable_Read = false;
 
+                        //Seta o ID da produção que esta no silo de expedição
+                        Comunicacao.Sharp7.S7.SetDIntAt(VariaveisGlobais.Buffer_PLC[1].Buffer, 278, VariaveisGlobais.ProducaoReceita.id);
+
+                        VariaveisGlobais.Buffer_PLC[1].Enable_Write = true;
+                    }
+                }
+            }
         }
 
 

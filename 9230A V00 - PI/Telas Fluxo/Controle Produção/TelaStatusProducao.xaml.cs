@@ -169,7 +169,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
                     {
                         btDosarManual.Background = new SolidColorBrush(Colors.Gray);
                         txtDosarManual.Foreground = new SolidColorBrush(Colors.Black);
-                        txtDosarManual.Text = "Salvando Valor Dosagem";
+                        txtDosarManual.Text = "Dosagem Manual Finalizada";
                     }
                 }
 

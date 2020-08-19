@@ -1064,6 +1064,8 @@ namespace _9230A_V00___PI.Utilidades
             //Envia o oldValue pois o valor máximo ultrapassou o limite.
             return oldValue;
         }
+
+        public static int Id_Producao_No_Silo_Expedicao;
     }
 
     public class convertToTable

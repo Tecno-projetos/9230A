@@ -120,7 +120,7 @@ namespace _9230A_V00___PI
             Utilidades.VariaveisGlobais.Buffer_PLC[1].Name = "DB Produção Automática";
             Utilidades.VariaveisGlobais.Buffer_PLC[1].DBNumber = 15;
             Utilidades.VariaveisGlobais.Buffer_PLC[1].Start = 0;
-            Utilidades.VariaveisGlobais.Buffer_PLC[1].Size = 266;
+            Utilidades.VariaveisGlobais.Buffer_PLC[1].Size = 282;
             Utilidades.VariaveisGlobais.Buffer_PLC[1].Enable_Read = true;
             Utilidades.VariaveisGlobais.Buffer_PLC[1].Enable_Write = false;
 
@@ -249,12 +249,11 @@ namespace _9230A_V00___PI
 
                     VariaveisGlobais.Fluxo.actualiza_UI();
 
+                    //Atualiza Id da produção no silo de expedição
+                    VariaveisGlobais.Id_Producao_No_Silo_Expedicao = Comunicacao.Sharp7.S7.GetDIntAt(VariaveisGlobais.Buffer_PLC[1].Buffer, 278);
+
                     //Atualiza Execução Produção
-                    if (VariaveisGlobais.ProducaoReceita.IniciouProducao && !VariaveisGlobais.ProducaoReceita.FinalizouProducao)
-                    {
-                        VariaveisGlobais.executaProducao.Produzir = true;
-                        VariaveisGlobais.producao.atualizaTela();
-                    }
+                    AtualizaExecucaoProducao();
 
                     VariaveisGlobais.executaEnsaque.Ensacar = true;
                 }
@@ -590,6 +589,33 @@ namespace _9230A_V00___PI
         #endregion
 
         #region Funções
+
+        private void AtualizaExecucaoProducao()
+        {
+            //Atualiza Execução Produção
+            if (VariaveisGlobais.ProducaoReceita.IniciouProducao && !VariaveisGlobais.ProducaoReceita.FinalizouProducao)
+            {
+                VariaveisGlobais.executaProducao.Produzir = true;
+                VariaveisGlobais.producao.atualizaTela();
+            }
+            else
+            {
+                //Se não tem produção verifica se não tem nivel no silo de expedição
+                //Se não tem nível verifica se o ID da produção que tinha no silo é diferente de zero, se for zera.
+                if (!VariaveisGlobais.niveis.Inferior_Silo_Exp)
+                {
+                    if (VariaveisGlobais.Id_Producao_No_Silo_Expedicao != 0)
+                    {
+                        VariaveisGlobais.Buffer_PLC[1].Enable_Read = false;
+
+                        //Seta zero
+                        Comunicacao.Sharp7.S7.SetDIntAt(VariaveisGlobais.Buffer_PLC[1].Buffer, 278, 0);
+
+                        VariaveisGlobais.Buffer_PLC[1].Enable_Write = true;
+                    }
+                }
+            }
+        }
 
         public void AtualizaButton(MaterialDesignThemes.Wpf.PackIcon packIcon)
         {
