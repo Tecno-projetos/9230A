@@ -270,7 +270,7 @@ namespace _9230A_V00___PI.Telas_Fluxo
                 DataBase.SqlFunctionsProdutos.IntoDate_Table_Produtos("22", "Bovi Premium", 3.2f, "Complemento", "Teste22");
                 DataBase.SqlFunctionsProdutos.IntoDate_Table_Produtos("23", "Farelo de Soja 46%", 3.3f, "Matéria Prima", "Teste23");
                 DataBase.SqlFunctionsProdutos.IntoDate_Table_Produtos("24", "Milho Moido", 3.4f, "Matéria Prima", "Teste24");
-                DataBase.SqlFunctionsProdutos.IntoDate_Table_Produtos("25", "Aromatizante", 3.5f, "Complementoa", "Teste25");
+                DataBase.SqlFunctionsProdutos.IntoDate_Table_Produtos("25", "Aromatizante", 3.5f, "Complemento", "Teste25");
 
 
                 //====================================================================================
