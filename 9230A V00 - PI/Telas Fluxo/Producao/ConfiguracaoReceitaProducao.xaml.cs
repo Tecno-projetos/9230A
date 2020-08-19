@@ -236,11 +236,6 @@ namespace _9230A_V00___PI.Telas_Fluxo.Producao
             Teclados.keyboard.openKeyboard();
         }
 
-        private void txtPesoDesejado_KeyUp(object sender, KeyEventArgs e)
-        {
-            calculaApartirPesoTotalDesejado(false);
-        }
-
         private void btContinuar_Click(object sender, RoutedEventArgs e)
         {
             //Verifica se o calculo das quantidades das bateladas esta correto
@@ -287,7 +282,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Producao
 
             txtReceber.Text = Utilidades.VariaveisGlobais.floatingKeypad(txtReceber.Text, 6).ToString();
 
-
+            calculaApartirPesoTotalDesejado(false);
         }
     }
 }

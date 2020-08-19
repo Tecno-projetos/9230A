@@ -503,9 +503,6 @@ namespace _9230A_V00___PI.Utilidades
                     VariaveisGlobais.Buffer_PLC[bufferPlc].Enable_Write = true; //Desabilita a leitura do buffer
                 }
 
-                //Verifica se é possível a finalização da produção
-                finaliza_Producao();
-
                 //Verifica disponibilidade de slot
                 verificaDisponibilidadeSlot();
 
@@ -534,6 +531,13 @@ namespace _9230A_V00___PI.Utilidades
                     //Atualiza a produção que esta em execução
                     //se não encontrar nada em produção no banco de dados, instancia uma nova produção
                     DataBase.SQLFunctionsProducao.AtualizaProducaoEmExecucao();
+
+                    //reseta o iniciar produção
+                    VariaveisGlobais.Buffer_PLC[bufferPlc].Enable_Read = false; //Desabilita a leitura do buffer
+                    controleExecucao.Iniciar_Producao = false;
+                    writeVariablesSlotIntoBuffer(0);
+                    VariaveisGlobais.Buffer_PLC[bufferPlc].Enable_Write = true; //Desabilita a leitura do buffer
+
                 }
             }
         }
