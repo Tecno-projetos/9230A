@@ -35,75 +35,90 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
 
         public void atualizaDrivers()
         {
-            allDrives = DriveInfo.GetDrives();
-
-            if (listbox.Items.Count > 0)
+            try
             {
-                listbox.Items.Clear();
+                allDrives = DriveInfo.GetDrives();
+
+                if (listbox.Items.Count > 0)
+                {
+                    listbox.Items.Clear();
+                }
+
+
+                foreach (DriveInfo drive in allDrives)
+                {
+                    ListBoxItem boxItem = new ListBoxItem();
+
+                    if (drive.Name.Contains("C:"))
+                    {
+                        boxItem.IsSelected = true;
+
+                    }
+                    else
+                    {
+                        boxItem.IsSelected = false;
+                    }
+                    boxItem.Width = 130;
+                    boxItem.Height = 60;
+                    boxItem.Content = drive.Name + " " + drive.VolumeLabel;
+                    boxItem.FontSize = 12;
+                    boxItem.Foreground = new SolidColorBrush(Colors.White);
+                    boxItem.VerticalAlignment = VerticalAlignment.Center;
+                    boxItem.HorizontalAlignment = HorizontalAlignment.Center;
+                    boxItem.Background = new SolidColorBrush(Color.FromRgb(60, 60, 60));
+                    Thickness margin = boxItem.Margin;
+                    margin.Top = 2;
+                    boxItem.Margin = margin;
+                    boxItem.IsEnabled = true;
+
+                    listbox.Items.Add(boxItem);
+                }
             }
-
-
-            foreach (DriveInfo drive in allDrives)
+            catch (Exception ex)
             {
-                ListBoxItem boxItem = new ListBoxItem();
 
-                if (drive.Name.Contains("C:"))
-                {
-                    boxItem.IsSelected = true;
-
-                }
-                else
-                {
-                    boxItem.IsSelected = false;
-                }
-                boxItem.Width = 130;
-                boxItem.Height = 60;
-                boxItem.Content = drive.Name + " " + drive.VolumeLabel ;
-                boxItem.FontSize = 12;
-                boxItem.Foreground = new SolidColorBrush(Colors.White);
-                boxItem.VerticalAlignment = VerticalAlignment.Center;
-                boxItem.HorizontalAlignment = HorizontalAlignment.Center;
-                boxItem.Background = new SolidColorBrush(Color.FromRgb(60, 60, 60));
-                Thickness margin = boxItem.Margin;
-                margin.Top = 2;
-                boxItem.Margin = margin;
-                boxItem.IsEnabled = true;
-
-                listbox.Items.Add(boxItem);
+                Utilidades.VariaveisGlobais.Window_Buffer_Diagnostic.List_Error = ex.ToString() + " Erro pesquisa de drivers no PC";
             }
+            
         }
 
         private void listbox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            idexNew = listbox.SelectedIndex;
-
-            if (idexNew != -1)
+            try
             {
-                var row_list = (ListBoxItem)listbox.Items[idexNew];
+                idexNew = listbox.SelectedIndex;
 
-                if (idexNew != idexOLD)
+                if (idexNew != -1)
                 {
-                    row_list.Background = new SolidColorBrush(Color.FromRgb(0, 255, 0));
-                    row_list.Foreground = new SolidColorBrush(Color.FromRgb(0, 0, 0));
+                    var row_list = (ListBoxItem)listbox.Items[idexNew];
 
-
-                    if (idexOLD != -1)
+                    if (idexNew != idexOLD)
                     {
-                        var row_listOld = (ListBoxItem)listbox.Items[idexOLD];
-                        row_listOld.Background = new SolidColorBrush(Color.FromRgb(60, 60, 60));
-                        row_listOld.Foreground = new SolidColorBrush(Color.FromRgb(255, 255, 255));
+                        row_list.Background = new SolidColorBrush(Color.FromRgb(0, 255, 0));
+                        row_list.Foreground = new SolidColorBrush(Color.FromRgb(0, 0, 0));
+
+
+                        if (idexOLD != -1)
+                        {
+                            var row_listOld = (ListBoxItem)listbox.Items[idexOLD];
+                            row_listOld.Background = new SolidColorBrush(Color.FromRgb(60, 60, 60));
+                            row_listOld.Foreground = new SolidColorBrush(Color.FromRgb(255, 255, 255));
+                        }
+
+                        idexOLD = idexNew;
+
+                        nomeExportação = allDrives[idexNew].Name;
+
                     }
-
-                    idexOLD = idexNew;
-
-                    nomeExportação = allDrives[idexNew].Name;
-
                 }
             }
+            catch (Exception ex)
+            {
+
+                Utilidades.VariaveisGlobais.Window_Buffer_Diagnostic.List_Error = ex.ToString() + " Erro selecionar drivers no PC";
+            }
+
         }
-
-
-
 
         public string discoExportacao
         {

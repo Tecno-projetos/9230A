@@ -59,8 +59,14 @@
                 <TextBlock TextAlignment="Center" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="-5,14,-3,10" Width="143" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Comando Tara"/>
             </Grid>
         </Button>
-        <GroupBox Header="Configurações Balança Vazia" HorizontalAlignment="Left" Height="360" Margin="258,2,0,0" VerticalAlignment="Top" Width="252" Foreground="White"/>
-        <Button x:Name="btManualAuotmatico" Margin="287,45,0,0" Background="#FF505050" BorderBrush="Black" Height="50" Click="btManualAuotmatico_Click" HorizontalAlignment="Left" Width="205" VerticalAlignment="Top">
+
+        <GroupBox Header="Controle Balança" Style="{DynamicResource MaterialDesignGroupBox}" Margin="258,5,7,35"
+            materialDesign:ColorZoneAssist.Mode="Custom"
+            materialDesign:ColorZoneAssist.Background="Black"
+            materialDesign:ColorZoneAssist.Foreground="White">
+
+        </GroupBox>
+        <Button x:Name="btManualAuotmatico" Margin="288,60,0,0" Background="#FF505050" BorderBrush="Black" Height="50" Click="btManualAuotmatico_Click" HorizontalAlignment="Left" Width="205" VerticalAlignment="Top">
             <Grid Width="193" Height="40">
                 <TextBlock x:Name="txtManual1" TextAlignment="Center" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="5,14,31,10" Width="157" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Manual"/>
             </Grid>

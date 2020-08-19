@@ -182,7 +182,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
             }
             catch (Exception ex)
             {
-                Utilidades.VariaveisGlobais.Window_Buffer_Diagnostic.List_Error = ex.ToString();
+                Utilidades.VariaveisGlobais.Window_Buffer_Diagnostic.List_Error = ex.ToString() + " Erro exportar relatório Produção";
 
 
                 return false;
@@ -194,9 +194,10 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
 
         public static bool exportarBatelada(String strPdfPath, Utilidades.Producao producao, string strHeader)
         {
- 
-          
 
+
+            try
+            {
                 #region Cabeçalho
 
                 System.IO.FileStream fs = new FileStream(strPdfPath, FileMode.Create, FileAccess.Write, FileShare.None);
@@ -270,14 +271,14 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
                 Paragraph p = new Paragraph(new Chunk(new iTextSharp.text.pdf.draw.LineSeparator(0.0F, 100.0F, iTextSharp.text.BaseColor.BLACK, Element.ALIGN_LEFT, 1)));
                 document.Add(p);
 
-            //Add line break
-            //document.Add(new Chunk("\n", fntHead));
+                //Add line break
+                //document.Add(new Chunk("\n", fntHead));
 
-            #endregion
+                #endregion
 
-                 float[] colsW = { 25, 25 };
+                float[] colsW = { 25, 25 };
 
-            //Quantidade de produçoes
+                //Quantidade de produçoes
                 document.Add(tableProducao("Produção: " + producao.id + " Receita:" + producao.receita.nomeReceita, false, Element.ALIGN_CENTER));
                 document.Add(tableProducao(colsW, "Peso total produzido: " + producao.pesoTotalProduzido + " kg", "Volume total produzido: " + producao.volumeTotalProduzido + " m³", false));
                 document.Add(tableProducao("Quantidade de bateladas: " + producao.quantidadeBateladas + " und.", false, Element.ALIGN_LEFT));
@@ -299,24 +300,12 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
 
                 document.Add(new Chunk("\n", fntHead));
 
-                int cont = 0;
-                int mudanca = 3;
-
-            int aux = 0;
-
-
-            foreach (var batelada in producao.batelada)
-             {
-                if (!(cont < mudanca))
+                int OldBatelada = -1;
+                foreach (var batelada in producao.batelada)
                 {
-                    document.NewPage();
-                    cont = 0;
-                    mudanca = 5;
-                }
 
-
-                document.Add(tableProducao("Batelada N°: " + batelada.numeroBatelada , true, Element.ALIGN_CENTER));
-                document.Add(tableProducao(colsW, "Peso desejado: " + batelada.pesoDesejado + " kg", "Peso dosado:" + batelada.pesoDosado + " kg", true));
+                    //document.Add(tableProducao("Batelada N°: " + batelada.numeroBatelada, true, Element.ALIGN_CENTER));
+                    //document.Add(tableProducao(colsW, "Peso desejado: " + batelada.pesoDesejado + " kg", "Peso dosado:" + batelada.pesoDosado + " kg", true));
 
 
                     PdfPTable tablebatelada = new PdfPTable(3);
@@ -326,7 +315,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
                     Font font = FontFactory.GetFont(BaseFont.TIMES_ROMAN, 10, Font.BOLD, preto);
                     Font titulo = FontFactory.GetFont(BaseFont.TIMES_ROMAN, 10, Font.BOLD, preto);
 
-                    float[] colsWBatelada = { 20, 20, 20};
+                    float[] colsWBatelada = { 20, 20, 20 };
                     tablebatelada.HeaderRows = 0;
                     tablebatelada.WidthPercentage = 100f;
                     tablebatelada.DefaultCell.Border = PdfPCell.BOX;
@@ -334,41 +323,64 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
                     tablebatelada.DefaultCell.BorderColorBottom = new BaseColor(255, 255, 255);
                     tablebatelada.DefaultCell.Padding = 5;
 
+                    if (OldBatelada == -1)
+                    {
+                        tablebatelada.KeepTogether = false;
+                        OldBatelada = 1;
+                    }
+                    else
+                    {
+                        tablebatelada.KeepTogether = true;
+                    }
+
+                
+
+                    var cell = getNewCell("Batelada N°: " + batelada.numeroBatelada, titulo, Element.ALIGN_CENTER, 5, PdfPCell.BOX, preto, branco);
+                    cell.Colspan = 5;
+                    tablebatelada.AddCell(cell);
+
+                    var cell1 = getNewCell("Peso desejado: " + batelada.pesoDesejado + " kg" + " | Peso dosado:" + batelada.pesoDosado + " kg", titulo, Element.ALIGN_CENTER, 5, PdfPCell.BOX, preto, branco);
+                    cell1.Colspan = 5;
+                    tablebatelada.AddCell(cell1);
+
+                    //document.Add(tableProducao("Batelada N°: " + batelada.numeroBatelada, true, Element.ALIGN_CENTER));
+                    //document.Add(tableProducao(colsW, "Peso desejado: " + batelada.pesoDesejado + " kg", "Peso dosado:" + batelada.pesoDosado + " kg", true));
+
                     tablebatelada.AddCell(getNewCell("Desrição Produto", titulo, Element.ALIGN_CENTER, 5, PdfPCell.BOX, preto, branco));
                     tablebatelada.AddCell(getNewCell("Peso Desejado", titulo, Element.ALIGN_CENTER, 5, PdfPCell.BOX, preto, branco));
                     tablebatelada.AddCell(getNewCell("Peso Dosado", titulo, Element.ALIGN_CENTER, 5, PdfPCell.BOX, preto, branco));
 
                     foreach (var produtos in batelada.produtos)
                     {
-                    //Verifica se foi inserido + 38 
-                        if (aux >= 36)
-                        {
-                        cont++;
-                        aux = 0;
-                        }
-
 
                         tablebatelada.AddCell(getNewCell(produtos.descricao, font, Element.ALIGN_LEFT, 5, PdfPCell.BOX));
                         tablebatelada.AddCell(getNewCell(Convert.ToString(produtos.pesoDesejado) + " kg", font, Element.ALIGN_LEFT, 5, PdfPCell.BOX));
                         tablebatelada.AddCell(getNewCell(Convert.ToString(produtos.pesoDosado) + " kg", font, Element.ALIGN_LEFT, 5, PdfPCell.BOX));
-                       aux++;
-
 
 
                     }
 
                     document.Add(tablebatelada);
                     document.Add(new Chunk("\n", fntHead));
-                    
-                
-                cont++;
-            }
+
+
+                }
 
                 document.Close();
                 writer.Close();
                 fs.Close();
 
                 return true;
+            }
+            catch (Exception ex)
+            {
+                Utilidades.VariaveisGlobais.Window_Buffer_Diagnostic.List_Error = ex.ToString() + " Erro exportar relatório Bateladas";
+           
+
+                return false;
+            }
+
+
         }
 
         private static PdfPTable tableProducao(float[] colsW,string nomeColuna1, string  nomeColuna2, bool comBorda) 
