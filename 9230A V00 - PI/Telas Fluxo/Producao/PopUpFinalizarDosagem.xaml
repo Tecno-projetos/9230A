@@ -1,0 +1,80 @@
+﻿<Window x:Class="_9230A_V00___PI.Telas_Fluxo.Producao.PopUpFinalizarDosagem"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_9230A_V00___PI.Telas_Fluxo.Producao"
+        xmlns:Utilidades="clr-namespace:_9230A_V00___PI.Utilidades"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="Peso Dosado" Height="181" Width="437.5" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Icon="/9230A V00 - PI;component/Imagens/Automasul.ico">
+    <Window.Resources>
+        <SolidColorBrush x:Key="brushWatermarkForeground" Color="White" />
+        <Utilidades:TextInputToVisibilityConverter x:Key="TextInputToVisibilityConverter" />
+
+        <SolidColorBrush x:Key="brushWatermarkBorder" Color="White" />
+
+        <Style x:Key="EntryFieldStyle" TargetType="{x:Type Grid}" >
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="20,0" />
+        </Style>
+
+    </Window.Resources>
+
+    <Grid Background="#FF7F7F7F">
+        <Grid.Resources  >
+
+            <ResourceDictionary>
+                <ResourceDictionary.MergedDictionaries>
+                    <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Blue.xaml" />
+                    <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Indigo.xaml" />
+                    <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                </ResourceDictionary.MergedDictionaries>
+
+
+                <SolidColorBrush x:Key="brushWatermarkBackground" Color="#FF505050" />
+                <SolidColorBrush x:Key="brushWatermarkForeground" Color="White" />
+                <Utilidades:TextInputToVisibilityConverter x:Key="TextInputToVisibilityConverter" />
+
+                <SolidColorBrush x:Key="brushWatermarkBorder" Color="White" />
+
+                <Style x:Key="EntryFieldStyle" TargetType="{x:Type Grid}" >
+                    <Setter Property="HorizontalAlignment" Value="Stretch" />
+                    <Setter Property="VerticalAlignment" Value="Center" />
+                    <Setter Property="Margin" Value="20,0" />
+                </Style>
+
+
+
+            </ResourceDictionary>
+
+        </Grid.Resources>
+
+        <Label Content="Peso Dosado(kg): " Height="34" Margin="7,21,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="181" Foreground="White" FontWeight="Bold" FontSize="16"/>
+        <Grid Style="{StaticResource EntryFieldStyle}" Margin="10,52,208,0" Height="41" Background="#FF3C3C3C" VerticalAlignment="Top" >
+            <TextBlock Margin="5,0,6,5" Text="Exemplo: 55,5" Foreground="#FF919191" VerticalAlignment="Bottom" FontSize="14" >
+                <TextBlock.Visibility>
+                    <MultiBinding Converter="{StaticResource TextInputToVisibilityConverter}">
+                        <Binding ElementName="txtPeso" Path="Text.IsEmpty" />
+                        <Binding ElementName="txtPeso" Path="IsFocused" />
+                    </MultiBinding>
+                </TextBlock.Visibility>
+            </TextBlock>
+            <TextBox x:Name="txtPeso" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" IsReadOnly="True"/>
+        </Grid>
+        <Button x:Name="btOK" Margin="244,80,0,0" Background="#FF505050" BorderBrush="Black" Opacity="1" HorizontalAlignment="Left" Width="178" Height="39" VerticalAlignment="Top" Click="btOK_Click" >
+            <Grid Width="150" Height="29">
+                <materialDesign:PackIcon x:Name="packiconCadastrarEditar" Kind="CheckBold" VerticalAlignment="Center" Foreground="White" Margin="1,-6,0,-7" Height="30" Width="30"/>
+                <TextBlock x:Name="lbTextButton" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="68,7,2,5" Width="80" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Text="OK"/>
+            </Grid>
+        </Button>
+        <Button x:Name="btExit" Margin="244,24,0,0" Background="#FF505050" BorderBrush="Black" Opacity="1" HorizontalAlignment="Left" Width="178" Height="39" VerticalAlignment="Top" IsCancel="True" >
+            <Grid Width="150">
+                <materialDesign:PackIcon x:Name="packiconCadastrarEditar1" Kind="Close" VerticalAlignment="Center" Foreground="Red" Margin="1,-6,0,-7" Height="30" Width="30"/>
+                <TextBlock x:Name="lbTextButton3" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="53,1,2,-1" Width="95" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Fechar"/>
+            </Grid>
+        </Button>
+
+    </Grid>
+</Window>

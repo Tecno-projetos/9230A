@@ -89,13 +89,13 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
 
             if (Utilidades.VariaveisGlobais.indicadorPesagem.Erro_Leitura)
             {
-                lbStatusMotor.Content = "Balança não operável";
+                lbStatusMotor.Content = "Balança com erro";
                 lbStatusMotor.Background = new SolidColorBrush(Colors.Red);
                 lbStatusMotor.Foreground = new SolidColorBrush(Colors.White);
             }
             else
             {
-                lbStatusMotor.Content = "Balança operável";
+                lbStatusMotor.Content = "Balança em operação";
                 lbStatusMotor.Background = new SolidColorBrush(Colors.Green);
                 lbStatusMotor.Foreground = new SolidColorBrush(Colors.Black);
             }

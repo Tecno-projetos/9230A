@@ -971,7 +971,6 @@ namespace _9230A_V00___PI.Utilidades
 
         #endregion
 
-
         public static float floatingKeypad(string OldValue, short numeroMaximoCasas)
         {
             keypad mainWindow = new keypad(false, numeroMaximoCasas);          

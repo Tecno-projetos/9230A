@@ -19,45 +19,33 @@
             <materialDesign:PackIcon Kind="Receipt" VerticalAlignment="Center" Foreground="White" Height="95" Margin="0,6,0,574" Width="200"/>
             <Label Content="Receitas" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Foreground="White" FontSize="16" VerticalContentAlignment="Center" FontWeight="Bold" HorizontalContentAlignment="Center" Margin="0,101,0,0"/>
             <Rectangle Fill="White" HorizontalAlignment="Left" Height="5" Margin="10,133,0,0" Stroke="White" VerticalAlignment="Top" Width="180"/>
-            <Button x:Name="btCadastroProduto" Margin="10,420,10,205" Background="#FF505050" BorderBrush="Black" Height="50" Click="btCadastroProduto_Click">
+            <Button x:Name="btCadastroProduto" Margin="10,360,10,265" Background="#FF505050" BorderBrush="Black" Height="50" Click="btCadastroProduto_Click">
                 <Grid Width="175" Height="40">
                     <materialDesign:PackIcon Kind="Plus" VerticalAlignment="Center" Foreground="#FF00FB22" Margin="2,-6,0,-7" Height="30" Width="30"/>
                     <TextBlock TextAlignment="Center" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="20,13,10,11" Width="140" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center"><Run Text="Cadastr"/><Run Text="ar"/><Run Text=" "/><Run Text="Produto"/></TextBlock>
                 </Grid>
             </Button>
-            <Label Content="Produtos" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Foreground="White" FontSize="16" VerticalContentAlignment="Center" FontWeight="Bold" HorizontalContentAlignment="Center" Margin="0,373,0,0"/>
-            <Rectangle Fill="White" HorizontalAlignment="Left" Height="4" Margin="10,405,0,0" Stroke="White" VerticalAlignment="Top" Width="180"/>
-            <Button x:Name="btEditarReceita" Margin="10,206,10,419" Background="#FF505050" BorderBrush="Black" Height="50" Click="btEditarReceita_Click">
-                <Grid Width="170" Height="40">
-                    <materialDesign:PackIcon Kind="Edit" VerticalAlignment="Center" Foreground="#FFE2950D" Margin="2,-6,0,-7" Height="30" Width="30"/>
-                    <TextBlock TextAlignment="Center" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="36,12,15,10" Width="119" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center"><Run Text="Editar"/><Run Text=" "/><Run Text="Receita"/></TextBlock>
-                </Grid>
-            </Button>
-            <Button x:Name="btApagarReceita" Margin="10,261,10,364" Background="#FF505050" BorderBrush="Black" Height="50" Click="btApagarReceita_Click">
+            <Label Content="Produtos" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Foreground="White" FontSize="16" VerticalContentAlignment="Center" FontWeight="Bold" HorizontalContentAlignment="Center" Margin="0,319,0,0"/>
+            <Rectangle Fill="White" HorizontalAlignment="Left" Height="4" Margin="10,351,0,0" Stroke="White" VerticalAlignment="Top" Width="180"/>
+            <Button x:Name="btApagarReceita" Margin="10,206,10,419" Background="#FF505050" BorderBrush="Black" Height="50" Click="btApagarReceita_Click">
                 <Grid Width="170" Height="40">
                     <materialDesign:PackIcon Kind="Delete" VerticalAlignment="Center" Foreground="Red" Margin="2,-6,0,-7" Height="30" Width="30"/>
                     <TextBlock TextAlignment="Center" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="36,12,15,10" Width="119" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center"><Run Text="Apagar"/><Run Text=" "/><Run Text="Receita"/></TextBlock>
                 </Grid>
             </Button>
-            <Button x:Name="btEditarProduto" Margin="10,475,10,150" Background="#FF505050" BorderBrush="Black" Height="50" Click="btEditarProduto_Click">
-                <Grid Width="170" Height="40">
-                    <materialDesign:PackIcon Kind="Edit" VerticalAlignment="Center" Foreground="#FFE2950D" Margin="2,-6,0,-7" Height="30" Width="30"/>
-                    <TextBlock TextAlignment="Center" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="38,12,13,10" Width="119" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center"><Run Text="Editar"/><Run Text=" "/><Run Text="Produto"/></TextBlock>
-                </Grid>
-            </Button>
-            <Button x:Name="btApagarProduto" Margin="9,530,11,95" Background="#FF505050" BorderBrush="Black" Height="50" Click="btApagarProduto_Click">
+            <Button x:Name="btApagarProduto" Margin="10,415,10,210" Background="#FF505050" BorderBrush="Black" Height="50" Click="btApagarProduto_Click">
                 <Grid Width="170" Height="40">
                     <materialDesign:PackIcon Kind="Delete" VerticalAlignment="Center" Foreground="Red" Margin="2,-6,0,-7" Height="30" Width="30"/>
                     <TextBlock TextAlignment="Center" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="38,12,13,10" Width="119" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center"><Run Text="Apagar"/><Run Text=" "/><Run Text="Produto"/></TextBlock>
                 </Grid>
             </Button>
-            <Button x:Name="btPesquisarReceita" Margin="10,316,10,309" Background="#FF505050" BorderBrush="Black" Height="50" Click="btPesquisarReceita_Click">
+            <Button x:Name="btPesquisarReceita" Margin="10,261,10,364" Background="#FF505050" BorderBrush="Black" Height="50" Click="btPesquisarReceita_Click">
                 <Grid Width="170" Height="40">
                     <materialDesign:PackIcon Kind="Search" VerticalAlignment="Center" Foreground="White" Margin="2,-6,0,-7" Height="30" Width="30"/>
                     <TextBlock TextAlignment="Center" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="36,12,15,10" Width="119" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Pesquisar Receita"/>
                 </Grid>
             </Button>
-            <Button x:Name="btPesquisarProduto" Margin="9,585,11,40" Background="#FF505050" BorderBrush="Black" Height="50" Click="btPesquisarProduto_Click">
+            <Button x:Name="btPesquisarProduto" Margin="10,470,10,155" Background="#FF505050" BorderBrush="Black" Height="50" Click="btPesquisarProduto_Click">
                 <Grid Width="196" Height="40">
                     <materialDesign:PackIcon Kind="Search" VerticalAlignment="Center" Foreground="White" Margin="2,-6,0,-7" Height="30" Width="30"/>
                     <TextBlock TextAlignment="Center" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="25,13,42,10" Width="129" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Pesquisar Produto"/>

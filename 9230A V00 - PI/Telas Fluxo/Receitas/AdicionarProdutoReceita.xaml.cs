@@ -24,11 +24,14 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
     {
         string filtroTipoProduto = "";
 
+        Utilidades.messageBox inputDialog;
+
         public event EventHandler FinalizadoAdicaoProdutosReceita;
 
         public AdicionarProdutoReceita()
         {
             InitializeComponent();
+
         }
 
         private void btLeftList_Click(object sender, RoutedEventArgs e)
@@ -166,11 +169,28 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
         {
             if (DataGrid_Produtos.SelectedIndex != -1)
             {
+                bool achou = false;
+
                 var rowList = (DataGrid_Produtos.ItemContainerGenerator.ContainerFromIndex(DataGrid_Produtos.SelectedIndex) as DataGridRow).Item as DataRowView;
 
-                //Verifica se ja não tem o item na lista 
-                if (true)
+
+                foreach (DataRowView row in DataGrid_Receita.Items)
                 {
+                    string Descricao = row.Row.ItemArray[1].ToString();
+
+                    if (Descricao.Equals(rowList.Row.ItemArray[2]))
+                    {
+                        achou = true;
+                        break;
+
+                    }
+                }
+
+                //Verifica se ja não tem o item na lista 
+                if (!achou)
+                {
+     
+
                     Utilidades.ProdutoReceita produtoReceita = new Utilidades.ProdutoReceita();
                     produtoReceita.produto = new Produto();
 
@@ -185,10 +205,15 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
                     Telas_Fluxo.Receitas.AdicionarProdutoReceitaPouUp adcionaProdutoReceita = new AdicionarProdutoReceitaPouUp(produtoReceita, 0, false, "");
                     adcionaProdutoReceita.ShowDialog();
                     loadDataReceitas();
+
+                    CalculaPeso();
                 }
                 else
                 {
                     //Avisa que não pode adicionar o mesmo item na lista
+                    inputDialog = new messageBox("Produto já existe", "O produto já foi adicionado a receita!", MaterialDesignThemes.Wpf.PackIconKind.Information, "Ok", "Fechar");
+                    inputDialog.ShowDialog();
+
                 }
             }
            
@@ -206,6 +231,8 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
                 Telas_Fluxo.Receitas.AdicionarProdutoReceitaPouUp adcionaProdutoReceita = new AdicionarProdutoReceitaPouUp(Utilidades.VariaveisGlobais.ReceitaCadastro.listProdutos[index], Utilidades.VariaveisGlobais.ReceitaCadastro.listProdutos[index].pesoPorProduto, true, Utilidades.VariaveisGlobais.ReceitaCadastro.listProdutos[index].tipoDosagemMateriaPrima);
                 adcionaProdutoReceita.ShowDialog();
                 loadDataReceitas();
+
+                CalculaPeso();
             }
 
 
@@ -222,6 +249,8 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
                 Utilidades.VariaveisGlobais.ReceitaCadastro.listProdutos.RemoveAt(index);
 
                 loadDataReceitas();
+
+                CalculaPeso();
             }
 
         }
@@ -308,5 +337,31 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
             if (this.FinalizadoAdicaoProdutosReceita != null)
                 this.FinalizadoAdicaoProdutosReceita(this, e);
         }
+
+        private void CalculaPeso()
+        {
+            double peso = 0;
+
+            foreach (DataRowView row in DataGrid_Receita.Items)
+            {
+                float Descricao =Convert.ToSingle(row.Row.ItemArray[2]);
+
+                peso = peso + Descricao;
+
+            }
+
+            txtPesoProdutosSomados.Text = peso.ToString();
+
+            if (peso == Utilidades.VariaveisGlobais.ReceitaCadastro.pesoBase)
+            {
+                BackgroundPesoProdutoSomado.Background = new SolidColorBrush(Color.FromArgb(255, 60, 60, 60));
+
+            }
+            else
+            {
+                BackgroundPesoProdutoSomado.Background = new SolidColorBrush(Color.FromArgb(255, 155, 0, 0));
+            }
+        }
+
     }
 }

@@ -20,6 +20,9 @@ namespace _9230A_V00___PI.Telas_Fluxo
     /// </summary>
     public partial class receitas : UserControl
     {
+
+        private bool Editar = false;
+
         Utilidades.messageBox inputDialog;
 
         //Produtos
@@ -40,6 +43,8 @@ namespace _9230A_V00___PI.Telas_Fluxo
         //Pesquisas
         Receitas.pesquisaProduto pesquisaProduto = new Receitas.pesquisaProduto();
         Receitas.pesquisaReceita pesquisaReceita = new Receitas.pesquisaReceita();
+
+        public bool Editar_GS { get => Editar; set => Editar = value; }
 
         public receitas()
         {
@@ -164,6 +169,8 @@ namespace _9230A_V00___PI.Telas_Fluxo
 
         private void btCadastroReceita_Click(object sender, RoutedEventArgs e)
         {
+            Editar = false;
+
             if (spReceitas != null)
             {
                 spReceitas.Children.Clear();
@@ -196,12 +203,18 @@ namespace _9230A_V00___PI.Telas_Fluxo
 
         private void btEditarReceita_Click(object sender, RoutedEventArgs e)
         {
+            Editar = true;
+
+
             if (spReceitas != null)
             {
                 spReceitas.Children.Clear();
             }
 
             spReceitas.Children.Add(EditarCadastroReceita);
+
+    
+
         }
 
         private void btApagarReceita_Click(object sender, RoutedEventArgs e)
