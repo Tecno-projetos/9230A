@@ -27,6 +27,7 @@ namespace _9230A_V00___PI
 
 
 
+
         #endregion
 
         #region Dispacher Timers
@@ -170,6 +171,8 @@ namespace _9230A_V00___PI
 
             Utilidades.functions.atualizalistReceitas();
 
+            VariaveisGlobais.producao.IniciouProducao += Producao_IniciouProducao;
+
             VariaveisGlobais.Fluxo.inicialProducao.BtSlot1_Click += InicialProducao_Bt1_Click;
             VariaveisGlobais.Fluxo.inicialProducao.BtSlot2_Click += InicialProducao_Bt2_Click;
             VariaveisGlobais.Fluxo.inicialProducao.BtSlot3_Click += InicialProducao_Bt3_Click;
@@ -185,6 +188,18 @@ namespace _9230A_V00___PI
 
             windowFirstLoading.Close();
 
+        }
+
+        private void Producao_IniciouProducao(object sender, EventArgs e)
+        {
+            if (spInical != null)
+            {
+                spInical.Children.Clear();
+
+                spInical.Children.Add(Utilidades.VariaveisGlobais.Fluxo);
+
+                AtualizaButton(pckHome);
+            }
         }
 
         private void Telabalanca_Closing(object sender, System.ComponentModel.CancelEventArgs e)

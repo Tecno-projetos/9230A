@@ -528,6 +528,25 @@ namespace _9230A_V00___PI.Utilidades
             }
         }
 
+        public void finalizaProducao()
+        {
+            //Retira produção do Banco de dados
+            DataBase.SQLFunctionsProducao.Update_Finaliza_Producao(0,0);
+
+            //Atualiza a produção que esta em execução
+            //se não encontrar nada em produção no banco de dados, instancia uma nova produção
+            DataBase.SQLFunctionsProducao.AtualizaProducaoEmExecucao();
+
+            //Envia para o CLP retirar a produção
+            VariaveisGlobais.Buffer_PLC[bufferPlc].Enable_Read = false;
+
+            controleExecucao.RetiraProducao = true;
+
+            writeVariablesSlotIntoBuffer(0);
+
+            VariaveisGlobais.Buffer_PLC[bufferPlc].Enable_Write = true;
+
+        }
 
         private void finaliza_Producao()
         {
@@ -537,8 +556,16 @@ namespace _9230A_V00___PI.Utilidades
                 //Verifica se a quantidade de bateladas é igual a quantidade de bateladas finalizadas, se for finaliza a batelada
                 if (controleExecucao.Bateladas_Finalizadas == (short)Utilidades.VariaveisGlobais.ProducaoReceita.quantidadeBateladas)
                 {
+                    float pesoTotal = 0.0f;
+                    float volumeTotal = 0.0f;
+                    //Verifica o peso e volume total dosado na batelada
+                    foreach (var batelada in VariaveisGlobais.ProducaoReceita.batelada)
+                    {
+                        pesoTotal += batelada.pesoDosado;
+                    }
+
                     //Atualiza no banco de dados 
-                    DataBase.SQLFunctionsProducao.Update_Finaliza_Producao();
+                    DataBase.SQLFunctionsProducao.Update_Finaliza_Producao(pesoTotal, volumeTotal);
 
                     //Atualiza a produção que esta em execução
                     //se não encontrar nada em produção no banco de dados, instancia uma nova produção
@@ -575,6 +602,9 @@ namespace _9230A_V00___PI.Utilidades
                     //Atualiza o produto batelada
                     VariaveisGlobais.ProducaoReceita.batelada[controleExecucao.Slot_1.NumeroBatelada - 1].produtos[controleExecucao.Slot_1.Produto_Atual_Em_Producao - 1].pesoDosado = controleExecucao.Slot_1.Complemento_Pre.Quantidade_Dosada_Item_Atual;
 
+                    //Atualiza total dosado batelada
+                    VariaveisGlobais.ProducaoReceita.batelada[controleExecucao.Slot_1.NumeroBatelada - 1].pesoDosado += controleExecucao.Slot_1.Complemento_Pre.Quantidade_Dosada_Item_Atual;
+
                     //Reseta o finalizado dosagem de complemento
                     VariaveisGlobais.Buffer_PLC[bufferPlc].Enable_Read = false;
 
@@ -598,6 +628,9 @@ namespace _9230A_V00___PI.Utilidades
                     //Atualiza o produto batelada
                     VariaveisGlobais.ProducaoReceita.batelada[controleExecucao.Slot_1.NumeroBatelada - 1].produtos[controleExecucao.Slot_1.Produto_Atual_Em_Producao - 1].pesoDosado = controleExecucao.Slot_1.Complemento_Pos.Quantidade_Dosada_Item_Atual;
 
+                    //Atualiza total dosado batelada
+                    VariaveisGlobais.ProducaoReceita.batelada[controleExecucao.Slot_1.NumeroBatelada - 1].pesoDosado += controleExecucao.Slot_1.Complemento_Pos.Quantidade_Dosada_Item_Atual;
+
                     //Reseta o finalizado dosagem de complemento
                     VariaveisGlobais.Buffer_PLC[bufferPlc].Enable_Read = false;
 
@@ -619,6 +652,9 @@ namespace _9230A_V00___PI.Utilidades
 
                     //Atualiza o produto batelada
                     VariaveisGlobais.ProducaoReceita.batelada[controleExecucao.Slot_1.NumeroBatelada - 1].produtos[controleExecucao.Slot_1.Produto_Atual_Em_Producao - 1].pesoDosado = controleExecucao.Slot_1.Dosado_Materia_Prima_Silo_1;
+
+                    //Atualiza total dosado batelada
+                    VariaveisGlobais.ProducaoReceita.batelada[controleExecucao.Slot_1.NumeroBatelada - 1].pesoDosado += controleExecucao.Slot_1.Dosado_Materia_Prima_Silo_1;
 
                     //Reseta o finalizado dosagem de complemento
                     VariaveisGlobais.Buffer_PLC[bufferPlc].Enable_Read = false;
@@ -643,6 +679,9 @@ namespace _9230A_V00___PI.Utilidades
 
                     //Atualiza o produto batelada
                     VariaveisGlobais.ProducaoReceita.batelada[controleExecucao.Slot_1.NumeroBatelada - 1].produtos[controleExecucao.Slot_1.Produto_Atual_Em_Producao - 1].pesoDosado = controleExecucao.Slot_1.Dosado_Materia_Prima_Silo_2;
+
+                    //Atualiza total dosado batelada
+                    VariaveisGlobais.ProducaoReceita.batelada[controleExecucao.Slot_1.NumeroBatelada - 1].pesoDosado += controleExecucao.Slot_1.Dosado_Materia_Prima_Silo_2;
 
                     //Reseta o finalizado dosagem de complemento
                     VariaveisGlobais.Buffer_PLC[bufferPlc].Enable_Read = false;
@@ -676,6 +715,9 @@ namespace _9230A_V00___PI.Utilidades
                     //Atualiza o produto batelada
                     VariaveisGlobais.ProducaoReceita.batelada[controleExecucao.Slot_2.NumeroBatelada - 1].produtos[controleExecucao.Slot_2.Produto_Atual_Em_Producao - 1].pesoDosado = controleExecucao.Slot_2.Complemento_Pre.Quantidade_Dosada_Item_Atual;
 
+                    //Atualiza total dosado batelada
+                    VariaveisGlobais.ProducaoReceita.batelada[controleExecucao.Slot_2.NumeroBatelada - 1].pesoDosado += controleExecucao.Slot_2.Complemento_Pre.Quantidade_Dosada_Item_Atual;
+
                     //Reseta o finalizado dosagem de complemento
                     VariaveisGlobais.Buffer_PLC[bufferPlc].Enable_Read = false;
 
@@ -699,6 +741,9 @@ namespace _9230A_V00___PI.Utilidades
                     //Atualiza o produto batelada
                     VariaveisGlobais.ProducaoReceita.batelada[controleExecucao.Slot_2.NumeroBatelada - 1].produtos[controleExecucao.Slot_2.Produto_Atual_Em_Producao - 1].pesoDosado = controleExecucao.Slot_2.Complemento_Pos.Quantidade_Dosada_Item_Atual;
 
+                    //Atualiza total dosado batelada
+                    VariaveisGlobais.ProducaoReceita.batelada[controleExecucao.Slot_2.NumeroBatelada - 1].pesoDosado += controleExecucao.Slot_2.Complemento_Pos.Quantidade_Dosada_Item_Atual;
+
                     //Reseta o finalizado dosagem de complemento
                     VariaveisGlobais.Buffer_PLC[bufferPlc].Enable_Read = false;
 
@@ -720,6 +765,9 @@ namespace _9230A_V00___PI.Utilidades
 
                     //Atualiza o produto batelada
                     VariaveisGlobais.ProducaoReceita.batelada[controleExecucao.Slot_2.NumeroBatelada - 1].produtos[controleExecucao.Slot_2.Produto_Atual_Em_Producao - 1].pesoDosado = controleExecucao.Slot_2.Dosado_Materia_Prima_Silo_1;
+
+                    //Atualiza total dosado batelada
+                    VariaveisGlobais.ProducaoReceita.batelada[controleExecucao.Slot_2.NumeroBatelada - 1].pesoDosado += controleExecucao.Slot_2.Dosado_Materia_Prima_Silo_1;
 
                     //Reseta o finalizado dosagem de complemento
                     VariaveisGlobais.Buffer_PLC[bufferPlc].Enable_Read = false;
@@ -744,6 +792,9 @@ namespace _9230A_V00___PI.Utilidades
 
                     //Atualiza o produto batelada
                     VariaveisGlobais.ProducaoReceita.batelada[controleExecucao.Slot_2.NumeroBatelada - 1].produtos[controleExecucao.Slot_2.Produto_Atual_Em_Producao - 1].pesoDosado = controleExecucao.Slot_2.Dosado_Materia_Prima_Silo_2;
+
+                    //Atualiza total dosado batelada
+                    VariaveisGlobais.ProducaoReceita.batelada[controleExecucao.Slot_2.NumeroBatelada - 1].pesoDosado += controleExecucao.Slot_2.Dosado_Materia_Prima_Silo_2;
 
                     //Reseta o finalizado dosagem de complemento
                     VariaveisGlobais.Buffer_PLC[bufferPlc].Enable_Read = false;
@@ -777,6 +828,9 @@ namespace _9230A_V00___PI.Utilidades
                     //Atualiza o produto batelada
                     VariaveisGlobais.ProducaoReceita.batelada[controleExecucao.Slot_3.NumeroBatelada - 1].produtos[controleExecucao.Slot_3.Produto_Atual_Em_Producao - 1].pesoDosado = controleExecucao.Slot_3.Complemento_Pre.Quantidade_Dosada_Item_Atual;
 
+                    //Atualiza total dosado batelada
+                    VariaveisGlobais.ProducaoReceita.batelada[controleExecucao.Slot_3.NumeroBatelada - 1].pesoDosado += controleExecucao.Slot_3.Complemento_Pre.Quantidade_Dosada_Item_Atual;
+
                     //Reseta o finalizado dosagem de complemento
                     VariaveisGlobais.Buffer_PLC[bufferPlc].Enable_Read = false;
 
@@ -800,6 +854,9 @@ namespace _9230A_V00___PI.Utilidades
                     //Atualiza o produto batelada
                     VariaveisGlobais.ProducaoReceita.batelada[controleExecucao.Slot_3.NumeroBatelada - 1].produtos[controleExecucao.Slot_3.Produto_Atual_Em_Producao - 1].pesoDosado = controleExecucao.Slot_3.Complemento_Pos.Quantidade_Dosada_Item_Atual;
 
+                    //Atualiza total dosado batelada
+                    VariaveisGlobais.ProducaoReceita.batelada[controleExecucao.Slot_3.NumeroBatelada - 1].pesoDosado += controleExecucao.Slot_3.Complemento_Pos.Quantidade_Dosada_Item_Atual;
+
                     //Reseta o finalizado dosagem de complemento
                     VariaveisGlobais.Buffer_PLC[bufferPlc].Enable_Read = false;
 
@@ -821,6 +878,9 @@ namespace _9230A_V00___PI.Utilidades
 
                     //Atualiza o produto batelada
                     VariaveisGlobais.ProducaoReceita.batelada[controleExecucao.Slot_3.NumeroBatelada - 1].produtos[controleExecucao.Slot_3.Produto_Atual_Em_Producao - 1].pesoDosado = controleExecucao.Slot_3.Dosado_Materia_Prima_Silo_1;
+
+                    //Atualiza total dosado batelada
+                    VariaveisGlobais.ProducaoReceita.batelada[controleExecucao.Slot_3.NumeroBatelada - 1].pesoDosado += controleExecucao.Slot_3.Dosado_Materia_Prima_Silo_1;
 
                     //Reseta o finalizado dosagem de complemento
                     VariaveisGlobais.Buffer_PLC[bufferPlc].Enable_Read = false;
@@ -845,6 +905,9 @@ namespace _9230A_V00___PI.Utilidades
 
                     //Atualiza o produto batelada
                     VariaveisGlobais.ProducaoReceita.batelada[controleExecucao.Slot_3.NumeroBatelada - 1].produtos[controleExecucao.Slot_3.Produto_Atual_Em_Producao - 1].pesoDosado = controleExecucao.Slot_3.Dosado_Materia_Prima_Silo_2;
+
+                    //Atualiza total dosado batelada
+                    VariaveisGlobais.ProducaoReceita.batelada[controleExecucao.Slot_3.NumeroBatelada - 1].pesoDosado += controleExecucao.Slot_3.Dosado_Materia_Prima_Silo_2;
 
                     //Reseta o finalizado dosagem de complemento
                     VariaveisGlobais.Buffer_PLC[bufferPlc].Enable_Read = false;

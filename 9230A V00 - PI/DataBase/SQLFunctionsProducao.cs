@@ -364,7 +364,7 @@ namespace _9230A_V00___PI.DataBase
 
         }
 
-        public static int Update_Finaliza_Producao()
+        public static int Update_Finaliza_Producao(float pesoTotalProduzido, float volumeTotalProduzido)
         {
             int ret = -1;
             if (Utilidades.VariaveisGlobais.DB_Connected_GS)
@@ -376,7 +376,7 @@ namespace _9230A_V00___PI.DataBase
 
                     DTnow = DTnow.ToString("yyyyMMdd") + " " + DateTime.Now.Hour + ":" + DateTime.Now.Minute;
 
-                    string CommandString = "UPDATE Producao SET FinalizouProducao = 'true', DataFimProducao = '"+ DTnow + "' WHERE FinalizouProducao = 'false';";
+                    string CommandString = "UPDATE Producao SET FinalizouProducao = 'true', DataFimProducao = '"+ DTnow + "', PesoTotalProduzido = '"+ pesoTotalProduzido + "', VolumeTotalProduzido = '"+ volumeTotalProduzido + "' WHERE FinalizouProducao = 'false';";
 
                     dynamic Call = SqlGlobalFuctions.ReturnCall(Utilidades.VariaveisGlobais.Connection_DB_Receitas_GS);
                     dynamic Command = SqlGlobalFuctions.ReturnCommand(CommandString, Call);

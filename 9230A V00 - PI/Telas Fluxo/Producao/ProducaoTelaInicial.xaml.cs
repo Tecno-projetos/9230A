@@ -168,6 +168,9 @@ namespace _9230A_V00___PI.Telas_Fluxo.Producao
             {
                 if (DataGrid_Receita.SelectedIndex != -1)
                 {
+
+                    Utilidades.VariaveisGlobais.ProducaoReceita = new Utilidades.Producao();
+
                     var rowList = (DataGrid_Receita.ItemContainerGenerator.ContainerFromIndex(DataGrid_Receita.SelectedIndex) as DataGridRow).Item as DataRowView;
 
                     Utilidades.functions.atualizalistReceitas();

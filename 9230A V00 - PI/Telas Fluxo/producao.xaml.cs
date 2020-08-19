@@ -30,6 +30,8 @@ namespace _9230A_V00___PI.Telas_Fluxo
 
         Utilidades.messageBox inputDialog;
 
+        public event EventHandler IniciouProducao;
+
         public producao()
         {
             InitializeComponent();
@@ -40,7 +42,7 @@ namespace _9230A_V00___PI.Telas_Fluxo
 
             TelaConfiguracaoReceitaProducao.TelaAnterior += new EventHandler(EventoTelaAnterior);
 
-            TelaVerificaoBateladas.ProximaTela += new EventHandler(EventoProximaTelaVerificacaoBateladas);
+            TelaVerificaoBateladas.IniciouProducao += new EventHandler(EventoIniciouProducaoVerificacaoBateladas);
 
             TelaVerificaoBateladas.TelaAnterior += new EventHandler(EventoTelaAnteriorVerificacaoBateladas);
         }
@@ -54,13 +56,16 @@ namespace _9230A_V00___PI.Telas_Fluxo
             spControleProducao.Children.Add(TelaConfiguracaoReceitaProducao);
         }
 
-        protected void EventoProximaTelaVerificacaoBateladas(object sender, EventArgs e)
+        protected void EventoIniciouProducaoVerificacaoBateladas(object sender, EventArgs e)
         {
             if (spControleProducao != null)
             {
                 spControleProducao.Children.Clear();
             }
-            //spControleProducao.Children.Add(TelaInicialProducao);
+            spControleProducao.Children.Add(TelaControleProducao);
+
+            if (this.IniciouProducao != null)
+                this.IniciouProducao(this, e);
         }
 
         protected void EventoTelaAnterior(object sender, EventArgs e)
@@ -134,11 +139,15 @@ namespace _9230A_V00___PI.Telas_Fluxo
 
         private void btEmProducao_Click(object sender, RoutedEventArgs e)
         {
-            if (spControleProducao != null)
+            if (VariaveisGlobais.ProducaoReceita.id != 0)
             {
-                spControleProducao.Children.Clear();
+                if (spControleProducao != null)
+                {
+                    spControleProducao.Children.Clear();
+                }
+                spControleProducao.Children.Add(TelaControleProducao);
             }
-            spControleProducao.Children.Add(TelaControleProducao);
+
         }
 
         public void atualizaTelaEmProducao()
@@ -149,6 +158,12 @@ namespace _9230A_V00___PI.Telas_Fluxo
         public void atualizaTelaEnsaque()
         {
             TelaEnsaque.Actualize_UI();
+        }
+
+        private void btRetirarProducao_Click(object sender, RoutedEventArgs e)
+        {
+            VariaveisGlobais.executaProducao.finalizaProducao();
+
         }
     }
 }

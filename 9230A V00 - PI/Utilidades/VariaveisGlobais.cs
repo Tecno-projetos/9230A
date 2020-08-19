@@ -340,7 +340,7 @@ namespace _9230A_V00___PI.Utilidades
             //Palavra de commando
             public bool Iniciar_Producao;                    //Inica Produção
             public bool Habilitado_Iniciar_Nova_Producao;
-            public bool Reserva_1;
+            public bool RetiraProducao;
             public bool Reserva_2;
             public bool Reserva_3;
             public bool Reserva_4;
@@ -1186,21 +1186,28 @@ namespace _9230A_V00___PI.Utilidades
         {
             bool slotDosagemMateriaPrima = false;
             bool slotDosagemComplemento = false;
+            bool slotIniciadoDosagem = false;
 
             if (slotProducao == 1)
             {
                 slotDosagemMateriaPrima = executaProducao.ControleExecucao.Slot_1.Complemento_Pre.Habilitado_Inicio_Dosagem;
                 slotDosagemComplemento = executaProducao.ControleExecucao.Slot_1.Complemento_Pos.Habilitado_Inicio_Dosagem;
+
+                slotIniciadoDosagem = executaProducao.ControleExecucao.Slot_1.Complemento_Pre.Item_Atual_Iniciado_Dosagem || executaProducao.ControleExecucao.Slot_1.Complemento_Pos.Item_Atual_Iniciado_Dosagem;
             }
             else if (slotProducao == 2)
             {
                 slotDosagemMateriaPrima = executaProducao.ControleExecucao.Slot_2.Complemento_Pre.Habilitado_Inicio_Dosagem;
                 slotDosagemComplemento = executaProducao.ControleExecucao.Slot_2.Complemento_Pos.Habilitado_Inicio_Dosagem;
+
+                slotIniciadoDosagem = executaProducao.ControleExecucao.Slot_2.Complemento_Pre.Item_Atual_Iniciado_Dosagem || executaProducao.ControleExecucao.Slot_2.Complemento_Pos.Item_Atual_Iniciado_Dosagem;
             }
             else if (slotProducao == 3)
             {
                 slotDosagemMateriaPrima = executaProducao.ControleExecucao.Slot_3.Complemento_Pre.Habilitado_Inicio_Dosagem;
                 slotDosagemComplemento = executaProducao.ControleExecucao.Slot_3.Complemento_Pos.Habilitado_Inicio_Dosagem;
+
+                slotIniciadoDosagem = executaProducao.ControleExecucao.Slot_3.Complemento_Pre.Item_Atual_Iniciado_Dosagem || executaProducao.ControleExecucao.Slot_3.Complemento_Pos.Item_Atual_Iniciado_Dosagem;
             }
 
             if (status == 0)
@@ -1220,7 +1227,13 @@ namespace _9230A_V00___PI.Utilidades
                 Button.Content = "Batelada: " + numeroBatelada;
                 Button.Background = new SolidColorBrush(Colors.Yellow);
                 Button.Foreground = new SolidColorBrush(Colors.Black);
-            }         
+            }
+            else if ((status == 1 || status == 6) && slotIniciadoDosagem)
+            {
+                Button.Content = "Batelada: " + numeroBatelada;
+                Button.Background = new SolidColorBrush(Colors.Orange);
+                Button.Foreground = new SolidColorBrush(Colors.Black);
+            }
             else
             {
                 Button.Content = "Batelada: " + numeroBatelada;

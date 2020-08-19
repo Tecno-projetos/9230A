@@ -21,7 +21,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Producao
     /// </summary>
     public partial class VerificacaoBateladas : UserControl
     {
-        public event EventHandler ProximaTela;
+        public event EventHandler IniciouProducao;
         public event EventHandler TelaAnterior;
 
         Utilidades.messageBox inputDialog;
@@ -138,7 +138,6 @@ namespace _9230A_V00___PI.Telas_Fluxo.Producao
             }
         }
 
-
         private void DataGrid_Bateladas_LoadingRow(object sender, DataGridRowEventArgs e)
         {
             DataGrid_Bateladas.Columns[2].Visibility = Visibility.Hidden;
@@ -200,7 +199,8 @@ namespace _9230A_V00___PI.Telas_Fluxo.Producao
                 //Verifica qual Produção esta em execução e carrega a produção
                 DataBase.SQLFunctionsProducao.AtualizaProducaoEmExecucao();
 
-
+                if (this.IniciouProducao != null)
+                    this.IniciouProducao(this, e);
             }
 
 

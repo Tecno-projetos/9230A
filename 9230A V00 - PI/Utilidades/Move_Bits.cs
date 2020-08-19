@@ -839,7 +839,7 @@ namespace _9230A_V00___PI.Utilidades
 
             execucaoProducao.Iniciar_Producao = bits[0];
             execucaoProducao.Habilitado_Iniciar_Nova_Producao = bits[1];
-            execucaoProducao.Reserva_1 = bits[2];
+            execucaoProducao.RetiraProducao = bits[2];
             execucaoProducao.Reserva_2 = bits[3];
             execucaoProducao.Reserva_3 = bits[4];
             execucaoProducao.Reserva_4 = bits[5];
@@ -879,7 +879,7 @@ namespace _9230A_V00___PI.Utilidades
 
             bits[0] = execucaoProducao.Iniciar_Producao;
             bits[1] = execucaoProducao.Habilitado_Iniciar_Nova_Producao;
-            bits[2] = execucaoProducao.Reserva_1;
+            bits[2] = execucaoProducao.RetiraProducao;
             bits[3] = execucaoProducao.Reserva_2;
             bits[4] = execucaoProducao.Reserva_3;
             bits[5] = execucaoProducao.Reserva_4;

@@ -91,6 +91,11 @@ namespace _9230A_V00___PI.Telas_Fluxo.Producao
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
+            codigoProdutoMateriaPrima1 = "";
+            codigoProdutoMateriaPrima2 = "";
+
+            txtSiloMateriaPrima1.Text = "";
+            txtSiloMateriaPrima2.Text = "";
 
             //Preenche os campos das duas possíveis matérias primas de dosagem automática, para poder selecionar o silo que deseja produzir a matéria prima.
             bool count = false;

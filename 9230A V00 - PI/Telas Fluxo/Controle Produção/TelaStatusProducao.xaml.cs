@@ -116,20 +116,21 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
         {
             if (SlotSolicitado == 1)
             {
-                //Atualiza cor dos slots
-                btSlot1.Background = new SolidColorBrush(Colors.Green);
-                btSlot2.Background = new SolidColorBrush(Colors.Gray);
-                btSlot3.Background = new SolidColorBrush(Colors.Gray);
-
                 //Atualiza status da batelada
                 lb_Status_Batelada = Utilidades.functions.controleStatus(VariaveisGlobais.executaProducao.ControleExecucao.Slot_1.Status_Batelada, lb_Status_Batelada);
 
                 //Atualiza valores 
                 PesoAtualBalanca.Content = Utilidades.VariaveisGlobais.indicadorPesagem.Valor_Atual_Indicador.ToString("N", CultureInfo.GetCultureInfo("pt-BR"));
-                PesoProdutoAtual.Content = RetornaPesoProdutoAtualDosandoSlot(1).ToString("N", CultureInfo.GetCultureInfo("pt-BR"));
-                TempoRestantePreMistura.Content = Utilidades.VariaveisGlobais.executaProducao.ControleExecucao.Slot_1.TempoRestantePreMistura.ToString("N", CultureInfo.GetCultureInfo("pt-BR"));
-                TempoRestantePosMistura.Content = Utilidades.VariaveisGlobais.executaProducao.ControleExecucao.Slot_1.TempoRestantePosMistura.ToString("N", CultureInfo.GetCultureInfo("pt-BR"));
 
+                if (VariaveisGlobais.executaProducao.ControleExecucao.Slot_1.NumeroBatelada - 1 >= 0)
+                {
+                    PesoProdutoAtual.Content = (Utilidades.VariaveisGlobais.indicadorPesagem.Valor_Atual_Indicador - VariaveisGlobais.ProducaoReceita.batelada[VariaveisGlobais.executaProducao.ControleExecucao.Slot_1.NumeroBatelada - 1].pesoDosado).ToString("N", CultureInfo.GetCultureInfo("pt-BR"));
+
+                }
+
+                TempoRestantePreMistura.Content = Utilidades.VariaveisGlobais.executaProducao.ControleExecucao.Slot_1.TempoRestantePreMistura.ToString();
+                TempoRestantePosMistura.Content = Utilidades.VariaveisGlobais.executaProducao.ControleExecucao.Slot_1.TempoRestantePosMistura.ToString();
+                TempoTotalBatelada.Content = Utilidades.VariaveisGlobais.executaProducao.ControleExecucao.Slot_1.TempoAtualDesdeIniciado.ToString();
 
                 //Atualiza produtos no data grid
                 atualizaGridProdutos(VariaveisGlobais.executaProducao.ControleExecucao.Slot_1);
@@ -169,25 +170,28 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
                     {
                         btDosarManual.Background = new SolidColorBrush(Colors.Gray);
                         txtDosarManual.Foreground = new SolidColorBrush(Colors.Black);
-                        txtDosarManual.Text = "Dosagem Manual Finalizada";
+                        txtDosarManual.Text = "Dosagem Manual";
                     }
                 }
 
             }
             else if (SlotSolicitado == 2)
             {
-                btSlot1.Background = new SolidColorBrush(Colors.Gray);
-                btSlot2.Background = new SolidColorBrush(Colors.Green);
-                btSlot3.Background = new SolidColorBrush(Colors.Gray);
-
                 //Atualiza status da batelada
                 lb_Status_Batelada = Utilidades.functions.controleStatus(VariaveisGlobais.executaProducao.ControleExecucao.Slot_2.Status_Batelada, lb_Status_Batelada);
 
                 //Atualiza valores 
                 PesoAtualBalanca.Content = Utilidades.VariaveisGlobais.indicadorPesagem.Valor_Atual_Indicador.ToString("N", CultureInfo.GetCultureInfo("pt-BR"));
-                PesoProdutoAtual.Content = RetornaPesoProdutoAtualDosandoSlot(1).ToString("N", CultureInfo.GetCultureInfo("pt-BR"));
-                TempoRestantePreMistura.Content = Utilidades.VariaveisGlobais.executaProducao.ControleExecucao.Slot_1.TempoRestantePreMistura.ToString("N", CultureInfo.GetCultureInfo("pt-BR"));
-                TempoRestantePosMistura.Content = Utilidades.VariaveisGlobais.executaProducao.ControleExecucao.Slot_1.TempoRestantePosMistura.ToString("N", CultureInfo.GetCultureInfo("pt-BR"));
+
+                if (VariaveisGlobais.executaProducao.ControleExecucao.Slot_2.NumeroBatelada - 1 >= 0)
+                {
+                    PesoProdutoAtual.Content = (Utilidades.VariaveisGlobais.indicadorPesagem.Valor_Atual_Indicador - VariaveisGlobais.ProducaoReceita.batelada[VariaveisGlobais.executaProducao.ControleExecucao.Slot_2.NumeroBatelada - 1].pesoDosado).ToString("N", CultureInfo.GetCultureInfo("pt-BR"));
+
+                }
+
+                TempoRestantePreMistura.Content = Utilidades.VariaveisGlobais.executaProducao.ControleExecucao.Slot_2.TempoRestantePreMistura.ToString("N", CultureInfo.GetCultureInfo("pt-BR"));
+                TempoRestantePosMistura.Content = Utilidades.VariaveisGlobais.executaProducao.ControleExecucao.Slot_2.TempoRestantePosMistura.ToString("N", CultureInfo.GetCultureInfo("pt-BR"));
+                TempoTotalBatelada.Content = Utilidades.VariaveisGlobais.executaProducao.ControleExecucao.Slot_2.TempoAtualDesdeIniciado.ToString();
 
                 //Atualiza produtos no data grid
                 atualizaGridProdutos(VariaveisGlobais.executaProducao.ControleExecucao.Slot_2);
@@ -226,7 +230,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
                     {
                         btDosarManual.Background = new SolidColorBrush(Colors.Gray);
                         txtDosarManual.Foreground = new SolidColorBrush(Colors.Black);
-                        txtDosarManual.Text = "Salvando Valor Dosagem";
+                        txtDosarManual.Text = "Dosagem Manual";
                     }
                 }
 
@@ -234,18 +238,21 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
             }
             else if (SlotSolicitado == 3)
             {
-                btSlot1.Background = new SolidColorBrush(Colors.Gray);
-                btSlot2.Background = new SolidColorBrush(Colors.Gray);
-                btSlot3.Background = new SolidColorBrush(Colors.Green);
                 lb_Status_Batelada = Utilidades.functions.controleStatus(VariaveisGlobais.executaProducao.ControleExecucao.Slot_3.Status_Batelada, lb_Status_Batelada);
 
                 atualizaGridProdutos(VariaveisGlobais.executaProducao.ControleExecucao.Slot_3);
 
                 //Atualiza valores 
                 PesoAtualBalanca.Content = Utilidades.VariaveisGlobais.indicadorPesagem.Valor_Atual_Indicador.ToString("N", CultureInfo.GetCultureInfo("pt-BR"));
-                PesoProdutoAtual.Content = RetornaPesoProdutoAtualDosandoSlot(1).ToString("N", CultureInfo.GetCultureInfo("pt-BR"));
+                if (VariaveisGlobais.executaProducao.ControleExecucao.Slot_3.NumeroBatelada - 1 >= 0)
+                {
+                    PesoProdutoAtual.Content = (Utilidades.VariaveisGlobais.indicadorPesagem.Valor_Atual_Indicador - VariaveisGlobais.ProducaoReceita.batelada[VariaveisGlobais.executaProducao.ControleExecucao.Slot_3.NumeroBatelada - 1].pesoDosado).ToString("N", CultureInfo.GetCultureInfo("pt-BR"));
+
+                }
+
                 TempoRestantePreMistura.Content = Utilidades.VariaveisGlobais.executaProducao.ControleExecucao.Slot_3.TempoRestantePreMistura.ToString("N", CultureInfo.GetCultureInfo("pt-BR"));
                 TempoRestantePosMistura.Content = Utilidades.VariaveisGlobais.executaProducao.ControleExecucao.Slot_3.TempoRestantePosMistura.ToString("N", CultureInfo.GetCultureInfo("pt-BR"));
+                TempoTotalBatelada.Content = Utilidades.VariaveisGlobais.executaProducao.ControleExecucao.Slot_3.TempoAtualDesdeIniciado.ToString();
 
                 //Atualiza produtos no data grid
                 atualizaGridProdutos(VariaveisGlobais.executaProducao.ControleExecucao.Slot_3);
@@ -284,26 +291,12 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
                     {
                         btDosarManual.Background = new SolidColorBrush(Colors.Gray);
                         txtDosarManual.Foreground = new SolidColorBrush(Colors.Black);
-                        txtDosarManual.Text = "Salvando Valor Dosagem";
+                        txtDosarManual.Text = "Dosagem Manual";
                     }
                 }
             }
         }
 
-        private float RetornaPesoProdutoAtualDosandoSlot(int slot)
-        {
-            if (true)
-            {
-
-            }
-
-            if (slot == 1)
-            {
-
-            }
-
-            return 1.0f;
-        }
 
         private void DataGrid_Produtos_LoadingRow(object sender, DataGridRowEventArgs e)
         {
