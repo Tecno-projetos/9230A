@@ -92,10 +92,16 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
                 inputDialog.ShowDialog();
 
 
-                //Relatorios.ExportacaoRelatorios.exportProducao(fileName, Utilidades.VariaveisGlobais.PesquisaProducao, "Produção Total", DateTime.Now, DateTime.Now);
-            
+
+
                 //Original
-                Relatorios.ExportacaoRelatorios.exportProducao(fileName, Utilidades.functions.PesquisaDateInDateOut(producao.dataInicial_GS, producao.dataFinal_GS), "Produção Total", producao.dataInicial_GS, producao.dataFinal_GS);
+                if (!Relatorios.ExportacaoRelatorios.exportProducao(fileName, Utilidades.functions.PesquisaDateInDateOut(producao.dataInicial_GS, producao.dataFinal_GS), "Produção Total", producao.dataInicial_GS, producao.dataFinal_GS)) 
+                {
+                    inputDialog = new Utilidades.messageBox("Erro", "Erro ao gerar relatório. Tente Novamente!", MaterialDesignThemes.Wpf.PackIconKind.Information, "OK", "Fechar");
+
+                    inputDialog.ShowDialog();
+                }
+                
 
                 producao.atualizaProjeto(fileName);
 
@@ -131,15 +137,20 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
 
                     inputDialog.ShowDialog();
 
-                    //Relatorios.ExportacaoRelatorios.exportProducao(destinationFile, Utilidades.VariaveisGlobais.PesquisaProducao, "Produção Total", DateTime.Now, DateTime.Now);
-
                     //Original
-                    Relatorios.ExportacaoRelatorios.exportProducao(fileName, Utilidades.functions.PesquisaDateInDateOut(producao.dataInicial_GS, producao.dataFinal_GS), "Produção Total", producao.dataInicial_GS, producao.dataFinal_GS);
+                    if (Relatorios.ExportacaoRelatorios.exportProducao(fileName, Utilidades.functions.PesquisaDateInDateOut(producao.dataInicial_GS, producao.dataFinal_GS), "Produção Total", producao.dataInicial_GS, producao.dataFinal_GS)) 
+                    {
+                        inputDialog = new Utilidades.messageBox("Arquivo exportado", "O arquivo foi exportado com sucesso", MaterialDesignThemes.Wpf.PackIconKind.Information, "OK", "Fechar");
 
-                    inputDialog = new Utilidades.messageBox("Arquivo exportado", "O arquivo foi exportado com sucesso", MaterialDesignThemes.Wpf.PackIconKind.Information, "OK", "Fechar");
+                        inputDialog.ShowDialog();
+                    }
+                    else
+                    {                     
+                        inputDialog = new Utilidades.messageBox("Erro", "Erro ao exportar relatório. Tente Novamente!", MaterialDesignThemes.Wpf.PackIconKind.Information, "OK", "Fechar");
 
-                    inputDialog.ShowDialog();
-
+                        inputDialog.ShowDialog();
+                        
+                    }
                 }
                 else
                 {

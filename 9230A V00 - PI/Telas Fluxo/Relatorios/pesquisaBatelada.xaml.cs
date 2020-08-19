@@ -65,7 +65,17 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
         {
             rec.Visibility = visibility;
             lbNomeProduto.Visibility = visibility;
-            DataGrid_Receita.Visibility = visibility;           
+            DataGrid_Receita.Visibility = visibility;
+
+            btDownList.Visibility = visibility;
+            btUpList.Visibility = visibility;
+            btLeftList.Visibility = visibility;
+            btRightList.Visibility = visibility;
+
+            btExportar.Visibility = visibility;
+            btFecharRelatorio.Visibility = visibility;
+            btRelatorio.Visibility = visibility;
+
         }
 
         #region Controle Calendario
@@ -247,14 +257,18 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
 
                             inputDialog.ShowDialog();
 
-                            //Original
-                            Relatorios.ExportacaoRelatorios.exportarBatelada(destinationFile, Utilidades.functions.GetProducaoFromIdProducao(idproducao), "Detalhamento Produção");
+                            if (Relatorios.ExportacaoRelatorios.exportarBatelada(destinationFile, Utilidades.functions.GetProducaoFromIdProducao(idproducao), "Detalhamento Produção"))
+                            {
+                                inputDialog = new Utilidades.messageBox("Arquivo exportado", "O arquivo foi exportado com sucesso", MaterialDesignThemes.Wpf.PackIconKind.Information, "OK", "Fechar");
 
+                                inputDialog.ShowDialog();
+                            }
+                            else
+                            {
+                                inputDialog = new Utilidades.messageBox("Erro", "Erro ao exportar relatório. Tente Novamente!", MaterialDesignThemes.Wpf.PackIconKind.Information, "OK", "Fechar");
 
-
-                            inputDialog = new Utilidades.messageBox("Arquivo exportado", "O arquivo foi exportado com sucesso", MaterialDesignThemes.Wpf.PackIconKind.Information, "OK", "Fechar");
-
-                            inputDialog.ShowDialog();
+                                inputDialog.ShowDialog();
+                            }
 
                         }
                         else
@@ -272,12 +286,6 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
                         inputDialog.ShowDialog();
                     }
                 }
-                else
-                {
-                    inputDialog = new Utilidades.messageBox("Operação Cancelada", "A exportação foi cancelada pelo usuário.", MaterialDesignThemes.Wpf.PackIconKind.Information, "OK", "Fechar");
-
-                    inputDialog.ShowDialog();
-                }
             }
             else
             {
@@ -288,6 +296,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
        
 
         }
+        
         private void btRelatorio_Click(object sender, RoutedEventArgs e)
         {
             if (!String.IsNullOrEmpty((string)lbNomeProduto.Content) && idproducao != -1)
@@ -321,7 +330,14 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
                         inputDialog.ShowDialog();
 
                         //Original
-                        Relatorios.ExportacaoRelatorios.exportarBatelada(fileName, Utilidades.functions.GetProducaoFromIdProducao(idproducao), "Detalhamento Produção");
+                        if (!Relatorios.ExportacaoRelatorios.exportarBatelada(fileName, Utilidades.functions.GetProducaoFromIdProducao(idproducao), "Detalhamento Produção"))
+                        {
+                            inputDialog = new Utilidades.messageBox("Erro", "Erro ao gerar relatório. Tente Novamente!", MaterialDesignThemes.Wpf.PackIconKind.Information, "OK", "Fechar");
+
+                            inputDialog.ShowDialog();
+                        }
+
+                        
   
                         atualizaProjeto(fileName);
 
@@ -375,8 +391,8 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
             btLeftList.Visibility = visibility;
             btRightList.Visibility = visibility;
 
-
         }
+
         private void UserControl_Unloaded(object sender, RoutedEventArgs e)
         {
             KillRunningProcess();

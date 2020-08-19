@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:_9230A_V00___PI.Telas_Fluxo.Controle_Produção" xmlns:Utilidades="clr-namespace:_9230A_V00___PI.Utilidades"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="_9230A_V00___PI.Telas_Fluxo.Controle_Produção.Ensaque"
              mc:Ignorable="d" 
-            d:DesignHeight="675" d:DesignWidth="824">
+            d:DesignHeight="675" d:DesignWidth="824" Loaded="UserControl_Loaded" Unloaded="UserControl_Unloaded">
 
 
     <UserControl.Resources>
@@ -53,13 +53,23 @@
 
         </Grid.Resources>
 
+        <GroupBox Header="Controle Ensaque" Style="{DynamicResource MaterialDesignGroupBox}" Margin="391,395,40,85"
+            materialDesign:ColorZoneAssist.Mode="Custom"
+            materialDesign:ColorZoneAssist.Background="Black"
+            materialDesign:ColorZoneAssist.Foreground="White"/>
+
+        <GroupBox Header="Controle Balança" Style="{DynamicResource MaterialDesignGroupBox}" Margin="391,243,40,285"
+            materialDesign:ColorZoneAssist.Mode="Custom"
+            materialDesign:ColorZoneAssist.Background="Black"
+            materialDesign:ColorZoneAssist.Foreground="White"/>
+
         <Label x:Name="lbTitle" Content="Controle Ensaque" HorizontalAlignment="Left" VerticalAlignment="Top" Width="825" Foreground="White" VerticalContentAlignment="Center" FontWeight="Bold" HorizontalContentAlignment="Center" Margin="0,6,-25,0" Height="60" FontSize="30"/>
         <Rectangle Fill="White" HorizontalAlignment="Left" Height="5" Margin="0,76,-25,0" Stroke="White" VerticalAlignment="Top" Width="825"/>
 
-        <Button x:Name="btCadastrarIniciarCadastro" Click="btCadastrarIniciarCadastro_Click" Margin="407,495,209,139" Background="#FF505050" BorderBrush="Black" Height="Auto" Opacity="1">
+        <Button x:Name="btIniaEnsaque" Margin="399,435,240,195" Background="#FF35B60F" BorderBrush="Black" Height="45" Opacity="1" Width="185" Click="btIniaEnsaque_Click">
             <Grid Width="150">
-                <materialDesign:PackIcon x:Name="packiconCadastrarEditar" Kind="Injection" VerticalAlignment="Center" Foreground="White" Margin="-3,-6,0,-7" Height="30" Width="30"/>
-                <TextBlock x:Name="lbTextButton" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="36,1,-14,-1" Width="128" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Iniciar Ensaque"/>
+                <materialDesign:PackIcon x:Name="packiconCadastrarEditar" Kind="Injection" VerticalAlignment="Center" Foreground="Black" Margin="-3,-6,0,-7" Height="30" Width="30"/>
+                <TextBlock x:Name="lbTextButton" FontFamily="Champagne &amp; Limousines" Foreground="#FF111111" Margin="36,1,-14,-1" Width="128" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Iniciar Ensaque"/>
             </Grid>
         </Button>
         <Label Content="Peso Por Saco(kg): (*)" Height="34" Margin="429,146,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="188" Foreground="White" FontWeight="Bold" FontSize="16"/>
@@ -76,7 +86,6 @@
         </Grid>
         <materialDesign:PackIcon Kind="Receipt" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="391,145,395,496" BorderBrush="#FF040404"/>
         <materialDesign:PackIcon Kind="Pencil" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="391,185,395,449" BorderBrush="#FF040404"/>
-        <Label Content="Peso Atual Balança:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="210" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="40" Padding="0" FontSize="18" FontWeight="Bold" Margin="407,252,0,0"/>
         <DataGrid x:Name="DataGrid_Produtos" Margin="8,146,0,0" CanUserAddRows="False"
             HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Black" Foreground="Black"
             HorizontalGridLinesBrush="{DynamicResource {x:Static SystemColors.ControlTextColor}}"
@@ -125,13 +134,18 @@
             </Grid>
         </Button>
         <Label Content="Sacos Ensacados:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="210" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="40" Padding="0" FontSize="18" FontWeight="Bold" Margin="10,101,0,0"/>
-        <Label Content="Tempo Ensacando:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="210" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="40" Padding="0" FontSize="18" FontWeight="Bold" Margin="407,348,0,0"/>
-        <Label Content="Receita:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="210" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="40" Padding="0" FontSize="18" FontWeight="Bold" Margin="407,300,0,0"/>
-        <Button Margin="659,630,0,10" Background="#FF505050" BorderBrush="Black" Height="35" HorizontalAlignment="Left" Width="155">
-            <Grid Width="110" Height="23">
-                <TextBlock FontFamily="Champagne &amp; Limousines" TextAlignment="Center" Foreground="White" Margin="-5,0,-2,2" Width="117" FontSize="14" FontWeight="Normal" VerticalAlignment="Bottom"  HorizontalAlignment="Center" Height="17" Text="Voltar Fluxo"/>
+        <Label Content="NOME DA RECEITA" HorizontalAlignment="Left" VerticalAlignment="Top" Width="433" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="40" Padding="0" FontSize="22" FontWeight="Bold" Margin="391,95,0,0" HorizontalContentAlignment="Center"/>
+        <Button x:Name="btTerminou" Margin="589,435,50,195" Background="#FFE20C0C" BorderBrush="Black" Height="45" Opacity="1" Width="185" Click="btTerminou_Click">
+            <Grid Width="150">
+                <materialDesign:PackIcon x:Name="packiconCadastrarEditar1" Kind="Injection" VerticalAlignment="Center" Foreground="White" Margin="-3,-6,0,-7" Height="30" Width="30"/>
+                <TextBlock x:Name="lbTextButton1" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="36,1,-14,-1" Width="128" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Terminar Ensaque"/>
             </Grid>
         </Button>
+        <Label x:Name="lbStatusEnsaque" Content="Balança Em Funcionamento" Margin="399,491,0,0" BorderBrush="Black" BorderThickness="1" Background="#FF0CFF00" HorizontalContentAlignment="Center" Height="34" VerticalAlignment="Top" HorizontalAlignment="Left" Width="375" ToolTip="" Cursor="No" FontSize="16" VerticalContentAlignment="Center"/>
+        <Label Content="Peso Atual Balança:" Height="36" Margin="391,289,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="225" Foreground="White" FontWeight="Bold" FontSize="18"/>
+        <Label x:Name="lbPesoBalnca" Content="10.500,25 kg" Height="53" Margin="535,278,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="249" Foreground="White" FontWeight="Bold" FontSize="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label x:Name="lbStatusBalança" Content="Balança Em Funcionamento" Margin="399,330,0,0" BorderBrush="Black" BorderThickness="1" Background="#FF0CFF00" HorizontalContentAlignment="Center" Height="34" VerticalAlignment="Top" HorizontalAlignment="Left" Width="375" ToolTip="" Cursor="No" FontSize="16" VerticalContentAlignment="Center"/>
+        <TextBlock HorizontalAlignment="Center" TextAlignment="Center" Margin="397,534,44,90" TextWrapping="Wrap" Text="Se tiver nível baixo no silo de expedição, aguardar 1 minuto para poder iniciar o ensaque !" VerticalAlignment="Center" Width="383" Height="51" FontSize="16" Foreground="White" FontWeight="Bold"/>
 
     </Grid>
 </UserControl>

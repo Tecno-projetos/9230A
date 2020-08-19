@@ -256,7 +256,6 @@ namespace _9230A_V00___PI
                         VariaveisGlobais.producao.atualizaTela();
                     }
 
-                    VariaveisGlobais.executaEnsaque.Ensacar = true;
                 }
 
                 VariaveisGlobais.CommunicationPLC.writeBufferPLC();//Chama a escrita no PLC

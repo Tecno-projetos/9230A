@@ -115,6 +115,7 @@
     </ApplicationDefinition>
     <Compile Include="Comunicacao\CallCommunicationPLC.cs" />
     <Compile Include="Comunicacao\Sharp7.cs" />
+    <Compile Include="DataBase\SqlFunctionsEnsaques.cs" />
     <Compile Include="DataBase\SqlFunctionsEquips.cs" />
     <Compile Include="DataBase\SQLFunctionsProducao.cs" />
     <Compile Include="DataBase\SqlFunctionsProdutos.cs" />

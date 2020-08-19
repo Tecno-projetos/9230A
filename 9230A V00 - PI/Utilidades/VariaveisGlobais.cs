@@ -174,13 +174,13 @@ namespace _9230A_V00___PI.Utilidades
 
         public struct controleEnsaque
         {
-            public bool IniciaEnsaque;                  //Inicia o ensaque
-            public bool TerminaEnsaque;                 //Termina o ensaque
-            public bool EnsaqueConcluido;               //Ensaque Concluido
-            public bool EnsaqueDosando;                  //Ensaque Concluido
-            public bool Reserva_1;
-            public bool Reserva_2;
-            public bool Reserva_3;
+            public bool IniciaEnsaque;                       //Inicia o ensaque
+            public bool TerminaEnsaque;                      //Termina o ensaque
+            public bool Saco_Atual_Finalizado;               //Ensaque Concluido
+            public bool Saco_Atual_Dosando;                  //Ensaque Concluido
+            public bool Supervisorio_Salvou_Saco_Atual;      //Supervisório salvou os dados do saco no banco de dados
+            public bool HabilitaFinalizarEnsaque;            //Habilita finalizar ensaque
+            public bool Habilita_Iniciar_Ensaque;
             public bool Reserva_4;
             public bool Reserva_5;
             public bool Reserva_6;
@@ -207,9 +207,9 @@ namespace _9230A_V00___PI.Utilidades
             public bool Reserva_27;
             public bool Reserva_28;
 
-            public float pesoDesejado;                  //Peso desejado por Saco
-            public float pesoEnsacado;                  //Peso ensacado no saco 
-            public Int32 quantidadeEnsaques;            //Quantidade ensacada
+            public float pesoDesejado;                   //Peso desejado por Saco
+            public float pesoSacoAtual;                  //Peso ensacado no saco 
+
 
         }
 
@@ -935,6 +935,8 @@ namespace _9230A_V00___PI.Utilidades
             DataBase.SqlFunctionsReceitas.Create_Table_Receita_Produtos();
             DataBase.SQLFunctionsProducao.Create_Table_Producao();
             DataBase.SQLFunctionsProducao.Create_Table_Bateladas();
+            DataBase.SqlFunctionsEnsaques.ExistTableProducaoEnsaque();
+            DataBase.SqlFunctionsEnsaques.ExistTableEnsaques();
         }
 
         public static List<Produto> listProdutos = new List<Produto>();
@@ -951,7 +953,7 @@ namespace _9230A_V00___PI.Utilidades
 
         public static Utilidades.ExecutaProducao executaProducao = new ExecutaProducao(1);
 
-        public static Utilidades.executaEnsaque executaEnsaque = new Utilidades.executaEnsaque(2);
+        public static Utilidades.executaEnsaque executaEnsaque = new Utilidades.executaEnsaque(2,4);
 
         public static AuxiliaresProcesso auxiliaresProcesso = new AuxiliaresProcesso();
 
@@ -1788,6 +1790,5 @@ namespace _9230A_V00___PI.Utilidades
         public float volumeTotalProduzido { get; set; }//Volume total produzido
 
     }
-
 
 }
