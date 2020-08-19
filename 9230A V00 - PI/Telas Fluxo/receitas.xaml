@@ -20,9 +20,9 @@
             <Label Content="Receitas" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Foreground="White" FontSize="16" VerticalContentAlignment="Center" FontWeight="Bold" HorizontalContentAlignment="Center" Margin="0,101,0,0"/>
             <Rectangle Fill="White" HorizontalAlignment="Left" Height="5" Margin="10,133,0,0" Stroke="White" VerticalAlignment="Top" Width="180"/>
             <Button x:Name="btCadastroProduto" Margin="10,420,10,205" Background="#FF505050" BorderBrush="Black" Height="50" Click="btCadastroProduto_Click">
-                <Grid Width="170" Height="40">
+                <Grid Width="175" Height="40">
                     <materialDesign:PackIcon Kind="Plus" VerticalAlignment="Center" Foreground="#FF00FB22" Margin="2,-6,0,-7" Height="30" Width="30"/>
-                    <TextBlock TextAlignment="Center" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="28,12,10,10" Width="132" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center"><Run Text="Cadastr"/><Run Text="ar"/><Run Text=" "/><Run Text="Produto"/></TextBlock>
+                    <TextBlock TextAlignment="Center" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="20,13,10,11" Width="140" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center"><Run Text="Cadastr"/><Run Text="ar"/><Run Text=" "/><Run Text="Produto"/></TextBlock>
                 </Grid>
             </Button>
             <Label Content="Produtos" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Foreground="White" FontSize="16" VerticalContentAlignment="Center" FontWeight="Bold" HorizontalContentAlignment="Center" Margin="0,373,0,0"/>
@@ -61,12 +61,6 @@
                 <Grid Width="196" Height="40">
                     <materialDesign:PackIcon Kind="Search" VerticalAlignment="Center" Foreground="White" Margin="2,-6,0,-7" Height="30" Width="30"/>
                     <TextBlock TextAlignment="Center" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="25,13,42,10" Width="129" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Pesquisar Produto"/>
-                </Grid>
-            </Button>
-            <Button x:Name="btInject" Margin="9,640,11,5" Background="#FF505050" BorderBrush="Black" Click="btInject_Click">
-                <Grid Width="170" Height="30">
-                    <materialDesign:PackIcon Kind="Sigma" VerticalAlignment="Center" Foreground="White" Margin="2,-6,0,-7" Height="30" Width="30"/>
-                    <TextBlock TextAlignment="Center" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="36,6,15,0" Width="119" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Inject" Height="24"/>
                 </Grid>
             </Button>
         </Grid>
