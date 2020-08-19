@@ -36,6 +36,10 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
+            if (Utilidades.VariaveisGlobais.receitas.Editar_GS)
+            {
+                Utilidades.VariaveisGlobais.ReceitaCadastro = new Receita();
+            }
             leituraValoresCadastroReceita();
         }
 

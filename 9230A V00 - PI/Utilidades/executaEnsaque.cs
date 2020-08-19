@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace _9230A_V00___PI.Utilidades
 {
@@ -52,7 +54,6 @@ namespace _9230A_V00___PI.Utilidades
         /// Função get do controle do Indicador de pesagem Ensaque para utilizar em lugares diferentes
         /// </summary>
         public VariaveisGlobais.IndicadorPesagem IndicadorPesagem_Get { get => indicadorPesagem;}
-
 
         #endregion
 
@@ -174,7 +175,7 @@ namespace _9230A_V00___PI.Utilidades
         }
 
 
-        public void ensaques() 
+        public bool ensaques() 
         {
 
             if (ensaque.controleEnsaque.Saco_Atual_Finalizado && !ensaque.controleEnsaque.Supervisorio_Salvou_Saco_Atual)
@@ -182,23 +183,83 @@ namespace _9230A_V00___PI.Utilidades
                 if (DataBase.SqlFunctionsEnsaques.IntoDate_Table_Ensaques(DataBase.SqlFunctionsEnsaques.getIdProducaoEnsaque(VariaveisGlobais.Id_Producao_No_Silo_Expedicao), ensaque.controleEnsaque.pesoSacoAtual, "") != -1 )
                 {
                     SetBitSalvouDadosSacoBD();
+
+                    return true;
                 }
                 else
                 {
                     Utilidades.VariaveisGlobais.Window_Buffer_Diagnostic.List_Error = "Não escreveu no banco de dados o saco do ensaque da produção: " + VariaveisGlobais.Id_Producao_No_Silo_Expedicao.ToString() + " com peso: " + ensaque.controleEnsaque.pesoSacoAtual.ToString() +" kg!!";
+
+                    return false;
                 }
-                
-
-
             }
-        
+
+            return false;
+
         }
-
-
 
         #endregion
 
 
+        #region Funcoes
 
+        public Label StatusBalanca(Label lbStatusEnsaque) 
+        {
+            if (indicadorPesagem.Erro_Leitura)
+            {
+                lbStatusEnsaque.Content = "Erro Balança";
+                lbStatusEnsaque.Background = new SolidColorBrush(Colors.Red);
+                lbStatusEnsaque.Foreground = new SolidColorBrush(Colors.White);
+            }
+            else
+            {
+                if (ensaque.controleEnsaque.IniciaEnsaque)
+                {
+                    if (ensaque.controleEnsaque.Saco_Atual_Dosando)
+                    {
+                        lbStatusEnsaque.Content = "Dosando Saco";
+                        lbStatusEnsaque.Background = new SolidColorBrush(Colors.Green);
+                        lbStatusEnsaque.Foreground = new SolidColorBrush(Colors.Black);
+
+
+                    }
+                    else if (ensaque.controleEnsaque.Saco_Atual_Finalizado)
+                    {
+                        lbStatusEnsaque.Content = "Dosagem Concluída";
+                        lbStatusEnsaque.Background = new SolidColorBrush(Colors.Green);
+                        lbStatusEnsaque.Foreground = new SolidColorBrush(Colors.Black);
+
+                    }
+                    else
+                    {
+                        lbStatusEnsaque.Content = "Aguardando Inicío de Dosagem";
+                        lbStatusEnsaque.Background = new SolidColorBrush(Colors.Gray);
+                        lbStatusEnsaque.Foreground = new SolidColorBrush(Colors.White);
+
+                    }
+                }
+                else if (!ensaque.controleEnsaque.Habilita_Iniciar_Ensaque)
+                {
+                    lbStatusEnsaque.Content = "Aguardando Habilitar Ensaque";
+                    lbStatusEnsaque.Background = new SolidColorBrush(Colors.Red);
+                    lbStatusEnsaque.Foreground = new SolidColorBrush(Colors.White);
+
+                }
+                else
+                {
+                    lbStatusEnsaque.Content = "Aguardando Inicío de Ensaque";
+                    lbStatusEnsaque.Background = new SolidColorBrush(Colors.Gray);
+                    lbStatusEnsaque.Foreground = new SolidColorBrush(Colors.White);
+
+                }
+            }
+
+
+
+            return lbStatusEnsaque;
+
+        }
+
+        #endregion
     }
 }

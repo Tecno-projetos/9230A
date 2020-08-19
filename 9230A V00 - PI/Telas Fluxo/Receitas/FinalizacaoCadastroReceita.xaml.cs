@@ -24,7 +24,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
     {
         float pesoProdutosSomados = 0.0f;
         bool pesoProdutoIgualPesoRef = false;
-
+        string NommeROta = "";
         Utilidades.messageBox inputDialog;
         private float floatPoint;
 
@@ -82,15 +82,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
 
         }
 
-        private void floatingPreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
 
-            TextBox txtReceber = (TextBox)sender;
-
-            txtReceber.Text = Utilidades.VariaveisGlobais.floatingKeypad(txtReceber.Text, 10).ToString();
-            //Retira o foco do textbox.
-            Keyboard.ClearFocus();
-        }
 
         private void TB_GotFocus(object sender, RoutedEventArgs e)
         {
@@ -122,12 +114,27 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
             {
                 if (!String.IsNullOrEmpty(txtNome.Text) && !String.IsNullOrEmpty(txtPesoRef.Text))
                 {
-                    inputDialog = new Utilidades.messageBox("Confirmação", "Você tem certeza que deseja criar essa Receita?", MaterialDesignThemes.Wpf.PackIconKind.QuestionAnswer, "Sim", "Não");
 
-                    inputDialog.ShowDialog();
+                    if (Utilidades.VariaveisGlobais.receitas.Editar_GS)
+                    {
+                        inputDialog = new Utilidades.messageBox("Confirmação", "Você tem certeza que deseja editar essa Receita?", MaterialDesignThemes.Wpf.PackIconKind.QuestionAnswer, "Sim", "Não");
+
+                        if (inputDialog.ShowDialog() == true) 
+                        {
+                            DataBase.SqlFunctionsReceitas.EditRecipeBD();
+
+                        }
+                    }
+                    else
+                    {
+                        inputDialog = new Utilidades.messageBox("Confirmação", "Você tem certeza que deseja criar essa Receita?", MaterialDesignThemes.Wpf.PackIconKind.QuestionAnswer, "Sim", "Não");
+
+                        inputDialog.ShowDialog();
+                    }
 
                     if (inputDialog.DialogResult == true)
                     {
+
                         //Adicionar receita no banco de dados.
                         DataBase.SqlFunctionsReceitas.AddNewRecipeBD();
 
@@ -193,6 +200,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
             txtObs.Text = Utilidades.VariaveisGlobais.ReceitaCadastro.observacao;
             atualizaPesoProdutoSomado();
 
+
         }
 
         private void atualizaPesoProdutoSomado()
@@ -238,6 +246,52 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
         private void txtPesoRef_KeyUp(object sender, KeyEventArgs e)
         {
             atualizaPesoProdutoSomado();
+        }
+
+        private void floatingPreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+
+            TextBox txtReceber = (TextBox)sender;
+
+            txtReceber.Text = Utilidades.VariaveisGlobais.floatingKeypad(txtReceber.Text, 10).ToString();
+            //Retira o foco do textbox.
+            Keyboard.ClearFocus();
+
+            Utilidades.VariaveisGlobais.ReceitaCadastro.pesoBase = Convert.ToSingle(txtReceber.Text);
+
+            CalculaPeso();
+
+
+
+        }
+
+        private void CalculaPeso()
+        {
+            double peso = 0;
+
+            foreach (DataRowView row in DataGrid_Receita.Items)
+            {
+                float Descricao = Convert.ToSingle(row.Row.ItemArray[2]);
+
+                peso = peso + Descricao;
+
+            }
+
+            txtPesoProdutosSomados.Text = peso.ToString();
+
+            if (peso == Utilidades.VariaveisGlobais.ReceitaCadastro.pesoBase)
+            {
+                BackgroundPesoProdutoSomado.Background = new SolidColorBrush(Color.FromArgb(255, 60, 60, 60));
+
+                pesoProdutoIgualPesoRef = true;
+
+            }
+            else
+            {
+                BackgroundPesoProdutoSomado.Background = new SolidColorBrush(Color.FromArgb(255, 155, 0, 0));
+                pesoProdutoIgualPesoRef = false;
+
+            }
         }
     }
 }

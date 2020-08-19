@@ -36,28 +36,28 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
 
         private void btLeftList_Produtos_Click(object sender, RoutedEventArgs e)
         {
-            var scroll = (VisualTreeHelper.GetChild(DataGrid_Produtos, 0) as Decorator).Child as ScrollViewer;
+            var scroll = (VisualTreeHelper.GetChild(DataGrid_Ensaques, 0) as Decorator).Child as ScrollViewer;
 
             scroll.ScrollToHorizontalOffset(scroll.HorizontalOffset - 20);
         }
 
         private void btDownList_Produtos_Click(object sender, RoutedEventArgs e)
         {
-            var scroll = (VisualTreeHelper.GetChild(DataGrid_Produtos, 0) as Decorator).Child as ScrollViewer;
+            var scroll = (VisualTreeHelper.GetChild(DataGrid_Ensaques, 0) as Decorator).Child as ScrollViewer;
 
             scroll.ScrollToVerticalOffset(scroll.VerticalOffset + 5);
         }
 
         private void btRightList_Produtos_Click(object sender, RoutedEventArgs e)
         {
-            var scroll = (VisualTreeHelper.GetChild(DataGrid_Produtos, 0) as Decorator).Child as ScrollViewer;
+            var scroll = (VisualTreeHelper.GetChild(DataGrid_Ensaques, 0) as Decorator).Child as ScrollViewer;
 
             scroll.ScrollToHorizontalOffset(scroll.HorizontalOffset + 20);
         }
 
         private void btUpList_Produtos_Click(object sender, RoutedEventArgs e)
         {
-            var scroll = (VisualTreeHelper.GetChild(DataGrid_Produtos, 0) as Decorator).Child as ScrollViewer;
+            var scroll = (VisualTreeHelper.GetChild(DataGrid_Ensaques, 0) as Decorator).Child as ScrollViewer;
 
             scroll.ScrollToVerticalOffset(scroll.VerticalOffset - 5);
         }
@@ -75,51 +75,38 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
         }
 
 
+        //Monta o grid conforme a seleção
+        #region Data Source
+
+        private void DataGrid_ItemSource(System.Data.DataTable Data)
+        {
+            DataGrid_Ensaques.ItemsSource = Data.DefaultView;
+
+            DataGrid_Ensaques.Columns[0].Visibility = Visibility.Hidden;
+            DataGrid_Ensaques.Columns[1].Header = "Id Produção";
+            DataGrid_Ensaques.Columns[2].Header = "Peso Dosado";
+            DataGrid_Ensaques.Columns[3].Visibility = Visibility.Hidden;
+        }
+        #endregion
+
+
         public void Actualize_UI()
         {
             //Atualiza Váriaveis
             Utilidades.VariaveisGlobais.executaEnsaque.Actualize();
 
             //Chama atualização de sacos no ensaque
-            Utilidades.VariaveisGlobais.executaEnsaque.ensaques();
+            if (Utilidades.VariaveisGlobais.executaEnsaque.ensaques()) 
+            {
+                atualizaGrid();
+            }
 
             //Verifica se abriu tela e atualiza os valores
             if (abriuTela)
             {
 
-                if (Utilidades.VariaveisGlobais.executaEnsaque.Ensaque_Get.controleEnsaque.IniciaEnsaque)
-                {
-                    if (Utilidades.VariaveisGlobais.executaEnsaque.Ensaque_Get.controleEnsaque.Saco_Atual_Dosando)
-                    {
-                        lbStatusEnsaque.Content = "Dosando Saco";
-                        lbStatusEnsaque.Background = new SolidColorBrush(Colors.Green);
-                        lbStatusBalança.Foreground = new SolidColorBrush(Colors.Black);
-                    }
-                    else if (Utilidades.VariaveisGlobais.executaEnsaque.Ensaque_Get.controleEnsaque.Saco_Atual_Finalizado)
-                    {
-                        lbStatusEnsaque.Content = "Dosagem Concluída";
-                        lbStatusEnsaque.Background = new SolidColorBrush(Colors.Green);
-                        lbStatusBalança.Foreground = new SolidColorBrush(Colors.Black);
-                    }
-                    else
-                    {
-                        lbStatusEnsaque.Content = "Aguardando Inicío de Dosagem";
-                        lbStatusEnsaque.Background = new SolidColorBrush(Colors.Gray);
-                        lbStatusBalança.Foreground = new SolidColorBrush(Colors.White);
-                    }
-                }
-                else if (!Utilidades.VariaveisGlobais.executaEnsaque.Ensaque_Get.controleEnsaque.Habilita_Iniciar_Ensaque)
-                {
-                    lbStatusEnsaque.Content = "Aguardando Habilitar Ensaque";
-                    lbStatusEnsaque.Background = new SolidColorBrush(Colors.Red);
-                    lbStatusBalança.Foreground = new SolidColorBrush(Colors.White);
-                }
-                else
-                {
-                    lbStatusEnsaque.Content = "Aguardando Inicío de Ensaque";
-                    lbStatusEnsaque.Background = new SolidColorBrush(Colors.Gray);
-                    lbStatusBalança.Foreground = new SolidColorBrush(Colors.White);
-                }
+                lbStatusEnsaque = Utilidades.VariaveisGlobais.executaEnsaque.StatusBalanca(lbStatusEnsaque);
+
 
 
                 //Atualiza Peso da balança
@@ -128,23 +115,43 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
                 //Verifica Status da balança
                 if (Utilidades.VariaveisGlobais.executaEnsaque.IndicadorPesagem_Get.Erro_Leitura)
                 {
-                    lbStatusBalança.Content = "Balança não operável";
+                    lbStatusBalança.Content = "Balança com erro";
                     lbStatusBalança.Background = new SolidColorBrush(Colors.Red);
                     lbStatusBalança.Foreground = new SolidColorBrush(Colors.White);
                 }
                 else
                 {
-                    lbStatusBalança.Content = "Balança operável";
+                    lbStatusBalança.Content = "Balança em operação";
                     lbStatusBalança.Background = new SolidColorBrush(Colors.Green);
                     lbStatusBalança.Foreground = new SolidColorBrush(Colors.Black);
                 }
 
 
+                if (Utilidades.VariaveisGlobais.executaEnsaque.Ensaque_Get.controleEnsaque.IniciaEnsaque)
+                {
+                    btIniaEnsaque.Background = new SolidColorBrush(Color.FromRgb(80,80,80));
+                    btIniaEnsaque.IsEnabled = false;
+
+                }
+                else
+                {
+                    btIniaEnsaque.Background = new SolidColorBrush(Color.FromRgb(53, 182, 15));
+                    btIniaEnsaque.IsEnabled = true;
+                }
+
+                if (Utilidades.VariaveisGlobais.executaEnsaque.Ensaque_Get.controleEnsaque.HabilitaFinalizarEnsaque)
+                {
+                    btTerminou.Background = new SolidColorBrush(Colors.Red);
+                    btTerminou.IsEnabled = true;
+
+                }
+                else
+                {
+                    btTerminou.Background = new SolidColorBrush(Color.FromRgb(80, 80, 80));
+                    btTerminou.IsEnabled = false;
+                }
+
             }
-
-
-
-            
 
         }
 
@@ -154,12 +161,14 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
             {
                 if (Utilidades.VariaveisGlobais.executaEnsaque.Ensaque_Get.controleEnsaque.Habilita_Iniciar_Ensaque)
                 {
+                    //Comparador para não escrever 2 vezes a mesma produção
+                    if (!Utilidades.VariaveisGlobais.executaEnsaque.Ensaque_Get.controleEnsaque.IniciaEnsaque)
+                    {
+                        //Iniciou com a produção X
+                        Utilidades.VariaveisGlobais.executaEnsaque.producaoEnsaque(VariaveisGlobais.Id_Producao_No_Silo_Expedicao);
+                    }
+
                     Utilidades.VariaveisGlobais.executaEnsaque.InverbitIniciouEnsaque();
-
-                    //Iniciou com a produção X
-                    Utilidades.VariaveisGlobais.executaEnsaque.producaoEnsaque(VariaveisGlobais.Id_Producao_No_Silo_Expedicao);
-
-
                 }
                 else
                 {
@@ -201,15 +210,23 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
 
             txtQtdEnsaque.Text = Utilidades.VariaveisGlobais.executaEnsaque.Ensaque_Get.controleEnsaque.pesoDesejado.ToString();
 
+            if (DataBase.SqlFunctionsEnsaques.getIdProducaoEnsaque(VariaveisGlobais.Id_Producao_No_Silo_Expedicao) != -1)
+            {
+                atualizaGrid();
+
+                DataBase.SqlFunctionsEnsaques.getNameReceita(DataBase.SqlFunctionsEnsaques.getIdProducaoEnsaque(VariaveisGlobais.Id_Producao_No_Silo_Expedicao));
+
+            }
         }
 
         private void UserControl_Unloaded(object sender, RoutedEventArgs e)
         {
             abriuTela = false;
-
-
         }
 
-
+        private void atualizaGrid() 
+        {
+            DataGrid_ItemSource(DataBase.SqlFunctionsEnsaques.getEnsaqueFromIdProducaoEnsaque(DataBase.SqlFunctionsEnsaques.getIdProducaoEnsaque(VariaveisGlobais.Id_Producao_No_Silo_Expedicao)));
+        }
     }
 }

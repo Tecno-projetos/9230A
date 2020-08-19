@@ -195,8 +195,16 @@ namespace _9230A_V00___PI.DataBase
                     return -1;
                 }
             }
+            if (Data.Rows.Count > 0 )
+            {
+                return Convert.ToInt32(Data.Rows[0][0]);
+            }
+            else
+            {
+                return -1;
 
-            return Convert.ToInt32(Data.Rows[0][0]);
+            }
+
         }
 
         #endregion
@@ -302,6 +310,56 @@ namespace _9230A_V00___PI.DataBase
             }
         }
 
+        public static DataTable getEnsaqueFromIdProducaoEnsaque(int IdProducaoEnsaque)
+        {
+            DataTable Data = new DataTable();
+
+            if (Utilidades.VariaveisGlobais.DB_Connected_GS)
+            {
+                try
+                {
+                    string CommandString = "SELECT * FROM Ensaques WHERE IdEnsaque = '" + IdProducaoEnsaque + "'";
+
+                    dynamic Call = SqlGlobalFuctions.ReturnCall(Utilidades.VariaveisGlobais.Connection_DB_Receitas_GS);
+
+                    dynamic Adapter = SqlGlobalFuctions.ReturnAdapter(CommandString, Utilidades.VariaveisGlobais.Connection_DB_Receitas_GS);
+
+                    Adapter.Fill(Data);
+                }
+                catch (Exception ex)
+                {
+                    Utilidades.VariaveisGlobais.Window_Buffer_Diagnostic.List_Error = ex.ToString();
+                }
+            }
+
+            return Data;
+        }
+
+        public static int getNameReceita(int IdProducao)
+        {
+            DataTable Data = new DataTable();
+
+            if (Utilidades.VariaveisGlobais.DB_Connected_GS)
+            {
+                try
+                {
+                    string CommandString = "SELECT NomeReceita FROM Receitas WHERE Id = '" + IdProducao + "' ";
+
+                    dynamic Call = SqlGlobalFuctions.ReturnCall(Utilidades.VariaveisGlobais.Connection_DB_Receitas_GS);
+
+                    dynamic Adapter = SqlGlobalFuctions.ReturnAdapter(CommandString, Utilidades.VariaveisGlobais.Connection_DB_Receitas_GS);
+
+                    Adapter.Fill(Data);
+                }
+                catch (Exception ex)
+                {
+                    Utilidades.VariaveisGlobais.Window_Buffer_Diagnostic.List_Error = ex.ToString();
+                    return -1;
+                }
+            }
+
+            return Convert.ToInt32(Data.Rows[0][0]);
+        }
 
         #endregion
 

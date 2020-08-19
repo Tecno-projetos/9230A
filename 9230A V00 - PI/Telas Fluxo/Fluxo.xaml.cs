@@ -2,6 +2,7 @@
 using Microsoft.Expression.Shapes;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -73,6 +74,11 @@ namespace _9230A_V00___PI.Telas_Fluxo
 
             VariaveisGlobais.Fluxo.inicialProducao.atualiza(ref VariaveisGlobais.executaProducao, ref VariaveisGlobais.ProducaoReceita);
             VariaveisGlobais.Fluxo.indicadorPesagem.Actualize_UI(VariaveisGlobais.indicadorPesagem);
+
+
+            //Atualzia peso do ensaque
+            lbPesoEnsaque.Content = Utilidades.VariaveisGlobais.executaEnsaque.IndicadorPesagem_Get.Valor_Atual_Indicador.ToString("N", CultureInfo.GetCultureInfo("pt-BR")) + " kg";
+            lbStatusEnsaque = Utilidades.VariaveisGlobais.executaEnsaque.StatusBalanca(lbStatusEnsaque);
         }
 
         private void bt_Ensaque_Click(object sender, RoutedEventArgs e)

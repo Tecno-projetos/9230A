@@ -10,74 +10,119 @@ namespace _9230A_V00___PI.DataBase
 {
     class SQLFunctionsProducao
     {
-        public static void Create_Table_Producao()
+
+        private static bool ExistTable(string nomeTabela)
         {
+
+            DataTable Data_Produtos = new DataTable();
+
             if (Utilidades.VariaveisGlobais.DB_Connected_GS)
             {
                 try
                 {
-                    string CommandString = "CREATE TABLE Producao (" +
-                        "Id int not null," +  //PK
-                        "IdReceitaBase int," +    //FK do Id da receita     
-                        "QtdBateladas int," +
-                        "TempoPreMistura int," +
-                        "TempoPosMistura int," +
-                        "PesoTotalProducao real," +
-                        "PesoTotalProduzido real," +
-                        "VolumeTotalProducao real," +
-                        "VolumeTotalProduzido real," +
-                        "CodigoProdutoDosagemAutomaticaSilo1 nvarchar(100) not null," +
-                        "CodigoProdutoDosagemAutomaticaSilo2 nvarchar(100) not null," +
-                        "DataInicioProducao datetime," +
-                        "DataFimProducao datetime," +
-                        "IniciouProducao bit," +
-                        "FinalizouProducao bit," +
-                        "CONSTRAINT FK_IdReceitaBase FOREIGN KEY (IdReceitaBase) REFERENCES Receitas(Id), " +
-                        "PRIMARY KEY (Id));";
+                    string CommandString_Produtos = "SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = '" + nomeTabela + "';";
 
-                    dynamic Call = SqlGlobalFuctions.ReturnCall(Utilidades.VariaveisGlobais.Connection_DB_Receitas_GS);
-                    Call.Open();
+                    dynamic Adapter_Produtos = SqlGlobalFuctions.ReturnAdapter(CommandString_Produtos, Utilidades.VariaveisGlobais.Connection_DB_Receitas_GS);
 
-                    dynamic Command = SqlGlobalFuctions.ReturnCommand(CommandString, Call);
-                    Command.ExecuteNonQuery();
-
-                    Call.Close();
+                    Adapter_Produtos.Fill(Data_Produtos);
                 }
                 catch (Exception ex)
                 {
+
                     Utilidades.VariaveisGlobais.Window_Buffer_Diagnostic.List_Error = ex.ToString();
                 }
+
+                if (!(Data_Produtos.Rows.Count > 0))
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+
+
             }
+
+            return false;
+        }
+
+        public static void Create_Table_Producao()
+        {
+            if (!ExistTable("Producao"))
+            {
+                if (Utilidades.VariaveisGlobais.DB_Connected_GS)
+                {
+                    try
+                    {
+                        string CommandString = "CREATE TABLE Producao (" +
+                            "Id int not null," +  //PK
+                            "IdReceitaBase int," +    //FK do Id da receita     
+                            "QtdBateladas int," +
+                            "TempoPreMistura int," +
+                            "TempoPosMistura int," +
+                            "PesoTotalProducao real," +
+                            "PesoTotalProduzido real," +
+                            "VolumeTotalProducao real," +
+                            "VolumeTotalProduzido real," +
+                            "CodigoProdutoDosagemAutomaticaSilo1 nvarchar(100) not null," +
+                            "CodigoProdutoDosagemAutomaticaSilo2 nvarchar(100) not null," +
+                            "DataInicioProducao datetime," +
+                            "DataFimProducao datetime," +
+                            "IniciouProducao bit," +
+                            "FinalizouProducao bit," +
+                            "CONSTRAINT FK_IdReceitaBase FOREIGN KEY (IdReceitaBase) REFERENCES Receitas(Id), " +
+                            "PRIMARY KEY (Id));";
+
+                        dynamic Call = SqlGlobalFuctions.ReturnCall(Utilidades.VariaveisGlobais.Connection_DB_Receitas_GS);
+                        Call.Open();
+
+                        dynamic Command = SqlGlobalFuctions.ReturnCommand(CommandString, Call);
+                        Command.ExecuteNonQuery();
+
+                        Call.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        Utilidades.VariaveisGlobais.Window_Buffer_Diagnostic.List_Error = ex.ToString();
+                    }
+                }
+            }
+
         }
 
         public static void Create_Table_Bateladas()
         {
-            if (Utilidades.VariaveisGlobais.DB_Connected_GS)
+            if (!ExistTable("Bateladas"))
             {
-                try
+                if (Utilidades.VariaveisGlobais.DB_Connected_GS)
                 {
-                    string CommandString = "CREATE TABLE Bateladas (" +
-                        "IdProducao int not null," +
-                        "CodigoProduto nvarchar(100) not null," +
-                        "ValorDesejado real," +
-                        "ValorDosado real," +
-                        "NumeroBatelada int," +
-                        "CONSTRAINT FK_IdProducao FOREIGN KEY (IdProducao) REFERENCES Producao(Id), " +
-                        "CONSTRAINT FK_CodigoProduto FOREIGN KEY (CodigoProduto) REFERENCES Produtos(Codigo));";
+                    try
+                    {
+                        string CommandString = "CREATE TABLE Bateladas (" +
+                            "IdProducao int not null," +
+                            "CodigoProduto nvarchar(100) not null," +
+                            "ValorDesejado real," +
+                            "ValorDosado real," +
+                            "NumeroBatelada int," +
+                            "CONSTRAINT FK_IdProducao FOREIGN KEY (IdProducao) REFERENCES Producao(Id), " +
+                            "CONSTRAINT FK_CodigoProduto FOREIGN KEY (CodigoProduto) REFERENCES Produtos(Codigo));";
 
-                    dynamic Call = SqlGlobalFuctions.ReturnCall(Utilidades.VariaveisGlobais.Connection_DB_Receitas_GS);
-                    Call.Open();
+                        dynamic Call = SqlGlobalFuctions.ReturnCall(Utilidades.VariaveisGlobais.Connection_DB_Receitas_GS);
+                        Call.Open();
 
-                    dynamic Command = SqlGlobalFuctions.ReturnCommand(CommandString, Call);
-                    Command.ExecuteNonQuery();
+                        dynamic Command = SqlGlobalFuctions.ReturnCommand(CommandString, Call);
+                        Command.ExecuteNonQuery();
 
-                    Call.Close();
-                }
-                catch (Exception ex)
-                {
-                    Utilidades.VariaveisGlobais.Window_Buffer_Diagnostic.List_Error = ex.ToString();
+                        Call.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        Utilidades.VariaveisGlobais.Window_Buffer_Diagnostic.List_Error = ex.ToString();
+                    }
                 }
             }
+
         }
 
         public static int IntoDate_Table_Producao(ref Utilidades.Producao producao)

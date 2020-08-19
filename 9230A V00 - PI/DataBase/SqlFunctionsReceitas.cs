@@ -9,31 +9,73 @@ namespace _9230A_V00___PI.DataBase
 {
     class SqlFunctionsReceitas
     {
-        public static void Create_Table_Receita()
+        private static bool ExistTable(string nomeTabela)
         {
+
+            DataTable Data_Produtos = new DataTable();
+
             if (Utilidades.VariaveisGlobais.DB_Connected_GS)
             {
                 try
                 {
-                    string CommandString = "CREATE TABLE Receitas (" +
-                        "Id int not null IDENTITY(1,1)," +
-                        "NomeReceita nvarchar(100)," +
-                        "PesoBase real," +
-                        "Observacao nvarchar(300)," +
-                        "PRIMARY KEY (Id));";
+                    string CommandString_Produtos = "SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = '" + nomeTabela +"';";
 
-                    dynamic Call = SqlGlobalFuctions.ReturnCall(Utilidades.VariaveisGlobais.Connection_DB_Receitas_GS);
-                    Call.Open();
+                    dynamic Adapter_Produtos = SqlGlobalFuctions.ReturnAdapter(CommandString_Produtos, Utilidades.VariaveisGlobais.Connection_DB_Receitas_GS);
 
-                    dynamic Command = SqlGlobalFuctions.ReturnCommand(CommandString, Call);
-                    Command.ExecuteNonQuery();
-
-                    Call.Close();
+                    Adapter_Produtos.Fill(Data_Produtos);
                 }
                 catch (Exception ex)
                 {
+             
                     Utilidades.VariaveisGlobais.Window_Buffer_Diagnostic.List_Error = ex.ToString();
                 }
+
+                if (!(Data_Produtos.Rows.Count > 0))
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+
+
+            }
+
+            return false;
+        }
+
+
+
+        public static void Create_Table_Receita()
+        {
+            if (Utilidades.VariaveisGlobais.DB_Connected_GS)
+            {
+                if (!ExistTable("Receitas"))
+                {
+                    try
+                    {
+                        string CommandString = "CREATE TABLE Receitas (" +
+                            "Id int not null IDENTITY(1,1)," +
+                            "NomeReceita nvarchar(100)," +
+                            "PesoBase real," +
+                            "Observacao nvarchar(300)," +
+                            "PRIMARY KEY (Id));";
+
+                        dynamic Call = SqlGlobalFuctions.ReturnCall(Utilidades.VariaveisGlobais.Connection_DB_Receitas_GS);
+                        Call.Open();
+
+                        dynamic Command = SqlGlobalFuctions.ReturnCommand(CommandString, Call);
+                        Command.ExecuteNonQuery();
+
+                        Call.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        Utilidades.VariaveisGlobais.Window_Buffer_Diagnostic.List_Error = ex.ToString();
+                    }
+                }
+     
             }
         }
 
@@ -75,39 +117,48 @@ namespace _9230A_V00___PI.DataBase
         public static int Create_Table_Receita_Produtos()
         {
             int ret = -1;
-            if (Utilidades.VariaveisGlobais.DB_Connected_GS)
+
+
+            if (!ExistTable("Produtos_Receita"))
             {
-                try
+                if (Utilidades.VariaveisGlobais.DB_Connected_GS)
                 {
-                    string CommandString = "CREATE TABLE Produtos_Receita (" +
-                        "IdReceita int not null," +
-                        "CodigoProduto nvarchar(100) not null," +
-                        "PesoProduto real, " +
-                        "TipoDosagem nvarchar(100), " +
-                        "CONSTRAINT FK_IdReceita FOREIGN KEY (IdReceita) REFERENCES Receitas(Id), " +
-                        "CONSTRAINT FK_CodigoProduto FOREIGN KEY (CodigoProduto) REFERENCES Produtos(Codigo));";
+                    try
+                    {
+                        string CommandString = "CREATE TABLE Produtos_Receita (" +
+                            "IdReceita int not null," +
+                            "CodigoProduto nvarchar(100) not null," +
+                            "PesoProduto real, " +
+                            "TipoDosagem nvarchar(100), " +
+                            "CONSTRAINT FK_IdReceita FOREIGN KEY (IdReceita) REFERENCES Receitas(Id), " +
+                            "CONSTRAINT FK_CodigoProduto FOREIGN KEY (CodigoProduto) REFERENCES Produtos(Codigo));";
 
-                    dynamic Call = SqlGlobalFuctions.ReturnCall(Utilidades.VariaveisGlobais.Connection_DB_Receitas_GS);
-                    Call.Open();
+                        dynamic Call = SqlGlobalFuctions.ReturnCall(Utilidades.VariaveisGlobais.Connection_DB_Receitas_GS);
+                        Call.Open();
 
-                    dynamic Command = SqlGlobalFuctions.ReturnCommand(CommandString, Call);
-                    Command.ExecuteNonQuery();
+                        dynamic Command = SqlGlobalFuctions.ReturnCommand(CommandString, Call);
+                        Command.ExecuteNonQuery();
 
-                    Call.Close();
-                    ret = 0;
+                        Call.Close();
+                        ret = 0;
+                    }
+                    catch (Exception ex)
+                    {
+                        Utilidades.VariaveisGlobais.Window_Buffer_Diagnostic.List_Error = ex.ToString();
+                        ret = -1;
+                    }
                 }
-                catch (Exception ex)
+                else
                 {
-                    Utilidades.VariaveisGlobais.Window_Buffer_Diagnostic.List_Error = ex.ToString();
-                    ret = -1;
+                    return ret;
                 }
             }
             else
             {
-                return ret;
+                return 0;
             }
-
             return ret;
+
         }
 
         public static int IntoDate_Table_Receita_Produtos(int IdReceita, string codigoProduto, float pesoProduto, string tipoDosagem)
@@ -145,6 +196,40 @@ namespace _9230A_V00___PI.DataBase
             {
                 return ret;
             }
+        }
+
+        public static int Update_Table_Receita(string nomeReceitaNew, string nomeReceitaOld, float pesoBase, string observacao)
+        {
+            int ret = -1;
+            if (Utilidades.VariaveisGlobais.DB_Connected_GS)
+            {
+                try
+                {
+                    string CommandString = "UPDATE Receitas SET NomeReceita = '" + nomeReceitaNew
+                        + "' PesoBase = '" + pesoBase 
+                        + "' Observacao = '" + observacao 
+                        + "' WHERE NomeReceita = " + nomeReceitaOld + ";";
+
+                    dynamic Call = SqlGlobalFuctions.ReturnCall(Utilidades.VariaveisGlobais.Connection_DB_Receitas_GS);
+                    dynamic Command = SqlGlobalFuctions.ReturnCommand(CommandString, Call);
+
+                    Call.Open();
+                    ret = Command.ExecuteNonQuery();
+                    Call.Close();
+                    return ret;
+                }
+                catch (Exception ex)
+                {
+                    Utilidades.VariaveisGlobais.Window_Buffer_Diagnostic.List_Error = ex.ToString();
+                    ret = -1;
+                    return ret;
+                }
+            }
+            else
+            {
+                return ret;
+            }
+
         }
 
         public static int getIdReceita(string NomeReceita)
@@ -303,6 +388,88 @@ namespace _9230A_V00___PI.DataBase
 
             return 0;
         }
+
+        public static int EditRecipeBD()
+        {
+            //Retornos
+            // 0 = Foi criado a receita com sucesso
+            //-1 = Problema ao inserir a receita na tabela, possivel causa é nome da receita já existente.
+            //-2 = Pegando Id da receita atual, possivel causa é receita não existir
+            //-3 = inserindo produtos na tabela de produtos da receita, possível causa problema de conexão com banco de dados.
+
+            //Passo de inserção da receita no banco de dados
+            //1 Passo precisamos inserir os dados da receita na tabel da receita.
+            //2 Passo Inserir os dados na tabela de produtos da receita criada.
+
+
+            //Executando Passo 1
+            //if (Update_Table_Receita(Utilidades.VariaveisGlobais.ReceitaCadastro.nomeReceita, Utilidades.VariaveisGlobais.ReceitaCadastro.pesoBase, Utilidades.VariaveisGlobais.ReceitaCadastro.observacao) != 0)
+            //{
+            //    return -1;
+            //}
+
+            //Pegando o ID da receita
+            int IdReceita = getIdReceita(Utilidades.VariaveisGlobais.ReceitaCadastro.nomeReceita);
+
+            if (IdReceita < 0)
+            {
+                return -3;
+            }
+
+            //========================================================================================================================================================
+            //Ordenar a lista com as seguintes especificações:
+            //1 - produtos que são matérias primas manuais
+            //2 - produtos que são matérias primas automaticas
+            //3 - produtos que são complementos
+
+            List<Utilidades.ProdutoReceita> listDummy = new List<Utilidades.ProdutoReceita>();
+
+            //Adiciona os produtos em manuais e apaga da lista
+            foreach (var item in Utilidades.VariaveisGlobais.ReceitaCadastro.listProdutos)
+            {
+                if (item.tipoDosagemMateriaPrima.Equals("Manual"))
+                {
+                    listDummy.Add(item);
+                }
+            }
+
+            //Adiciona os produtos automáticos e apaga os manuais
+            foreach (var item in Utilidades.VariaveisGlobais.ReceitaCadastro.listProdutos)
+            {
+                if (item.tipoDosagemMateriaPrima.Equals("Automático"))
+                {
+                    listDummy.Add(item);
+                }
+            }
+
+            //Adiciona os produtos automáticos e apaga os manuais
+            foreach (var item in Utilidades.VariaveisGlobais.ReceitaCadastro.listProdutos)
+            {
+                if (item.produto.tipoProduto.Equals("Complemento"))
+                {
+                    listDummy.Add(item);
+                }
+            }
+
+            //limpar a lista de produtos de receita cadastro e passar a lista dummy
+            Utilidades.VariaveisGlobais.ReceitaCadastro.listProdutos.Clear();
+            Utilidades.VariaveisGlobais.ReceitaCadastro.listProdutos = listDummy;
+
+            //========================================================================================================================================================
+
+
+            //Executando Passo 2
+            foreach (var item in Utilidades.VariaveisGlobais.ReceitaCadastro.listProdutos)
+            {
+                if (IntoDate_Table_Receita_Produtos(IdReceita, item.produto.codigo, item.pesoPorProduto, item.tipoDosagemMateriaPrima) != 0)
+                {
+                    return -4;
+                }
+            }
+
+            return 0;
+        }
+
 
         public static int DeleteReceita(string NomeReceita)
         {

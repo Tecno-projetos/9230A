@@ -281,6 +281,9 @@
     <Compile Include="Telas Fluxo\Producao\ConfiguracaoReceitaProducao.xaml.cs">
       <DependentUpon>ConfiguracaoReceitaProducao.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Telas Fluxo\Producao\PopUpFinalizarDosagem.xaml.cs">
+      <DependentUpon>PopUpFinalizarDosagem.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Telas Fluxo\Producao\ProducaoTelaInicial.xaml.cs">
       <DependentUpon>ProducaoTelaInicial.xaml</DependentUpon>
     </Compile>
@@ -584,6 +587,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Telas Fluxo\Producao\ConfiguracaoReceitaProducao.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Telas Fluxo\Producao\PopUpFinalizarDosagem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

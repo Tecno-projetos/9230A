@@ -206,8 +206,6 @@ namespace _9230A_V00___PI
             //Chama a atulização da Manutenção
             VariaveisGlobais.manutencao.atualizaManutencao();
 
-
-
             VariaveisGlobais.configuracoes.atualizaValoresConfiguracoes();
 
         }
