@@ -149,6 +149,14 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
                     var index = Utilidades.VariaveisGlobais.listReceitas.FindIndex(x => x.id == Convert.ToInt32(rowList.Row.ItemArray[0]));
 
                     DataBase.SqlFunctionsReceitas.DeleteReceita(Utilidades.VariaveisGlobais.listReceitas[index].nomeReceita);
+
+                    Utilidades.functions.atualizalistReceitas();
+
+                    DataTable dt = new DataTable();
+
+                    dt = DataBase.SqlFunctionsReceitas.getReceitas();
+
+                    DataGrid_Receita.Dispatcher.Invoke(delegate { DataGrid_Receita.ItemsSource = dt.DefaultView; });
                 }
 
             }
