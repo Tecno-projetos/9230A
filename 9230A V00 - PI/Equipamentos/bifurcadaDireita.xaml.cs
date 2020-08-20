@@ -159,18 +159,11 @@ namespace _9230A_V00___PI.Equipamentos
             }
             else
             {
-                if (ticktack)
-                {
-                    R1.Dispatcher.Invoke(delegate { R1.Fill = Brushes.Red; });
-                    R2.Dispatcher.Invoke(delegate { R2.Fill = Brushes.Red; });
-                    R3.Dispatcher.Invoke(delegate { R3.Fill = Brushes.Red; });
-                }
-                else
-                {
-                    R1.Dispatcher.Invoke(delegate { R1.Fill = Brushes.Gray; });
-                    R2.Dispatcher.Invoke(delegate { R2.Fill = Brushes.Gray; });
-                    R3.Dispatcher.Invoke(delegate { R3.Fill = Brushes.Gray; });
-                }
+
+                R1.Dispatcher.Invoke(delegate { R1.Fill = Brushes.Gray; });
+                R2.Dispatcher.Invoke(delegate { R2.Fill = Brushes.Gray; });
+                R3.Dispatcher.Invoke(delegate { R3.Fill = Brushes.Gray; });
+
             }
 
 

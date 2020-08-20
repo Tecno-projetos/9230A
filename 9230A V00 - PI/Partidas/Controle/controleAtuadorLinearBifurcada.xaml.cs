@@ -94,8 +94,8 @@ namespace _9230A_V00___PI.Partidas.Controle
             }
             else
             {
-                btAbre_Esquerda.Dispatcher.Invoke(delegate { btAbre_Esquerda.IsEnabled = false; });
-                btAbre_Direita.Dispatcher.Invoke(delegate { btAbre_Direita.IsEnabled = false; });
+                //btAbre_Esquerda.Dispatcher.Invoke(delegate { btAbre_Esquerda.IsEnabled = false; });
+                //btAbre_Direita.Dispatcher.Invoke(delegate { btAbre_Direita.IsEnabled = false; });
 
 
                 btAbre_Esquerda.Dispatcher.Invoke(delegate { btAbre_Esquerda.IsChecked = false; });
@@ -214,7 +214,7 @@ namespace _9230A_V00___PI.Partidas.Controle
             {
                 lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Content = "Sem Poisção"; });
                 lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Foreground = new SolidColorBrush(Colors.White); });
-                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Background = new SolidColorBrush(Colors.Red); });
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Background = new SolidColorBrush(Colors.Gray); });
             }
         }
 
