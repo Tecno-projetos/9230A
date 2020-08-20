@@ -343,6 +343,9 @@
     <Compile Include="Telas Fluxo\Relatorios\relatorioProducao.xaml.cs">
       <DependentUpon>relatorioProducao.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Telas Fluxo\Relatorios\relatorioProducaoEnsaque.xaml.cs">
+      <DependentUpon>relatorioProducaoEnsaque.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TelasAuxiliares\Buffer_Diag.xaml.cs">
       <DependentUpon>Buffer_Diag.xaml</DependentUpon>
     </Compile>
@@ -667,6 +670,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Telas Fluxo\Relatorios\relatorioProducao.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Telas Fluxo\Relatorios\relatorioProducaoEnsaque.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

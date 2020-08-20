@@ -26,7 +26,7 @@ namespace _9230A_V00___PI.Telas_Fluxo
 
         Relatorios.relatorioProducao producao = new relatorioProducao();
         Relatorios.pesquisaBatelada pesquisaBateladas = new pesquisaBatelada();
-
+        Relatorios.relatorioProducaoEnsaque relatorioProducaoEnsaque = new relatorioProducaoEnsaque();
         public relatorios()
         {
             InitializeComponent();
@@ -54,6 +54,16 @@ namespace _9230A_V00___PI.Telas_Fluxo
             spRelatorio.Children.Add(pesquisaBateladas);
         }
 
+        private void btProducaoEnsaque_Click(object sender, RoutedEventArgs e)
+        {
+            if (spRelatorio.Children != null)
+            {
+                spRelatorio.Children.Clear();
+            }
+
+            spRelatorio.Children.Add(relatorioProducaoEnsaque);
+        }
+
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             if (spRelatorio.Children != null)
@@ -61,5 +71,7 @@ namespace _9230A_V00___PI.Telas_Fluxo
                 spRelatorio.Children.Clear();
             }
         }
+
+
     }
 }

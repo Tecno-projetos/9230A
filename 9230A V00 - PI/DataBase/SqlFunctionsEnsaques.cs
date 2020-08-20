@@ -207,6 +207,49 @@ namespace _9230A_V00___PI.DataBase
 
         }
 
+        public static DataTable getProducaoEnsaqueFromDateTime(DateTime dtIn, DateTime dtOut)
+        {
+            DataTable Data = new DataTable();
+
+            if (Utilidades.VariaveisGlobais.DB_Connected_GS)
+            {
+                try
+                {
+                    dynamic DTIn;
+                    dynamic DTOut;
+
+                    if (Utilidades.VariaveisGlobais.SQLCe_GS)
+                    {
+                        DTIn = dtIn.ToString("yyyyMMdd") + " " + dtIn.Hour + ":" + dtIn.Minute;
+                        DTOut = dtOut.ToString("yyyyMMdd") + " " + dtOut.Hour + ":" + dtOut.Minute;
+                    }
+                    else
+                    {
+                        DTIn = dtIn;
+                        DTOut = dtOut;
+                    }
+
+
+                    string CommandString = "SELECT * FROM ProducaoEnsaque WHERE DataFimProducao >= '" + DTIn + "' AND DataFimProducao <= '" + DTOut + "'";
+
+                    dynamic Call = SqlGlobalFuctions.ReturnCall(Utilidades.VariaveisGlobais.Connection_DB_Receitas_GS);
+
+                    dynamic Adapter = SqlGlobalFuctions.ReturnAdapter(CommandString, Utilidades.VariaveisGlobais.Connection_DB_Receitas_GS);
+
+                    Adapter.Fill(Data);
+                }
+                catch (Exception ex)
+                {
+                    Utilidades.VariaveisGlobais.Window_Buffer_Diagnostic.List_Error = ex.ToString();
+                }
+            }
+
+            return Data;
+        }
+
+
+
+
         #endregion
 
         #region Ensaque
@@ -368,6 +411,7 @@ namespace _9230A_V00___PI.DataBase
 
             }
         }
+
 
         #endregion
 

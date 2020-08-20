@@ -11,12 +11,20 @@
              xmlns:Controle_Produção="clr-namespace:_9230A_V00___PI.Telas_Fluxo.Controle_Produção" x:Class="_9230A_V00___PI.Telas_Fluxo.Fluxo"
              mc:Ignorable="d" d:DesignWidth="800" Width="1024" Height="675">
 
-    <Grid Background="#FF7F7F7F" Margin="1,0,-1,0">
+    <Grid Background="#FF7F7F7F" RenderTransformOrigin="0.5,0.5">
+        <Grid.RenderTransform>
+            <TransformGroup>
+                <ScaleTransform ScaleX="-1"/>
+                <SkewTransform/>
+                <RotateTransform/>
+                <TranslateTransform/>
+            </TransformGroup>
+        </Grid.RenderTransform>
 
-        <Equipamentos:balancaManual HorizontalAlignment="Left" Height="60" Margin="958,575,0,0" VerticalAlignment="Top" Width="54" RenderTransformOrigin="0.5,0.5">
+        <Equipamentos:balancaManual HorizontalAlignment="Left" Height="60" Margin="960,575,0,0" VerticalAlignment="Top" Width="48" RenderTransformOrigin="0.5,0.5">
             <Equipamentos:balancaManual.RenderTransform>
                 <TransformGroup>
-                    <ScaleTransform ScaleX="1.5" ScaleY="1.5"/>
+                    <ScaleTransform ScaleX="-1.5" ScaleY="1.5"/>
                     <SkewTransform/>
                     <RotateTransform/>
                     <TranslateTransform/>
@@ -24,31 +32,11 @@
             </Equipamentos:balancaManual.RenderTransform>
 
         </Equipamentos:balancaManual>
-        <Rectangle Fill="Black" HorizontalAlignment="Left" Height="221" Margin="190,418,0,0" VerticalAlignment="Top" Width="5" RenderTransformOrigin="0.5,0.5">
-            <Rectangle.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform ScaleX="-1"/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Rectangle.RenderTransform>
-        </Rectangle>
-        <Rectangle Fill="Black" HorizontalAlignment="Left" Height="221" Margin="184,418,0,0" VerticalAlignment="Top" Width="5" RenderTransformOrigin="0.5,0.5">
-            <Rectangle.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform ScaleX="-1"/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Rectangle.RenderTransform>
-        </Rectangle>
 
-        <Desenhos:siloPequeno x:Name="Motor_42" HorizontalAlignment="Left" Height="147" Margin="355,322,0,0" VerticalAlignment="Top" Width="115" RenderTransformOrigin="0.5,0.5" descricaoSilo="PRÉ MISTURADOR">
+        <Desenhos:siloPequeno x:Name="Motor_42" HorizontalAlignment="Left" Height="147" Margin="335,320,0,0" VerticalAlignment="Top" Width="121" RenderTransformOrigin="0.5,0.5" descricaoSilo="PRÉ MISTURADOR">
             <Desenhos:siloPequeno.RenderTransform>
                 <TransformGroup>
-                    <ScaleTransform ScaleX="1.1" ScaleY="1.1"/>
+                    <ScaleTransform ScaleX="-1.1" ScaleY="1.1"/>
                     <SkewTransform/>
                     <RotateTransform/>
                     <TranslateTransform/>
@@ -141,10 +129,10 @@
                 </TransformGroup>
             </Rectangle.RenderTransform>
         </Rectangle>
-        <Desenhos:balanca x:Name="indicadorPesagem" HorizontalAlignment="Left" Height="163" Margin="94,491,0,0" VerticalAlignment="Top" Width="180" RenderTransformOrigin="0.5,0.5">
+        <Desenhos:balanca x:Name="indicadorPesagem" HorizontalAlignment="Left" Height="163" Margin="87,492,0,0" VerticalAlignment="Top" Width="188" RenderTransformOrigin="0.5,0.5">
             <Desenhos:balanca.RenderTransform>
                 <TransformGroup>
-                    <ScaleTransform ScaleX="0.8" ScaleY="0.8"/>
+                    <ScaleTransform ScaleX="-0.8" ScaleY="0.8"/>
                     <SkewTransform/>
                     <RotateTransform/>
                     <TranslateTransform/>
@@ -288,7 +276,7 @@
                 </TransformGroup>
             </Equipamentos:alimentador.RenderTransform>
         </Equipamentos:alimentador>
-        <Rectangle Fill="Black" HorizontalAlignment="Left" Height="4" Margin="0,638,0,0" VerticalAlignment="Top" Width="1024"/>
+        <Rectangle Fill="Black" HorizontalAlignment="Left" Height="4" Margin="0,638,0,0" VerticalAlignment="Top" Width="1040"/>
         <Equipamentos:rosca x:Name="Motor_30" HorizontalAlignment="Left" Height="16" Margin="260,494,0,0" VerticalAlignment="Top" Width="164" RenderTransformOrigin="0.5,0.5">
             <Equipamentos:rosca.RenderTransform>
                 <TransformGroup>
@@ -309,13 +297,22 @@
                 </TransformGroup>
             </Rectangle.RenderTransform>
         </Rectangle>
-        <Label Content="22" HorizontalAlignment="Left" Height="40" Margin="27,30,0,0" VerticalAlignment="Top" Width="40" RenderTransformOrigin="0.5,0.5" FontSize="20" Foreground="#FFB8B8B8" FontWeight="Bold"/>
-        <Rectangle x:Name="rec65" Fill="#FF3C3C3C" HorizontalAlignment="Left" Height="63" Margin="987,505,0,0" VerticalAlignment="Top" Width="6"/>
-        <Rectangle Fill="#FF727272" HorizontalAlignment="Left" Height="59" Margin="965,564,0,0" VerticalAlignment="Top" Width="47"/>
-        <Label Content="BAG" HorizontalAlignment="Left" Height="11" Margin="965,565,0,0" VerticalAlignment="Top" Width="47" RenderTransformOrigin="0.5,0.5" FontSize="6" Foreground="White" FontWeight="Bold" HorizontalContentAlignment="Center" Padding="0">
+        <Label Content="22" HorizontalAlignment="Left" Height="40" Margin="30,25,0,0" VerticalAlignment="Top" Width="39" RenderTransformOrigin="0.5,0.5" FontSize="20" Foreground="#FFB8B8B8" FontWeight="Bold">
             <Label.RenderTransform>
                 <TransformGroup>
-                    <ScaleTransform/>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Rectangle x:Name="rec65" Fill="#FF3C3C3C" HorizontalAlignment="Left" Height="63" Margin="970,509,0,0" VerticalAlignment="Top" Width="6"/>
+        <Rectangle Fill="#FF727272" HorizontalAlignment="Left" Height="59" Margin="953,564,0,0" VerticalAlignment="Top" Width="47"/>
+        <Label Content="BAG" HorizontalAlignment="Left" Height="11" Margin="955,565,0,0" VerticalAlignment="Top" Width="40" RenderTransformOrigin="0.5,0.5" FontSize="6" Foreground="White" FontWeight="Bold" HorizontalContentAlignment="Center" Padding="0">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
                     <SkewTransform AngleY="0.325"/>
                     <RotateTransform/>
                     <TranslateTransform Y="0.087"/>
@@ -342,9 +339,27 @@
                 </TransformGroup>
             </Desenhos:Silo.RenderTransform>
         </Desenhos:Silo>
-        <Label Content="23" HorizontalAlignment="Left" Height="40" Margin="107,113,0,0" VerticalAlignment="Top" Width="40" RenderTransformOrigin="0.5,0.5" FontSize="20" Foreground="#FFB8B8B8" FontWeight="Bold"/>
-        <Label Content="24" HorizontalAlignment="Left" Height="40" Margin="234,180,0,0" VerticalAlignment="Top" Width="40" RenderTransformOrigin="0.5,0.5" FontSize="20" Foreground="#FFB8B8B8" FontWeight="Bold"/>
-        <Equipamentos:bifurcadaDireita x:Name="Motor_23" HorizontalAlignment="Left" Height="44" Margin="142,130,0,0" VerticalAlignment="Top" Width="48" RenderTransformOrigin="0.5,0.5">
+        <Label Content="23" HorizontalAlignment="Left" Height="40" Margin="100,115,0,0" VerticalAlignment="Top" Width="37" RenderTransformOrigin="0.5,0.5" FontSize="20" Foreground="#FFB8B8B8" FontWeight="Bold">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label Content="24" HorizontalAlignment="Left" Height="40" Margin="235,177,0,0" VerticalAlignment="Top" Width="38" RenderTransformOrigin="0.5,0.5" FontSize="20" Foreground="#FFB8B8B8" FontWeight="Bold">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Equipamentos:bifurcadaDireita x:Name="Motor_23" HorizontalAlignment="Left" Height="44" Margin="140,131,0,0" VerticalAlignment="Top" Width="40" RenderTransformOrigin="0.5,0.5">
             <Equipamentos:bifurcadaDireita.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="1.3" ScaleY="1.3"/>
@@ -354,11 +369,56 @@
                 </TransformGroup>
             </Equipamentos:bifurcadaDireita.RenderTransform>
         </Equipamentos:bifurcadaDireita>
-        <Label Content="26" HorizontalAlignment="Left" Height="40" Margin="148,458,0,0" VerticalAlignment="Top" Width="40" RenderTransformOrigin="0.5,0.5" FontSize="20" Foreground="#FFB8B8B8" FontWeight="Bold"/>
-        <Label Content="26" HorizontalAlignment="Left" Height="40" Margin="192,458,0,0" VerticalAlignment="Top" Width="40" RenderTransformOrigin="0.5,0.5" FontSize="20" Foreground="#FFB8B8B8" FontWeight="Bold"/>
-        <Label Content="27" HorizontalAlignment="Left" Height="40" Margin="85,511,0,0" VerticalAlignment="Top" Width="40" RenderTransformOrigin="0.5,0.5" FontSize="20" Foreground="#FFB8B8B8" FontWeight="Bold"/>
-        <Label Content="29" HorizontalAlignment="Left" Height="40" Margin="101,640,0,-5" VerticalAlignment="Top" Width="40" RenderTransformOrigin="0.5,0.5" FontSize="20" Foreground="#FFB8B8B8" FontWeight="Bold"/>
-        <Label Content="30" HorizontalAlignment="Left" Height="40" Margin="320,640,0,-5" VerticalAlignment="Top" Width="40" RenderTransformOrigin="0.5,0.5" FontSize="20" Foreground="#FFB8B8B8" FontWeight="Bold"/>
+        <Label Content="26" HorizontalAlignment="Left" Height="40" Margin="144,460,0,0" VerticalAlignment="Top" Width="36" RenderTransformOrigin="0.5,0.5" FontSize="20" Foreground="#FFB8B8B8" FontWeight="Bold">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label Content="26" HorizontalAlignment="Left" Height="40" Margin="185,460,0,0" VerticalAlignment="Top" Width="48" RenderTransformOrigin="0.5,0.5" FontSize="20" Foreground="#FFB8B8B8" FontWeight="Bold">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label Content="27" HorizontalAlignment="Left" Height="40" Margin="75,514,0,0" VerticalAlignment="Top" Width="45" RenderTransformOrigin="0.5,0.5" FontSize="20" Foreground="#FFB8B8B8" FontWeight="Bold">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label Content="29" HorizontalAlignment="Left" Height="40" Margin="105,640,0,-5" VerticalAlignment="Top" Width="39" RenderTransformOrigin="0.5,0.5" FontSize="20" Foreground="#FFB8B8B8" FontWeight="Bold">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label Content="30" HorizontalAlignment="Left" Height="40" Margin="320,640,0,-5" VerticalAlignment="Top" Width="40" RenderTransformOrigin="0.5,0.5" FontSize="20" Foreground="#FFB8B8B8" FontWeight="Bold">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
         <Equipamentos:alimentador HorizontalAlignment="Left" Height="35" Margin="347,380,0,0" VerticalAlignment="Top" Width="29" RenderTransformOrigin="0.5,0.5">
             <Equipamentos:alimentador.RenderTransform>
                 <TransformGroup>
@@ -369,7 +429,16 @@
                 </TransformGroup>
             </Equipamentos:alimentador.RenderTransform>
         </Equipamentos:alimentador>
-        <Label Content="42" HorizontalAlignment="Left" Height="40" Margin="400,313,0,0" VerticalAlignment="Top" Width="33" RenderTransformOrigin="0.5,0.5" FontSize="20" Foreground="#FFB8B8B8" FontWeight="Bold"/>
+        <Label Content="42" HorizontalAlignment="Left" Height="40" Margin="370,315,0,0" VerticalAlignment="Top" Width="45" RenderTransformOrigin="0.5,0.5" FontSize="20" Foreground="#FFB8B8B8" FontWeight="Bold">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
         <Equipamentos:rosca x:Name="Motor_45" HorizontalAlignment="Left" Height="16" Margin="489,621,0,0" VerticalAlignment="Top" Width="92" RenderTransformOrigin="0.5,0.5">
             <Equipamentos:rosca.RenderTransform>
                 <TransformGroup>
@@ -380,7 +449,16 @@
                 </TransformGroup>
             </Equipamentos:rosca.RenderTransform>
         </Equipamentos:rosca>
-        <Label Content="45" HorizontalAlignment="Left" Height="40" Margin="458,640,0,-5" VerticalAlignment="Top" Width="40" RenderTransformOrigin="0.5,0.5" FontSize="20" Foreground="#FFB8B8B8" FontWeight="Bold"/>
+        <Label Content="45" HorizontalAlignment="Left" Height="40" Margin="460,640,0,-5" VerticalAlignment="Top" Width="38" RenderTransformOrigin="0.5,0.5" FontSize="20" Foreground="#FFB8B8B8" FontWeight="Bold">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
         <Equipamentos:alimentador HorizontalAlignment="Left" Height="34" Margin="497,480,0,0" VerticalAlignment="Top" Width="28" RenderTransformOrigin="0.5,0.5">
             <Equipamentos:alimentador.RenderTransform>
                 <TransformGroup>
@@ -391,15 +469,60 @@
                 </TransformGroup>
             </Equipamentos:alimentador.RenderTransform>
         </Equipamentos:alimentador>
-        <Label Content="44" HorizontalAlignment="Left" Height="40" Margin="458,506,0,0" VerticalAlignment="Top" Width="40" RenderTransformOrigin="0.5,0.5" FontSize="20" Foreground="#FFB8B8B8" FontWeight="Bold"/>
-        <Label Content="43" HorizontalAlignment="Left" Height="40" Margin="460,432,0,0" VerticalAlignment="Top" Width="40" RenderTransformOrigin="0.5,0.5" FontSize="20" Foreground="#FFB8B8B8" FontWeight="Bold"/>
-        <Label x:Name="lbCorrente43" Content="125(A)" HorizontalAlignment="Left" Height="24" Margin="515,419,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.5,0.5" FontSize="16" Foreground="#FFB8B8B8" FontWeight="Bold" HorizontalContentAlignment="Right" Padding="0,0,5,0"/>
-        <Label x:Name="lbVelocidade43" Content="1800 RPM" HorizontalAlignment="Left" Height="18" Margin="515,443,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.5,0.5" Foreground="#FFB8B8B8" FontWeight="Bold" HorizontalContentAlignment="Right" Padding="0,0,5,0" FontSize="14"/>
-        <Label x:Name="lbCorrenteMoinho" Content="125(A)" HorizontalAlignment="Left" Height="24" Margin="531,522,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.5,0.5" FontSize="16" Foreground="#FFB8B8B8" FontWeight="Bold" HorizontalContentAlignment="Right" Padding="0,0,5,0"/>
-        <Desenhos:siloPequeno x:Name="Motor_48" HorizontalAlignment="Left" Height="147" Margin="655,322,0,0" VerticalAlignment="Top" Width="119" RenderTransformOrigin="0.5,0.5">
+        <Label Content="44" HorizontalAlignment="Left" Height="40" Margin="550,515,0,0" VerticalAlignment="Top" Width="38" RenderTransformOrigin="0.5,0.5" FontSize="20" Foreground="#FFB8B8B8" FontWeight="Bold">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label Content="43" HorizontalAlignment="Left" Height="40" Margin="450,430,0,0" VerticalAlignment="Top" Width="45" RenderTransformOrigin="0.5,0.5" FontSize="20" Foreground="#FFB8B8B8" FontWeight="Bold">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label x:Name="lbCorrente43" Content="125(A)" HorizontalAlignment="Left" Height="24" Margin="525,420,0,0" VerticalAlignment="Top" Width="57" RenderTransformOrigin="0.5,0.5" FontSize="16" Foreground="#FFB8B8B8" FontWeight="Bold" HorizontalContentAlignment="Right" Padding="0,0,5,0">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label x:Name="lbVelocidade43" Content="1800 RPM" HorizontalAlignment="Left" Height="18" Margin="515,444,0,0" VerticalAlignment="Top" Width="78" RenderTransformOrigin="0.5,0.5" Foreground="#FFB8B8B8" FontWeight="Bold" HorizontalContentAlignment="Right" Padding="0,0,5,0" FontSize="14">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label x:Name="lbCorrenteMoinho" Content="125(A)" HorizontalAlignment="Left" Height="24" Margin="560,546,0,0" VerticalAlignment="Top" Width="61" RenderTransformOrigin="0.5,0.5" FontSize="16" Foreground="#FFB8B8B8" FontWeight="Bold" HorizontalContentAlignment="Right" Padding="0,0,5,0">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Desenhos:siloPequeno x:Name="Motor_48" HorizontalAlignment="Left" Height="147" Margin="615,320,0,0" VerticalAlignment="Top" Width="140" RenderTransformOrigin="0.5,0.5">
             <Desenhos:siloPequeno.RenderTransform>
                 <TransformGroup>
-                    <ScaleTransform ScaleX="1.1" ScaleY="1.1"/>
+                    <ScaleTransform ScaleX="-1.1" ScaleY="1.1"/>
                     <SkewTransform/>
                     <RotateTransform/>
                     <TranslateTransform/>
@@ -426,7 +549,16 @@
                 </TransformGroup>
             </Equipamentos:rosca.RenderTransform>
         </Equipamentos:rosca>
-        <Label Content="46" HorizontalAlignment="Left" Height="32" Margin="622,640,0,0" VerticalAlignment="Top" Width="40" RenderTransformOrigin="0.5,0.5" FontSize="20" Foreground="#FFB8B8B8" FontWeight="Bold"/>
+        <Label Content="46" HorizontalAlignment="Left" Height="32" Margin="619,640,0,0" VerticalAlignment="Top" Width="42" RenderTransformOrigin="0.5,0.5" FontSize="20" Foreground="#FFB8B8B8" FontWeight="Bold">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
         <Equipamentos:alimentador HorizontalAlignment="Left" Height="35" Margin="645,380,0,0" VerticalAlignment="Top" Width="29" RenderTransformOrigin="0.5,0.5">
             <Equipamentos:alimentador.RenderTransform>
                 <TransformGroup>
@@ -437,7 +569,16 @@
                 </TransformGroup>
             </Equipamentos:alimentador.RenderTransform>
         </Equipamentos:alimentador>
-        <Label Content="48" HorizontalAlignment="Left" Height="40" Margin="700,313,0,0" VerticalAlignment="Top" Width="33" RenderTransformOrigin="0.5,0.5" FontSize="20" Foreground="#FFB8B8B8" FontWeight="Bold"/>
+        <Label Content="48" HorizontalAlignment="Left" Height="40" Margin="675,305,0,0" VerticalAlignment="Top" Width="35" RenderTransformOrigin="0.5,0.5" FontSize="20" Foreground="#FFB8B8B8" FontWeight="Bold">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
         <Equipamentos:elevadorDireita  x:Name="Motor_62" HorizontalAlignment="Left" Height="392" Margin="807,158,0,0" VerticalAlignment="Top" Width="38" RenderTransformOrigin="0.5,0.5" >
             <Equipamentos:elevadorDireita.RenderTransform>
                 <TransformGroup>
@@ -448,14 +589,59 @@
                 </TransformGroup>
             </Equipamentos:elevadorDireita.RenderTransform>
         </Equipamentos:elevadorDireita>
-        <Label Content="62" HorizontalAlignment="Left" Height="40" Margin="802,30,0,0" VerticalAlignment="Top" Width="40" RenderTransformOrigin="0.5,0.5" FontSize="20" Foreground="#FFB8B8B8" FontWeight="Bold"/>
-        <Label Content="49" HorizontalAlignment="Left" Height="40" Margin="651,478,0,0" VerticalAlignment="Top" Width="40" RenderTransformOrigin="0.5,0.5" FontSize="20" Foreground="#FFB8B8B8" FontWeight="Bold"/>
+        <Label Content="62" HorizontalAlignment="Left" Height="40" Margin="798,30,0,0" VerticalAlignment="Top" Width="42" RenderTransformOrigin="0.5,0.5" FontSize="20" Foreground="#FFB8B8B8" FontWeight="Bold">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label Content="49" HorizontalAlignment="Left" Height="40" Margin="726,478,0,0" VerticalAlignment="Top" Width="34" RenderTransformOrigin="0.5,0.5" FontSize="20" Foreground="#FFB8B8B8" FontWeight="Bold">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
         <Rectangle Fill="{Binding Fill, ElementName=rec49}" HorizontalAlignment="Left" Height="62" Margin="780,545,0,0" VerticalAlignment="Top" Width="6"/>
         <ed:Arc EndAngle="90" HorizontalAlignment="Left" Height="15" Margin="770,539,0,0" StartAngle="0" VerticalAlignment="Top" Width="16" StrokeThickness="6" Stretch="None" RenderTransformOrigin="0.5,0.5" Stroke="{Binding Fill, ElementName=rec49}"/>
-        <Label x:Name="lbposicao26A" Content="100%" Height="18" Margin="74,484,0,0" VerticalAlignment="Top" Width="45" RenderTransformOrigin="0.5,0.5" Foreground="#FFB8B8B8" FontWeight="Bold" Padding="0,0,5,0" FontSize="14" HorizontalAlignment="Left" HorizontalContentAlignment="Right"/>
-        <Label x:Name="lbCorrente62" Content="125(A)" HorizontalAlignment="Left" Height="24" Margin="837,17,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.5,0.5" FontSize="16" Foreground="#FFB8B8B8" FontWeight="Bold" HorizontalContentAlignment="Right" Padding="0,0,5,0"/>
-        <Label x:Name="lbVelocidade62" Content="1800 RPM" HorizontalAlignment="Left" Height="18" Margin="837,41,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.5,0.5" Foreground="#FFB8B8B8" FontWeight="Bold" HorizontalContentAlignment="Right" Padding="0,0,5,0" FontSize="14"/>
-        <Equipamentos:rosca x:Name="Motor_65" HorizontalAlignment="Left" Height="16" Margin="880,494,0,0" VerticalAlignment="Top" Width="105" RenderTransformOrigin="0.5,0.5">
+        <Label x:Name="lbposicao26A" Content="100%" Height="18" Margin="65,482,0,0" VerticalAlignment="Top" Width="54" RenderTransformOrigin="0.5,0.5" Foreground="#FFB8B8B8" FontWeight="Bold" Padding="0,0,5,0" FontSize="14" HorizontalAlignment="Left" HorizontalContentAlignment="Right">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label x:Name="lbCorrente62" Content="125(A)" HorizontalAlignment="Left" Height="24" Margin="840,16,0,0" VerticalAlignment="Top" Width="60" RenderTransformOrigin="0.5,0.5" FontSize="16" Foreground="#FFB8B8B8" FontWeight="Bold" HorizontalContentAlignment="Right" Padding="0,0,5,0">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label x:Name="lbVelocidade62" Content="1800 RPM" HorizontalAlignment="Left" Height="18" Margin="841,40,0,0" VerticalAlignment="Top" Width="79" RenderTransformOrigin="0.5,0.5" Foreground="#FFB8B8B8" FontWeight="Bold" HorizontalContentAlignment="Right" Padding="0,0,5,0" FontSize="14">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Equipamentos:rosca x:Name="Motor_65" HorizontalAlignment="Left" Height="16" Margin="877,494,0,0" VerticalAlignment="Top" Width="97" RenderTransformOrigin="0.5,0.5">
             <Equipamentos:rosca.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="1.8" ScaleY="1.8"/>
@@ -465,13 +651,98 @@
                 </TransformGroup>
             </Equipamentos:rosca.RenderTransform>
         </Equipamentos:rosca>
-        <Label Content="65" HorizontalAlignment="Left" Height="40" Margin="847,460,0,0" VerticalAlignment="Top" Width="40" RenderTransformOrigin="0.5,0.5" FontSize="20" Foreground="#FFB8B8B8" FontWeight="Bold"/>
-        <Label x:Name="lbCorrente65" Content="125(A)" HorizontalAlignment="Left" Height="24" Margin="949,464,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.5,0.5" FontSize="16" Foreground="#FFB8B8B8" FontWeight="Bold" Padding="0,0,5,0"/>
-        <Label x:Name="lbVelocidade65" Content="1800 RPM" HorizontalAlignment="Left" Height="18" Margin="947,446,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.5,0.5" Foreground="#FFB8B8B8" FontWeight="Bold" HorizontalContentAlignment="Right" Padding="0,0,5,0" FontSize="14"/>
-        <Label Content="63" HorizontalAlignment="Left" Height="40" Margin="953,229,0,0" VerticalAlignment="Top" Width="40" RenderTransformOrigin="0.5,0.5" FontSize="20" Foreground="#FFB8B8B8" FontWeight="Bold"/>
-        <Label x:Name="lbposicao26B" Content="100%" Height="18" Margin="265,482,0,0" VerticalAlignment="Top" Width="45" RenderTransformOrigin="0.5,0.5" Foreground="#FFB8B8B8" FontWeight="Bold" Padding="0,0,5,0" FontSize="14" HorizontalAlignment="Left"/>
+        <Label Content="65" HorizontalAlignment="Left" Height="40" Margin="834,460,0,0" VerticalAlignment="Top" Width="46" RenderTransformOrigin="0.5,0.5" FontSize="20" Foreground="#FFB8B8B8" FontWeight="Bold">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label x:Name="lbCorrente65" Content="125(A)" HorizontalAlignment="Left" Height="24" Margin="949,466,0,0" VerticalAlignment="Top" Width="63" RenderTransformOrigin="0.5,0.5" FontSize="16" Foreground="#FFB8B8B8" FontWeight="Bold" Padding="0,0,5,0">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label x:Name="lbVelocidade65" Content="1800 RPM" HorizontalAlignment="Left" Height="18" Margin="936,448,-4,0" VerticalAlignment="Top" Width="92" RenderTransformOrigin="0.5,0.5" Foreground="#FFB8B8B8" FontWeight="Bold" HorizontalContentAlignment="Right" Padding="0,0,5,0" FontSize="14">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label Content="63" HorizontalAlignment="Left" Height="40" Margin="953,215,0,0" VerticalAlignment="Top" Width="33" RenderTransformOrigin="0.5,0.5" FontSize="20" Foreground="#FFB8B8B8" FontWeight="Bold">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label x:Name="lbposicao26B" Content="100%" Height="18" Margin="260,485,0,0" VerticalAlignment="Top" Width="45" RenderTransformOrigin="0.5,0.5" Foreground="#FFB8B8B8" FontWeight="Bold" Padding="0,0,5,0" FontSize="14" HorizontalAlignment="Left">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
 
-        <Controle_Produção:inicialControleProducao x:Name="inicialProducao" HorizontalAlignment="Left" Height="295" Margin="288,9,0,0" VerticalAlignment="Top" Width="499"/>
+        <Controle_Produção:inicialControleProducao x:Name="inicialProducao" HorizontalAlignment="Left" Height="295" Margin="284,5,0,0" VerticalAlignment="Top" Width="498" RenderTransformOrigin="0.5,0.5">
+            <Controle_Produção:inicialControleProducao.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Controle_Produção:inicialControleProducao.RenderTransform>
+        </Controle_Produção:inicialControleProducao>
+        <Label x:Name="lbPesoEnsaque" Content="500,00 kg" Height="27" Margin="835,600,0,0" VerticalAlignment="Top" Width="110" RenderTransformOrigin="0.5,0.5" Foreground="White" FontWeight="Bold" Padding="0,0,5,0" FontSize="20" HorizontalAlignment="Left" HorizontalContentAlignment="Right">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Button x:Name="bt_Ensaque" Content="Button" HorizontalAlignment="Left" Margin="1112,545,-255,0" VerticalAlignment="Top" Width="183" Height="91" Opacity="0" Click="bt_Ensaque_Click"/>
+        <Label Content="Peso Atual:" HorizontalAlignment="Left" Margin="846,575,0,0" VerticalAlignment="Top" Width="84" FontSize="14" Foreground="White" RenderTransformOrigin="0.5,0.5">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label x:Name="lbStatusEnsaque" Content="Balança Em Funcionamento" Margin="830,643,0,0" BorderBrush="Black" BorderThickness="1" Background="#FF0CFF00" HorizontalContentAlignment="Center" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="191" ToolTip="" Cursor="No" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
         <Equipamentos:dosadorOscilante x:Name="Motor_26_Silo2" HorizontalAlignment="Left" Height="31" Margin="206,474,0,0" VerticalAlignment="Top" Width="54" RenderTransformOrigin="0.5,0.5">
             <Equipamentos:dosadorOscilante.RenderTransform>
                 <TransformGroup>
@@ -492,10 +763,6 @@
                 </TransformGroup>
             </Equipamentos:dosadorOscilante.RenderTransform>
         </Equipamentos:dosadorOscilante>
-        <Label x:Name="lbPesoEnsaque" Content="500,00 kg" Height="27" Margin="847,596,0,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="0.5,0.5" Foreground="White" FontWeight="Bold" Padding="0,0,5,0" FontSize="20" HorizontalAlignment="Left" HorizontalContentAlignment="Right"/>
-        <Button x:Name="bt_Ensaque" Content="Button" HorizontalAlignment="Left" Margin="841,551,0,0" VerticalAlignment="Top" Width="183" Height="91" Opacity="0" Click="bt_Ensaque_Click"/>
-        <Label Content="Peso Atual:" HorizontalAlignment="Left" Margin="854,576,0,0" VerticalAlignment="Top" Width="79" FontSize="14" Foreground="White"/>
-        <Label x:Name="lbStatusEnsaque" Content="Balança Em Funcionamento" Margin="841,644,0,0" BorderBrush="Black" BorderThickness="1" Background="#FF0CFF00" HorizontalContentAlignment="Center" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="181" ToolTip="" Cursor="No" VerticalContentAlignment="Center"/>
 
     </Grid>
 </UserControl>
