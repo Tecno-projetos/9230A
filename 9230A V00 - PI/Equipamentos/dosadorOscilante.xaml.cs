@@ -62,17 +62,6 @@ namespace _9230A_V00___PI.Equipamentos
 
             if (loadedEquip)
             {
-                bool posicionando = true;
-
-
-                if ( equip.Command_Get.AtuadorA.PosicaoAtual >  1)         
-                {
-                    posicionando = false;
-                }
-                else
-                {
-                    posicionando = true;
-                }
 
 
 
@@ -157,7 +146,8 @@ namespace _9230A_V00___PI.Equipamentos
                     rec1.Dispatcher.BeginInvoke((Action)(() => rec1.Fill = AM));
 
                 }
-                else if (equip.Command_Get.Standard.Liga_Manual & posicionando)
+                //ligado em manual
+                else if (equip.Command_Get.Standard.Liga_Manual && equip.Command_Get.AtuadorA.PosicaoAtual > 1 && equip.Command_Get.Standard.Manual)
                 {
                     if (ticktack)
                     {
@@ -170,7 +160,22 @@ namespace _9230A_V00___PI.Equipamentos
 
                     }
                 }
-                else if (!equip.Command_Get.Standard.Liga_Manual & posicionando)
+                //ligado em automatico
+                else if (equip.Command_Get.AtuadorA.PosicaoAtual > 1 && equip.Command_Get.Standard.Automatico)
+                {
+                    if (ticktack)
+                    {
+                        rec1.Dispatcher.BeginInvoke((Action)(() => rec1.Fill = VD));
+
+                    }
+                    else
+                    {
+                        rec1.Dispatcher.BeginInvoke((Action)(() => rec1.Fill = VD));
+
+                    }
+                }
+                //desligando em manual
+                else if (!equip.Command_Get.Standard.Liga_Manual && equip.Command_Get.AtuadorA.PosicaoAtual > 1 && equip.Command_Get.Standard.Manual)
                 {
                     if (ticktack)
                     {
@@ -185,17 +190,10 @@ namespace _9230A_V00___PI.Equipamentos
                 }
                 else
                 {
-                    //ligado
-                    if (equip.Command_Get.Standard.Liga_Manual & !posicionando)
-                    {
-                        rec1.Dispatcher.BeginInvoke((Action)(() => rec1.Fill = VD));
 
-                    }
-                    else
-                    {
-                        rec1.Dispatcher.BeginInvoke((Action)(() => rec1.Fill = CZ));
+                     rec1.Dispatcher.BeginInvoke((Action)(() => rec1.Fill = CZ));
             
-                    }
+
                 }
                 #region Names
 

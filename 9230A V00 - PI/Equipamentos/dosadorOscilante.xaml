@@ -8,7 +8,8 @@
              mc:Ignorable="d" Height="27.004" Width="54.121" Cursor="Hand">
     <Grid>
         <Rectangle x:Name="rec1" Fill="White" HorizontalAlignment="Left" Height="13" Margin="10,14,0,0" VerticalAlignment="Top" Width="37"/>
-        <Rectangle Fill="Black" HorizontalAlignment="Left" Height="14" Margin="1,10,0,0" VerticalAlignment="Top" Width="6" RenderTransformOrigin="0.5,0.5">
+        <Rectangle Fill="Black" HorizontalAlignment="Left" Height="14" Margin="1,10,0,0" VerticalAlignment="Top" Width="6" RenderTransformOrigin="0.5,0.5"
+>
             <Rectangle.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="-1"/>
