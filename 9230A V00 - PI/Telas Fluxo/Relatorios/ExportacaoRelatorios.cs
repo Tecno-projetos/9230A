@@ -150,7 +150,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
                 document.Add(new Chunk("\n", fntHead));
 
                 int cont = 0;
-                int mudanca = 3;
+                int mudanca = 2;
 
                 foreach (var item in PesquisaProducao)
                 {
@@ -158,18 +158,39 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
                     {
                         document.NewPage();
                         cont = 0;
-                        mudanca = 4;
+                        mudanca = 3;
                     }
 
                     document.Add(tableProducao("Relatório produção N° produção: " + Convert.ToString(item.id), true));
                     document.Add(tableProducao(item.receita.nomeReceita, true));
-                    document.Add(tableProducao(colsW, "Peso total produção: " + item.pesoTotalProducao + " kg", "Volume total produção: " + item.volumeTotalProducao + " m³", true));
+                    document.Add(tableProducao(colsW, "Peso total desejado: " + item.pesoTotalProducao + " kg", "Volume total desejado: " + item.volumeTotalProducao + " m³", true));
                     document.Add(tableProducao(colsW, "Peso total produzido: " + item.pesoTotalProduzido + " kg", "Volume total produzido: " + item.volumeTotalProduzido + " m³", true));
                     document.Add(tableProducao("Quantidade de bateldas: " + item.quantidadeBateladas + " und.", true, Element.ALIGN_LEFT));
                     document.Add(tableProducao(colsW, "Tempo pré mistura: " + item.tempoPreMistura + " segundos", "Tempo pós mistura: " + item.tempoPosMistura + " segundos", true));
-                    document.Add(tableProducao(colsW, "Data início produção: " + item.dateTimeInicioProducao, "Data fim produção: " + item.dateTimeFimProducao, true));
-                    document.Add(new Chunk("\n", fntHead));
+                    document.Add(tableProducao(colsW, "Data início produção: " + item.dateTimeInicioProducao, "Data envio expedição: " + item.dateTimeFimProducao, true));
 
+                    //Controle Produção Ensaque
+                    DataTable dt = new DataTable();
+                    dt = DataBase.SqlFunctionsEnsaques.getProducaoEnsaqueFromDateTime(dataExportacaoInicial, dataExportacaoFinal, item.id);
+
+                    int quantidade = 0;
+                    //Verifica 
+                    if (dt.Rows != null)
+                    {
+                        quantidade = dt.Rows.Count;
+
+                        document.Add(tableProducao("Quantidade de ensaques iniciados: " + quantidade, true));
+                        document.Add(tableProducao(colsW, "Peso ensacado: " + DataBase.SqlFunctionsEnsaques.getPesoTotalEnsaque(item.id) + " kg", "Peso médio ensaque: " + DataBase.SqlFunctionsEnsaques.getPesoMedioEnsaque(item.id) + " kg", true));
+                        document.Add(tableProducao(colsW, "Peso mínimo saco: " + DataBase.SqlFunctionsEnsaques.getPesoMinEnsaque(item.id) + " kg", "Peso máximo saco: " + DataBase.SqlFunctionsEnsaques.getPesoMaxEnsaque(item.id) + " kg", true));
+                        document.Add(tableProducao("Quantidade de sacos: " + DataBase.SqlFunctionsEnsaques.getCoutEnsaque(item.id) + " und.", true, Element.ALIGN_LEFT));
+
+                    }
+                    else
+                    {
+                        document.Add(tableProducao("Produção não possui ensaque!", true));
+                    }
+
+                    document.Add(new Chunk("\n", fntHead));
                     cont++;
                 }
 
@@ -188,8 +209,6 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
                 return false;
             }
 
-
-
         }
 
         /// <summary>
@@ -201,8 +220,6 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
         /// <returns></returns>
         public static bool exportarBatelada(String strPdfPath, Utilidades.Producao producao, string strHeader)
         {
-
-
             try
             {
                 #region Cabeçalho
@@ -310,11 +327,6 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
                 int OldBatelada = -1;
                 foreach (var batelada in producao.batelada)
                 {
-
-                    //document.Add(tableProducao("Batelada N°: " + batelada.numeroBatelada, true, Element.ALIGN_CENTER));
-                    //document.Add(tableProducao(colsW, "Peso desejado: " + batelada.pesoDesejado + " kg", "Peso dosado:" + batelada.pesoDosado + " kg", true));
-
-
                     PdfPTable tablebatelada = new PdfPTable(3);
                     BaseColor preto = new BaseColor(0, 0, 0);
                     BaseColor fundo = new BaseColor(200, 200, 200);
@@ -349,9 +361,6 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
                     var cell1 = getNewCell("Peso desejado: " + batelada.pesoDesejado + " kg" + " | Peso dosado:" + batelada.pesoDosado + " kg", titulo, Element.ALIGN_CENTER, 5, PdfPCell.BOX, preto, branco);
                     cell1.Colspan = 5;
                     tablebatelada.AddCell(cell1);
-
-                    //document.Add(tableProducao("Batelada N°: " + batelada.numeroBatelada, true, Element.ALIGN_CENTER));
-                    //document.Add(tableProducao(colsW, "Peso desejado: " + batelada.pesoDesejado + " kg", "Peso dosado:" + batelada.pesoDosado + " kg", true));
 
                     tablebatelada.AddCell(getNewCell("Desrição Produto", titulo, Element.ALIGN_CENTER, 5, PdfPCell.BOX, preto, branco));
                     tablebatelada.AddCell(getNewCell("Peso Desejado", titulo, Element.ALIGN_CENTER, 5, PdfPCell.BOX, preto, branco));
@@ -390,204 +399,208 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
 
         }
 
-
-
         /// <summary>
-        ///  Exporta tabela e adiociona uma linha no cabelaho de produção com datas de exportações
+        /// Funçao para exportar as bateladas de uma produção.
         /// </summary>
         /// <param name="strPdfPath">Caminho a ser salvo o PDF </param>
-        /// <param name="PesquisaProducao">Lista de produções para ferar o relátorio</param>
+        /// <param name="producao">Classe da produção para gerar o relatório</param>
         /// <param name="strHeader">O que será escrito no cabeçalho da página</param>
-        /// <param name="dataExportacaoInicial"> Envia uma data para ser salvo no PDF e para mostrar quando foi iniciado a exportação</param>
-        /// <param name="dataExportacaoFinal"> Envia uma data para ser salvo no PDF e para mostrar quando foi finalizado a exportação</param>   
-        public static bool exportProducaoEnsaque(String strPdfPath, string strHeader, DateTime dataExportacaoInicial, DateTime dataExportacaoFinal)
+        /// <returns> 
+        /// -1 = Erro
+        ///  0 = OK
+        ///  1 = Produção sem ensaque
+        /// 
+        /// 
+        /// </returns>
+        public static int exportarEnsaque(String strPdfPath, Utilidades.Producao producao, string strHeader)
         {
             try
             {
-                #region Váriveis
-                float[] colsW = { 25, 25 };
-
-                double pesoTotalproduzido = 0;
-                double volumeTotalProduzido = 0;
-                Int64 quantidadeProducoes = 0;
-                Int64 quantidadeBateladas = 0;
-
-                #endregion
-
-                #region Cabeçalho
-
-                System.IO.FileStream fs = new FileStream(strPdfPath, FileMode.Create, FileAccess.Write, FileShare.None);
-                Document document = new Document();
-                document.SetPageSize(iTextSharp.text.PageSize.A4);
-                PdfWriter writer = PdfWriter.GetInstance(document, fs);
-                writer.PageEvent = new PDFFooter();
-
-                document.Open();
-
-                //Report Header
-                BaseFont bfntHead = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
-                Font fntHead = new Font(bfntHead, 16, 1, iTextSharp.text.BaseColor.BLACK);
-                Paragraph prgHeading = new Paragraph();
-                prgHeading.Alignment = Element.ALIGN_CENTER;
-                prgHeading.Add(new Chunk(strHeader.ToUpper(), fntHead));
-                document.Add(prgHeading);
-
-
-                //Adiociona a imagem no projeto e no PDF
-                #region Imagem Automasul
-                //Busca a imagem
-                string filename = "Logo_Automasul.png";
-                //Salva a imagem no arquivo Bin
-                Resources.Logo_Automasul.Save(Path.GetFullPath(filename));
-                string path = Path.GetFullPath(filename);
-                //Manda o caminho para o PDF
-                iTextSharp.text.Image image = iTextSharp.text.Image.GetInstance(path);
-                image.SetAbsolutePosition(0, 20);
-
-                image.ScaleAbsolute(150, 50);
-                image.Alignment = iTextSharp.text.Image.ALIGN_LEFT;
-                PdfContentByte cbhead = writer.DirectContent;
-                PdfTemplate tp = cbhead.CreateTemplate(1000, 1000);
-                tp.AddImage(image);
-
-                cbhead.AddTemplate(tp, 0, 842 - 95);
-                #endregion
-
-                //Adiociona a imagem no projeto e no PDF
-                #region Imagem Becker
-                //Busca a imagem
-                string filename1 = "Logo_Becker.png";
-                //Salva a imagem no arquivo Bin
-                Resources.Logo_Becker.Save(Path.GetFullPath(filename1));
-                string path1 = Path.GetFullPath(filename1);
-
-                //Manda o caminho para o PDF
-                iTextSharp.text.Image image1 = iTextSharp.text.Image.GetInstance(path1);
-                image1.SetAbsolutePosition(460, 40);
-                image1.ScaleAbsolute(100, 30);
-                image1.Alignment = iTextSharp.text.Image.ALIGN_RIGHT;
-                PdfContentByte cbhead1 = writer.DirectContent;
-                PdfTemplate tp1 = cbhead1.CreateTemplate(1000, 1000);
-                tp1.AddImage(image1);
-                cbhead1.AddTemplate(tp1, 0, 842 - 95);
-                #endregion
-
-
-                //Author
-                Paragraph prgAuthor = new Paragraph();
-                BaseFont btnAuthor = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
-                Font fntAuthor = new Font(btnAuthor, 8, 2, iTextSharp.text.BaseColor.GRAY);
-                prgAuthor.Alignment = Element.ALIGN_RIGHT;
-                prgAuthor.Add(new Chunk("Autor : " + Utilidades.VariaveisGlobais.UserLogged_GS, fntAuthor));
-                prgAuthor.Add(new Chunk("\nExportado : " + DateTime.Now.ToShortDateString(), fntAuthor));
-                document.Add(prgAuthor);
-
-
-                //Add a line seperation
-                Paragraph p = new Paragraph(new Chunk(new iTextSharp.text.pdf.draw.LineSeparator(0.0F, 100.0F, iTextSharp.text.BaseColor.BLACK, Element.ALIGN_LEFT, 1)));
-                document.Add(p);
-
-                //Add line break
-                //document.Add(new Chunk("\n", fntHead));
-
-                #endregion
-
 
                 DataTable dt = new DataTable();
 
-                dt = DataBase.SqlFunctionsEnsaques.getProducaoEnsaqueFromDateTime(dataExportacaoInicial, dataExportacaoFinal);
+                dt = DataBase.SqlFunctionsEnsaques.getEnsaqueFromIdProducaoEnsaque(producao.id);
 
-
-
-
-
-
-
-
-
-                foreach (DataRow row in dt.Rows)
+                if (dt != null)
                 {
+                    if (dt.Rows.Count > 0)
+                    {
+                        #region Cabeçalho
 
-                 
+                        System.IO.FileStream fs = new FileStream(strPdfPath, FileMode.Create, FileAccess.Write, FileShare.None);
+                        Document document = new Document();
+                        document.SetPageSize(iTextSharp.text.PageSize.A4);
+                        PdfWriter writer = PdfWriter.GetInstance(document, fs);
+                        writer.PageEvent = new PDFFooter();
 
+                        document.Open();
+
+                        //Report Header
+                        BaseFont bfntHead = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
+                        Font fntHead = new Font(bfntHead, 16, 1, iTextSharp.text.BaseColor.BLACK);
+                        Paragraph prgHeading = new Paragraph();
+                        prgHeading.Alignment = Element.ALIGN_CENTER;
+                        prgHeading.Add(new Chunk(strHeader.ToUpper(), fntHead));
+                        document.Add(prgHeading);
+
+
+                        //Adiociona a imagem no projeto e no PDF
+                        #region Imagem Automasul
+                        //Busca a imagem
+                        string filename = "Logo_Automasul.png";
+                        //Salva a imagem no arquivo Bin
+                        Resources.Logo_Automasul.Save(Path.GetFullPath(filename));
+                        string path = Path.GetFullPath(filename);
+                        //Manda o caminho para o PDF
+                        iTextSharp.text.Image image = iTextSharp.text.Image.GetInstance(path);
+                        image.SetAbsolutePosition(0, 20);
+
+                        image.ScaleAbsolute(150, 50);
+                        image.Alignment = iTextSharp.text.Image.ALIGN_LEFT;
+                        PdfContentByte cbhead = writer.DirectContent;
+                        PdfTemplate tp = cbhead.CreateTemplate(1000, 1000);
+                        tp.AddImage(image);
+
+                        cbhead.AddTemplate(tp, 0, 842 - 95);
+                        #endregion
+
+                        //Adiociona a imagem no projeto e no PDF
+                        #region Imagem Becker
+                        //Busca a imagem
+                        string filename1 = "Logo_Becker.png";
+                        //Salva a imagem no arquivo Bin
+                        Resources.Logo_Becker.Save(Path.GetFullPath(filename1));
+                        string path1 = Path.GetFullPath(filename1);
+
+                        //Manda o caminho para o PDF
+                        iTextSharp.text.Image image1 = iTextSharp.text.Image.GetInstance(path1);
+                        image1.SetAbsolutePosition(460, 40);
+                        image1.ScaleAbsolute(100, 30);
+                        image1.Alignment = iTextSharp.text.Image.ALIGN_RIGHT;
+                        PdfContentByte cbhead1 = writer.DirectContent;
+                        PdfTemplate tp1 = cbhead1.CreateTemplate(1000, 1000);
+                        tp1.AddImage(image1);
+                        cbhead1.AddTemplate(tp1, 0, 842 - 95);
+                        #endregion
+
+
+                        //Author
+                        Paragraph prgAuthor = new Paragraph();
+                        BaseFont btnAuthor = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
+                        Font fntAuthor = new Font(btnAuthor, 8, 2, iTextSharp.text.BaseColor.GRAY);
+                        prgAuthor.Alignment = Element.ALIGN_RIGHT;
+                        prgAuthor.Add(new Chunk("Autor : " + Utilidades.VariaveisGlobais.UserLogged_GS, fntAuthor));
+                        prgAuthor.Add(new Chunk("\nExportado : " + DateTime.Now.ToShortDateString(), fntAuthor));
+                        document.Add(prgAuthor);
+
+
+                        //Add a line seperation
+                        Paragraph p = new Paragraph(new Chunk(new iTextSharp.text.pdf.draw.LineSeparator(0.0F, 100.0F, iTextSharp.text.BaseColor.BLACK, Element.ALIGN_LEFT, 1)));
+                        document.Add(p);
+
+                        //Add line break
+                        //document.Add(new Chunk("\n", fntHead));
+
+                        #endregion
+
+                        float[] colsW = { 25, 25 };
+
+                        //Quantidade de produçoes
+                        document.Add(tableProducao("Produção: " + producao.id + " Receita:" + producao.receita.nomeReceita, false, Element.ALIGN_CENTER));
+                        document.Add(tableProducao(colsW, "Peso ensacado: " + DataBase.SqlFunctionsEnsaques.getPesoTotalEnsaque(producao.id) + " kg", "Peso médio ensaque: " + DataBase.SqlFunctionsEnsaques.getPesoMedioEnsaque(producao.id) + " kg", false));
+                        document.Add(tableProducao(colsW, "Peso mínimo saco: " + DataBase.SqlFunctionsEnsaques.getPesoMinEnsaque(producao.id) + " kg", "Peso máximo saco: " + DataBase.SqlFunctionsEnsaques.getPesoMaxEnsaque(producao.id) + " kg", false));
+                        document.Add(tableProducao("Quantidade de sacos: " + DataBase.SqlFunctionsEnsaques.getCoutEnsaque(producao.id) + " und.", false, Element.ALIGN_LEFT));
+                       
+  
+
+                        //Add a line seperation
+                        Paragraph p1 = new Paragraph(new Chunk(new iTextSharp.text.pdf.draw.LineSeparator(0.0F, 100.0F, iTextSharp.text.BaseColor.BLACK, Element.ALIGN_LEFT, 1)));
+                        document.Add(p1);
+
+                        //Adiocona o detatalhamento da Produção
+                        Paragraph Detalhamento = new Paragraph();
+                        BaseFont btnDetalhamento = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
+                        Font fntADetalhamento = FontFactory.GetFont(BaseFont.TIMES_ROMAN, 12, Font.BOLD, new BaseColor(0, 0, 0));
+                        Detalhamento.Alignment = Element.ALIGN_CENTER;
+
+                        Detalhamento.Add(new Chunk("Detalhamento Ensaque", fntADetalhamento));
+                        document.Add(Detalhamento);
+
+                        document.Add(new Chunk("\n", fntHead));
+
+                        int OldEnsaque = -1;
+          
+                        PdfPTable tablebatelada = new PdfPTable(2);
+                        BaseColor preto = new BaseColor(0, 0, 0);
+                        BaseColor fundo = new BaseColor(200, 200, 200);
+                        BaseColor branco = new BaseColor(255, 255, 255);
+                        Font font = FontFactory.GetFont(BaseFont.TIMES_ROMAN, 10, Font.BOLD, preto);
+                        Font titulo = FontFactory.GetFont(BaseFont.TIMES_ROMAN, 10, Font.BOLD, preto);
+
+                        float[] colsWBatelada = { 20, 20 };
+                        tablebatelada.HeaderRows = 0;
+                        tablebatelada.WidthPercentage = 100f;
+                        tablebatelada.DefaultCell.Border = PdfPCell.BOX;
+                        tablebatelada.DefaultCell.BorderColor = new BaseColor(255, 255, 255);
+                        tablebatelada.DefaultCell.BorderColorBottom = new BaseColor(255, 255, 255);
+                        tablebatelada.DefaultCell.Padding = 5;
+
+
+
+                        tablebatelada.AddCell(getNewCell("Saco", titulo, Element.ALIGN_CENTER, 5, PdfPCell.BOX, preto, branco));
+                        tablebatelada.AddCell(getNewCell("Peso Dosado", titulo, Element.ALIGN_CENTER, 5, PdfPCell.BOX, preto, branco));
+
+                        int contadorSaco = 1;
+
+                        foreach (DataRow row in dt.Rows)
+                        {
+                            if (OldEnsaque == -1)
+                            {
+                                tablebatelada.KeepTogether = false;
+                                OldEnsaque = 1;
+                            }
+                            else
+                            {
+                                tablebatelada.KeepTogether = true;
+                            }
+
+
+                            tablebatelada.AddCell(getNewCell("Saco " + contadorSaco, font, Element.ALIGN_LEFT, 5, PdfPCell.BOX));
+                            tablebatelada.AddCell(getNewCell(row["PesoDosado"].ToString() + " kg", font, Element.ALIGN_LEFT, 5, PdfPCell.BOX));
+
+                            contadorSaco++;
+
+                        }
+
+                        document.Add(tablebatelada);
+                        document.Add(new Chunk("\n", fntHead));
+
+                        document.Close();
+                        writer.Close();
+                        fs.Close();
+
+                        return 0;
+                    }
+                    else
+                    {
+                        return 1;
+                    }
                 }
-
-
-
-                ////Quantidade de produçoes
-                //quantidadeProducoes = PesquisaProducao.Count;
-
-                //foreach (var item in PesquisaProducao)
-                //{
-                //    //Quantidade de bateladas em produçao pesquisada.
-                //    quantidadeBateladas = quantidadeBateladas + item.quantidadeBateladas;
-                //    pesoTotalproduzido = pesoTotalproduzido + item.pesoTotalProduzido;
-                //    volumeTotalProduzido = volumeTotalProduzido + item.volumeTotalProduzido;
-
-                //}
-
-                //document.Add(tableProducao(colsW, "Peso total produzido: " + pesoTotalproduzido + " kg", "Volume total produzido: " + pesoTotalproduzido + " m³", false));
-                //document.Add(tableProducao(colsW, "Quantidade total produzida: " + quantidadeProducoes + " produções", "Total de bateladas produzidas: " + quantidadeBateladas + " und.", false));
-                //document.Add(tableProducao(colsW, "Data início produção: " + dataExportacaoInicial.ToShortDateString() + "\n" + dataExportacaoInicial.ToLongTimeString(), "Data fim produção: " + dataExportacaoFinal.ToShortDateString() + "\n" + dataExportacaoFinal.ToLongTimeString(), false)); ;
-
-
-                ////Add a line seperation
-                //Paragraph p1 = new Paragraph(new Chunk(new iTextSharp.text.pdf.draw.LineSeparator(0.0F, 100.0F, iTextSharp.text.BaseColor.BLACK, Element.ALIGN_LEFT, 1)));
-                //document.Add(p1);
-
-                ////Adiocona o detatalhamento da Produção
-                //Paragraph Detalhamento = new Paragraph();
-                //BaseFont btnDetalhamento = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
-                //Font fntADetalhamento = FontFactory.GetFont(BaseFont.TIMES_ROMAN, 12, Font.BOLD, new BaseColor(0, 0, 0));
-                //Detalhamento.Alignment = Element.ALIGN_CENTER;
-
-                //Detalhamento.Add(new Chunk("Detalhamento Produção", fntADetalhamento));
-                //document.Add(Detalhamento);
-
-                //document.Add(new Chunk("\n", fntHead));
-
-                //int cont = 0;
-                //int mudanca = 3;
-
-                //foreach (var item in PesquisaProducao)
-                //{
-                //    if (!(cont < mudanca))
-                //    {
-                //        document.NewPage();
-                //        cont = 0;
-                //        mudanca = 4;
-                //    }
-
-                //    document.Add(tableProducao("Relatório produção N° produção: " + Convert.ToString(item.id), true));
-                //    document.Add(tableProducao(item.receita.nomeReceita, true));
-                //    document.Add(tableProducao(colsW, "Peso total produção: " + item.pesoTotalProducao + " kg", "Volume total produção: " + item.volumeTotalProducao + " m³", true));
-                //    document.Add(tableProducao(colsW, "Peso total produzido: " + item.pesoTotalProduzido + " kg", "Volume total produzido: " + item.volumeTotalProduzido + " m³", true));
-                //    document.Add(tableProducao("Quantidade de bateldas: " + item.quantidadeBateladas + " und.", true, Element.ALIGN_LEFT));
-                //    document.Add(tableProducao(colsW, "Tempo pré mistura: " + item.tempoPreMistura + " segundos", "Tempo pós mistura: " + item.tempoPosMistura + " segundos", true));
-                //    document.Add(tableProducao(colsW, "Data início produção: " + item.dateTimeInicioProducao, "Data fim produção: " + item.dateTimeFimProducao, true));
-                //    document.Add(new Chunk("\n", fntHead));
-
-                //    cont++;
-                //}
-
-                //document.Close();
-                //writer.Close();
-                //fs.Close();
-
-
-                return true;
+                else
+                {
+                    return 1;
+                }
             }
             catch (Exception ex)
             {
-                Utilidades.VariaveisGlobais.Window_Buffer_Diagnostic.List_Error = ex.ToString() + " Erro exportar relatório Produção";
+                Utilidades.VariaveisGlobais.Window_Buffer_Diagnostic.List_Error = ex.ToString() + " Erro exportar relatório Bateladas";
 
 
-                return false;
+                return -1;
             }
-
-
-
         }
+
+
 
 
         #endregion

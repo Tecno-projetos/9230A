@@ -138,7 +138,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
                     inputDialog.ShowDialog();
 
                     //Original
-                    if (Relatorios.ExportacaoRelatorios.exportProducao(fileName, Utilidades.functions.PesquisaDateInDateOut(producao.dataInicial_GS, producao.dataFinal_GS), "Produção Total", producao.dataInicial_GS, producao.dataFinal_GS)) 
+                    if (Relatorios.ExportacaoRelatorios.exportProducao(destinationFile, Utilidades.functions.PesquisaDateInDateOut(producao.dataInicial_GS, producao.dataFinal_GS), "Produção Total", producao.dataInicial_GS, producao.dataFinal_GS)) 
                     {
                         inputDialog = new Utilidades.messageBox("Arquivo exportado", "O arquivo foi exportado com sucesso", MaterialDesignThemes.Wpf.PackIconKind.Information, "OK", "Fechar");
 

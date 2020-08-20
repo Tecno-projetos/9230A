@@ -207,7 +207,7 @@ namespace _9230A_V00___PI.DataBase
 
         }
 
-        public static DataTable getProducaoEnsaqueFromDateTime(DateTime dtIn, DateTime dtOut)
+        public static DataTable getProducaoEnsaqueFromDateTime(DateTime dtIn, DateTime dtOut, int IdProducao)
         {
             DataTable Data = new DataTable();
 
@@ -230,7 +230,7 @@ namespace _9230A_V00___PI.DataBase
                     }
 
 
-                    string CommandString = "SELECT * FROM ProducaoEnsaque WHERE DataFimProducao >= '" + DTIn + "' AND DataFimProducao <= '" + DTOut + "'";
+                    string CommandString = "SELECT * FROM ProducaoEnsaque WHERE DataFimProducao >= '" + DTIn + "' AND DataFimProducao <= '" + DTOut + "' AND IdProducao = '" + IdProducao + "'";
 
                     dynamic Call = SqlGlobalFuctions.ReturnCall(Utilidades.VariaveisGlobais.Connection_DB_Receitas_GS);
 
@@ -246,10 +246,6 @@ namespace _9230A_V00___PI.DataBase
 
             return Data;
         }
-
-
-
-
         #endregion
 
         #region Ensaque
@@ -280,7 +276,6 @@ namespace _9230A_V00___PI.DataBase
                 }
             }
         }
-
         private static void Create_Table_Ensaques()
         {
             if (Utilidades.VariaveisGlobais.DB_Connected_GS)
@@ -309,6 +304,135 @@ namespace _9230A_V00___PI.DataBase
                     Utilidades.VariaveisGlobais.Window_Buffer_Diagnostic.List_Error = ex.ToString();
                 }
             }
+        }
+        public static double getPesoTotalEnsaque(int IdProducao)
+        {
+            DataTable Data = new DataTable();
+
+            if (Utilidades.VariaveisGlobais.DB_Connected_GS)
+            {
+                try
+                {
+                    string CommandString = "SELECT SUM(PesoDosado) FROM Ensaques WHERE IdEnsaque = '" + IdProducao + "'";
+
+
+                    dynamic Call = SqlGlobalFuctions.ReturnCall(Utilidades.VariaveisGlobais.Connection_DB_Receitas_GS);
+
+                    dynamic Adapter = SqlGlobalFuctions.ReturnAdapter(CommandString, Utilidades.VariaveisGlobais.Connection_DB_Receitas_GS);
+
+                    Adapter.Fill(Data);
+                }
+                catch (Exception ex)
+                {
+                    Utilidades.VariaveisGlobais.Window_Buffer_Diagnostic.List_Error = ex.ToString();
+                }
+            }
+
+            return Convert.ToDouble(Data.Rows[0][0]);
+        }
+
+        public static double getPesoMedioEnsaque(int IdProducao)
+        {
+            DataTable Data = new DataTable();
+
+            if (Utilidades.VariaveisGlobais.DB_Connected_GS)
+            {
+                try
+                {
+                    string CommandString = "SELECT AVG(PesoDosado) FROM Ensaques WHERE IdEnsaque = '" + IdProducao + "'";
+
+
+                    dynamic Call = SqlGlobalFuctions.ReturnCall(Utilidades.VariaveisGlobais.Connection_DB_Receitas_GS);
+
+                    dynamic Adapter = SqlGlobalFuctions.ReturnAdapter(CommandString, Utilidades.VariaveisGlobais.Connection_DB_Receitas_GS);
+
+                    Adapter.Fill(Data);
+                }
+                catch (Exception ex)
+                {
+                    Utilidades.VariaveisGlobais.Window_Buffer_Diagnostic.List_Error = ex.ToString();
+                }
+            }
+
+            return Convert.ToDouble(Data.Rows[0][0]);
+        }
+
+        public static double getPesoMinEnsaque(int IdProducao)
+        {
+            DataTable Data = new DataTable();
+
+            if (Utilidades.VariaveisGlobais.DB_Connected_GS)
+            {
+                try
+                {
+                    string CommandString = "SELECT MIN(PesoDosado) FROM Ensaques WHERE IdEnsaque = '" + IdProducao + "'";
+
+
+                    dynamic Call = SqlGlobalFuctions.ReturnCall(Utilidades.VariaveisGlobais.Connection_DB_Receitas_GS);
+
+                    dynamic Adapter = SqlGlobalFuctions.ReturnAdapter(CommandString, Utilidades.VariaveisGlobais.Connection_DB_Receitas_GS);
+
+                    Adapter.Fill(Data);
+                }
+                catch (Exception ex)
+                {
+                    Utilidades.VariaveisGlobais.Window_Buffer_Diagnostic.List_Error = ex.ToString();
+                }
+            }
+
+            return Convert.ToDouble(Data.Rows[0][0]);
+        }
+
+        public static double getPesoMaxEnsaque(int IdProducao)
+        {
+            DataTable Data = new DataTable();
+
+            if (Utilidades.VariaveisGlobais.DB_Connected_GS)
+            {
+                try
+                {
+                    string CommandString = "SELECT MAX(PesoDosado) FROM Ensaques WHERE IdEnsaque = '" + IdProducao + "'";
+
+
+                    dynamic Call = SqlGlobalFuctions.ReturnCall(Utilidades.VariaveisGlobais.Connection_DB_Receitas_GS);
+
+                    dynamic Adapter = SqlGlobalFuctions.ReturnAdapter(CommandString, Utilidades.VariaveisGlobais.Connection_DB_Receitas_GS);
+
+                    Adapter.Fill(Data);
+                }
+                catch (Exception ex)
+                {
+                    Utilidades.VariaveisGlobais.Window_Buffer_Diagnostic.List_Error = ex.ToString();
+                }
+            }
+
+            return Convert.ToDouble(Data.Rows[0][0]);
+        }
+
+        public static Int32 getCoutEnsaque(int IdProducao)
+        {
+            DataTable Data = new DataTable();
+
+            if (Utilidades.VariaveisGlobais.DB_Connected_GS)
+            {
+                try
+                {
+                    string CommandString = "SELECT COUNT(*) FROM Ensaques WHERE IdEnsaque = '" + IdProducao + "'";
+
+
+                    dynamic Call = SqlGlobalFuctions.ReturnCall(Utilidades.VariaveisGlobais.Connection_DB_Receitas_GS);
+
+                    dynamic Adapter = SqlGlobalFuctions.ReturnAdapter(CommandString, Utilidades.VariaveisGlobais.Connection_DB_Receitas_GS);
+
+                    Adapter.Fill(Data);
+                }
+                catch (Exception ex)
+                {
+                    Utilidades.VariaveisGlobais.Window_Buffer_Diagnostic.List_Error = ex.ToString();
+                }
+            }
+
+            return Convert.ToInt32(Data.Rows[0][0]);
         }
 
         public static int IntoDate_Table_Ensaques(int idEnsaque, float pesoDosado, string Observacao)

@@ -72,6 +72,34 @@ namespace _9230A_V00___PI.Telas_Fluxo
             }
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            string filename = " ";
 
+            //Abre onde deseja salvar
+            Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
+
+            dlg.FileName = "Balanca Bateladas";
+            dlg.DefaultExt = ".pdf"; // Default file extension
+            dlg.Filter = "PDF documents (.pdf)|*.pdf"; // Filter files by extension
+
+            // Show save file dialog box
+            Nullable<bool> result = dlg.ShowDialog();
+            // Process save file dialog box results
+            if (result == true)
+            {
+                // Save document
+                filename = dlg.FileName;
+
+              int a =  ExportacaoRelatorios.exportarEnsaque(filename, Utilidades.functions.GetProducaoFromIdProducao(1), "Teste");
+
+                Console.WriteLine(a.ToString());
+
+               System.Diagnostics.Process.Start(filename);
+
+            }
+
+
+        }
     }
 }

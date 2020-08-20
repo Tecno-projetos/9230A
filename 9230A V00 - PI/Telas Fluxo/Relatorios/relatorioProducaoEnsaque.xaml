@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:_9230A_V00___PI.Telas_Fluxo.Relatorios"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800" Width="825" Height="675" Unloaded="UserControl_Unloaded" >
+             d:DesignHeight="450" d:DesignWidth="800" Width="825" Height="675" >
     <Grid Background="#FF7F7F7F">
 
         <Grid.Resources  >
@@ -37,12 +37,6 @@
 
         </Grid.Resources>
 
-
-
-
-        <materialDesign:PackIcon x:Name="pckOperador" Kind="CheckBox" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="520,291,262,68.616" BorderBrush="#FF040404" Visibility="Hidden"/>
-
-        <local:dataExportacao x:Name="producao" HorizontalAlignment="Left" Height="673" VerticalAlignment="Top" Width="825" Margin="0,2,0,0"/>
     </Grid>
 
 </UserControl>
