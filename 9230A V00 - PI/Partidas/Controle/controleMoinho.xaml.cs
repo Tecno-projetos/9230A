@@ -60,8 +60,7 @@ namespace _9230A_V00___PI.Partidas.Controle
             //Habilita ou desabilita botões
             if (!Command.Standard.Emergencia || Command.Standard.Falha_Geral)
             {
-                btReset.Dispatcher.Invoke(delegate { btReset.IsEnabled = false; });
-
+               
                 btManual.Dispatcher.Invoke(delegate { btManual.IsEnabled = false; });
 
                 btManutencao.Dispatcher.Invoke(delegate { btManutencao.IsEnabled = false; });
@@ -74,8 +73,7 @@ namespace _9230A_V00___PI.Partidas.Controle
             }
             else
             {
-                btReset.Dispatcher.Invoke(delegate { btReset.IsEnabled = true; });
-
+     
                 btManual.Dispatcher.Invoke(delegate { btManual.IsEnabled = true; });
 
                 btManutencao.Dispatcher.Invoke(delegate { btManutencao.IsEnabled = true; });
@@ -87,6 +85,7 @@ namespace _9230A_V00___PI.Partidas.Controle
                 btInverte.Dispatcher.Invoke(delegate { btInverte.IsEnabled = true; });
             }
 
+            btReset.Dispatcher.Invoke(delegate { btReset.IsEnabled = true; });
             //Atualiza status dos botões2
 
             if (Command.Standard.Liga_Manual)

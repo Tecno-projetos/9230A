@@ -37,6 +37,9 @@ namespace _9230A_V00___PI
 
         DispatcherTimer timer1s = new DispatcherTimer(); //Roda ciclos de 1 segundo
 
+
+        DispatcherTimer Clock_TickTack = new DispatcherTimer(); //Roda ciclos de 1 segundo
+
         #endregion
 
         #region Equipamentos
@@ -165,6 +168,11 @@ namespace _9230A_V00___PI
             timer1s.Tick += timer1s_Tick;
             timer1s.Start();
 
+            //====================================================
+            Clock_TickTack.Interval = TimeSpan.FromSeconds(1);
+            Clock_TickTack.Tick += timerTickTack;
+            Clock_TickTack.Start();
+
             #endregion
 
             AtualizaButton(pckHome);
@@ -189,6 +197,8 @@ namespace _9230A_V00___PI
             windowFirstLoading.Close();
 
         }
+
+
 
         private void Producao_IniciouProducao(object sender, EventArgs e)
         {
@@ -216,6 +226,19 @@ namespace _9230A_V00___PI
         }
 
         #region Timer Ticks
+        private void timerTickTack(object sender, EventArgs e)
+        {
+            if (Utilidades.VariaveisGlobais.TickTack_GS)
+            {
+                Utilidades.VariaveisGlobais.TickTack_GS = false;
+            }
+            else
+            {
+                Utilidades.VariaveisGlobais.TickTack_GS = true;
+            }
+        }
+
+
         private void timer1s_Tick(object sender, EventArgs e)
         {
             //Chama a atulização da Manutenção

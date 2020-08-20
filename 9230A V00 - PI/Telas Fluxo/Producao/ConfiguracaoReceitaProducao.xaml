@@ -68,7 +68,7 @@
                         </MultiBinding>
                     </TextBlock.Visibility>
                 </TextBlock>
-                <TextBox x:Name="txtSiloMateriaPrima1" VerticalAlignment="Bottom" PreviewMouseLeftButtonUp="openKeyboard" Margin="0,0,1,3" FontSize="14" Foreground="White" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}"/>
+                <TextBox x:Name="txtSiloMateriaPrima1" VerticalAlignment="Bottom" PreviewMouseLeftButtonUp="openKeyboard" Margin="0,0,1,3" FontSize="14" Foreground="White" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" IsEnabled="False"/>
             </Grid>
             <Label Width="355" VerticalAlignment="Top" Margin="386,183,-386,-176" Height="34" HorizontalAlignment="Left" FontSize="16" FontWeight="Bold" Foreground="White" Content="Matéria Prima 2 Dosagem Automática:"/>
             <Grid Style="{StaticResource EntryFieldStyle}" Margin="386,222,-386,-222" Height="41" Background="#FF3C3C3C">
@@ -80,7 +80,7 @@
                         </MultiBinding>
                     </TextBlock.Visibility>
                 </TextBlock>
-                <TextBox x:Name="txtSiloMateriaPrima2" VerticalAlignment="Bottom" PreviewMouseLeftButtonUp="openKeyboard" Margin="0,0,1,3" FontSize="14" Foreground="White" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}"/>
+                <TextBox x:Name="txtSiloMateriaPrima2" VerticalAlignment="Bottom" PreviewMouseLeftButtonUp="openKeyboard" Margin="0,0,1,3" FontSize="14" Foreground="White" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" IsUndoEnabled="True" IsEnabled="False"/>
             </Grid>
             <Label Width="325" VerticalAlignment="Center" Margin="402,-49,-372,26" Height="64" HorizontalAlignment="Left" FontSize="20" FontWeight="Bold" Foreground="White" Content="Seleção Silos Matérias Primas &#xD;&#xA;      Dosagem Automática" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
         </Grid>
@@ -97,7 +97,7 @@
                     </MultiBinding>
                 </TextBlock.Visibility>
             </TextBlock>
-            <TextBox x:Name="txtQtdBateladas" VerticalAlignment="Bottom" Margin="0,0,1,3" FontSize="14" Foreground="White" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}"/>
+            <TextBox x:Name="txtQtdBateladas" VerticalAlignment="Bottom" Margin="0,0,1,3" FontSize="14" Foreground="White" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" IsReadOnly="True" IsEnabled="False"/>
         </Grid>
         <materialDesign:PackIcon Kind="Receipt" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="14,193,772,448" BorderBrush="#FF040404"/>
         <materialDesign:PackIcon Kind="Pencil" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="14,233,772,401" BorderBrush="#FF040404"/>
@@ -131,7 +131,7 @@
                     </MultiBinding>
                 </TextBlock.Visibility>
             </TextBlock>
-            <TextBox x:Name="txtPesoMaximoPermitido" VerticalAlignment="Bottom" PreviewMouseLeftButtonUp="openKeyboard" Margin="0,0,1,3" FontSize="14" Foreground="White" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" IsReadOnly="True"/>
+            <TextBox x:Name="txtPesoMaximoPermitido" VerticalAlignment="Bottom" PreviewMouseLeftButtonUp="openKeyboard" Margin="0,0,1,3" FontSize="14" Foreground="White" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" IsReadOnly="True" IsEnabled="False"/>
         </Grid>
         <materialDesign:PackIcon Kind="Receipt" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="14,304,772,337" BorderBrush="#FF040404"/>
         <Label Width="363" VerticalAlignment="Top" Margin="52,396,0,0" Height="34" HorizontalAlignment="Left" FontSize="16" FontWeight="Bold" Foreground="White" Content="Volume Máximo Permitido por Batelada(m³):"/>
@@ -144,7 +144,7 @@
                     </MultiBinding>
                 </TextBlock.Visibility>
             </TextBlock>
-            <TextBox x:Name="txtVolumeMaximoPermitido" VerticalAlignment="Bottom" PreviewMouseLeftButtonUp="openKeyboard" Margin="0,0,1,3" FontSize="14" Foreground="White" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" IsReadOnly="True"/>
+            <TextBox x:Name="txtVolumeMaximoPermitido" VerticalAlignment="Bottom" PreviewMouseLeftButtonUp="openKeyboard" Margin="0,0,1,3" FontSize="14" Foreground="White" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" IsReadOnly="True" IsEnabled="False"/>
         </Grid>
         <materialDesign:PackIcon Kind="Receipt" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="14,395,772,246" BorderBrush="#FF040404"/>
         <Button x:Name="btContinuar" Margin="605,598,39,37" Background="#FF505050" BorderBrush="Black" Height="Auto" Opacity="1" Click="btContinuar_Click" >

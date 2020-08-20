@@ -71,6 +71,8 @@ namespace _9230A_V00___PI.Equipamentos
 
         public void actualize_UI()
         {
+            ticktack = Utilidades.VariaveisGlobais.TickTack_GS;
+
             if (loadedEquip)
             {
                 if (!equip.Command_Get.Standard.Emergencia)
@@ -106,8 +108,6 @@ namespace _9230A_V00___PI.Equipamentos
                     Apa_0.Dispatcher.Invoke(delegate { Apa_0.Fill = Brushes.Yellow; });
                     Apa_1.Dispatcher.Invoke(delegate { Apa_1.Fill = Brushes.Yellow; });
                     Apa_2.Dispatcher.Invoke(delegate { Apa_2.Fill = Brushes.Yellow; });
-
-
 
                 }
                 else if (equip.Command_Get.Standard.Ligando)
@@ -155,8 +155,6 @@ namespace _9230A_V00___PI.Equipamentos
                         Apa_2.Dispatcher.Invoke(delegate { Apa_2.Fill = Brushes.Gray; });
                     }
                 }
-
-                ticktack = !ticktack;
 
                 #region Names
 

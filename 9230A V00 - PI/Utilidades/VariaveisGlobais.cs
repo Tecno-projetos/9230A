@@ -909,7 +909,6 @@ namespace _9230A_V00___PI.Utilidades
 
         }
 
-
         public static void Load_Connection()
         {
             //Cria pastas para Apliacação
@@ -968,6 +967,7 @@ namespace _9230A_V00___PI.Utilidades
         private static bool ativaTecladoVirtual = false;
 
         public static bool AtivaDesativaTecladoVirtual { get => ativaTecladoVirtual; set => ativaTecladoVirtual = value; }
+ 
 
         #endregion
 
@@ -1067,6 +1067,10 @@ namespace _9230A_V00___PI.Utilidades
         }
 
         public static int Id_Producao_No_Silo_Expedicao;
+
+        private static bool TickTack;
+        public static bool TickTack_GS { get => TickTack; set => TickTack = value; }
+
     }
 
     public class convertToTable
