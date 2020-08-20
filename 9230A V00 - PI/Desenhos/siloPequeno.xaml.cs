@@ -335,6 +335,8 @@ namespace _9230A_V00___PI.Desenhos
         {
             if (loadedEquip)
             {
+                ticktack = Utilidades.VariaveisGlobais.TickTack_GS;
+
                 if (!equip.Command_Get.Standard.Emergencia)
                 {
 
@@ -346,10 +348,7 @@ namespace _9230A_V00___PI.Desenhos
                     Rec6.Dispatcher.BeginInvoke((Action)(() => Rec6.Fill = VM_2));
 
 
-                    lbTag.Dispatcher.BeginInvoke((Action)(() => lbTag.Foreground = new SolidColorBrush(Colors.White)));
-         
-
-
+                    lbTag.Dispatcher.BeginInvoke((Action)(() => lbTag.Foreground = new SolidColorBrush(Colors.White)));  
                    
                 }
                 else if (equip.Command_Get.Standard.Falha_Geral)
@@ -477,9 +476,6 @@ namespace _9230A_V00___PI.Desenhos
                         lbTag.Dispatcher.BeginInvoke((Action)(() => lbTag.Foreground = new SolidColorBrush(Colors.Black)));
                     }
                 }
-
-                ticktack = !ticktack;
-
                 #region Names
 
                 if (equip.Command_Get.Standard.Automatico)

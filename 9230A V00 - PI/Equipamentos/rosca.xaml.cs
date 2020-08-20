@@ -310,9 +310,13 @@ namespace _9230A_V00___PI.Equipamentos
             equip = new EquipsControl(Equip, TCommand, initialOffSet, bufferPlc, nome, tag, numeroPartida, paginaProjeto);
             loadedEquip = true;
         }
+
+
         public EquipsControl Equip_GS { get => equip; }
         public void actualize_UI()
         {
+            ticktack = Utilidades.VariaveisGlobais.TickTack_GS;
+
             if (loadedEquip)
             {
                 if (!equip.Command_Get.Standard.Emergencia)
@@ -399,9 +403,6 @@ namespace _9230A_V00___PI.Equipamentos
                         TC_3.Dispatcher.BeginInvoke((Action)(() => TC_3.Fill = CZ_2));
                     }
                 }
-
-                ticktack = !ticktack;
-
                 #region Names
 
                 if (equip.Command_Get.Standard.Automatico)

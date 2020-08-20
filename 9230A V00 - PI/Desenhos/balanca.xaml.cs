@@ -34,6 +34,7 @@ namespace _9230A_V00___PI.Desenhos
 
             LbPeso.Content = Utilidades.VariaveisGlobais.indicadorPesagem.Valor_Atual_Indicador.ToString("N", CultureInfo.GetCultureInfo("pt-BR")) + " kg";
 
+            ticktack = Utilidades.VariaveisGlobais.TickTack_GS;
 
             if (indicadorPesagem.Erro_Leitura)
             {
@@ -45,9 +46,6 @@ namespace _9230A_V00___PI.Desenhos
                 {
                     recPrincipal.Fill = new SolidColorBrush(Color.FromRgb(127,127,127));
                 }
-
-                ticktack = !ticktack;
-
             }
             else if (indicadorPesagem.Habilita_Setar_Balanca_Vazia)
             {

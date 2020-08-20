@@ -48,6 +48,7 @@ namespace _9230A_V00___PI.Equipamentos
 
         private void actualize_UI()
         {
+            ticktack = Utilidades.VariaveisGlobais.TickTack_GS;
 
             if (!equip.Command_Get.Standard.Emergencia)
             {
@@ -55,23 +56,23 @@ namespace _9230A_V00___PI.Equipamentos
                 R2.Dispatcher.Invoke(delegate { R2.Fill = Brushes.Red; });
 
             }
-            else if (equip.Command_Get.Standard.FalhaAcionandoLado1 ||
-                equip.Command_Get.Standard.FalhaAcionandoLado2 ||
-                equip.Command_Get.Standard.Falha2PosicoesAtiva ||
-                equip.Command_Get.Standard.FalhaConfirmacaoContatorLado1 ||
-                equip.Command_Get.Standard.FalhaConfirmacaoContatorLado2
-                )
-            {
-                if (ticktack)
-                {
-                    R1.Dispatcher.Invoke(delegate { R1.Fill = Brushes.Red; });
-                    R2.Dispatcher.Invoke(delegate { R2.Fill = Brushes.Red; });
-                }
-                else
-                {
-                    R1.Dispatcher.Invoke(delegate { R1.Fill = Brushes.Gray; });
-                    R2.Dispatcher.Invoke(delegate { R2.Fill = Brushes.Gray; });
-                }
+            else 
+            if (equip.Command_Get.Standard.FalhaAcionandoLado1 ||
+                    equip.Command_Get.Standard.FalhaAcionandoLado2 ||
+                    equip.Command_Get.Standard.Falha2PosicoesAtiva ||
+                    equip.Command_Get.Standard.FalhaConfirmacaoContatorLado1 ||
+                    equip.Command_Get.Standard.FalhaConfirmacaoContatorLado2)
+                 {
+                    if (ticktack)
+                    {
+                        R1.Dispatcher.Invoke(delegate { R1.Fill = Brushes.Red; });
+                        R2.Dispatcher.Invoke(delegate { R2.Fill = Brushes.Red; });
+                    }
+                    else
+                    {
+                        R1.Dispatcher.Invoke(delegate { R1.Fill = Brushes.Gray; });
+                        R2.Dispatcher.Invoke(delegate { R2.Fill = Brushes.Gray; });
+                    }
 
 
             }
@@ -139,7 +140,6 @@ namespace _9230A_V00___PI.Equipamentos
                 R2.Dispatcher.Invoke(delegate { R2.Fill = Brushes.Red; });
             }
 
-
             #region Names
 
             if (equip.Command_Get.Standard.Automatico)
@@ -153,7 +153,6 @@ namespace _9230A_V00___PI.Equipamentos
             }
 
             #endregion
-
         }
 
         public bool actualize_Equip

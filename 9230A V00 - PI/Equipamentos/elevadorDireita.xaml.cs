@@ -602,6 +602,9 @@ namespace _9230A_V00___PI.Equipamentos
         {
             if (loadedEquip)
             {
+
+                ticktack = Utilidades.VariaveisGlobais.TickTack_GS;
+
                 if (!equip.Command_Get.Standard.Emergencia)
                 {
                     Head_1.Dispatcher.BeginInvoke((Action)(() => Head_1.Fill = new SolidColorBrush(Color.FromRgb(255, 0, 0))));
@@ -817,9 +820,6 @@ namespace _9230A_V00___PI.Equipamentos
                         Foot4.Dispatcher.Invoke(delegate { Foot4.Fill = CZ_Foot; });
                     }
                 }
-
-                ticktack = !ticktack;
-
                 #region Names
 
                 if (equip.Command_Get.Standard.Automatico)

@@ -58,18 +58,20 @@ namespace _9230A_V00___PI.Equipamentos
         }
         public void actualize_UI()
         {
+            ticktack = Utilidades.VariaveisGlobais.TickTack_GS;
+
             if (loadedEquip)
             {
-                bool posicionando = false;
-                if (!(equip.Command_Get.AtuadorA.PosicaoAtual <= equip.Command_Get.AtuadorA.SP_Posicao_Manual + 5 
-                  && equip.Command_Get.AtuadorA.PosicaoAtual >= equip.Command_Get.AtuadorA.SP_Posicao_Manual -5))
-                {
-                    posicionando = true;
-                }
-                else
-                {
-                    posicionando = false;
-                }
+                bool posicionando = true;
+                //if (!(equip.Command_Get.AtuadorA.PosicaoAtual <= equip.Command_Get.AtuadorA.SP_Posicao_Manual + 5 
+                //  && equip.Command_Get.AtuadorA.PosicaoAtual >= equip.Command_Get.AtuadorA.SP_Posicao_Manual -5))
+                //{
+                //    posicionando = true;
+                //}
+                //else
+                //{
+                //    posicionando = false;
+                //}
 
 
 
@@ -194,9 +196,6 @@ namespace _9230A_V00___PI.Equipamentos
             
                     }
                 }
-
-                ticktack = !ticktack;
-
                 #region Names
 
                 if (equip.Command_Get.Standard.Automatico)

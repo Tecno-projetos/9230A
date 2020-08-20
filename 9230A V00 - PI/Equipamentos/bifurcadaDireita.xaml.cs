@@ -50,6 +50,7 @@ namespace _9230A_V00___PI.Equipamentos
 
         private void actualize_UI()
         {
+            ticktack = Utilidades.VariaveisGlobais.TickTack_GS;
 
             if (!equip.Command_Get.Standard.Emergencia)
             {
@@ -58,25 +59,24 @@ namespace _9230A_V00___PI.Equipamentos
                 R3.Dispatcher.Invoke(delegate { R3.Fill = Brushes.Red; });
 
             }
-            else if (equip.Command_Get.Standard.FalhaAcionandoLado1 ||
-                    equip.Command_Get.Standard.FalhaAcionandoLado2 ||
-                    equip.Command_Get.Standard.Falha2PosicoesAtiva ||
+            else if(equip.Command_Get.Standard.FalhaAcionandoLado1 ||
+                   equip.Command_Get.Standard.FalhaAcionandoLado2 ||
+                   equip.Command_Get.Standard.Falha2PosicoesAtiva ||
                    equip.Command_Get.Standard.FalhaConfirmacaoContatorLado1 ||
-                   equip.Command_Get.Standard.FalhaConfirmacaoContatorLado2
-                )
-                  {
-                        if (ticktack)
-                         {
-                            R1.Dispatcher.Invoke(delegate { R1.Fill = Brushes.Red; });
-                            R2.Dispatcher.Invoke(delegate { R2.Fill = Brushes.Red; });
-                            R3.Dispatcher.Invoke(delegate { R3.Fill = Brushes.Red; });
-                        }
-                        else
+                   equip.Command_Get.Standard.FalhaConfirmacaoContatorLado2)
+                 {
+                    if (ticktack)
                         {
-                            R1.Dispatcher.Invoke(delegate { R1.Fill = Brushes.Gray; });
-                            R2.Dispatcher.Invoke(delegate { R2.Fill = Brushes.Gray; });
-                            R3.Dispatcher.Invoke(delegate { R3.Fill = Brushes.Gray; });
-                        }
+                        R1.Dispatcher.Invoke(delegate { R1.Fill = Brushes.Red; });
+                        R2.Dispatcher.Invoke(delegate { R2.Fill = Brushes.Red; });
+                        R3.Dispatcher.Invoke(delegate { R3.Fill = Brushes.Red; });
+                    }
+                    else
+                    {
+                        R1.Dispatcher.Invoke(delegate { R1.Fill = Brushes.Gray; });
+                        R2.Dispatcher.Invoke(delegate { R2.Fill = Brushes.Gray; });
+                        R3.Dispatcher.Invoke(delegate { R3.Fill = Brushes.Gray; });
+                    }
 
 
                  }
@@ -159,9 +159,18 @@ namespace _9230A_V00___PI.Equipamentos
             }
             else
             {
-                R1.Dispatcher.Invoke(delegate { R1.Fill = Brushes.Red; });
-                R2.Dispatcher.Invoke(delegate { R2.Fill = Brushes.Red; });
-                R3.Dispatcher.Invoke(delegate { R3.Fill = Brushes.Red; });
+                if (ticktack)
+                {
+                    R1.Dispatcher.Invoke(delegate { R1.Fill = Brushes.Red; });
+                    R2.Dispatcher.Invoke(delegate { R2.Fill = Brushes.Red; });
+                    R3.Dispatcher.Invoke(delegate { R3.Fill = Brushes.Red; });
+                }
+                else
+                {
+                    R1.Dispatcher.Invoke(delegate { R1.Fill = Brushes.Gray; });
+                    R2.Dispatcher.Invoke(delegate { R2.Fill = Brushes.Gray; });
+                    R3.Dispatcher.Invoke(delegate { R3.Fill = Brushes.Gray; });
+                }
             }
 
 
