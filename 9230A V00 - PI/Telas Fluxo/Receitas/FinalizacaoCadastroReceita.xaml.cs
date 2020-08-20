@@ -74,7 +74,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
                 var index = Utilidades.VariaveisGlobais.ReceitaCadastro.listProdutos.FindIndex(x => x.produto.id == Convert.ToInt32(rowList.Row.ItemArray[0]));
 
                 //Abre tela para editar o produto
-                Telas_Fluxo.Receitas.AdicionarProdutoReceitaPouUp adcionaProdutoReceita = new AdicionarProdutoReceitaPouUp(Utilidades.VariaveisGlobais.ReceitaCadastro.listProdutos[index], Utilidades.VariaveisGlobais.ReceitaCadastro.listProdutos[index].pesoPorProduto, true, Utilidades.VariaveisGlobais.ReceitaCadastro.listProdutos[index].tipoDosagemMateriaPrima);
+                Telas_Fluxo.Receitas.AdicionarProdutoReceitaPouUp adcionaProdutoReceita = new AdicionarProdutoReceitaPouUp(Utilidades.VariaveisGlobais.ReceitaCadastro.listProdutos[index], Utilidades.VariaveisGlobais.ReceitaCadastro.listProdutos[index].pesoPorProduto, true, Utilidades.VariaveisGlobais.ReceitaCadastro.listProdutos[index].tipoDosagemMateriaPrima, true);
                 adcionaProdutoReceita.ShowDialog();
                 loadDataReceitas();
                 atualizaPesoProdutoSomado();
@@ -134,6 +134,16 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
 
                     if (inputDialog.DialogResult == true)
                     {
+
+                        //Carrega nome, peso referencia observação e calcula o peso dos produtos somados
+                        txtNome.Text = Utilidades.VariaveisGlobais.ReceitaCadastro.nomeReceita;
+            
+
+                        txtObs.Text = Utilidades.VariaveisGlobais.ReceitaCadastro.observacao;
+
+
+                        Utilidades.VariaveisGlobais.ReceitaCadastro.nomeReceita = txtNome.Text.ToString();
+                        Utilidades.VariaveisGlobais.ReceitaCadastro.observacao = txtObs.Text.ToString();
 
                         //Adicionar receita no banco de dados.
                         DataBase.SqlFunctionsReceitas.AddNewRecipeBD();

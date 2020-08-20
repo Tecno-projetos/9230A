@@ -30,9 +30,18 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
         Utilidades.ProdutoReceita produtoReceita = new Utilidades.ProdutoReceita();
         private float floatPoint;
 
-        public AdicionarProdutoReceitaPouUp(Utilidades.ProdutoReceita produtoReceita, float pesoProduto, bool editarProduto, string AutomaticoManual)
+        public AdicionarProdutoReceitaPouUp(Utilidades.ProdutoReceita produtoReceita, float pesoProduto, bool editarProduto, string AutomaticoManual, bool bloqueiaAutomatico)
         {
             InitializeComponent();
+
+            if (bloqueiaAutomatico)
+            {
+                btAutomatico.IsEnabled = false;
+            }
+            else
+            {
+                btAutomatico.IsEnabled = true;
+            }
 
             this.produtoReceita = produtoReceita;
             this.pesoProduto = pesoProduto;

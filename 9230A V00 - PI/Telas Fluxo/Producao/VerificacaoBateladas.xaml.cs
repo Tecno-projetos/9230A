@@ -143,7 +143,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Producao
             DataGrid_Bateladas.Columns[2].Visibility = Visibility.Hidden;
             DataGrid_Bateladas.Columns[3].Visibility = Visibility.Hidden;
 
-            DataGrid_Bateladas.Columns[0].Header = "Número Batelada";
+            DataGrid_Bateladas.Columns[0].Header = "N° Batelada";
             DataGrid_Bateladas.Columns[1].Header = "Peso Batelada";
         }
 

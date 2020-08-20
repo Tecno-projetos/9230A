@@ -23,6 +23,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
     public partial class AdicionarProdutoReceita : UserControl
     {
         string filtroTipoProduto = "";
+        bool doisAutomatico = false;
 
         Utilidades.messageBox inputDialog;
 
@@ -112,6 +113,8 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
             //Atualiza o datagrid de receitas com os produtos inseridos na receita cadastro
             loadDataReceitas();
 
+            CalculaPeso();
+
         }
 
         private void DataGrid_Produtos_LoadingRow(object sender, DataGridRowEventArgs e)
@@ -156,7 +159,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
         private void DataGrid_Receita_LoadingRow(object sender, DataGridRowEventArgs e)
         {
             DataGrid_Receita.Columns[0].Visibility = Visibility.Hidden;
-
+            DataGrid_Receita.Columns[3].Visibility = Visibility.Hidden;
             //DataGrid_Receita.Columns[0].Header = "Produto";
             //DataGrid_Receita.Columns[1].Header = "Peso";
         }
@@ -170,7 +173,8 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
             if (DataGrid_Produtos.SelectedIndex != -1)
             {
                 bool achou = false;
-
+ 
+                int cont = 0;
                 var rowList = (DataGrid_Produtos.ItemContainerGenerator.ContainerFromIndex(DataGrid_Produtos.SelectedIndex) as DataGridRow).Item as DataRowView;
 
 
@@ -184,13 +188,28 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
                         break;
 
                     }
+
+                    string tipoDOsagem = row.Row.ItemArray[3].ToString();
+                    if (tipoDOsagem.Contains("Automático"))
+                    {
+                        cont++;
+
+                        if (cont >= 2)
+                        {
+                            doisAutomatico = true;
+    
+                        }
+                        else
+                        {
+                            doisAutomatico = false;
+                        }
+                    }
                 }
 
                 //Verifica se ja não tem o item na lista 
                 if (!achou)
                 {
-     
-
+    
                     Utilidades.ProdutoReceita produtoReceita = new Utilidades.ProdutoReceita();
                     produtoReceita.produto = new Produto();
 
@@ -201,8 +220,10 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
                     produtoReceita.produto.tipoProduto = Convert.ToString(rowList.Row.ItemArray[4]);
                     produtoReceita.produto.observacao = Convert.ToString(rowList.Row.ItemArray[5]);
 
+       
+
                     //Abre tela para escolha do peso do produto na receita e se a matéria prima irá ser dosada manual ou automáticamente
-                    Telas_Fluxo.Receitas.AdicionarProdutoReceitaPouUp adcionaProdutoReceita = new AdicionarProdutoReceitaPouUp(produtoReceita, 0, false, "");
+                    Telas_Fluxo.Receitas.AdicionarProdutoReceitaPouUp adcionaProdutoReceita = new AdicionarProdutoReceitaPouUp(produtoReceita, 0, false, "", doisAutomatico);
                     adcionaProdutoReceita.ShowDialog();
                     loadDataReceitas();
 
@@ -210,10 +231,12 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
                 }
                 else
                 {
+               
+ 
                     //Avisa que não pode adicionar o mesmo item na lista
                     inputDialog = new messageBox("Produto já existe", "O produto já foi adicionado a receita!", MaterialDesignThemes.Wpf.PackIconKind.Information, "Ok", "Fechar");
                     inputDialog.ShowDialog();
-
+          
                 }
             }
            
@@ -228,7 +251,15 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
                 var index = Utilidades.VariaveisGlobais.ReceitaCadastro.listProdutos.FindIndex(x => x.produto.id == Convert.ToInt32(rowList.Row.ItemArray[0]));
 
                 //Abre tela para editar o produto
-                Telas_Fluxo.Receitas.AdicionarProdutoReceitaPouUp adcionaProdutoReceita = new AdicionarProdutoReceitaPouUp(Utilidades.VariaveisGlobais.ReceitaCadastro.listProdutos[index], Utilidades.VariaveisGlobais.ReceitaCadastro.listProdutos[index].pesoPorProduto, true, Utilidades.VariaveisGlobais.ReceitaCadastro.listProdutos[index].tipoDosagemMateriaPrima);
+                Telas_Fluxo.Receitas.AdicionarProdutoReceitaPouUp adcionaProdutoReceita = new AdicionarProdutoReceitaPouUp(Utilidades.VariaveisGlobais.ReceitaCadastro.listProdutos[index], Utilidades.VariaveisGlobais.ReceitaCadastro.listProdutos[index].pesoPorProduto, true, Utilidades.VariaveisGlobais.ReceitaCadastro.listProdutos[index].tipoDosagemMateriaPrima, doisAutomatico);
+                
+                
+                
+             
+
+
+
+                
                 adcionaProdutoReceita.ShowDialog();
                 loadDataReceitas();
 
@@ -273,6 +304,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
             dt.Columns.Add("Id");
             dt.Columns.Add("Produto");
             dt.Columns.Add("Peso(kg)");
+            dt.Columns.Add("Dosagem");
 
             foreach (var item in Utilidades.VariaveisGlobais.ReceitaCadastro.listProdutos)
             {
@@ -281,6 +313,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
                 dr["Id"] = item.produto.id;
                 dr["Produto"] = item.produto.descricao;
                 dr["Peso(kg)"] = item.pesoPorProduto;
+                dr["Dosagem"] = item.tipoDosagemMateriaPrima;
 
                 dt.Rows.Add(dr);
             }
@@ -341,19 +374,45 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
         private void CalculaPeso()
         {
             double peso = 0;
+            int cont = 0;
+            bool entrouPesquisa = false;
 
             foreach (DataRowView row in DataGrid_Receita.Items)
             {
+                entrouPesquisa = true;
                 float Descricao =Convert.ToSingle(row.Row.ItemArray[2]);
 
                 peso = peso + Descricao;
 
+
+                string tipoDOsagem = row.Row.ItemArray[3].ToString();
+                if (tipoDOsagem.Contains("Automático"))
+                {
+                    cont++;
+
+                    if (cont >= 2)
+                    {
+                        doisAutomatico = true;
+                    }
+                    else
+                    {
+                        doisAutomatico = false;
+                    }
+                }
+
+            }
+
+            if (!entrouPesquisa)
+            {
+                doisAutomatico = false;
             }
 
             txtPesoProdutosSomados.Text = peso.ToString();
+            txtPeso.Text = Utilidades.VariaveisGlobais.ReceitaCadastro.pesoBase.ToString();
 
             if (peso == Utilidades.VariaveisGlobais.ReceitaCadastro.pesoBase)
             {
+    
                 BackgroundPesoProdutoSomado.Background = new SolidColorBrush(Color.FromArgb(255, 60, 60, 60));
 
             }
