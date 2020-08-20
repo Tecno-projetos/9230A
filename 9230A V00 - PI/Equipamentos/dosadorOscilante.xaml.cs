@@ -156,36 +156,22 @@ namespace _9230A_V00___PI.Equipamentos
                     rec1.Dispatcher.BeginInvoke((Action)(() => rec1.Fill = AM));
 
                 }
-                else if (equip.Command_Get.Standard.Liga_Manual & posicionando)
+                else if (equip.Command_Get.Standard.Liga_Manual)
                 {
-                    if (ticktack)
-                    {
-                        rec1.Dispatcher.BeginInvoke((Action)(() => rec1.Fill = VD));
+  
+                  rec1.Dispatcher.BeginInvoke((Action)(() => rec1.Fill = VD));
    
-                    }
-                    else
-                    {
-                        rec1.Dispatcher.BeginInvoke((Action)(() => rec1.Fill = VD));
-
-                    }
+      
                 }
-                else if (!equip.Command_Get.Standard.Liga_Manual & posicionando)
+                else if (!equip.Command_Get.Standard.Liga_Manual)
                 {
-                    if (ticktack)
-                    {
-                        rec1.Dispatcher.BeginInvoke((Action)(() => rec1.Fill = VD));
+                     rec1.Dispatcher.BeginInvoke((Action)(() => rec1.Fill = CZ));
 
-                    }
-                    else
-                    {
-                        rec1.Dispatcher.BeginInvoke((Action)(() => rec1.Fill = CZ));
-
-                    }
                 }
                 else
                 {
                     //ligado
-                    if (equip.Command_Get.Standard.Liga_Manual & !posicionando)
+                    if (equip.Command_Get.Standard.Liga_Manual)
                     {
                         rec1.Dispatcher.BeginInvoke((Action)(() => rec1.Fill = VD));
 
