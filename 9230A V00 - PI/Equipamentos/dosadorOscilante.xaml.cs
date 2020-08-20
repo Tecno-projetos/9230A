@@ -63,15 +63,16 @@ namespace _9230A_V00___PI.Equipamentos
             if (loadedEquip)
             {
                 bool posicionando = true;
-                //if (!(equip.Command_Get.AtuadorA.PosicaoAtual <= equip.Command_Get.AtuadorA.SP_Posicao_Manual + 5 
-                //  && equip.Command_Get.AtuadorA.PosicaoAtual >= equip.Command_Get.AtuadorA.SP_Posicao_Manual -5))
-                //{
-                //    posicionando = true;
-                //}
-                //else
-                //{
-                //    posicionando = false;
-                //}
+
+
+                if ( equip.Command_Get.AtuadorA.PosicaoAtual >  1)         
+                {
+                    posicionando = false;
+                }
+                else
+                {
+                    posicionando = true;
+                }
 
 
 
@@ -156,22 +157,36 @@ namespace _9230A_V00___PI.Equipamentos
                     rec1.Dispatcher.BeginInvoke((Action)(() => rec1.Fill = AM));
 
                 }
-                else if (equip.Command_Get.Standard.Liga_Manual)
+                else if (equip.Command_Get.Standard.Liga_Manual & posicionando)
                 {
-  
-                  rec1.Dispatcher.BeginInvoke((Action)(() => rec1.Fill = VD));
+                    if (ticktack)
+                    {
+                        rec1.Dispatcher.BeginInvoke((Action)(() => rec1.Fill = VD));
    
-      
-                }
-                else if (!equip.Command_Get.Standard.Liga_Manual)
-                {
-                     rec1.Dispatcher.BeginInvoke((Action)(() => rec1.Fill = CZ));
+                    }
+                    else
+                    {
+                        rec1.Dispatcher.BeginInvoke((Action)(() => rec1.Fill = VD));
 
+                    }
+                }
+                else if (!equip.Command_Get.Standard.Liga_Manual & posicionando)
+                {
+                    if (ticktack)
+                    {
+                        rec1.Dispatcher.BeginInvoke((Action)(() => rec1.Fill = VD));
+
+                    }
+                    else
+                    {
+                        rec1.Dispatcher.BeginInvoke((Action)(() => rec1.Fill = CZ));
+
+                    }
                 }
                 else
                 {
                     //ligado
-                    if (equip.Command_Get.Standard.Liga_Manual)
+                    if (equip.Command_Get.Standard.Liga_Manual & !posicionando)
                     {
                         rec1.Dispatcher.BeginInvoke((Action)(() => rec1.Fill = VD));
 
