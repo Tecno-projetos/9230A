@@ -44,7 +44,7 @@
             </Desenhos:siloPequeno.RenderTransform>
         </Desenhos:siloPequeno>
 
-        <Rectangle x:Name="rec23_Direita" Width="59" VerticalAlignment="Top" StrokeThickness="0" RenderTransformOrigin="0.5,0.5" Margin="167,159,0,0" Height="6" HorizontalAlignment="Left" Fill="#FF3C3C3C" />
+        <Rectangle x:Name="rec23_Direita" Width="59" VerticalAlignment="Top" StrokeThickness="0" RenderTransformOrigin="0.5,0.5" Margin="152,159,0,0" Height="6" HorizontalAlignment="Left" Fill="#FF3C3C3C" />
 
         <Equipamentos:elevadorDireita  x:Name="Motor_22" HorizontalAlignment="Left" Height="392" Margin="32,158,0,0" VerticalAlignment="Top" Width="38" RenderTransformOrigin="0.5,0.5" >
             <Equipamentos:elevadorDireita.RenderTransform>
@@ -77,7 +77,7 @@
             </Equipamentos:rosca.RenderTransform>
         </Equipamentos:rosca>
 
-        <Rectangle Width="76" VerticalAlignment="Top" StrokeThickness="0" RenderTransformOrigin="0.5,0.5" Margin="71,113,0,0" Height="6" HorizontalAlignment="Left" Fill="{Binding Fill, ElementName=rec22}" />
+        <Rectangle Width="153" VerticalAlignment="Top" StrokeThickness="0" RenderTransformOrigin="0.5,0.5" Margin="72,113,0,0" Height="6" HorizontalAlignment="Left" Fill="{Binding Fill, ElementName=rec22}" />
         <ed:Arc ArcThickness="0" ArcThicknessUnit="Pixel" EndAngle="90" HorizontalAlignment="Left" Height="15" Margin="65,104,0,0" Stretch="None" StartAngle="0" VerticalAlignment="Top" Width="14" StrokeThickness="6" RenderTransformOrigin="0.5,0.5" Stroke="{Binding Fill, ElementName=rec22}">
             <ed:Arc.RenderTransform>
                 <TransformGroup>
@@ -98,8 +98,8 @@
                 </TransformGroup>
             </Rectangle.RenderTransform>
         </Rectangle>
-        <ed:Arc EndAngle="90" HorizontalAlignment="Left" Height="15" Margin="138,113,0,0" StartAngle="0" VerticalAlignment="Top" Width="15" StrokeThickness="6" Stretch="None" RenderTransformOrigin="0.5,0.5" Stroke="{Binding Fill, ElementName=rec22}"/>
-        <Rectangle Margin="146,120,0,0" Height="6" RenderTransformOrigin="0.5,0.5" StrokeThickness="0" HorizontalAlignment="Left" Width="8" VerticalAlignment="Top" Fill="{Binding Fill, ElementName=rec22}" >
+        <ed:Arc EndAngle="90" HorizontalAlignment="Left" Height="15" Margin="216,113,0,0" StartAngle="0" VerticalAlignment="Top" Width="15" StrokeThickness="6" Stretch="None" RenderTransformOrigin="0.5,0.5" Stroke="{Binding Fill, ElementName=rec22}"/>
+        <Rectangle Margin="224,120,0,0" Height="6" RenderTransformOrigin="0.5,0.5" StrokeThickness="0" HorizontalAlignment="Left" Width="8" VerticalAlignment="Top" Fill="{Binding Fill, ElementName=rec22}" >
             <Rectangle.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -204,7 +204,7 @@
                 </TransformGroup>
             </Equipamentos:alimentador.RenderTransform>
         </Equipamentos:alimentador>
-        <Rectangle x:Name="rec23_Esquerda" Width="59" VerticalAlignment="Top" StrokeThickness="0" RenderTransformOrigin="0.5,0.5" Margin="119,198,0,0" Height="6" HorizontalAlignment="Left" Fill="#FF3C3C3C" >
+        <Rectangle x:Name="rec23_Esquerda" Width="59" VerticalAlignment="Top" StrokeThickness="0" RenderTransformOrigin="0.5,0.5" Margin="201,196,0,0" Height="6" HorizontalAlignment="Left" Fill="#FF3C3C3C" >
             <Rectangle.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -224,8 +224,17 @@
                 </TransformGroup>
             </Desenhos:Silo.RenderTransform>
         </Desenhos:Silo>
-        <ed:Arc EndAngle="90" HorizontalAlignment="Left" Height="15" Margin="218,159,0,0" StartAngle="0" VerticalAlignment="Top" Width="15" StrokeThickness="6" Stretch="None" RenderTransformOrigin="0.5,0.5" Stroke="{Binding Fill, ElementName=rec23_Direita}" />
-        <Rectangle Margin="199,194,0,0" Height="6" RenderTransformOrigin="0.5,0.5" StrokeThickness="0" HorizontalAlignment="Left" Width="62" VerticalAlignment="Top" Fill="{Binding Fill, ElementName=rec23_Direita}" >
+        <ed:Arc EndAngle="90" HorizontalAlignment="Left" Height="15" Margin="145,159,0,0" StartAngle="0" VerticalAlignment="Top" Width="15" StrokeThickness="6" Stretch="None" RenderTransformOrigin="0.5,0.5" Stroke="{Binding Fill, ElementName=rec23_Direita}" >
+            <ed:Arc.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </ed:Arc.RenderTransform>
+        </ed:Arc>
+        <Rectangle Margin="117,194,0,0" Height="6" RenderTransformOrigin="0.5,0.5" StrokeThickness="0" HorizontalAlignment="Left" Width="62" VerticalAlignment="Top" Fill="{Binding Fill, ElementName=rec23_Direita}" >
             <Rectangle.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -339,7 +348,7 @@
                 </TransformGroup>
             </Desenhos:Silo.RenderTransform>
         </Desenhos:Silo>
-        <Label Content="23" HorizontalAlignment="Left" Height="40" Margin="100,115,0,0" VerticalAlignment="Top" Width="37" RenderTransformOrigin="0.5,0.5" FontSize="20" Foreground="#FFB8B8B8" FontWeight="Bold">
+        <Label Content="23" HorizontalAlignment="Left" Height="40" Margin="153,129,0,0" VerticalAlignment="Top" Width="37" RenderTransformOrigin="0.5,0.5" FontSize="20" Foreground="#FFB8B8B8" FontWeight="Bold">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="-1"/>
@@ -359,10 +368,10 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Equipamentos:bifurcadaDireita x:Name="Motor_23" HorizontalAlignment="Left" Height="44" Margin="140,131,0,0" VerticalAlignment="Top" Width="40" RenderTransformOrigin="0.5,0.5">
+        <Equipamentos:bifurcadaDireita x:Name="Motor_23" HorizontalAlignment="Left" Height="44" Margin="196,130,0,0" VerticalAlignment="Top" Width="42" RenderTransformOrigin="0.5,0.5">
             <Equipamentos:bifurcadaDireita.RenderTransform>
                 <TransformGroup>
-                    <ScaleTransform ScaleX="1.3" ScaleY="1.3"/>
+                    <ScaleTransform ScaleX="-1.3" ScaleY="1.3"/>
                     <SkewTransform/>
                     <RotateTransform/>
                     <TranslateTransform/>
