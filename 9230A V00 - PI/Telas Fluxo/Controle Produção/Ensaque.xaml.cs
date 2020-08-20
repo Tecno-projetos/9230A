@@ -214,7 +214,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
             {
                 atualizaGrid();
 
-                DataBase.SqlFunctionsEnsaques.getNameReceita(DataBase.SqlFunctionsEnsaques.getIdProducaoEnsaque(VariaveisGlobais.Id_Producao_No_Silo_Expedicao));
+                lnNomeReceita.Content = DataBase.SqlFunctionsEnsaques.getNameReceita(DataBase.SqlFunctionsEnsaques.getIdProducaoEnsaque(VariaveisGlobais.Id_Producao_No_Silo_Expedicao));
 
             }
         }

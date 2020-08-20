@@ -6,11 +6,11 @@
              xmlns:local="clr-namespace:_9230A_V00___PI.Telas_Fluxo"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800" Width="1024" Height="675">
+             d:DesignHeight="450" d:DesignWidth="800" Width="1024" Height="675" Loaded="UserControl_Loaded">
     <Grid Background="#FF7F7F7F">
         <Grid HorizontalAlignment="Left" Height="675" VerticalAlignment="Top" Width="200" Background="#FF3C3C3C">
 
-            <materialDesign:PackIcon Kind="Gear" VerticalAlignment="Center" Foreground="White" Height="95" Margin="0,6,0,574" Width="200"/>
+            <materialDesign:PackIcon Kind="PlayBox" VerticalAlignment="Center" Foreground="White" Height="95" Margin="0,6,0,574" Width="200"/>
             <Label Content="Produção" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Foreground="White" FontSize="16" VerticalContentAlignment="Center" FontWeight="Bold" HorizontalContentAlignment="Center" Margin="0,101,0,0"/>
             <Rectangle Fill="White" HorizontalAlignment="Left" Height="5" Margin="10,133,0,0" Stroke="White" VerticalAlignment="Top" Width="180"/>
             <Button x:Name="btTelaInicialRacao" Margin="10,151,10,474" Background="#FF505050" BorderBrush="Black" Height="50" Click="btTelaInicialRacao_Click">

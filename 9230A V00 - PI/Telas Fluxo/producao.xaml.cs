@@ -165,5 +165,10 @@ namespace _9230A_V00___PI.Telas_Fluxo
             VariaveisGlobais.executaProducao.finalizaProducao();
 
         }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

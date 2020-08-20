@@ -302,7 +302,7 @@ namespace _9230A_V00___PI
 
             Utilidades.VariaveisGlobais.producao.spControleProducao.Children.Add(Utilidades.VariaveisGlobais.producao.TelaEnsaque);
 
-            AtualizaButton(pckHome);
+            AtualizaButton(pckProducao);
         }
 
         private void InicialProducao_Bt1_Click(object sender, EventArgs e)
@@ -523,6 +523,12 @@ namespace _9230A_V00___PI
                 AtualizaButton(pckProducao);
 
             }
+
+            if (Utilidades.VariaveisGlobais.producao.spControleProducao.Children != null)
+            {
+                Utilidades.VariaveisGlobais.producao.spControleProducao.Children.Clear();
+            }
+
         }
 
         private void btReceitas_Click(object sender, RoutedEventArgs e)

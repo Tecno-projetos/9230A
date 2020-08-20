@@ -335,7 +335,7 @@ namespace _9230A_V00___PI.DataBase
             return Data;
         }
 
-        public static int getNameReceita(int IdProducao)
+        public static string getNameReceita(int IdProducao)
         {
             DataTable Data = new DataTable();
 
@@ -354,11 +354,19 @@ namespace _9230A_V00___PI.DataBase
                 catch (Exception ex)
                 {
                     Utilidades.VariaveisGlobais.Window_Buffer_Diagnostic.List_Error = ex.ToString();
-                    return -1;
+       
                 }
             }
 
-            return Convert.ToInt32(Data.Rows[0][0]);
+            if (Data.Rows.Count > 0)
+            {
+                return Convert.ToString(Data.Rows[0][0]);
+            }
+            else
+            {
+                return "Sem Receita";
+
+            }
         }
 
         #endregion

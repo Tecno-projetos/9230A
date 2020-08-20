@@ -130,8 +130,8 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
 
                 TempoRestantePreMistura.Content = Utilidades.VariaveisGlobais.executaProducao.ControleExecucao.Slot_1.TempoRestantePreMistura.ToString();
                 TempoRestantePosMistura.Content = Utilidades.VariaveisGlobais.executaProducao.ControleExecucao.Slot_1.TempoRestantePosMistura.ToString();
-                TempoTotalBatelada.Content = Utilidades.VariaveisGlobais.executaProducao.ControleExecucao.Slot_1.TempoAtualDesdeIniciado.ToString();
-
+                TempoTotalBatelada.Content = (Utilidades.VariaveisGlobais.executaProducao.ControleExecucao.Slot_1.TempoAtualDesdeIniciado / 60000).ToString();
+                    
                 //Atualiza produtos no data grid
                 atualizaGridProdutos(VariaveisGlobais.executaProducao.ControleExecucao.Slot_1);
 

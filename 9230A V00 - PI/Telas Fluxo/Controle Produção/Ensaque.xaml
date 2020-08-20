@@ -134,7 +134,7 @@
             </Grid>
         </Button>
         <Label Content="Sacos Ensacados:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="210" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="40" Padding="0" FontSize="18" FontWeight="Bold" Margin="10,101,0,0"/>
-        <Label Content="NOME DA RECEITA" HorizontalAlignment="Left" VerticalAlignment="Top" Width="433" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="40" Padding="0" FontSize="22" FontWeight="Bold" Margin="391,95,0,0" HorizontalContentAlignment="Center"/>
+        <Label x:Name="lnNomeReceita" Content="NOME DA RECEITA" HorizontalAlignment="Left" VerticalAlignment="Top" Width="433" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="40" Padding="0" FontSize="22" FontWeight="Bold" Margin="391,95,0,0" HorizontalContentAlignment="Center"/>
         <Button x:Name="btTerminou" Margin="589,435,50,195" Background="#FFE20C0C" BorderBrush="Black" Height="45" Opacity="1" Width="185" Click="btTerminou_Click">
             <Grid Width="150">
                 <materialDesign:PackIcon x:Name="packiconCadastrarEditar1" Kind="Injection" VerticalAlignment="Center" Foreground="White" Margin="-3,-6,0,-7" Height="30" Width="30"/>
