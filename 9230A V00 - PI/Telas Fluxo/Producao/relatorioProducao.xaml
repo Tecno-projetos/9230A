@@ -27,13 +27,13 @@
 
 
     <Grid Background="#FF7F7F7F">
-        <Button x:Name="btExportar" Margin="290,576,318,49" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btExportar_Click" >
+        <Button x:Name="btExportar" Margin="304,615,304,10" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btExportar_Click" >
             <Grid Width="158" Height="36">
                 <materialDesign:PackIcon Kind="FileExportOutline" VerticalAlignment="Center" Foreground="White" Height="36" Width="39"/>
                 <TextBlock  Text="Exportar" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="59,7,14,5" Width="85" FontSize="20" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center"/>
             </Grid>
         </Button>
-        <WebBrowser x:Name="webBrowse" HorizontalAlignment="Left" Height="530" Margin="10,10,0,0" VerticalAlignment="Top" Width="804"/>
+        <WebBrowser x:Name="webBrowse" HorizontalAlignment="Left" Height="590" Margin="10,10,0,0" VerticalAlignment="Top" Width="804"/>
 
 
 

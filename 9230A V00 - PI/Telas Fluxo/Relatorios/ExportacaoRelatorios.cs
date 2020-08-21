@@ -327,14 +327,14 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
                 int OldBatelada = -1;
                 foreach (var batelada in producao.batelada)
                 {
-                    PdfPTable tablebatelada = new PdfPTable(3);
+                    PdfPTable tablebatelada = new PdfPTable(4);
                     BaseColor preto = new BaseColor(0, 0, 0);
                     BaseColor fundo = new BaseColor(200, 200, 200);
                     BaseColor branco = new BaseColor(255, 255, 255);
                     Font font = FontFactory.GetFont(BaseFont.TIMES_ROMAN, 10, Font.BOLD, preto);
                     Font titulo = FontFactory.GetFont(BaseFont.TIMES_ROMAN, 10, Font.BOLD, preto);
 
-                    float[] colsWBatelada = { 20, 20, 20 };
+                    float[] colsWBatelada = { 20, 20, 20, 20 };
                     tablebatelada.HeaderRows = 0;
                     tablebatelada.WidthPercentage = 100f;
                     tablebatelada.DefaultCell.Border = PdfPCell.BOX;
@@ -365,6 +365,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
                     tablebatelada.AddCell(getNewCell("Desrição Produto", titulo, Element.ALIGN_CENTER, 5, PdfPCell.BOX, preto, branco));
                     tablebatelada.AddCell(getNewCell("Peso Desejado", titulo, Element.ALIGN_CENTER, 5, PdfPCell.BOX, preto, branco));
                     tablebatelada.AddCell(getNewCell("Peso Dosado", titulo, Element.ALIGN_CENTER, 5, PdfPCell.BOX, preto, branco));
+                    tablebatelada.AddCell(getNewCell("Percentual de Peso", titulo, Element.ALIGN_CENTER, 5, PdfPCell.BOX, preto, branco));
 
                     foreach (var produtos in batelada.produtos)
                     {
@@ -372,7 +373,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
                         tablebatelada.AddCell(getNewCell(produtos.descricao, font, Element.ALIGN_LEFT, 5, PdfPCell.BOX));
                         tablebatelada.AddCell(getNewCell(Convert.ToString(produtos.pesoDesejado) + " kg", font, Element.ALIGN_LEFT, 5, PdfPCell.BOX));
                         tablebatelada.AddCell(getNewCell(Convert.ToString(produtos.pesoDosado) + " kg", font, Element.ALIGN_LEFT, 5, PdfPCell.BOX));
-
+                        tablebatelada.AddCell(getNewCell(Convert.ToString(Utilidades.functions.percentualProduto(produtos.pesoDosado, batelada.pesoDesejado)) + " %", font, Element.ALIGN_LEFT, 5, PdfPCell.BOX));
 
                     }
 
@@ -723,8 +724,8 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
                     BaseColor preto = new BaseColor(0, 0, 0);
                     BaseColor fundo = new BaseColor(200, 200, 200);
                     BaseColor branco = new BaseColor(255, 255, 255);
-                    Font font = FontFactory.GetFont(BaseFont.TIMES_ROMAN, 10, Font.BOLD, preto);
-                    Font titulo = FontFactory.GetFont(BaseFont.TIMES_ROMAN, 10, Font.BOLD, preto);
+                    Font font = FontFactory.GetFont(BaseFont.TIMES_ROMAN, 24, Font.BOLD, preto);
+                    Font titulo = FontFactory.GetFont(BaseFont.TIMES_ROMAN, 24, Font.BOLD, preto);
 
                     float[] colsWBatelada = { 20, 20, 20 };
                     tablebatelada.HeaderRows = 0;
@@ -748,24 +749,24 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
                     if (bateladaPeso != batelada.pesoDesejado && contbateladas <= producao.quantidadeBateladas)
                     {
 
-                        var cell = getNewCell("Batelada N°: " + batelada.numeroBatelada, titulo, Element.ALIGN_CENTER, 5, PdfPCell.BOX, preto, branco);
+                        var cell = getNewCell("Batelada N°: " + batelada.numeroBatelada, titulo, Element.ALIGN_CENTER, 8, PdfPCell.BOX, preto, branco);
                         cell.Colspan = 5;
                         tablebatelada.AddCell(cell);
 
-                        var cell1 = getNewCell("Peso desejado: " + batelada.pesoDesejado + " kg", titulo, Element.ALIGN_CENTER, 5, PdfPCell.BOX, preto, branco);
+                        var cell1 = getNewCell("Peso desejado: " + batelada.pesoDesejado + " kg", titulo, Element.ALIGN_CENTER, 8, PdfPCell.BOX, preto, branco);
                         cell1.Colspan = 5;
                         tablebatelada.AddCell(cell1);
 
-                        tablebatelada.AddCell(getNewCell("Desrição Produto", titulo, Element.ALIGN_CENTER, 5, PdfPCell.BOX, preto, branco));
-                        tablebatelada.AddCell(getNewCell("Peso Desejado", titulo, Element.ALIGN_CENTER, 5, PdfPCell.BOX, preto, branco));
-                        tablebatelada.AddCell(getNewCell("Peso Percentual", titulo, Element.ALIGN_CENTER, 5, PdfPCell.BOX, preto, branco));
+                        tablebatelada.AddCell(getNewCell("Desrição Produto", titulo, Element.ALIGN_CENTER, 8, PdfPCell.BOX, preto, branco));
+                        tablebatelada.AddCell(getNewCell("Peso Desejado", titulo, Element.ALIGN_CENTER, 8, PdfPCell.BOX, preto, branco));
+                        tablebatelada.AddCell(getNewCell("Peso Percentual", titulo, Element.ALIGN_CENTER, 8, PdfPCell.BOX, preto, branco));
 
                         foreach (var produtos in batelada.produtos)
                         {
 
-                            tablebatelada.AddCell(getNewCell(produtos.descricao, font, Element.ALIGN_LEFT, 5, PdfPCell.BOX));
-                            tablebatelada.AddCell(getNewCell(Convert.ToString(produtos.pesoDesejado) + " kg", font, Element.ALIGN_LEFT, 5, PdfPCell.BOX));
-                            tablebatelada.AddCell(getNewCell(Convert.ToString(Utilidades.functions.percentualProduto(produtos.pesoDesejado, batelada.pesoDesejado)) + " %", font, Element.ALIGN_LEFT, 5, PdfPCell.BOX));
+                            tablebatelada.AddCell(getNewCell(produtos.descricao, font, Element.ALIGN_LEFT, 8, PdfPCell.BOX));
+                            tablebatelada.AddCell(getNewCell(Convert.ToString(produtos.pesoDesejado) + " kg", font, Element.ALIGN_LEFT, 8, PdfPCell.BOX));
+                            tablebatelada.AddCell(getNewCell(Convert.ToString(Utilidades.functions.percentualProduto(produtos.pesoDesejado, batelada.pesoDesejado)) + " %", font, Element.ALIGN_LEFT, 8, PdfPCell.BOX));
 
 
                         }
