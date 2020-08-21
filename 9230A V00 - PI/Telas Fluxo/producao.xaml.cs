@@ -1,4 +1,5 @@
-﻿using _9230A_V00___PI.Utilidades;
+﻿using _9230A_V00___PI.Telas_Fluxo.Relatorios;
+using _9230A_V00___PI.Utilidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,6 +28,8 @@ namespace _9230A_V00___PI.Telas_Fluxo
         public Telas_Fluxo.Producao.VerificacaoBateladas TelaVerificaoBateladas = new Producao.VerificacaoBateladas();
         public Telas_Fluxo.Controle_Produção.TelaControleProducao TelaControleProducao = new Controle_Produção.TelaControleProducao();
         public Telas_Fluxo.Controle_Produção.Ensaque TelaEnsaque = new Controle_Produção.Ensaque();
+
+        Producao.relatorioProducao relatorioProducao = new Producao.relatorioProducao();
 
         Utilidades.messageBox inputDialog;
 
@@ -168,6 +171,38 @@ namespace _9230A_V00___PI.Telas_Fluxo
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
+
+        }
+
+
+
+
+        /// <summary>
+        /// Gera relatorio
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btRelatorio_Click(object sender, RoutedEventArgs e)
+        {
+            if (Utilidades.VariaveisGlobais.ProducaoReceita.IniciouProducao)
+            {
+                if (spControleProducao != null)
+                {
+                    spControleProducao.Children.Clear();
+                }
+                spControleProducao.Children.Add(relatorioProducao);
+
+                relatorioProducao.enviaProjeto();
+
+            }
+            else
+            {
+                //falta preencher algum valor
+                inputDialog = new Utilidades.messageBox("Sem produção", "Para gerar um relatóro de produção, inicie uma nova produção!", MaterialDesignThemes.Wpf.PackIconKind.Error, "OK", "Fechar");
+
+                inputDialog.ShowDialog();
+            }
+
 
         }
     }

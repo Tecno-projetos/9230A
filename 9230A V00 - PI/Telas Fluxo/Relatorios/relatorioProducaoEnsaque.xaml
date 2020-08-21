@@ -4,41 +4,216 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:_9230A_V00___PI.Telas_Fluxo.Relatorios"
+             xmlns:Utilidades="clr-namespace:_9230A_V00___PI.Utilidades"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800" Width="825" Height="675" >
+             d:DesignHeight="450" d:DesignWidth="800" Width="824" Height="675" Unloaded="UserControl_Unloaded">
+    <UserControl.Resources>
+
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/MaterialDesignColor.Red.Primary.xaml" />
+
+            </ResourceDictionary.MergedDictionaries>
+
+            <SolidColorBrush x:Key="brushWatermarkBackground" Color="Black" />
+            <SolidColorBrush x:Key="brushWatermarkForeground" Color="Black" />
+            <SolidColorBrush x:Key="brushWatermarkBorder" Color="Black" />
+        </ResourceDictionary>
+
+    </UserControl.Resources>
+
+
     <Grid Background="#FF7F7F7F">
 
-        <Grid.Resources  >
+        <materialDesign:DialogHost x:Name="PopupAddCustom" HorizontalAlignment="Center" VerticalAlignment="Center" IsOpen="False"
+          materialDesign:DialogHost.DialogOpenedAttached="CombinedDialogOpenedEventHandler"
+             materialDesign:DialogHost.DialogClosingAttached="CombinedDialogClosingEventHandler" Style="{StaticResource MaterialDesignEmbeddedDialogHost}" Foreground="{x:Null}" OverlayBackground="{x:Null}">
+            <materialDesign:DialogHost.DialogContent>
+                <Grid Margin="-1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <StackPanel Grid.Row="0" Orientation="Horizontal">
+                        <Calendar
+                                   x:Name="CombinedCalendar"
+                                   Background="#FF505050"
+                                        Margin="-1 -4 -1 0" IsTodayHighlighted="False">
+                            <Calendar.Resources>
+                                <SolidColorBrush x:Key="PrimaryHueMidBrush" Color="#FF3C3C3C" />
+                                <SolidColorBrush x:Key="MaterialDesignBody" Color="White" />
 
-            <ResourceDictionary>
-                <ResourceDictionary.MergedDictionaries>
-                    <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Blue.xaml" />
-                    <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Indigo.xaml" />
-                    <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
-                </ResourceDictionary.MergedDictionaries>
+                            </Calendar.Resources>
+                            <Calendar.Style>
+                                <StaticResource ResourceKey="MaterialDesignDatePickerCalendarPortrait"/>
+                            </Calendar.Style>
+                            <Calendar.CalendarItemStyle>
+                                <StaticResource ResourceKey="MaterialDesignCalendarItemPortrait"/>
+                            </Calendar.CalendarItemStyle>
+                        </Calendar>
+                        <materialDesign:Clock
+                                        x:Name="CombinedClock"
+                                        DisplayAutomation="Cycle"
+                                        Background="#FF505050"         
+                                        Is24Hours="True">
+                            <materialDesign:Clock.Resources>
+                                <SolidColorBrush x:Key="PrimaryHueMidBrush" Color="#FF3C3C3C" />
+                                <SolidColorBrush x:Key="MaterialDesignBody" Color="White" />
+
+                            </materialDesign:Clock.Resources>
+                        </materialDesign:Clock>
+
+                    </StackPanel>
+                    <StackPanel Grid.Row="1" Margin="8" HorizontalAlignment="Right" Orientation="Horizontal">
+                        <Button Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" CommandParameter="0" Background="#FF3C3C3C" BorderBrush="#FF787878" Width="110" Height="40" Content="CANCEL"/>
+                        <Button Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" CommandParameter="1" Background="#FF3C3C3C" BorderBrush="#FF787878" Width="110" Height="40" Content="OK" />
+                    </StackPanel>
+                </Grid>
+            </materialDesign:DialogHost.DialogContent>
+        </materialDesign:DialogHost>
+        <Label x:Name="txtDataSelecionada" Content="Data Inicial:" Margin="96,33,0,0" BorderBrush="Black" BorderThickness="1" Background="#00000000" HorizontalContentAlignment="Center" Height="29" VerticalAlignment="Top" HorizontalAlignment="Left" Width="223" ToolTip="Status do motor, falhas e alarmes." Cursor="No" FontSize="18" Foreground="White" Padding="0,0,4,0"/>
+        <Button  x:Name="ButtonOpenDialog" Content="..." IsEnabled="True" Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}" CommandTarget="{Binding ElementName=PopupAddCustom}" Margin="96,67,0,0" Background="#FF505050" BorderBrush="Black" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Left" Width="223" Click="ButtonOpenDialog_Click"/>
 
 
-                <SolidColorBrush x:Key="brushWatermarkBackground" Color="#FF505050" />
-                <SolidColorBrush x:Key="brushWatermarkForeground" Color="White" />
+        <materialDesign:PackIcon x:Name="iconDataInicial" Kind="Calendar" VerticalAlignment="Center" Foreground="White" Height="29" Margin="61,33,0,613" Width="33"/>
+        <materialDesign:PackIcon x:Name="iconTouch" Kind="GestureTapButton" VerticalAlignment="Center" Foreground="White" Height="29" Margin="61,70,0,576" Width="33"/>
+        <Label Content="Data Inicial:" HorizontalAlignment="Left" Margin="95,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="14"/>
 
 
-                <SolidColorBrush x:Key="brushWatermarkBorder" Color="White" />
+        <materialDesign:DialogHost x:Name="PopupAddCustom1" HorizontalAlignment="Center" VerticalAlignment="Center" IsOpen="False"
+          materialDesign:DialogHost.DialogOpenedAttached="CombinedDialogOpenedEventHandler_FIM"
+             materialDesign:DialogHost.DialogClosingAttached="CombinedDialogClosingEventHandler_FIM" Style="{StaticResource MaterialDesignEmbeddedDialogHost}" Foreground="{x:Null}" OverlayBackground="{x:Null}">
+            <materialDesign:DialogHost.DialogContent>
+                <Grid Margin="-1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <StackPanel Grid.Row="0" Orientation="Horizontal">
+                        <Calendar
+                                   x:Name="CombinedCalendar_FIM"
+                                   Background="#FF505050"
+                                        Margin="-1 -4 -1 0" IsTodayHighlighted="False">
+                            <Calendar.Resources>
+                                <SolidColorBrush x:Key="PrimaryHueMidBrush" Color="#FF3C3C3C" />
+                                <SolidColorBrush x:Key="MaterialDesignBody" Color="White" />
 
-                <Style x:Key="EntryFieldStyle" TargetType="{x:Type Grid}" >
-                    <Setter Property="HorizontalAlignment" Value="Stretch" />
-                    <Setter Property="VerticalAlignment" Value="Center" />
-                    <Setter Property="Margin" Value="20,0" />
+                            </Calendar.Resources>
+                            <Calendar.Style>
+                                <StaticResource ResourceKey="MaterialDesignDatePickerCalendarPortrait"/>
+                            </Calendar.Style>
+                            <Calendar.CalendarItemStyle>
+                                <StaticResource ResourceKey="MaterialDesignCalendarItemPortrait"/>
+                            </Calendar.CalendarItemStyle>
+                        </Calendar>
+                        <materialDesign:Clock
+                                        x:Name="CombinedClock_FIM"
+                                        DisplayAutomation="Cycle"
+                                        Background="#FF505050"         
+                                        Is24Hours="True">
+                            <materialDesign:Clock.Resources>
+                                <SolidColorBrush x:Key="PrimaryHueMidBrush" Color="#FF3C3C3C" />
+                                <SolidColorBrush x:Key="MaterialDesignBody" Color="White" />
+
+                            </materialDesign:Clock.Resources>
+                        </materialDesign:Clock>
+
+                    </StackPanel>
+                    <StackPanel Grid.Row="1" Margin="8" HorizontalAlignment="Right" Orientation="Horizontal">
+                        <Button Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" CommandParameter="0" Background="#FF3C3C3C" BorderBrush="#FF787878" Width="110" Height="40" Content="CANCEL"/>
+                        <Button Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" CommandParameter="1" Background="#FF3C3C3C" BorderBrush="#FF787878" Width="110" Height="40" Content="OK" />
+                    </StackPanel>
+                </Grid>
+            </materialDesign:DialogHost.DialogContent>
+        </materialDesign:DialogHost>
+        <Label x:Name="txtFIM" Content="Data Final:" Margin="362,33,0,0" BorderBrush="Black" BorderThickness="1" Background="#00000000" HorizontalContentAlignment="Center" Height="29" VerticalAlignment="Top" HorizontalAlignment="Left" Width="223" ToolTip="Status do motor, falhas e alarmes." Cursor="No" FontSize="18" Foreground="White" Padding="0,0,4,0"/>
+        <Button  x:Name="ButtonOpenDialogFim" Content="..." IsEnabled="True" Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}" CommandTarget="{Binding ElementName=PopupAddCustom1}" Margin="362,67,0,0" Background="#FF505050" BorderBrush="Black" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Left" Width="223" Click="ButtonOpenDialogFim_Click"/>
+        <materialDesign:PackIcon x:Name="iconDataFim" Kind="Calendar" VerticalAlignment="Center" Foreground="White" Height="29" Margin="327,33,0,613" Width="33"/>
+        <materialDesign:PackIcon x:Name="iconTouchFim" Kind="GestureTapButton" VerticalAlignment="Center" Foreground="White" Height="29" Margin="327,70,0,576" Width="33"/>
+        <Label Content="Data Final:" HorizontalAlignment="Left" Margin="361,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="14"/>
+        <Button x:Name="btPesquisar" Margin="596,10,0,0" Background="#FF505050" BorderBrush="{x:Null}" HorizontalAlignment="Left" Width="85" Height="89" VerticalAlignment="Top" Click="btPesquisar_Click">
+            <Grid Width="53" Height="70">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Label Content="Pesquisar" Margin="-13,48,-15,-5" HorizontalContentAlignment="Center" FontWeight="Bold" Foreground="White" Height="27" FontSize="11"/>
+                <materialDesign:PackIcon Kind="Search" VerticalAlignment="Center" Foreground="White" Margin="0,0,0,20" HorizontalAlignment="Left" Width="53" Height="50"/>
+            </Grid>
+        </Button>
+        <DataGrid x:Name="DataGrid_Receita" Margin="28,165,53,0" CanUserAddRows="False"
+            HorizontalAlignment="Stretch" VerticalAlignment="Top" FontWeight="Black" Foreground="Black"
+            HorizontalGridLinesBrush="{DynamicResource {x:Static SystemColors.ControlTextColor}}"
+            VerticalGridLinesBrush="{DynamicResource MaterialDesignDarkBackground}" BorderBrush="{x:Null}" BorderThickness="1"
+            CanUserDeleteRows ="False" CanUserReorderColumns="False" CanUserResizeRows="False" CanUserSortColumns="False"   
+            ScrollViewer.VerticalScrollBarVisibility="Auto" Height="390" Cursor="Hand" IsReadOnly="True" AlternatingRowBackground="#FF7F7F7F" 
+            RowBackground="White" HorizontalScrollBarVisibility="Hidden" Background="White" FontSize="24" FontFamily="Segoe UI Emoji" GridLinesVisibility="All" 
+            SelectionMode="Single"  AutoGenerateColumns="True" RowHeight="40" MouseLeftButtonUp="DataGrid_Receita_MouseLeftButtonUp" >
+
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type DataGridCell}">
+                    <Style.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Background" Value="#FF3C3C3C" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.Resources>
+
+
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="FontSize" Value="25"/>
                 </Style>
 
+            </DataGrid.ColumnHeaderStyle>
+        </DataGrid>
+        <Button x:Name="btUpList" Margin="612,566,135,59" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btUpList_Click" >
+            <Grid Width="42" Height="42" Margin="0">
+                <materialDesign:PackIcon Kind="ArrowUpBold" VerticalAlignment="Center" Foreground="White" Height="42" Width="42"/>
+            </Grid>
+        </Button>
+        <Button x:Name="btDownList" Margin="612,621,135,4" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btDownList_Click" >
+            <Grid Width="42" Height="42" Margin="0">
+                <materialDesign:PackIcon Kind="ArrowDownBold" VerticalAlignment="Center" Foreground="White" Height="42" Width="42"/>
+            </Grid>
+        </Button>
+        <Button x:Name="btLeftList" Margin="530,591,217,34" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btLeftList_Click" >
+            <Grid Width="42" Height="42" Margin="0">
+                <materialDesign:PackIcon Kind="ArrowLeftBold" VerticalAlignment="Center" Foreground="White" Height="42" Width="42"/>
+            </Grid>
+        </Button>
+        <Button x:Name="btRightList" Margin="694,591,53,34" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btRightList_Click" >
+            <Grid Width="42" Height="42" Margin="0">
+                <materialDesign:PackIcon Kind="ArrowRightBold" VerticalAlignment="Center" Foreground="White" Height="42" Width="42"/>
+            </Grid>
+        </Button>
+        <Button x:Name="btExportar" Margin="28,584,580,41" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btExportar_Click" >
+            <Grid Width="158" Height="36">
+                <materialDesign:PackIcon Kind="FileExportOutline" VerticalAlignment="Center" Foreground="White" Height="36" Width="39"/>
+                <TextBlock  Text="Exportar" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="59,7,14,5" Width="85" FontSize="20" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            </Grid>
+        </Button>
+        <Rectangle x:Name="rec" Fill="White" HorizontalAlignment="Left" Height="5" Margin="0,110,-1,0" Stroke="White" VerticalAlignment="Top" Width="825"/>
+        <Label x:Name="lbNomeProduto" Content="Produto selecionado" Height="40" Margin="10,121,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="803" Foreground="White" FontWeight="Bold" FontSize="22" Background="{x:Null}" HorizontalContentAlignment="Center" BorderBrush="Black"/>
+        <Button x:Name="btRelatorio" Margin="270,560,338,65" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btRelatorio_Click" >
+            <Grid Width="160" Height="36">
+                <materialDesign:PackIcon Kind="File" VerticalAlignment="Center" Foreground="White" Height="36" Width="39" Margin="-12,0,0,0"/>
+                <TextBlock  Text="Gerar Relatório" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="27,7,0,5" Width="133" FontSize="20" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            </Grid>
+        </Button>
+        <WebBrowser x:Name="webBrowse" HorizontalAlignment="Left" Height="434" Margin="28,121,0,0" VerticalAlignment="Top" Width="743"/>
+        <Button x:Name="btFecharRelatorio" Margin="270,615,338,10" Background="Red" BorderBrush="Black" Height="50" Opacity="1" Click="btFecharRelatorio_Click" >
+            <Grid Width="193" Height="36">
+                <materialDesign:PackIcon Kind="File" VerticalAlignment="Center" Foreground="White" Height="36" Width="39"/>
+                <TextBlock  Text="Fechar Relatório" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="39,8,5,5" Width="149" FontSize="20" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Height="23"/>
+            </Grid>
+        </Button>
 
 
-            </ResourceDictionary>
 
-        </Grid.Resources>
 
     </Grid>
-
 </UserControl>
-
-

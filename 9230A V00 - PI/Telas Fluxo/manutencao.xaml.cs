@@ -35,6 +35,12 @@ namespace _9230A_V00___PI.Telas_Fluxo
         Manutenção.manualUsuario manual = new Manutenção.manualUsuario();
 
         Manutenção.alarmes alarmes = new Manutenção.alarmes();
+
+
+        private bool telaManutencaoAtiva = false;
+
+        public bool TelaManutencaoAtiva_Get { get => telaManutencaoAtiva; }
+
         public manutencao()
         {
             InitializeComponent();
@@ -142,6 +148,13 @@ namespace _9230A_V00___PI.Telas_Fluxo
             {
                 spManutencao.Children.Clear();
             }
+
+            telaManutencaoAtiva = true;
+        }
+
+        private void UserControl_Unloaded(object sender, RoutedEventArgs e)
+        {
+            telaManutencaoAtiva = false;
         }
     }
 }

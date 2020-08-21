@@ -1015,6 +1015,58 @@ namespace _9230A_V00___PI.Utilidades
             return oldValue;
         }
 
+        public static float floatingKeypad(string OldValue, short numeroMaximoCasas, int limite)
+        {
+            keypad mainWindow = new keypad(false, numeroMaximoCasas);
+            float floatPoint;
+            float oldValue = 0;
+            float newValue = 0;
+            bool isNumeric;
+            isNumeric = float.TryParse(OldValue, out floatPoint);
+
+            if (isNumeric)
+            {
+                //Recebe Valor antigo digitado no Textbox
+                oldValue = Convert.ToSingle(OldValue);
+                //Recebe o novo valor digitado no Keypad
+            }
+
+            if (mainWindow.ShowDialog() == true)
+            {
+                isNumeric = float.TryParse(mainWindow.Result, out floatPoint);
+
+                if (isNumeric)
+                {
+                    if (floatPoint <= limite)
+                    {
+                        newValue = floatPoint;
+
+                        if (oldValue != newValue)
+                        {
+                            //Retira o foco do textbox.
+                            Keyboard.ClearFocus();
+                            return newValue;
+
+                        }
+                    }
+                    else
+                    {
+                        //Envia o oldValue pois o valor máximo ultrapassou o limite.
+                        return oldValue;
+                    }
+                }
+                else
+                {
+                    //Envia o oldValue pois o valor máximo ultrapassou o limite.
+                    return oldValue;
+                }
+
+            }
+
+            //Envia o oldValue pois o valor máximo ultrapassou o limite.
+            return oldValue;
+        }
+
         public static Int32 IntergerKeypad(string OldValue, short numeroMaximoCasas, Int32 limite)
         {
             keypad mainWindow = new keypad(true, numeroMaximoCasas);
@@ -1107,6 +1159,17 @@ namespace _9230A_V00___PI.Utilidades
 
     public class functions
     {
+        public static float percentualProduto(float pesoDesejado, float pesoBase)
+        {
+            float perct = 0;
+
+            perct = ((100 * pesoDesejado) / pesoBase);
+
+            return (float)Math.Round(perct,2);
+        }
+
+
+
         /// <summary>
         /// Função para controla o status da produção
         /// </summary>

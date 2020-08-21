@@ -600,7 +600,201 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
             }
         }
 
+        /// <summary>
+        /// Funçao para exportar produção a produção.
+        /// </summary>
+        /// <param name="strPdfPath">Caminho a ser salvo o PDF </param>
+        /// <param name="producao">Classe da produção para gerar o relatório</param>
+        /// <param name="strHeader">O que será escrito no cabeçalho da página</param>
+        /// <returns></returns>
+        public static bool producaoInicial(String strPdfPath, Utilidades.Producao producao, string strHeader)
+        {
+            try
+            {
+                #region Cabeçalho
 
+                System.IO.FileStream fs = new FileStream(strPdfPath, FileMode.Create, FileAccess.Write, FileShare.None);
+                Document document = new Document();
+                document.SetPageSize(iTextSharp.text.PageSize.A4);
+                PdfWriter writer = PdfWriter.GetInstance(document, fs);
+                writer.PageEvent = new PDFFooter();
+
+                document.Open();
+
+                //Report Header
+                BaseFont bfntHead = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
+                Font fntHead = new Font(bfntHead, 16, 1, iTextSharp.text.BaseColor.BLACK);
+                Paragraph prgHeading = new Paragraph();
+                prgHeading.Alignment = Element.ALIGN_CENTER;
+                prgHeading.Add(new Chunk(strHeader.ToUpper(), fntHead));
+                document.Add(prgHeading);
+
+
+                //Adiociona a imagem no projeto e no PDF
+                #region Imagem Automasul
+                //Busca a imagem
+                string filename = "Logo_Automasul.png";
+                //Salva a imagem no arquivo Bin
+                Resources.Logo_Automasul.Save(Path.GetFullPath(filename));
+                string path = Path.GetFullPath(filename);
+                //Manda o caminho para o PDF
+                iTextSharp.text.Image image = iTextSharp.text.Image.GetInstance(path);
+                image.SetAbsolutePosition(0, 20);
+
+                image.ScaleAbsolute(150, 50);
+                image.Alignment = iTextSharp.text.Image.ALIGN_LEFT;
+                PdfContentByte cbhead = writer.DirectContent;
+                PdfTemplate tp = cbhead.CreateTemplate(1000, 1000);
+                tp.AddImage(image);
+
+                cbhead.AddTemplate(tp, 0, 842 - 95);
+                #endregion
+
+                //Adiociona a imagem no projeto e no PDF
+                #region Imagem Becker
+                //Busca a imagem
+                string filename1 = "Logo_Becker.png";
+                //Salva a imagem no arquivo Bin
+                Resources.Logo_Becker.Save(Path.GetFullPath(filename1));
+                string path1 = Path.GetFullPath(filename1);
+
+                //Manda o caminho para o PDF
+                iTextSharp.text.Image image1 = iTextSharp.text.Image.GetInstance(path1);
+                image1.SetAbsolutePosition(460, 40);
+                image1.ScaleAbsolute(100, 30);
+                image1.Alignment = iTextSharp.text.Image.ALIGN_RIGHT;
+                PdfContentByte cbhead1 = writer.DirectContent;
+                PdfTemplate tp1 = cbhead1.CreateTemplate(1000, 1000);
+                tp1.AddImage(image1);
+                cbhead1.AddTemplate(tp1, 0, 842 - 95);
+                #endregion
+
+
+                //Author
+                Paragraph prgAuthor = new Paragraph();
+                BaseFont btnAuthor = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
+                Font fntAuthor = new Font(btnAuthor, 8, 2, iTextSharp.text.BaseColor.GRAY);
+                prgAuthor.Alignment = Element.ALIGN_RIGHT;
+                prgAuthor.Add(new Chunk("Autor : " + Utilidades.VariaveisGlobais.UserLogged_GS, fntAuthor));
+                prgAuthor.Add(new Chunk("\nExportado : " + DateTime.Now.ToShortDateString(), fntAuthor));
+                document.Add(prgAuthor);
+
+
+                //Add a line seperation
+                Paragraph p = new Paragraph(new Chunk(new iTextSharp.text.pdf.draw.LineSeparator(0.0F, 100.0F, iTextSharp.text.BaseColor.BLACK, Element.ALIGN_LEFT, 1)));
+                document.Add(p);
+
+                //Add line break
+                //document.Add(new Chunk("\n", fntHead));
+
+                #endregion
+
+                float[] colsW = { 25, 25 };
+
+                //Quantidade de produçoes
+                document.Add(tableProducao("Produção: " + producao.id + " Receita:" + producao.receita.nomeReceita, false, Element.ALIGN_CENTER));
+                document.Add(tableProducao("Quantidade de bateladas: " + producao.quantidadeBateladas + " und.", false, Element.ALIGN_LEFT));
+
+
+                //Add a line seperation
+                Paragraph p1 = new Paragraph(new Chunk(new iTextSharp.text.pdf.draw.LineSeparator(0.0F, 100.0F, iTextSharp.text.BaseColor.BLACK, Element.ALIGN_LEFT, 1)));
+                document.Add(p1);
+
+                //Adiocona o detatalhamento da Produção
+                Paragraph Detalhamento = new Paragraph();
+                BaseFont btnDetalhamento = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
+                Font fntADetalhamento = FontFactory.GetFont(BaseFont.TIMES_ROMAN, 12, Font.BOLD, new BaseColor(0, 0, 0));
+                Detalhamento.Alignment = Element.ALIGN_CENTER;
+
+                Detalhamento.Add(new Chunk("Detalhamento Bateladas", fntADetalhamento));
+                document.Add(Detalhamento);
+
+                document.Add(new Chunk("\n", fntHead));
+
+                int OldBatelada = -1;
+
+                float bateladaPeso = -1;
+
+                int contbateladas = 0;
+
+                foreach (var batelada in producao.batelada)
+                {
+                    PdfPTable tablebatelada = new PdfPTable(3);
+                    BaseColor preto = new BaseColor(0, 0, 0);
+                    BaseColor fundo = new BaseColor(200, 200, 200);
+                    BaseColor branco = new BaseColor(255, 255, 255);
+                    Font font = FontFactory.GetFont(BaseFont.TIMES_ROMAN, 10, Font.BOLD, preto);
+                    Font titulo = FontFactory.GetFont(BaseFont.TIMES_ROMAN, 10, Font.BOLD, preto);
+
+                    float[] colsWBatelada = { 20, 20, 20 };
+                    tablebatelada.HeaderRows = 0;
+                    tablebatelada.WidthPercentage = 100f;
+                    tablebatelada.DefaultCell.Border = PdfPCell.BOX;
+                    tablebatelada.DefaultCell.BorderColor = new BaseColor(255, 255, 255);
+                    tablebatelada.DefaultCell.BorderColorBottom = new BaseColor(255, 255, 255);
+                    tablebatelada.DefaultCell.Padding = 5;
+
+                    if (OldBatelada == -1)
+                    {
+                        tablebatelada.KeepTogether = false;
+                        OldBatelada = 1;
+                    }
+                    else
+                    {
+                        tablebatelada.KeepTogether = true;
+                    }
+
+
+                    if (bateladaPeso != batelada.pesoDesejado && contbateladas <= producao.quantidadeBateladas)
+                    {
+
+                        var cell = getNewCell("Batelada N°: " + batelada.numeroBatelada, titulo, Element.ALIGN_CENTER, 5, PdfPCell.BOX, preto, branco);
+                        cell.Colspan = 5;
+                        tablebatelada.AddCell(cell);
+
+                        var cell1 = getNewCell("Peso desejado: " + batelada.pesoDesejado + " kg", titulo, Element.ALIGN_CENTER, 5, PdfPCell.BOX, preto, branco);
+                        cell1.Colspan = 5;
+                        tablebatelada.AddCell(cell1);
+
+                        tablebatelada.AddCell(getNewCell("Desrição Produto", titulo, Element.ALIGN_CENTER, 5, PdfPCell.BOX, preto, branco));
+                        tablebatelada.AddCell(getNewCell("Peso Desejado", titulo, Element.ALIGN_CENTER, 5, PdfPCell.BOX, preto, branco));
+                        tablebatelada.AddCell(getNewCell("Peso Percentual", titulo, Element.ALIGN_CENTER, 5, PdfPCell.BOX, preto, branco));
+
+                        foreach (var produtos in batelada.produtos)
+                        {
+
+                            tablebatelada.AddCell(getNewCell(produtos.descricao, font, Element.ALIGN_LEFT, 5, PdfPCell.BOX));
+                            tablebatelada.AddCell(getNewCell(Convert.ToString(produtos.pesoDesejado) + " kg", font, Element.ALIGN_LEFT, 5, PdfPCell.BOX));
+                            tablebatelada.AddCell(getNewCell(Convert.ToString(Utilidades.functions.percentualProduto(produtos.pesoDesejado, batelada.pesoDesejado)) + " %", font, Element.ALIGN_LEFT, 5, PdfPCell.BOX));
+
+
+                        }
+
+                        document.Add(tablebatelada);
+                        document.Add(new Chunk("\n", fntHead));
+
+                        bateladaPeso = batelada.pesoDesejado;
+                        contbateladas++;
+                    }
+
+                }
+
+                document.Close();
+                writer.Close();
+                fs.Close();
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Utilidades.VariaveisGlobais.Window_Buffer_Diagnostic.List_Error = ex.ToString() + " Erro exportar relatório Bateladas";
+
+
+                return false;
+            }
+
+
+        }
 
 
         #endregion

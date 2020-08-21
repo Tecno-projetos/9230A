@@ -54,6 +54,9 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
                 if (pesoProduto != 0)
                 {
                     txtPeso.Text = pesoProduto.ToString();
+
+                    txtPercentual.Text = Utilidades.functions.percentualProduto(pesoProduto, Utilidades.VariaveisGlobais.ReceitaCadastro.pesoBase).ToString();
+
                 }
 
                 //se for matéria prima carrega o tipo de dosagem atual
@@ -201,10 +204,26 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
             TextBox txtReceber = (TextBox)sender;
 
             txtReceber.Text = Utilidades.VariaveisGlobais.floatingKeypad(txtReceber.Text, 10).ToString();
+           
+            
+            
+            txtPercentual.Text = Utilidades.functions.percentualProduto(pesoProduto, Utilidades.VariaveisGlobais.ReceitaCadastro.pesoBase).ToString();
+
             //Retira o foco do textbox.
             Keyboard.ClearFocus();
 
         }
+
+        private void txtPercentual_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            TextBox txtReceber = (TextBox)sender;
+
+            txtReceber.Text = Utilidades.VariaveisGlobais.floatingKeypad(txtReceber.Text, 6, 100).ToString();
+
+            txtPeso.Text = ((Utilidades.VariaveisGlobais.ReceitaCadastro.pesoBase * Convert.ToSingle(txtReceber.Text))/100).ToString();
+
+        }
+
 
         private void IntergerPreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
@@ -232,7 +251,6 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
 
             }
         }
-
 
 
     }

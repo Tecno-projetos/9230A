@@ -140,6 +140,45 @@
         </Grid>
 
 
+        <Rectangle x:Name="REC_No_Connection" HorizontalAlignment="Left" Height="675" Margin="-5,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="1029" Opacity="0.53" Visibility="Hidden">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFFFA7A7" Offset="0.011"/>
+                    <GradientStop Color="Red" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle x:Name="REC_PLC_STOP" HorizontalAlignment="Left" Height="675" Margin="-5,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="1029" Opacity="0.53" Visibility="Hidden">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFFBD775" Offset="0.011"/>
+                    <GradientStop Color="#FFFFB900" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Label x:Name="LB_PLC_STOP" Content="PLC em STOP" HorizontalAlignment="Center" Height="120" Margin="244,70,262,0" VerticalAlignment="Top" Width="518" FontSize="72" Foreground="White" HorizontalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" OpacityMask="Black" Visibility="Hidden">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="2" ScaleY="1.97"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+
+        <Label x:Name="LB_No_Connection" Content="Sem conexão com PLC" HorizontalAlignment="Center" Height="120" Margin="260,70,254,0" VerticalAlignment="Top" Width="510" FontSize="40" Foreground="White" HorizontalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" Visibility="Hidden">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="2" ScaleY="1.97"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+
+
         <!--Botão com messagebox-->
     </Grid>
 </Window>

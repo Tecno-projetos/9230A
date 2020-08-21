@@ -161,6 +161,8 @@ namespace _9230A_V00___PI.Telas_Fluxo.Producao
 
                 dt.Columns.Add("Produto");
                 dt.Columns.Add("Peso(kg)");
+                dt.Columns.Add("Percentual");
+
 
                 foreach (var item in Utilidades.VariaveisGlobais.ProducaoReceita.batelada[index].produtos)
                 {
@@ -168,6 +170,8 @@ namespace _9230A_V00___PI.Telas_Fluxo.Producao
 
                     dr["Produto"] = item.descricao;
                     dr["Peso(kg)"] = item.pesoDesejado;
+                    dr["Percentual"] = Utilidades.functions.percentualProduto(item.pesoDesejado, Utilidades.VariaveisGlobais.ProducaoReceita.batelada[index].pesoDesejado).ToString() + " %";
+
 
                     dt.Rows.Add(dr);
                 }
