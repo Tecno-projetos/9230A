@@ -256,11 +256,43 @@ namespace _9230A_V00___PI
                 lbDiaMes.Content = DateTime.Now.Day + "/" + DateTime.Now.Month;
                 lbHorario.Content = DateTime.Now.ToLongTimeString();
 
+                LB_No_Connection.Dispatcher.Invoke(delegate { LB_No_Connection.Visibility = Visibility.Hidden; });
+                REC_No_Connection.Dispatcher.Invoke(delegate { REC_No_Connection.Visibility = Visibility.Hidden; });
+
+                if (Utilidades.VariaveisGlobais.CommunicationPLC.ConnectionStatus_GS == 1 || VariaveisGlobais.manutencao.TelaManutencaoAtiva_Get)
+                {
+                    LB_PLC_STOP.Dispatcher.Invoke(delegate { LB_PLC_STOP.Visibility = Visibility.Hidden; });
+                    REC_PLC_STOP.Dispatcher.Invoke(delegate { REC_PLC_STOP.Visibility = Visibility.Hidden; });
+                }
+                else if (Utilidades.VariaveisGlobais.CommunicationPLC.ConnectionStatus_GS == 0)
+                {
+                    LB_PLC_STOP.Dispatcher.Invoke(delegate { LB_PLC_STOP.Visibility = Visibility.Visible; });
+                    REC_PLC_STOP.Dispatcher.Invoke(delegate { REC_PLC_STOP.Visibility = Visibility.Visible; });
+                }
+
+
                 VariaveisGlobais.CommunicationPLC.readBuffersPLC(); //Chama a leitura no PLC
+
+                if (!Utilidades.VariaveisGlobais.CommunicationPLC.PLCConnected_GS && !VariaveisGlobais.manutencao.TelaManutencaoAtiva_Get)
+                {
+                    LB_No_Connection.Dispatcher.Invoke(delegate { LB_No_Connection.Visibility = Visibility.Visible; });
+                    REC_No_Connection.Dispatcher.Invoke(delegate { REC_No_Connection.Visibility = Visibility.Visible; });
+
+                    LB_PLC_STOP.Dispatcher.Invoke(delegate { LB_PLC_STOP.Visibility = Visibility.Hidden; });
+                    REC_PLC_STOP.Dispatcher.Invoke(delegate { REC_PLC_STOP.Visibility = Visibility.Hidden; });
+                }
+                else
+                {
+                    LB_No_Connection.Dispatcher.Invoke(delegate { LB_No_Connection.Visibility = Visibility.Hidden; });
+                    REC_No_Connection.Dispatcher.Invoke(delegate { REC_No_Connection.Visibility = Visibility.Hidden; });
+
+                }
+
 
                 //Verifica se esta lendo valor válido do CLP
                 if (Comunicacao.Sharp7.S7.GetIntAt(Utilidades.VariaveisGlobais.Buffer_PLC[0].Buffer, 400) == 1000)
                 {
+                             
                     //Atualiza Niveis Silos
                     Utilidades.VariaveisGlobais.niveis = Move_Bits.Dword_TO_NIveis(Comunicacao.Sharp7.S7.GetDWordAt(Utilidades.VariaveisGlobais.Buffer_PLC[3].Buffer, 0), Utilidades.VariaveisGlobais.niveis);
 
@@ -624,8 +656,10 @@ namespace _9230A_V00___PI
 
                 AtualizaButton(pckManutencao);
 
-
             }
+
+
+
         }
 
         #endregion

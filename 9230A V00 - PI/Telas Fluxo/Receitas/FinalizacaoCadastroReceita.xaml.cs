@@ -183,6 +183,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
             dt.Columns.Add("Id");
             dt.Columns.Add("Produto");
             dt.Columns.Add("Peso(kg)");
+            dt.Columns.Add("Percentual");
 
             foreach (var item in Utilidades.VariaveisGlobais.ReceitaCadastro.listProdutos)
             {
@@ -191,6 +192,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
                 dr["Id"] = item.produto.id;
                 dr["Produto"] = item.produto.descricao;
                 dr["Peso(kg)"] = item.pesoPorProduto;
+                dr["Percentual"] = Utilidades.functions.percentualProduto(item.pesoPorProduto, Utilidades.VariaveisGlobais.ReceitaCadastro.pesoBase).ToString() + " %";
 
                 dt.Rows.Add(dr);
             }
@@ -270,6 +272,8 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
             Utilidades.VariaveisGlobais.ReceitaCadastro.pesoBase = Convert.ToSingle(txtReceber.Text);
 
             CalculaPeso();
+
+            loadDataReceitas();
 
 
 

@@ -237,6 +237,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
             }
         }
 
+
         private void btExportar_Click(object sender, RoutedEventArgs e)
         {
             if (pesquisou)
@@ -293,10 +294,10 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
 
                 inputDialog.ShowDialog();
             }
-       
+
 
         }
-        
+
         private void btRelatorio_Click(object sender, RoutedEventArgs e)
         {
             if (!String.IsNullOrEmpty((string)lbNomeProduto.Content) && idproducao != -1)
@@ -337,8 +338,8 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
                             inputDialog.ShowDialog();
                         }
 
-                        
-  
+
+
                         atualizaProjeto(fileName);
 
                         pesquisou = true;
@@ -402,7 +403,6 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
             DataGrid_Receita.Dispatcher.Invoke(delegate { DataGrid_Receita.ItemsSource = null; });
             EsconderMoverLista(Visibility.Visible);
         }
-
 
         private void KillRunningProcess()
         {

@@ -253,12 +253,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
                 //Abre tela para editar o produto
                 Telas_Fluxo.Receitas.AdicionarProdutoReceitaPouUp adcionaProdutoReceita = new AdicionarProdutoReceitaPouUp(Utilidades.VariaveisGlobais.ReceitaCadastro.listProdutos[index], Utilidades.VariaveisGlobais.ReceitaCadastro.listProdutos[index].pesoPorProduto, true, Utilidades.VariaveisGlobais.ReceitaCadastro.listProdutos[index].tipoDosagemMateriaPrima, doisAutomatico);
                 
-                
-                
-             
-
-
-
+               
                 
                 adcionaProdutoReceita.ShowDialog();
                 loadDataReceitas();
@@ -305,6 +300,8 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
             dt.Columns.Add("Produto");
             dt.Columns.Add("Peso(kg)");
             dt.Columns.Add("Dosagem");
+            dt.Columns.Add("Percentual");
+
 
             foreach (var item in Utilidades.VariaveisGlobais.ReceitaCadastro.listProdutos)
             {
@@ -314,6 +311,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
                 dr["Produto"] = item.produto.descricao;
                 dr["Peso(kg)"] = item.pesoPorProduto;
                 dr["Dosagem"] = item.tipoDosagemMateriaPrima;
+                dr["Percentual"] = Utilidades.functions.percentualProduto(item.pesoPorProduto, Utilidades.VariaveisGlobais.ReceitaCadastro.pesoBase).ToString() + " %";
 
                 dt.Rows.Add(dr);
             }
@@ -321,6 +319,8 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
 
             DataGrid_Receita.Dispatcher.Invoke(delegate { DataGrid_Receita.ItemsSource = dt.DefaultView; });
         }
+
+
 
         private void btMateriaPrima_Click(object sender, RoutedEventArgs e)
         {

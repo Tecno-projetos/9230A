@@ -27,12 +27,12 @@ namespace _9230A_V00___PI.Telas_Fluxo
         Relatorios.relatorioProducao producao = new relatorioProducao();
         Relatorios.pesquisaBatelada pesquisaBateladas = new pesquisaBatelada();
         Relatorios.relatorioProducaoEnsaque relatorioProducaoEnsaque = new relatorioProducaoEnsaque();
+
+       
         public relatorios()
         {
             InitializeComponent();
         }
-
-
 
         private void btProducao_Click(object sender, RoutedEventArgs e)
         {
@@ -42,6 +42,11 @@ namespace _9230A_V00___PI.Telas_Fluxo
             }
 
             spRelatorio.Children.Add(producao);
+
+            pckProducao.Foreground = new SolidColorBrush(Colors.Red);
+            pckBateladas.Foreground = new SolidColorBrush(Colors.White);
+            pckEnsaque.Foreground = new SolidColorBrush(Colors.White);
+
         }
 
         private void btBateladas_Click(object sender, RoutedEventArgs e)
@@ -52,16 +57,10 @@ namespace _9230A_V00___PI.Telas_Fluxo
             }
 
             spRelatorio.Children.Add(pesquisaBateladas);
-        }
 
-        private void btProducaoEnsaque_Click(object sender, RoutedEventArgs e)
-        {
-            if (spRelatorio.Children != null)
-            {
-                spRelatorio.Children.Clear();
-            }
-
-            spRelatorio.Children.Add(relatorioProducaoEnsaque);
+            pckProducao.Foreground = new SolidColorBrush(Colors.White);
+            pckBateladas.Foreground = new SolidColorBrush(Colors.Red);
+            pckEnsaque.Foreground = new SolidColorBrush(Colors.White);
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
@@ -70,36 +69,25 @@ namespace _9230A_V00___PI.Telas_Fluxo
             {
                 spRelatorio.Children.Clear();
             }
+
+            pckProducao.Foreground = new SolidColorBrush(Colors.White);
+            pckBateladas.Foreground = new SolidColorBrush(Colors.White);
+            pckEnsaque.Foreground = new SolidColorBrush(Colors.White);
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+
+        private void btEnsaques_Click(object sender, RoutedEventArgs e)
         {
-            string filename = " ";
-
-            //Abre onde deseja salvar
-            Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
-
-            dlg.FileName = "Balanca Bateladas";
-            dlg.DefaultExt = ".pdf"; // Default file extension
-            dlg.Filter = "PDF documents (.pdf)|*.pdf"; // Filter files by extension
-
-            // Show save file dialog box
-            Nullable<bool> result = dlg.ShowDialog();
-            // Process save file dialog box results
-            if (result == true)
+            if (spRelatorio.Children != null)
             {
-                // Save document
-                filename = dlg.FileName;
-
-              int a =  ExportacaoRelatorios.exportarEnsaque(filename, Utilidades.functions.GetProducaoFromIdProducao(1), "Teste");
-
-                Console.WriteLine(a.ToString());
-
-               System.Diagnostics.Process.Start(filename);
-
+                spRelatorio.Children.Clear();
             }
 
+            spRelatorio.Children.Add(relatorioProducaoEnsaque);
 
+            pckProducao.Foreground = new SolidColorBrush(Colors.White);
+            pckBateladas.Foreground = new SolidColorBrush(Colors.White);
+            pckEnsaque.Foreground = new SolidColorBrush(Colors.Red);
         }
     }
 }

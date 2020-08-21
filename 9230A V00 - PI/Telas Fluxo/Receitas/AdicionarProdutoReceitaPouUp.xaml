@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:_9230A_V00___PI.Telas_Fluxo.Receitas"
         xmlns:Utilidades="clr-namespace:_9230A_V00___PI.Utilidades" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="_9230A_V00___PI.Telas_Fluxo.Receitas.AdicionarProdutoReceitaPouUp"
         mc:Ignorable="d"
-        Title="Adicionar Produto na Receita" Height="217.333" Width="437.5" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="Adicionar Produto na Receita" Height="346" Width="527.938" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <SolidColorBrush x:Key="brushWatermarkForeground" Color="White" />
         <Utilidades:TextInputToVisibilityConverter x:Key="TextInputToVisibilityConverter" />
@@ -50,10 +50,10 @@
 
         </Grid.Resources>
 
-        <Label x:Name="lbNomeProduto" Content="Produto X" Height="34" Margin="10,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="428" Foreground="White" FontWeight="Bold" FontSize="16" HorizontalContentAlignment="Center"/>
+        <Label x:Name="lbNomeProduto" Content="Produto X" Height="34" Margin="10,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="497" Foreground="White" FontWeight="Bold" FontSize="16" HorizontalContentAlignment="Center"/>
 
         <Label Content="Peso Produto(kg): " Height="34" Margin="7,33,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="181" Foreground="White" FontWeight="Bold" FontSize="16"/>
-        <Grid Style="{StaticResource EntryFieldStyle}" Margin="10,64,208,0" Height="41" Background="#FF3C3C3C" VerticalAlignment="Top" >
+        <Grid Style="{StaticResource EntryFieldStyle}" Margin="10,64,267,0" Height="50" Background="#FF3C3C3C" VerticalAlignment="Top" >
             <TextBlock Margin="5,0,6,5" Text="Exemplo: 55,5" Foreground="#FF919191" VerticalAlignment="Bottom" FontSize="14" >
                 <TextBlock.Visibility>
                     <MultiBinding Converter="{StaticResource TextInputToVisibilityConverter}">
@@ -64,29 +64,41 @@
             </TextBlock>
             <TextBox x:Name="txtPeso" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" PreviewMouseLeftButtonUp="floatingPreviewMouseLeftButtonUp" GotFocus="TB_GotFocus"/>
         </Grid>
-        <Button x:Name="btAdicionarProduto" Margin="241,136,0,0" Background="#FF505050" BorderBrush="Black" Opacity="1" HorizontalAlignment="Left" Width="178" Height="39" VerticalAlignment="Top" Click="btAdicionarProduto_Click" >
+        <Button x:Name="btAdicionarProduto" Margin="305,95,0,0" Background="#FF505050" BorderBrush="Black" Opacity="1" HorizontalAlignment="Left" Width="192" Height="70" VerticalAlignment="Top" Click="btAdicionarProduto_Click" >
             <Grid Width="150" Height="29">
                 <materialDesign:PackIcon x:Name="packiconCadastrarEditar" Kind="plus" VerticalAlignment="Center" Foreground="White" Margin="1,-6,0,-7" Height="30" Width="30"/>
                 <TextBlock x:Name="lbTextButton" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="38,1,2,-1" Width="110" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center"><Run Text="Adicionar"/><Run Text=" Receita"/></TextBlock>
             </Grid>
         </Button>
-        <Button x:Name="btAutomatico" Margin="10,136,0,0" Background="#FF505050" BorderBrush="Black" Opacity="1" HorizontalAlignment="Left" Width="106" Height="39" VerticalAlignment="Top" Click="btAutomatico_Click" >
+        <Button x:Name="btAutomatico" Margin="7,235,0,0" Background="#FF505050" BorderBrush="Black" Opacity="1" HorizontalAlignment="Left" Width="120" Height="52" VerticalAlignment="Top" Click="btAutomatico_Click" >
             <Grid Width="150">
-                <TextBlock x:Name="lbTextButton1" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="0,1,65,-1" Width="85" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Automática"/>
+                <TextBlock x:Name="lbTextButton1" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="4,2,61,-2" Width="85" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Automática"/>
             </Grid>
         </Button>
-        <Button x:Name="btManual" Margin="121,136,0,0" Background="#FF505050" BorderBrush="Black" Opacity="1" HorizontalAlignment="Left" Width="103" Height="39" VerticalAlignment="Top" Click="btManual_Click" >
+        <Button x:Name="btManual" Margin="135,235,0,0" Background="#FF505050" BorderBrush="Black" Opacity="1" HorizontalAlignment="Left" Width="120" Height="52" VerticalAlignment="Top" Click="btManual_Click" >
             <Grid Width="150">
-                <TextBlock x:Name="lbTextButton2" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="10,1,55,-1" Width="85" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Manual"/>
+                <TextBlock x:Name="lbTextButton2" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="15,1,50,-1" Width="85" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Manual"/>
             </Grid>
         </Button>
-        <Label Content="Dosagem Matéria Prima:" Height="31" Margin="7,105,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="203" Foreground="White" FontWeight="Bold" FontSize="16"/>
-        <Button x:Name="btExit" Margin="241,65,0,0" Background="#FF505050" BorderBrush="Black" Opacity="1" HorizontalAlignment="Left" Width="178" Height="39" VerticalAlignment="Top" IsCancel="True" >
+        <Label Content="Dosagem Matéria Prima:" Height="31" Margin="8,205,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="203" Foreground="White" FontWeight="Bold" FontSize="16"/>
+        <Button x:Name="btExit" Margin="318,235,0,0" Background="#FF505050" BorderBrush="Black" Opacity="1" HorizontalAlignment="Left" Width="178" Height="52" VerticalAlignment="Top" IsCancel="True" >
             <Grid Width="150">
                 <materialDesign:PackIcon x:Name="packiconCadastrarEditar1" Kind="Close" VerticalAlignment="Center" Foreground="Red" Margin="1,-6,0,-7" Height="30" Width="30"/>
                 <TextBlock x:Name="lbTextButton3" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="38,1,2,-1" Width="110" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Fechar"/>
             </Grid>
         </Button>
+        <Grid Style="{StaticResource EntryFieldStyle}" Margin="10,155,267,0" Height="50" Background="#FF3C3C3C" VerticalAlignment="Top" >
+            <TextBlock Margin="5,0,6,5" Text="Exemplo: 55,5" Foreground="#FF919191" VerticalAlignment="Bottom" FontSize="14" >
+                <TextBlock.Visibility>
+                    <MultiBinding Converter="{StaticResource TextInputToVisibilityConverter}">
+                        <Binding ElementName="txtPeso" Path="Text.IsEmpty" />
+                        <Binding ElementName="txtPeso" Path="IsFocused" />
+                    </MultiBinding>
+                </TextBlock.Visibility>
+            </TextBlock>
+            <TextBox x:Name="txtPercentual" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" GotFocus="TB_GotFocus" PreviewMouseLeftButtonUp="txtPercentual_PreviewMouseLeftButtonUp"/>
+        </Grid>
+        <Label Content="Peso (%)" Height="29" Margin="11,126,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="181" Foreground="White" FontWeight="Bold" FontSize="16"/>
 
     </Grid>
 </Window>
