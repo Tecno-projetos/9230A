@@ -17,55 +17,61 @@
                 <TextBlock  Text="Sair da Aplicação" TextAlignment="Center" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="41,1,0,-1" Width="109" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center"/>
             </Grid>
         </Button>
-        <Button x:Name="btInformacoesSistema" Margin="10,136,834,489" Background="#FF505050" BorderBrush="Black" Height="50" Click="btInformacoesSistema_Click">
+        <Button x:Name="btInformacoesSistema" Margin="10,115,834,510" Background="#FF505050" BorderBrush="Black" Height="50" Click="btInformacoesSistema_Click">
             <Grid Width="170" Height="40">
                 <materialDesign:PackIcon Kind="Cpu64Bit" VerticalAlignment="Center" Foreground="White" Margin="2,-6,0,-7" Height="30" Width="30"/>
                 <TextBlock  Text="Sistema" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="32,4,0,2" Width="138" FontSize="14" FontWeight="Normal" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center"/>
             </Grid>
         </Button>
-        <materialDesign:PackIcon Kind="HammerScrewdriver" VerticalAlignment="Center" Foreground="White" Height="95" Margin="0,6,0,574" Width="200"/>
-        <Label Content="Configurações" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Foreground="White" FontSize="16" VerticalContentAlignment="Center" FontWeight="Bold" HorizontalContentAlignment="Center" Margin="0,86,0,0"/>
-        <Rectangle Fill="White" HorizontalAlignment="Left" Height="5" Margin="10,118,0,0" Stroke="White" VerticalAlignment="Top" Width="180"/>
-        <Button x:Name="btConexoes" Margin="10,191,834,434" Background="#FF505050" BorderBrush="Black" Height="50" Click="btConexoes_Click">
+        <materialDesign:PackIcon Kind="HammerScrewdriver" VerticalAlignment="Center" Foreground="White" Height="95" Margin="0,-6,0,586" Width="200"/>
+        <Label Content="Configurações" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Foreground="White" FontSize="16" VerticalContentAlignment="Center" FontWeight="Bold" HorizontalContentAlignment="Center" Margin="0,74,0,0"/>
+        <Rectangle Fill="White" HorizontalAlignment="Left" Height="5" Margin="10,106,0,0" Stroke="White" VerticalAlignment="Top" Width="180"/>
+        <Button x:Name="btConexoes" Margin="10,170,834,455" Background="#FF505050" BorderBrush="Black" Height="50" Click="btConexoes_Click">
             <Grid Width="170" Height="40">
                 <materialDesign:PackIcon Kind="LanConnect" VerticalAlignment="Center" Foreground="White" Margin="2,-6,0,-7" Height="30" Width="30"/>
                 <TextBlock  Text="Conexões" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="32,4,0,2" Width="138" FontSize="14" FontWeight="Normal" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center"/>
             </Grid>
         </Button>
-        <Button x:Name="btDiagrama" Margin="10,246,834,379" Background="#FF505050" BorderBrush="Black" Height="50" Click="btDiagrama_Click">
+        <Button x:Name="btDiagrama" Margin="10,225,834,400" Background="#FF505050" BorderBrush="Black" Height="50" Click="btDiagrama_Click">
             <Grid Width="170" Height="40">
                 <materialDesign:PackIcon Kind="Lan" VerticalAlignment="Center" Foreground="White" Margin="2,-6,0,-7" Height="30" Width="30"/>
                 <TextBlock  Text="Rede" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="32,4,0,2" Width="138" FontSize="14" FontWeight="Normal" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center"/>
             </Grid>
         </Button>
-        <Button x:Name="btAlarmes" Margin="10,301,834,324" Background="#FF505050" BorderBrush="Black" Height="50" Click="btAlarmes_Click">
+        <Button x:Name="btAlarmes" Margin="10,280,834,345" Background="#FF505050" BorderBrush="Black" Height="50" Click="btAlarmes_Click">
             <Grid Width="170" Height="40">
                 <materialDesign:PackIcon Kind="Warning" VerticalAlignment="Center" Foreground="White" Margin="2,-6,0,-7" Height="30" Width="30"/>
                 <TextBlock  Text="Alarmes" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="32,4,0,2" Width="138" FontSize="14" FontWeight="Normal" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center"/>
             </Grid>
         </Button>
-        <Button x:Name="btDiagnosticoCLP" Margin="10,357,834,268" Background="#FF505050" BorderBrush="Black" Height="50" Click="btDiagnosticoCLP_Click">
+        <Button x:Name="btDiagnosticoCLP" Margin="10,335,834,290" Background="#FF505050" BorderBrush="Black" Height="50" Click="btDiagnosticoCLP_Click">
             <Grid Width="170" Height="40">
                 <materialDesign:PackIcon Kind="GearBox" VerticalAlignment="Center" Foreground="White" Margin="2,-6,0,-7" Height="30" Width="30"/>
                 <TextBlock  Text="Diagnóstico CLP" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="21,12,0,10" Width="149" FontSize="14" FontWeight="Normal" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center"/>
             </Grid>
         </Button>
-        <Button x:Name="btPrjEletrico" Margin="10,467,834,158" Background="#FF505050" BorderBrush="Black" Height="50" Click="btPrjEletrico_Click">
+        <Button x:Name="btPrjEletrico" Margin="10,499,834,126" Background="#FF505050" BorderBrush="Black" Height="50" Click="btPrjEletrico_Click">
             <Grid Width="170" Height="40">
                 <materialDesign:PackIcon Kind="Electricity" VerticalAlignment="Center" Foreground="White" Margin="2,-6,0,-7" Height="30" Width="30"/>
                 <TextBlock  Text="Projeto Elétrico" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="21,12,0,10" Width="149" FontSize="14" FontWeight="Normal" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center"/>
             </Grid>
         </Button>
-        <Button x:Name="btManual" Margin="10,522,834,103" Background="#FF505050" BorderBrush="Black" Height="50" Click="btManual_Click">
+        <Button x:Name="btManual" Margin="10,554,834,71" Background="#FF505050" BorderBrush="Black" Height="50" Click="btManual_Click">
             <Grid Width="170" Height="40">
                 <materialDesign:PackIcon Kind="Text" VerticalAlignment="Center" Foreground="White" Margin="2,-6,0,-7" Height="30" Width="30"/>
                 <TextBlock  Text="Manual Usuário" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="21,12,0,10" Width="149" FontSize="14" FontWeight="Normal" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center"/>
             </Grid>
         </Button>
-        <Button x:Name="btDiagnosticoSuP" Margin="10,412,834,213" Background="#FF505050" BorderBrush="Black" Height="50" Click="btDiagnosticoSuP_Click">
+        <Button x:Name="btDiagnosticoSuP" Margin="10,444,834,181" Background="#FF505050" BorderBrush="Black" Height="50" Click="btDiagnosticoSuP_Click">
             <Grid Width="170" Height="40">
                 <materialDesign:PackIcon Kind="GearBox" VerticalAlignment="Center" Foreground="White" Margin="2,-6,0,-7" Height="30" Width="30"/>
                 <TextBlock  Text="Diagnóstico SUP" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="21,12,0,10" Width="149" FontSize="14" FontWeight="Normal" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            </Grid>
+        </Button>
+        <Button x:Name="btDiagnosticoTime" Margin="10,389,834,236" Background="#FF505050" BorderBrush="Black" Height="50" Click="btDiagnosticoTime_Click">
+            <Grid Width="170" Height="40">
+                <materialDesign:PackIcon Kind="Timelapse" VerticalAlignment="Center" Foreground="White" Margin="2,-6,0,-7" Height="30" Width="30"/>
+                <TextBlock  Text="Diagnósticos Tempo" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="21,12,0,10" Width="149" FontSize="14" FontWeight="Normal" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center"/>
             </Grid>
         </Button>
     </Grid>

@@ -8,7 +8,7 @@
         xmlns:local="clr-namespace:_9230A_V00___PI.Utilidades"
         xmlns:componentModel="clr-namespace:System.ComponentModel;assembly=WindowsBase"
         mc:Ignorable="d"
-   Title="MainWindow" Height="768" Width="1024" WindowStartupLocation="CenterOwner" WindowStyle="None" Background="#FF7F7F7F" ResizeMode="NoResize">
+   Title="MainWindow" Height="768" Width="1024" WindowStartupLocation="CenterOwner" Background="#FF7F7F7F">
 
     <Window.Resources>
 

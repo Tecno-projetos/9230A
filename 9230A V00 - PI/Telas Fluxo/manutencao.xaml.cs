@@ -156,5 +156,10 @@ namespace _9230A_V00___PI.Telas_Fluxo
         {
             telaManutencaoAtiva = false;
         }
+
+        private void btDiagnosticoTime_Click(object sender, RoutedEventArgs e)
+        {
+            Utilidades.VariaveisGlobais.Window_Diagnostic.Show();
+        }
     }
 }

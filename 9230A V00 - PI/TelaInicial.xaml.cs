@@ -23,45 +23,18 @@ namespace _9230A_V00___PI
     /// </summary>
     public partial class TelaInicial : Window
     {
-        #region Varivaies
-
-
-
-
-        #endregion
 
         #region Dispacher Timers
 
         DispatcherTimer timer50ms = new DispatcherTimer(); //Roda o CLP
 
-
         DispatcherTimer timer1s = new DispatcherTimer(); //Roda ciclos de 1 segundo
-
 
         DispatcherTimer Clock_TickTack = new DispatcherTimer(); //Roda ciclos de 1 segundo
 
         #endregion
 
-        #region Equipamentos
-
-        //Utilidades.EquipsControl Motor_22 = new Utilidades.EquipsControl(Utilidades.typeEquip.PD, Utilidades.typeCommand.PD);
-        //Utilidades.EquipsControl Bifurcada_23 = new Utilidades.EquipsControl(Utilidades.typeEquip.PD, Utilidades.typeCommand.PD);
-        //Utilidades.EquipsControl Atuador_26_Silo_1 = new Utilidades.EquipsControl(Utilidades.typeEquip.PD, Utilidades.typeCommand.PD);
-        //Utilidades.EquipsControl Atuador_26_Silo_2 = new Utilidades.EquipsControl(Utilidades.typeEquip.PD, Utilidades.typeCommand.PD);
-        //Utilidades.EquipsControl Motor_29 = new Utilidades.EquipsControl(Utilidades.typeEquip.PD, Utilidades.typeCommand.PD);
-        //Utilidades.EquipsControl Motor_30 = new Utilidades.EquipsControl(Utilidades.typeEquip.PD, Utilidades.typeCommand.PD);
-        //Utilidades.EquipsControl Motor_42 = new Utilidades.EquipsControl(Utilidades.typeEquip.PD, Utilidades.typeCommand.PD);
-        //Utilidades.EquipsControl Motor_43 = new Utilidades.EquipsControl(Utilidades.typeEquip.INV, Utilidades.typeCommand.INV);
-        //Utilidades.EquipsControl Motor_44 = new Utilidades.EquipsControl(Utilidades.typeEquip.SS, Utilidades.typeCommand.SS);
-        //Utilidades.EquipsControl Motor_45 = new Utilidades.EquipsControl(Utilidades.typeEquip.PD, Utilidades.typeCommand.PD);
-        //Utilidades.EquipsControl Motor_46 = new Utilidades.EquipsControl(Utilidades.typeEquip.PD, Utilidades.typeCommand.PD);
-        //Utilidades.EquipsControl Motor_48 = new Utilidades.EquipsControl(Utilidades.typeEquip.PD, Utilidades.typeCommand.PD);
-        //Utilidades.EquipsControl Motor_49 = new Utilidades.EquipsControl(Utilidades.typeEquip.Atuador, Utilidades.typeCommand.Atuador_Digital);
-        //Utilidades.EquipsControl Motor_62 = new Utilidades.EquipsControl(Utilidades.typeEquip.INV, Utilidades.typeCommand.INV);
-        //Utilidades.EquipsControl Motor_65 = new Utilidades.EquipsControl(Utilidades.typeEquip.INV, Utilidades.typeCommand.INV);
-
-
-        #endregion
+        System.Threading.Thread Thread_ReadWritePLC;
 
         public TelaInicial()
         {
@@ -107,8 +80,6 @@ namespace _9230A_V00___PI
             VariaveisGlobais.Fluxo.Motor_26_Silo2.loadEquip(Utilidades.typeEquip.Atuador, Utilidades.typeCommand.Atuador_Analogico, 40, 0, "Atuador", "26 Silo 2", "62", "10");
 
             VariaveisGlobais.Fluxo.Motor_65.loadEquip(Utilidades.typeEquip.INV, Utilidades.typeCommand.INV, 320, 0, "Rosca", "65", "65", "10");
-
-
 
             #endregion
 
@@ -160,7 +131,7 @@ namespace _9230A_V00___PI
 
             #region Configuração Dispatcher
 
-            timer50ms.Interval = TimeSpan.FromMilliseconds(800);
+            timer50ms.Interval = TimeSpan.FromMilliseconds(50);
             timer50ms.Tick += timer_Tick;
             timer50ms.Start();
             //====================================================
@@ -191,14 +162,24 @@ namespace _9230A_V00___PI
 
             VariaveisGlobais.telabalanca.Closing += Telabalanca_Closing;
 
+            Utilidades.VariaveisGlobais.Window_Diagnostic.Closing += Window_Diagnostic_Closing;
+
             //Verifica qual Produção esta em execução e carrega a produção
             DataBase.SQLFunctionsProducao.AtualizaProducaoEmExecucao();
 
             windowFirstLoading.Close();
 
+            Thread_ReadWritePLC = new System.Threading.Thread(ReadWritePLC);
+            Thread_ReadWritePLC.Name = "Actualize Screen";
+            //Thread_ReadWritePLC.Start();
+
         }
 
-
+        private void Window_Diagnostic_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            e.Cancel = true;
+            Utilidades.VariaveisGlobais.Window_Diagnostic.Hide();
+        }
 
         private void Producao_IniciouProducao(object sender, EventArgs e)
         {
@@ -225,6 +206,22 @@ namespace _9230A_V00___PI
             VariaveisGlobais.telabalanca.ShowDialog();
         }
 
+        #region Thread PLC
+
+        private void ReadWritePLC()
+        {
+            while (true)
+            {
+                //VariaveisGlobais.CommunicationPLC.readBuffersPLC(); //Chama a leitura no PLC
+
+                //VariaveisGlobais.CommunicationPLC.writeBufferPLC();//Chama a escrita no PLC
+
+                System.Threading.Thread.Sleep(50);
+            }
+        }
+
+        #endregion
+
         #region Timer Ticks
         private void timerTickTack(object sender, EventArgs e)
         {
@@ -237,7 +234,6 @@ namespace _9230A_V00___PI
                 Utilidades.VariaveisGlobais.TickTack_GS = true;
             }
         }
-
 
         private void timer1s_Tick(object sender, EventArgs e)
         {
@@ -252,9 +248,11 @@ namespace _9230A_V00___PI
         {
             try
             {
+                VariaveisGlobais.CommunicationPLC.readBuffersPLC(); //Chama a leitura no PLC
+
                 lbAno.Content = DateTime.Now.Year;
                 lbDiaMes.Content = DateTime.Now.Day + "/" + DateTime.Now.Month;
-                lbHorario.Content = DateTime.Now.ToLongTimeString();
+                lbHorario.Content = DateTime.Now.Minute + ":" + DateTime.Now.Second + ":" + DateTime.Now.Millisecond;
 
                 LB_No_Connection.Dispatcher.Invoke(delegate { LB_No_Connection.Visibility = Visibility.Hidden; });
                 REC_No_Connection.Dispatcher.Invoke(delegate { REC_No_Connection.Visibility = Visibility.Hidden; });
@@ -270,8 +268,6 @@ namespace _9230A_V00___PI
                     REC_PLC_STOP.Dispatcher.Invoke(delegate { REC_PLC_STOP.Visibility = Visibility.Visible; });
                 }
 
-
-                VariaveisGlobais.CommunicationPLC.readBuffersPLC(); //Chama a leitura no PLC
 
                 if (!Utilidades.VariaveisGlobais.CommunicationPLC.PLCConnected_GS && !VariaveisGlobais.manutencao.TelaManutencaoAtiva_Get)
                 {
@@ -315,7 +311,7 @@ namespace _9230A_V00___PI
                     VariaveisGlobais.Fluxo.Motor_26_Silo2.actualize_Equip = true;
                     VariaveisGlobais.Fluxo.Motor_23.actualize_Equip = true;
 
-                    VariaveisGlobais.Fluxo.actualiza_UI();
+                    //VariaveisGlobais.Fluxo.actualiza_UI();
 
                     //Atualiza Id da produção no silo de expedição
                     VariaveisGlobais.Id_Producao_No_Silo_Expedicao = Comunicacao.Sharp7.S7.GetDIntAt(VariaveisGlobais.Buffer_PLC[1].Buffer, 278);
@@ -336,6 +332,7 @@ namespace _9230A_V00___PI
                 throw;
             }
         }
+
         #endregion
 
         #region Click Ensaque e Bateladas
