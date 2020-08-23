@@ -315,6 +315,9 @@ namespace _9230A_V00___PI.DataBase
             //-1 = Problema ao inserir a receita na tabela, possivel causa é nome da receita já existente.
             //-2 = Pegando Id da receita atual, possivel causa é receita não existir
             //-3 = inserindo produtos na tabela de produtos da receita, possível causa problema de conexão com banco de dados.
+            //-4 = 
+            //-5 = Possui mais que 2 itens em automático
+
 
             //Passo de inserção da receita no banco de dados
             //1 Passo precisamos inserir os dados da receita na tabel da receita.
@@ -352,14 +355,71 @@ namespace _9230A_V00___PI.DataBase
                 }
             }
 
-            //Adiciona os produtos automáticos e apaga os manuais
+            //Variavel auxiliar para verificar se possui 2 produtos adicionados
+            // = 0 1 item
+            // = 1 2 item
+            int auxiliarAutomatico = -1;
+            //Lembra que só pode colocar dois produtos com dosagem automatica, ai vem a condição: 
+            //SE TIVER DOIS PRODUTOS COM DOSAGEM AUTOMÁTICA, VERIFICAR A DENSIDADE DO PRODUTO E COLOCAR PRIMEIRO O PRODUTO MAIS LEVE E DEPOIS O MAIS PESADO.
+            //Variaveis para armazenar conforme odernação da lista 1 a menor desidade e depois a maior densindade 
+            var automatico1 = new Utilidades.ProdutoReceita();
+            var automatico2 = new Utilidades.ProdutoReceita();
+
             foreach (var item in Utilidades.VariaveisGlobais.ReceitaCadastro.listProdutos)
             {
                 if (item.tipoDosagemMateriaPrima.Equals("Automático"))
                 {
-                    listDummy.Add(item);
+                    //Conta um para adiocionar a primeira auxiliar
+                    auxiliarAutomatico++; //Resultado se um item valor == 0 se não valor == 1
+
+                    //Adiciona o 1 automatico na lista
+                    if (auxiliarAutomatico == 0)
+                    {
+                        automatico1 = item;
+                    }
+                    else
+                    {
+                        automatico2 = item;
+                    }
                 }
             }
+
+            //Verifica se possui produto automático adicionado na receita
+            if (auxiliarAutomatico != -1)
+            {
+                //Verifica se possui mais de um item automatico na receita e compara a densidade.
+                if (auxiliarAutomatico == 1)
+                {
+                    //Verifica se o automatico 1 tem a menor densindade se possuir adiciona primeiro se não possui adiciona o automatico2
+                    if (automatico1.produto.densidade <= automatico2.produto.densidade)
+                    {
+                        listDummy.Add(automatico1);
+                        listDummy.Add(automatico2);
+                    }
+                    else
+                    {
+                        listDummy.Add(automatico2);
+                        listDummy.Add(automatico1);
+                    }
+
+                }
+                else
+                {
+                    if (auxiliarAutomatico == 0)
+                    {
+                        //Se a receita possuir apenas um item em automatico só irar ser adicionado o automatico1
+                        listDummy.Add(automatico1);
+                    }
+                    else
+                    {
+                        //Se entrar nessa exeção indica que existem mais que 2 produtos em AUTOMÁTICO
+                        return -5;
+                    }
+                   
+                }
+  
+            }
+ 
 
             //Adiciona os produtos automáticos e apaga os manuais
             foreach (var item in Utilidades.VariaveisGlobais.ReceitaCadastro.listProdutos)
