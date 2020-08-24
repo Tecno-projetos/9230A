@@ -292,7 +292,6 @@
         <Rectangle x:Name="Rec1" Fill="#FF7F7F7F" HorizontalAlignment="Left" Height="26.046" Stroke="Black" VerticalAlignment="Top" Width="102.524" Margin="0,37.75,0,0"/>
         <Label x:Name="LB_M_A" Content="M" HorizontalAlignment="Left" Height="25" Margin="98,0,0,0" VerticalAlignment="Top" Width="20" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Franklin Gothic Medium" FontSize="14" Padding="0" Cursor="No"/>
         <Label x:Name="lbTag" Content="PÓS MISTURADOR" HorizontalAlignment="Left" Height="23" Margin="1,40,0,0" VerticalAlignment="Top" Width="101" RenderTransformOrigin="0.5,0.5" Foreground="White" FontWeight="Bold" HorizontalContentAlignment="Center" Padding="0" VerticalContentAlignment="Center" FontSize="11"/>
-        <ed:Arc x:Name="nivelSIlo_Inferior" ArcThicknessUnit="Percent" EndAngle="360" HorizontalAlignment="Left" Height="25" Margin="39,101,0,0" Stretch="None" StartAngle="0" VerticalAlignment="Top" Width="25" Fill="#FFA2FF00" ArcThickness="1" Stroke="Black"/>
 
     </Grid>
 </UserControl>

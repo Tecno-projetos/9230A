@@ -7,10 +7,19 @@
              xmlns:local="clr-namespace:_9230A_V00___PI.Equipamentos"
              mc:Ignorable="d" Height="14.812" Width="77.925">
     <UserControl.Resources>
-        <Storyboard x:Key="Transportador_Esquerdo_Cheio"/>
+        <Storyboard x:Key="Rosca">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="image">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0.083"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="6.059"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="image1">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0.083"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="6.059"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
     </UserControl.Resources>
     <Grid Margin="-0.106,0.242,0,0">
-        <Rectangle x:Name="TC_1" Margin="5,1,1.562,0" Stroke="Black" Height="12" RenderTransformOrigin="0.5,0.5" StrokeThickness="0.5" VerticalAlignment="Top" Cursor="Hand">
+        <Rectangle x:Name="TC_1" Margin="5,1,0,0" Stroke="Black" Height="12" RenderTransformOrigin="0.5,0.5" StrokeThickness="0.5" VerticalAlignment="Top" Cursor="Hand">
             <Rectangle.Fill>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <LinearGradientBrush.RelativeTransform>
@@ -27,8 +36,17 @@
                 </LinearGradientBrush>
             </Rectangle.Fill>
         </Rectangle>
-        <Image HorizontalAlignment="Left" Height="13.154" Margin="15.833,0.499,0,0" VerticalAlignment="Top" Width="43.625" Source="/9230A V00 - PI;component/Imagens/Rosca.PNG"/>
-        <Rectangle x:Name="TC_3" Margin="51.457,2,2.896,0" Stroke="Black" Height="10" RenderTransformOrigin="0.5,0.5" StrokeThickness="0" VerticalAlignment="Top" Cursor="Hand">
+        <Image x:Name="image" HorizontalAlignment="Left" Height="13.154" Margin="5.596,0.668,0,0" VerticalAlignment="Top" Width="43.625" Source="/9230A V00 - PI;component/Imagens/roscaPreta.PNG" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Rectangle x:Name="TC_2" Margin="5.596,2,0,0" Stroke="Black" Height="10.469" RenderTransformOrigin="0.5,0.5" StrokeThickness="0" VerticalAlignment="Top" Cursor="Hand" HorizontalAlignment="Left" Width="16.404">
             <Rectangle.Fill>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <LinearGradientBrush.RelativeTransform>
@@ -45,7 +63,26 @@
                 </LinearGradientBrush>
             </Rectangle.Fill>
         </Rectangle>
-        <Rectangle x:Name="TC_2" Margin="6,2,0,0" Stroke="Black" Height="10" RenderTransformOrigin="0.5,0.5" StrokeThickness="0" VerticalAlignment="Top" Cursor="Hand" HorizontalAlignment="Left" Width="16">
+        <Label x:Name="LB_M_A" Content="M" HorizontalAlignment="Left" Height="20" Margin="5.41,-2.969,0,-2.461" VerticalAlignment="Top" Width="17" Foreground="Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Franklin Gothic Medium" FontSize="14" Padding="0" Cursor="No"/>
+        <Image x:Name="image1" HorizontalAlignment="Left" Height="13.154" Margin="28.825,0.668,0,0" VerticalAlignment="Top" Width="43.625" Source="/9230A V00 - PI;component/Imagens/roscaPreta.PNG" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Rectangle x:Name="TC_3" Margin="51.54,2,0.833,0" Stroke="Black" Height="10.469" RenderTransformOrigin="0.5,0.5" StrokeThickness="0" VerticalAlignment="Top" Cursor="Hand">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
             <Rectangle.Fill>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <LinearGradientBrush.RelativeTransform>
@@ -62,7 +99,6 @@
                 </LinearGradientBrush>
             </Rectangle.Fill>
         </Rectangle>
-        <Label x:Name="LB_M_A" Content="M" HorizontalAlignment="Left" Height="20" Margin="5,-2.893,0,0" VerticalAlignment="Top" Width="17" Foreground="Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Franklin Gothic Medium" FontSize="14" Padding="0" Cursor="No"/>
 
     </Grid>
 </UserControl>
