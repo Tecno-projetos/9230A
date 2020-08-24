@@ -101,16 +101,16 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
 
                     inputDialog.ShowDialog();
                 }
-                
-
-                producao.atualizaProjeto(fileName);
-
-                if (NecessitaApagar)
+                else
                 {
-                    File.Delete(OldfileName);
-                    NecessitaApagar = false;
-                }
+                    producao.atualizaProjeto(fileName);
 
+                    if (NecessitaApagar)
+                    {
+                        File.Delete(OldfileName);
+                        NecessitaApagar = false;
+                    }
+                }
             }
             else
             {
