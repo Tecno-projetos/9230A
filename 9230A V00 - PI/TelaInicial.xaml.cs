@@ -53,6 +53,10 @@ namespace _9230A_V00___PI
 
             VariaveisGlobais.Fluxo.Motor_23.loadEquip(Utilidades.typeEquip.BF, Utilidades.typeCommand.Atuador_Digital, 20, 0, "Atuador", "20", "49", "0");
 
+            VariaveisGlobais.Fluxo.Motor_26_Silo1.loadEquip(Utilidades.typeEquip.Atuador, Utilidades.typeCommand.Atuador_Analogico, 24, 0, "Atuador", "26 Silo 1", "62", "10");
+
+            VariaveisGlobais.Fluxo.Motor_26_Silo2.loadEquip(Utilidades.typeEquip.Atuador, Utilidades.typeCommand.Atuador_Analogico, 40, 0, "Atuador", "26 Silo 2", "62", "10");
+
             VariaveisGlobais.Fluxo.Motor_29.loadEquip(Utilidades.typeEquip.PD, Utilidades.typeCommand.PD, 56, 0, "Rosca", "29", "29", "12");
 
             VariaveisGlobais.Fluxo.Motor_30.loadEquip(Utilidades.typeEquip.PD, Utilidades.typeCommand.PD, 76, 0, "Rosca", "30", "30", "12");
@@ -69,17 +73,11 @@ namespace _9230A_V00___PI
 
             VariaveisGlobais.Fluxo.Motor_48.loadEquip(Utilidades.typeEquip.PD, Utilidades.typeCommand.PD, 244, 0, "Rosca", "48", "48", "0");
 
-            VariaveisGlobais.Fluxo.Motor_49.loadEquip(Utilidades.typeEquip.Atuador, Utilidades.typeCommand.Atuador_Digital, 264, 0, "Atuador", "49", "49", "0");
+            VariaveisGlobais.Fluxo.Motor_49.loadEquip(Utilidades.typeEquip.Atuador, Utilidades.typeCommand.Atuador_Analogico, 264, 0, "Atuador", "49", "49", "0");
 
-            VariaveisGlobais.Fluxo.Motor_62.loadEquip(Utilidades.typeEquip.INV, Utilidades.typeCommand.INV, 268, 0, "Elevador", "62", "62", "10");
+            VariaveisGlobais.Fluxo.Motor_62.loadEquip(Utilidades.typeEquip.INV, Utilidades.typeCommand.INV, 280, 0, "Elevador", "62", "62", "10");
 
-            VariaveisGlobais.Fluxo.Motor_65.loadEquip(Utilidades.typeEquip.INV, Utilidades.typeCommand.INV, 320, 0, "Rosca", "65", "65", "10");
-
-            VariaveisGlobais.Fluxo.Motor_26_Silo1.loadEquip(Utilidades.typeEquip.Atuador, Utilidades.typeCommand.Atuador_Analogico, 24, 0, "Atuador", "26 Silo 1", "62", "10");
-
-            VariaveisGlobais.Fluxo.Motor_26_Silo2.loadEquip(Utilidades.typeEquip.Atuador, Utilidades.typeCommand.Atuador_Analogico, 40, 0, "Atuador", "26 Silo 2", "62", "10");
-
-            VariaveisGlobais.Fluxo.Motor_65.loadEquip(Utilidades.typeEquip.INV, Utilidades.typeCommand.INV, 320, 0, "Rosca", "65", "65", "10");
+            VariaveisGlobais.Fluxo.Motor_65.loadEquip(Utilidades.typeEquip.INV, Utilidades.typeCommand.INV, 332, 0, "Rosca", "65", "65", "10");
 
             #endregion
 
@@ -88,7 +86,7 @@ namespace _9230A_V00___PI
             Utilidades.VariaveisGlobais.Buffer_PLC[0].Name = "DB Controle Todos Equipamentos";
             Utilidades.VariaveisGlobais.Buffer_PLC[0].DBNumber = 2;
             Utilidades.VariaveisGlobais.Buffer_PLC[0].Start = 0;
-            Utilidades.VariaveisGlobais.Buffer_PLC[0].Size = 402;
+            Utilidades.VariaveisGlobais.Buffer_PLC[0].Size = 414;
             Utilidades.VariaveisGlobais.Buffer_PLC[0].Enable_Read = true;
             Utilidades.VariaveisGlobais.Buffer_PLC[0].Enable_Write = false;
 
@@ -286,7 +284,7 @@ namespace _9230A_V00___PI
 
 
                 //Verifica se esta lendo valor válido do CLP
-                if (Comunicacao.Sharp7.S7.GetIntAt(Utilidades.VariaveisGlobais.Buffer_PLC[0].Buffer, 400) == 1000)
+                if (Comunicacao.Sharp7.S7.GetIntAt(Utilidades.VariaveisGlobais.Buffer_PLC[0].Buffer, Utilidades.VariaveisGlobais.Buffer_PLC[0].Size - 2) == 1000)
                 {
                              
                     //Atualiza Niveis Silos

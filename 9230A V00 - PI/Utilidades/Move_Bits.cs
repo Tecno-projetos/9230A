@@ -313,6 +313,8 @@ namespace _9230A_V00___PI.Utilidades
             Command.Standard.SentidoGiro = Command.SS.sentidoGiro;
             Command.Standard.confirmaSentidoGiroAlimentador = Command.SS.confirmaSentidoGiroAlimentador;
             Command.Standard.SentidoGiroMotorMudou = Command.SS.SentidoGiroMotorMudou;
+            Command.Standard.Sensor_Alimentador_Sentido_Horario = Command.SS.Sensor_Alimentador_Sentido_Horario;
+            Command.Standard.Sensor_Alimentador_Sentido_Anti_Horario = Command.SS.Sensor_Alimentador_Sentido_Anti_Horario;
             return Command;
 
         }
@@ -343,6 +345,9 @@ namespace _9230A_V00___PI.Utilidades
             Command.SS.sentidoGiro = Command.Standard.SentidoGiro;
             Command.SS.confirmaSentidoGiroAlimentador = Command.Standard.confirmaSentidoGiroAlimentador;
             Command.SS.SentidoGiroMotorMudou = Command.Standard.SentidoGiroMotorMudou;
+            Command.SS.Sensor_Alimentador_Sentido_Horario = Command.Standard.Sensor_Alimentador_Sentido_Horario;
+            Command.SS.Sensor_Alimentador_Sentido_Anti_Horario = Command.Standard.Sensor_Alimentador_Sentido_Anti_Horario;
+
             return Command;
         }
 
@@ -380,8 +385,8 @@ namespace _9230A_V00___PI.Utilidades
             Command.SS.sentidoGiro = bits[21];
             Command.SS.confirmaSentidoGiroAlimentador = bits[22];
             Command.SS.SentidoGiroMotorMudou = bits[23];
-            Command.SS.bitReserva_2 = bits[24];
-            Command.SS.bitReserva_3 = bits[25];
+            Command.SS.Sensor_Alimentador_Sentido_Horario = bits[24];
+            Command.SS.Sensor_Alimentador_Sentido_Anti_Horario = bits[25];
             Command.SS.bitReserva_4 = bits[26];
             Command.SS.bitReserva_5 = bits[27];
             Command.SS.bitReserva_6 = bits[28];
@@ -420,8 +425,8 @@ namespace _9230A_V00___PI.Utilidades
             bits[21] = Command.SS.sentidoGiro;
             bits[22] = Command.SS.confirmaSentidoGiroAlimentador;
             bits[23] = Command.SS.SentidoGiroMotorMudou;
-            bits[24] = Command.SS.bitReserva_2;
-            bits[25] = Command.SS.bitReserva_3;
+            bits[24] = Command.SS.Sensor_Alimentador_Sentido_Horario;
+            bits[25] = Command.SS.Sensor_Alimentador_Sentido_Anti_Horario;
             bits[26] = Command.SS.bitReserva_4;
             bits[27] = Command.SS.bitReserva_5;
             bits[28] = Command.SS.bitReserva_6;
@@ -594,7 +599,7 @@ namespace _9230A_V00___PI.Utilidades
             Command.Standard.Reset = Command.AtuadorA.reset;
             Command.Standard.AcionaLado1 = Command.AtuadorA.acionaLado1;
             Command.Standard.AcionaLado2 = Command.AtuadorA.acionaLado2;
-                
+            Command.Standard.Reposicionando = Command.AtuadorA.Reposicionando;
             return Command;
 
         }
@@ -616,6 +621,7 @@ namespace _9230A_V00___PI.Utilidades
             Command.AtuadorA.reset = Command.Standard.Reset;
             Command.AtuadorA.acionaLado1 = Command.Standard.AcionaLado1;
             Command.AtuadorA.acionaLado2 = Command.Standard.AcionaLado2;
+            Command.AtuadorA.Reposicionando = Command.Standard.Reposicionando;
             return Command;
         }
 
@@ -643,7 +649,7 @@ namespace _9230A_V00___PI.Utilidades
             Command.AtuadorA.reset = bits[12];
             Command.AtuadorA.acionaLado1 = bits[12];
             Command.AtuadorA.acionaLado2 = bits[13];
-            Command.AtuadorA.bitReserva_2 = bits[15];
+            Command.AtuadorA.Reposicionando = bits[15];
             Command.AtuadorA.bitReserva_3 = bits[16];
             Command.AtuadorA.bitReserva_4 = bits[17];
             Command.AtuadorA.bitReserva_5 = bits[18];
@@ -683,7 +689,7 @@ namespace _9230A_V00___PI.Utilidades
             bits[12] = Command.AtuadorA.reset;
             bits[13] = Command.AtuadorA.acionaLado1;
             bits[14] = Command.AtuadorA.acionaLado2;
-            bits[15] = Command.AtuadorA.bitReserva_2;
+            bits[15] = Command.AtuadorA.Reposicionando;
             bits[16] = Command.AtuadorA.bitReserva_3;
             bits[17] = Command.AtuadorA.bitReserva_4;
             bits[18] = Command.AtuadorA.bitReserva_5;

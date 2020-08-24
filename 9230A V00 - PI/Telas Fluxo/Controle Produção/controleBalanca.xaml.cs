@@ -31,17 +31,19 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
 
         int bufferClp;
 
+        int Offset;
 
         private event EventHandler atualizaPalavradeComando;
         private event EventHandler atualizaReais;
         
         #endregion
 
-        public controleBalanca(int bufferCLP)
+        public controleBalanca(int bufferCLP, int Offset)
         {
             InitializeComponent();
 
             this.bufferClp = bufferCLP;
+            this.Offset = Offset;
 
             atualizaPalavradeComando += ControleBalanca_atualizaPalavradeComando;
             atualizaReais += ControleBalanca_atualizaReais;
@@ -80,9 +82,9 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
         public void atualiza_Balanca()
         {
 
-            Utilidades.VariaveisGlobais.indicadorPesagem.Valor_Atual_Indicador = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferClp].Buffer, 372);
+            Utilidades.VariaveisGlobais.indicadorPesagem.Valor_Atual_Indicador = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferClp].Buffer, Offset);
 
-            Utilidades.VariaveisGlobais.indicadorPesagem = Move_Bits.ByteToIndicadorPesagem(Comunicacao.Sharp7.S7.GetByteAt(VariaveisGlobais.Buffer_PLC[bufferClp].Buffer, 384), Utilidades.VariaveisGlobais.indicadorPesagem);
+            Utilidades.VariaveisGlobais.indicadorPesagem = Move_Bits.ByteToIndicadorPesagem(Comunicacao.Sharp7.S7.GetByteAt(VariaveisGlobais.Buffer_PLC[bufferClp].Buffer, Offset+12), Utilidades.VariaveisGlobais.indicadorPesagem);
 
             lbPesoBalnca.Content = Utilidades.VariaveisGlobais.indicadorPesagem.Valor_Atual_Indicador.ToString("N", CultureInfo.GetCultureInfo("pt-BR")) + " kg";
 
@@ -103,9 +105,9 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
 
         public void atualizaTela()
         {
-            Utilidades.VariaveisGlobais.indicadorPesagem.Percentual_Habilita_Balanca_Vazia_Automatica = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferClp].Buffer, 376);
+            Utilidades.VariaveisGlobais.indicadorPesagem.Percentual_Habilita_Balanca_Vazia_Automatica = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferClp].Buffer, Offset+4);
 
-            Utilidades.VariaveisGlobais.indicadorPesagem.Percentual_Habilita_Balanca_Vazia_Manual = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferClp].Buffer, 380);
+            Utilidades.VariaveisGlobais.indicadorPesagem.Percentual_Habilita_Balanca_Vazia_Manual = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferClp].Buffer, Offset+8);
 
             txtAutomatico.Text = Convert.ToString(Utilidades.VariaveisGlobais.indicadorPesagem.Percentual_Habilita_Balanca_Vazia_Automatica);
             txtManual.Text = Convert.ToString(Utilidades.VariaveisGlobais.indicadorPesagem.Percentual_Habilita_Balanca_Vazia_Manual);

@@ -413,8 +413,8 @@ namespace _9230A_V00___PI.Utilidades
             public bool sentidoGiro;
             public bool confirmaSentidoGiroAlimentador;
             public bool SentidoGiroMotorMudou;
-            public bool bitReserva_2;
-            public bool bitReserva_3;
+            public bool Sensor_Alimentador_Sentido_Horario;
+            public bool Sensor_Alimentador_Sentido_Anti_Horario;
             public bool bitReserva_4;
             public bool bitReserva_5;
             public bool bitReserva_6;
@@ -636,7 +636,7 @@ namespace _9230A_V00___PI.Utilidades
             public bool reset;
             public bool acionaLado1;
             public bool acionaLado2;
-            public bool bitReserva_2;
+            public bool Reposicionando;
             public bool bitReserva_3;
             public bool bitReserva_4;
             public bool bitReserva_5;
@@ -711,11 +711,13 @@ namespace _9230A_V00___PI.Utilidades
             public bool inverterSentidoGiro;
             public bool confirmaSentidoGiroAlimentador;
             public bool SentidoGiroMotorMudou;
+            public bool Sensor_Alimentador_Sentido_Horario;
+            public bool Sensor_Alimentador_Sentido_Anti_Horario;
 
             //Comandos Atuadores
             public bool AcionaLado1;
             public bool AcionaLado2;
-
+            public bool Reposicionando;
 
             //Status Partidas
             public bool Ligado;
@@ -817,7 +819,7 @@ namespace _9230A_V00___PI.Utilidades
 
         public static Telas_Fluxo.relatorios relatorios = new Telas_Fluxo.relatorios();
 
-        public static Telas_Fluxo.Controle_Produção.controleBalanca telabalanca = new Telas_Fluxo.Controle_Produção.controleBalanca(0);
+        public static Telas_Fluxo.Controle_Produção.controleBalanca telabalanca = new Telas_Fluxo.Controle_Produção.controleBalanca(0, 384);
 
         #endregion
 
