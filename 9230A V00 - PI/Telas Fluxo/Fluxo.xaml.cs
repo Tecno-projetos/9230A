@@ -91,6 +91,15 @@ namespace _9230A_V00___PI.Telas_Fluxo
 
         private void bt_Ensaque_Click(object sender, RoutedEventArgs e)
         {
+            if (Utilidades.VariaveisGlobais.NumberOfGroup_GS == 0)
+            {
+                Utilidades.messageBox inputDialog = new messageBox(Utilidades.VariaveisGlobais.faltaUsuarioTitle, Utilidades.VariaveisGlobais.faltaUsuarioMessage, MaterialDesignThemes.Wpf.PackIconKind.Error, "OK", "Fechar");
+
+                inputDialog.ShowDialog();
+
+                return;
+            }
+
             if (this.ensque_Click != null)
                 this.ensque_Click(this, e);
         }

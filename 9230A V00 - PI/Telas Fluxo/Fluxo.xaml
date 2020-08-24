@@ -721,7 +721,7 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Button x:Name="bt_Ensaque" Content="Button" HorizontalAlignment="Left" Margin="1112,545,-255,0" VerticalAlignment="Top" Width="183" Height="91" Opacity="0" Click="bt_Ensaque_Click"/>
+        <Button x:Name="bt_Ensaque" Content="Button" HorizontalAlignment="Left" Margin="841,551,0,0" VerticalAlignment="Top" Width="183" Height="91" Opacity="0" Click="bt_Ensaque_Click"/>
         <Label Content="Peso Atual:" HorizontalAlignment="Left" Margin="846,575,0,0" VerticalAlignment="Top" Width="84" FontSize="14" Foreground="White" RenderTransformOrigin="0.5,0.5">
             <Label.RenderTransform>
                 <TransformGroup>

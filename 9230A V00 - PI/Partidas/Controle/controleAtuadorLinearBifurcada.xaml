@@ -21,11 +21,11 @@
                             <ControlTemplate TargetType="{x:Type ToggleButton}">
                                 <Grid>
                                     <Image x:Name="Image" Source="/9230A V00 - PI;component/Imagens/Ligar3.png" Margin="6,0,9,43" Cursor="Hand" Height="60" VerticalAlignment="Bottom" />
-                                    <TextBlock x:Name="Text" TextAlignment="Center" TextWrapping="Wrap" Text="Abre Esquerda" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="85" Padding="0" FontSize="13" FontWeight="Bold" Background="#00000000" Foreground="#FFF7F7F7" Height="35" Margin="0,0,0,5" />
+                                    <TextBlock x:Name="Text" TextAlignment="Center" TextWrapping="Wrap" Text="Abre Silo 2" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="85" Padding="0" FontSize="13" FontWeight="Bold" Background="#00000000" Foreground="#FFF7F7F7" Height="35" Margin="0,0,0,5" />
                                 </Grid>
                                 <ControlTemplate.Triggers>
                                     <Trigger Property="IsChecked" Value="True">
-                                        <Setter TargetName="Text" Property="Text" Value="Fecha Esquerda" />
+                                        <Setter TargetName="Text" Property="Text" Value="Fecha Silo 2" />
                                         <Setter TargetName="Image" Property="Source" Value="/9230A V00 - PI;component/Imagens/Desligar2.png" />
                                     </Trigger>
                                 </ControlTemplate.Triggers>
@@ -35,7 +35,7 @@
                 </Style>
             </ToggleButton.Style>
         </ToggleButton>
-        <ToggleButton x:Name="btAbre_Direita" Click="btAbre_Direita_Click" Margin="134,42,0,0" Foreground="White" Height="113" VerticalAlignment="Top" HorizontalAlignment="Left" Width="85" Cursor="Hand" ToolTip="Ligar/Desligar Equipamento.">
+        <ToggleButton x:Name="btAbre_Direita" Click="btAbre_Direita_Click" Margin="134,42,0,0" Foreground="White" Height="113" VerticalAlignment="Top" HorizontalAlignment="Left" Width="85" Cursor="Hand" ToolTip="Ligar/Desligar Equipamento." Content="'">
             <ToggleButton.Style>
                 <Style TargetType="{x:Type ToggleButton}">
                     <Setter Property="Template">
@@ -43,11 +43,11 @@
                             <ControlTemplate TargetType="{x:Type ToggleButton}">
                                 <Grid>
                                     <Image x:Name="Image" Source="/9230A V00 - PI;component/Imagens/Ligar3.png" Margin="6,0,9,43" Cursor="Hand" Height="60" VerticalAlignment="Bottom" />
-                                    <TextBlock x:Name="Text" TextAlignment="Center" TextWrapping="Wrap" Text="Abre Direita" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="66" Padding="0" FontSize="13" FontWeight="Bold" Background="#00000000" Foreground="#FFF7F7F7" Height="35" Margin="9,0,10,5" />
+                                    <TextBlock x:Name="Text" TextAlignment="Center" TextWrapping="Wrap" Text="Abre Silo 1" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="75" Padding="0" FontSize="13" FontWeight="Bold" Background="#00000000" Foreground="#FFF7F7F7" Height="35" Margin="6,0,4,5" />
                                 </Grid>
                                 <ControlTemplate.Triggers>
                                     <Trigger Property="IsChecked" Value="True">
-                                        <Setter TargetName="Text" Property="Text" Value="Fecha Direita" />
+                                        <Setter TargetName="Text" Property="Text" Value="Fecha Silo 1" />
                                         <Setter TargetName="Image" Property="Source" Value="/9230A V00 - PI;component/Imagens/Desligar2.png" />
                                     </Trigger>
                                 </ControlTemplate.Triggers>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using _9230A_V00___PI.Utilidades;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -157,6 +158,15 @@ namespace _9230A_V00___PI.Telas_Fluxo
 
         private void btCadastroProduto_Click(object sender, RoutedEventArgs e)
         {
+            if (Utilidades.VariaveisGlobais.NumberOfGroup_GS < 3)
+            {
+                Utilidades.messageBox inputDialog = new messageBox(Utilidades.VariaveisGlobais.faltaPermissaoTitle, Utilidades.VariaveisGlobais.faltaPermissaoMessage, MaterialDesignThemes.Wpf.PackIconKind.Error, "OK", "Fechar");
+
+                inputDialog.ShowDialog();
+
+                return;
+            }
+
             if (spReceitas != null)
             {
                 spReceitas.Children.Clear();
@@ -169,6 +179,15 @@ namespace _9230A_V00___PI.Telas_Fluxo
 
         private void btCadastroReceita_Click(object sender, RoutedEventArgs e)
         {
+            if (Utilidades.VariaveisGlobais.NumberOfGroup_GS < 3)
+            {
+                Utilidades.messageBox inputDialog = new messageBox(Utilidades.VariaveisGlobais.faltaPermissaoTitle, Utilidades.VariaveisGlobais.faltaPermissaoMessage, MaterialDesignThemes.Wpf.PackIconKind.Error, "OK", "Fechar");
+
+                inputDialog.ShowDialog();
+
+                return;
+            }
+
             Editar = false;
 
             if (spReceitas != null)
@@ -181,7 +200,14 @@ namespace _9230A_V00___PI.Telas_Fluxo
 
         private void btEditarProduto_Click(object sender, RoutedEventArgs e)
         {
+            if (Utilidades.VariaveisGlobais.NumberOfGroup_GS < 3)
+            {
+                Utilidades.messageBox inputDialog = new messageBox(Utilidades.VariaveisGlobais.faltaPermissaoTitle, Utilidades.VariaveisGlobais.faltaPermissaoMessage, MaterialDesignThemes.Wpf.PackIconKind.Error, "OK", "Fechar");
 
+                inputDialog.ShowDialog();
+
+                return;
+            }
             if (spReceitas != null)
             {
                 spReceitas.Children.Clear();
@@ -193,6 +219,14 @@ namespace _9230A_V00___PI.Telas_Fluxo
 
         private void btApagarProduto_Click(object sender, RoutedEventArgs e)
         {
+            if (Utilidades.VariaveisGlobais.NumberOfGroup_GS < 3)
+            {
+                Utilidades.messageBox inputDialog = new messageBox(Utilidades.VariaveisGlobais.faltaPermissaoTitle, Utilidades.VariaveisGlobais.faltaPermissaoMessage, MaterialDesignThemes.Wpf.PackIconKind.Error, "OK", "Fechar");
+
+                inputDialog.ShowDialog();
+
+                return;
+            }
             if (spReceitas != null)
             {
                 spReceitas.Children.Clear();
@@ -205,6 +239,14 @@ namespace _9230A_V00___PI.Telas_Fluxo
         {
             Editar = true;
 
+            if (Utilidades.VariaveisGlobais.NumberOfGroup_GS < 3)
+            {
+                Utilidades.messageBox inputDialog = new messageBox(Utilidades.VariaveisGlobais.faltaPermissaoTitle, Utilidades.VariaveisGlobais.faltaPermissaoMessage, MaterialDesignThemes.Wpf.PackIconKind.Error, "OK", "Fechar");
+
+                inputDialog.ShowDialog();
+
+                return;
+            }
 
             if (spReceitas != null)
             {
@@ -219,6 +261,14 @@ namespace _9230A_V00___PI.Telas_Fluxo
 
         private void btApagarReceita_Click(object sender, RoutedEventArgs e)
         {
+            if (Utilidades.VariaveisGlobais.NumberOfGroup_GS < 3)
+            {
+                Utilidades.messageBox inputDialog = new messageBox(Utilidades.VariaveisGlobais.faltaPermissaoTitle, Utilidades.VariaveisGlobais.faltaPermissaoMessage, MaterialDesignThemes.Wpf.PackIconKind.Error, "OK", "Fechar");
+
+                inputDialog.ShowDialog();
+
+                return;
+            }
             if (spReceitas != null)
             {
                 spReceitas.Children.Clear();

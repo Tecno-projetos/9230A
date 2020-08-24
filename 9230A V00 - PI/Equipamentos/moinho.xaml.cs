@@ -60,6 +60,15 @@ namespace _9230A_V00___PI.Equipamentos
 
         private void Moinho_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+            if (Utilidades.VariaveisGlobais.NumberOfGroup_GS == 0)
+            {
+                Utilidades.messageBox inputDialog = new messageBox(Utilidades.VariaveisGlobais.faltaUsuarioTitle, Utilidades.VariaveisGlobais.faltaUsuarioMessage, MaterialDesignThemes.Wpf.PackIconKind.Error, "OK", "Fechar");
+
+                inputDialog.ShowDialog();
+
+                return;
+            }
+
             equip.OpenWindow();
         }
 
@@ -214,7 +223,7 @@ namespace _9230A_V00___PI.Equipamentos
                     {
                         if (equip.Command_Get.Standard.Sensor_Alimentador_Sentido_Horario)
                         {
-                            pckSentido.Kind = MaterialDesignThemes.Wpf.PackIconKind.RotateLeft;
+                     
                             sensorDireita.Fill = new SolidColorBrush(Colors.Gray);
                             sensorEsquerda.Fill = new SolidColorBrush(Colors.Red);
                             alavancaEsquerda.Visibility = Visibility.Visible;
@@ -225,7 +234,7 @@ namespace _9230A_V00___PI.Equipamentos
                         }
                         else if (equip.Command_Get.Standard.Sensor_Alimentador_Sentido_Anti_Horario)
                         {
-                            pckSentido.Kind = MaterialDesignThemes.Wpf.PackIconKind.RotateRight;
+ 
                             sensorDireita.Fill = new SolidColorBrush(Colors.Red);
                             sensorEsquerda.Fill = new SolidColorBrush(Colors.Gray);
                             alavancaEsquerda.Visibility = Visibility.Hidden;
@@ -234,9 +243,17 @@ namespace _9230A_V00___PI.Equipamentos
 
                     }
                     
-                    
-                    
+                
+                }
 
+
+                if (equip.Command_Get.Standard.SentidoGiro)
+                {
+                    pckSentido.Kind = MaterialDesignThemes.Wpf.PackIconKind.RotateRight;
+                }
+                else
+                {
+                    pckSentido.Kind = MaterialDesignThemes.Wpf.PackIconKind.RotateLeft;
                 }
 
             }

@@ -565,6 +565,15 @@ namespace _9230A_V00___PI
 
         private void btProducao_Click(object sender, RoutedEventArgs e)
         {
+            if (Utilidades.VariaveisGlobais.NumberOfGroup_GS == 0)
+            {
+                Utilidades.messageBox inputDialog = new messageBox(Utilidades.VariaveisGlobais.faltaUsuarioTitle, Utilidades.VariaveisGlobais.faltaUsuarioMessage, MaterialDesignThemes.Wpf.PackIconKind.Error, "OK", "Fechar");
+
+                inputDialog.ShowDialog();
+
+                return;
+            }
+
             if (spInical != null)
             {
                 spInical.Children.Clear();
@@ -583,6 +592,16 @@ namespace _9230A_V00___PI
 
         private void btReceitas_Click(object sender, RoutedEventArgs e)
         {
+            if (Utilidades.VariaveisGlobais.NumberOfGroup_GS == 0)
+            {
+                Utilidades.messageBox inputDialog = new messageBox(Utilidades.VariaveisGlobais.faltaUsuarioTitle, Utilidades.VariaveisGlobais.faltaUsuarioMessage, MaterialDesignThemes.Wpf.PackIconKind.Error, "OK", "Fechar");
+
+                inputDialog.ShowDialog();
+
+
+                return;
+            }
+
             if (spInical != null)
             {
                 spInical.Children.Clear();
@@ -592,10 +611,21 @@ namespace _9230A_V00___PI
                 AtualizaButton(pckReceitas);
 
             }
+         
         }
 
         private void btConfiguracoes_Click(object sender, RoutedEventArgs e)
         {
+            if (Utilidades.VariaveisGlobais.NumberOfGroup_GS == 0)
+            {
+                Utilidades.messageBox inputDialog = new messageBox(Utilidades.VariaveisGlobais.faltaUsuarioTitle, Utilidades.VariaveisGlobais.faltaUsuarioMessage, MaterialDesignThemes.Wpf.PackIconKind.Error, "OK", "Fechar");
+
+                inputDialog.ShowDialog();
+
+                return;
+            }
+
+
             if (spInical != null)
             {
                 spInical.Children.Clear();
@@ -609,6 +639,16 @@ namespace _9230A_V00___PI
 
         private void btRelatorio_Click(object sender, RoutedEventArgs e)
         {
+
+            if (Utilidades.VariaveisGlobais.NumberOfGroup_GS == 0)
+            {
+                Utilidades.messageBox inputDialog = new messageBox(Utilidades.VariaveisGlobais.faltaUsuarioTitle, Utilidades.VariaveisGlobais.faltaUsuarioMessage, MaterialDesignThemes.Wpf.PackIconKind.Error, "OK", "Fechar");
+
+                inputDialog.ShowDialog();
+
+                return;
+            }
+
             if (spInical != null)
             {
                 spInical.Children.Clear();
@@ -643,6 +683,15 @@ namespace _9230A_V00___PI
 
         private void btManutencao_Click(object sender, RoutedEventArgs e)
         {
+            if (Utilidades.VariaveisGlobais.NumberOfGroup_GS == 0)
+            {
+                Utilidades.messageBox inputDialog = new messageBox(Utilidades.VariaveisGlobais.faltaUsuarioTitle, Utilidades.VariaveisGlobais.faltaUsuarioMessage, MaterialDesignThemes.Wpf.PackIconKind.Error, "OK", "Fechar");
+
+                inputDialog.ShowDialog();
+
+                return;
+            }
+
             if (spInical != null)
             {
                 spInical.Children.Clear();
@@ -652,9 +701,6 @@ namespace _9230A_V00___PI
                 AtualizaButton(pckManutencao);
 
             }
-
-
-
         }
 
         #endregion
