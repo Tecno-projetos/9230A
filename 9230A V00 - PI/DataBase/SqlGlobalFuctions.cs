@@ -82,11 +82,13 @@ namespace _9230A_V00___PI.DataBase
         /// <param name="TableName">Tabela que deseja deletar dados a cada X tempo</param>
         /// <param name="Connection">Conexão do banco de dados que se encontra a tabela citada no parâmentro anterior </param>
         /// <param name="Month">Quantidade de meses para apagar dados antigos Valores = 1/6/12/24(1 mes, 6 meses, 12 meses, 24 meses) ou mais </param>
-        public static void AutoDelete(string TableName, string Connection, int Month)
+        private static void AutoDelete(string TableName, string Connection, int Month)
         {
             try
             {
-                string CommandString = "DELETE FROM " + TableName + " WHERE DateNow < DATEADD(MONTH," + Month * -1 + ", GETDATE())";
+                //Month
+                //day
+                string CommandString = "DELETE FROM " + TableName + " WHERE DateNow < DATEADD(Month," + Month * -1 + ", GETDATE())";
 
                 dynamic Call = ReturnCall(Connection);
 
@@ -99,6 +101,99 @@ namespace _9230A_V00___PI.DataBase
             }
             catch (Exception ex)
             {
+                Utilidades.VariaveisGlobais.Window_Buffer_Diagnostic.List_Error = ex.ToString();
+            }
+        }
+
+        /// <summary>
+        /// Função para deletar a partir do ID da produção
+        /// </summary>
+        /// <param name="TableName">Tabela que deseja deletar dados a cada X tempo</param>
+        /// <param name="Connection">Conexão do banco de dados que se encontra a tabela citada no parâmentro anterior </param>
+        /// <param name="IdProducao">Id da produção que deseja excluir.</param>
+        /// <param name="NomeIDparaDeletar">Nome da coluna que possui o Id da produção.</param>
+        private static void AutoDeleteFromIDProducao(string TableName, string Connection, int IdProducao, string NomeIDparaDeletar)
+        {
+            try
+            {           
+                string CommandString = "DELETE FROM " + TableName + "  WHERE "+ NomeIDparaDeletar + "  = '" + IdProducao + "' ";
+
+                dynamic Call = ReturnCall(Connection);
+
+                dynamic Command = ReturnCommand(CommandString, Call);
+
+                Call.Open();
+                Command.ExecuteNonQuery();
+                Call.Close();
+
+            }
+            catch (Exception ex)
+            {
+                Utilidades.VariaveisGlobais.Window_Buffer_Diagnostic.List_Error = ex.ToString();
+            }
+        }
+
+        /// <summary>
+        /// Seleciona todas as produção apartir do setPoint desejado para apagar.
+        /// </summary>
+        /// <param name="TableName">Nome da tabela que deseja apagar</param>
+        /// <param name="Connection">Conexão do banco de dados que se encontra a tabela citada no parâmentro anterior </param>
+        /// <param name="Month">Quantidade de meses para apagar dados antigos Valores = 1/6/12/24(1 mes, 6 meses, 12 meses, 24 meses) ou mais </param>
+        /// <returns>Retorna um datatable com todas as produções</returns>
+        private static DataTable AutoSelectProducao(string TableName, string Connection, int Month)
+        {
+            DataTable Data = new DataTable();
+
+            try
+            {
+                //Month
+                //day
+                string CommandString = "SELECT * FROM " + TableName + " WHERE DataFimProducao < DATEADD(Month," + Month * -1 + ", GETDATE())";
+
+                dynamic Call = SqlGlobalFuctions.ReturnCall(Connection);
+
+                dynamic Adapter = SqlGlobalFuctions.ReturnAdapter(CommandString, Connection);
+
+                Adapter.Fill(Data);
+            }
+            catch (Exception ex)
+            {
+                Utilidades.VariaveisGlobais.Window_Buffer_Diagnostic.List_Error = ex.ToString();
+            }
+
+            return Data;
+
+        }
+
+        /// <summary>
+        /// Função para deletar as tabelas a partir do mes selecionado
+        /// </summary>
+        /// <param name="meses">Quantidade de meses que quer apagar</param>
+        public static void AutoDelete(int meses) 
+        {
+            try
+            {
+                DataTable Data = new DataTable();
+
+                Data = DataBase.SqlGlobalFuctions.AutoSelectProducao("Producao", Utilidades.VariaveisGlobais.Connection_DB_Receitas_GS, meses);
+
+                foreach (DataRow row in Data.Rows)
+                {
+                    int DeletarID;
+                    DeletarID = Convert.ToInt32(row["Id"]);
+
+                    DataBase.SqlGlobalFuctions.AutoDeleteFromIDProducao("Ensaques", Utilidades.VariaveisGlobais.Connection_DB_Receitas_GS, DeletarID, "IdEnsaque");
+                    DataBase.SqlGlobalFuctions.AutoDeleteFromIDProducao("ProducaoEnsaque", Utilidades.VariaveisGlobais.Connection_DB_Receitas_GS, DeletarID, "IdProducao");
+                    DataBase.SqlGlobalFuctions.AutoDeleteFromIDProducao("Bateladas", Utilidades.VariaveisGlobais.Connection_DB_Receitas_GS, DeletarID, "IdProducao");
+                    DataBase.SqlGlobalFuctions.AutoDeleteFromIDProducao("Producao", Utilidades.VariaveisGlobais.Connection_DB_Receitas_GS, DeletarID, "Id");
+                }
+
+                //Limpa Historio de Alarmes
+                DataBase.SqlGlobalFuctions.AutoDelete("EquipAlarmEvent", Utilidades.VariaveisGlobais.Connection_DB_Equip_GS, meses);
+            }
+            catch (Exception ex)
+            {
+
                 Utilidades.VariaveisGlobais.Window_Buffer_Diagnostic.List_Error = ex.ToString();
             }
         }

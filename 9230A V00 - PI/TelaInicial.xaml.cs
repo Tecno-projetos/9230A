@@ -30,6 +30,9 @@ namespace _9230A_V00___PI
 
         DispatcherTimer timer1s = new DispatcherTimer(); //Roda ciclos de 1 segundo
 
+
+        DispatcherTimer timer4h = new DispatcherTimer(); //Roda ciclos de 1 segundo
+
         DispatcherTimer Clock_TickTack = new DispatcherTimer(); //Roda ciclos de 1 segundo
 
         #endregion
@@ -138,7 +141,10 @@ namespace _9230A_V00___PI
             timer1s.Interval = TimeSpan.FromSeconds(1);
             timer1s.Tick += timer1s_Tick;
             timer1s.Start();
-
+            //====================================================
+            timer4h.Interval = TimeSpan.FromHours(4);
+            timer4h.Tick += timer4h_Tick;
+            timer4h.Start();
             //====================================================
             Clock_TickTack.Interval = TimeSpan.FromSeconds(1);
             Clock_TickTack.Tick += timerTickTack;
@@ -173,6 +179,11 @@ namespace _9230A_V00___PI
             Thread_ReadWritePLC.Name = "Actualize Screen";
             //Thread_ReadWritePLC.Start();
 
+        }
+
+        private void timer4h_Tick(object sender, EventArgs e)
+        {
+            DataBase.SqlGlobalFuctions.AutoDelete(6);
         }
 
         private void Window_Diagnostic_Closing(object sender, System.ComponentModel.CancelEventArgs e)

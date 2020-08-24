@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Buffers;
 using System.Collections.Generic;
+using System.Data;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -162,7 +163,13 @@ namespace _9230A_V00___PI.Telas_Fluxo.Manutenção
                 pckIcon.Foreground = new SolidColorBrush(Colors.Black);
             }
         }
+
+        private void btLimpar_Click(object sender, RoutedEventArgs e)
+        {
+            //Apago do banco para 6 meses
+            DataBase.SqlGlobalFuctions.AutoDelete(6);
+
+
+        }
     }
-
-
 }
