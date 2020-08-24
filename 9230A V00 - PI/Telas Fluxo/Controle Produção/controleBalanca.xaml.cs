@@ -55,8 +55,8 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
         {
             VariaveisGlobais.Buffer_PLC[bufferClp].Enable_Read = false;
 
-            Comunicacao.Sharp7.S7.SetRealAt(VariaveisGlobais.Buffer_PLC[bufferClp].Buffer, 376, Convert.ToSingle(txtAutomatico.Text));
-            Comunicacao.Sharp7.S7.SetRealAt(VariaveisGlobais.Buffer_PLC[bufferClp].Buffer, 380, Convert.ToSingle(txtManual.Text));
+            Comunicacao.Sharp7.S7.SetRealAt(VariaveisGlobais.Buffer_PLC[bufferClp].Buffer, Offset + 4, Convert.ToSingle(txtAutomatico.Text));
+            Comunicacao.Sharp7.S7.SetRealAt(VariaveisGlobais.Buffer_PLC[bufferClp].Buffer, Offset + 8, Convert.ToSingle(txtManual.Text));
 
             VariaveisGlobais.Buffer_PLC[bufferClp].Enable_Write = true;
 
@@ -68,7 +68,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
 
             Utilidades.VariaveisGlobais.indicadorPesagem = dummyIndicador;
 
-            Comunicacao.Sharp7.S7.SetByteAt(VariaveisGlobais.Buffer_PLC[bufferClp].Buffer, 384, Move_Bits.IndicadorPesagemToByte(Utilidades.VariaveisGlobais.indicadorPesagem)); //Atualiza os Bits do command
+            Comunicacao.Sharp7.S7.SetByteAt(VariaveisGlobais.Buffer_PLC[bufferClp].Buffer, Offset + 12, Move_Bits.IndicadorPesagemToByte(Utilidades.VariaveisGlobais.indicadorPesagem)); //Atualiza os Bits do command
 
             VariaveisGlobais.Buffer_PLC[bufferClp].Enable_Write = true;
 
