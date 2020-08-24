@@ -26,9 +26,9 @@
         </ed:RegularPolygon>
         <Rectangle Fill="#FF595959" HorizontalAlignment="Left" Height="31.625" Margin="71.241,90.626,0,0" Stroke="Black" VerticalAlignment="Top" Width="15.384"/>
         <Rectangle Fill="#FF595959" HorizontalAlignment="Left" Height="31.625" Margin="7.491,90.626,0,0" Stroke="Black" VerticalAlignment="Top" Width="15.384"/>
-        <ed:Arc ArcThickness="100" ArcThicknessUnit="Pixel" EndAngle="360" Fill="#FF555555" Margin="6.625,41.483,0,0" Stroke="Black" StartAngle="0" Height="80" VerticalAlignment="Top" HorizontalAlignment="Left" Width="80" StrokeDashArray="200" StrokeThickness="2"/>
-        <Rectangle Fill="#FF595959" HorizontalAlignment="Left" Height="28.792" Margin="33.875,14.782,0,0" Stroke="Black" VerticalAlignment="Top" Width="25.884"/>
-        <Rectangle Fill="#FF595959" HorizontalAlignment="Left" Height="13.125" Margin="15.042,109.125,0,0" Stroke="Black" VerticalAlignment="Top" Width="65.217"/>
+        <ed:Arc x:Name="Apa_0" ArcThickness="100" ArcThicknessUnit="Pixel" EndAngle="360" Fill="#FF555555" Margin="6.625,41.483,0,0" Stroke="Black" StartAngle="0" Height="80" VerticalAlignment="Top" HorizontalAlignment="Left" Width="80" StrokeDashArray="200" StrokeThickness="2"/>
+        <Rectangle x:Name="Apa_1" Fill="#FF595959" HorizontalAlignment="Left" Height="28.792" Margin="33.875,14.782,0,0" Stroke="Black" VerticalAlignment="Top" Width="25.884"/>
+        <Rectangle x:Name="Apa_2" Fill="#FF595959" HorizontalAlignment="Left" Height="13.125" Margin="15.042,109.125,0,0" Stroke="Black" VerticalAlignment="Top" Width="65.217"/>
         <Label x:Name="LB_M_A" Margin="68,0,0,0" VerticalContentAlignment="Center" Padding="0" Content="M" FontSize="28" Height="42" VerticalAlignment="Top" HorizontalAlignment="Left" Width="53" FontWeight="Bold" Cursor="No" Background="#00000000" Foreground="White"/>
         <Rectangle x:Name="alavancaDireita" Fill="#FF0E0A5D" HorizontalAlignment="Left" Height="32" Margin="32,47,0,0" StrokeThickness="2" VerticalAlignment="Top" Width="7" RenderTransformOrigin="0.5,0.5">
             <Rectangle.RenderTransform>
@@ -52,6 +52,6 @@
         </Rectangle>
         <ed:Arc x:Name="sensorDireita" ArcThicknessUnit="Percent" EndAngle="360" HorizontalAlignment="Left" Height="13" Margin="68,82,0,0" Stretch="None" StartAngle="0" VerticalAlignment="Top" Width="13" Fill="#FFA2FF00" ArcThickness="1" Stroke="Black"/>
         <ed:Arc x:Name="sensorEsquerda" ArcThicknessUnit="Percent" EndAngle="360" HorizontalAlignment="Left" Height="13" Margin="12,82,0,0" Stretch="None" StartAngle="0" VerticalAlignment="Top" Width="13" Fill="#FFA2FF00" ArcThickness="1" Stroke="Black"/>
-        <materialDesign:PackIcon x:Name="pckSentido" Kind="RotateLeft" VerticalAlignment="Center" Foreground="White" Margin="26,74,0,8" HorizontalAlignment="Left" Width="41" Height="41"/>
+        <materialDesign:PackIcon x:Name="pckSentido" Kind="RotateLeft" VerticalAlignment="Center" Foreground="Black" Margin="27,68,0,14" HorizontalAlignment="Left" Width="41" Height="41"/>
     </Grid>
 </UserControl>

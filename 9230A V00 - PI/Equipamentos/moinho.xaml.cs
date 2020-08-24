@@ -189,6 +189,56 @@ namespace _9230A_V00___PI.Equipamentos
                     }
                 }
                 #endregion
+
+                if ((equip.Command_Get.Standard.Sensor_Alimentador_Sentido_Horario && equip.Command_Get.Standard.Sensor_Alimentador_Sentido_Anti_Horario))
+                {
+                    pckSentido.Kind = MaterialDesignThemes.Wpf.PackIconKind.None;
+                    sensorDireita.Fill = new SolidColorBrush(Colors.Red);
+                    sensorEsquerda.Fill = new SolidColorBrush(Colors.Red);
+                    alavancaEsquerda.Visibility = Visibility.Hidden;
+                    alavancaDireita.Visibility = Visibility.Hidden;
+                }
+                else
+                {
+                    if (!equip.Command_Get.Standard.Sensor_Alimentador_Sentido_Horario && !equip.Command_Get.Standard.Sensor_Alimentador_Sentido_Anti_Horario)
+                    {
+
+                        pckSentido.Kind = MaterialDesignThemes.Wpf.PackIconKind.None;
+                        sensorDireita.Fill = new SolidColorBrush(Colors.Gray);
+                        sensorEsquerda.Fill = new SolidColorBrush(Colors.Gray);
+                        alavancaEsquerda.Visibility = Visibility.Hidden;
+                        alavancaDireita.Visibility = Visibility.Hidden;
+                    }
+
+                    else
+                    {
+                        if (equip.Command_Get.Standard.Sensor_Alimentador_Sentido_Horario)
+                        {
+                            pckSentido.Kind = MaterialDesignThemes.Wpf.PackIconKind.RotateLeft;
+                            sensorDireita.Fill = new SolidColorBrush(Colors.Gray);
+                            sensorEsquerda.Fill = new SolidColorBrush(Colors.Red);
+                            alavancaEsquerda.Visibility = Visibility.Visible;
+                            alavancaDireita.Visibility = Visibility.Hidden;
+
+
+
+                        }
+                        else if (equip.Command_Get.Standard.Sensor_Alimentador_Sentido_Anti_Horario)
+                        {
+                            pckSentido.Kind = MaterialDesignThemes.Wpf.PackIconKind.RotateRight;
+                            sensorDireita.Fill = new SolidColorBrush(Colors.Red);
+                            sensorEsquerda.Fill = new SolidColorBrush(Colors.Gray);
+                            alavancaEsquerda.Visibility = Visibility.Hidden;
+                            alavancaDireita.Visibility = Visibility.Visible;
+                        }
+
+                    }
+                    
+                    
+                    
+
+                }
+
             }
         }
 

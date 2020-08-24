@@ -42,7 +42,7 @@ namespace _9230A_V00___PI.Telas_Fluxo
 
             lbposicao26A.Content = Motor_26_Silo1.Equip_GS.Command_Get.AtuadorA.PosicaoAtual + " %";
             lbposicao26B.Content = Motor_26_Silo2.Equip_GS.Command_Get.AtuadorA.PosicaoAtual + " %";
-
+            lbposicao49.Content = Motor_49.Equip_GS.Command_Get.AtuadorA.PosicaoAtual + " %";
 
 
             rec22 = AtulizaCano(rec22, Motor_22.Equip_GS.Command_Get.PD.ligado);
@@ -55,7 +55,7 @@ namespace _9230A_V00___PI.Telas_Fluxo
 
             rec42 = AtulizaCano(rec42, Motor_42.Equip_GS.Command_Get.PD.ligado);
 
-            rec49 = AtulizaCano(rec49, Motor_49.Equip_GS.Command_Get.AtuadorD.acionandoLado1 || Motor_49.Equip_GS.Command_Get.AtuadorD.acionandoAutomatico);
+            rec49 = AtulizaCano(rec49, Motor_49.Equip_GS.Command_Get.AtuadorA.PosicaoAtual > 1);
             rec62 = AtulizaCano(rec62, Motor_62.Equip_GS.Command_Get.INV.ligado);
             rec65 = AtulizaCano(rec65, Motor_65.Equip_GS.Command_Get.INV.ligado);
 

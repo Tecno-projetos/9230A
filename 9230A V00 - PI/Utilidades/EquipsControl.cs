@@ -138,7 +138,6 @@ namespace _9230A_V00___PI.Utilidades
                 Window_SS.Bt_Fechar_Click += new EventHandler(SS_Bt_Fechar_Click);
 
                 Window_SS.controleMoinho.Bt_Inverte_Click += new EventHandler(SS_Bt_InverterSentido_Click);
-                Window_SS.controleMoinho.Bt_Confirma_Sentido_Alimentador_Moinho += new EventHandler(SS_Bt_Confirma_Sentido_Alimentador_Moinho_Click);
 
                 Window_SS.configuracoesMOINHO.atualizaSPMotorVazio_Click += new EventHandler(SS_Bt_atualizarCorrenteVazio_Click);
                 Window_SS.configuracoesMOINHO.atualizaSPTempoReversao_Click += new EventHandler(SS_Bt_atualizarTempoReversao_Click);

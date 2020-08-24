@@ -21,7 +21,6 @@ namespace _9230A_V00___PI.Partidas.Controle
     /// </summary>
     public partial class controleMoinho : UserControl
     {
-        TelasAuxiliares.PopupSentidoMoinho popupSentidoMoinho = new TelasAuxiliares.PopupSentidoMoinho();
 
         public event EventHandler Bt_Ligar_Click;
         public event EventHandler Bt_Reset_Click;
@@ -29,33 +28,15 @@ namespace _9230A_V00___PI.Partidas.Controle
         public event EventHandler Bt_Inverte_Click;
         public event EventHandler Bt_Manutencao_Click;
         public event EventHandler Bt_Manual_Click;
-        public event EventHandler Bt_Confirma_Sentido_Alimentador_Moinho;
 
         public controleMoinho()
         {
             InitializeComponent();
 
-            popupSentidoMoinho.Closing += PopupSentidoMoinho_Closing;
-        }
-
-        private void PopupSentidoMoinho_Closing(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            e.Cancel = true;
-            popupSentidoMoinho.Hide();
         }
 
         public void actualize_UI(Utilidades.VariaveisGlobais.type_All Command)
         {
-            if (Command.Standard.SentidoGiroMotorMudou && !Command.Standard.confirmaSentidoGiroAlimentador)
-            {
-                popupSentidoMoinho.Load(Command.Standard.SentidoGiro);
-
-                popupSentidoMoinho.ShowDialog();
-
-                if (this.Bt_Confirma_Sentido_Alimentador_Moinho != null)
-                    this.Bt_Confirma_Sentido_Alimentador_Moinho(this, new EventArgs());
-
-            }
 
             //Habilita ou desabilita botões
             if (!Command.Standard.Emergencia || Command.Standard.Falha_Geral)
