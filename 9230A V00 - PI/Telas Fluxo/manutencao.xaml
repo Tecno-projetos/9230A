@@ -14,7 +14,7 @@
         <Button x:Name="btSair" Margin="10,615,834,10" Background="#FF505050" BorderBrush="Black" Height="50" Click="btSair_Click">
             <Grid Width="165" Height="29">
                 <materialDesign:PackIcon Kind="ExitToApp" VerticalAlignment="Center" Foreground="Red" Margin="0,0,0,-3" Height="32" Width="30"/>
-                <TextBlock  Text="Sair da Aplicação" TextAlignment="Center" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="41,1,0,-1" Width="109" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <TextBlock  Text="Sair da Aplicação" TextAlignment="Center" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="0,7,21,5" Width="110" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Right"/>
             </Grid>
         </Button>
         <Button x:Name="btInformacoesSistema" Margin="10,560,834,65" Background="#FF505050" BorderBrush="Black" Height="50" Click="btInformacoesSistema_Click">
