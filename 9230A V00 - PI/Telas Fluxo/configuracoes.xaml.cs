@@ -38,6 +38,15 @@ namespace _9230A_V00___PI.Telas_Fluxo
 
         private void btInformacoesEspecificacoes_Click(object sender, RoutedEventArgs e)
         {
+            if (Utilidades.VariaveisGlobais.NumberOfGroup_GS < 2)
+            {
+                Utilidades.messageBox inputDialog = new messageBox(Utilidades.VariaveisGlobais.faltaPermissaoTitle, Utilidades.VariaveisGlobais.faltaPermissaoMessage, MaterialDesignThemes.Wpf.PackIconKind.Error, "OK", "Fechar");
+
+                inputDialog.ShowDialog();
+
+                return;
+            }
+
             if (spConfiguracao != null)
             {
                 spConfiguracao.Children.Clear();
@@ -49,6 +58,14 @@ namespace _9230A_V00___PI.Telas_Fluxo
 
         private void btInformacoesEspecificacoesRegistro_Click(object sender, RoutedEventArgs e)
         {
+            if (Utilidades.VariaveisGlobais.NumberOfGroup_GS < 2)
+            {
+                Utilidades.messageBox inputDialog = new messageBox(Utilidades.VariaveisGlobais.faltaPermissaoTitle, Utilidades.VariaveisGlobais.faltaPermissaoMessage, MaterialDesignThemes.Wpf.PackIconKind.Error, "OK", "Fechar");
+
+                inputDialog.ShowDialog();
+
+                return;
+            }
             if (spConfiguracao != null)
             {
                 spConfiguracao.Children.Clear();
@@ -59,6 +76,15 @@ namespace _9230A_V00___PI.Telas_Fluxo
 
         private void btPID_Click(object sender, RoutedEventArgs e)
         {
+            if (Utilidades.VariaveisGlobais.NumberOfGroup_GS < 2)
+            {
+                Utilidades.messageBox inputDialog = new messageBox(Utilidades.VariaveisGlobais.faltaPermissaoTitle, Utilidades.VariaveisGlobais.faltaPermissaoMessage, MaterialDesignThemes.Wpf.PackIconKind.Error, "OK", "Fechar");
+
+                inputDialog.ShowDialog();
+
+                return;
+            }
+
             if (spConfiguracao != null)
             {
                 spConfiguracao.Children.Clear();

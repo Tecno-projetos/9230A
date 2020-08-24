@@ -21,11 +21,11 @@
                             <ControlTemplate TargetType="{x:Type ToggleButton}">
                                 <Grid>
                                     <Image x:Name="Image" Source="/9230A V00 - PI;component/Imagens/Ligar3.png" Margin="6,0,9,33" Cursor="Hand" Height="60" VerticalAlignment="Bottom" />
-                                    <Label x:Name="Text" Content="Liga" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="144" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Padding="0" FontSize="20" FontWeight="Bold" Background="#00000000" Foreground="#FFF7F7F7" />
+                                    <Label x:Name="Text" Content="Abre" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="144" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Padding="0" FontSize="20" FontWeight="Bold" Background="#00000000" Foreground="#FFF7F7F7" />
                                 </Grid>
                                 <ControlTemplate.Triggers>
                                     <Trigger Property="IsChecked" Value="True">
-                                        <Setter TargetName="Text" Property="Content" Value="Desliga" />
+                                        <Setter TargetName="Text" Property="Content" Value="Fecha" />
                                         <Setter TargetName="Image" Property="Source" Value="/9230A V00 - PI;component/Imagens/Desligar2.png" />
                                     </Trigger>
                                 </ControlTemplate.Triggers>

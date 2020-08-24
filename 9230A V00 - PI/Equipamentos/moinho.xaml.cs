@@ -60,6 +60,15 @@ namespace _9230A_V00___PI.Equipamentos
 
         private void Moinho_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+            if (Utilidades.VariaveisGlobais.NumberOfGroup_GS == 0)
+            {
+                Utilidades.messageBox inputDialog = new messageBox(Utilidades.VariaveisGlobais.faltaUsuarioTitle, Utilidades.VariaveisGlobais.faltaUsuarioMessage, MaterialDesignThemes.Wpf.PackIconKind.Error, "OK", "Fechar");
+
+                inputDialog.ShowDialog();
+
+                return;
+            }
+
             equip.OpenWindow();
         }
 
