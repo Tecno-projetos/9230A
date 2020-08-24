@@ -84,9 +84,22 @@ namespace _9230A_V00___PI.Telas_Fluxo
             VariaveisGlobais.Fluxo.indicadorPesagem.Actualize_UI(VariaveisGlobais.indicadorPesagem);
 
 
+            if (Utilidades.VariaveisGlobais.controlePID.Habilita_PID)
+            {
+                RECpid.Stroke = new SolidColorBrush(Colors.Green);
+
+            }
+            else
+            {
+            
+                RECpid.Stroke = new SolidColorBrush(Colors.Red);
+            }
+
             //Atualzia peso do ensaque
             lbPesoEnsaque.Content = Utilidades.VariaveisGlobais.executaEnsaque.IndicadorPesagem_Get.Valor_Atual_Indicador.ToString("N", CultureInfo.GetCultureInfo("pt-BR")) + " kg";
             lbStatusEnsaque = Utilidades.VariaveisGlobais.executaEnsaque.StatusBalanca(lbStatusEnsaque);
+
+            AtualizaButtonPID();
         }
 
         private void bt_Ensaque_Click(object sender, RoutedEventArgs e)
@@ -135,5 +148,60 @@ namespace _9230A_V00___PI.Telas_Fluxo
             return arc;
         }
 
+        private void btHabilita_Click(object sender, RoutedEventArgs e)
+        {
+            if (Utilidades.VariaveisGlobais.NumberOfGroup_GS == 0)
+            {
+                Utilidades.messageBox inputDialog = new messageBox(Utilidades.VariaveisGlobais.faltaUsuarioTitle, Utilidades.VariaveisGlobais.faltaUsuarioMessage, MaterialDesignThemes.Wpf.PackIconKind.Error, "OK", "Fechar");
+
+                inputDialog.ShowDialog();
+
+                return;
+            }
+
+            if (Utilidades.VariaveisGlobais.controlePID.Habilita_PID)
+            {
+                Utilidades.messageBox inputDialog1 = new messageBox("Desabilitar PID", "Deseja desabilitar o controle por PID", MaterialDesignThemes.Wpf.PackIconKind.Error, "Sim", "Não");
+
+                if (inputDialog1.ShowDialog() == true)
+                {
+                    Utilidades.VariaveisGlobais.configuracoes.controlePID.atualizaPID();
+                }
+            }
+            else
+            {
+                Utilidades.messageBox inputDialog1 = new messageBox("Habilitar PID", "Deseja habilitar o controle por PID", MaterialDesignThemes.Wpf.PackIconKind.Error, "Sim", "Não");
+
+                if (inputDialog1.ShowDialog() == true)
+                {
+                    Utilidades.VariaveisGlobais.configuracoes.controlePID.atualizaPID();
+                }
+            }
+
+
+            AtualizaButtonPID();
+
+        }
+
+        private void AtualizaButtonPID() 
+        {
+
+            if (VariaveisGlobais.controlePID.Habilita_PID)
+            {
+                lbTextButton1.Text = "PID";
+                lbTextButton1.Foreground = new SolidColorBrush(Colors.Black);
+                btHabilita.Background = new SolidColorBrush(Colors.Green);
+                pckIcon.Kind = MaterialDesignThemes.Wpf.PackIconKind.CheckBold;
+
+
+            }
+            else
+            {
+                lbTextButton1.Text = "PID";
+                lbTextButton1.Foreground = new SolidColorBrush(Colors.White);
+                btHabilita.Background = new SolidColorBrush(Colors.Red);
+                pckIcon.Kind = MaterialDesignThemes.Wpf.PackIconKind.Close;
+            }
+        }
     }
 }

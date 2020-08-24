@@ -51,7 +51,7 @@ namespace _9230A_V00___PI
 
             VariaveisGlobais.Fluxo.Motor_22.loadEquip(Utilidades.typeEquip.PD, Utilidades.typeCommand.PD, 0, 0, "Elevador", "22", "22", "11");
 
-            VariaveisGlobais.Fluxo.Motor_23.loadEquip(Utilidades.typeEquip.BF, Utilidades.typeCommand.Atuador_Digital, 20, 0, "Atuador", "20", "49", "0");
+            VariaveisGlobais.Fluxo.Motor_23.loadEquip(Utilidades.typeEquip.BF, Utilidades.typeCommand.Atuador_Digital, 20, 0, "Atuador", "23", "49", "0");
 
             VariaveisGlobais.Fluxo.Motor_26_Silo1.loadEquip(Utilidades.typeEquip.Atuador, Utilidades.typeCommand.Atuador_Analogico, 24, 0, "Atuador", "26 Silo 1", "62", "10");
 
@@ -78,6 +78,8 @@ namespace _9230A_V00___PI
             VariaveisGlobais.Fluxo.Motor_62.loadEquip(Utilidades.typeEquip.INV, Utilidades.typeCommand.INV, 280, 0, "Elevador", "62", "62", "10");
 
             VariaveisGlobais.Fluxo.Motor_65.loadEquip(Utilidades.typeEquip.INV, Utilidades.typeCommand.INV, 332, 0, "Rosca", "65", "65", "10");
+
+      
 
             #endregion
 
@@ -812,6 +814,7 @@ namespace _9230A_V00___PI
 
 
         #endregion
+
 
     }
 }

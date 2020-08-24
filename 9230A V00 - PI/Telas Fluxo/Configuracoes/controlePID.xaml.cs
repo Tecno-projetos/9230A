@@ -182,6 +182,29 @@ namespace _9230A_V00___PI.Telas_Fluxo.Configuracoes
 
         private void btHabilita_Click(object sender, RoutedEventArgs e)
         {
+            atualizaPID();
+
+            if (VariaveisGlobais.controlePID.Habilita_PID)
+            {
+                lbTextButton1.Text = "Desabilitar PID";
+                lbTextButton1.Foreground = new SolidColorBrush(Colors.Black);
+                btHabilita.Background = new SolidColorBrush(Colors.Green);
+                pckIcon.Kind = MaterialDesignThemes.Wpf.PackIconKind.CheckBold;
+
+
+            }
+            else
+            {
+                lbTextButton1.Text = "Habilitar PID";
+                lbTextButton1.Foreground = new SolidColorBrush(Colors.White);
+                btHabilita.Background = new SolidColorBrush(Colors.Red);
+                pckIcon.Kind = MaterialDesignThemes.Wpf.PackIconKind.Close;
+            }
+
+        }
+
+        public void atualizaPID() 
+        {
             VariaveisGlobais.Buffer_PLC[4].Enable_Read = false;
 
             dummyPID = VariaveisGlobais.controlePID;
@@ -190,27 +213,18 @@ namespace _9230A_V00___PI.Telas_Fluxo.Configuracoes
             {
                 dummyPID.Habilita_PID = false;
 
-                lbTextButton1.Text = "Habilitar PID";
-                lbTextButton1.Foreground = new SolidColorBrush(Colors.White);
-                btHabilita.Background = new SolidColorBrush(Colors.Red);
-                pckIcon.Kind = MaterialDesignThemes.Wpf.PackIconKind.Close;
-
-
             }
             else
             {
                 dummyPID.Habilita_PID = true;
 
-                lbTextButton1.Text = "Desabilitar PID";
-                lbTextButton1.Foreground = new SolidColorBrush(Colors.Black);
-                btHabilita.Background = new SolidColorBrush(Colors.Green);
-                pckIcon.Kind = MaterialDesignThemes.Wpf.PackIconKind.CheckBold;
             }
 
             VariaveisGlobais.controlePID = dummyPID;
             Comunicacao.Sharp7.S7.SetByteAt(VariaveisGlobais.Buffer_PLC[4].Buffer, 76, Move_Bits.PIDToByte(VariaveisGlobais.controlePID)); //Atualiza os Bits do command
 
             VariaveisGlobais.Buffer_PLC[4].Enable_Write = true;
+
         }
     }
 }

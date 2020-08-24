@@ -29,7 +29,7 @@ namespace _9230A_V00___PI.Telas_Fluxo
 
         Telas_Fluxo.Configuracoes.especificacoesRegistros especificaoesRegistro = new Configuracoes.especificacoesRegistros();
 
-        Telas_Fluxo.Configuracoes.controlePID controlePID = new Configuracoes.controlePID();
+        public Telas_Fluxo.Configuracoes.controlePID controlePID = new Configuracoes.controlePID();
         public configuracoes()
         {
             InitializeComponent();

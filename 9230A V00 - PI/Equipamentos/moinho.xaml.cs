@@ -106,6 +106,12 @@ namespace _9230A_V00___PI.Equipamentos
                         Apa_2.Dispatcher.Invoke(delegate { Apa_2.Fill = Brushes.Gray; });
                     }
                 }
+                else if (equip.Command_Get.Standard.confirmaSentidoGiroAlimentador)
+                {
+                    Apa_0.Dispatcher.Invoke(delegate { Apa_0.Fill = Brushes.Yellow; });
+                    Apa_1.Dispatcher.Invoke(delegate { Apa_1.Fill = Brushes.Yellow; });
+                    Apa_2.Dispatcher.Invoke(delegate { Apa_2.Fill = Brushes.Yellow; });
+                }
                 else if (equip.Command_Get.Standard.Manutencao)
                 {
                     Apa_0.Dispatcher.Invoke(delegate { Apa_0.Fill = Brushes.Blue; });
@@ -226,8 +232,8 @@ namespace _9230A_V00___PI.Equipamentos
                      
                             sensorDireita.Fill = new SolidColorBrush(Colors.Gray);
                             sensorEsquerda.Fill = new SolidColorBrush(Colors.Red);
-                            alavancaEsquerda.Visibility = Visibility.Visible;
-                            alavancaDireita.Visibility = Visibility.Hidden;
+                            alavancaEsquerda.Visibility = Visibility.Hidden;
+                            alavancaDireita.Visibility = Visibility.Visible;
 
 
 
@@ -237,8 +243,8 @@ namespace _9230A_V00___PI.Equipamentos
  
                             sensorDireita.Fill = new SolidColorBrush(Colors.Red);
                             sensorEsquerda.Fill = new SolidColorBrush(Colors.Gray);
-                            alavancaEsquerda.Visibility = Visibility.Hidden;
-                            alavancaDireita.Visibility = Visibility.Visible;
+                            alavancaEsquerda.Visibility = Visibility.Visible;
+                            alavancaDireita.Visibility = Visibility.Hidden;
                         }
 
                     }

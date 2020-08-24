@@ -21,6 +21,8 @@
             </TransformGroup>
         </Grid.RenderTransform>
 
+        <Rectangle Width="84" VerticalAlignment="Top" StrokeThickness="3" RenderTransformOrigin="0.5,0.5" Margin="530,544,0,0" Height="3" HorizontalAlignment="Left" StrokeDashArray="2" Stroke="{Binding Stroke, ElementName=RECpid}" StrokeEndLineCap="Square" StrokeMiterLimit="2" />
+
         <Equipamentos:balancaManual HorizontalAlignment="Left" Height="60" Margin="960,575,0,0" VerticalAlignment="Top" Width="48" RenderTransformOrigin="0.5,0.5">
             <Equipamentos:balancaManual.RenderTransform>
                 <TransformGroup>
@@ -139,16 +141,6 @@
                 </TransformGroup>
             </Desenhos:balanca.RenderTransform>
         </Desenhos:balanca>
-        <Equipamentos:rosca x:Name="Motor_43" HorizontalAlignment="Left" Height="16" Margin="484,466,0,0" VerticalAlignment="Top" Width="79" RenderTransformOrigin="0.5,0.5">
-            <Equipamentos:rosca.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform ScaleX="1.8" ScaleY="1.8"/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Equipamentos:rosca.RenderTransform>
-        </Equipamentos:rosca>
         <Rectangle Fill="{Binding Fill, ElementName=rec42}" HorizontalAlignment="Left" Height="85" Margin="510,376,0,0" VerticalAlignment="Top" Width="6"/>
         <Rectangle x:Name="rec42" Width="48" VerticalAlignment="Top" StrokeThickness="0" RenderTransformOrigin="0.5,0.5" Margin="462,370,0,0" Height="6" HorizontalAlignment="Left" Fill="#FF3C3C40" />
         <ed:Arc EndAngle="90" HorizontalAlignment="Left" Height="15" Margin="501,370,0,0" StartAngle="0" VerticalAlignment="Top" Width="15" StrokeThickness="6" Stretch="None" RenderTransformOrigin="0.5,0.5" Stroke="{Binding Fill, ElementName=rec42}"/>
@@ -468,7 +460,7 @@
                 </TransformGroup>
             </Equipamentos:alimentador.RenderTransform>
         </Equipamentos:alimentador>
-        <Label Content="44" HorizontalAlignment="Left" Height="40" Margin="550,515,0,0" VerticalAlignment="Top" Width="38" RenderTransformOrigin="0.5,0.5" FontSize="20" Foreground="#FFB8B8B8" FontWeight="Bold">
+        <Label Content="44" HorizontalAlignment="Left" Height="40" Margin="447,495,0,0" VerticalAlignment="Top" Width="38" RenderTransformOrigin="0.5,0.5" FontSize="20" Foreground="#FFB8B8B8" FontWeight="Bold">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="-1"/>
@@ -478,7 +470,7 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Label Content="43" HorizontalAlignment="Left" Height="40" Margin="450,430,0,0" VerticalAlignment="Top" Width="45" RenderTransformOrigin="0.5,0.5" FontSize="20" Foreground="#FFB8B8B8" FontWeight="Bold">
+        <Label Content="43" HorizontalAlignment="Left" Height="40" Margin="410,453,0,0" VerticalAlignment="Top" Width="45" RenderTransformOrigin="0.5,0.5" FontSize="20" Foreground="#FFB8B8B8" FontWeight="Bold">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="-1"/>
@@ -488,7 +480,7 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Label x:Name="lbCorrente43" Content="125(A)" HorizontalAlignment="Left" Height="24" Margin="525,420,0,0" VerticalAlignment="Top" Width="57" RenderTransformOrigin="0.5,0.5" FontSize="16" Foreground="#FFB8B8B8" FontWeight="Bold" HorizontalContentAlignment="Right" Padding="0,0,5,0">
+        <Label x:Name="lbCorrente43" Content="125(A)" HorizontalAlignment="Left" Height="24" Margin="436,419,0,0" VerticalAlignment="Top" Width="57" RenderTransformOrigin="0.5,0.5" FontSize="16" Foreground="#FFB8B8B8" FontWeight="Bold" HorizontalContentAlignment="Right" Padding="0,0,5,0">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="-1"/>
@@ -498,7 +490,7 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Label x:Name="lbVelocidade43" Content="1800 RPM" HorizontalAlignment="Left" Height="18" Margin="515,444,0,0" VerticalAlignment="Top" Width="78" RenderTransformOrigin="0.5,0.5" Foreground="#FFB8B8B8" FontWeight="Bold" HorizontalContentAlignment="Right" Padding="0,0,5,0" FontSize="14">
+        <Label x:Name="lbVelocidade43" Content="1800 RPM" HorizontalAlignment="Left" Height="18" Margin="432,441,0,0" VerticalAlignment="Top" Width="78" RenderTransformOrigin="0.5,0.5" Foreground="#FFB8B8B8" FontWeight="Bold" HorizontalContentAlignment="Right" Padding="0,0,5,0" FontSize="14">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="-1"/>
@@ -508,7 +500,7 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Label x:Name="lbCorrenteMoinho" Content="125(A)" HorizontalAlignment="Left" Height="24" Margin="560,546,0,0" VerticalAlignment="Top" Width="61" RenderTransformOrigin="0.5,0.5" FontSize="16" Foreground="#FFB8B8B8" FontWeight="Bold" HorizontalContentAlignment="Right" Padding="0,0,5,0">
+        <Label x:Name="lbCorrenteMoinho" Content="125(A)" HorizontalAlignment="Left" Height="24" Margin="415,525,0,0" VerticalAlignment="Top" Width="61" RenderTransformOrigin="0.5,0.5" FontSize="16" Foreground="#FFB8B8B8" FontWeight="Bold" Padding="0,0,5,0">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="-1"/>
@@ -823,6 +815,41 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
+        <Rectangle x:Name="RECpid" Width="84" VerticalAlignment="Top" StrokeThickness="3" RenderTransformOrigin="0.5,0.5" Margin="531,469,0,0" Height="3" HorizontalAlignment="Left" StrokeDashArray="2" Stroke="Black" StrokeEndLineCap="Square" StrokeMiterLimit="2" />
+        <Rectangle Width="84" VerticalAlignment="Top" StrokeThickness="3" RenderTransformOrigin="0.5,0.5" Margin="567,505,0,0" Height="3" HorizontalAlignment="Left" StrokeDashArray="2" Stroke="{Binding Stroke, ElementName=RECpid}" StrokeEndLineCap="Square" StrokeMiterLimit="2" >
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-89.681"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Equipamentos:rosca x:Name="Motor_43" HorizontalAlignment="Left" Height="16" Margin="465,466,0,0" VerticalAlignment="Top" Width="54" RenderTransformOrigin="0.5,0.5">
+            <Equipamentos:rosca.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="1.8" ScaleY="1.8"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Equipamentos:rosca.RenderTransform>
+        </Equipamentos:rosca>
+        <Button x:Name="btHabilita" Margin="561,525,404,119" Background="#FF505050" BorderBrush="Black" Height="Auto" Opacity="1" Click="btHabilita_Click" RenderTransformOrigin="0.5,0.5" >
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+            <Grid Width="73">
+                <materialDesign:PackIcon x:Name="pckIcon" Kind="Close" VerticalAlignment="Stretch" Foreground="White" Margin="0,-2,0,-4" Height="Auto" Width="25"/>
+                <TextBlock x:Name="lbTextButton1" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="26,2,17,0" Width="30" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Text="PID"/>
+            </Grid>
+        </Button>
 
     </Grid>
 </UserControl>

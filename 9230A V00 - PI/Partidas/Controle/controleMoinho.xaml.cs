@@ -149,6 +149,12 @@ namespace _9230A_V00___PI.Partidas.Controle
                     lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Background = new SolidColorBrush(Colors.Red); });
                 }
             }
+            else if (Command.Standard.confirmaSentidoGiroAlimentador)
+            {
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Content = "Verificar sentido Alimentador"; });
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Foreground = new SolidColorBrush(Colors.Black); });
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Background = new SolidColorBrush(Colors.Yellow); });
+            }
             else if (Command.Standard.Manutencao)
             {
                 lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Content = "Em Manutenção"; });
