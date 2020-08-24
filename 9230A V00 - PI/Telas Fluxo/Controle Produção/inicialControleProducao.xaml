@@ -7,7 +7,7 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="_9230A_V00___PI.Telas_Fluxo.Controle_Produção.inicialControleProducao"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800" Width="490" Height="295">
-    <Grid Background="#FF646464">
+    <Grid Background="#FF646464" Margin="0,0,0,-6">
         <Label x:Name="statusSlot1" Content="Status Rota" HorizontalAlignment="Left" Margin="185,155,0,0" VerticalAlignment="Top" Width="295" BorderBrush="Black" Background="#FFAC0F0F" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="34" Padding="0" FontSize="18"/>
         <Label x:Name="lbNomeReceita" Content="NOME DA RECEITA" HorizontalAlignment="Left" VerticalAlignment="Top" Width="490" BorderBrush="Black" Background="{x:Null}" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="25" Padding="0" FontSize="22" FontWeight="Bold" Margin="0,2,0,0"/>
         <Label Content="N° Bateladas:" HorizontalAlignment="Left" Margin="130,47,0,0" VerticalAlignment="Top" Width="100" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="25" Padding="0" FontWeight="Bold" FontSize="15"/>
@@ -45,6 +45,7 @@
             </Grid>
         </Button>
         <Label Content="und." HorizontalAlignment="Left" Margin="336,125,0,0" VerticalAlignment="Top" Width="25" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="17" Padding="0" FontWeight="Bold"/>
+        <Label x:Name="lbNaoHabilitado" Content="Verifique se a balança está vazia!" HorizontalAlignment="Left" VerticalAlignment="Top" Width="490" BorderBrush="Black" Background="#FFFF8B00" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="33" Padding="0" FontSize="22" FontWeight="Bold" Margin="0,268,0,0"/>
 
     </Grid>
 

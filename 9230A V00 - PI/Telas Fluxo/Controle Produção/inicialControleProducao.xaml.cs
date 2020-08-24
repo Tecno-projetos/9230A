@@ -28,6 +28,16 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
 
         public void atualiza(ref Utilidades.ExecutaProducao executaProducao, ref Utilidades.Producao producao) 
         {
+            if (Utilidades.VariaveisGlobais.executaProducao.ControleExecucao.Habilitado_Iniciar_Nova_Producao)
+            {
+                lbNaoHabilitado.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                lbNaoHabilitado.Visibility = Visibility.Hidden;
+            }
+            
+
             //Verifica se existe produção produzindo
             if (producao.id != 0)
             {

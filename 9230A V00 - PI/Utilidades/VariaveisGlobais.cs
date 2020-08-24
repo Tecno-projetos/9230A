@@ -1544,6 +1544,8 @@ namespace _9230A_V00___PI.Utilidades
             Utilidades.Produto dummyProduto;
             Utilidades.ProdutoBatelada dummyProdutoBatelada;
 
+            //Limpa lista de bateladas
+            listBatelada.Clear();
             //Para cada batelada adiciona as informações da batelada e adiciona os produtos com seus campos
             for (int i = 1; i <= QtdBateladas; i++)
             {
