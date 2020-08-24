@@ -402,7 +402,7 @@ namespace _9230A_V00___PI.Desenhos
                         Rec5.Dispatcher.BeginInvoke((Action)(() => Rec5.Fill = VD_2));
                         Rec6.Dispatcher.BeginInvoke((Action)(() => Rec6.Fill = VD_2));
 
-                        lbTag.Dispatcher.BeginInvoke((Action)(() => lbTag.Foreground = new SolidColorBrush(Colors.White)));
+                        lbTag.Dispatcher.BeginInvoke((Action)(() => lbTag.Foreground = new SolidColorBrush(Colors.Black)));
                     }
                 }
                 else if (equip.Command_Get.Standard.Desligando)
@@ -416,7 +416,7 @@ namespace _9230A_V00___PI.Desenhos
                         Rec5.Dispatcher.BeginInvoke((Action)(() => Rec5.Fill = VD_2));
                         Rec6.Dispatcher.BeginInvoke((Action)(() => Rec6.Fill = VD_2));
 
-                        lbTag.Dispatcher.BeginInvoke((Action)(() => lbTag.Foreground = new SolidColorBrush(Colors.White)));
+                        lbTag.Dispatcher.BeginInvoke((Action)(() => lbTag.Foreground = new SolidColorBrush(Colors.Black)));
                     }
                     else
                     {
@@ -441,7 +441,7 @@ namespace _9230A_V00___PI.Desenhos
                         Rec5.Dispatcher.BeginInvoke((Action)(() => Rec5.Fill = VD_2));
                         Rec6.Dispatcher.BeginInvoke((Action)(() => Rec6.Fill = VD_2));
 
-                        lbTag.Dispatcher.BeginInvoke((Action)(() => lbTag.Foreground = new SolidColorBrush(Colors.White)));
+                        lbTag.Dispatcher.BeginInvoke((Action)(() => lbTag.Foreground = new SolidColorBrush(Colors.Black)));
                     }
                     else
                     {

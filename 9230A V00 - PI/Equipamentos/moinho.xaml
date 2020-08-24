@@ -5,93 +5,42 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:_9230A_V00___PI.Equipamentos"
               xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" Height="123.103" Width="134.134" Cursor="Hand">
-<UserControl.Resources>
-    <Storyboard x:Key="Storyboard1">
-        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="Apa_0">
-            <EasingDoubleKeyFrame KeyTime="0" Value="-27.356"/>
-            <EasingDoubleKeyFrame KeyTime="0:0:3" Value="332.771"/>
-        </DoubleAnimationUsingKeyFrames>
-        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="Apa_2">
-            <EasingDoubleKeyFrame KeyTime="0" Value="0.008"/>
-            <EasingDoubleKeyFrame KeyTime="0:0:3" Value="0.008"/>
-        </DoubleAnimationUsingKeyFrames>
-        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="Apa_2">
-            <EasingDoubleKeyFrame KeyTime="0" Value="32.644"/>
-            <EasingDoubleKeyFrame KeyTime="0:0:3" Value="392.771"/>
-        </DoubleAnimationUsingKeyFrames>
-        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="Apa_1">
-            <EasingDoubleKeyFrame KeyTime="0" Value="92.644"/>
-            <EasingDoubleKeyFrame KeyTime="0:0:3" Value="452.771"/>
-        </DoubleAnimationUsingKeyFrames>
-        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="Apa_0">
-            <EasingDoubleKeyFrame KeyTime="0" Value="0.004"/>
-            <EasingDoubleKeyFrame KeyTime="0:0:3" Value="0.004"/>
-        </DoubleAnimationUsingKeyFrames>
-        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="Apa_1">
-            <EasingDoubleKeyFrame KeyTime="0" Value="0.004"/>
-            <EasingDoubleKeyFrame KeyTime="0:0:3" Value="0.004"/>
-        </DoubleAnimationUsingKeyFrames>
-        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="Apa_2">
-            <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-            <EasingDoubleKeyFrame KeyTime="0:0:3" Value="0"/>
-        </DoubleAnimationUsingKeyFrames>
-        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="Apa_0">
-            <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-            <EasingDoubleKeyFrame KeyTime="0:0:3" Value="0"/>
-        </DoubleAnimationUsingKeyFrames>
-        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="Apa_1">
-            <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-            <EasingDoubleKeyFrame KeyTime="0:0:3" Value="0"/>
-        </DoubleAnimationUsingKeyFrames>
-    </Storyboard>
-</UserControl.Resources>
-<Grid Margin="0,0,13,0" Cursor="Hand">
-    <Grid.ColumnDefinitions>
-        <ColumnDefinition/>
-    </Grid.ColumnDefinitions>
-    <ed:RegularPolygon x:Name="fundoSilo" Fill="#FF7F7F7F" HorizontalAlignment="Left" Height="45.243" InnerRadius="1" Margin="17.698,30.224,0,0" PointCount="5" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="58.62" RenderTransformOrigin="0.5,0.5" StrokeThickness="2">
-        <ed:RegularPolygon.RenderTransform>
-            <TransformGroup>
-                <ScaleTransform/>
-                <SkewTransform/>
-                <RotateTransform Angle="180"/>
-                <TranslateTransform/>
-            </TransformGroup>
-        </ed:RegularPolygon.RenderTransform>
-    </ed:RegularPolygon>
-    <Rectangle Fill="#FF595959" HorizontalAlignment="Left" Height="31.625" Margin="71.241,90.626,0,0" Stroke="Black" VerticalAlignment="Top" Width="15.384"/>
-    <Rectangle Fill="#FF595959" HorizontalAlignment="Left" Height="31.625" Margin="7.491,90.626,0,0" Stroke="Black" VerticalAlignment="Top" Width="15.384"/>
-    <ed:Arc ArcThickness="100" ArcThicknessUnit="Pixel" EndAngle="360" Fill="#FF555555" Margin="6.625,41.483,0,0" Stroke="Black" StartAngle="0" Height="80" VerticalAlignment="Top" HorizontalAlignment="Left" Width="80" StrokeDashArray="200" StrokeThickness="2"/>
-    <Rectangle Fill="#FF595959" HorizontalAlignment="Left" Height="28.792" Margin="33.875,14.782,0,0" Stroke="Black" VerticalAlignment="Top" Width="25.884"/>
-    <Grid x:Name="grid" RenderTransformOrigin="0.492,0.536" HorizontalAlignment="Left" Width="90.5" Height="85.875" VerticalAlignment="Top" Margin="1.875,37.125,0,0">
-        <Grid.RenderTransform>
-            <TransformGroup>
-                <ScaleTransform ScaleX="0.7" ScaleY="0.7"/>
-                <SkewTransform/>
-                <RotateTransform/>
-                <TranslateTransform/>
-            </TransformGroup>
-        </Grid.RenderTransform>
-        <ed:Arc ArcThickness="20" ArcThicknessUnit="Pixel" EndAngle="360" Fill="#FF514F4F" HorizontalAlignment="Right" Height="3" Margin="-26,-45,121,153" Stretch="None" Stroke="Black" StrokeThickness="0" StartAngle="0" VerticalAlignment="Bottom" Width="0"/>
-        <Path Data="M146.5,181.16667" HorizontalAlignment="Left" Height="1" Margin="144.683,-30.833,-50.683,140.833" Stretch="Fill" Stroke="Black" VerticalAlignment="Bottom" Width="1">
-            <Path.Fill>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <LinearGradientBrush.RelativeTransform>
-                        <TransformGroup>
-                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
-                            <SkewTransform CenterY="0.5" CenterX="0.5"/>
-                            <RotateTransform Angle="90" CenterY="0.5" CenterX="0.5"/>
-                            <TranslateTransform/>
-                        </TransformGroup>
-                    </LinearGradientBrush.RelativeTransform>
-                    <GradientStop Color="Black" Offset="0"/>
-                    <GradientStop Color="White" Offset="1"/>
-                </LinearGradientBrush>
-            </Path.Fill>
-        </Path>
-        <ed:Arc x:Name="Ventilador_Liga" ArcThickness="40" ArcThicknessUnit="Pixel" EndAngle="360" Fill="Black" Margin="6,3,0,0" Stretch="None" Stroke="Black" StartAngle="0" HorizontalAlignment="Left" Width="80" Height="79" VerticalAlignment="Top"/>
-        <Rectangle x:Name="Apa_0" Margin="40,6,0,0" Stroke="Black" RenderTransformOrigin="0.5,0.5" Height="73" VerticalAlignment="Top" HorizontalAlignment="Left" Width="12" Fill="#FF8C8C8C">
+    <UserControl.Resources>
+        <Storyboard x:Key="Storyboard1"/>
+    </UserControl.Resources>
+    <Grid Margin="0,0,13,0" Cursor="Hand">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <ed:RegularPolygon x:Name="fundoSilo" Fill="#FF7F7F7F" HorizontalAlignment="Left" Height="45.243" InnerRadius="1" Margin="17.698,30.224,0,0" PointCount="5" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="58.62" RenderTransformOrigin="0.5,0.5" StrokeThickness="2">
+            <ed:RegularPolygon.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="180"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </ed:RegularPolygon.RenderTransform>
+        </ed:RegularPolygon>
+        <Rectangle Fill="#FF595959" HorizontalAlignment="Left" Height="31.625" Margin="71.241,90.626,0,0" Stroke="Black" VerticalAlignment="Top" Width="15.384"/>
+        <Rectangle Fill="#FF595959" HorizontalAlignment="Left" Height="31.625" Margin="7.491,90.626,0,0" Stroke="Black" VerticalAlignment="Top" Width="15.384"/>
+        <ed:Arc ArcThickness="100" ArcThicknessUnit="Pixel" EndAngle="360" Fill="#FF555555" Margin="6.625,41.483,0,0" Stroke="Black" StartAngle="0" Height="80" VerticalAlignment="Top" HorizontalAlignment="Left" Width="80" StrokeDashArray="200" StrokeThickness="2"/>
+        <Rectangle Fill="#FF595959" HorizontalAlignment="Left" Height="28.792" Margin="33.875,14.782,0,0" Stroke="Black" VerticalAlignment="Top" Width="25.884"/>
+        <Rectangle Fill="#FF595959" HorizontalAlignment="Left" Height="13.125" Margin="15.042,109.125,0,0" Stroke="Black" VerticalAlignment="Top" Width="65.217"/>
+        <Label x:Name="LB_M_A" Margin="68,0,0,0" VerticalContentAlignment="Center" Padding="0" Content="M" FontSize="28" Height="42" VerticalAlignment="Top" HorizontalAlignment="Left" Width="53" FontWeight="Bold" Cursor="No" Background="#00000000" Foreground="White"/>
+        <Rectangle x:Name="alavancaDireita" Fill="#FF0E0A5D" HorizontalAlignment="Left" Height="32" Margin="32,47,0,0" StrokeThickness="2" VerticalAlignment="Top" Width="7" RenderTransformOrigin="0.5,0.5">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="30"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle x:Name="alavancaEsquerda" Fill="#FF0E0A5D" HorizontalAlignment="Left" Height="32" Margin="54,47,0,0" StrokeThickness="2" VerticalAlignment="Top" Width="7" RenderTransformOrigin="0.5,0.5">
             <Rectangle.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -101,160 +50,8 @@
                 </TransformGroup>
             </Rectangle.RenderTransform>
         </Rectangle>
-        <Path x:Name="Apa_2" HorizontalAlignment="Left" Margin="39.85,5.836,0,0" Stroke="Black" Width="13" RenderTransformOrigin="0.5,0.5" Data="M0.5,0.5 L12.5,0.5 L12.5,73 L0.5,73 z" Stretch="Fill" Height="73.5" VerticalAlignment="Top" Fill="#FF8C8C8C">
-            <Path.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="30"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Path.RenderTransform>
-        </Path>
-        <Rectangle x:Name="Apa_1" Margin="40,6,0,0" Stroke="Black" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" Width="12" Height="73" VerticalAlignment="Top" Fill="#FF8C8C8C">
-            <Rectangle.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="90"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Rectangle.RenderTransform>
-        </Rectangle>
-        <ed:Arc ArcThickness="20" ArcThicknessUnit="Pixel" EndAngle="360" Fill="#FFE6E6E6" Margin="34.25,30,0,0" Stretch="None" Stroke="Black" StartAngle="0" HorizontalAlignment="Left" Width="24" Height="24" VerticalAlignment="Top"/>
-        <ed:Arc ArcThickness="20" ArcThicknessUnit="Pixel" EndAngle="360" Fill="#FF505050" Margin="36,32,0,0" Stretch="None" Stroke="Black" StartAngle="0" HorizontalAlignment="Left" Width="20" Height="20" VerticalAlignment="Top"/>
-        <ed:Arc ArcThickness="20" ArcThicknessUnit="Pixel" EndAngle="360" Fill="#FF222521" HorizontalAlignment="Left" Margin="42,38,0,0" Stretch="None" Stroke="Black" StartAngle="0" Width="8" Height="8" VerticalAlignment="Top"/>
-        <ed:Arc ArcThickness="1" ArcThicknessUnit="Pixel" EndAngle="360" Fill="#FFC9DEBB" Margin="5.75,3,0,0" Stretch="None" Stroke="Black" StartAngle="0" Height="79" VerticalAlignment="Top" HorizontalAlignment="Left" Width="80"/>
-        <Path Data="M169.53469,171.77305 L169.46868,224.27491" HorizontalAlignment="Left" Height="31.333" Margin="8.515,26.583,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="2.396" StrokeThickness="2">
-            <Path.Fill>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <LinearGradientBrush.RelativeTransform>
-                        <TransformGroup>
-                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
-                            <SkewTransform CenterY="0.5" CenterX="0.5"/>
-                            <RotateTransform Angle="90" CenterY="0.5" CenterX="0.5"/>
-                            <TranslateTransform/>
-                        </TransformGroup>
-                    </LinearGradientBrush.RelativeTransform>
-                    <GradientStop Color="Black" Offset="0"/>
-                    <GradientStop Color="White" Offset="1"/>
-                </LinearGradientBrush>
-            </Path.Fill>
-        </Path>
-        <Path Data="M169.53469,171.77305 L169.46868,224.27491" HorizontalAlignment="Left" Height="57.083" Margin="18.511,14.417,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="2.396" StrokeThickness="2">
-            <Path.Fill>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <LinearGradientBrush.RelativeTransform>
-                        <TransformGroup>
-                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
-                            <SkewTransform CenterY="0.5" CenterX="0.5"/>
-                            <RotateTransform Angle="90" CenterY="0.5" CenterX="0.5"/>
-                            <TranslateTransform/>
-                        </TransformGroup>
-                    </LinearGradientBrush.RelativeTransform>
-                    <GradientStop Color="Black" Offset="0"/>
-                    <GradientStop Color="White" Offset="1"/>
-                </LinearGradientBrush>
-            </Path.Fill>
-        </Path>
-        <Path Data="M169.53469,171.77305 L169.46868,224.27491" HorizontalAlignment="Left" Height="69.833" Margin="28.507,8,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="2.396" StrokeThickness="2">
-            <Path.Fill>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <LinearGradientBrush.RelativeTransform>
-                        <TransformGroup>
-                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
-                            <SkewTransform CenterY="0.5" CenterX="0.5"/>
-                            <RotateTransform Angle="90" CenterY="0.5" CenterX="0.5"/>
-                            <TranslateTransform/>
-                        </TransformGroup>
-                    </LinearGradientBrush.RelativeTransform>
-                    <GradientStop Color="Black" Offset="0"/>
-                    <GradientStop Color="White" Offset="1"/>
-                </LinearGradientBrush>
-            </Path.Fill>
-        </Path>
-        <Path Data="M169.53469,171.77305 L169.46868,224.27491" HorizontalAlignment="Left" Height="76.499" Margin="38.753,4.667,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="2.396" StrokeThickness="2">
-            <Path.Fill>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <LinearGradientBrush.RelativeTransform>
-                        <TransformGroup>
-                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
-                            <SkewTransform CenterY="0.5" CenterX="0.5"/>
-                            <RotateTransform Angle="90" CenterY="0.5" CenterX="0.5"/>
-                            <TranslateTransform/>
-                        </TransformGroup>
-                    </LinearGradientBrush.RelativeTransform>
-                    <GradientStop Color="Black" Offset="0"/>
-                    <GradientStop Color="White" Offset="1"/>
-                </LinearGradientBrush>
-            </Path.Fill>
-        </Path>
-        <Path Data="M169.53469,171.77305 L169.46868,224.27491" HorizontalAlignment="Left" Height="76.833" Margin="48.499,4.333,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="2.396" StrokeThickness="2">
-            <Path.Fill>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <LinearGradientBrush.RelativeTransform>
-                        <TransformGroup>
-                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
-                            <SkewTransform CenterY="0.5" CenterX="0.5"/>
-                            <RotateTransform Angle="90" CenterY="0.5" CenterX="0.5"/>
-                            <TranslateTransform/>
-                        </TransformGroup>
-                    </LinearGradientBrush.RelativeTransform>
-                    <GradientStop Color="Black" Offset="0"/>
-                    <GradientStop Color="White" Offset="1"/>
-                </LinearGradientBrush>
-            </Path.Fill>
-        </Path>
-        <Path Data="M169.53469,171.77305 L169.46868,224.27491" HorizontalAlignment="Left" Height="72.333" Margin="58.495,6.25,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="2.396" StrokeThickness="2">
-            <Path.Fill>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <LinearGradientBrush.RelativeTransform>
-                        <TransformGroup>
-                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
-                            <SkewTransform CenterY="0.5" CenterX="0.5"/>
-                            <RotateTransform Angle="90" CenterY="0.5" CenterX="0.5"/>
-                            <TranslateTransform/>
-                        </TransformGroup>
-                    </LinearGradientBrush.RelativeTransform>
-                    <GradientStop Color="Black" Offset="0"/>
-                    <GradientStop Color="White" Offset="1"/>
-                </LinearGradientBrush>
-            </Path.Fill>
-        </Path>
-        <Path Data="M169.53469,171.77305 L169.46868,224.27491" HorizontalAlignment="Left" Height="41.916" Margin="78.487,21.917,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="2.396" StrokeThickness="2">
-            <Path.Fill>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <LinearGradientBrush.RelativeTransform>
-                        <TransformGroup>
-                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
-                            <SkewTransform CenterY="0.5" CenterX="0.5"/>
-                            <RotateTransform Angle="90" CenterY="0.5" CenterX="0.5"/>
-                            <TranslateTransform/>
-                        </TransformGroup>
-                    </LinearGradientBrush.RelativeTransform>
-                    <GradientStop Color="Black" Offset="0"/>
-                    <GradientStop Color="White" Offset="1"/>
-                </LinearGradientBrush>
-            </Path.Fill>
-        </Path>
-        <Path Data="M169.53469,171.77305 L169.46868,224.27491" HorizontalAlignment="Left" Height="59.832" Margin="68.896,12.584,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="2.396" StrokeThickness="2">
-            <Path.Fill>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <LinearGradientBrush.RelativeTransform>
-                        <TransformGroup>
-                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
-                            <SkewTransform CenterY="0.5" CenterX="0.5"/>
-                            <RotateTransform Angle="90" CenterY="0.5" CenterX="0.5"/>
-                            <TranslateTransform/>
-                        </TransformGroup>
-                    </LinearGradientBrush.RelativeTransform>
-                    <GradientStop Color="Black" Offset="0"/>
-                    <GradientStop Color="White" Offset="1"/>
-                </LinearGradientBrush>
-            </Path.Fill>
-        </Path>
+        <ed:Arc x:Name="sensorDireita" ArcThicknessUnit="Percent" EndAngle="360" HorizontalAlignment="Left" Height="13" Margin="68,82,0,0" Stretch="None" StartAngle="0" VerticalAlignment="Top" Width="13" Fill="#FFA2FF00" ArcThickness="1" Stroke="Black"/>
+        <ed:Arc x:Name="sensorEsquerda" ArcThicknessUnit="Percent" EndAngle="360" HorizontalAlignment="Left" Height="13" Margin="12,82,0,0" Stretch="None" StartAngle="0" VerticalAlignment="Top" Width="13" Fill="#FFA2FF00" ArcThickness="1" Stroke="Black"/>
+        <materialDesign:PackIcon x:Name="pckSentido" Kind="RotateLeft" VerticalAlignment="Center" Foreground="White" Margin="26,74,0,8" HorizontalAlignment="Left" Width="41" Height="41"/>
     </Grid>
-    <Rectangle Fill="#FF595959" HorizontalAlignment="Left" Height="13.125" Margin="15.042,109.125,0,0" Stroke="Black" VerticalAlignment="Top" Width="65.217"/>
-    <Label x:Name="LB_M_A" Margin="68,0,0,0" VerticalContentAlignment="Center" Padding="0" Content="M" FontSize="28" Height="42" VerticalAlignment="Top" HorizontalAlignment="Left" Width="53" FontWeight="Bold" Cursor="No" Background="#00000000" Foreground="White"/>
-</Grid>
 </UserControl>
