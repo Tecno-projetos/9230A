@@ -1290,7 +1290,7 @@ namespace _9230A_V00___PI.Utilidades
                 Button.Background = new SolidColorBrush(Colors.Yellow);
                 Button.Foreground = new SolidColorBrush(Colors.Black);
             }
-            else if (status == 6 && slotDosagemComplemento)
+            else if ((status == 6 || status == 5) && slotDosagemComplemento)
             {
                 Button.Content = "Batelada: " + numeroBatelada;
                 Button.Background = new SolidColorBrush(Colors.Yellow);

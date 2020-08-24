@@ -177,12 +177,21 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
                     //Verifica 
                     if (dt.Rows != null)
                     {
-                        quantidade = dt.Rows.Count;
 
-                        document.Add(tableProducao("Quantidade de ensaques iniciados: " + quantidade, true));
-                        document.Add(tableProducao(colsW, "Peso ensacado: " + DataBase.SqlFunctionsEnsaques.getPesoTotalEnsaque(item.id) + " kg", "Peso médio ensaque: " + DataBase.SqlFunctionsEnsaques.getPesoMedioEnsaque(item.id) + " kg", true));
-                        document.Add(tableProducao(colsW, "Peso mínimo saco: " + DataBase.SqlFunctionsEnsaques.getPesoMinEnsaque(item.id) + " kg", "Peso máximo saco: " + DataBase.SqlFunctionsEnsaques.getPesoMaxEnsaque(item.id) + " kg", true));
-                        document.Add(tableProducao("Quantidade de sacos: " + DataBase.SqlFunctionsEnsaques.getCoutEnsaque(item.id) + " und.", true, Element.ALIGN_LEFT));
+                        if (dt.Rows.Count > 0)
+                        {
+                            quantidade = dt.Rows.Count;
+
+                            document.Add(tableProducao("Quantidade de ensaques iniciados: " + quantidade, true));
+                            document.Add(tableProducao(colsW, "Peso ensacado: " + DataBase.SqlFunctionsEnsaques.getPesoTotalEnsaque(item.id) + " kg", "Peso médio ensaque: " + DataBase.SqlFunctionsEnsaques.getPesoMedioEnsaque(item.id) + " kg", true));
+                            document.Add(tableProducao(colsW, "Peso mínimo saco: " + DataBase.SqlFunctionsEnsaques.getPesoMinEnsaque(item.id) + " kg", "Peso máximo saco: " + DataBase.SqlFunctionsEnsaques.getPesoMaxEnsaque(item.id) + " kg", true));
+                            document.Add(tableProducao("Quantidade de sacos: " + DataBase.SqlFunctionsEnsaques.getCoutEnsaque(item.id) + " und.", true, Element.ALIGN_LEFT));
+
+                        }
+                        else
+                        {
+                            document.Add(tableProducao("Produção não possui ensaque!", true));
+                        }
 
                     }
                     else
