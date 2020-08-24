@@ -83,10 +83,10 @@ namespace _9230A_V00___PI.Utilidades
             //=====================================================================================================================================================================================
 
             //Leitura pavra de controle indicador de pessagem
-            indicadorPesagem = Move_Bits.ByteToIndicadorPesagem(Comunicacao.Sharp7.S7.GetByteAt(VariaveisGlobais.Buffer_PLC[bufferCLPBalanca].Buffer, 398), indicadorPesagem);
+            indicadorPesagem = Move_Bits.ByteToIndicadorPesagem(Comunicacao.Sharp7.S7.GetByteAt(VariaveisGlobais.Buffer_PLC[bufferCLPBalanca].Buffer, 410), indicadorPesagem);
 
             //Leitura Reais
-            indicadorPesagem.Valor_Atual_Indicador = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferCLPBalanca].Buffer, 386);
+            indicadorPesagem.Valor_Atual_Indicador = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferCLPBalanca].Buffer, 398);
 
         }
 
