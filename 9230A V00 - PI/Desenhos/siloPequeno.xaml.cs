@@ -27,7 +27,6 @@ namespace _9230A_V00___PI.Desenhos
         #region Variables
 
         Utilidades.EquipsControl equip;
-        private bool Nivel_Baixo;
         bool loadedEquip = false;
 
         //================================================================================================================================
@@ -297,26 +296,6 @@ namespace _9230A_V00___PI.Desenhos
 
         }
 
-        public bool Nivel_Baixo_GS
-        {
-            set
-            {
-                Nivel_Baixo = value;
-
-                if (Nivel_Baixo)
-                {
-                    nivelSIlo_Inferior.Fill = Brushes.Red;
-                }
-                else
-                {
-                    nivelSIlo_Inferior.Fill = new SolidColorBrush(Color.FromRgb(0, 200, 0));
-                }
-            }
-            get
-            {
-                return Nivel_Baixo;
-            }
-        }
 
         private void siloPequeno_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {

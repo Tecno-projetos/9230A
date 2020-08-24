@@ -145,11 +145,10 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
                         Utilidades.VariaveisGlobais.ReceitaCadastro.nomeReceita = txtNome.Text.ToString();
                         Utilidades.VariaveisGlobais.ReceitaCadastro.observacao = txtObs.Text.ToString();
 
-                        //Adicionar receita no banco de dados.
-                        DataBase.SqlFunctionsReceitas.AddNewRecipeBD();
+                         int result = DataBase.SqlFunctionsReceitas.AddNewRecipeBD();
 
                         //Se foi criado com sucesso a receita
-                        if (true)
+                        if (result >= 0)
                         {
                             //Limpar Cadastro Receita Global
                             Utilidades.VariaveisGlobais.ReceitaCadastro = new Utilidades.Receita();
@@ -158,6 +157,12 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
 
                             if (this.FinalizadoCadastroReceita != null)
                                 this.FinalizadoCadastroReceita(this, e);
+                        }
+                        else
+                        {
+                            inputDialog = new Utilidades.messageBox("Erro", "Erro ao adicionar receita com o código de erro = " + result, MaterialDesignThemes.Wpf.PackIconKind.Error, "OK", "Fechar");
+
+                            inputDialog.ShowDialog();
                         }
                     }
 

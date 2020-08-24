@@ -54,6 +54,11 @@ namespace _9230A_V00___PI.Equipamentos
 
         bool ticktack = false;
 
+        Storyboard Rosca;
+
+        bool Aux_StoryBoard = true;
+
+
         #endregion
 
         public rosca()
@@ -295,9 +300,31 @@ namespace _9230A_V00___PI.Equipamentos
 
             #endregion
 
+            #region StoryBoard Configuration
+
+            Rosca = (Storyboard)this.Resources["Rosca"];
+            Rosca.Completed += new EventHandler(Rosca_Completed);
+
+
+            Rosca.Stop();
+
+
+            #endregion
 
             this.PreviewMouseLeftButtonUp += rosca_PreviewMouseLeftButtonUp;
 
+        }
+
+        private void Rosca_Completed(object sender, EventArgs e)
+        {
+            if (!Aux_StoryBoard)
+            {
+                Rosca.Begin();
+            }
+            else
+            {
+                Rosca.Stop();
+            }
         }
 
         private void rosca_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -415,6 +442,25 @@ namespace _9230A_V00___PI.Equipamentos
                     LB_M_A.Dispatcher.BeginInvoke((Action)(() => LB_M_A.Content = "M"));
                 }
 
+                #endregion
+
+                #region StoryBoard
+
+                if (equip.Command_Get.Standard.Ligado)
+                {
+                    if (Aux_StoryBoard)
+                    {
+                        Rosca.Dispatcher.BeginInvoke((Action)(() => Rosca.Begin()));
+                        Aux_StoryBoard = false;
+                    }
+                }
+                else
+                {
+                    if (!Aux_StoryBoard)
+                    {
+                        Aux_StoryBoard = true;
+                    }
+                }
                 #endregion
             }
         }

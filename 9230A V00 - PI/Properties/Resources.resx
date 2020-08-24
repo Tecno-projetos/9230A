@@ -178,6 +178,9 @@
   <data name="Rosca" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagens\Rosca.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="roscaPreta" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagens\roscaPreta.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="scalance" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagens\scalance.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

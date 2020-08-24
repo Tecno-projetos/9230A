@@ -207,7 +207,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
            
             
             
-            txtPercentual.Text = Utilidades.functions.percentualProduto(pesoProduto, Utilidades.VariaveisGlobais.ReceitaCadastro.pesoBase).ToString();
+            txtPercentual.Text = Utilidades.functions.percentualProduto(Convert.ToSingle(txtReceber.Text), Utilidades.VariaveisGlobais.ReceitaCadastro.pesoBase).ToString();
 
             //Retira o foco do textbox.
             Keyboard.ClearFocus();
