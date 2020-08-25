@@ -63,7 +63,16 @@ namespace _9230A_V00___PI.Partidas.Controle
 
                 btLigar.Dispatcher.Invoke(delegate { btLigar.IsEnabled = true; });
 
-                btInverte.Dispatcher.Invoke(delegate { btInverte.IsEnabled = true; });
+
+                if (Command.Standard.Ligado || Command.Standard.Ligando || Command.Standard.Manutencao)
+                {
+                    btInverte.Dispatcher.Invoke(delegate { btInverte.IsEnabled = false; });
+                }
+                else
+                {
+                    btInverte.Dispatcher.Invoke(delegate { btInverte.IsEnabled = true; });
+                }
+                
             }
 
             btReset.Dispatcher.Invoke(delegate { btReset.IsEnabled = true; });
