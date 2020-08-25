@@ -176,6 +176,19 @@
             <TextBox x:Name="txtTempoPosMistura" PreviewMouseLeftButtonUp="IntergerPreviewMouseLeftButtonUp"  GotFocus="TB_GotFocus" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" />
         </Grid>
         <materialDesign:PackIcon Kind="Pencil" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="413,321,373,313" BorderBrush="#FF040404"/>
+        <Label Content="Tolerância Mínima na Balança (0 - 10%)" Height="34" Margin="451,373,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="371" Foreground="White" FontWeight="Bold" FontSize="16"/>
+        <Grid Style="{StaticResource EntryFieldStyle}" Margin="451,412,18,222" Height="41" Background="#FF3C3C3C" >
+            <TextBlock Margin="5,0,6,5" Text="Exemplo: 2,0%" Foreground="#FF919191" VerticalAlignment="Bottom" FontSize="14" >
+                <TextBlock.Visibility>
+                    <MultiBinding Converter="{StaticResource TextInputToVisibilityConverter}">
+                        <Binding ElementName="txtTolerancia" Path="Text.IsEmpty" />
+                        <Binding ElementName="txtTolerancia" Path="IsFocused" />
+                    </MultiBinding>
+                </TextBlock.Visibility>
+            </TextBlock>
+            <TextBox x:Name="txtTolerancia"  GotFocus="TB_GotFocus" PreviewMouseLeftButtonUp="txtTolerancia_PreviewMouseLeftButtonUp" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" />
+        </Grid>
+        <materialDesign:PackIcon Kind="Pencil" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="413,412,373,222" BorderBrush="#FF040404"/>
 
 
     </Grid>

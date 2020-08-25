@@ -57,6 +57,7 @@ namespace _9230A_V00___PI.Partidas.Outras_Telas
                     else
                     {
                         e.Row.Background = new SolidColorBrush(Colors.DodgerBlue);
+                        e.Row.Foreground = new SolidColorBrush(Colors.White);
                     }
 
                     if (Event)
