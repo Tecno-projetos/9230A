@@ -199,8 +199,15 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
 
                 if (VariaveisGlobais.executaProducao.ControleExecucao.Slot_2.NumeroBatelada - 1 >= 0)
                 {
-                    PesoProdutoAtual.Content = (Utilidades.VariaveisGlobais.indicadorPesagem.Valor_Atual_Indicador - VariaveisGlobais.ProducaoReceita.batelada[VariaveisGlobais.executaProducao.ControleExecucao.Slot_2.NumeroBatelada - 1].pesoDosado).ToString("N", CultureInfo.GetCultureInfo("pt-BR"));
+                    if (VariaveisGlobais.executaProducao.ControleExecucao.Slot_2.Status_Batelada <= 2)
+                    {
+                        PesoProdutoAtual.Content = (Utilidades.VariaveisGlobais.indicadorPesagem.Valor_Atual_Indicador - VariaveisGlobais.ProducaoReceita.batelada[VariaveisGlobais.executaProducao.ControleExecucao.Slot_2.NumeroBatelada - 1].pesoDosado).ToString("N", CultureInfo.GetCultureInfo("pt-BR"));
 
+                    }
+                    else
+                    {
+                        PesoProdutoAtual.Content = 0;
+                    }
                 }
 
                 TempoRestantePreMistura.Content = Utilidades.VariaveisGlobais.executaProducao.ControleExecucao.Slot_2.TempoRestantePreMistura.ToString("N", CultureInfo.GetCultureInfo("pt-BR"));
@@ -260,7 +267,15 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
                 PesoAtualBalanca.Content = Utilidades.VariaveisGlobais.indicadorPesagem.Valor_Atual_Indicador.ToString("N", CultureInfo.GetCultureInfo("pt-BR"));
                 if (VariaveisGlobais.executaProducao.ControleExecucao.Slot_3.NumeroBatelada - 1 >= 0)
                 {
-                    PesoProdutoAtual.Content = (Utilidades.VariaveisGlobais.indicadorPesagem.Valor_Atual_Indicador - VariaveisGlobais.ProducaoReceita.batelada[VariaveisGlobais.executaProducao.ControleExecucao.Slot_3.NumeroBatelada - 1].pesoDosado).ToString("N", CultureInfo.GetCultureInfo("pt-BR"));
+                    if (VariaveisGlobais.executaProducao.ControleExecucao.Slot_3.Status_Batelada <= 2)
+                    {
+                        PesoProdutoAtual.Content = (Utilidades.VariaveisGlobais.indicadorPesagem.Valor_Atual_Indicador - VariaveisGlobais.ProducaoReceita.batelada[VariaveisGlobais.executaProducao.ControleExecucao.Slot_3.NumeroBatelada - 1].pesoDosado).ToString("N", CultureInfo.GetCultureInfo("pt-BR"));
+
+                    }
+                    else
+                    {
+                        PesoProdutoAtual.Content = 0;
+                    }
 
                 }
 
