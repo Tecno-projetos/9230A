@@ -128,7 +128,15 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
 
                 if (VariaveisGlobais.executaProducao.ControleExecucao.Slot_1.NumeroBatelada - 1 >= 0)
                 {
-                    PesoProdutoAtual.Content = (Utilidades.VariaveisGlobais.indicadorPesagem.Valor_Atual_Indicador - VariaveisGlobais.ProducaoReceita.batelada[VariaveisGlobais.executaProducao.ControleExecucao.Slot_1.NumeroBatelada - 1].pesoDosado).ToString("N", CultureInfo.GetCultureInfo("pt-BR"));
+                    if (VariaveisGlobais.executaProducao.ControleExecucao.Slot_1.Status_Batelada <= 2)
+                    {
+                        PesoProdutoAtual.Content = (Utilidades.VariaveisGlobais.indicadorPesagem.Valor_Atual_Indicador - VariaveisGlobais.ProducaoReceita.batelada[VariaveisGlobais.executaProducao.ControleExecucao.Slot_1.NumeroBatelada - 1].pesoDosado).ToString("N", CultureInfo.GetCultureInfo("pt-BR"));
+
+                    }
+                    else
+                    {
+                        PesoProdutoAtual.Content = 0;
+                    }
 
                 }
 
