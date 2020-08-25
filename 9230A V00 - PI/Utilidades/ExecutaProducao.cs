@@ -57,6 +57,8 @@ namespace _9230A_V00___PI.Utilidades
 
                 Comunicacao.Sharp7.S7.SetIntAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 28, controleExecucao.Slot_1.Complemento_Pre.Quantidade_Itens); //Escreve no Buffer Quantidade de itens dosagem manual matéria prima
 
+                Comunicacao.Sharp7.S7.SetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 36, controleExecucao.Slot_1.Complemento_Pre.Quantidade_Total_Desejada);
+
                 Comunicacao.Sharp7.S7.SetByteAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 40, Move_Bits.ComplementoToByteBatelada(controleExecucao.Slot_1.Complemento_Pre));
 
                 Comunicacao.Sharp7.S7.SetIntAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 42, controleExecucao.Slot_1.Complemento_Pos.Quantidade_Itens); //Escreve no Buffer Quantidade de itens dosagem manual pós mistura
@@ -82,6 +84,8 @@ namespace _9230A_V00___PI.Utilidades
 
                 Comunicacao.Sharp7.S7.SetIntAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 114, controleExecucao.Slot_2.Complemento_Pre.Quantidade_Itens); //Escreve no Buffer Quantidade de itens dosagem manual matéria prima
 
+                Comunicacao.Sharp7.S7.SetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 122, controleExecucao.Slot_2.Complemento_Pre.Quantidade_Total_Desejada);
+
                 Comunicacao.Sharp7.S7.SetByteAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 126, Move_Bits.ComplementoToByteBatelada(controleExecucao.Slot_2.Complemento_Pre));
 
                 Comunicacao.Sharp7.S7.SetIntAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 128, controleExecucao.Slot_2.Complemento_Pos.Quantidade_Itens); //Escreve no Buffer Quantidade de itens dosagem manual pós mistura
@@ -106,6 +110,8 @@ namespace _9230A_V00___PI.Utilidades
                 Comunicacao.Sharp7.S7.SetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 188, controleExecucao.Slot_3.Dosagem_Materia_Prima_Silo_2); //Escreve no Buffer Dosagem Matéria Prima automática Silo 2
             
                 Comunicacao.Sharp7.S7.SetIntAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 200, controleExecucao.Slot_3.Complemento_Pre.Quantidade_Itens); //Escreve no Buffer Quantidade de itens dosagem manual matéria prima
+
+                Comunicacao.Sharp7.S7.SetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 208, controleExecucao.Slot_3.Complemento_Pre.Quantidade_Total_Desejada);
 
                 Comunicacao.Sharp7.S7.SetByteAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 212, Move_Bits.ComplementoToByteBatelada(controleExecucao.Slot_3.Complemento_Pre));
 
@@ -141,14 +147,14 @@ namespace _9230A_V00___PI.Utilidades
                 controleExecucao.Slot_1.Complemento_Pre.Quantidade_Itens = Comunicacao.Sharp7.S7.GetIntAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 28);
                 controleExecucao.Slot_1.Complemento_Pre.Item_Atual = Comunicacao.Sharp7.S7.GetIntAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 30);
                 controleExecucao.Slot_1.Complemento_Pre.Quantidade_Dosada_Item_Atual = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 32);
-                controleExecucao.Slot_1.Complemento_Pre.Quantidade_Dosada_Total = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 36);
+                controleExecucao.Slot_1.Complemento_Pre.Quantidade_Total_Desejada = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 36);
                 controleExecucao.Slot_1.Complemento_Pre = Move_Bits.ByteToComplementoBatelada(Comunicacao.Sharp7.S7.GetByteAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 40), controleExecucao.Slot_1.Complemento_Pre);
 
                 //Complemento Pós
                 controleExecucao.Slot_1.Complemento_Pos.Quantidade_Itens = Comunicacao.Sharp7.S7.GetIntAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 42);
                 controleExecucao.Slot_1.Complemento_Pos.Item_Atual = Comunicacao.Sharp7.S7.GetIntAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 44);
                 controleExecucao.Slot_1.Complemento_Pos.Quantidade_Dosada_Item_Atual = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 46);
-                controleExecucao.Slot_1.Complemento_Pos.Quantidade_Dosada_Total = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 50);
+                controleExecucao.Slot_1.Complemento_Pos.Quantidade_Total_Desejada = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 50);
                 controleExecucao.Slot_1.Complemento_Pos = Move_Bits.ByteToComplementoBatelada(Comunicacao.Sharp7.S7.GetByteAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 54), controleExecucao.Slot_1.Complemento_Pos);
 
                 controleExecucao.Slot_1.TempoAtualDesdeIniciado = Comunicacao.Sharp7.S7.GetDIntAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 56);
@@ -178,14 +184,14 @@ namespace _9230A_V00___PI.Utilidades
                 controleExecucao.Slot_2.Complemento_Pre.Quantidade_Itens = Comunicacao.Sharp7.S7.GetIntAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 114);
                 controleExecucao.Slot_2.Complemento_Pre.Item_Atual = Comunicacao.Sharp7.S7.GetIntAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 116);
                 controleExecucao.Slot_2.Complemento_Pre.Quantidade_Dosada_Item_Atual = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 118);
-                controleExecucao.Slot_2.Complemento_Pre.Quantidade_Dosada_Total = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 122);
+                controleExecucao.Slot_2.Complemento_Pre.Quantidade_Total_Desejada = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 122);
                 controleExecucao.Slot_2.Complemento_Pre = Move_Bits.ByteToComplementoBatelada(Comunicacao.Sharp7.S7.GetByteAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 126), controleExecucao.Slot_2.Complemento_Pre);
 
                 //Complemento Pós
                 controleExecucao.Slot_2.Complemento_Pos.Quantidade_Itens = Comunicacao.Sharp7.S7.GetIntAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 128);
                 controleExecucao.Slot_2.Complemento_Pos.Item_Atual = Comunicacao.Sharp7.S7.GetIntAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 130);
                 controleExecucao.Slot_2.Complemento_Pos.Quantidade_Dosada_Item_Atual = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 132);
-                controleExecucao.Slot_2.Complemento_Pos.Quantidade_Dosada_Total = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 136);
+                controleExecucao.Slot_2.Complemento_Pos.Quantidade_Total_Desejada = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 136);
                 controleExecucao.Slot_2.Complemento_Pos = Move_Bits.ByteToComplementoBatelada(Comunicacao.Sharp7.S7.GetByteAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 140), controleExecucao.Slot_2.Complemento_Pos);
 
                 controleExecucao.Slot_2.TempoAtualDesdeIniciado = Comunicacao.Sharp7.S7.GetDIntAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 142);
@@ -215,14 +221,14 @@ namespace _9230A_V00___PI.Utilidades
                 controleExecucao.Slot_3.Complemento_Pre.Quantidade_Itens = Comunicacao.Sharp7.S7.GetIntAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 200);
                 controleExecucao.Slot_3.Complemento_Pre.Item_Atual = Comunicacao.Sharp7.S7.GetIntAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 202);
                 controleExecucao.Slot_3.Complemento_Pre.Quantidade_Dosada_Item_Atual = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 204);
-                controleExecucao.Slot_3.Complemento_Pre.Quantidade_Dosada_Total = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 208);
+                controleExecucao.Slot_3.Complemento_Pre.Quantidade_Total_Desejada = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 208);
                 controleExecucao.Slot_3.Complemento_Pre = Move_Bits.ByteToComplementoBatelada(Comunicacao.Sharp7.S7.GetByteAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 212), controleExecucao.Slot_3.Complemento_Pre);
 
                 //Complemento Pós
                 controleExecucao.Slot_3.Complemento_Pos.Quantidade_Itens = Comunicacao.Sharp7.S7.GetIntAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 214);
                 controleExecucao.Slot_3.Complemento_Pos.Item_Atual = Comunicacao.Sharp7.S7.GetIntAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 216);
                 controleExecucao.Slot_3.Complemento_Pos.Quantidade_Dosada_Item_Atual = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 218);
-                controleExecucao.Slot_3.Complemento_Pos.Quantidade_Dosada_Total = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 222);
+                controleExecucao.Slot_3.Complemento_Pos.Quantidade_Total_Desejada = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 222);
                 controleExecucao.Slot_3.Complemento_Pos = Move_Bits.ByteToComplementoBatelada(Comunicacao.Sharp7.S7.GetByteAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 226), controleExecucao.Slot_3.Complemento_Pos);
 
                 controleExecucao.Slot_3.TempoAtualDesdeIniciado = Comunicacao.Sharp7.S7.GetDIntAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 228);
@@ -253,6 +259,7 @@ namespace _9230A_V00___PI.Utilidades
 
             float pesoBatelada = 0;
             short count = 0;
+            float pesoComplementosPre = 0;
 
             #region SLOT 1
 
@@ -291,6 +298,7 @@ namespace _9230A_V00___PI.Utilidades
 
                 //Realiza a pesquisa conforme especificações acima.
                 count = 0;
+                pesoComplementosPre = 0;
                 foreach (var item in VariaveisGlobais.ProducaoReceita.batelada[numeroBatelada].produtos)
                 {
                     if (!item.codigo.Equals(VariaveisGlobais.ProducaoReceita.CodigoProdutoDosagemAutomaticaSilo1) &&
@@ -299,10 +307,12 @@ namespace _9230A_V00___PI.Utilidades
                         )
                     {
                         count += 1;
+                        pesoComplementosPre += item.pesoDesejado;
                     }
                 }
 
                 controleExecucao.Slot_1.Complemento_Pre.Quantidade_Itens = count; //Passa quantidade de itens para dosar manualmente na balança, 
+                controleExecucao.Slot_1.Complemento_Pre.Quantidade_Total_Desejada = pesoComplementosPre; //Passa a quantidade total desejada dos complementos pré
 
                 count = 0;
                 //Envia a quantidade de itens a ser dosado manualmente no Pós misturador (Considerado dosagem de complemento no pós misturador)

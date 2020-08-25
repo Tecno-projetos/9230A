@@ -246,7 +246,7 @@ namespace _9230A_V00___PI.Utilidades
             public short Quantidade_Itens;                          //Qtd itens dosagem Manual
             public short Item_Atual;                                //Item atual
             public float Quantidade_Dosada_Item_Atual;              //Qtd dosada item Atual
-            public float Quantidade_Dosada_Total;                   //Qtd dosada total
+            public float Quantidade_Total_Desejada;                 //Qtd total desejada
             public bool Habilitado_Inicio_Dosagem;                  //Habilita Iniciar a dosagem
             public bool Botao_Inicio_Fim_Dosagem_IHM;               //BT Inicia ou finaliza Dosagem
             public bool Item_Atual_Iniciado_Dosagem;                //Iniciado Dosagem item atual
