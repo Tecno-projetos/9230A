@@ -826,7 +826,7 @@
                 </TransformGroup>
             </Rectangle.RenderTransform>
         </Rectangle>
-        <Equipamentos:rosca x:Name="Motor_43" HorizontalAlignment="Left" Height="16" Margin="472,466,0,0" VerticalAlignment="Top" Width="71" RenderTransformOrigin="0.5,0.5">
+        <Equipamentos:rosca x:Name="Motor_43" HorizontalAlignment="Left" Height="16" Margin="475,466,0,0" VerticalAlignment="Top" Width="77" RenderTransformOrigin="0.5,0.5">
             <Equipamentos:rosca.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="1.8" ScaleY="1.8"/>
@@ -846,7 +846,6 @@
                 </TransformGroup>
             </TextBlock.RenderTransform>
         </TextBlock>
-        <Button Content="Button" HorizontalAlignment="Left" Height="23" Margin="670,560,0,0" VerticalAlignment="Top" Width="68" Click="Button_Click"/>
 
     </Grid>
 </UserControl>

@@ -190,6 +190,9 @@ namespace _9230A_V00___PI.DataBase
 
                 //Limpa Historio de Alarmes
                 DataBase.SqlGlobalFuctions.AutoDelete("EquipAlarmEvent", Utilidades.VariaveisGlobais.Connection_DB_Equip_GS, meses);
+
+                //Limpa dicionario de Logs
+                DataBase.SqlGlobalFuctions.deleteLogs(meses);
             }
             catch (Exception ex)
             {
@@ -198,6 +201,36 @@ namespace _9230A_V00___PI.DataBase
             }
         }
 
+        /// <summary>
+        /// Deleta os arquicos da pasta Logs apartir de um tempo selecionado
+        /// </summary>
+        /// <param name="meses">Meses * 30 = Apaga arquivos maiores ou igual a essa data</param>
+        public static void deleteLogs(int meses) 
+        {
+            try
+            {
+                meses = meses * 30;
+
+                DirectoryInfo d = new DirectoryInfo(@"C:\Logs");
+
+                foreach (FileInfo item in d.GetFiles())
+                {
+                    Console.WriteLine(item.Name);
+                    //Pega a diferença(tempo) entre a ultima data de escrita e hoje
+                    TimeSpan t = DateTime.Now.Subtract(item.LastWriteTime);
+                    //Diferença em dias
+                    Console.WriteLine(t.Days);
+                    // Se ultima vez que o arq foi escrito for maior q 10 dias, deleta o arq
+                    if (t.Days >= meses)
+                        item.Delete();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                Utilidades.VariaveisGlobais.Window_Buffer_Diagnostic.List_Error = ex.ToString();
+            }
+        }
         #endregion
 
         #region Create and Exist DB SQLExpress or SQLCe

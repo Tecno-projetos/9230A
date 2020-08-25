@@ -62,14 +62,7 @@ namespace _9230A_V00___PI.TelasAuxiliares
                     if (!(Error.Contains("OK")))
                     {
                         Count += 1;
-                        listBox.Dispatcher.Invoke(delegate { listBox.Items.Add(Error + Count); });
-
-
-                        if (Count > 1000)
-                        {
-                            listBox.Dispatcher.Invoke(delegate { listBox.Items.Clear(); });
-                            Count = 0;
-                        }
+                        listBox.Dispatcher.Invoke(delegate { listBox.Items.Add(Error + Countlog); });
 
                         StreamWriter w;
 
@@ -85,7 +78,13 @@ namespace _9230A_V00___PI.TelasAuxiliares
                 {
                     this.List_Error = "Erro na escrita do log" + ex.ToString();
                 }
-                           
+
+                if (Count > 1000)
+                {
+                    listBox.Dispatcher.Invoke(delegate { listBox.Items.Clear(); });
+                    Count = 0;
+                }
+
             }
         }
 

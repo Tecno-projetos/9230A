@@ -3,6 +3,7 @@ using Microsoft.Expression.Shapes;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -148,16 +149,5 @@ namespace _9230A_V00___PI.Telas_Fluxo
             return arc;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-            //Leitura Reais
-           float a = Convert.ToSingle(Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[4].Buffer, 60), CultureInfo.GetCultureInfo("pt-BR"));
-          
-
-
-
-            DataBase.SqlFunctionsEnsaques.IntoDate_Table_Ensaques(1, a, "");
-        }
     }
 }

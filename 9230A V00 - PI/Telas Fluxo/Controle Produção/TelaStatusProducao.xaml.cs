@@ -25,6 +25,8 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
     {
         int slotSolicitado = 0;
 
+        Utilidades.messageBox inputDialog;
+
         public int SlotSolicitado { get => slotSolicitado; set => slotSolicitado = value; }
 
         public TelaStatusProducao()
@@ -92,6 +94,8 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             atualizaStatusSlots();
+
+            atualizaButtonDosagem();
         }
 
         private void btSlot1_Click(object sender, RoutedEventArgs e)
@@ -173,6 +177,8 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
                         txtDosarManual.Text = "Dosagem Manual";
                     }
                 }
+
+                atualizaButtonDosagem();
 
             }
             else if (SlotSolicitado == 2)
@@ -296,7 +302,6 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
                 }
             }
         }
-
 
         private void DataGrid_Produtos_LoadingRow(object sender, DataGridRowEventArgs e)
         {
@@ -422,10 +427,59 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
                 }
             }
         }
-
+       
         public void atualizaTela()
         {
             atualizaStatusSlots();
+
+            atualizaButtonDosagem();
+        }
+
+        private void atualizaButtonDosagem() 
+        {
+
+            if (Utilidades.VariaveisGlobais.auxiliaresProcesso.Habilita_Finalizar_Dosagem_E_Iniciar_Transporte)
+            {
+                btFinalizar.Background = new SolidColorBrush(Color.FromRgb(70, 255, 0));
+                txtFinalizar.Foreground = new SolidColorBrush(Colors.Black);
+            }
+            else
+            {
+                btFinalizar.Background = new SolidColorBrush(Color.FromRgb(80, 80, 80));
+                txtFinalizar.Foreground = new SolidColorBrush(Colors.White);
+
+            }
+
+            btFinalizar.IsEnabled = Utilidades.VariaveisGlobais.auxiliaresProcesso.Habilita_Finalizar_Dosagem_E_Iniciar_Transporte;
+        }
+
+        Utilidades.VariaveisGlobais.AuxiliaresProcesso dummyAuxiliaresProcesso = new Utilidades.VariaveisGlobais.AuxiliaresProcesso();
+
+        private void btFinalizar_Click(object sender, RoutedEventArgs e)
+        {
+
+            inputDialog = new messageBox("Finalizar Dosagem", "Deseja finalizar a dosagem e Iniciar o transporte", MaterialDesignThemes.Wpf.PackIconKind.QuestionAnswer, "Sim", "Não");
+
+            if (inputDialog.ShowDialog()==true)
+            {
+                VariaveisGlobais.Buffer_PLC[4].Enable_Read = false;
+
+                dummyAuxiliaresProcesso = Utilidades.VariaveisGlobais.auxiliaresProcesso;
+
+
+                dummyAuxiliaresProcesso.Seta_Finalizar_Dosagem_E_Inicia_Transporte = true;
+                Utilidades.VariaveisGlobais.auxiliaresProcesso = dummyAuxiliaresProcesso;
+
+
+                Comunicacao.Sharp7.S7.SetDWordAt(VariaveisGlobais.Buffer_PLC[4].Buffer, 56, Move_Bits.AuxiliaresProcessoToDword(Utilidades.VariaveisGlobais.auxiliaresProcesso)); //Atualiza os Bits do command
+
+                VariaveisGlobais.Buffer_PLC[4].Enable_Write = true;
+
+                atualizaButtonDosagem();
+
+
+            }
+
         }
     }
 }
