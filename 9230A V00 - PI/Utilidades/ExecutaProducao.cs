@@ -260,7 +260,8 @@ namespace _9230A_V00___PI.Utilidades
             float pesoBatelada = 0;
             short count = 0;
             float pesoComplementosPre = 0;
-
+            int indexSilo1 = -1;
+            int indexSilo2 = -1;
             #region SLOT 1
 
             if (slot == 1)
@@ -283,8 +284,8 @@ namespace _9230A_V00___PI.Utilidades
 
 
                 //Verifica se a primeira dosagem automática será feita pelo silo 2
-                var indexSilo1 = VariaveisGlobais.ProducaoReceita.CodigoProdutoDosagemAutomaticaSilo1.Equals("") ? -1 : (VariaveisGlobais.ProducaoReceita.batelada[numeroBatelada].produtos.FindIndex(x => x.codigo == VariaveisGlobais.ProducaoReceita.CodigoProdutoDosagemAutomaticaSilo1));
-                var indexSilo2 = VariaveisGlobais.ProducaoReceita.CodigoProdutoDosagemAutomaticaSilo2.Equals("") ? -1 : (VariaveisGlobais.ProducaoReceita.batelada[numeroBatelada].produtos.FindIndex(x => x.codigo == VariaveisGlobais.ProducaoReceita.CodigoProdutoDosagemAutomaticaSilo2));
+                indexSilo1 = VariaveisGlobais.ProducaoReceita.CodigoProdutoDosagemAutomaticaSilo1.Equals("") ? -1 : (VariaveisGlobais.ProducaoReceita.batelada[numeroBatelada].produtos.FindIndex(x => x.codigo == VariaveisGlobais.ProducaoReceita.CodigoProdutoDosagemAutomaticaSilo1));
+                indexSilo2 = VariaveisGlobais.ProducaoReceita.CodigoProdutoDosagemAutomaticaSilo2.Equals("") ? -1 : (VariaveisGlobais.ProducaoReceita.batelada[numeroBatelada].produtos.FindIndex(x => x.codigo == VariaveisGlobais.ProducaoReceita.CodigoProdutoDosagemAutomaticaSilo2));
 
                 if (indexSilo2 < indexSilo1)
                 {
@@ -354,6 +355,14 @@ namespace _9230A_V00___PI.Utilidades
                 controleExecucao.Slot_2.Dosagem_Materia_Prima_Silo_1 = VariaveisGlobais.ProducaoReceita.CodigoProdutoDosagemAutomaticaSilo1.Equals("") ? 0 : (VariaveisGlobais.ProducaoReceita.batelada[numeroBatelada].produtos.Find(x => x.codigo == VariaveisGlobais.ProducaoReceita.CodigoProdutoDosagemAutomaticaSilo1)).pesoDesejado;
                 controleExecucao.Slot_2.Dosagem_Materia_Prima_Silo_2 = VariaveisGlobais.ProducaoReceita.CodigoProdutoDosagemAutomaticaSilo2.Equals("") ? 0 : (VariaveisGlobais.ProducaoReceita.batelada[numeroBatelada].produtos.Find(x => x.codigo == VariaveisGlobais.ProducaoReceita.CodigoProdutoDosagemAutomaticaSilo2)).pesoDesejado;
 
+                //Verifica se a primeira dosagem automática será feita pelo silo 2
+                indexSilo1 = VariaveisGlobais.ProducaoReceita.CodigoProdutoDosagemAutomaticaSilo1.Equals("") ? -1 : (VariaveisGlobais.ProducaoReceita.batelada[numeroBatelada].produtos.FindIndex(x => x.codigo == VariaveisGlobais.ProducaoReceita.CodigoProdutoDosagemAutomaticaSilo1));
+                indexSilo2 = VariaveisGlobais.ProducaoReceita.CodigoProdutoDosagemAutomaticaSilo2.Equals("") ? -1 : (VariaveisGlobais.ProducaoReceita.batelada[numeroBatelada].produtos.FindIndex(x => x.codigo == VariaveisGlobais.ProducaoReceita.CodigoProdutoDosagemAutomaticaSilo2));
+
+                if (indexSilo2 < indexSilo1)
+                {
+                    controleExecucao.Slot_2.Dosar_Primeiro_Silo_2 = true;
+                }
 
                 //Envia a quantidade de itens a ser dosado manualmente na balança (Considerado dosagem de matéria prima manual ou dosagem de complemento pré)
                 //Todos os produtos que tem as especificações abaixo:
@@ -415,6 +424,15 @@ namespace _9230A_V00___PI.Utilidades
                 controleExecucao.Slot_3.Dosagem_Materia_Prima_Silo_1 = VariaveisGlobais.ProducaoReceita.CodigoProdutoDosagemAutomaticaSilo1.Equals("") ? 0 : (VariaveisGlobais.ProducaoReceita.batelada[numeroBatelada].produtos.Find(x => x.codigo == VariaveisGlobais.ProducaoReceita.CodigoProdutoDosagemAutomaticaSilo1)).pesoDesejado;
                 controleExecucao.Slot_3.Dosagem_Materia_Prima_Silo_2 = VariaveisGlobais.ProducaoReceita.CodigoProdutoDosagemAutomaticaSilo2.Equals("") ? 0 : (VariaveisGlobais.ProducaoReceita.batelada[numeroBatelada].produtos.Find(x => x.codigo == VariaveisGlobais.ProducaoReceita.CodigoProdutoDosagemAutomaticaSilo2)).pesoDesejado;
 
+
+                //Verifica se a primeira dosagem automática será feita pelo silo 2
+                indexSilo1 = VariaveisGlobais.ProducaoReceita.CodigoProdutoDosagemAutomaticaSilo1.Equals("") ? -1 : (VariaveisGlobais.ProducaoReceita.batelada[numeroBatelada].produtos.FindIndex(x => x.codigo == VariaveisGlobais.ProducaoReceita.CodigoProdutoDosagemAutomaticaSilo1));
+                indexSilo2 = VariaveisGlobais.ProducaoReceita.CodigoProdutoDosagemAutomaticaSilo2.Equals("") ? -1 : (VariaveisGlobais.ProducaoReceita.batelada[numeroBatelada].produtos.FindIndex(x => x.codigo == VariaveisGlobais.ProducaoReceita.CodigoProdutoDosagemAutomaticaSilo2));
+
+                if (indexSilo2 < indexSilo1)
+                {
+                    controleExecucao.Slot_3.Dosar_Primeiro_Silo_2 = true;
+                }
 
                 //Envia a quantidade de itens a ser dosado manualmente na balança (Considerado dosagem de matéria prima manual ou dosagem de complemento pré)
                 //Todos os produtos que tem as especificações abaixo:
