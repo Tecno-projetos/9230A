@@ -148,47 +148,19 @@ namespace _9230A_V00___PI.Equipamentos
                 else if (equip.Command_Get.Standard.Manutencao)
                 {
                     rec1.Dispatcher.BeginInvoke((Action)(() => rec1.Fill = AZ));
-      
+
                 }
                 else if (!equip.Command_Get.Standard.Liberado)
                 {
                     rec1.Dispatcher.BeginInvoke((Action)(() => rec1.Fill = AM));
 
                 }
-                //ligado em manual
-                else if (equip.Command_Get.Standard.Liga_Manual && equip.Command_Get.AtuadorA.PosicaoAtual > 1 && equip.Command_Get.Standard.Manual)
+                //Reposicionano=do
+                else if (equip.Command_Get.Standard.Reposicionando)
                 {
                     if (ticktack)
                     {
-                        rec1.Dispatcher.BeginInvoke((Action)(() => rec1.Fill = VD));
-   
-                    }
-                    else
-                    {
-                        rec1.Dispatcher.BeginInvoke((Action)(() => rec1.Fill = VD));
-
-                    }
-                }
-                //ligado em automatico
-                else if (equip.Command_Get.AtuadorA.PosicaoAtual > 1 && equip.Command_Get.Standard.Automatico)
-                {
-                    if (ticktack)
-                    {
-                        rec1.Dispatcher.BeginInvoke((Action)(() => rec1.Fill = VD));
-
-                    }
-                    else
-                    {
-                        rec1.Dispatcher.BeginInvoke((Action)(() => rec1.Fill = VD));
-
-                    }
-                }
-                //desligando em manual
-                else if (!equip.Command_Get.Standard.Liga_Manual && equip.Command_Get.AtuadorA.PosicaoAtual > 1 && equip.Command_Get.Standard.Manual)
-                {
-                    if (ticktack)
-                    {
-                        rec1.Dispatcher.BeginInvoke((Action)(() => rec1.Fill = VD));
+                        rec1.Dispatcher.BeginInvoke((Action)(() => rec1.Fill = AM));
 
                     }
                     else
@@ -197,6 +169,36 @@ namespace _9230A_V00___PI.Equipamentos
 
                     }
                 }
+                //ligado em manual
+                else if (equip.Command_Get.Standard.Liga_Manual && equip.Command_Get.AtuadorA.PosicaoAtual > 1 && equip.Command_Get.Standard.Manual)
+                {
+                    if (ticktack)
+                    {
+                        rec1.Dispatcher.BeginInvoke((Action)(() => rec1.Fill = VD));
+
+                    }
+                    else
+                    {
+                        rec1.Dispatcher.BeginInvoke((Action)(() => rec1.Fill = VD));
+
+                    }
+                }
+                //ligado em automatico
+                else if (equip.Command_Get.AtuadorA.PosicaoAtual > 1 && equip.Command_Get.Standard.AcionandoAutomatico)
+                {
+                    if (ticktack)
+                    {
+                        rec1.Dispatcher.BeginInvoke((Action)(() => rec1.Fill = VD));
+
+                    }
+                    else
+                    {
+                        rec1.Dispatcher.BeginInvoke((Action)(() => rec1.Fill = VD));
+
+                    }
+                }
+
+
                 else
                 {
 
