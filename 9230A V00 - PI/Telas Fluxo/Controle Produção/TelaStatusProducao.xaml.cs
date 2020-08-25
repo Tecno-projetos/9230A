@@ -159,7 +159,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
                 else
                 {
                     if (VariaveisGlobais.executaProducao.ControleExecucao.Slot_1.Complemento_Pre.Habilitado_Inicio_Dosagem ||
-                        VariaveisGlobais.executaProducao.ControleExecucao.Slot_1.Complemento_Pos.Habilitado_Inicio_Dosagem
+                        VariaveisGlobais.executaProducao.ControleExecucao.Slot_1.Complemento_Pos.Habilitado_Inicio_Dosagem && !VariaveisGlobais.executaProducao.ControleExecucao.Slot_1.Complemento_Pos.Finalizado_Dosagem_Complementos
                         )
                     {
                         btDosarManual.Background = new SolidColorBrush(Colors.Yellow);
@@ -219,7 +219,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
                 else
                 {
                     if (VariaveisGlobais.executaProducao.ControleExecucao.Slot_2.Complemento_Pre.Habilitado_Inicio_Dosagem ||
-                        VariaveisGlobais.executaProducao.ControleExecucao.Slot_2.Complemento_Pos.Habilitado_Inicio_Dosagem
+                        VariaveisGlobais.executaProducao.ControleExecucao.Slot_2.Complemento_Pos.Habilitado_Inicio_Dosagem && !VariaveisGlobais.executaProducao.ControleExecucao.Slot_2.Complemento_Pos.Finalizado_Dosagem_Complementos
                         )
                     {
                         btDosarManual.Background = new SolidColorBrush(Colors.Yellow);
@@ -280,7 +280,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
                 else
                 {
                     if (VariaveisGlobais.executaProducao.ControleExecucao.Slot_3.Complemento_Pre.Habilitado_Inicio_Dosagem ||
-                        VariaveisGlobais.executaProducao.ControleExecucao.Slot_3.Complemento_Pos.Habilitado_Inicio_Dosagem
+                        VariaveisGlobais.executaProducao.ControleExecucao.Slot_3.Complemento_Pos.Habilitado_Inicio_Dosagem && !VariaveisGlobais.executaProducao.ControleExecucao.Slot_3.Complemento_Pos.Finalizado_Dosagem_Complementos
                         )
                     {
                         btDosarManual.Background = new SolidColorBrush(Colors.Yellow);
@@ -309,7 +309,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
                 if (IndexAtual == VariaveisGlobais.executaProducao.ControleExecucao.Slot_1.Produto_Atual_Em_Producao)
                 {
                     if (VariaveisGlobais.executaProducao.ControleExecucao.Slot_1.Complemento_Pre.Habilitado_Inicio_Dosagem ||
-                        VariaveisGlobais.executaProducao.ControleExecucao.Slot_1.Complemento_Pos.Habilitado_Inicio_Dosagem
+                        VariaveisGlobais.executaProducao.ControleExecucao.Slot_1.Complemento_Pos.Habilitado_Inicio_Dosagem && !VariaveisGlobais.executaProducao.ControleExecucao.Slot_1.Complemento_Pos.Finalizado_Dosagem_Complementos
                         )
                     {
                         e.Row.Background = new SolidColorBrush(Colors.Yellow);
@@ -329,7 +329,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
                 if (IndexAtual == VariaveisGlobais.executaProducao.ControleExecucao.Slot_2.Produto_Atual_Em_Producao)
                 {
                     if (VariaveisGlobais.executaProducao.ControleExecucao.Slot_2.Complemento_Pre.Habilitado_Inicio_Dosagem ||
-                        VariaveisGlobais.executaProducao.ControleExecucao.Slot_2.Complemento_Pos.Habilitado_Inicio_Dosagem
+                        VariaveisGlobais.executaProducao.ControleExecucao.Slot_2.Complemento_Pos.Habilitado_Inicio_Dosagem && !VariaveisGlobais.executaProducao.ControleExecucao.Slot_2.Complemento_Pos.Finalizado_Dosagem_Complementos
                         )
                     {
                         e.Row.Background = new SolidColorBrush(Colors.Yellow);
@@ -349,7 +349,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
                 if (IndexAtual == VariaveisGlobais.executaProducao.ControleExecucao.Slot_3.Produto_Atual_Em_Producao)
                 {
                     if (VariaveisGlobais.executaProducao.ControleExecucao.Slot_3.Complemento_Pre.Habilitado_Inicio_Dosagem ||
-                        VariaveisGlobais.executaProducao.ControleExecucao.Slot_3.Complemento_Pos.Habilitado_Inicio_Dosagem
+                        VariaveisGlobais.executaProducao.ControleExecucao.Slot_3.Complemento_Pos.Habilitado_Inicio_Dosagem && !VariaveisGlobais.executaProducao.ControleExecucao.Slot_3.Complemento_Pos.Finalizado_Dosagem_Complementos
                         )
                     {
                         e.Row.Background = new SolidColorBrush(Colors.Yellow);
@@ -374,14 +374,14 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
                 //SLOT 1 PRÉ
                 if (VariaveisGlobais.executaProducao.ControleExecucao.Slot_1.Complemento_Pre.Habilitado_Inicio_Dosagem ||
                     (VariaveisGlobais.executaProducao.ControleExecucao.Slot_1.Complemento_Pre.Item_Atual_Iniciado_Dosagem && !VariaveisGlobais.executaProducao.ControleExecucao.Slot_1.Complemento_Pre.Item_Atual_Finalizado_Dosagem)
-                    )
+                    ) 
                 {
                     VariaveisGlobais.executaProducao.InicioDosagemManualComplementoPre(SlotSolicitado);
                 }
                 //SLOT 1 POS
-                if (VariaveisGlobais.executaProducao.ControleExecucao.Slot_1.Complemento_Pos.Habilitado_Inicio_Dosagem ||
+                if ((VariaveisGlobais.executaProducao.ControleExecucao.Slot_1.Complemento_Pos.Habilitado_Inicio_Dosagem ||
                     (VariaveisGlobais.executaProducao.ControleExecucao.Slot_1.Complemento_Pos.Item_Atual_Iniciado_Dosagem && !VariaveisGlobais.executaProducao.ControleExecucao.Slot_1.Complemento_Pos.Item_Atual_Finalizado_Dosagem)
-                    )
+                    ) && !VariaveisGlobais.executaProducao.ControleExecucao.Slot_1.Complemento_Pos.Finalizado_Dosagem_Complementos)
                 {
                     VariaveisGlobais.executaProducao.InicioDosagemManualComplementoPos(SlotSolicitado);
                 }
@@ -397,9 +397,9 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
                 }
 
                 //SLOT 2 PÓS
-                if (VariaveisGlobais.executaProducao.ControleExecucao.Slot_2.Complemento_Pos.Habilitado_Inicio_Dosagem ||
+                if ((VariaveisGlobais.executaProducao.ControleExecucao.Slot_2.Complemento_Pos.Habilitado_Inicio_Dosagem ||
                     (VariaveisGlobais.executaProducao.ControleExecucao.Slot_2.Complemento_Pos.Item_Atual_Iniciado_Dosagem && !VariaveisGlobais.executaProducao.ControleExecucao.Slot_2.Complemento_Pos.Item_Atual_Finalizado_Dosagem)
-                    )
+                    ) && !VariaveisGlobais.executaProducao.ControleExecucao.Slot_2.Complemento_Pos.Finalizado_Dosagem_Complementos)
                 {
                     VariaveisGlobais.executaProducao.InicioDosagemManualComplementoPos(SlotSolicitado);
                 }
@@ -414,9 +414,9 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
                     VariaveisGlobais.executaProducao.InicioDosagemManualComplementoPre(SlotSolicitado);
                 }
                 //SLOT 3 PÓS
-                if (VariaveisGlobais.executaProducao.ControleExecucao.Slot_3.Complemento_Pos.Habilitado_Inicio_Dosagem ||
+                if ((VariaveisGlobais.executaProducao.ControleExecucao.Slot_3.Complemento_Pos.Habilitado_Inicio_Dosagem ||
                     (VariaveisGlobais.executaProducao.ControleExecucao.Slot_3.Complemento_Pos.Item_Atual_Iniciado_Dosagem && !VariaveisGlobais.executaProducao.ControleExecucao.Slot_3.Complemento_Pos.Item_Atual_Finalizado_Dosagem)
-                    )
+                    ) && !VariaveisGlobais.executaProducao.ControleExecucao.Slot_3.Complemento_Pos.Finalizado_Dosagem_Complementos)
                 {
                     VariaveisGlobais.executaProducao.InicioDosagemManualComplementoPos(SlotSolicitado);
                 }

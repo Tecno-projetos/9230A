@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -383,7 +384,9 @@ namespace _9230A_V00___PI.DataBase
             {
                 try
                 {
-                    string CommandString = "UPDATE Bateladas SET ValorDosado = '" + valorDosado + "' WHERE IdProducao = " + idProducao + " AND " +
+                    string valDosado = valorDosado.ToString(CultureInfo.GetCultureInfo("en-US"));
+
+                    string CommandString = "UPDATE Bateladas SET ValorDosado = '" + valDosado + "' WHERE IdProducao = " + idProducao + " AND " +
                         "CodigoProduto = "+codigoProduto+" AND " +
                         "NumeroBatelada = "+numeroBatelada+";";
 
@@ -416,12 +419,13 @@ namespace _9230A_V00___PI.DataBase
             {
                 try
                 {
+                    string pesoTotalProd = pesoTotalProduzido.ToString(CultureInfo.GetCultureInfo("en-US"));
                     dynamic DTnow = new DateTime();
                     DTnow = DateTime.Now;
 
                     DTnow = DTnow.ToString("yyyyMMdd") + " " + DateTime.Now.Hour + ":" + DateTime.Now.Minute;
 
-                    string CommandString = "UPDATE Producao SET FinalizouProducao = 'true', DataFimProducao = '"+ DTnow + "', PesoTotalProduzido = '"+ pesoTotalProduzido + "', VolumeTotalProduzido = '"+ volumeTotalProduzido + "' WHERE FinalizouProducao = 'false';";
+                    string CommandString = "UPDATE Producao SET FinalizouProducao = 'true', DataFimProducao = '"+ DTnow + "', PesoTotalProduzido = '"+ pesoTotalProd + "', VolumeTotalProduzido = '"+ volumeTotalProduzido + "' WHERE FinalizouProducao = 'false';";
 
                     dynamic Call = SqlGlobalFuctions.ReturnCall(Utilidades.VariaveisGlobais.Connection_DB_Receitas_GS);
                     dynamic Command = SqlGlobalFuctions.ReturnCommand(CommandString, Call);

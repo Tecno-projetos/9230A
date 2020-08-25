@@ -275,6 +275,15 @@ namespace _9230A_V00___PI.Utilidades
                 controleExecucao.Slot_1.Dosagem_Materia_Prima_Silo_2 = VariaveisGlobais.ProducaoReceita.CodigoProdutoDosagemAutomaticaSilo2.Equals("") ? 0 : (VariaveisGlobais.ProducaoReceita.batelada[numeroBatelada].produtos.Find(x => x.codigo == VariaveisGlobais.ProducaoReceita.CodigoProdutoDosagemAutomaticaSilo2)).pesoDesejado;
 
 
+                //Verifica se a primeira dosagem automática será feita pelo silo 2
+                var indexSilo1 = VariaveisGlobais.ProducaoReceita.CodigoProdutoDosagemAutomaticaSilo1.Equals("") ? -1 : (VariaveisGlobais.ProducaoReceita.batelada[numeroBatelada].produtos.FindIndex(x => x.codigo == VariaveisGlobais.ProducaoReceita.CodigoProdutoDosagemAutomaticaSilo1));
+                var indexSilo2 = VariaveisGlobais.ProducaoReceita.CodigoProdutoDosagemAutomaticaSilo2.Equals("") ? -1 : (VariaveisGlobais.ProducaoReceita.batelada[numeroBatelada].produtos.FindIndex(x => x.codigo == VariaveisGlobais.ProducaoReceita.CodigoProdutoDosagemAutomaticaSilo2));
+
+                if (indexSilo2 < indexSilo1)
+                {
+                    controleExecucao.Slot_1.Dosar_Primeiro_Silo_2 = true;
+                }
+
                 //Envia a quantidade de itens a ser dosado manualmente na balança (Considerado dosagem de matéria prima manual ou dosagem de complemento pré)
                 //Todos os produtos que tem as especificações abaixo:
                 //Tipo do produto = "Matéria Prima"
@@ -623,13 +632,13 @@ namespace _9230A_V00___PI.Utilidades
                         VariaveisGlobais.ProducaoReceita.id,
                         controleExecucao.Slot_1.NumeroBatelada,
                         VariaveisGlobais.ProducaoReceita.batelada[controleExecucao.Slot_1.NumeroBatelada - 1].produtos[controleExecucao.Slot_1.Produto_Atual_Em_Producao - 1].codigo,
-                        controleExecucao.Slot_1.Complemento_Pos.Quantidade_Dosada_Item_Atual);
+                        VariaveisGlobais.ProducaoReceita.batelada[controleExecucao.Slot_1.NumeroBatelada - 1].produtos[controleExecucao.Slot_1.Produto_Atual_Em_Producao - 1].pesoDesejado);
 
                     //Atualiza o produto batelada
-                    VariaveisGlobais.ProducaoReceita.batelada[controleExecucao.Slot_1.NumeroBatelada - 1].produtos[controleExecucao.Slot_1.Produto_Atual_Em_Producao - 1].pesoDosado = controleExecucao.Slot_1.Complemento_Pos.Quantidade_Dosada_Item_Atual;
+                    VariaveisGlobais.ProducaoReceita.batelada[controleExecucao.Slot_1.NumeroBatelada - 1].produtos[controleExecucao.Slot_1.Produto_Atual_Em_Producao - 1].pesoDosado = VariaveisGlobais.ProducaoReceita.batelada[controleExecucao.Slot_1.NumeroBatelada - 1].produtos[controleExecucao.Slot_1.Produto_Atual_Em_Producao - 1].pesoDesejado;
 
                     //Atualiza total dosado batelada
-                    VariaveisGlobais.ProducaoReceita.batelada[controleExecucao.Slot_1.NumeroBatelada - 1].pesoDosado += controleExecucao.Slot_1.Complemento_Pos.Quantidade_Dosada_Item_Atual;
+                    VariaveisGlobais.ProducaoReceita.batelada[controleExecucao.Slot_1.NumeroBatelada - 1].pesoDosado += VariaveisGlobais.ProducaoReceita.batelada[controleExecucao.Slot_1.NumeroBatelada - 1].produtos[controleExecucao.Slot_1.Produto_Atual_Em_Producao - 1].pesoDosado;
 
                     //Reseta o finalizado dosagem de complemento
                     VariaveisGlobais.Buffer_PLC[bufferPlc].Enable_Read = false;
@@ -736,10 +745,10 @@ namespace _9230A_V00___PI.Utilidades
                         VariaveisGlobais.ProducaoReceita.id,
                         controleExecucao.Slot_2.NumeroBatelada,
                         VariaveisGlobais.ProducaoReceita.batelada[controleExecucao.Slot_2.NumeroBatelada - 1].produtos[controleExecucao.Slot_2.Produto_Atual_Em_Producao - 1].codigo,
-                        controleExecucao.Slot_2.Complemento_Pos.Quantidade_Dosada_Item_Atual);
+                        VariaveisGlobais.ProducaoReceita.batelada[controleExecucao.Slot_2.NumeroBatelada - 1].produtos[controleExecucao.Slot_2.Produto_Atual_Em_Producao - 1].pesoDesejado);
 
                     //Atualiza o produto batelada
-                    VariaveisGlobais.ProducaoReceita.batelada[controleExecucao.Slot_2.NumeroBatelada - 1].produtos[controleExecucao.Slot_2.Produto_Atual_Em_Producao - 1].pesoDosado = controleExecucao.Slot_2.Complemento_Pos.Quantidade_Dosada_Item_Atual;
+                    VariaveisGlobais.ProducaoReceita.batelada[controleExecucao.Slot_2.NumeroBatelada - 1].produtos[controleExecucao.Slot_2.Produto_Atual_Em_Producao - 1].pesoDosado = VariaveisGlobais.ProducaoReceita.batelada[controleExecucao.Slot_2.NumeroBatelada - 1].produtos[controleExecucao.Slot_2.Produto_Atual_Em_Producao - 1].pesoDesejado;
 
                     //Atualiza total dosado batelada
                     VariaveisGlobais.ProducaoReceita.batelada[controleExecucao.Slot_2.NumeroBatelada - 1].pesoDosado += controleExecucao.Slot_2.Complemento_Pos.Quantidade_Dosada_Item_Atual;
@@ -849,10 +858,10 @@ namespace _9230A_V00___PI.Utilidades
                         VariaveisGlobais.ProducaoReceita.id,
                         controleExecucao.Slot_3.NumeroBatelada,
                         VariaveisGlobais.ProducaoReceita.batelada[controleExecucao.Slot_3.NumeroBatelada - 1].produtos[controleExecucao.Slot_3.Produto_Atual_Em_Producao - 1].codigo,
-                        controleExecucao.Slot_3.Complemento_Pos.Quantidade_Dosada_Item_Atual);
+                        VariaveisGlobais.ProducaoReceita.batelada[controleExecucao.Slot_3.NumeroBatelada - 1].produtos[controleExecucao.Slot_3.Produto_Atual_Em_Producao - 1].pesoDesejado);
 
                     //Atualiza o produto batelada
-                    VariaveisGlobais.ProducaoReceita.batelada[controleExecucao.Slot_3.NumeroBatelada - 1].produtos[controleExecucao.Slot_3.Produto_Atual_Em_Producao - 1].pesoDosado = controleExecucao.Slot_3.Complemento_Pos.Quantidade_Dosada_Item_Atual;
+                    VariaveisGlobais.ProducaoReceita.batelada[controleExecucao.Slot_3.NumeroBatelada - 1].produtos[controleExecucao.Slot_3.Produto_Atual_Em_Producao - 1].pesoDosado = VariaveisGlobais.ProducaoReceita.batelada[controleExecucao.Slot_3.NumeroBatelada - 1].produtos[controleExecucao.Slot_3.Produto_Atual_Em_Producao - 1].pesoDesejado;
 
                     //Atualiza total dosado batelada
                     VariaveisGlobais.ProducaoReceita.batelada[controleExecucao.Slot_3.NumeroBatelada - 1].pesoDosado += controleExecucao.Slot_3.Complemento_Pos.Quantidade_Dosada_Item_Atual;

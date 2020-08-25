@@ -302,7 +302,7 @@ namespace _9230A_V00___PI.Utilidades
             public bool Finalizou_Dosagem_Automatica_Silo_2;                      //Quando o CLP finalizou de dosar automaticamente o silo 2
             public bool Supervisorio_Salvou_Dados_Silo_1;                         //Quando Supervisorio salvou os dados do silo 1
             public bool Supervisorio_Salvou_Dados_Silo_2;                         //Quando Supervisorio salvou os dados do silo 2
-            public bool Reserva_7;
+            public bool Dosar_Primeiro_Silo_2;
             public bool Reserva_8;
             public bool Reserva_9;
             public bool Reserva_10;
@@ -1259,21 +1259,21 @@ namespace _9230A_V00___PI.Utilidades
             if (slotProducao == 1)
             {
                 slotDosagemMateriaPrima = executaProducao.ControleExecucao.Slot_1.Complemento_Pre.Habilitado_Inicio_Dosagem;
-                slotDosagemComplemento = executaProducao.ControleExecucao.Slot_1.Complemento_Pos.Habilitado_Inicio_Dosagem;
+                slotDosagemComplemento = executaProducao.ControleExecucao.Slot_1.Complemento_Pos.Habilitado_Inicio_Dosagem && !executaProducao.ControleExecucao.Slot_1.Complemento_Pos.Finalizado_Dosagem_Complementos;
 
                 slotIniciadoDosagem = executaProducao.ControleExecucao.Slot_1.Complemento_Pre.Item_Atual_Iniciado_Dosagem || executaProducao.ControleExecucao.Slot_1.Complemento_Pos.Item_Atual_Iniciado_Dosagem;
             }
             else if (slotProducao == 2)
             {
                 slotDosagemMateriaPrima = executaProducao.ControleExecucao.Slot_2.Complemento_Pre.Habilitado_Inicio_Dosagem;
-                slotDosagemComplemento = executaProducao.ControleExecucao.Slot_2.Complemento_Pos.Habilitado_Inicio_Dosagem;
+                slotDosagemComplemento = executaProducao.ControleExecucao.Slot_2.Complemento_Pos.Habilitado_Inicio_Dosagem && !executaProducao.ControleExecucao.Slot_2.Complemento_Pos.Finalizado_Dosagem_Complementos;
 
                 slotIniciadoDosagem = executaProducao.ControleExecucao.Slot_2.Complemento_Pre.Item_Atual_Iniciado_Dosagem || executaProducao.ControleExecucao.Slot_2.Complemento_Pos.Item_Atual_Iniciado_Dosagem;
             }
             else if (slotProducao == 3)
             {
                 slotDosagemMateriaPrima = executaProducao.ControleExecucao.Slot_3.Complemento_Pre.Habilitado_Inicio_Dosagem;
-                slotDosagemComplemento = executaProducao.ControleExecucao.Slot_3.Complemento_Pos.Habilitado_Inicio_Dosagem;
+                slotDosagemComplemento = executaProducao.ControleExecucao.Slot_3.Complemento_Pos.Habilitado_Inicio_Dosagem && !executaProducao.ControleExecucao.Slot_3.Complemento_Pos.Finalizado_Dosagem_Complementos;
 
                 slotIniciadoDosagem = executaProducao.ControleExecucao.Slot_3.Complemento_Pre.Item_Atual_Iniciado_Dosagem || executaProducao.ControleExecucao.Slot_3.Complemento_Pos.Item_Atual_Iniciado_Dosagem;
             }

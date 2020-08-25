@@ -768,7 +768,7 @@ namespace _9230A_V00___PI.Utilidades
             slot.Finalizou_Dosagem_Automatica_Silo_2 = bits[7];
             slot.Supervisorio_Salvou_Dados_Silo_1 = bits[8];
             slot.Supervisorio_Salvou_Dados_Silo_2 = bits[9];
-            slot.Reserva_7 = bits[10];
+            slot.Dosar_Primeiro_Silo_2 = bits[10];
             slot.Reserva_8 = bits[11];
             slot.Reserva_9 = bits[12];
             slot.Reserva_10 = bits[13];
@@ -808,7 +808,7 @@ namespace _9230A_V00___PI.Utilidades
             bits[7] = slot.Finalizou_Dosagem_Automatica_Silo_2;
             bits[8] = slot.Supervisorio_Salvou_Dados_Silo_1;
             bits[9] = slot.Supervisorio_Salvou_Dados_Silo_2;
-            bits[10] = slot.Reserva_7;
+            bits[10] = slot.Dosar_Primeiro_Silo_2;
             bits[11] = slot.Reserva_8;
             bits[12] = slot.Reserva_9;
             bits[13] = slot.Reserva_10;
