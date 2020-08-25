@@ -480,7 +480,7 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Label x:Name="lbCorrente43" Content="125(A)" HorizontalAlignment="Left" Height="24" Margin="490,421,0,0" VerticalAlignment="Top" Width="57" RenderTransformOrigin="0.5,0.5" FontSize="16" Foreground="#FFB8B8B8" FontWeight="Bold" HorizontalContentAlignment="Right" Padding="0,0,5,0">
+        <Label x:Name="lbCorrente43" Content="125,00(A)" HorizontalAlignment="Left" Height="24" Margin="490,421,0,0" VerticalAlignment="Top" Width="80" RenderTransformOrigin="0.5,0.5" FontSize="16" Foreground="#FFB8B8B8" FontWeight="Bold" HorizontalContentAlignment="Right" Padding="0,0,5,0">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="-1"/>
@@ -500,7 +500,7 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Label x:Name="lbCorrenteMoinho" Content="125(A)" HorizontalAlignment="Left" Height="24" Margin="415,525,0,0" VerticalAlignment="Top" Width="61" RenderTransformOrigin="0.5,0.5" FontSize="16" Foreground="#FFB8B8B8" FontWeight="Bold" Padding="0,0,5,0">
+        <Label x:Name="lbCorrenteMoinho" Content="125(A)" HorizontalAlignment="Left" Height="24" Margin="387,525,0,0" VerticalAlignment="Top" Width="89" RenderTransformOrigin="0.5,0.5" FontSize="16" Foreground="#FFB8B8B8" FontWeight="Bold" Padding="0,0,5,0">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="-1"/>
@@ -602,7 +602,7 @@
         </Label>
         <Rectangle Fill="{Binding Fill, ElementName=rec49}" HorizontalAlignment="Left" Height="62" Margin="780,545,0,0" VerticalAlignment="Top" Width="6"/>
         <ed:Arc EndAngle="90" HorizontalAlignment="Left" Height="15" Margin="770,539,0,0" StartAngle="0" VerticalAlignment="Top" Width="16" StrokeThickness="6" Stretch="None" RenderTransformOrigin="0.5,0.5" Stroke="{Binding Fill, ElementName=rec49}"/>
-        <Label x:Name="lbposicao26A" Content="100%" Height="18" Margin="65,482,0,0" VerticalAlignment="Top" Width="54" RenderTransformOrigin="0.5,0.5" Foreground="#FFB8B8B8" FontWeight="Bold" Padding="0,0,5,0" FontSize="14" HorizontalAlignment="Left" HorizontalContentAlignment="Right">
+        <Label x:Name="lbposicao26A" Content="100,00%" Height="18" Margin="63,499,0,0" VerticalAlignment="Top" Width="62" RenderTransformOrigin="0.5,0.5" Foreground="#FFB8B8B8" FontWeight="Bold" Padding="0,0,5,0" FontSize="14" HorizontalAlignment="Left">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="-1"/>
@@ -652,7 +652,7 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Label x:Name="lbCorrente65" Content="125(A)" HorizontalAlignment="Left" Height="24" Margin="949,466,0,0" VerticalAlignment="Top" Width="63" RenderTransformOrigin="0.5,0.5" FontSize="16" Foreground="#FFB8B8B8" FontWeight="Bold" Padding="0,0,5,0">
+        <Label x:Name="lbCorrente65" Content="125,00(A)" HorizontalAlignment="Left" Height="24" Margin="936,466,0,0" VerticalAlignment="Top" Width="80" RenderTransformOrigin="0.5,0.5" FontSize="16" Foreground="#FFB8B8B8" FontWeight="Bold" Padding="0,0,5,0" HorizontalContentAlignment="Right">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="-1"/>
@@ -682,7 +682,7 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Label x:Name="lbposicao26B" Content="100%" Height="18" Margin="260,485,0,0" VerticalAlignment="Top" Width="45" RenderTransformOrigin="0.5,0.5" Foreground="#FFB8B8B8" FontWeight="Bold" Padding="0,0,5,0" FontSize="14" HorizontalAlignment="Left">
+        <Label x:Name="lbposicao26B" Content="100,00%" Height="18" Margin="249,499,0,0" VerticalAlignment="Top" Width="62" RenderTransformOrigin="0.5,0.5" Foreground="#FFB8B8B8" FontWeight="Bold" Padding="0,0,5,0" FontSize="14" HorizontalAlignment="Left" HorizontalContentAlignment="Right">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="-1"/>
@@ -805,7 +805,7 @@
                 </TransformGroup>
             </Equipamentos:dosadorOscilante.RenderTransform>
         </Equipamentos:dosadorOscilante>
-        <Label x:Name="lbposicao49" Content="100%" Height="18" Margin="741,485,0,0" VerticalAlignment="Top" Width="54" RenderTransformOrigin="0.5,0.5" Foreground="#FFB8B8B8" FontWeight="Bold" Padding="0,0,5,0" FontSize="14" HorizontalAlignment="Left" HorizontalContentAlignment="Right">
+        <Label x:Name="lbposicao49" Content="100,00%" Height="18" Margin="741,485,0,0" VerticalAlignment="Top" Width="67" RenderTransformOrigin="0.5,0.5" Foreground="#FFB8B8B8" FontWeight="Bold" Padding="0,0,5,0" FontSize="14" HorizontalAlignment="Left" HorizontalContentAlignment="Right">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="-1"/>
