@@ -215,14 +215,19 @@ namespace _9230A_V00___PI.DataBase
 
                 foreach (FileInfo item in d.GetFiles())
                 {
-                    Console.WriteLine(item.Name);
+                    //Console.WriteLine(item.Name);
                     //Pega a diferença(tempo) entre a ultima data de escrita e hoje
                     TimeSpan t = DateTime.Now.Subtract(item.LastWriteTime);
                     //Diferença em dias
-                    Console.WriteLine(t.Days);
+                    //Console.WriteLine(t.Days);
                     // Se ultima vez que o arq foi escrito for maior q 10 dias, deleta o arq
                     if (t.Days >= meses)
+                    {
+                        Utilidades.VariaveisGlobais.Window_Buffer_Diagnostic.List_Error = "Apagado o LOG com o nome: " + item.Name;
                         item.Delete();
+            
+                    }
+                        
                 }
             }
             catch (Exception ex)
