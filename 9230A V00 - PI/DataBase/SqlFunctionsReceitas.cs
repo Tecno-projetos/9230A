@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -205,8 +206,11 @@ namespace _9230A_V00___PI.DataBase
             {
                 try
                 {
+                    string pBase = Convert.ToString(pesoBase, CultureInfo.GetCultureInfo("en-US"));
+                    
+                    
                     string CommandString = "UPDATE Receitas SET NomeReceita = '" + nomeReceitaNew
-                        + "' PesoBase = '" + pesoBase 
+                        + "' PesoBase = '" + pBase
                         + "' Observacao = '" + observacao 
                         + "' WHERE NomeReceita = " + nomeReceitaOld + ";";
 

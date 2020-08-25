@@ -193,6 +193,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Manutenção
                     else
                     {
                         e.Row.Background = new SolidColorBrush(Colors.DodgerBlue);
+                        e.Row.Foreground = new SolidColorBrush(Colors.White);
                     }
 
                     if (Event)
@@ -224,7 +225,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Manutenção
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            DataGrid_ItemSource_Alarms(DataBase.SqlFunctionsEquips.GetReportAlarm_Table_EquipAlarmEvent(DateTime.Now.AddHours(-6), DateTime.Now.AddMinutes(1)));
+            DataGrid_ItemSource_Alarms(DataBase.SqlFunctionsEquips.GetReportAlarm_Table_EquipAlarmEvent(DateTime.Now.AddDays(-1), DateTime.Now.AddMinutes(1)));
         }
 
         private void DataGrid_ItemSource_Alarms(System.Data.DataTable Data)

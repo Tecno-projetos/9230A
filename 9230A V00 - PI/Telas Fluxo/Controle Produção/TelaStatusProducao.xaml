@@ -51,7 +51,7 @@
             HorizontalGridLinesBrush="{DynamicResource {x:Static SystemColors.ControlTextColor}}"
             VerticalGridLinesBrush="{DynamicResource MaterialDesignDarkBackground}" BorderBrush="{x:Null}" BorderThickness="1"
             CanUserDeleteRows ="False" CanUserReorderColumns="False" CanUserResizeRows="False" CanUserSortColumns="False"   
-            ScrollViewer.VerticalScrollBarVisibility="Auto" Height="390" Cursor="Hand" IsReadOnly="True" AlternatingRowBackground="#FF7F7F7F" 
+            ScrollViewer.VerticalScrollBarVisibility="Auto" Height="399" Cursor="Hand" IsReadOnly="True" AlternatingRowBackground="#FF7F7F7F" 
             RowBackground="White" HorizontalScrollBarVisibility="Hidden" Background="White" FontSize="24" FontFamily="Segoe UI Emoji" GridLinesVisibility="All" 
             SelectionMode="Single"  AutoGenerateColumns="True" RowHeight="40" Width="361" LoadingRow="DataGrid_Produtos_LoadingRow" >
 
@@ -99,12 +99,12 @@
         <Label Content="Tempo Restante Pré Mistura:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="315" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="40" Padding="0" FontSize="18" FontWeight="Bold" Margin="381,189,0,0"/>
         <Label Content="Tempo Restante Pós Mistura:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="315" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="40" Padding="0" FontSize="18" FontWeight="Bold" Margin="381,235,0,0"/>
         <Label Content="Tempo Total Batelada:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="246" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="40" Padding="0" FontSize="18" FontWeight="Bold" Margin="381,285,0,0"/>
-        <Button x:Name="btDosarManual" Margin="381,355,0,128" Background="#FFFFD100" BorderBrush="Black" Height="35" HorizontalAlignment="Left" Width="259" Click="btDosarManual_Click">
+        <Button x:Name="btDosarManual" Margin="381,370,0,113" Background="#FFFFD100" BorderBrush="Black" Height="35" HorizontalAlignment="Left" Width="259" Click="btDosarManual_Click">
             <Grid Width="231" Height="23">
-                <TextBlock x:Name="txtDosarManual" FontFamily="Champagne &amp; Limousines" TextAlignment="Center" Foreground="White" Margin="10,0,10,2" Width="211" FontSize="14" FontWeight="Normal" VerticalAlignment="Bottom"  HorizontalAlignment="Center" Height="17" Text="Finalizar Dosagem Manual"/>
+                <TextBlock x:Name="txtDosarManual" FontFamily="Champagne &amp; Limousines" TextAlignment="Center" Foreground="Black" Margin="10,0,10,2" Width="211" FontSize="14" FontWeight="Normal" VerticalAlignment="Bottom"  HorizontalAlignment="Center" Height="17" Text="Finalizar Dosagem Manual"/>
             </Grid>
         </Button>
-        <Rectangle HorizontalAlignment="Left" Height="393" VerticalAlignment="Top" Width="369" Margin="5,3,0,0">
+        <Rectangle HorizontalAlignment="Left" Height="402" VerticalAlignment="Top" Width="369" Margin="5,3,0,0">
             <Rectangle.Fill>
                 <SolidColorBrush Color="Blue" Opacity="0"/>
             </Rectangle.Fill>
@@ -125,6 +125,13 @@
         <Label Content="kg" HorizontalAlignment="Left" Margin="718,159,0,0" VerticalAlignment="Top" Width="25" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="17" Padding="0" FontWeight="Bold"/>
         <Label x:Name="PesoAtualBalanca" Content="1000" Margin="626,102,0,0" VerticalAlignment="Top" Width="89" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="25" Padding="0" FontWeight="Bold" HorizontalAlignment="Left" HorizontalContentAlignment="Right" FontSize="20"/>
         <Label Content="kg" HorizontalAlignment="Left" Margin="718,109,0,0" VerticalAlignment="Top" Width="25" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="17" Padding="0" FontWeight="Bold"/>
+        <Label Content="Dosagem Complemento" HorizontalAlignment="Left" VerticalAlignment="Top" Width="246" BorderBrush="Black" Background="{x:Null}" Foreground="White" VerticalContentAlignment="Center" Height="40" Padding="0" FontSize="18" FontWeight="Bold" Margin="381,330,0,0"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="3" Margin="382,411,0,0" Stroke="Black" VerticalAlignment="Top" Width="360"/>
+        <Button x:Name="btFinalizar" Margin="381,426,0,57" Background="#FF46FF00" BorderBrush="Black" Height="35" HorizontalAlignment="Left" Width="374" Click="btFinalizar_Click">
+            <Grid Width="344" Height="23">
+                <TextBlock x:Name="txtFinalizar" FontFamily="Champagne &amp; Limousines" TextAlignment="Center" Foreground="Black" Margin="10,0,10,2" Width="324" FontSize="14" FontWeight="Normal" VerticalAlignment="Bottom"  HorizontalAlignment="Center" Height="17" Text="Finalizar Dosagem e Iniciar Transporte"/>
+            </Grid>
+        </Button>
 
     </Grid>
 </UserControl>

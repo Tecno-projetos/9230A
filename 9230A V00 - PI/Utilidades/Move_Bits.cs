@@ -1104,8 +1104,8 @@ namespace _9230A_V00___PI.Utilidades
             Conversions.Dword_To_Bit(DWord, ref bits, true);
 
             auxiliaresProcesso.Set_Automatico_Equipamentos = bits[0];
-            auxiliaresProcesso.Reserva_1 = bits[1];
-            auxiliaresProcesso.Reserva_2 = bits[2];
+            auxiliaresProcesso.Habilita_Finalizar_Dosagem_E_Iniciar_Transporte = bits[1];
+            auxiliaresProcesso.Seta_Finalizar_Dosagem_E_Inicia_Transporte = bits[2];
             auxiliaresProcesso.Reserva_3 = bits[3];
             auxiliaresProcesso.Reserva_4 = bits[4];
             auxiliaresProcesso.Reserva_5 = bits[5];
@@ -1144,8 +1144,8 @@ namespace _9230A_V00___PI.Utilidades
             bool[] bits = new bool[32];
 
             bits[0] = auxiliaresProcesso.Set_Automatico_Equipamentos;
-            bits[1] = auxiliaresProcesso.Reserva_1;
-            bits[2] = auxiliaresProcesso.Reserva_2;
+            bits[1] = auxiliaresProcesso.Habilita_Finalizar_Dosagem_E_Iniciar_Transporte;
+            bits[2] = auxiliaresProcesso.Seta_Finalizar_Dosagem_E_Inicia_Transporte;
             bits[3] = auxiliaresProcesso.Reserva_3;
             bits[4] = auxiliaresProcesso.Reserva_4;
             bits[5] = auxiliaresProcesso.Reserva_5;

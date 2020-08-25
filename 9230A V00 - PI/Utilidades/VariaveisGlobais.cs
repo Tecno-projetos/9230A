@@ -112,8 +112,8 @@ namespace _9230A_V00___PI.Utilidades
             //Palavra de controle
                  
             public bool Set_Automatico_Equipamentos;                      
-            public bool Reserva_1;
-            public bool Reserva_2;
+            public bool Habilita_Finalizar_Dosagem_E_Iniciar_Transporte;
+            public bool Seta_Finalizar_Dosagem_E_Inicia_Transporte;
             public bool Reserva_3;
             public bool Reserva_4;
             public bool Reserva_5;
@@ -144,7 +144,7 @@ namespace _9230A_V00___PI.Utilidades
             public bool Reserva_30;
             public bool Reserva_31;
 
-            public float reserva_Real_1;                      //Maximo abertura sulo 2    
+            public float ToleranciaMinimaDosagemBalança;      //Peso em percentual de 0 a 10 %
             public float reserva_Real_2;                      //Maximo abertura sulo 2    
 
 

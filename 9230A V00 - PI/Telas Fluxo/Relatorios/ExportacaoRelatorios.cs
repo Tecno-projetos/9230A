@@ -374,7 +374,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
                     tablebatelada.AddCell(getNewCell("Desrição Produto", titulo, Element.ALIGN_CENTER, 5, PdfPCell.BOX, preto, branco));
                     tablebatelada.AddCell(getNewCell("Peso Desejado", titulo, Element.ALIGN_CENTER, 5, PdfPCell.BOX, preto, branco));
                     tablebatelada.AddCell(getNewCell("Peso Dosado", titulo, Element.ALIGN_CENTER, 5, PdfPCell.BOX, preto, branco));
-                    tablebatelada.AddCell(getNewCell("Percentual de Peso", titulo, Element.ALIGN_CENTER, 5, PdfPCell.BOX, preto, branco));
+                    tablebatelada.AddCell(getNewCell("Percentual de Peso Dosado", titulo, Element.ALIGN_CENTER, 5, PdfPCell.BOX, preto, branco));
 
                     foreach (var produtos in batelada.produtos)
                     {

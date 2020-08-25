@@ -52,6 +52,8 @@ namespace _9230A_V00___PI.Telas_Fluxo.Configuracoes
             Comunicacao.Sharp7.S7.SetDIntAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 68, Utilidades.VariaveisGlobais.auxiliaresProcesso.TempoPreMisturador);
             Comunicacao.Sharp7.S7.SetDIntAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 72, Utilidades.VariaveisGlobais.auxiliaresProcesso.TempoPosMisturador);
 
+            Comunicacao.Sharp7.S7.SetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 60, Utilidades.VariaveisGlobais.auxiliaresProcesso.ToleranciaMinimaDosagemBalança);
+
             VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Enable_Write = true;
 
         }
@@ -70,6 +72,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Configuracoes
             VariaveisGlobais.ValoresEspecificacoesEquipamentos.TempoPreMistura = Utilidades.VariaveisGlobais.auxiliaresProcesso.TempoPreMisturador = Comunicacao.Sharp7.S7.GetDIntAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 68);
             VariaveisGlobais.ValoresEspecificacoesEquipamentos.TempoPosMistura = Utilidades.VariaveisGlobais.auxiliaresProcesso.TempoPosMisturador = Comunicacao.Sharp7.S7.GetDIntAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 72);
 
+            Utilidades.VariaveisGlobais.auxiliaresProcesso.ToleranciaMinimaDosagemBalança = Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[bufferPlc_Auxiliares].Buffer, 60);
         }
 
 
@@ -147,7 +150,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Configuracoes
 
             txtTempoPosMistura.Text = Convert.ToString(Utilidades.VariaveisGlobais.auxiliaresProcesso.TempoPosMisturador);
 
-
+            txtTolerancia.Text = Convert.ToString(Utilidades.VariaveisGlobais.auxiliaresProcesso.ToleranciaMinimaDosagemBalança);
         }
 
         private void EscritaInformacoes(int bufferPlc_Auxiliares)
@@ -172,6 +175,8 @@ namespace _9230A_V00___PI.Telas_Fluxo.Configuracoes
 
             Utilidades.VariaveisGlobais.auxiliaresProcesso.TempoPosMisturador = Convert.ToInt32(txtTempoPosMistura.Text);
 
+            Utilidades.VariaveisGlobais.auxiliaresProcesso.ToleranciaMinimaDosagemBalança = Convert.ToInt32(txtTolerancia.Text);
+
             writeVariables_AuxiliaresProcesso(4);
 
             inputDialog = new Utilidades.messageBox("Salvar", "Informações salvas com Sucesso!", MaterialDesignThemes.Wpf.PackIconKind.Plus, "OK", "Fechar");
@@ -181,5 +186,11 @@ namespace _9230A_V00___PI.Telas_Fluxo.Configuracoes
 
         #endregion
 
+        private void txtTolerancia_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            TextBox txtReceber = (TextBox)sender;
+
+            txtReceber.Text = Utilidades.VariaveisGlobais.floatingKeypad(txtReceber.Text, 4, 10).ToString();
+        }
     }
 }

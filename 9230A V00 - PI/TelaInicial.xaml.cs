@@ -181,10 +181,7 @@ namespace _9230A_V00___PI
 
         }
 
-        private void timer4h_Tick(object sender, EventArgs e)
-        {
-            DataBase.SqlGlobalFuctions.AutoDelete(6);
-        }
+
 
         private void Window_Diagnostic_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
@@ -234,6 +231,11 @@ namespace _9230A_V00___PI
         #endregion
 
         #region Timer Ticks
+        private void timer4h_Tick(object sender, EventArgs e)
+        {
+            DataBase.SqlGlobalFuctions.AutoDelete(6);
+        }
+
         private void timerTickTack(object sender, EventArgs e)
         {
             if (Utilidades.VariaveisGlobais.TickTack_GS)
@@ -302,6 +304,10 @@ namespace _9230A_V00___PI
                              
                     //Atualiza Niveis Silos
                     Utilidades.VariaveisGlobais.niveis = Move_Bits.Dword_TO_NIveis(Comunicacao.Sharp7.S7.GetDWordAt(Utilidades.VariaveisGlobais.Buffer_PLC[3].Buffer, 0), Utilidades.VariaveisGlobais.niveis);
+
+                    //Atualiza Dword Geral de auxiliares Processo.
+                    Utilidades.VariaveisGlobais.auxiliaresProcesso = Move_Bits.DwordTocontroleAuxiliaresProcesso(Comunicacao.Sharp7.S7.GetDWordAt(Utilidades.VariaveisGlobais.Buffer_PLC[4].Buffer, 56), Utilidades.VariaveisGlobais.auxiliaresProcesso);
+
 
                     VariaveisGlobais.telabalanca.atualiza_Balanca();
 
