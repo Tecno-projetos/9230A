@@ -51,14 +51,18 @@ namespace _9230A_V00___PI.Partidas.Controle
                 btLigar.Dispatcher.Invoke(delegate { btLigar.IsEnabled = false; });
 
             }
+            else if (Command.Standard.Reposicionando)
+            {
+                btLigar.Dispatcher.Invoke(delegate { btLigar.IsEnabled = false; });
+                btManutencao.Dispatcher.Invoke(delegate { btManutencao.IsEnabled = true; });
+                btLibera.Dispatcher.Invoke(delegate { btLibera.IsEnabled = false; });
+                btManual.Dispatcher.Invoke(delegate { btManual.IsEnabled = false; });
+            }
             else
             {
                 btManual.Dispatcher.Invoke(delegate { btManual.IsEnabled = true; });
-
                 btManutencao.Dispatcher.Invoke(delegate { btManutencao.IsEnabled = true; });
-
                 btLibera.Dispatcher.Invoke(delegate { btLibera.IsEnabled = true; });
-
                 btLigar.Dispatcher.Invoke(delegate { btLigar.IsEnabled = true; });
             }
 
@@ -164,9 +168,27 @@ namespace _9230A_V00___PI.Partidas.Controle
                 lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Foreground = new SolidColorBrush(Colors.White); });
                 lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Background = new SolidColorBrush(Colors.ForestGreen); });
             }
+            else if (Command.Standard.Liga_Manual)
+            {
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Content = "Ligado em Manual"; });
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Foreground = new SolidColorBrush(Colors.White); });
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Background = new SolidColorBrush(Colors.ForestGreen); });
+            }
+            else if (Command.Standard.AcionandoAutomatico && Command.Standard.AcionaLado1)
+            {
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Content = "Abrindo"; });
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Foreground = new SolidColorBrush(Colors.White); });
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Background = new SolidColorBrush(Colors.ForestGreen); });
+            }
+            else if (Command.Standard.AcionandoAutomatico && Command.Standard.AcionaLado2)
+            {
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Content = "Fechando"; });
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Foreground = new SolidColorBrush(Colors.White); });
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Background = new SolidColorBrush(Colors.ForestGreen); });
+            }
             else if (Command.Standard.AcionandoAutomatico)
             {
-                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Content = "Acionando Automático"; });
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Content = "Ligado em Automático"; });
                 lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Foreground = new SolidColorBrush(Colors.Black); });
                 lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Background = new SolidColorBrush(Colors.Green); });
             }
