@@ -106,7 +106,7 @@ namespace _9230A_V00___PI.Equipamentos
                         Apa_2.Dispatcher.Invoke(delegate { Apa_2.Fill = Brushes.Gray; });
                     }
                 }
-                else if (equip.Command_Get.Standard.confirmaSentidoGiroAlimentador)
+                else if (equip.Command_Get.Standard.SentidoGiroMotorMudou)
                 {
                     Apa_0.Dispatcher.Invoke(delegate { Apa_0.Fill = Brushes.Yellow; });
                     Apa_1.Dispatcher.Invoke(delegate { Apa_1.Fill = Brushes.Yellow; });
