@@ -647,8 +647,8 @@ namespace _9230A_V00___PI.Utilidades
             Command.AtuadorA.falhaPosicionamento = bits[10];
             Command.AtuadorA.falhaLeituraPosicao = bits[11];
             Command.AtuadorA.reset = bits[12];
-            Command.AtuadorA.acionaLado1 = bits[12];
-            Command.AtuadorA.acionaLado2 = bits[13];
+            Command.AtuadorA.acionaLado1 = bits[13];
+            Command.AtuadorA.acionaLado2 = bits[14];
             Command.AtuadorA.Reposicionando = bits[15];
             Command.AtuadorA.bitReserva_3 = bits[16];
             Command.AtuadorA.bitReserva_4 = bits[17];

@@ -146,6 +146,12 @@ namespace _9230A_V00___PI.Partidas.Controle
                 lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Foreground = new SolidColorBrush(Colors.White); });
                 lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Background = new SolidColorBrush(Colors.Blue); });
             }
+            else if (Command.Standard.Reposicionando)
+            {
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Content = "Reposicionando"; });
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Foreground = new SolidColorBrush(Colors.Black); });
+                lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Background = new SolidColorBrush(Colors.Yellow); });
+            }
             else if (Command.Standard.Liga_Manual && Command.Standard.AcionaLado1)
             {
                 lbStatusMotor.Dispatcher.Invoke(delegate { lbStatusMotor.Content = "Abrindo"; });
