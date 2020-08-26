@@ -93,7 +93,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Manutenção
             rec1u3 = atualizaProfinet(_1U3, rec1u3);
             rec2u3 = atualizaProfinet(_2U3, rec2u3);
             rec3u3 = atualizaProfinet(_3U3, rec3u3);
-            rec3u3 = atualizaProfinet(_4U3, rec4u3);
+            rec4u3 = atualizaProfinet(_4U3, rec4u3);
 
             rec43g1 = atualizaProfinet(_43G1, rec43g1);
 
