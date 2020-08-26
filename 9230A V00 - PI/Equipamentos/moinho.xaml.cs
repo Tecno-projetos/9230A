@@ -231,7 +231,7 @@ namespace _9230A_V00___PI.Equipamentos
                         {
                      
                             sensorDireita.Fill = new SolidColorBrush(Colors.Gray);
-                            sensorEsquerda.Fill = new SolidColorBrush(Colors.Red);
+                            sensorEsquerda.Fill = new SolidColorBrush(Colors.Green);
                             alavancaEsquerda.Visibility = Visibility.Hidden;
                             alavancaDireita.Visibility = Visibility.Visible;
 
@@ -242,7 +242,7 @@ namespace _9230A_V00___PI.Equipamentos
                         {
  
                             sensorDireita.Fill = new SolidColorBrush(Colors.Red);
-                            sensorEsquerda.Fill = new SolidColorBrush(Colors.Gray);
+                            sensorEsquerda.Fill = new SolidColorBrush(Colors.Green);
                             alavancaEsquerda.Visibility = Visibility.Visible;
                             alavancaDireita.Visibility = Visibility.Hidden;
                         }

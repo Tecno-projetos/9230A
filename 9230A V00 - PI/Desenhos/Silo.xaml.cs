@@ -58,11 +58,13 @@ namespace _9230A_V00___PI.Desenhos
 
                 if (Nivel_Baixo)
                 {
-                    nivelSIlo_Inferior.Fill = Brushes.Red;
+                    nivelSIlo_Inferior.Fill = new SolidColorBrush(Color.FromRgb(0, 200, 0));
                 }
                 else
                 {
-                    nivelSIlo_Inferior.Fill = new SolidColorBrush(Color.FromRgb(0, 200, 0));
+                    nivelSIlo_Inferior.Fill = Brushes.Red;
+
+                
                 }
             }
             get

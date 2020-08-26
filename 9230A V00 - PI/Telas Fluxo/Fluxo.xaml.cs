@@ -71,7 +71,7 @@ namespace _9230A_V00___PI.Telas_Fluxo
             siloexp.Nivel_Baixo_GS = Utilidades.VariaveisGlobais.niveis.Inferior_Silo_Exp;
 
 
-            nivel48.Nivel_Baixo_GS = Utilidades.VariaveisGlobais.niveis.Inferior_Pos_Misturador;
+            nivel48.Nivel_Baixo_GS = !Utilidades.VariaveisGlobais.niveis.Inferior_Pos_Misturador;
             if (Utilidades.VariaveisGlobais.niveis.Inferior_Pos_Misturador)
             {
                 txtNivel48.Text = "Com Produto";

@@ -129,7 +129,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
 
                 }
 
-                document.Add(tableProducao(colsW, "Peso total produzido: " + pesoTotalproduzido + " kg", "Volume total produzido: " + pesoTotalproduzido + " m³", false));
+                document.Add(tableProducao(colsW, "Peso total produzido: " + Math.Round(pesoTotalproduzido,2) + " kg", "Volume total produzido: " + Math.Round(pesoTotalproduzido,2)+ " m³", false));
                 document.Add(tableProducao(colsW, "Quantidade total produzida: " + quantidadeProducoes + " produções", "Total de bateladas produzidas: " + quantidadeBateladas + " und.", false));
                 document.Add(tableProducao(colsW, "Data início produção: " + dataExportacaoInicial.ToShortDateString() + "\n" + dataExportacaoInicial.ToLongTimeString(), "Data fim produção: " + dataExportacaoFinal.ToShortDateString() + "\n" + dataExportacaoFinal.ToLongTimeString(), false)); ;
 
@@ -161,10 +161,10 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
                         mudanca = 3;
                     }
 
-                    document.Add(tableProducao("Relatório produção N° produção: " + Convert.ToString(item.id), true));
+                    document.Add(tableProducao("Relatório produção N°: " + Convert.ToString(item.id), true));
                     document.Add(tableProducao(item.receita.nomeReceita, true));
                     document.Add(tableProducao(colsW, "Peso total desejado: " + item.pesoTotalProducao + " kg", "Volume total desejado: " + item.volumeTotalProducao + " m³", true));
-                    document.Add(tableProducao(colsW, "Peso total produzido: " + item.pesoTotalProduzido + " kg", "Volume total produzido: " + item.volumeTotalProduzido + " m³", true));
+                    document.Add(tableProducao(colsW, "Peso total produzido: " + Math.Round(item.pesoTotalProduzido,2) + " kg", "Volume total produzido: " + Math.Round(item.volumeTotalProduzido,2) + " m³", true));
                     document.Add(tableProducao("Quantidade de bateldas: " + item.quantidadeBateladas + " und.", true, Element.ALIGN_LEFT));
                     document.Add(tableProducao(colsW, "Tempo pré mistura: " + item.tempoPreMistura + " segundos", "Tempo pós mistura: " + item.tempoPosMistura + " segundos", true));
                     document.Add(tableProducao(colsW, "Data início produção: " + item.dateTimeInicioProducao, "Data envio expedição: " + item.dateTimeFimProducao, true));
@@ -183,7 +183,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
                             quantidade = dt.Rows.Count;
 
                             document.Add(tableProducao("Quantidade de ensaques iniciados: " + quantidade, true));
-                            document.Add(tableProducao(colsW, "Peso ensacado: " + DataBase.SqlFunctionsEnsaques.getPesoTotalEnsaque(item.id) + " kg", "Peso médio ensaque: " + DataBase.SqlFunctionsEnsaques.getPesoMedioEnsaque(item.id) + " kg", true));
+                            document.Add(tableProducao(colsW, "Peso ensacado: " + Math.Round(DataBase.SqlFunctionsEnsaques.getPesoTotalEnsaque(item.id),2) + " kg", "Peso médio ensaque: " + DataBase.SqlFunctionsEnsaques.getPesoMedioEnsaque(item.id) + " kg", true));
                             document.Add(tableProducao(colsW, "Peso mínimo saco: " + DataBase.SqlFunctionsEnsaques.getPesoMinEnsaque(item.id) + " kg", "Peso máximo saco: " + DataBase.SqlFunctionsEnsaques.getPesoMaxEnsaque(item.id) + " kg", true));
                             document.Add(tableProducao("Quantidade de sacos: " + DataBase.SqlFunctionsEnsaques.getCoutEnsaque(item.id) + " und.", true, Element.ALIGN_LEFT));
 
@@ -312,8 +312,8 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
                 float[] colsW = { 25, 25 };
 
                 //Quantidade de produçoes
-                document.Add(tableProducao("Produção: " + producao.id + " Receita:" + producao.receita.nomeReceita, false, Element.ALIGN_CENTER));
-                document.Add(tableProducao(colsW, "Peso total produzido: " + producao.pesoTotalProduzido + " kg", "Volume total produzido: " + producao.volumeTotalProduzido + " m³", false));
+                document.Add(tableProducao("Produção N°: " + producao.id + ", Receita: " + producao.receita.nomeReceita, false, Element.ALIGN_CENTER));
+                document.Add(tableProducao(colsW, "Peso total produzido: " + Math.Round(producao.pesoTotalProduzido,2) + " kg", "Volume total produzido: " + Math.Round(producao.volumeTotalProduzido,2) + " m³", false));
                 document.Add(tableProducao("Quantidade de bateladas: " + producao.quantidadeBateladas + " und.", false, Element.ALIGN_LEFT));
                 document.Add(tableProducao(colsW, "Data início produção: " + producao.dateTimeInicioProducao.ToString(), "Data fim produção: " + producao.dateTimeFimProducao.ToString(), false)); ;
 
@@ -367,7 +367,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
                     cell.Colspan = 5;
                     tablebatelada.AddCell(cell);
 
-                    var cell1 = getNewCell("Peso desejado: " + batelada.pesoDesejado + " kg" + " | Peso dosado:" + batelada.pesoDosado + " kg", titulo, Element.ALIGN_CENTER, 5, PdfPCell.BOX, preto, branco);
+                    var cell1 = getNewCell("Peso desejado: " + batelada.pesoDesejado + " kg" + " | Peso dosado:" + Math.Round(batelada.pesoDosado,2) + " kg", titulo, Element.ALIGN_CENTER, 5, PdfPCell.BOX, preto, branco);
                     cell1.Colspan = 5;
                     tablebatelada.AddCell(cell1);
 
@@ -381,8 +381,8 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
 
                         tablebatelada.AddCell(getNewCell(produtos.descricao, font, Element.ALIGN_LEFT, 5, PdfPCell.BOX));
                         tablebatelada.AddCell(getNewCell(Convert.ToString(produtos.pesoDesejado) + " kg", font, Element.ALIGN_LEFT, 5, PdfPCell.BOX));
-                        tablebatelada.AddCell(getNewCell(Convert.ToString(produtos.pesoDosado) + " kg", font, Element.ALIGN_LEFT, 5, PdfPCell.BOX));
-                        tablebatelada.AddCell(getNewCell(Convert.ToString(Utilidades.functions.percentualProduto(produtos.pesoDosado, batelada.pesoDesejado)) + " %", font, Element.ALIGN_LEFT, 5, PdfPCell.BOX));
+                        tablebatelada.AddCell(getNewCell(Convert.ToString(Math.Round(produtos.pesoDosado,2)) + " kg", font, Element.ALIGN_LEFT, 5, PdfPCell.BOX));
+                        tablebatelada.AddCell(getNewCell(Convert.ToString(Math.Round(Utilidades.functions.percentualProduto(produtos.pesoDosado, batelada.pesoDesejado),2)) + " %", font, Element.ALIGN_LEFT, 5, PdfPCell.BOX));
 
                     }
 
@@ -516,8 +516,8 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
                         float[] colsW = { 25, 25 };
 
                         //Quantidade de produçoes
-                        document.Add(tableProducao("Produção: " + producao.id + " Receita:" + producao.receita.nomeReceita, false, Element.ALIGN_CENTER));
-                        document.Add(tableProducao(colsW, "Peso ensacado: " + DataBase.SqlFunctionsEnsaques.getPesoTotalEnsaque(producao.id) + " kg", "Peso médio ensaque: " + DataBase.SqlFunctionsEnsaques.getPesoMedioEnsaque(producao.id) + " kg", false));
+                        document.Add(tableProducao("Produção N°: " + producao.id + ", Receita: " + producao.receita.nomeReceita, false, Element.ALIGN_CENTER));
+                        document.Add(tableProducao(colsW, "Peso ensacado: " + Math.Round(DataBase.SqlFunctionsEnsaques.getPesoTotalEnsaque(producao.id),2) + " kg", "Peso médio ensaque: " + Math.Round(DataBase.SqlFunctionsEnsaques.getPesoMedioEnsaque(producao.id),2) + " kg", false));
                         document.Add(tableProducao(colsW, "Peso mínimo saco: " + DataBase.SqlFunctionsEnsaques.getPesoMinEnsaque(producao.id) + " kg", "Peso máximo saco: " + DataBase.SqlFunctionsEnsaques.getPesoMaxEnsaque(producao.id) + " kg", false));
                         document.Add(tableProducao("Quantidade de sacos: " + DataBase.SqlFunctionsEnsaques.getCoutEnsaque(producao.id) + " und.", false, Element.ALIGN_LEFT));
                        
@@ -702,7 +702,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
                 float[] colsW = { 25, 25 };
 
                 //Quantidade de produçoes
-                document.Add(tableProducao("Produção: " + producao.id + " Receita:" + producao.receita.nomeReceita, false, Element.ALIGN_CENTER));
+                document.Add(tableProducao("Produção N°: " + producao.id + ", Receita: " + producao.receita.nomeReceita, false, Element.ALIGN_CENTER));
                 document.Add(tableProducao("Quantidade de bateladas: " + producao.quantidadeBateladas + " und.", false, Element.ALIGN_LEFT));
 
 

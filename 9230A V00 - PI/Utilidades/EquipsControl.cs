@@ -1372,7 +1372,7 @@ namespace _9230A_V00___PI.Utilidades
 
                         Command.INV.Velocidade_Manual = (float)Math.Round(Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + Command.INV.offSet_Velocidade_Manual), 2);
                         Command.INV.Velocidade_Automatica_Solicita = (float)Math.Round(Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + Command.INV.offSet_Velocidade_Automatica_Solicita), 2);
-                        Command.INV.Velocidade_Atual = (float)Math.Round(Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + Command.INV.offSet_Velocidade_Atual), 2);
+                        Command.INV.Velocidade_Atual = (float)Math.Round(Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + Command.INV.offSet_Velocidade_Atual), 0);
                         Command.INV.Velocidade_Nominal = (float)Math.Round(Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + Command.INV.offSet_Velocidade_Nominal), 2);
                         Command.INV.SP_Corrente_Motor_Vazio = (float)Math.Round(Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + Command.INV.offSet_SP_Corrente_Motor_Vazio), 2);
                         Command.INV.Corrente_Atual = (float)Math.Round(Comunicacao.Sharp7.S7.GetRealAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + Command.INV.offSet_Corrente_Atual), 2);

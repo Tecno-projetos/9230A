@@ -151,6 +151,17 @@ namespace _9230A_V00___PI.Telas_Fluxo.Configuracoes
             txtTempoPosMistura.Text = Convert.ToString(Utilidades.VariaveisGlobais.auxiliaresProcesso.TempoPosMisturador);
 
             txtTolerancia.Text = Convert.ToString(Utilidades.VariaveisGlobais.auxiliaresProcesso.ToleranciaMinimaDosagemBalança);
+
+            if (Utilidades.VariaveisGlobais.ProducaoReceita.IniciouProducao) 
+            {
+                txtTempoPosMistura.IsEnabled = false;
+                txtTempoPreMistura.IsEnabled = false;
+            }
+            else
+            {
+                txtTempoPosMistura.IsEnabled = true;
+                txtTempoPreMistura.IsEnabled = true;
+            }
         }
 
         private void EscritaInformacoes(int bufferPlc_Auxiliares)

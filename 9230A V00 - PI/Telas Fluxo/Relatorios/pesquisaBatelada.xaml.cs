@@ -337,17 +337,17 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
 
                             inputDialog.ShowDialog();
                         }
-
-
-
-                        atualizaProjeto(fileName);
-
-                        pesquisou = true;
-
-                        if (NecessitaApagar)
+                        else
                         {
-                            File.Delete(OldfileName);
-                            NecessitaApagar = false;
+                            atualizaProjeto(fileName);
+
+                            pesquisou = true;
+
+                            if (NecessitaApagar)
+                            {
+                                File.Delete(OldfileName);
+                                NecessitaApagar = false;
+                            }
                         }
 
                     }

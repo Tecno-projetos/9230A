@@ -44,9 +44,6 @@ namespace _9230A_V00___PI.Partidas.Controle
                 )
             {
                 btManual.Dispatcher.Invoke(delegate { btManual.IsEnabled = false; });
-
-                btManutencao.Dispatcher.Invoke(delegate { btManutencao.IsEnabled = false; });
-
                 btLibera.Dispatcher.Invoke(delegate { btLibera.IsEnabled = false; });
 
                 btLigar.Dispatcher.Invoke(delegate { btLigar.IsEnabled = false; });
@@ -56,13 +53,15 @@ namespace _9230A_V00___PI.Partidas.Controle
             {
                 btManual.Dispatcher.Invoke(delegate { btManual.IsEnabled = true; });
 
-                btManutencao.Dispatcher.Invoke(delegate { btManutencao.IsEnabled = true; });
-
                 btLibera.Dispatcher.Invoke(delegate { btLibera.IsEnabled = true; });
 
                 btLigar.Dispatcher.Invoke(delegate { btLigar.IsEnabled = true; });
             }
 
+            if (!Command.Standard.Emergencia)
+            {
+                btManutencao.Dispatcher.Invoke(delegate { btManutencao.IsEnabled = true; });
+            }
             btReset.Dispatcher.Invoke(delegate { btReset.IsEnabled = true; });
 
             //Atualiza status dos botões
