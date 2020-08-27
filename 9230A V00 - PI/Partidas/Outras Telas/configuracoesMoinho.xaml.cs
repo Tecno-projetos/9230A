@@ -80,19 +80,6 @@ namespace _9230A_V00___PI.Partidas.Outras_Telas
             }
         }
 
-        public string SpTempoReversao
-        {
-            set
-            {
-                tbTempoReversao.Dispatcher.Invoke(delegate { tbTempoReversao.Text = value; });
-
-            }
-            get
-            {
-                return tbTempoReversao.Text;
-            }
-        }
-
         #endregion
 
         private void btResetTotal_Click(object sender, RoutedEventArgs e)

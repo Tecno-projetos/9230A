@@ -929,11 +929,11 @@ namespace _9230A_V00___PI.Utilidades
 
         protected void SS_Bt_atualizarTempoReversao_Click(object sender, EventArgs e)
         {
-            VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Enable_Read = false;
+            //VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Enable_Read = false;
 
-            Comunicacao.Sharp7.S7.SetDIntAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + Command.SS.offSet_SP_Tempo_Reversao, Convert.ToInt32(Window_SS.configuracoesMOINHO.SpTempoReversao));
+            //Comunicacao.Sharp7.S7.SetDIntAt(VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Buffer, Command.initialOffSet + Command.SS.offSet_SP_Tempo_Reversao, Convert.ToInt32(Window_SS.configuracoesMOINHO.SpTempoReversao));
 
-            VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Enable_Write = true;
+            //VariaveisGlobais.Buffer_PLC[Command.bufferPlc].Enable_Write = true;
         }
 
         private void SS_Bt_atualizarSPManutencao_Click(object sender, EventArgs e)
@@ -1527,7 +1527,7 @@ namespace _9230A_V00___PI.Utilidades
             {
 
                 Window_SS.configuracoesMOINHO.SpMotorVazio = Command.SS.SP_Corrente_Motor_Vazio.ToString();
-                Window_SS.configuracoesMOINHO.SpTempoReversao = Command.SS.SP_Tempo_Reversao.ToString();
+                //Window_SS.configuracoesMOINHO.SpTempoReversao = Command.SS.SP_Tempo_Reversao.ToString();
                 Window_SS.configuracoesMOINHO.SpLimpeza = Command.SS.Tempo_Limpeza.ToString();
                 Window_SS.configuracoesMOINHO.SpManutencao = Command.SS.SP_Manutencao.ToString();
 
