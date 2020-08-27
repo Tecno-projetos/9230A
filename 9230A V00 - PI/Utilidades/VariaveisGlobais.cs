@@ -1341,7 +1341,7 @@ namespace _9230A_V00___PI.Utilidades
                 dummyProduto.id = (int)item.ItemArray[0];
                 dummyProduto.codigo = (string)item.ItemArray[1];
                 dummyProduto.descricao = (string)item.ItemArray[2];
-                dummyProduto.densidade = (float)item.ItemArray[3];
+                dummyProduto.densidade = (float)Math.Round((float)item.ItemArray[3],2);
                 dummyProduto.tipoProduto = (string)item.ItemArray[4];
                 dummyProduto.observacao = (string)item.ItemArray[5];
 
@@ -1368,7 +1368,7 @@ namespace _9230A_V00___PI.Utilidades
 
                 dummyReceita.id = (int)item.ItemArray[0];
                 dummyReceita.nomeReceita = (string)item.ItemArray[1];
-                dummyReceita.pesoBase = (float)item.ItemArray[2];
+                dummyReceita.pesoBase = (float)Math.Round((float)item.ItemArray[2],2);
                 dummyReceita.observacao = (string)item.ItemArray[3];
 
                 DataTable dtProdutosReceita = DataBase.SqlFunctionsReceitas.getProdutosReceita(dummyReceita.id);
@@ -1379,7 +1379,7 @@ namespace _9230A_V00___PI.Utilidades
                     Produto dummyProduto = new Produto();
 
                     dummyProduto.codigo = (string)item1.ItemArray[1]; //Codigo do produto 
-                    dummyProdutoReceita.pesoPorProduto = (float)item1.ItemArray[2]; //Peso do produto na receita     
+                    dummyProdutoReceita.pesoPorProduto = (float)Math.Round((float)item1.ItemArray[2],2); //Peso do produto na receita     
                     dummyProdutoReceita.tipoDosagemMateriaPrima = (string)item1.ItemArray[3]; //Tipo da dosagem do produto na receita
 
                     ActualizeValuesProduto(ref dummyProduto); //pega os valores do produto e atualiza esse produto
@@ -1519,10 +1519,10 @@ namespace _9230A_V00___PI.Utilidades
             producao.quantidadeBateladas = Convert.ToInt32(dr.ItemArray[2]);
             producao.tempoPreMistura = Convert.ToInt32(dr.ItemArray[3]);
             producao.tempoPosMistura = Convert.ToInt32(dr.ItemArray[4]);
-            producao.pesoTotalProducao = Convert.ToSingle(dr.ItemArray[5]);
-            producao.pesoTotalProduzido = Convert.ToSingle(dr.ItemArray[6]);
-            producao.volumeTotalProducao = Convert.ToSingle(dr.ItemArray[7]);
-            producao.volumeTotalProduzido = Convert.ToSingle(dr.ItemArray[8]);
+            producao.pesoTotalProducao = (float)Math.Round(Convert.ToSingle(dr.ItemArray[5]),2);
+            producao.pesoTotalProduzido = (float)Math.Round(Convert.ToSingle(dr.ItemArray[6]),2);
+            producao.volumeTotalProducao = (float)Math.Round(Convert.ToSingle(dr.ItemArray[7]),2);
+            producao.volumeTotalProduzido = (float)Math.Round(Convert.ToSingle(dr.ItemArray[8]),2);
             producao.CodigoProdutoDosagemAutomaticaSilo1 = Convert.ToString(dr.ItemArray[9]);
             producao.CodigoProdutoDosagemAutomaticaSilo2 = Convert.ToString(dr.ItemArray[10]);
             producao.dateTimeInicioProducao = Convert.ToDateTime(dr.ItemArray[11]);
@@ -1582,8 +1582,8 @@ namespace _9230A_V00___PI.Utilidades
 
                     dummyProdutoBatelada = new ProdutoBatelada(); //cria um novo produto batelada, diferente do produto, ele tem algumas informações a mais, e tem herança do produto.
                     dummyProdutoBatelada.idProducao = IdProducao; //Passa Idprodução para o produto da batelada
-                    dummyProdutoBatelada.pesoDesejado = Convert.ToSingle(item.ItemArray[2]); //Passa peso desejado desse produto
-                    dummyProdutoBatelada.pesoDosado = Convert.ToSingle(item.ItemArray[3]); //Passa peso dosado desse produto
+                    dummyProdutoBatelada.pesoDesejado = (float)Math.Round(Convert.ToSingle(item.ItemArray[2]),2); //Passa peso desejado desse produto
+                    dummyProdutoBatelada.pesoDosado = (float)Math.Round(Convert.ToSingle(item.ItemArray[3]),2); //Passa peso dosado desse produto
                     dummyProdutoBatelada.id = dummyProduto.id; //Passa valor do produto para o produtobatelada
                     dummyProdutoBatelada.codigo = dummyProduto.codigo;//Passa valor do produto para o produtobatelada
                     dummyProdutoBatelada.descricao = dummyProduto.descricao;//Passa valor do produto para o produtobatelada
@@ -1596,8 +1596,8 @@ namespace _9230A_V00___PI.Utilidades
 
                 }
 
-                dummyBatelada.pesoDesejado = pesoTotalDesejado; //Passa o peso total desejado para a batelada atual
-                dummyBatelada.pesoDosado = pesoTotalDosado; //Passa o peso dosado para a batelada atual
+                dummyBatelada.pesoDesejado = (float)Math.Round(pesoTotalDesejado,2); //Passa o peso total desejado para a batelada atual
+                dummyBatelada.pesoDosado = (float)Math.Round(pesoTotalDosado,2); //Passa o peso dosado para a batelada atual
 
                 listBatelada.Add(dummyBatelada); //adiciona na lista de batelada uma batelada
             }
