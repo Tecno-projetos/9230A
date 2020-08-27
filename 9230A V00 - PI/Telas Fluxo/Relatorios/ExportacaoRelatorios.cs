@@ -183,8 +183,8 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
                             quantidade = dt.Rows.Count;
 
                             document.Add(tableProducao("Quantidade de ensaques iniciados: " + quantidade, true));
-                            document.Add(tableProducao(colsW, "Peso ensacado: " + Math.Round(DataBase.SqlFunctionsEnsaques.getPesoTotalEnsaque(item.id),2) + " kg", "Peso médio ensaque: " + DataBase.SqlFunctionsEnsaques.getPesoMedioEnsaque(item.id) + " kg", true));
-                            document.Add(tableProducao(colsW, "Peso mínimo saco: " + DataBase.SqlFunctionsEnsaques.getPesoMinEnsaque(item.id) + " kg", "Peso máximo saco: " + DataBase.SqlFunctionsEnsaques.getPesoMaxEnsaque(item.id) + " kg", true));
+                            document.Add(tableProducao(colsW, "Peso ensacado: " + Math.Round(DataBase.SqlFunctionsEnsaques.getPesoTotalEnsaque(item.id),2) + " kg", "Peso médio ensaque: " + Math.Round(DataBase.SqlFunctionsEnsaques.getPesoMedioEnsaque(item.id),2) + " kg", true));
+                            document.Add(tableProducao(colsW, "Peso mínimo saco: " + (float)Math.Round(DataBase.SqlFunctionsEnsaques.getPesoMinEnsaque(item.id),2) + " kg", "Peso máximo saco: " + (float)Math.Round(DataBase.SqlFunctionsEnsaques.getPesoMaxEnsaque(item.id),2) + " kg", true));
                             document.Add(tableProducao("Quantidade de sacos: " + DataBase.SqlFunctionsEnsaques.getCoutEnsaque(item.id) + " und.", true, Element.ALIGN_LEFT));
 
                         }
@@ -518,7 +518,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
                         //Quantidade de produçoes
                         document.Add(tableProducao("Produção N°: " + producao.id + ", Receita: " + producao.receita.nomeReceita, false, Element.ALIGN_CENTER));
                         document.Add(tableProducao(colsW, "Peso ensacado: " + Math.Round(DataBase.SqlFunctionsEnsaques.getPesoTotalEnsaque(producao.id),2) + " kg", "Peso médio ensaque: " + Math.Round(DataBase.SqlFunctionsEnsaques.getPesoMedioEnsaque(producao.id),2) + " kg", false));
-                        document.Add(tableProducao(colsW, "Peso mínimo saco: " + DataBase.SqlFunctionsEnsaques.getPesoMinEnsaque(producao.id) + " kg", "Peso máximo saco: " + DataBase.SqlFunctionsEnsaques.getPesoMaxEnsaque(producao.id) + " kg", false));
+                        document.Add(tableProducao(colsW, "Peso mínimo saco: " + Math.Round(DataBase.SqlFunctionsEnsaques.getPesoMinEnsaque(producao.id),2) + " kg", "Peso máximo saco: " + Math.Round(DataBase.SqlFunctionsEnsaques.getPesoMaxEnsaque(producao.id),2) + " kg", false));
                         document.Add(tableProducao("Quantidade de sacos: " + DataBase.SqlFunctionsEnsaques.getCoutEnsaque(producao.id) + " und.", false, Element.ALIGN_LEFT));
                        
   
@@ -576,7 +576,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
 
 
                             tablebatelada.AddCell(getNewCell("Saco " + contadorSaco, font, Element.ALIGN_LEFT, 5, PdfPCell.BOX));
-                            tablebatelada.AddCell(getNewCell(row["PesoDosado"].ToString() + " kg", font, Element.ALIGN_LEFT, 5, PdfPCell.BOX));
+                            tablebatelada.AddCell(getNewCell((float)Math.Round(Convert.ToSingle(row["PesoDosado"]),2) + " kg", font, Element.ALIGN_LEFT, 5, PdfPCell.BOX));
 
                             contadorSaco++;
 
@@ -699,7 +699,6 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
 
                 #endregion
 
-                float[] colsW = { 25, 25 };
 
                 //Quantidade de produçoes
                 document.Add(tableProducao("Produção N°: " + producao.id + ", Receita: " + producao.receita.nomeReceita, false, Element.ALIGN_CENTER));
@@ -729,14 +728,14 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
 
                 foreach (var batelada in producao.batelada)
                 {
-                    PdfPTable tablebatelada = new PdfPTable(3);
+                    PdfPTable tablebatelada = new PdfPTable(5);
                     BaseColor preto = new BaseColor(0, 0, 0);
                     BaseColor fundo = new BaseColor(200, 200, 200);
                     BaseColor branco = new BaseColor(255, 255, 255);
-                    Font font = FontFactory.GetFont(BaseFont.TIMES_ROMAN, 24, Font.BOLD, preto);
-                    Font titulo = FontFactory.GetFont(BaseFont.TIMES_ROMAN, 24, Font.BOLD, preto);
+                    Font font = FontFactory.GetFont(BaseFont.TIMES_ROMAN, 16, Font.BOLD, preto);
+                    Font titulo = FontFactory.GetFont(BaseFont.TIMES_ROMAN, 16, Font.BOLD, preto);
 
-                    float[] colsWBatelada = { 20, 20, 20 };
+                    float[] colsWBatelada = { 20, 20, 20,20,20 };
                     tablebatelada.HeaderRows = 0;
                     tablebatelada.WidthPercentage = 100f;
                     tablebatelada.DefaultCell.Border = PdfPCell.BOX;
@@ -758,26 +757,63 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
                     if (bateladaPeso != batelada.pesoDesejado && contbateladas <= producao.quantidadeBateladas)
                     {
 
-                        var cell = getNewCell("Batelada N°: " + batelada.numeroBatelada, titulo, Element.ALIGN_CENTER, 8, PdfPCell.BOX, preto, branco);
+                        var cell = getNewCell("Batelada N°: " + batelada.numeroBatelada, titulo, Element.ALIGN_CENTER, 7, PdfPCell.BOX, preto, branco);
                         cell.Colspan = 5;
                         tablebatelada.AddCell(cell);
 
-                        var cell1 = getNewCell("Peso desejado: " + batelada.pesoDesejado + " kg", titulo, Element.ALIGN_CENTER, 8, PdfPCell.BOX, preto, branco);
+                        var cell1 = getNewCell("Peso desejado: " + batelada.pesoDesejado + " kg", titulo, Element.ALIGN_CENTER, 7, PdfPCell.BOX, preto, branco);
                         cell1.Colspan = 5;
                         tablebatelada.AddCell(cell1);
 
-                        tablebatelada.AddCell(getNewCell("Desrição Produto", titulo, Element.ALIGN_CENTER, 8, PdfPCell.BOX, preto, branco));
-                        tablebatelada.AddCell(getNewCell("Peso Desejado", titulo, Element.ALIGN_CENTER, 8, PdfPCell.BOX, preto, branco));
-                        tablebatelada.AddCell(getNewCell("Peso Percentual", titulo, Element.ALIGN_CENTER, 8, PdfPCell.BOX, preto, branco));
+                        tablebatelada.AddCell(getNewCell("Desrição Produto", titulo, Element.ALIGN_CENTER, 7, PdfPCell.BOX, preto, branco));
+                        tablebatelada.AddCell(getNewCell("Peso Desejado", titulo, Element.ALIGN_CENTER, 7, PdfPCell.BOX, preto, branco));
+                        tablebatelada.AddCell(getNewCell("Peso Percentual", titulo, Element.ALIGN_CENTER, 7, PdfPCell.BOX, preto, branco));
+                        tablebatelada.AddCell(getNewCell("TP. Produto", titulo, Element.ALIGN_CENTER, 7, PdfPCell.BOX, preto, branco));
+                        tablebatelada.AddCell(getNewCell("Dosagem", titulo, Element.ALIGN_CENTER, 7, PdfPCell.BOX, preto, branco));
 
                         foreach (var produtos in batelada.produtos)
                         {
 
-                            tablebatelada.AddCell(getNewCell(produtos.descricao, font, Element.ALIGN_LEFT, 8, PdfPCell.BOX));
-                            tablebatelada.AddCell(getNewCell(Convert.ToString(produtos.pesoDesejado) + " kg", font, Element.ALIGN_LEFT, 8, PdfPCell.BOX));
-                            tablebatelada.AddCell(getNewCell(Convert.ToString(Utilidades.functions.percentualProduto(produtos.pesoDesejado, batelada.pesoDesejado)) + " %", font, Element.ALIGN_LEFT, 8, PdfPCell.BOX));
+                            tablebatelada.AddCell(getNewCell(produtos.descricao, font, Element.ALIGN_LEFT, 7, PdfPCell.BOX));
+                            tablebatelada.AddCell(getNewCell(Convert.ToString(produtos.pesoDesejado) + " kg", font, Element.ALIGN_LEFT, 7, PdfPCell.BOX));
+                            tablebatelada.AddCell(getNewCell(Convert.ToString(Utilidades.functions.percentualProduto(produtos.pesoDesejado, batelada.pesoDesejado)) + " %", font, Element.ALIGN_LEFT, 7, PdfPCell.BOX));
+
+                            string produto = "";
+
+                            if (produtos.tipoProduto.Contains("Complemento"))
+                            {
+                                produto = "Comple.";
+                            }
+                            else
+                            {
+                                produto = produtos.tipoProduto;
+                            }
 
 
+                            tablebatelada.AddCell(getNewCell(produto, font, Element.ALIGN_LEFT, 7, PdfPCell.BOX));
+
+                            foreach (var item in producao.receita.listProdutos)
+                            {
+                                if (item.produto.codigo == produtos.codigo)
+                                {
+                                    produto = "";
+                                    if (item.tipoDosagemMateriaPrima.Length < 3)
+                                    {
+                                         produto = "N/A";
+                                    }
+                                    else
+                                    {
+                
+                                       produto = item.tipoDosagemMateriaPrima;
+                      
+                               
+                                    }
+                                    tablebatelada.AddCell(getNewCell(produto, font, Element.ALIGN_LEFT, 8, PdfPCell.BOX));
+               
+                                
+                                }
+                          
+                            }
                         }
 
                         document.Add(tablebatelada);

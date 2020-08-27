@@ -197,8 +197,6 @@ namespace _9230A_V00___PI.Equipamentos
 
                     }
                 }
-
-
                 else
                 {
 
@@ -218,6 +216,9 @@ namespace _9230A_V00___PI.Equipamentos
                     LB_M_A.Dispatcher.BeginInvoke((Action)(() => LB_M_A.Content = "M"));
                 }
 
+                #endregion
+
+                #region Posição.
 
                 float posicoAberta = 0;
                 int layoutAbertura = 0;
@@ -226,7 +227,7 @@ namespace _9230A_V00___PI.Equipamentos
 
                 layoutAbertura = 40 - Convert.ToInt32(posicoAberta);
 
-                if (!(layoutAbertura < 0))
+                if (!(layoutAbertura <= 3))
                 {
                     recAbertura.Width = layoutAbertura;
                 }
@@ -234,9 +235,10 @@ namespace _9230A_V00___PI.Equipamentos
                 {
                     recAbertura.Width = 3;
                 }
-           
 
                 #endregion
+
+
             }
         }
         public EquipsControl Equip_GS { get => equip; }

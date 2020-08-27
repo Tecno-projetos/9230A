@@ -205,6 +205,9 @@ namespace _9230A_V00___PI.Equipamentos
                 }
                 #endregion
 
+                alavancaEsquerda.Fill = new SolidColorBrush(Colors.Green);
+                alavancaDireita.Fill = new SolidColorBrush(Colors.Green);
+
                 if ((equip.Command_Get.Standard.Sensor_Alimentador_Sentido_Horario && equip.Command_Get.Standard.Sensor_Alimentador_Sentido_Anti_Horario))
                 {
                     pckSentido.Kind = MaterialDesignThemes.Wpf.PackIconKind.None;
@@ -241,8 +244,8 @@ namespace _9230A_V00___PI.Equipamentos
                         else if (equip.Command_Get.Standard.Sensor_Alimentador_Sentido_Anti_Horario)
                         {
  
-                            sensorDireita.Fill = new SolidColorBrush(Colors.Red);
-                            sensorEsquerda.Fill = new SolidColorBrush(Colors.Green);
+                            sensorDireita.Fill = new SolidColorBrush(Colors.Green);
+                            sensorEsquerda.Fill = new SolidColorBrush(Colors.Gray);
                             alavancaEsquerda.Visibility = Visibility.Visible;
                             alavancaDireita.Visibility = Visibility.Hidden;
                         }

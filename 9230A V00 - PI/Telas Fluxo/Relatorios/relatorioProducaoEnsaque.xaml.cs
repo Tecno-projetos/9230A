@@ -87,7 +87,6 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
             controlVisible(Visibility.Hidden);
             webBrowse.Visibility = Visibility.Hidden;
 
-
             CombinedCalendar.SelectedDate = ((PickersViewModel)DataContext).Date;
             CombinedClock.Time = ((PickersViewModel)DataContext).Time;
         }
@@ -96,6 +95,12 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
         {
             if (Equals(eventArgs.Parameter, "1"))
             {
+                DateTime d = (DateTime)CombinedCalendar.SelectedDate;
+
+                d = d.AddMinutes(-d.Minute);
+                d = d.AddHours(-d.Hour);
+                d = d.AddSeconds(-d.Second);
+                CombinedCalendar.SelectedDate = d;
 
                 var combined = CombinedCalendar.SelectedDate.Value.AddSeconds(CombinedClock.Time.TimeOfDay.TotalSeconds);
                 ((PickersViewModel)DataContext).Time = combined;
@@ -126,6 +131,16 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
         {
             if (Equals(eventArgs.Parameter, "1"))
             {
+                DateTime d = (DateTime)CombinedCalendar_FIM.SelectedDate;
+
+
+                d = d.AddMinutes(-d.Minute);
+                d = d.AddHours(-d.Hour);
+                d = d.AddSeconds(-d.Second);
+
+
+                CombinedCalendar_FIM.SelectedDate = d;
+
                 var combined = CombinedCalendar_FIM.SelectedDate.Value.AddSeconds(CombinedClock_FIM.Time.TimeOfDay.TotalSeconds);
                 ((PickersViewModel)DataContext).Time = combined;
                 ((PickersViewModel)DataContext).Date = combined;

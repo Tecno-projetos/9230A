@@ -81,10 +81,10 @@
             </Grid>
         </Button>
         <Label Content="Dosagem Matéria Prima:" Height="31" Margin="8,205,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="203" Foreground="White" FontWeight="Bold" FontSize="16"/>
-        <Button x:Name="btExit" Margin="318,235,0,0" Background="#FF505050" BorderBrush="Black" Opacity="1" HorizontalAlignment="Left" Width="178" Height="52" VerticalAlignment="Top" IsCancel="True" >
+        <Button x:Name="btExit" Margin="305,235,0,0" Background="#FF505050" BorderBrush="Black" Opacity="1" HorizontalAlignment="Left" Width="192" Height="52" VerticalAlignment="Top" IsCancel="True" >
             <Grid Width="150">
                 <materialDesign:PackIcon x:Name="packiconCadastrarEditar1" Kind="Close" VerticalAlignment="Center" Foreground="Red" Margin="1,-6,0,-7" Height="30" Width="30"/>
-                <TextBlock x:Name="lbTextButton3" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="38,1,2,-1" Width="110" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Fechar"/>
+                <TextBlock x:Name="lbTextButton3" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="63,0,34,0" Width="53" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Fechar"/>
             </Grid>
         </Button>
         <Grid Style="{StaticResource EntryFieldStyle}" Margin="10,155,267,0" Height="50" Background="#FF3C3C3C" VerticalAlignment="Top" >

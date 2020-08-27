@@ -118,8 +118,6 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
         {
             if (DataGrid.SelectedIndex != -1)
             {
-
-
                 inputDialog = new Utilidades.messageBox("Apagar Produto", "Voçê tem certeza que deseja apagar? o processo não pode ser revertido!", MaterialDesignThemes.Wpf.PackIconKind.Error, "Sim", "Não");
 
                 inputDialog.ShowDialog();
@@ -130,29 +128,36 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
 
                     if (rowList != null)
                     {
-                        if (DataBase.SqlFunctionsProdutos.Delete_Rows(Convert.ToInt32(rowList.Row.ItemArray[0])))
+                        if (DataBase.SqlFunctionsProdutos.getCodigoProdutoUsado((string)rowList.Row.ItemArray[1]) <= 0)
                         {
-                            inputDialog = new Utilidades.messageBox("Apagar", "Produto apagado com sucesso!", MaterialDesignThemes.Wpf.PackIconKind.Error, "OK", "Fechar");
+                            if (DataBase.SqlFunctionsProdutos.Delete_Rows(Convert.ToInt32(rowList.Row.ItemArray[0])))
+                            {
+                                inputDialog = new Utilidades.messageBox("Apagar", "Produto apagado com sucesso!", MaterialDesignThemes.Wpf.PackIconKind.Error, "OK", "Fechar");
 
-                            inputDialog.ShowDialog();
+                                inputDialog.ShowDialog();
 
-                            Utilidades.functions.atualizalistProdutos();
+                                Utilidades.functions.atualizalistProdutos();
 
-                            Utilidades.ListtoDataTableConverter converter = new Utilidades.ListtoDataTableConverter();
+                                Utilidades.ListtoDataTableConverter converter = new Utilidades.ListtoDataTableConverter();
 
-                            DataTable dt = converter.ToDataTable(Utilidades.VariaveisGlobais.listProdutos);
+                                DataTable dt = converter.ToDataTable(Utilidades.VariaveisGlobais.listProdutos);
 
-                            DataGrid.Dispatcher.Invoke(delegate { DataGrid.ItemsSource = dt.DefaultView; });
+                                DataGrid.Dispatcher.Invoke(delegate { DataGrid.ItemsSource = dt.DefaultView; });
 
+                            }
+                            else
+                            {
+                                inputDialog = new Utilidades.messageBox("Apagar", "Ocorreu algum erro ao apagar!", MaterialDesignThemes.Wpf.PackIconKind.Error, "OK", "Fechar");
+
+                                inputDialog.ShowDialog();
+                            }
                         }
                         else
                         {
-                            inputDialog = new Utilidades.messageBox("Apagar", "Ocorreu algum erro ao apagar!", MaterialDesignThemes.Wpf.PackIconKind.Error, "OK", "Fechar");
+                            inputDialog = new Utilidades.messageBox("Apagar Produto", "O produto selecionado existe em uma receita!", MaterialDesignThemes.Wpf.PackIconKind.Error, "OK", "Fechar");
 
                             inputDialog.ShowDialog();
                         }
-
-
                     }
                     else
                     {

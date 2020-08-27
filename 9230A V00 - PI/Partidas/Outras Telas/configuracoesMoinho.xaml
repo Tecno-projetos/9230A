@@ -83,10 +83,6 @@
         <TextBox x:Name="tbMotorVazio" Margin="147,304,16,0" TextWrapping="Wrap" Text="10.5 p/s" VerticalContentAlignment="Center" ToolTip="SetPoint do tempo de utilização do trafo." Height="26" VerticalAlignment="Top" HorizontalContentAlignment="Center" MaxLines="1" MaxLength="5" GotFocus="TB_GotFocus" PreviewMouseLeftButtonUp="tbMotorVazio_PreviewMouseLeftButtonUp"/>
         <TextBlock TextWrapping="Wrap" TextAlignment="Center" Text="Corrente Motor Vazio (A):" Margin="36,298,101,0" FontWeight="Bold" FontSize="14" Foreground="White" VerticalAlignment="Top"/>
         <ed:Arc ArcThickness="20" ArcThicknessUnit="Pixel" EndAngle="360" Fill="#FF009600" Margin="20,307,208,0" Stretch="None" Stroke="White" StartAngle="0" Height="15" VerticalAlignment="Top"/>
-        <GroupBox Header="Tempo Reversão" Margin="10,351,0,0" ToolTip="Configurações do tempo de utilização do trafo" HorizontalAlignment="Left" Width="226" Foreground="White" Height="74" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5"/>
-        <TextBox x:Name="tbTempoReversao" Margin="147,382,0,0" TextWrapping="Wrap" Text="10.5 p/s" VerticalContentAlignment="Center" HorizontalAlignment="Left" Width="80" ToolTip="SetPoint do tempo de utilização do trafo." Height="26" VerticalAlignment="Top" HorizontalContentAlignment="Center" MaxLines="1" MaxLength="5" GotFocus="TB_GotFocus" PreviewMouseLeftButtonUp="tbTempoReversao_PreviewMouseLeftButtonUp"/>
-        <TextBlock TextWrapping="Wrap" TextAlignment="Center" Text="Tempo para Reversão (min):" Margin="36,376,101,0" FontWeight="Bold" FontSize="14" Foreground="White" VerticalAlignment="Top"/>
-        <ed:Arc ArcThickness="20" ArcThicknessUnit="Pixel" EndAngle="360" Fill="#FF009600" HorizontalAlignment="Left" Margin="20,385,0,0" Stretch="None" Stroke="White" StartAngle="0" Width="15" Height="15" VerticalAlignment="Top"/>
 
     </Grid>
 </UserControl>

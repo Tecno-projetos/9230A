@@ -149,12 +149,19 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
 
                     var index = Utilidades.VariaveisGlobais.listReceitas.FindIndex(x => x.id == Convert.ToInt32(rowList.Row.ItemArray[0]));
 
-                    if (DataBase.SqlFunctionsReceitas.DeleteReceita(Utilidades.VariaveisGlobais.listReceitas[index].nomeReceita) == -1 )
+                    if (DataBase.SQLFunctionsProducao.getCoutReceitaBase(Utilidades.VariaveisGlobais.listReceitas[index].id) > 0)
                     {
-                        inputDialog = new Utilidades.messageBox("Erro Apagar Receita", "Não foi possível apagar a receita! A receita foi utilizada em uma produção.", MaterialDesignThemes.Wpf.PackIconKind.Error, "Ok", "Fechar");
+                        inputDialog = new Utilidades.messageBox("Apagar Receita", "Não foi possível apagar a receita! A receita foi utilizada em uma produção.", MaterialDesignThemes.Wpf.PackIconKind.Error, "Ok", "Fechar");
                         inputDialog.ShowDialog();
                     }
-
+                    else
+                    {
+                        if (DataBase.SqlFunctionsReceitas.DeleteReceita(Utilidades.VariaveisGlobais.listReceitas[index].nomeReceita) == -1)
+                        {
+                            inputDialog = new Utilidades.messageBox("Erro Apagar Receita", "Não foi possível apagar a receita!", MaterialDesignThemes.Wpf.PackIconKind.Error, "Ok", "Fechar");
+                            inputDialog.ShowDialog();
+                        }
+                    }
                     Utilidades.functions.atualizalistReceitas();
 
                     DataTable dt = new DataTable();

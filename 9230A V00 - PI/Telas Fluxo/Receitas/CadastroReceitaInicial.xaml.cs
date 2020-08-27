@@ -32,6 +32,8 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
         public CadastroReceitaInicial()
         {
             InitializeComponent();
+
+            btCancelar.Visibility = Visibility.Hidden;
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
@@ -40,7 +42,19 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
             {
                 Utilidades.VariaveisGlobais.ReceitaCadastro = new Receita();
             }
+            if (Utilidades.VariaveisGlobais.IniciouCadastro_GS)
+            {
+                btCancelar.Visibility = Visibility.Visible;
+                lbTextButton.Text = "Continuar Cadastro";
+            }
+            else
+            {
+                btCancelar.Visibility = Visibility.Hidden;
+                lbTextButton.Text = "Iniciar Cadastro";
+            }
             leituraValoresCadastroReceita();
+
+
         }
 
         private void leituraValoresCadastroReceita()
@@ -112,6 +126,12 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
 
                             if (this.FinalizadoInicioCadastroReceita != null)
                                 this.FinalizadoInicioCadastroReceita(this, e);
+
+
+                            Utilidades.VariaveisGlobais.IniciouCadastro_GS = true;
+
+
+
                         }
                         else
                         {
@@ -121,6 +141,28 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
                         }
                     }
                 }
+            }
+        }
+
+        private void btCancelar_Click(object sender, RoutedEventArgs e)
+        {
+
+            inputDialog = new Utilidades.messageBox("Cancelar Receita", "Deseja cancelar o cadastro dessa receita", MaterialDesignThemes.Wpf.PackIconKind.Error, "Sim", "Não");
+
+            if (inputDialog.ShowDialog() == true) 
+            {
+                VariaveisGlobais.ReceitaCadastro.nomeReceita = "";
+                VariaveisGlobais.ReceitaCadastro.pesoBase = 0f;
+                VariaveisGlobais.ReceitaCadastro.observacao = "";
+
+                VariaveisGlobais.ReceitaCadastro.listProdutos.Clear();
+
+                Utilidades.VariaveisGlobais.IniciouCadastro_GS = false;
+                btCancelar.Visibility = Visibility.Hidden;
+
+                lbTextButton.Text = "Iniciar Cadastro"; 
+                leituraValoresCadastroReceita();
+
             }
         }
     }
