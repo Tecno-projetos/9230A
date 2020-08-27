@@ -136,6 +136,12 @@ namespace _9230A_V00___PI.Usuarios
 
                 }
 
+                if (tablename.Contains("Automasul"))
+                {
+                    boxItem.IsSelected = false;
+                    boxItem.IsEnabled = false;
+                }
+
 
                 listbox.Items.Add(boxItem);
                 
