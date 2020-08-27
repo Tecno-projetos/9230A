@@ -448,5 +448,31 @@ namespace _9230A_V00___PI.DataBase
             }
         }
 
+        public static Int32 getCoutReceitaBase(int IdReceitaBase)
+        {
+            DataTable Data = new DataTable();
+
+            if (Utilidades.VariaveisGlobais.DB_Connected_GS)
+            {
+                try
+                {
+                    string CommandString = "SELECT COUNT(*) FROM Producao WHERE IdReceitaBase = '" + IdReceitaBase + "'";
+
+
+                    dynamic Call = SqlGlobalFuctions.ReturnCall(Utilidades.VariaveisGlobais.Connection_DB_Receitas_GS);
+
+                    dynamic Adapter = SqlGlobalFuctions.ReturnAdapter(CommandString, Utilidades.VariaveisGlobais.Connection_DB_Receitas_GS);
+
+                    Adapter.Fill(Data);
+                }
+                catch (Exception ex)
+                {
+                    Utilidades.VariaveisGlobais.Window_Buffer_Diagnostic.List_Error = ex.ToString();
+                }
+            }
+
+            return Convert.ToInt32(Data.Rows[0][0]);
+        }
+
     }
 }

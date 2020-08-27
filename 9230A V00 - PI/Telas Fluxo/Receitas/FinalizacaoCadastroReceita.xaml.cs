@@ -1,4 +1,5 @@
 ﻿using _9230A_V00___PI.Teclados;
+using _9230A_V00___PI.Utilidades;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -157,6 +158,8 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
 
                             if (this.FinalizadoCadastroReceita != null)
                                 this.FinalizadoCadastroReceita(this, e);
+
+                            Utilidades.VariaveisGlobais.IniciouCadastro_GS = false;
                         }
                         else
                         {
@@ -310,6 +313,25 @@ namespace _9230A_V00___PI.Telas_Fluxo.Receitas
                 BackgroundPesoProdutoSomado.Background = new SolidColorBrush(Color.FromArgb(255, 155, 0, 0));
                 pesoProdutoIgualPesoRef = false;
 
+            }
+        }
+
+        private void btCancelar_Click(object sender, RoutedEventArgs e)
+        {
+            inputDialog = new Utilidades.messageBox("Cancelar Receita", "Deseja cancelar o cadastro dessa receita", MaterialDesignThemes.Wpf.PackIconKind.Error, "Sim", "Não");
+
+            if (inputDialog.ShowDialog() == true)
+            {
+                VariaveisGlobais.ReceitaCadastro.nomeReceita = "";
+                VariaveisGlobais.ReceitaCadastro.pesoBase = 0f;
+                VariaveisGlobais.ReceitaCadastro.observacao = "";
+
+                VariaveisGlobais.ReceitaCadastro.listProdutos.Clear();
+
+                Utilidades.VariaveisGlobais.IniciouCadastro_GS = false;
+
+                if (this.FinalizadoCadastroReceita != null)
+                    this.FinalizadoCadastroReceita(this, e);
             }
         }
     }

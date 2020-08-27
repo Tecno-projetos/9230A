@@ -74,9 +74,6 @@ namespace _9230A_V00___PI.Telas_Fluxo
 
             //Apagado receita com sucesso
             ApagarCadastroReceita.EventoApagadoSucesso += new EventHandler(EventoApagadoSucesso);
-
-
-
         }
 
 
@@ -227,12 +224,22 @@ namespace _9230A_V00___PI.Telas_Fluxo
 
                 return;
             }
-            if (spReceitas != null)
+            if (Utilidades.VariaveisGlobais.IniciouCadastro_GS)
             {
-                spReceitas.Children.Clear();
+                Utilidades.messageBox inputDialog = new messageBox("Cadastro em Andamento", "Para apagar um produto, deve-se cancelar o cadastro da receita ou finalizar a receita!", MaterialDesignThemes.Wpf.PackIconKind.Error, "OK", "Fechar");
+
+                inputDialog.ShowDialog();
+            }
+            else
+            {
+                if (spReceitas != null)
+                {
+                    spReceitas.Children.Clear();
+                }
+
+                spReceitas.Children.Add(apagarProdutos);
             }
 
-            spReceitas.Children.Add(apagarProdutos);
         }
 
         private void btEditarReceita_Click(object sender, RoutedEventArgs e)

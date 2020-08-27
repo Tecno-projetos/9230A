@@ -969,13 +969,10 @@ namespace _9230A_V00___PI.Utilidades
         private static bool ativaTecladoVirtual = false;
 
         public static bool AtivaDesativaTecladoVirtual { get => ativaTecladoVirtual; set => ativaTecladoVirtual = value; }
- 
-
-        #endregion
 
         public static float floatingKeypad(string OldValue, short numeroMaximoCasas)
         {
-            keypad mainWindow = new keypad(false, numeroMaximoCasas);          
+            keypad mainWindow = new keypad(false, numeroMaximoCasas);
             float floatPoint;
             float oldValue = 0;
             float newValue = 0;
@@ -991,7 +988,7 @@ namespace _9230A_V00___PI.Utilidades
 
             if (mainWindow.ShowDialog() == true)
             {
-             isNumeric = float.TryParse(mainWindow.Result, out floatPoint);
+                isNumeric = float.TryParse(mainWindow.Result, out floatPoint);
 
                 if (isNumeric)
                 {
@@ -1072,11 +1069,11 @@ namespace _9230A_V00___PI.Utilidades
         public static Int32 IntergerKeypad(string OldValue, short numeroMaximoCasas, Int32 limite)
         {
             keypad mainWindow = new keypad(true, numeroMaximoCasas);
-           
+
             Int32 IntergerPoint;
             Int32 oldValue = 0;
             Int32 newValue = 0;
-           
+
             bool isNumeric;
             isNumeric = Int32.TryParse(OldValue, out IntergerPoint);
 
@@ -1088,7 +1085,7 @@ namespace _9230A_V00___PI.Utilidades
             }
 
             if (mainWindow.ShowDialog() == true)
-            {       
+            {
                 isNumeric = Int32.TryParse(mainWindow.Result, out IntergerPoint);
 
                 if (isNumeric)
@@ -1114,16 +1111,27 @@ namespace _9230A_V00___PI.Utilidades
                 {
                     //Envia o oldValue pois o valor máximo ultrapassou o limite.
                     return oldValue;
-                }    
+                }
             }
             //Envia o oldValue pois o valor máximo ultrapassou o limite.
             return oldValue;
         }
+        #endregion
 
         public static int Id_Producao_No_Silo_Expedicao;
 
         private static bool TickTack;
         public static bool TickTack_GS { get => TickTack; set => TickTack = value; }
+
+        private static bool IniciouCadastro;
+        public static bool IniciouCadastro_GS { get => IniciouCadastro; set => IniciouCadastro = value; }
+
+  
+
+
+
+
+
 
     }
 
