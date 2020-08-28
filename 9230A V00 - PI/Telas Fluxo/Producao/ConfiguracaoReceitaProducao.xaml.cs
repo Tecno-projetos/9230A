@@ -243,34 +243,48 @@ namespace _9230A_V00___PI.Telas_Fluxo.Producao
 
         private void btContinuar_Click(object sender, RoutedEventArgs e)
         {
-            //Verifica se o calculo das quantidades das bateladas esta correto
-            if (calculaApartirPesoTotalDesejado(true))
-            {
-                //verifica se tem dosagem automática de materia prima
-                if (contemMateriaPrimaDosagemAutomatica)
-                {
-                    //Verifica se foi selecionado silo para as dosagem automáticas
-                    if (DosagemAutomaticaMateriaPrima1 != 0)
-                    {
-                        //Chama proximo tela
-                        if (this.ProximaTela != null)
-                            this.ProximaTela(this, e);
-                    }
-                    else
-                    {
-                        inputDialog = new Utilidades.messageBox("Seleção Silo", "Falta Selecionar um silo de origem da Matéria Prima", MaterialDesignThemes.Wpf.PackIconKind.Error, "OK", "Fechar");
+            float pesoDesejado;
 
-                        inputDialog.ShowDialog();
+            if (float.TryParse(txtPesoDesejado.Text, out pesoDesejado))
+            {
+                if (pesoDesejado > 0)
+                {
+                    //Verifica se o calculo das quantidades das bateladas esta correto
+                    if (calculaApartirPesoTotalDesejado(true))
+                    {
+                        //verifica se tem dosagem automática de materia prima
+                        if (contemMateriaPrimaDosagemAutomatica)
+                        {
+                            //Verifica se foi selecionado silo para as dosagem automáticas
+                            if (DosagemAutomaticaMateriaPrima1 != 0)
+                            {
+                                //Chama proximo tela
+                                if (this.ProximaTela != null)
+                                    this.ProximaTela(this, e);
+                            }
+                            else
+                            {
+                                inputDialog = new Utilidades.messageBox("Seleção Silo", "Falta Selecionar um silo de origem da Matéria Prima", MaterialDesignThemes.Wpf.PackIconKind.Error, "OK", "Fechar");
+
+                                inputDialog.ShowDialog();
+                            }
+                        }
+                        else
+                        {
+                            //Chama proximo tela
+                            if (this.ProximaTela != null)
+                                this.ProximaTela(this, e);
+                        }
                     }
                 }
                 else
                 {
-                    //Chama proximo tela
-                    if (this.ProximaTela != null)
-                        this.ProximaTela(this, e);
+                    inputDialog = new Utilidades.messageBox("Produção", "Selecione um valor de produção maior que 0!", MaterialDesignThemes.Wpf.PackIconKind.Error, "OK", "Fechar");
+
+                    inputDialog.ShowDialog();
                 }
+
             }
-            
         }
 
         private void btVoltar_Click(object sender, RoutedEventArgs e)
