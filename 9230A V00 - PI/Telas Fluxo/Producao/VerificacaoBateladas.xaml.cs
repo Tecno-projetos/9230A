@@ -98,6 +98,8 @@ namespace _9230A_V00___PI.Telas_Fluxo.Producao
 
             //Atualiza o peso de cada produto de cada batelada de acordo com a receita e o peso da batelada
             atualizaProdutosBatelada();
+
+            DataGrid_Produtos.Dispatcher.Invoke(delegate { DataGrid_Produtos.ItemsSource = null; });
         }
 
         /// <summary>
