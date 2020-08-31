@@ -457,7 +457,7 @@ namespace _9230A_V00___PI.DataBase
 
                     dynamic Command = SqlGlobalFuctions.ReturnCommand(query, Call);
                     Command.Parameters.AddWithValue("@IdEnsaque", idEnsaque);
-                    Command.Parameters.AddWithValue("@PesoDosado", pesoDosado);
+                    Command.Parameters.AddWithValue("@PesoDosado", Math.Round(pesoDosado,2));
                     Command.Parameters.AddWithValue("@Observacao", Observacao);
                     ret = Command.ExecuteNonQuery();
                     Call.Close();
@@ -485,7 +485,7 @@ namespace _9230A_V00___PI.DataBase
             {
                 try
                 {
-                    string CommandString = "SELECT * FROM Ensaques WHERE IdEnsaque = '" + IdProducaoEnsaque + "'";
+                    string CommandString = "SELECT * FROM Ensaques WHERE IdEnsaque = '" + IdProducaoEnsaque + "' ORDER BY Id DESC";
 
                     dynamic Call = SqlGlobalFuctions.ReturnCall(Utilidades.VariaveisGlobais.Connection_DB_Receitas_GS);
 

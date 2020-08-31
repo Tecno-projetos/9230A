@@ -93,7 +93,7 @@
             CanUserDeleteRows ="False" CanUserReorderColumns="False" CanUserResizeRows="False" CanUserSortColumns="False"   
             ScrollViewer.VerticalScrollBarVisibility="Auto" Height="390" Cursor="Hand" IsReadOnly="True" AlternatingRowBackground="#FF7F7F7F" 
             RowBackground="White" HorizontalScrollBarVisibility="Hidden" Background="White" FontSize="18" FontFamily="Segoe UI Emoji" GridLinesVisibility="All" 
-            SelectionMode="Single"  AutoGenerateColumns="True" RowHeight="40" Width="347" >
+            SelectionMode="Single"  AutoGenerateColumns="True" RowHeight="40" Width="347" LoadingRow="DataGrid_Ensaques_LoadingRow" >
 
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridCell}">

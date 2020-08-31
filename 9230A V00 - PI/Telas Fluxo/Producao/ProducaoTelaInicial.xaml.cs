@@ -39,6 +39,8 @@ namespace _9230A_V00___PI.Telas_Fluxo.Producao
             dt = DataBase.SqlFunctionsReceitas.getReceitas();
 
             DataGrid_Receita.Dispatcher.Invoke(delegate { DataGrid_Receita.ItemsSource = dt.DefaultView; });
+
+            DataGrid_Produtos.Dispatcher.Invoke(delegate { DataGrid_Produtos.ItemsSource = null; });
         }
 
         private void btLeftList_Click(object sender, RoutedEventArgs e)

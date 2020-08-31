@@ -83,7 +83,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
             DataGrid_Ensaques.ItemsSource = Data.DefaultView;
 
             DataGrid_Ensaques.Columns[0].Visibility = Visibility.Hidden;
-            DataGrid_Ensaques.Columns[1].Header = "Id Produção";
+            DataGrid_Ensaques.Columns[1].Header = "Nº Produção";
             DataGrid_Ensaques.Columns[2].Header = "Peso Dosado";
             DataGrid_Ensaques.Columns[3].Visibility = Visibility.Hidden;
         }
@@ -166,6 +166,8 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
                     {
                         //Iniciou com a produção X
                         Utilidades.VariaveisGlobais.executaEnsaque.producaoEnsaque(VariaveisGlobais.Id_Producao_No_Silo_Expedicao);
+
+                        atualizaGrid();
                     }
 
                     Utilidades.VariaveisGlobais.executaEnsaque.InverbitIniciouEnsaque();
@@ -195,6 +197,9 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
                 Utilidades.VariaveisGlobais.executaEnsaque.InverbitTerminouEnsaque();
 
                 Utilidades.VariaveisGlobais.executaEnsaque.updateProducaoTerminou();
+
+                DataGrid_Ensaques.ItemsSource = null;
+
             }
             else
             {
@@ -209,6 +214,8 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
             abriuTela = true;
 
             txtQtdEnsaque.Text = Utilidades.VariaveisGlobais.executaEnsaque.Ensaque_Get.controleEnsaque.pesoDesejado.ToString();
+
+            DataGrid_Ensaques.ItemsSource = null;
 
             if (DataBase.SqlFunctionsEnsaques.getIdProducaoEnsaque(VariaveisGlobais.Id_Producao_No_Silo_Expedicao) != -1)
             {
@@ -226,7 +233,22 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
 
         private void atualizaGrid() 
         {
-            DataGrid_ItemSource(DataBase.SqlFunctionsEnsaques.getEnsaqueFromIdProducaoEnsaque(DataBase.SqlFunctionsEnsaques.getIdProducaoEnsaque(VariaveisGlobais.Id_Producao_No_Silo_Expedicao)));
+            if (Utilidades.VariaveisGlobais.executaEnsaque.Ensaque_Get.controleEnsaque.IniciaEnsaque)
+            {
+                DataGrid_ItemSource(DataBase.SqlFunctionsEnsaques.getEnsaqueFromIdProducaoEnsaque(DataBase.SqlFunctionsEnsaques.getIdProducaoEnsaque(VariaveisGlobais.Id_Producao_No_Silo_Expedicao)));
+
+            }
+        }
+
+        
+        private void DataGrid_Ensaques_LoadingRow(object sender, DataGridRowEventArgs e)
+        {
+          int index = e.Row.GetIndex();
+
+            if (index == 0)
+            {
+                e.Row.Background = new SolidColorBrush(Colors.Green);
+            }
         }
     }
 }
