@@ -135,7 +135,7 @@
                 <TextBlock HorizontalAlignment="Center" Text="Fechar" FontFamily="Champagne &amp; Limousines" Foreground="White" FontSize="18" Margin="49,1,49,-1"/>
             </Grid>
         </Button>
-        <Label x:Name="lbStatusMotor" Content="Balança Em Funcionamento" Margin="20,284,0,0" BorderBrush="Black" BorderThickness="1" Background="#FF0CFF00" HorizontalContentAlignment="Center" Height="29" VerticalAlignment="Top" HorizontalAlignment="Left" Width="217" ToolTip="" Cursor="No" FontSize="13"/>
+        <Label x:Name="lbStatusMotor" Content="Balança Em Funcionamento" Margin="20,284,0,0" BorderBrush="Black" BorderThickness="1" Background="#FF0CFF00" HorizontalContentAlignment="Center" Height="29" VerticalAlignment="Top" HorizontalAlignment="Left" Width="217" Cursor="No" FontSize="13"/>
 
     </Grid>
 </Window>

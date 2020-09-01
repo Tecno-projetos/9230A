@@ -141,10 +141,10 @@
                 <TextBlock x:Name="lbTextButton1" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="36,1,-14,-1" Width="128" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Terminar Ensaque"/>
             </Grid>
         </Button>
-        <Label x:Name="lbStatusEnsaque" Content="Balança Em Funcionamento" Margin="399,491,0,0" BorderBrush="Black" BorderThickness="1" Background="#FF0CFF00" HorizontalContentAlignment="Center" Height="34" VerticalAlignment="Top" HorizontalAlignment="Left" Width="375" ToolTip="" Cursor="No" FontSize="16" VerticalContentAlignment="Center"/>
+        <Label x:Name="lbStatusEnsaque" Content="Balança Em Funcionamento" Margin="399,491,0,0" BorderBrush="Black" BorderThickness="1" Background="#FF0CFF00" HorizontalContentAlignment="Center" Height="34" VerticalAlignment="Top" HorizontalAlignment="Left" Width="375" Cursor="No" FontSize="16" VerticalContentAlignment="Center"/>
         <Label Content="Peso Atual Balança:" Height="36" Margin="391,289,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="225" Foreground="White" FontWeight="Bold" FontSize="18"/>
         <Label x:Name="lbPesoBalnca" Content="10.500,25 kg" Height="53" Margin="535,278,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="249" Foreground="White" FontWeight="Bold" FontSize="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <Label x:Name="lbStatusBalança" Content="Balança Em Funcionamento" Margin="399,330,0,0" BorderBrush="Black" BorderThickness="1" Background="#FF0CFF00" HorizontalContentAlignment="Center" Height="34" VerticalAlignment="Top" HorizontalAlignment="Left" Width="375" ToolTip="" Cursor="No" FontSize="16" VerticalContentAlignment="Center"/>
+        <Label x:Name="lbStatusBalança" Content="Balança Em Funcionamento" Margin="399,330,0,0" BorderBrush="Black" BorderThickness="1" Background="#FF0CFF00" HorizontalContentAlignment="Center" Height="34" VerticalAlignment="Top" HorizontalAlignment="Left" Width="375" Cursor="No" FontSize="16" VerticalContentAlignment="Center"/>
         <TextBlock HorizontalAlignment="Center" TextAlignment="Center" Margin="397,534,44,90" TextWrapping="Wrap" Text="Se tiver nível baixo no silo de expedição, aguardar 1 minuto para poder iniciar o ensaque !" VerticalAlignment="Center" Width="383" Height="51" FontSize="16" Foreground="White" FontWeight="Bold"/>
 
     </Grid>

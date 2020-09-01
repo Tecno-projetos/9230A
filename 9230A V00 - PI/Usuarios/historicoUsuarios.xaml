@@ -62,8 +62,8 @@
             ScrollViewer.VerticalScrollBarVisibility="Auto" Height="382" Cursor="Hand" IsReadOnly="True" IsEnabled="False" AlternatingRowBackground="#FF3C3C3C" RowBackground="WhiteSmoke" LoadingRow="DataGridHistory_LoadingRow" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
 
 
-        <xctk:DateTimePicker x:Name="DTPStart" Height="30" Margin="301,139,0,0" VerticalAlignment="Top" Width="240" HorizontalAlignment="Left" HorizontalContentAlignment="Left" Cursor="Hand" ToolTip="Selecione a data Inicial para pesquisa." FontSize="14" CalendarWidth="500" RenderTransformOrigin="0,0" ButtonSpinnerLocation="Left"/>
-        <xctk:DateTimePicker x:Name="DTPEnd" Height="30" Margin="575,139,0,0" VerticalAlignment="Top" Width="240" HorizontalAlignment="Left" HorizontalContentAlignment="Left" Cursor="Hand" ToolTip="Selecione a data Inicial para pesquisa." FontSize="14" ButtonSpinnerLocation="Left" CalendarWidth="500"/>
+        <xctk:DateTimePicker x:Name="DTPStart" Height="30" Margin="301,139,0,0" VerticalAlignment="Top" Width="240" HorizontalAlignment="Left" HorizontalContentAlignment="Left" Cursor="Hand" FontSize="14" CalendarWidth="500" RenderTransformOrigin="0,0" ButtonSpinnerLocation="Left"/>
+        <xctk:DateTimePicker x:Name="DTPEnd" Height="30" Margin="575,139,0,0" VerticalAlignment="Top" Width="240" HorizontalAlignment="Left" HorizontalContentAlignment="Left" Cursor="Hand" FontSize="14" ButtonSpinnerLocation="Left" CalendarWidth="500"/>
         <Button x:Name="btUpList" Margin="382,565,366,60" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btUpList_Click" >
             <Grid Width="42" Height="42" Margin="0">
                 <materialDesign:PackIcon Kind="ArrowUpBold" VerticalAlignment="Center" Foreground="White" Height="42" Width="42"/>

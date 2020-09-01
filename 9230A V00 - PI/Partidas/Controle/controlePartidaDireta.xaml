@@ -14,7 +14,7 @@
 
         <Label x:Name="lbName" Content="Nome Partida" RenderTransformOrigin="-0.066,0.849" FontSize="18" FontWeight="Bold" HorizontalAlignment="Left" Width="238" HorizontalContentAlignment="Center" Foreground="White" Height="35" VerticalAlignment="Top" Margin="0,-1,0,0"/>
 
-        <ToggleButton x:Name="btLigar" Margin="21,42,0,0" Foreground="White" Height="104" VerticalAlignment="Top" HorizontalAlignment="Left" Width="85" Cursor="Hand" ToolTip="Ligar/Desligar Equipamento." Click="btLigar_Click">
+        <ToggleButton x:Name="btLigar" Margin="21,42,0,0" Foreground="White" Height="104" VerticalAlignment="Top" HorizontalAlignment="Left" Width="85" Cursor="Hand"  Click="btLigar_Click">
             <ToggleButton.Style>
                 <Style TargetType="{x:Type ToggleButton}">
                     <Setter Property="Template">
@@ -36,7 +36,7 @@
                 </Style>
             </ToggleButton.Style>
         </ToggleButton>
-        <ToggleButton x:Name="btReset" Margin="131,42,0,0" Foreground="White" Height="104" VerticalAlignment="Top" HorizontalAlignment="Left" Width="85" Cursor="Hand" ToolTip="Reset Equipamento." Click="btReset_Click">
+        <ToggleButton x:Name="btReset" Margin="131,42,0,0" Foreground="White" Height="104" VerticalAlignment="Top" HorizontalAlignment="Left" Width="85" Cursor="Hand"  Click="btReset_Click">
             <ToggleButton.Style>
                 <Style TargetType="{x:Type ToggleButton}">
                     <Setter Property="Template">
@@ -58,7 +58,7 @@
                 </Style>
             </ToggleButton.Style>
         </ToggleButton>
-        <ToggleButton x:Name="btManutencao" Margin="20,207,0,0" Foreground="White" Height="104" VerticalAlignment="Top" HorizontalAlignment="Left" Width="85" Cursor="Hand" ToolTip="Manutenção Equipamento." Click="btManutencao_Click">
+        <ToggleButton x:Name="btManutencao" Margin="20,207,0,0" Foreground="White" Height="104" VerticalAlignment="Top" HorizontalAlignment="Left" Width="85" Cursor="Hand"  Click="btManutencao_Click">
             <ToggleButton.Style>
                 <Style TargetType="{x:Type ToggleButton}">
                     <Setter Property="Template">
@@ -114,9 +114,9 @@
         </Button>
 
 
-        <Label x:Name="lbStatusMotor" Content="Status Motor" Margin="9,324,0,0" BorderBrush="Black" BorderThickness="1" Background="#00000000" HorizontalContentAlignment="Center" Height="29" VerticalAlignment="Top" HorizontalAlignment="Left" Width="223" ToolTip="Status do motor, falhas e alarmes." Cursor="No" FontSize="13"/>
+        <Label x:Name="lbStatusMotor" Content="Status Motor" Margin="9,324,0,0" BorderBrush="Black" BorderThickness="1" Background="#00000000" HorizontalContentAlignment="Center" Height="29" VerticalAlignment="Top" HorizontalAlignment="Left" Width="223"  Cursor="No" FontSize="13"/>
 
-        <Button x:Name="btManual" Content="A" Margin="134,218,0,0" HorizontalAlignment="Left" Width="85" ToolTip="Comando ligar motor em modo automático ou em modo manual." Cursor="Hand" FontSize="72" Height="65" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Yu Gothic UI Semibold" BorderBrush="{x:Null}" Foreground="#FFB4B4B4" Background="{x:Null}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Padding="0,-20,0,0" Click="btManual_Click" >
+        <Button x:Name="btManual" Content="A" Margin="134,218,0,0" HorizontalAlignment="Left" Width="85"  Cursor="Hand" FontSize="72" Height="65" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Yu Gothic UI Semibold" BorderBrush="{x:Null}" Foreground="#FFB4B4B4" Background="{x:Null}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Padding="0,-20,0,0" Click="btManual_Click" >
             <Button.Resources>
                         <ResourceDictionary>
                             <ResourceDictionary.MergedDictionaries>

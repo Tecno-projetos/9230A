@@ -82,7 +82,7 @@
                 </Grid>
             </materialDesign:DialogHost.DialogContent>
         </materialDesign:DialogHost>
-        <Label x:Name="txtDataSelecionada" Content="Data Inicial:" Margin="96,33,0,0" BorderBrush="Black" BorderThickness="1" Background="#00000000" HorizontalContentAlignment="Center" Height="29" VerticalAlignment="Top" HorizontalAlignment="Left" Width="223" ToolTip="Status do motor, falhas e alarmes." Cursor="No" FontSize="18" Foreground="White" Padding="0,0,4,0"/>
+        <Label x:Name="txtDataSelecionada" Content="Data Inicial:" Margin="96,33,0,0" BorderBrush="Black" BorderThickness="1" Background="#00000000" HorizontalContentAlignment="Center" Height="29" VerticalAlignment="Top" HorizontalAlignment="Left" Width="223"  Cursor="No" FontSize="18" Foreground="White" Padding="0,0,4,0"/>
         <Button  x:Name="ButtonOpenDialog" Content="..." IsEnabled="True" Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}" CommandTarget="{Binding ElementName=PopupAddCustom}" Margin="96,67,0,0" Background="#FF505050" BorderBrush="Black" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Left" Width="223" Click="ButtonOpenDialog_Click"/>
 
 
@@ -137,7 +137,7 @@
                 </Grid>
             </materialDesign:DialogHost.DialogContent>
         </materialDesign:DialogHost>
-        <Label x:Name="txtFIM" Content="Data Final:" Margin="362,33,0,0" BorderBrush="Black" BorderThickness="1" Background="#00000000" HorizontalContentAlignment="Center" Height="29" VerticalAlignment="Top" HorizontalAlignment="Left" Width="223" ToolTip="Status do motor, falhas e alarmes." Cursor="No" FontSize="18" Foreground="White" Padding="0,0,4,0"/>
+        <Label x:Name="txtFIM" Content="Data Final:" Margin="362,33,0,0" BorderBrush="Black" BorderThickness="1" Background="#00000000" HorizontalContentAlignment="Center" Height="29" VerticalAlignment="Top" HorizontalAlignment="Left" Width="223"  Cursor="No" FontSize="18" Foreground="White" Padding="0,0,4,0"/>
         <Button  x:Name="ButtonOpenDialogFim" Content="..." IsEnabled="True" Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}" CommandTarget="{Binding ElementName=PopupAddCustom1}" Margin="362,67,0,0" Background="#FF505050" BorderBrush="Black" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Left" Width="223" Click="ButtonOpenDialogFim_Click"/>
         <materialDesign:PackIcon x:Name="iconDataFim" Kind="Calendar" VerticalAlignment="Center" Foreground="White" Height="29" Margin="327,33,0,613" Width="33"/>
         <materialDesign:PackIcon x:Name="iconTouchFim" Kind="GestureTapButton" VerticalAlignment="Center" Foreground="White" Height="29" Margin="327,70,0,576" Width="33"/>

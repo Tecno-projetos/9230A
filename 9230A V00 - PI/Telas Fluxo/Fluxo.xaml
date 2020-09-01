@@ -724,7 +724,7 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Label x:Name="lbStatusEnsaque" Content="Balança Em Funcionamento" Margin="830,643,0,0" BorderBrush="Black" BorderThickness="1" Background="#FF0CFF00" HorizontalContentAlignment="Center" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="191" ToolTip="" Cursor="No" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5">
+        <Label x:Name="lbStatusEnsaque" Content="Balança Em Funcionamento" Margin="830,643,0,0" BorderBrush="Black" BorderThickness="1" Background="#FF0CFF00" HorizontalContentAlignment="Center" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="191" Cursor="No" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="-1"/>

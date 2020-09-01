@@ -167,7 +167,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
                     document.Add(tableProducao(colsW, "Peso total produzido: " + Math.Round(item.pesoTotalProduzido,2) + " kg", "Volume total produzido: " + Math.Round(item.volumeTotalProduzido,2) + " m³", true));
                     document.Add(tableProducao("Quantidade de bateldas: " + item.quantidadeBateladas + " und.", true, Element.ALIGN_LEFT));
                     document.Add(tableProducao(colsW, "Tempo pré mistura: " + item.tempoPreMistura + " segundos", "Tempo pós mistura: " + item.tempoPosMistura + " segundos", true));
-                    document.Add(tableProducao(colsW, "Data início produção: " + item.dateTimeInicioProducao, "Data envio expedição: " + item.dateTimeFimProducao, true));
+                    document.Add(tableProducao(colsW, "Data início produção: " + item.dateTimeInicioProducao, "Data envio silo expedição: " + item.dateTimeFimProducao, true));
 
                     //Controle Produção Ensaque
                     DataTable dt = new DataTable();

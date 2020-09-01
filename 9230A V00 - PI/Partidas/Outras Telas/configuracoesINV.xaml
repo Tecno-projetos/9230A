@@ -10,12 +10,12 @@
              Width="243" Height="365">
     <Grid Background="#FF5A5A5A">
 
-        <GroupBox x:Name="GB_Horimeter" Header="Horimetro" Margin="9,28,0,175" ToolTip="Configurações de manutenção preventiva." HorizontalAlignment="Left" Width="226" Foreground="White"/>
-        <TextBox x:Name="TB_Total_Horas" Height="26" Margin="147,48,0,0" TextWrapping="Wrap" Text="Horas" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalAlignment="Left" Width="80" ToolTip="Total de horas que o motor já funcionou." Cursor="No" IsReadOnly="True" FontSize="14"/>
-        <TextBox x:Name="TB_Horas" Margin="147,76,0,0" TextWrapping="Wrap" Text="Horas" HorizontalAlignment="Left" Width="80" IsReadOnly="True" VerticalContentAlignment="Center" ToolTip="Horas parcias que o motor funcionou." Height="26" VerticalAlignment="Top" Cursor="No" FontSize="14"/>
+        <GroupBox x:Name="GB_Horimeter" Header="Horimetro" Margin="9,28,0,175"  HorizontalAlignment="Left" Width="226" Foreground="White"/>
+        <TextBox x:Name="TB_Total_Horas" Height="26" Margin="147,48,0,0" TextWrapping="Wrap" Text="Horas" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalAlignment="Left" Width="80"  Cursor="No" IsReadOnly="True" FontSize="14"/>
+        <TextBox x:Name="TB_Horas" Margin="147,76,0,0" TextWrapping="Wrap" Text="Horas" HorizontalAlignment="Left" Width="80" IsReadOnly="True" VerticalContentAlignment="Center"  Height="26" VerticalAlignment="Top" Cursor="No" FontSize="14"/>
         <Label x:Name="label_Copy" Content="Total de Horas (h):" Height="28" Margin="32,46,0,0" VerticalAlignment="Top" FontWeight="Bold" HorizontalAlignment="Left" Width="115" Foreground="White"/>
         <Label x:Name="label_Copy1" Content="Horas:" HorizontalAlignment="Left" Height="28" Margin="32,74,0,0" VerticalAlignment="Top" Width="110" FontWeight="Bold" Foreground="White"/>
-        <TextBox x:Name="TB_SPMantencao" Height="26" Margin="147,104,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="80" HorizontalAlignment="Left" VerticalContentAlignment="Center" ToolTip="Digite o valor que deseja para realizar a manutenção preventiva do motor." MaxLength="6" MaxLines="1" GotFocus="TB_GotFocus" TabIndex="1" FontSize="14" PreviewMouseLeftButtonUp="TB_SPMantencao_PreviewMouseLeftButtonUp"/>
+        <TextBox x:Name="TB_SPMantencao" Height="26" Margin="147,104,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="80" HorizontalAlignment="Left" VerticalContentAlignment="Center"  MaxLength="6" MaxLines="1" GotFocus="TB_GotFocus" TabIndex="1" FontSize="14" PreviewMouseLeftButtonUp="TB_SPMantencao_PreviewMouseLeftButtonUp"/>
         <Label x:Name="label_Copy4" Content="SP Man (h):" Height="30" Margin="32,102,0,0" VerticalAlignment="Top" FontWeight="Bold" HorizontalAlignment="Left" Width="110" Foreground="White"/>
         <ed:Arc ArcThickness="20" ArcThicknessUnit="Pixel" EndAngle="360" Fill="#FF009600" HorizontalAlignment="Left" Margin="20,110,0,0" Stretch="None" Stroke="White" StartAngle="0" Width="15" Height="14" VerticalAlignment="Top"/>
         <ed:Arc ArcThickness="20" ArcThicknessUnit="Pixel" EndAngle="360" Fill="#FF009600" HorizontalAlignment="Left" Margin="20,82,0,0" Stretch="None" Stroke="White" StartAngle="0" Width="15" Height="14" VerticalAlignment="Top"/>
@@ -75,12 +75,12 @@
             </Grid>
         </Button>
         <Label x:Name="lbName" Content="Nome Partida" RenderTransformOrigin="-0.066,0.849" FontSize="18" FontWeight="Bold" HorizontalAlignment="Left" Width="243" HorizontalContentAlignment="Center" Foreground="White" Height="31" VerticalAlignment="Top" Margin="0,-1,0,0"/>
-        <GroupBox Header="Tempo de Limpeza" Margin="9,193,0,94" ToolTip="Configurações do tempo de utilização do trafo" HorizontalAlignment="Left" Width="226" Foreground="White"/>
-        <TextBox x:Name="TB_SPLimpeza" Margin="147,227,0,0" TextWrapping="Wrap" Text="10.5 p/s" VerticalContentAlignment="Center" HorizontalAlignment="Left" Width="80" ToolTip="SetPoint do tempo de utilização do trafo." Height="26" VerticalAlignment="Top" HorizontalContentAlignment="Center" MaxLines="1" MaxLength="5" GotFocus="TB_GotFocus" PreviewMouseLeftButtonUp="TB_SPLimpeza_PreviewMouseLeftButtonUp"/>
+        <GroupBox Header="Tempo de Limpeza" Margin="9,193,0,94"  HorizontalAlignment="Left" Width="226" Foreground="White"/>
+        <TextBox x:Name="TB_SPLimpeza" Margin="147,227,0,0" TextWrapping="Wrap" Text="10.5 p/s" VerticalContentAlignment="Center" HorizontalAlignment="Left" Width="80"  Height="26" VerticalAlignment="Top" HorizontalContentAlignment="Center" MaxLines="1" MaxLength="5" GotFocus="TB_GotFocus" PreviewMouseLeftButtonUp="TB_SPLimpeza_PreviewMouseLeftButtonUp"/>
         <TextBlock TextWrapping="Wrap" TextAlignment="Center" Text="Tempo Limpeza Motor (s):" Margin="36,219,0,108" FontWeight="Bold" FontSize="14" HorizontalAlignment="Left" Width="106" Foreground="White" VerticalAlignment="Center"/>
         <ed:Arc ArcThickness="20" ArcThicknessUnit="Pixel" EndAngle="360" Fill="#FF009600" HorizontalAlignment="Left" Margin="20,230,0,120" Stretch="None" Stroke="White" StartAngle="0" Width="15" Height="15"/>
-        <GroupBox Header="Motor Vazio" Margin="9,273,0,14" ToolTip="Configurações do tempo de utilização do trafo" HorizontalAlignment="Left" Width="226" Foreground="White"/>
-        <TextBox x:Name="tbMotorVazio" Margin="147,307,0,0" TextWrapping="Wrap" Text="10.5 p/s" VerticalContentAlignment="Center" HorizontalAlignment="Left" Width="80" ToolTip="SetPoint do tempo de utilização do trafo." Height="26" VerticalAlignment="Top" HorizontalContentAlignment="Center" MaxLines="1" MaxLength="5" GotFocus="TB_GotFocus" PreviewMouseLeftButtonUp="tbMotorVazio_PreviewMouseLeftButtonUp"/>
+        <GroupBox Header="Motor Vazio" Margin="9,273,0,14"  HorizontalAlignment="Left" Width="226" Foreground="White"/>
+        <TextBox x:Name="tbMotorVazio" Margin="147,307,0,0" TextWrapping="Wrap" Text="10.5 p/s" VerticalContentAlignment="Center" HorizontalAlignment="Left" Width="80"  Height="26" VerticalAlignment="Top" HorizontalContentAlignment="Center" MaxLines="1" MaxLength="5" GotFocus="TB_GotFocus" PreviewMouseLeftButtonUp="tbMotorVazio_PreviewMouseLeftButtonUp"/>
         <TextBlock TextWrapping="Wrap" TextAlignment="Center" Text="Corrente Motor Vazio (A):" Margin="36,300,0,27" FontWeight="Bold" FontSize="14" HorizontalAlignment="Left" Width="106" Foreground="White" VerticalAlignment="Center"/>
         <ed:Arc ArcThickness="20" ArcThicknessUnit="Pixel" EndAngle="360" Fill="#FF009600" HorizontalAlignment="Left" Margin="20,310,0,40" Stretch="None" Stroke="White" StartAngle="0" Width="15" Height="15"/>
 
