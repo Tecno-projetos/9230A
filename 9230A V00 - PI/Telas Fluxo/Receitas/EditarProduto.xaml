@@ -120,7 +120,7 @@
                     </MultiBinding>
                 </TextBlock.Visibility>
             </TextBlock>
-            <TextBox x:Name="txtCod" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" PreviewMouseLeftButtonUp="openKeyboard" GotFocus="TB_GotFocus" />
+            <TextBox x:Name="txtCod" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" PreviewMouseLeftButtonUp="openKeyboard" GotFocus="TB_GotFocus" Height="38" VerticalContentAlignment="Bottom" />
         </Grid>
 
         <Label Content="Contém Descrição: " Height="34" Margin="286,594,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="181" Foreground="White" FontWeight="Bold" FontSize="16"/>
@@ -133,7 +133,7 @@
                     </MultiBinding>
                 </TextBlock.Visibility>
             </TextBlock>
-            <TextBox x:Name="txtDesc" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" PreviewMouseLeftButtonUp="openKeyboard" GotFocus="TB_GotFocus"/>
+            <TextBox x:Name="txtDesc" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" PreviewMouseLeftButtonUp="openKeyboard" GotFocus="TB_GotFocus" Height="38" VerticalContentAlignment="Bottom"/>
         </Grid>
         <Button x:Name="btEditarProduto" Margin="597,545,11,80" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btEditarProduto_Click" >
             <Grid Width="150">

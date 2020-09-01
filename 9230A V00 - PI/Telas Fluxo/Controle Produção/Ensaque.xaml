@@ -82,7 +82,7 @@
                     </MultiBinding>
                 </TextBlock.Visibility>
             </TextBlock>
-            <TextBox x:Name="txtQtdEnsaque" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" PreviewMouseLeftButtonUp="openKeyboard" />
+            <TextBox x:Name="txtQtdEnsaque" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" PreviewMouseLeftButtonUp="openKeyboard" Height="38" VerticalContentAlignment="Bottom" />
         </Grid>
         <materialDesign:PackIcon Kind="Receipt" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="391,145,395,496" BorderBrush="#FF040404"/>
         <materialDesign:PackIcon Kind="Pencil" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="391,185,395,449" BorderBrush="#FF040404"/>

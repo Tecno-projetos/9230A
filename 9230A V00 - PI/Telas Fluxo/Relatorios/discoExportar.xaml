@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:_9230A_V00___PI.Telas_Fluxo.Relatorios"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="_9230A_V00___PI.Telas_Fluxo.Relatorios.discoExportar"
         mc:Ignorable="d"
-        Title="Exportar" Height="466" Width="233" ResizeMode="NoResize" Icon="/9230A V00 - PI;component/Imagens/Automasul.ico" WindowStartupLocation="CenterScreen" Topmost="True">
+        Title="Exportar" Height="471" Width="233" ResizeMode="NoResize" Icon="/9230A V00 - PI;component/Imagens/Automasul.ico" WindowStartupLocation="CenterScreen" Topmost="True">
 
     <Window.Resources>
         <ResourceDictionary>

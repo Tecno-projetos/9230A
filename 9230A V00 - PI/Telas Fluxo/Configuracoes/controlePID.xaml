@@ -66,7 +66,7 @@
                     </MultiBinding>
                 </TextBlock.Visibility>
             </TextBlock>
-            <TextBox x:Name="txtSP" PreviewMouseLeftButtonUp="floatingPreviewMouseLeftButtonUp" GotFocus="TB_GotFocus" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" />
+            <TextBox x:Name="txtSP" PreviewMouseLeftButtonUp="floatingPreviewMouseLeftButtonUp" GotFocus="TB_GotFocus" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" Height="38" VerticalContentAlignment="Bottom" />
         </Grid>
         <materialDesign:PackIcon Kind="Pencil" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="-3,130,789,504" BorderBrush="#FF040404"/>
         <Label Content="Kp" Height="27" Margin="395,86,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="137" Foreground="White" FontWeight="Bold" FontSize="16"/>
@@ -79,7 +79,7 @@
                     </MultiBinding>
                 </TextBlock.Visibility>
             </TextBlock>
-            <TextBox x:Name="txtKp" GotFocus="TB_GotFocus" PreviewMouseLeftButtonUp="floatingPreviewMouseLeftButtonUp" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" />
+            <TextBox x:Name="txtKp" GotFocus="TB_GotFocus" PreviewMouseLeftButtonUp="floatingPreviewMouseLeftButtonUp" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" Height="38" VerticalContentAlignment="Bottom" />
         </Grid>
         <materialDesign:PackIcon Kind="Pencil" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="357,113,429,521" BorderBrush="#FF040404"/>
         <Label Content="Ki" Height="29" Margin="395,191,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="137" Foreground="White" FontWeight="Bold" FontSize="16"/>
@@ -92,7 +92,7 @@
                     </MultiBinding>
                 </TextBlock.Visibility>
             </TextBlock>
-            <TextBox x:Name="txtKi" GotFocus="TB_GotFocus" PreviewMouseLeftButtonUp="floatingPreviewMouseLeftButtonUp" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" />
+            <TextBox x:Name="txtKi" GotFocus="TB_GotFocus" PreviewMouseLeftButtonUp="floatingPreviewMouseLeftButtonUp" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" Height="38" VerticalContentAlignment="Bottom" />
         </Grid>
         <materialDesign:PackIcon Kind="Pencil" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="357,220,429,414" BorderBrush="#FF040404"/>
         <Label Content="Kd" Height="29" Margin="395,340,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="160" Foreground="White" FontWeight="Bold" FontSize="16"/>
@@ -105,7 +105,7 @@
                     </MultiBinding>
                 </TextBlock.Visibility>
             </TextBlock>
-            <TextBox x:Name="txtKd"  GotFocus="TB_GotFocus" PreviewMouseLeftButtonUp="floatingPreviewMouseLeftButtonUp" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" />
+            <TextBox x:Name="txtKd"  GotFocus="TB_GotFocus" PreviewMouseLeftButtonUp="floatingPreviewMouseLeftButtonUp" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" Height="37" VerticalContentAlignment="Bottom" />
         </Grid>
         <materialDesign:PackIcon Kind="Pencil" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="357,369,429,265" BorderBrush="#FF040404"/>
         <Label Content="Limite Máximo Atuador:" Height="34" Margin="80,476,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="193" Foreground="White" FontWeight="Bold" FontSize="16"/>
@@ -118,7 +118,7 @@
                     </MultiBinding>
                 </TextBlock.Visibility>
             </TextBlock>
-            <TextBox x:Name="txtMax"  GotFocus="TB_GotFocus" PreviewMouseLeftButtonUp="floatingPreviewMouseLeftButtonUp" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" />
+            <TextBox x:Name="txtMax"  GotFocus="TB_GotFocus" PreviewMouseLeftButtonUp="floatingPreviewMouseLeftButtonUp" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" Height="38" VerticalContentAlignment="Bottom" />
         </Grid>
         <materialDesign:PackIcon Kind="Pencil" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="42,510,744,124" BorderBrush="#FF040404"/>
         <Label Content="Limite Minimo Atuador:" Height="34" Margin="80,564,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="193" Foreground="White" FontWeight="Bold" FontSize="16"/>
@@ -131,7 +131,7 @@
                     </MultiBinding>
                 </TextBlock.Visibility>
             </TextBlock>
-            <TextBox x:Name="txtMin" GotFocus="TB_GotFocus" PreviewMouseLeftButtonUp="floatingPreviewMouseLeftButtonUp" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" />
+            <TextBox x:Name="txtMin" GotFocus="TB_GotFocus" PreviewMouseLeftButtonUp="floatingPreviewMouseLeftButtonUp" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" Height="38" VerticalContentAlignment="Bottom" />
         </Grid>
         <materialDesign:PackIcon Kind="Pencil" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="42,600,744,34" BorderBrush="#FF040404"/>
         <Button x:Name="btSalvarInformacoes" Margin="353,600,220,34" Background="#FF505050" BorderBrush="Black" Height="Auto" Opacity="1" Click="btSalvarInformacoes_Click" >

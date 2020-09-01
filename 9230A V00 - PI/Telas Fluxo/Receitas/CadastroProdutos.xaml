@@ -64,12 +64,12 @@
                     </MultiBinding>
                 </TextBlock.Visibility>
             </TextBlock>
-            <TextBox x:Name="txtCod" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" GotFocus="TB_GotFocus" PreviewMouseLeftButtonUp="openKeyboard" />
+            <TextBox x:Name="txtCod" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" GotFocus="TB_GotFocus" PreviewMouseLeftButtonUp="openKeyboard" Height="38" VerticalContentAlignment="Bottom" TabIndex="0" />
         </Grid>
 
         <materialDesign:PackIcon Kind="Receipt" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="14,102,772,539" BorderBrush="#FF040404"/>
         <materialDesign:PackIcon Kind="Pencil" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="14,142,772,492" BorderBrush="#FF040404"/>
-        <Button x:Name="btCadastrarProduto" Margin="256,590,204,35" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btCadastrarProduto_Click" >
+        <Button x:Name="btCadastrarProduto" Margin="256,590,204,35" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btCadastrarProduto_Click" TabIndex="6" >
             <Grid Width="150">
                 <materialDesign:PackIcon x:Name="packiconCadastrarEditar" Kind="plus" VerticalAlignment="Center" Foreground="White" Margin="6,-6,0,-7" Height="30" Width="30"/>
                 <TextBlock x:Name="lbTextButton" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="45,1,20,-1" Width="85" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center"><Run Text="C"/><Run Text="adastrar"/></TextBlock>
@@ -85,7 +85,7 @@
                     </MultiBinding>
                 </TextBlock.Visibility>
             </TextBlock>
-            <TextBox x:Name="txtDesc" GotFocus="TB_GotFocus" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" PreviewMouseLeftButtonUp="openKeyboard" />
+            <TextBox x:Name="txtDesc" GotFocus="TB_GotFocus" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" PreviewMouseLeftButtonUp="openKeyboard" Height="38" VerticalContentAlignment="Bottom" TabIndex="1" />
         </Grid>
         <materialDesign:PackIcon Kind="Receipt" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="14,182,772,459" BorderBrush="#FF040404"/>
         <materialDesign:PackIcon Kind="Pencil" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="14,222,772,412" BorderBrush="#FF040404"/>
@@ -99,7 +99,7 @@
                     </MultiBinding>
                 </TextBlock.Visibility>
             </TextBlock>
-            <TextBox x:Name="txtDensidade" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" PreviewMouseLeftButtonUp="floatingPreviewMouseLeftButtonUp" GotFocus="TB_GotFocus" />
+            <TextBox x:Name="txtDensidade" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" PreviewMouseLeftButtonUp="floatingPreviewMouseLeftButtonUp" GotFocus="TB_GotFocus" Height="38" VerticalContentAlignment="Bottom" TabIndex="2" />
         </Grid>
         <materialDesign:PackIcon Kind="Receipt" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="14,262,772,379" BorderBrush="#FF040404"/>
         <materialDesign:PackIcon Kind="Pencil" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="14,302,772,332" BorderBrush="#FF040404"/>
@@ -113,15 +113,15 @@
                     </MultiBinding>
                 </TextBlock.Visibility>
             </TextBlock>
-            <TextBox x:Name="txtObs" GotFocus="TB_GotFocus" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" PreviewMouseLeftButtonUp="openKeyboard" />
+            <TextBox x:Name="txtObs" GotFocus="TB_GotFocus" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" PreviewMouseLeftButtonUp="openKeyboard" Height="38" VerticalContentAlignment="Bottom" TabIndex="3" />
         </Grid>
         <materialDesign:PackIcon Kind="Receipt" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="14,342,772,299" BorderBrush="#FF040404"/>
         <materialDesign:PackIcon Kind="Pencil" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="14,382,772,252" BorderBrush="#FF040404"/>
         <Label Content="Tipo Produto: (*)" Height="34" Margin="542,103,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="188" Foreground="White" FontWeight="Bold" FontSize="16"/>
         <materialDesign:PackIcon Kind="RadioboxMarked" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="499,103,287,538" BorderBrush="#FF040404"/>
         <ListBox Style="{StaticResource MaterialDesignListBox}" x:Name="RadioButtonGroupChoiceChipPrimaryOutline" Margin="499,136,49,391">
-            <ListBoxItem x:Name="lbMateriaPrima" Width="143" Background="#FF3C3C3C" Height="50" Content="Matéria Prima" FontSize="16" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Margin="0,5,0,0" IsSelected="True" PreviewMouseLeftButtonUp="lbMateriaPrima_PreviewMouseLeftButtonUp" />
-            <ListBoxItem x:Name="lbComplemento"  Height="50" Width="145" Content="Complemento" Background="#FF3C3C3C" FontSize="16" Foreground="White" Margin="0,5,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" HorizontalContentAlignment="Center" PreviewMouseLeftButtonUp="lbComplemento_PreviewMouseLeftButtonUp"/>
+            <ListBoxItem x:Name="lbMateriaPrima" Width="143" Background="#FF3C3C3C" Height="50" Content="Matéria Prima" FontSize="16" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Margin="0,5,0,0" IsSelected="True" PreviewMouseLeftButtonUp="lbMateriaPrima_PreviewMouseLeftButtonUp" TabIndex="4" />
+            <ListBoxItem x:Name="lbComplemento"  Height="50" Width="145" Content="Complemento" Background="#FF3C3C3C" FontSize="16" Foreground="White" Margin="0,5,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" HorizontalContentAlignment="Center" PreviewMouseLeftButtonUp="lbComplemento_PreviewMouseLeftButtonUp" TabIndex="5"/>
         </ListBox>
         <materialDesign:PackIcon x:Name="pckMateriaPrima" Kind="CheckBox" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="520,146,261,484" BorderBrush="#FF040404"/>
         <materialDesign:PackIcon x:Name="pckComplemento" Kind="CheckBox" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="520,201,261,429" BorderBrush="#FF040404"/>

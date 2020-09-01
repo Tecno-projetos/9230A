@@ -52,7 +52,7 @@
 
         <Label x:Name="lbNomeProduto" Content="Produto X" Height="34" Margin="10,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="497" Foreground="White" FontWeight="Bold" FontSize="16" HorizontalContentAlignment="Center"/>
 
-        <Label Content="Peso Produto(kg): " Height="34" Margin="7,33,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="181" Foreground="White" FontWeight="Bold" FontSize="16"/>
+        <Label Content="Peso em  Produto(kg): " Height="34" Margin="7,33,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="181" Foreground="White" FontWeight="Bold" FontSize="16"/>
         <Grid Style="{StaticResource EntryFieldStyle}" Margin="10,64,267,0" Height="50" Background="#FF3C3C3C" VerticalAlignment="Top" >
             <TextBlock Margin="5,0,6,5" Text="Exemplo: 55,5" Foreground="#FF919191" VerticalAlignment="Bottom" FontSize="14" >
                 <TextBlock.Visibility>
@@ -62,12 +62,12 @@
                     </MultiBinding>
                 </TextBlock.Visibility>
             </TextBlock>
-            <TextBox x:Name="txtPeso" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" PreviewMouseLeftButtonUp="floatingPreviewMouseLeftButtonUp" GotFocus="TB_GotFocus"/>
+            <TextBox x:Name="txtPeso" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" PreviewMouseLeftButtonUp="floatingPreviewMouseLeftButtonUp" GotFocus="TB_GotFocus" Height="47" VerticalContentAlignment="Bottom"/>
         </Grid>
         <Button x:Name="btAdicionarProduto" Margin="305,95,0,0" Background="#FF505050" BorderBrush="Black" Opacity="1" HorizontalAlignment="Left" Width="192" Height="70" VerticalAlignment="Top" Click="btAdicionarProduto_Click" >
-            <Grid Width="150" Height="29">
+            <Grid Width="175" Height="29">
                 <materialDesign:PackIcon x:Name="packiconCadastrarEditar" Kind="plus" VerticalAlignment="Center" Foreground="White" Margin="1,-6,0,-7" Height="30" Width="30"/>
-                <TextBlock x:Name="lbTextButton" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="38,1,2,-1" Width="110" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center"><Run Text="Adicionar"/><Run Text=" Receita"/></TextBlock>
+                <TextBlock x:Name="lbTextButton" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="31,7,0,5" Width="144" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Adicionar na Receita"/>
             </Grid>
         </Button>
         <Button x:Name="btAutomatico" Margin="7,235,0,0" Background="#FF505050" BorderBrush="Black" Opacity="1" HorizontalAlignment="Left" Width="120" Height="52" VerticalAlignment="Top" Click="btAutomatico_Click" >
@@ -96,9 +96,9 @@
                     </MultiBinding>
                 </TextBlock.Visibility>
             </TextBlock>
-            <TextBox x:Name="txtPercentual" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" GotFocus="TB_GotFocus" PreviewMouseLeftButtonUp="txtPercentual_PreviewMouseLeftButtonUp"/>
+            <TextBox x:Name="txtPercentual" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" GotFocus="TB_GotFocus" PreviewMouseLeftButtonUp="txtPercentual_PreviewMouseLeftButtonUp" Height="47" VerticalContentAlignment="Bottom"/>
         </Grid>
-        <Label Content="Peso (%)" Height="29" Margin="11,126,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="181" Foreground="White" FontWeight="Bold" FontSize="16"/>
+        <Label Content="Peso em Percentual (%)" Height="29" Margin="11,126,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="200" Foreground="White" FontWeight="Bold" FontSize="16"/>
 
     </Grid>
 </Window>

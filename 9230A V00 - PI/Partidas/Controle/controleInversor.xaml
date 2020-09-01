@@ -5,8 +5,26 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:_9230A_V00___PI.Partidas.Controle"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:Utilidades="clr-namespace:_9230A_V00___PI.Utilidades"
              mc:Ignorable="d" Width="243" Height="510">
+    <UserControl.Resources>
+        <Utilidades:TextInputToVisibilityConverter x:Key="TextInputToVisibilityConverter" />
+
+
+        <SolidColorBrush x:Key="brushWatermarkBorder" Color="White" />
+
+        <Style x:Key="EntryFieldStyle" TargetType="{x:Type Grid}" >
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="20,0" />
+        </Style>
+
+
+
+    </UserControl.Resources>
+
     <Grid Background="#FF5A5A5A">
+
         <GroupBox x:Name="comandos" Header="Comandos" HorizontalAlignment="Left" Height="216" Margin="7,29,0,0" VerticalAlignment="Top" Width="225" Foreground="White"/>
         <GroupBox x:Name="operacoes" Header="Operações" HorizontalAlignment="Left" Height="117" Margin="7,246,0,0" VerticalAlignment="Top" Width="225" Foreground="White"/>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="2" Margin="15,153,0,0" Stroke="White" VerticalAlignment="Top" Width="206"/>
@@ -80,10 +98,7 @@
             </ToggleButton.Style>
         </ToggleButton>
         <TextBlock x:Name="lbManual" TextAlignment="Center" TextWrapping="Wrap" Text="Em Modo Manual" HorizontalAlignment="Left" VerticalAlignment="Top" Width="76" Padding="0" FontSize="10" FontWeight="Bold" Background="#00000000" Foreground="#FFF7F7F7" Height="35" Margin="138,329,0,0" />
-
-
-        <TextBox x:Name="tbVelocidadeSolicitada" Margin="82,161,0,0" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalAlignment="Left" Width="53" ToolTip="Total de horas que o motor já funcionou." Cursor="Hand" Height="41" Opacity="0.5" FontSize="16" FontWeight="Bold" TextAlignment="Center" PreviewMouseUp="tbPosicaoSolicitada_PreviewMouseUp"/>
-        <TextBlock TextAlignment="Center" TextWrapping="Wrap" Text="Velocidade Solicitada (%):" HorizontalAlignment="Left" VerticalAlignment="Top" Width="78" Padding="0" FontWeight="Bold" Background="#00000000" Foreground="#FFF7F7F7" Height="37" Margin="7,165,0,0" FontSize="10" />
+        <TextBlock TextAlignment="Center" TextWrapping="Wrap" Text="Velocidade Solicitada (%):" HorizontalAlignment="Left" VerticalAlignment="Top" Width="78" Padding="0" FontWeight="Bold" Background="#00000000" Foreground="#FFF7F7F7" Height="25" Margin="7,169,0,0" FontSize="9" />
 
 
         <Label x:Name="lbStatusMotor" Content="Status Motor" Margin="7,366,0,0" BorderBrush="Black" BorderThickness="1" Background="#00000000" HorizontalContentAlignment="Center" Height="29" VerticalAlignment="Top" HorizontalAlignment="Left" Width="223" ToolTip="Status do motor, falhas e alarmes." Cursor="No" FontSize="13"/>
@@ -92,7 +107,7 @@
         <Label x:Name="lbCodigoAlarme" Content="Código Alarme" Margin="120,469,0,0" BorderBrush="Black" BorderThickness="1" Background="#00000000" HorizontalContentAlignment="Center" Height="29" VerticalAlignment="Top" HorizontalAlignment="Left" Width="110" ToolTip="Status do motor, falhas e alarmes." Cursor="No" FontSize="13"/>
         <Label x:Name="lbVelocidadeSolicitada" Content="Velocidade Sol." Margin="120,435,0,0" BorderBrush="Black" BorderThickness="1" Background="#00000000" HorizontalContentAlignment="Center" Height="29" VerticalAlignment="Top" HorizontalAlignment="Left" Width="110" ToolTip="Status do motor, falhas e alarmes." Cursor="No" FontSize="13"/>
         <Label x:Name="lbCorrenteAtual" Content="Corrente Atual" Margin="7,401,0,0" BorderBrush="Black" BorderThickness="1" Background="#00000000" HorizontalContentAlignment="Center" Height="29" VerticalAlignment="Top" HorizontalAlignment="Left" Width="223" ToolTip="Status do motor, falhas e alarmes." Cursor="No" FontSize="13"/>
-        <Button x:Name="btAumenta" Margin="136,160,0,0" Background="#FF505050" BorderBrush="Black" Height="42" VerticalAlignment="Top" HorizontalAlignment="Left" Width="45" Click="btAumenta_Click">
+        <Button x:Name="btAumenta" Margin="134,160,0,0" Background="#FF505050" BorderBrush="Black" Height="42" VerticalAlignment="Top" HorizontalAlignment="Left" Width="45" Click="btAumenta_Click">
             <Button.Resources>
                 <ResourceDictionary>
                     <ResourceDictionary.MergedDictionaries>
@@ -205,6 +220,44 @@
             </Button.Resources>
 
         </Button>
+
+
+        <Grid Style="{StaticResource EntryFieldStyle}" Margin="78,161,116,309" Height="40" Background="#FF3C3C3C" >
+            <Grid.Resources >
+
+                <ResourceDictionary>
+                    <ResourceDictionary.MergedDictionaries>
+                        <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Blue.xaml" />
+                        <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Indigo.xaml" />
+                        <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+
+
+                    </ResourceDictionary.MergedDictionaries>
+                    <SolidColorBrush x:Key="brushWatermarkBackground" Color="White" />
+                    <SolidColorBrush x:Key="brushWatermarkForeground" Color="LightSteelBlue" />
+                    <SolidColorBrush x:Key="brushWatermarkBorder" Color="Black" />
+
+                    <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+
+                    <Style x:Key="EntryFieldStyle" TargetType="{x:Type Grid}" >
+                        <Setter Property="HorizontalAlignment" Value="Stretch" />
+                        <Setter Property="VerticalAlignment" Value="Center" />
+                        <Setter Property="Margin" Value="20,0" />
+                    </Style>
+                </ResourceDictionary>
+
+            </Grid.Resources>
+
+            <TextBlock Margin="5,0,6,5" Text="100%" Foreground="#FF919191" VerticalAlignment="Bottom" FontSize="14" >
+                <TextBlock.Visibility>
+                    <MultiBinding Converter="{StaticResource TextInputToVisibilityConverter}">
+                        <Binding ElementName="tbVelocidadeSolicitada" Path="Text.IsEmpty" />
+                        <Binding ElementName="tbVelocidadeSolicitada" Path="IsFocused" />
+                    </MultiBinding>
+                </TextBlock.Visibility>
+            </TextBlock>
+            <TextBox x:Name="tbVelocidadeSolicitada" PreviewMouseLeftButtonUp="tbPosicaoSolicitada_PreviewMouseUp" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" FontSize="14" VerticalAlignment="Bottom" Foreground="White" Height="40" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Left" />
+        </Grid>
 
     </Grid>
 

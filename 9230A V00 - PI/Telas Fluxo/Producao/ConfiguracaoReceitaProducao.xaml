@@ -57,7 +57,7 @@
                     </MultiBinding>
                 </TextBlock.Visibility>
             </TextBlock>
-            <TextBox x:Name="txtPesoDesejado" VerticalAlignment="Bottom" PreviewMouseLeftButtonUp="txtPesoDesejado_PreviewMouseLeftButtonUp" Margin="0,0,1,3" FontSize="14" Foreground="White" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}"/>
+            <TextBox x:Name="txtPesoDesejado" VerticalAlignment="Bottom" PreviewMouseLeftButtonUp="txtPesoDesejado_PreviewMouseLeftButtonUp" Margin="0,0,1,3" FontSize="14" Foreground="White" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Height="38" VerticalContentAlignment="Bottom"/>
             <Label Width="355" VerticalAlignment="Top" Margin="386,23,-386,-16" Height="34" HorizontalAlignment="Left" FontSize="16" FontWeight="Bold" Foreground="White" Content="Matéria Prima 1 Dosagem Automática:"/>
             <Grid Style="{StaticResource EntryFieldStyle}" Margin="386,62,-386,-62" Height="41" Background="#FF3C3C3C">
                 <TextBlock VerticalAlignment="Bottom" Text="" Margin="5,0,6,5" FontSize="14" Foreground="#FF919191">
@@ -97,7 +97,7 @@
                     </MultiBinding>
                 </TextBlock.Visibility>
             </TextBlock>
-            <TextBox x:Name="txtQtdBateladas" VerticalAlignment="Bottom" Margin="0,0,1,3" FontSize="14" Foreground="White" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" IsReadOnly="True" IsEnabled="False"/>
+            <TextBox x:Name="txtQtdBateladas" VerticalAlignment="Bottom" Margin="0,0,1,3" FontSize="14" Foreground="White" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" IsReadOnly="True" IsEnabled="False" Height="38" VerticalContentAlignment="Bottom"/>
         </Grid>
         <materialDesign:PackIcon Kind="Receipt" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="14,193,772,448" BorderBrush="#FF040404"/>
         <materialDesign:PackIcon Kind="Pencil" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="14,233,772,401" BorderBrush="#FF040404"/>

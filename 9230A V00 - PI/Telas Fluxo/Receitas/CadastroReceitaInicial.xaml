@@ -64,12 +64,12 @@
                     </MultiBinding>
                 </TextBlock.Visibility>
             </TextBlock>
-            <TextBox x:Name="txtNome" GotFocus="TB_GotFocus" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" PreviewMouseLeftButtonUp="openKeyboard" />
+            <TextBox x:Name="txtNome" GotFocus="TB_GotFocus" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" Foreground="White" PreviewMouseLeftButtonUp="openKeyboard" TabIndex="1" VerticalContentAlignment="Bottom" />
         </Grid>
 
         <materialDesign:PackIcon Kind="Receipt" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="217,145,569,496" BorderBrush="#FF040404"/>
         <materialDesign:PackIcon Kind="Pencil" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="217,185,569,449" BorderBrush="#FF040404"/>
-        <Button x:Name="btCadastrarIniciarCadastro" Margin="249,590,211,35" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btCadastrarIniciarCadastro_Click" >
+        <Button x:Name="btCadastrarIniciarCadastro" Margin="249,590,211,35" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btCadastrarIniciarCadastro_Click" TabIndex="4" >
             <Grid Width="150">
                 <materialDesign:PackIcon x:Name="packiconCadastrarEditar" Kind="plus" VerticalAlignment="Center" Foreground="White" Margin="-3,-6,0,-7" Height="30" Width="30"/>
                 <TextBlock x:Name="lbTextButton" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="36,1,-14,-1" Width="128" FontSize="14" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Iniciar Cadastro"/>
@@ -85,7 +85,7 @@
                     </MultiBinding>
                 </TextBlock.Visibility>
             </TextBlock>
-            <TextBox x:Name="txtPesoRef" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" PreviewMouseLeftButtonUp="floatingPreviewMouseLeftButtonUp" GotFocus="TB_GotFocus"/>
+            <TextBox x:Name="txtPesoRef" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" PreviewMouseLeftButtonUp="floatingPreviewMouseLeftButtonUp" GotFocus="TB_GotFocus" Height="38" VerticalContentAlignment="Bottom" TabIndex="2"/>
         </Grid>
         <materialDesign:PackIcon Kind="Receipt" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="217,242,569,399" BorderBrush="#FF040404"/>
         <materialDesign:PackIcon Kind="Pencil" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="217,283,569,351" BorderBrush="#FF040404"/>
@@ -99,11 +99,11 @@
                     </MultiBinding>
                 </TextBlock.Visibility>
             </TextBlock>
-            <TextBox x:Name="txtObs" GotFocus="TB_GotFocus" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" PreviewMouseLeftButtonUp="openKeyboard" />
+            <TextBox x:Name="txtObs" GotFocus="TB_GotFocus" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" PreviewMouseLeftButtonUp="openKeyboard" Height="38" VerticalContentAlignment="Bottom" IsTabStop="False" TabIndex="3" />
         </Grid>
         <materialDesign:PackIcon Kind="Receipt" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="217,336,569,305" BorderBrush="#FF040404"/>
         <materialDesign:PackIcon Kind="Pencil" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="217,376,569,258" BorderBrush="#FF040404"/>
-        <Button x:Name="btCancelar" Margin="249,530,211,95" Background="Red" BorderBrush="Black" Height="50" Opacity="1" Click="btCancelar_Click" >
+        <Button x:Name="btCancelar" Margin="249,530,211,95" Background="Red" BorderBrush="Black" Height="50" Opacity="1" Click="btCancelar_Click" TabIndex="5" >
             <Grid Width="150">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="14*"/>

@@ -82,7 +82,7 @@
                     </MultiBinding>
                 </TextBlock.Visibility>
             </TextBlock>
-            <TextBox x:Name="txtManual" PreviewMouseLeftButtonUp="floatingPreviewMouseLeftButtonUp" GotFocus="TB_GotFocus" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" />
+            <TextBox x:Name="txtManual" PreviewMouseLeftButtonUp="floatingPreviewMouseLeftButtonUp" GotFocus="TB_GotFocus" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" Height="38" VerticalContentAlignment="Bottom" />
         </Grid>
         <materialDesign:PackIcon Kind="Pencil" VerticalAlignment="Top" Foreground="White" HorizontalAlignment="Left" Width="21" Height="41" Margin="266,142,0,0" BorderBrush="#FF040404"/>
         <Label Content="Percentual Automático (%)" Height="34" Margin="287,196,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="215" Foreground="White" FontWeight="Bold" FontSize="16"/>
@@ -95,7 +95,7 @@
                     </MultiBinding>
                 </TextBlock.Visibility>
             </TextBlock>
-            <TextBox x:Name="txtAutomatico" GotFocus="TB_GotFocus" PreviewMouseLeftButtonUp="floatingPreviewMouseLeftButtonUp" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" />
+            <TextBox x:Name="txtAutomatico" GotFocus="TB_GotFocus" PreviewMouseLeftButtonUp="floatingPreviewMouseLeftButtonUp" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" Margin="0,0,1,3" FontSize="14" VerticalAlignment="Bottom" Foreground="White" Height="38" VerticalContentAlignment="Bottom" />
         </Grid>
         <materialDesign:PackIcon Kind="Pencil" VerticalAlignment="Top" Foreground="White" HorizontalAlignment="Left" Width="21" Height="41" Margin="266,230,0,0" BorderBrush="#FF040404"/>
         <Button x:Name="btBalancaVazia" Margin="287,286,0,0" Background="#FF505050" BorderBrush="Black" Height="50" Click="btBalancaVazia_Click" HorizontalAlignment="Left" Width="205" VerticalAlignment="Top">
