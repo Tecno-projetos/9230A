@@ -21,6 +21,8 @@ namespace _9230A_V00___PI.Utilidades
 
     public class VariaveisGlobais
     {
+        public static TelasAuxiliares.FirstLoading windowFirstLoading = new TelasAuxiliares.FirstLoading();
+
         #region Structs
 
         public struct Niveis
@@ -828,7 +830,7 @@ namespace _9230A_V00___PI.Utilidades
         //Cria comunicação com CLP
         public static Comunicacao.CallCommunicationPLC CommunicationPLC = new Comunicacao.CallCommunicationPLC(0, 10);
 
-        private static string IP_Plc = "192.168.0.10";
+        private static string IP_Plc = "192.168.1.50";
 
         private static int Rack_PLC = 0;
         private static int Slot_PLC = 1;

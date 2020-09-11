@@ -19,14 +19,18 @@ namespace _9230A_V00___PI.Partidas.Principal
     /// </summary>
     public partial class principalControleInversor : Window
     {
-
-
-
-
         private string tagEquip = "";
         private string NomePartida = "";
 
+        private bool created = false;
+        public bool created_GS { get => created; }
+
         public event EventHandler Bt_Fechar_Click;
+
+        public principalControleInversor()
+        {
+
+        }
 
         public principalControleInversor(string nome, string tag, string numeroPartida, string paginaProjeto)
         { 
@@ -44,13 +48,16 @@ namespace _9230A_V00___PI.Partidas.Principal
             controleINV.lbName.Content = NomePartida;
             configuracoesINV.lbName.Content = NomePartida;
             alarmes.lbNameEquip.Content = NomePartida;
-
+            created = true;
         }
 
         public void actualize_UI(Utilidades.VariaveisGlobais.type_All Command)
         {
-            controleINV.actualize_UI(Command);
-            configuracoesINV.actualize_UI(Command);
+            if (created)
+            {
+                controleINV.actualize_UI(Command);
+                configuracoesINV.actualize_UI(Command);
+            }
 
         }
 

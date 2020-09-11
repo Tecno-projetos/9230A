@@ -21,14 +21,18 @@ namespace _9230A_V00___PI.Partidas.Principal
     public partial class principalControleMoinho : Window
     {
 
-
-
+        private bool created = false;
+        public bool created_GS { get => created; }
 
         private string tagEquip = "";
         private string NomePartida = "";
 
         public event EventHandler Bt_Fechar_Click;
 
+        public principalControleMoinho()
+        {
+
+        }
 
         public principalControleMoinho(string nome, string tag, string numeroPartida, string paginaProjeto)
         {
@@ -46,14 +50,16 @@ namespace _9230A_V00___PI.Partidas.Principal
             controleMoinho.lbName.Content = NomePartida;
             configuracoesMOINHO.lbName.Content = NomePartida;
             alarmes.lbNameEquip.Content = NomePartida;
-
+            created = true;
         }
 
         public void actualize_UI(Utilidades.VariaveisGlobais.type_All Command)
         {
-            controleMoinho.actualize_UI(Command);
-            configuracoesMOINHO.actualize_UI(Command);
-
+            if (created)
+            {
+                controleMoinho.actualize_UI(Command);
+                configuracoesMOINHO.actualize_UI(Command);
+            }
         }
 
         private void Home_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)

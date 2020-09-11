@@ -32,7 +32,7 @@ namespace _9230A_V00___PI.Partidas.Controle
         public event EventHandler Bt_Manual_Click;
 
 
-        public void actualize_UI(Utilidades.VariaveisGlobais.type_All Command)
+        public void actualize_UI(ref Utilidades.VariaveisGlobais.type_All Command)
         {
    
             //Habilita ou desabilita botões

@@ -19,14 +19,17 @@ namespace _9230A_V00___PI.Partidas.Principal
     /// </summary>
     public partial class principalPartidaDireta : Window
     {
-
-
-
-
         private string tagEquip = "";
         private string NomePartida = "";
+        private bool created = false;
+        public bool created_GS { get => created; }
 
         public event EventHandler Bt_Fechar_Click;
+
+        public principalPartidaDireta()
+        {
+
+        }
 
         public principalPartidaDireta(string nome, string tag, string numeroPartida, string paginaProjeto)
         {
@@ -43,14 +46,16 @@ namespace _9230A_V00___PI.Partidas.Principal
             controlePD.lbName.Content = NomePartida;
             configuracoesPD.lbName.Content = NomePartida;
             alarmes.lbNameEquip.Content = NomePartida;
-
+            created = true;
         }
 
-        public void actualize_UI(Utilidades.VariaveisGlobais.type_All Command)
+        public void actualize_UI(ref Utilidades.VariaveisGlobais.type_All Command)
         {
-            controlePD.actualize_UI(Command);
-            configuracoesPD.actualize_UI(Command);
-
+            if (created)
+            {
+                controlePD.actualize_UI(ref Command);
+                configuracoesPD.actualize_UI(ref Command);
+            }
         }
 
         private void Home_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -63,7 +68,6 @@ namespace _9230A_V00___PI.Partidas.Principal
             this.Width = 255;
 
         }
-
 
         private void config_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {

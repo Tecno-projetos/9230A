@@ -44,7 +44,7 @@ namespace _9230A_V00___PI.Partidas.Outras_Telas
             if (this.resetParcial_Click != null)
                 this.resetParcial_Click(this, e);
         }
-        public void actualize_UI(Utilidades.VariaveisGlobais.type_All Command)
+        public void actualize_UI(ref Utilidades.VariaveisGlobais.type_All Command)
         {
             TB_Total_Horas.Text = Convert.ToString(Command.PD.HorimetroTotal);
             TB_Horas.Text = Convert.ToString(Command.PD.HorimetroParcial);

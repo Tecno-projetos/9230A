@@ -22,25 +22,6 @@
         <ed:Arc ArcThickness="20" ArcThicknessUnit="Pixel" EndAngle="360" Fill="#FF009600" HorizontalAlignment="Left" Margin="20,52,0,0" Stretch="None" Stroke="White" StartAngle="0" Width="15" Height="16" VerticalAlignment="Top"/>
 
         <Button x:Name="btResetTotal" Margin="22,136,121,0" Background="#FF505050" BorderBrush="Black" Height="46" VerticalAlignment="Top" TabIndex="2" Width="100" Click="btResetTotal_Click">
-            <Button.Resources>
-                <ResourceDictionary>
-                    <ResourceDictionary.MergedDictionaries>
-                        <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Blue.xaml" />
-                        <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Indigo.xaml" />
-                        <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
-
-
-                    </ResourceDictionary.MergedDictionaries>
-                    <SolidColorBrush x:Key="brushWatermarkBackground" Color="White" />
-                    <SolidColorBrush x:Key="brushWatermarkForeground" Color="LightSteelBlue" />
-                    <SolidColorBrush x:Key="brushWatermarkBorder" Color="Black" />
-
-                    <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
-
-
-                </ResourceDictionary>
-
-            </Button.Resources>
 
             <Grid Width="85" Height="39" Margin="-10,0,0,0">
                 <materialDesign:PackIcon Kind="NewReleases" VerticalAlignment="Center" Foreground="White" Margin="1,10,0,10" Height="19" Width="19"/>

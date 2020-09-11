@@ -24,12 +24,12 @@ namespace _9230A_V00___PI
     public partial class TelaInicial : Window
     {
 
+
         #region Dispacher Timers
 
         DispatcherTimer timer50ms = new DispatcherTimer(); //Roda o CLP
 
         DispatcherTimer timer1s = new DispatcherTimer(); //Roda ciclos de 1 segundo
-
 
         DispatcherTimer timer4h = new DispatcherTimer(); //Roda ciclos de 1 segundo
 
@@ -37,13 +37,8 @@ namespace _9230A_V00___PI
 
         #endregion
 
-        System.Threading.Thread Thread_ReadWritePLC;
-
         public TelaInicial()
         {
-            TelasAuxiliares.FirstLoading windowFirstLoading = new TelasAuxiliares.FirstLoading();
-            windowFirstLoading.Show();
-
             InitializeComponent();
 
             VariaveisGlobais.Load_Connection();
@@ -81,8 +76,6 @@ namespace _9230A_V00___PI
             VariaveisGlobais.Fluxo.Motor_62.loadEquip(Utilidades.typeEquip.INV, Utilidades.typeCommand.INV, 280, 0, "Elevador", "62", "62", "10");
 
             VariaveisGlobais.Fluxo.Motor_65.loadEquip(Utilidades.typeEquip.INV, Utilidades.typeCommand.INV, 332, 0, "Rosca", "65", "65", "10");
-
-      
 
             #endregion
 
@@ -173,15 +166,9 @@ namespace _9230A_V00___PI
             //Verifica qual Produção esta em execução e carrega a produção
             DataBase.SQLFunctionsProducao.AtualizaProducaoEmExecucao();
 
-            windowFirstLoading.Close();
-
-            Thread_ReadWritePLC = new System.Threading.Thread(ReadWritePLC);
-            Thread_ReadWritePLC.Name = "Actualize Screen";
-            //Thread_ReadWritePLC.Start();
+            VariaveisGlobais.windowFirstLoading.Close();
 
         }
-
-
 
         private void Window_Diagnostic_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
@@ -214,23 +201,9 @@ namespace _9230A_V00___PI
             VariaveisGlobais.telabalanca.ShowDialog();
         }
 
-        #region Thread PLC
-
-        private void ReadWritePLC()
-        {
-            while (true)
-            {
-                //VariaveisGlobais.CommunicationPLC.readBuffersPLC(); //Chama a leitura no PLC
-
-                //VariaveisGlobais.CommunicationPLC.writeBufferPLC();//Chama a escrita no PLC
-
-                System.Threading.Thread.Sleep(50);
-            }
-        }
-
-        #endregion
 
         #region Timer Ticks
+
         private void timer4h_Tick(object sender, EventArgs e)
         {
             DataBase.SqlGlobalFuctions.AutoDelete(6);
@@ -328,7 +301,7 @@ namespace _9230A_V00___PI
                     VariaveisGlobais.Fluxo.Motor_26_Silo2.actualize_Equip = true;
                     VariaveisGlobais.Fluxo.Motor_23.actualize_Equip = true;
 
-                    VariaveisGlobais.Fluxo.actualiza_UI();
+                    //VariaveisGlobais.Fluxo.actualiza_UI();
 
                     //Atualiza Id da produção no silo de expedição
                     VariaveisGlobais.Id_Producao_No_Silo_Expedicao = Comunicacao.Sharp7.S7.GetDIntAt(VariaveisGlobais.Buffer_PLC[1].Buffer, 278);

@@ -64,158 +64,39 @@ namespace _9230A_V00___PI.Utilidades
             //PD
             if (Equip == typeEquip.PD)
             {
-               Window_PD = new Partidas.Principal.principalPartidaDireta(nome, tag, numeroPartida, paginaProjeto);
-
-                this.Window_PD.Height = 515;
-                this.Window_PD.Width = 255;
-
-
-                Window_PD.Closing += Window_PD_Closing;
-
-               //Click para controle da Partida 
-               Window_PD.controlePD.Bt_Ligar_Click += new EventHandler(PD_Bt_Ligar_Click);
-               Window_PD.controlePD.Bt_Reset_Click += new EventHandler(PD_Bt_Reset_Click);
-               Window_PD.controlePD.Bt_Libera_Click += new EventHandler(PD_Bt_Libera_Click);
-               Window_PD.controlePD.Bt_Manutencao_Click += new EventHandler(PD_Bt_Manutencao_Click);
-               Window_PD.controlePD.Bt_Manual_Click += new EventHandler(PD_Bt_Manual_Click);
-               
-               Window_PD.configuracoesPD.resetTotal_Click += new EventHandler(PD_resetTotal_Click);
-               Window_PD.configuracoesPD.resetParcial_Click += new EventHandler(PD_resetParcial_Click);
-               Window_PD.configuracoesPD.atualizaSPManutencao_Click += new EventHandler(PD_atualizaSPManutencao_Event);
-               Window_PD.configuracoesPD.atualizaSPLimpeza_Click += new EventHandler(PD_atualizaSPLimepza_Event);
-
-
-                Window_PD.Bt_Fechar_Click += new EventHandler(PD_Bt_Fechar_Click);
-
+                Window_PD = new Partidas.Principal.principalPartidaDireta();
             }
             //INV
             else if (Equip == typeEquip.INV)
             {
-                Window_INV = new Partidas.Principal.principalControleInversor(nome, tag, numeroPartida, paginaProjeto);
-
-
-
-                this.Window_INV.Height = 660;
-                this.Window_INV.Width = 255;
-
-                Window_INV.Closing += Window_INV_Closing;
-
-                //Click para controle da Partida 
-                Window_INV.controleINV.Bt_Ligar_Click += new EventHandler(INV_Bt_Ligar_Click);
-                Window_INV.controleINV.Bt_Reset_Click += new EventHandler(INV_Bt_Reset_Click);
-                Window_INV.controleINV.Bt_Libera_Click += new EventHandler(INV_Bt_Libera_Click);
-                Window_INV.controleINV.Bt_Manutencao_Click += new EventHandler(INV_Bt_Manutencao_Click);
-                Window_INV.controleINV.Bt_Manual_Click += new EventHandler(INV_Bt_Manual_Click);
-                Window_INV.controleINV.atualizarVelocidade += new EventHandler(INV_atualiza_Velocidade);
-
-
-                Window_INV.configuracoesINV.resetTotal_Click += new EventHandler(INV_resetTotal_Click);
-                Window_INV.configuracoesINV.resetParcial_Click += new EventHandler(INV_resetParcial_Click);
-                Window_INV.configuracoesINV.atualizaSPManutencao_Click += new EventHandler(INV_atualizaSPManutencao_Event);
-                Window_INV.configuracoesINV.atualizaSPLimpeza_Click += new EventHandler(INV_atualizaSPLimepza_Event);
-                Window_INV.configuracoesINV.atualizaSPMotorVazio_Click += new EventHandler(INV_atualizaSPMotorVazio_Event);
-
-                Window_INV.Bt_Fechar_Click += new EventHandler(INV_Bt_Fechar_Click);
-
+                Window_INV = new Partidas.Principal.principalControleInversor();
             }
             //SS
             else if (Equip == typeEquip.SS)
             {
-                Window_SS = new Partidas.Principal.principalControleMoinho(nome, tag, numeroPartida, paginaProjeto);
-
-                this.Window_SS.Height = 617;
-                this.Window_SS.Width = 255;
-
-                Window_SS.Closing += Window_SS_Closing;
-
-                //Click para controle da Partida 
-                Window_SS.controleMoinho.Bt_Ligar_Click += new EventHandler(SS_Bt_Ligar_Click);
-                Window_SS.controleMoinho.Bt_Reset_Click += new EventHandler(SS_Bt_Reset_Click);
-                Window_SS.controleMoinho.Bt_Libera_Click += new EventHandler(SS_Bt_Libera_Click);
-                Window_SS.controleMoinho.Bt_Manutencao_Click += new EventHandler(SS_Bt_Manutencao_Click);
-                Window_SS.controleMoinho.Bt_Manual_Click += new EventHandler(SS_Bt_Manual_Click);
-
-                Window_SS.Bt_Fechar_Click += new EventHandler(SS_Bt_Fechar_Click);
-
-                Window_SS.controleMoinho.Bt_Inverte_Click += new EventHandler(SS_Bt_InverterSentido_Click);
-
-                Window_SS.configuracoesMOINHO.atualizaSPMotorVazio_Click += new EventHandler(SS_Bt_atualizarCorrenteVazio_Click);
-                Window_SS.configuracoesMOINHO.atualizaSPTempoReversao_Click += new EventHandler(SS_Bt_atualizarTempoReversao_Click);
-                Window_SS.configuracoesMOINHO.atualizaSPLimpeza_Click += new EventHandler(SS_Bt_atualizarSPLimpeza_Click);
-                Window_SS.configuracoesMOINHO.atualizaSPManutencao_Click += new EventHandler(SS_Bt_atualizarSPManutencao_Click);
+                Window_SS = new Partidas.Principal.principalControleMoinho();
             }
             //Atuador
             else if (Equip == typeEquip.Atuador)
             {
                 if (TCommand == typeCommand.Atuador_Digital)
                 {
-                    Window_AtuadorD = new Partidas.Principal.principalControleAtuadorLinear(nome, tag, numeroPartida, paginaProjeto);
-
-                    this.Window_AtuadorD.Height = 515;
-                    this.Window_AtuadorD.Width = 255;
-
-
-                    Window_AtuadorD.Closing += Window_AtuadorD_Closing;
-
-                    //Click para controle da Partida 
-                    Window_AtuadorD.controleAtuadorLinear.Bt_Abrir_Click += new EventHandler(AtuadorD_Bt_Ligar_Click);
-                    Window_AtuadorD.controleAtuadorLinear.Bt_Reset_Click += new EventHandler(AtuadorD_Bt_Reset_Click);
-                    Window_AtuadorD.controleAtuadorLinear.Bt_Libera_Click += new EventHandler(AtuadorD_Bt_Libera_Click);
-                    Window_AtuadorD.controleAtuadorLinear.Bt_Manutencao_Click += new EventHandler(AtuadorD_Bt_Manutencao_Click);
-                    Window_AtuadorD.controleAtuadorLinear.Bt_Manual_Click += new EventHandler(AtuadorD_Bt_Manual_Click);
-                    Window_AtuadorD.Bt_Fechar_Click += new EventHandler(AtuadorD_Bt_Fechar_Click);
-
-
+                    Window_AtuadorD = new Partidas.Principal.principalControleAtuadorLinear();
 
                 }
                 else if(TCommand == typeCommand.Atuador_Analogico)
                 {
-                    Window_AtuadorA = new Partidas.Principal.principalControleAtuadorAnalogico(nome, tag, numeroPartida, paginaProjeto);
-
-                    this.Window_AtuadorA.Height = 585;
-                    this.Window_AtuadorA.Width = 255;
-
-                    Window_AtuadorA.Closing += Window_AtuadorA_Closing;
-
-                    //Click para controle da Partida 
-                    Window_AtuadorA.controleAtuadorAnalogico.Bt_Ligar_Click += new EventHandler(AtuadorA_Bt_Ligar_Click);
-                    Window_AtuadorA.controleAtuadorAnalogico.Bt_Reset_Click += new EventHandler(AtuadorA_Bt_Reset_Click);
-                    Window_AtuadorA.controleAtuadorAnalogico.Bt_Libera_Click += new EventHandler(AtuadorA_Bt_Libera_Click);
-                    Window_AtuadorA.controleAtuadorAnalogico.Bt_Manutencao_Click += new EventHandler(AtuadorA_Bt_Manutencao_Click);
-                    Window_AtuadorA.controleAtuadorAnalogico.Bt_Manual_Click += new EventHandler(AtuadorA_Bt_Manual_Click);
-                    Window_AtuadorA.controleAtuadorAnalogico.atualizarPosicao += new EventHandler(AtuadorA_AtulizaPosicao);
-
-                    Window_AtuadorA.Bt_Fechar_Click += new EventHandler(AtuadorA_Bt_Fechar_Click);
+                    Window_AtuadorA = new Partidas.Principal.principalControleAtuadorAnalogico();
                 }
 
             }
             //BF
             else if (Equip == typeEquip.BF)
             {
-
-                Window_BF = new Partidas.Principal.principalControleAtuadorLinearBifurcada(nome, tag, numeroPartida, paginaProjeto);
-
-                this.Window_BF.Height = 535;
-                this.Window_BF.Width = 255;
-
-
-                Window_BF.Closing += Window_AtuadorBF_Closing;
-
-                //Click para controle da Partida 
-                Window_BF.controleAtuadorBifurcada.Bt_AbrirDireita_Click += new EventHandler(AtuadorBF_Bt_LigarDireita_Click);
-                Window_BF.controleAtuadorBifurcada.Bt_AbrirEsquerda_Click += new EventHandler(AtuadorBF_Bt_LigarEsquerda_Click);
-
-                Window_BF.controleAtuadorBifurcada.Bt_Reset_Click += new EventHandler(AtuadorBF_Bt_Reset_Click);
-                Window_BF.controleAtuadorBifurcada.Bt_Libera_Click += new EventHandler(AtuadorBF_Bt_Libera_Click);
-                Window_BF.controleAtuadorBifurcada.Bt_Manutencao_Click += new EventHandler(AtuadorBF_Bt_Manutencao_Click);
-                Window_BF.controleAtuadorBifurcada.Bt_Manual_Click += new EventHandler(AtuadorBF_Bt_Manual_Click);
-                Window_BF.Bt_Fechar_Click += new EventHandler(AtuadorBF_Bt_Fechar_Click);
-
-
+                Window_BF = new Partidas.Principal.principalControleAtuadorLinearBifurcada();
             }
 
         }
-
 
         public void Generate_Faults_DB(Utilidades.VariaveisGlobais.type_All Command, string UserLogged, string GroupUserLogged)
         {
@@ -508,8 +389,6 @@ namespace _9230A_V00___PI.Utilidades
             }
             //========================================================================================================================================================================================================================================
         }
-
-
 
         #region Events Window
 
@@ -1468,7 +1347,7 @@ namespace _9230A_V00___PI.Utilidades
                 //Atualiza Window
                 if (Command_Get.TypeEquip == typeEquip.PD && Command_Get.TypeCommand == typeCommand.PD)
                 {
-                    Window_PD.actualize_UI(Command);
+                    Window_PD.actualize_UI(ref Command);
                 }
                 else if (Command_Get.TypeEquip == typeEquip.INV && Command_Get.TypeCommand == typeCommand.INV)
                 {
@@ -1505,6 +1384,30 @@ namespace _9230A_V00___PI.Utilidades
         {
             if (Command_Get.TypeEquip == typeEquip.PD && Command_Get.TypeCommand == typeCommand.PD)
             {
+                if (!Window_PD.created_GS)
+                {
+                    Window_PD = new Partidas.Principal.principalPartidaDireta(Command.Nome, Command.Tag, Command.NumeroPartida, Command.PaginaProjeto);
+
+                    this.Window_PD.Height = 515;
+                    this.Window_PD.Width = 255;
+
+                    //Click para controle da Partida 
+                    Window_PD.controlePD.Bt_Ligar_Click += new EventHandler(PD_Bt_Ligar_Click);
+                    Window_PD.controlePD.Bt_Reset_Click += new EventHandler(PD_Bt_Reset_Click);
+                    Window_PD.controlePD.Bt_Libera_Click += new EventHandler(PD_Bt_Libera_Click);
+                    Window_PD.controlePD.Bt_Manutencao_Click += new EventHandler(PD_Bt_Manutencao_Click);
+                    Window_PD.controlePD.Bt_Manual_Click += new EventHandler(PD_Bt_Manual_Click);
+
+                    Window_PD.configuracoesPD.resetTotal_Click += new EventHandler(PD_resetTotal_Click);
+                    Window_PD.configuracoesPD.resetParcial_Click += new EventHandler(PD_resetParcial_Click);
+                    Window_PD.configuracoesPD.atualizaSPManutencao_Click += new EventHandler(PD_atualizaSPManutencao_Event);
+                    Window_PD.configuracoesPD.atualizaSPLimpeza_Click += new EventHandler(PD_atualizaSPLimepza_Event);
+
+                    Window_PD.Closing += Window_PD_Closing;
+
+                    Window_PD.Bt_Fechar_Click += new EventHandler(PD_Bt_Fechar_Click);
+                }
+
                 Window_PD.configuracoesPD.SpManutencao = Command.PD.SP_Manutencao.ToString();
 
                 Window_PD.configuracoesPD.SpLimpeza = Command.PD.Tempo_Limpeza.ToString();
@@ -1513,6 +1416,33 @@ namespace _9230A_V00___PI.Utilidades
             }
             else if(Command_Get.TypeEquip == typeEquip.INV && Command_Get.TypeCommand == typeCommand.INV)
             {
+                if (!Window_INV.created_GS)
+                {
+                    Window_INV = new Partidas.Principal.principalControleInversor(Command.Nome, Command.Tag, Command.NumeroPartida, Command.PaginaProjeto);
+
+                    this.Window_INV.Height = 660;
+                    this.Window_INV.Width = 255;
+
+                    Window_INV.Closing += Window_INV_Closing;
+
+                    //Click para controle da Partida 
+                    Window_INV.controleINV.Bt_Ligar_Click += new EventHandler(INV_Bt_Ligar_Click);
+                    Window_INV.controleINV.Bt_Reset_Click += new EventHandler(INV_Bt_Reset_Click);
+                    Window_INV.controleINV.Bt_Libera_Click += new EventHandler(INV_Bt_Libera_Click);
+                    Window_INV.controleINV.Bt_Manutencao_Click += new EventHandler(INV_Bt_Manutencao_Click);
+                    Window_INV.controleINV.Bt_Manual_Click += new EventHandler(INV_Bt_Manual_Click);
+                    Window_INV.controleINV.atualizarVelocidade += new EventHandler(INV_atualiza_Velocidade);
+
+
+                    Window_INV.configuracoesINV.resetTotal_Click += new EventHandler(INV_resetTotal_Click);
+                    Window_INV.configuracoesINV.resetParcial_Click += new EventHandler(INV_resetParcial_Click);
+                    Window_INV.configuracoesINV.atualizaSPManutencao_Click += new EventHandler(INV_atualizaSPManutencao_Event);
+                    Window_INV.configuracoesINV.atualizaSPLimpeza_Click += new EventHandler(INV_atualizaSPLimepza_Event);
+                    Window_INV.configuracoesINV.atualizaSPMotorVazio_Click += new EventHandler(INV_atualizaSPMotorVazio_Event);
+
+                    Window_INV.Bt_Fechar_Click += new EventHandler(INV_Bt_Fechar_Click);
+                }
+
                 Window_INV.controleINV.velocidadeManual_GS = Command.INV.Velocidade_Manual.ToString();
 
                 Window_INV.configuracoesINV.SpManutencao = Command.INV.SP_Manutencao.ToString();
@@ -1525,6 +1455,31 @@ namespace _9230A_V00___PI.Utilidades
             }
             else if (Command_Get.TypeEquip == typeEquip.SS && Command_Get.TypeCommand == typeCommand.SS)
             {
+                if (!Window_SS.created_GS)
+                {
+                    Window_SS = new Partidas.Principal.principalControleMoinho(Command.Nome, Command.Tag, Command.NumeroPartida, Command.PaginaProjeto);
+
+                    this.Window_SS.Height = 617;
+                    this.Window_SS.Width = 255;
+
+                    Window_SS.Closing += Window_SS_Closing;
+
+                    //Click para controle da Partida 
+                    Window_SS.controleMoinho.Bt_Ligar_Click += new EventHandler(SS_Bt_Ligar_Click);
+                    Window_SS.controleMoinho.Bt_Reset_Click += new EventHandler(SS_Bt_Reset_Click);
+                    Window_SS.controleMoinho.Bt_Libera_Click += new EventHandler(SS_Bt_Libera_Click);
+                    Window_SS.controleMoinho.Bt_Manutencao_Click += new EventHandler(SS_Bt_Manutencao_Click);
+                    Window_SS.controleMoinho.Bt_Manual_Click += new EventHandler(SS_Bt_Manual_Click);
+
+                    Window_SS.Bt_Fechar_Click += new EventHandler(SS_Bt_Fechar_Click);
+
+                    Window_SS.controleMoinho.Bt_Inverte_Click += new EventHandler(SS_Bt_InverterSentido_Click);
+
+                    Window_SS.configuracoesMOINHO.atualizaSPMotorVazio_Click += new EventHandler(SS_Bt_atualizarCorrenteVazio_Click);
+                    Window_SS.configuracoesMOINHO.atualizaSPTempoReversao_Click += new EventHandler(SS_Bt_atualizarTempoReversao_Click);
+                    Window_SS.configuracoesMOINHO.atualizaSPLimpeza_Click += new EventHandler(SS_Bt_atualizarSPLimpeza_Click);
+                    Window_SS.configuracoesMOINHO.atualizaSPManutencao_Click += new EventHandler(SS_Bt_atualizarSPManutencao_Click);
+                }
 
                 Window_SS.configuracoesMOINHO.SpMotorVazio = Command.SS.SP_Corrente_Motor_Vazio.ToString();
                 //Window_SS.configuracoesMOINHO.SpTempoReversao = Command.SS.SP_Tempo_Reversao.ToString();
@@ -1536,10 +1491,49 @@ namespace _9230A_V00___PI.Utilidades
             }
             else if (Command_Get.TypeEquip == typeEquip.Atuador && Command_Get.TypeCommand == typeCommand.Atuador_Digital)
             {
+                if (!Window_AtuadorD.created_GS)
+                {
+                    Window_AtuadorD = new Partidas.Principal.principalControleAtuadorLinear(Command.Nome, Command.Tag, Command.NumeroPartida, Command.PaginaProjeto);
+
+                    this.Window_AtuadorD.Height = 515;
+                    this.Window_AtuadorD.Width = 255;
+
+
+                    Window_AtuadorD.Closing += Window_AtuadorD_Closing;
+
+                    //Click para controle da Partida 
+                    Window_AtuadorD.controleAtuadorLinear.Bt_Abrir_Click += new EventHandler(AtuadorD_Bt_Ligar_Click);
+                    Window_AtuadorD.controleAtuadorLinear.Bt_Reset_Click += new EventHandler(AtuadorD_Bt_Reset_Click);
+                    Window_AtuadorD.controleAtuadorLinear.Bt_Libera_Click += new EventHandler(AtuadorD_Bt_Libera_Click);
+                    Window_AtuadorD.controleAtuadorLinear.Bt_Manutencao_Click += new EventHandler(AtuadorD_Bt_Manutencao_Click);
+                    Window_AtuadorD.controleAtuadorLinear.Bt_Manual_Click += new EventHandler(AtuadorD_Bt_Manual_Click);
+                    Window_AtuadorD.Bt_Fechar_Click += new EventHandler(AtuadorD_Bt_Fechar_Click);
+                }
+
                 Window_AtuadorD.ShowDialog();
             }
             else if (Command_Get.TypeEquip == typeEquip.Atuador && Command_Get.TypeCommand == typeCommand.Atuador_Analogico)
             {
+                if (!Window_AtuadorA.created_GS)
+                {
+                    Window_AtuadorA = new Partidas.Principal.principalControleAtuadorAnalogico(Command.Nome, Command.Tag, Command.NumeroPartida, Command.PaginaProjeto);
+
+                    this.Window_AtuadorA.Height = 585;
+                    this.Window_AtuadorA.Width = 255;
+
+                    Window_AtuadorA.Closing += Window_AtuadorA_Closing;
+
+                    //Click para controle da Partida 
+                    Window_AtuadorA.controleAtuadorAnalogico.Bt_Ligar_Click += new EventHandler(AtuadorA_Bt_Ligar_Click);
+                    Window_AtuadorA.controleAtuadorAnalogico.Bt_Reset_Click += new EventHandler(AtuadorA_Bt_Reset_Click);
+                    Window_AtuadorA.controleAtuadorAnalogico.Bt_Libera_Click += new EventHandler(AtuadorA_Bt_Libera_Click);
+                    Window_AtuadorA.controleAtuadorAnalogico.Bt_Manutencao_Click += new EventHandler(AtuadorA_Bt_Manutencao_Click);
+                    Window_AtuadorA.controleAtuadorAnalogico.Bt_Manual_Click += new EventHandler(AtuadorA_Bt_Manual_Click);
+                    Window_AtuadorA.controleAtuadorAnalogico.atualizarPosicao += new EventHandler(AtuadorA_AtulizaPosicao);
+
+                    Window_AtuadorA.Bt_Fechar_Click += new EventHandler(AtuadorA_Bt_Fechar_Click);
+
+                }
 
                 Window_AtuadorA.controleAtuadorAnalogico.PosicaoSolicitada_GS = Convert.ToInt32(Command.AtuadorA.SP_Posicao_Manual).ToString();
                
@@ -1547,6 +1541,28 @@ namespace _9230A_V00___PI.Utilidades
             }
             else if (Command_Get.TypeEquip == typeEquip.BF && Command_Get.TypeCommand == typeCommand.Atuador_Digital)
             {
+                if (!Window_BF.created_GS)
+                {
+                    Window_BF = new Partidas.Principal.principalControleAtuadorLinearBifurcada(Command.Nome, Command.Tag, Command.NumeroPartida, Command.PaginaProjeto);
+
+                    this.Window_BF.Height = 535;
+                    this.Window_BF.Width = 255;
+
+
+                    Window_BF.Closing += Window_AtuadorBF_Closing;
+
+                    //Click para controle da Partida 
+                    Window_BF.controleAtuadorBifurcada.Bt_AbrirDireita_Click += new EventHandler(AtuadorBF_Bt_LigarDireita_Click);
+                    Window_BF.controleAtuadorBifurcada.Bt_AbrirEsquerda_Click += new EventHandler(AtuadorBF_Bt_LigarEsquerda_Click);
+
+                    Window_BF.controleAtuadorBifurcada.Bt_Reset_Click += new EventHandler(AtuadorBF_Bt_Reset_Click);
+                    Window_BF.controleAtuadorBifurcada.Bt_Libera_Click += new EventHandler(AtuadorBF_Bt_Libera_Click);
+                    Window_BF.controleAtuadorBifurcada.Bt_Manutencao_Click += new EventHandler(AtuadorBF_Bt_Manutencao_Click);
+                    Window_BF.controleAtuadorBifurcada.Bt_Manual_Click += new EventHandler(AtuadorBF_Bt_Manual_Click);
+                    Window_BF.Bt_Fechar_Click += new EventHandler(AtuadorBF_Bt_Fechar_Click);
+
+                }
+
                 Window_BF.ShowDialog();
             }
         }

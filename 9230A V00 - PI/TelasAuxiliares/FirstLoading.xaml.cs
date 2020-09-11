@@ -22,6 +22,7 @@ namespace _9230A_V00___PI.TelasAuxiliares
         public FirstLoading()
         {
             InitializeComponent();
+            this.Show();
         }
     }
 }

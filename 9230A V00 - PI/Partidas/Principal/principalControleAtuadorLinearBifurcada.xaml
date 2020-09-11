@@ -50,29 +50,6 @@
             </TabItem>
         </TabControl>
         <Button x:Name="btFechar"  Margin="20,454,0,0" Background="Red" BorderBrush="Black" Height="35" VerticalAlignment="Top" HorizontalAlignment="Left" Width="194" Click="btFechar_Click">
-            <Button.Resources>
-                <ResourceDictionary>
-                    <ResourceDictionary.MergedDictionaries>
-                        <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Blue.xaml" />
-                        <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Indigo.xaml" />
-                        <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
-
-
-                    </ResourceDictionary.MergedDictionaries>
-                    <SolidColorBrush x:Key="brushWatermarkBackground" Color="White" />
-                    <SolidColorBrush x:Key="brushWatermarkForeground" Color="LightSteelBlue" />
-                    <SolidColorBrush x:Key="brushWatermarkBorder" Color="Black" />
-
-                    <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
-
-                    <Style x:Key="EntryFieldStyle" TargetType="{x:Type Grid}" >
-                        <Setter Property="HorizontalAlignment" Value="Stretch" />
-                        <Setter Property="VerticalAlignment" Value="Center" />
-                        <Setter Property="Margin" Value="20,0" />
-                    </Style>
-                </ResourceDictionary>
-
-            </Button.Resources>
 
             <Grid Width="150">
                 <materialDesign:PackIcon Kind="Close" VerticalAlignment="Center" Foreground="White" Height="30" Margin="-22,0,0,-8" Width="42"/>
@@ -80,115 +57,24 @@
             </Grid>
         </Button>
         <Button x:Name="btUpList" Margin="339,388,0,0" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btUpList_Click" HorizontalAlignment="Left" Width="77" VerticalAlignment="Top" >
-            <Button.Resources>
-                <ResourceDictionary>
-                    <ResourceDictionary.MergedDictionaries>
-                        <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Blue.xaml" />
-                        <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Indigo.xaml" />
-                        <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
-
-
-                    </ResourceDictionary.MergedDictionaries>
-                    <SolidColorBrush x:Key="brushWatermarkBackground" Color="White" />
-                    <SolidColorBrush x:Key="brushWatermarkForeground" Color="LightSteelBlue" />
-                    <SolidColorBrush x:Key="brushWatermarkBorder" Color="Black" />
-
-                    <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
-
-                    <Style x:Key="EntryFieldStyle" TargetType="{x:Type Grid}" >
-                        <Setter Property="HorizontalAlignment" Value="Stretch" />
-                        <Setter Property="VerticalAlignment" Value="Center" />
-                        <Setter Property="Margin" Value="20,0" />
-                    </Style>
-                </ResourceDictionary>
-
-            </Button.Resources>
 
             <Grid Width="42" Height="42" Margin="0">
                 <materialDesign:PackIcon Kind="ArrowUpBold" VerticalAlignment="Center" Foreground="White" Height="42" Width="42"/>
             </Grid>
         </Button>
         <Button x:Name="btDownList" Margin="339,439,0,0" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btDownList_Click" HorizontalAlignment="Left" Width="77" VerticalAlignment="Top" >
-            <Button.Resources>
-                <ResourceDictionary>
-                    <ResourceDictionary.MergedDictionaries>
-                        <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Blue.xaml" />
-                        <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Indigo.xaml" />
-                        <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
-
-
-                    </ResourceDictionary.MergedDictionaries>
-                    <SolidColorBrush x:Key="brushWatermarkBackground" Color="White" />
-                    <SolidColorBrush x:Key="brushWatermarkForeground" Color="LightSteelBlue" />
-                    <SolidColorBrush x:Key="brushWatermarkBorder" Color="Black" />
-
-                    <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
-
-                    <Style x:Key="EntryFieldStyle" TargetType="{x:Type Grid}" >
-                        <Setter Property="HorizontalAlignment" Value="Stretch" />
-                        <Setter Property="VerticalAlignment" Value="Center" />
-                        <Setter Property="Margin" Value="20,0" />
-                    </Style>
-                </ResourceDictionary>
-
-            </Button.Resources>
 
             <Grid Width="42" Height="42" Margin="0">
                 <materialDesign:PackIcon Kind="ArrowDownBold" VerticalAlignment="Center" Foreground="White" Height="42" Width="42"/>
             </Grid>
         </Button>
         <Button x:Name="btLeftList" Margin="260,417,0,0" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btLeftList_Click" HorizontalAlignment="Left" Width="77" VerticalAlignment="Top" >
-            <Button.Resources>
-                <ResourceDictionary>
-                    <ResourceDictionary.MergedDictionaries>
-                        <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Blue.xaml" />
-                        <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Indigo.xaml" />
-                        <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
 
-
-                    </ResourceDictionary.MergedDictionaries>
-                    <SolidColorBrush x:Key="brushWatermarkBackground" Color="White" />
-                    <SolidColorBrush x:Key="brushWatermarkForeground" Color="LightSteelBlue" />
-                    <SolidColorBrush x:Key="brushWatermarkBorder" Color="Black" />
-
-                    <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
-
-                    <Style x:Key="EntryFieldStyle" TargetType="{x:Type Grid}" >
-                        <Setter Property="HorizontalAlignment" Value="Stretch" />
-                        <Setter Property="VerticalAlignment" Value="Center" />
-                        <Setter Property="Margin" Value="20,0" />
-                    </Style>
-                </ResourceDictionary>
-
-            </Button.Resources>
             <Grid Width="42" Height="42" Margin="0">
                 <materialDesign:PackIcon Kind="ArrowLeftBold" VerticalAlignment="Center" Foreground="White" Height="42" Width="42"/>
             </Grid>
         </Button>
         <Button x:Name="btRightList" Margin="418,417,0,0" Background="#FF505050" BorderBrush="Black" Height="50" Opacity="1" Click="btRightList_Click" HorizontalAlignment="Left" Width="77" VerticalAlignment="Top" >
-            <Button.Resources>
-                <ResourceDictionary>
-                    <ResourceDictionary.MergedDictionaries>
-                        <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Blue.xaml" />
-                        <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Indigo.xaml" />
-                        <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
-
-
-                    </ResourceDictionary.MergedDictionaries>
-                    <SolidColorBrush x:Key="brushWatermarkBackground" Color="White" />
-                    <SolidColorBrush x:Key="brushWatermarkForeground" Color="LightSteelBlue" />
-                    <SolidColorBrush x:Key="brushWatermarkBorder" Color="Black" />
-
-                    <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
-
-                    <Style x:Key="EntryFieldStyle" TargetType="{x:Type Grid}" >
-                        <Setter Property="HorizontalAlignment" Value="Stretch" />
-                        <Setter Property="VerticalAlignment" Value="Center" />
-                        <Setter Property="Margin" Value="20,0" />
-                    </Style>
-                </ResourceDictionary>
-
-            </Button.Resources>
 
             <Grid Width="42" Height="42" Margin="0">
                 <materialDesign:PackIcon Kind="ArrowRightBold" VerticalAlignment="Center" Foreground="White" Height="42" Width="42"/>

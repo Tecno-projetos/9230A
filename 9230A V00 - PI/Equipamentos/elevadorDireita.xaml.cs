@@ -76,7 +76,6 @@ namespace _9230A_V00___PI.Equipamentos
 
         #endregion
 
-
         public elevadorDireita()
         {
             InitializeComponent();

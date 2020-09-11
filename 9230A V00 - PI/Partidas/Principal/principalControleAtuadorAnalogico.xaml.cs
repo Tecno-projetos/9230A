@@ -21,12 +21,18 @@ namespace _9230A_V00___PI.Partidas.Principal
     {
 
 
-
+        private bool created = false;
+        public bool created_GS { get => created; }
 
         private string tagEquip = "";
         private string NomePartida = "";
 
         public event EventHandler Bt_Fechar_Click;
+
+        public principalControleAtuadorAnalogico()
+        {
+
+        }
 
         public principalControleAtuadorAnalogico(string nome, string tag, string numeroPartida, string paginaProjeto)
         {
@@ -43,14 +49,15 @@ namespace _9230A_V00___PI.Partidas.Principal
 
             controleAtuadorAnalogico.lbName.Content = NomePartida;         
             alarmes.lbNameEquip.Content = NomePartida;
-
+            created = true;
         }
 
         public void actualize_UI(Utilidades.VariaveisGlobais.type_All Command)
         {
-            controleAtuadorAnalogico.actualize_UI(Command);
-
-
+            if (created)
+            {
+                controleAtuadorAnalogico.actualize_UI(Command);
+            }
         }
 
         private void Home_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
