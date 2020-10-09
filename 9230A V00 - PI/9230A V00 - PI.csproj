@@ -68,9 +68,7 @@
     <Reference Include="Microsoft.Expression.Controls">
       <HintPath>..\..\..\..\..\Program Files (x86)\Microsoft SDKs\Libraries\Microsoft.Expression.Controls.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Expression.Drawing">
-      <HintPath>..\..\..\..\..\Program Files (x86)\Microsoft SDKs\Libraries\Microsoft.Expression.Drawing.dll</HintPath>
-    </Reference>
+    <Reference Include="Microsoft.Expression.Drawing" />
     <Reference Include="Microsoft.Expression.Effects">
       <HintPath>..\..\..\..\..\Program Files (x86)\Microsoft SDKs\Libraries\Microsoft.Expression.Effects.dll</HintPath>
     </Reference>

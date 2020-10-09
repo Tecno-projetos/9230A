@@ -59,9 +59,23 @@ namespace _9230A_V00___PI.Telas_Fluxo
                 return;
             }
 
-            App.Current.Shutdown();
-            Process proc = Process.GetCurrentProcess();
-            proc.Kill();
+
+            string nomeProcesso = Process.GetCurrentProcess().ProcessName;
+            // Obtém todos os processos com o nome do atual
+            Process[] processes = Process.GetProcessesByName(nomeProcesso);
+
+            // Maior do que 1, porque a instância atual também conta
+            if (processes.Length > 1)
+            {
+
+                Process[] proc1 = Process.GetProcessesByName(nomeProcesso);
+                proc1[0].Kill();
+
+                Process proc = Process.GetCurrentProcess();
+                proc.Kill();
+
+                return;
+            }
         }
 
         private void btInformacoesSistema_Click(object sender, RoutedEventArgs e)

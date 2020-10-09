@@ -34,6 +34,14 @@ namespace _9230A_V00___PI.TelasAuxiliares
         {
             InitializeComponent();
 
+            //Se o diretório não existir...
+
+            if (!Directory.Exists(@"C:\Logs"))
+            {
+                //Criamos um com o nome folder
+                Directory.CreateDirectory(@"C:\Logs");
+            }
+
             StreamWriter w;
 
             using (w = File.AppendText(@"C:\Logs\Log" + "_" + DateTime.Now.Day.ToString() + "_" + DateTime.Now.Month.ToString() + "_" + DateTime.Now.Year.ToString() + ".txt"))

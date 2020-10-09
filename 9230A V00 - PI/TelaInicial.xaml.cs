@@ -39,9 +39,39 @@ namespace _9230A_V00___PI
 
         public TelaInicial()
         {
+
+
             InitializeComponent();
 
+            #region Verifica se existe alguma instãnca do arquivo aberta se existir fecha todos
+
+            string nomeProcesso = Process.GetCurrentProcess().ProcessName;
+
+            // Obtém todos os processos com o nome do atual
+            Process[] processes = Process.GetProcessesByName(nomeProcesso);
+
+            // Maior do que 1, porque a instância atual também conta
+            if (processes.Length > 1)
+            {
+
+                VariaveisGlobais.Window_Buffer_Diagnostic.List_Error = "Supervisório Aberto! Fechando todas as instâncias.";
+
+                Process[] proc1 = Process.GetProcessesByName(nomeProcesso);
+                proc1[0].Kill();
+
+                Process proc = Process.GetCurrentProcess();
+                proc.Kill();
+
+                return;
+            }
+
+
             VariaveisGlobais.Load_Connection();
+
+            #endregion
+
+
+
 
             spInical.Children.Add(Utilidades.VariaveisGlobais.Fluxo);
 
