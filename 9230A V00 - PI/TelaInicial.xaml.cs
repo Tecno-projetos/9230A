@@ -301,7 +301,7 @@ namespace _9230A_V00___PI
                     VariaveisGlobais.Fluxo.Motor_26_Silo2.actualize_Equip = true;
                     VariaveisGlobais.Fluxo.Motor_23.actualize_Equip = true;
 
-                    //VariaveisGlobais.Fluxo.actualiza_UI();
+                    VariaveisGlobais.Fluxo.actualiza_UI();
 
                     //Atualiza Id da produção no silo de expedição
                     VariaveisGlobais.Id_Producao_No_Silo_Expedicao = Comunicacao.Sharp7.S7.GetDIntAt(VariaveisGlobais.Buffer_PLC[1].Buffer, 278);
