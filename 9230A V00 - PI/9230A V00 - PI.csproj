@@ -72,6 +72,9 @@
     <Reference Include="Microsoft.Expression.Effects">
       <HintPath>..\..\..\..\..\Program Files (x86)\Microsoft SDKs\Libraries\Microsoft.Expression.Effects.dll</HintPath>
     </Reference>
+    <Reference Include="SimpleWifi, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleWifi.1.0.0.0\lib\net40\SimpleWifi.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
@@ -275,6 +278,9 @@
     </Compile>
     <Compile Include="Telas Fluxo\Manutenção\conexoes.xaml.cs">
       <DependentUpon>conexoes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Telas Fluxo\Manutenção\controleWifi.xaml.cs">
+      <DependentUpon>controleWifi.xaml</DependentUpon>
     </Compile>
     <Compile Include="Telas Fluxo\Manutenção\DiagnosticoCLP.xaml.cs">
       <DependentUpon>DiagnosticoCLP.xaml</DependentUpon>
@@ -582,6 +588,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Telas Fluxo\Manutenção\conexoes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Telas Fluxo\Manutenção\controleWifi.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

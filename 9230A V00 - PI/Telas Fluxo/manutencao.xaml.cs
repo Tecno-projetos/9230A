@@ -37,6 +37,8 @@ namespace _9230A_V00___PI.Telas_Fluxo
 
         Manutenção.alarmes alarmes = new Manutenção.alarmes();
 
+        Manutenção.controleWifi Wifi = new Manutenção.controleWifi();
+
 
         private bool telaManutencaoAtiva = false;
 
@@ -45,37 +47,17 @@ namespace _9230A_V00___PI.Telas_Fluxo
         public manutencao()
         {
             InitializeComponent();
+        
         }
 
-        private void btSair_Click(object sender, RoutedEventArgs e)
-        {
+        private void btSuporte_Click(object sender, RoutedEventArgs e)
+        { 
+            if (spManutencao != null)
+                {
+                    spManutencao.Children.Clear();
+                }
 
-            if (Utilidades.VariaveisGlobais.NumberOfGroup_GS < 2)
-            {
-                Utilidades.messageBox inputDialog = new messageBox(Utilidades.VariaveisGlobais.faltaPermissaoTitle, Utilidades.VariaveisGlobais.faltaPermissaoMessage, MaterialDesignThemes.Wpf.PackIconKind.Error, "OK", "Fechar");
-
-                inputDialog.ShowDialog();
-
-                return;
-            }
-
-
-            string nomeProcesso = Process.GetCurrentProcess().ProcessName;
-            // Obtém todos os processos com o nome do atual
-            Process[] processes = Process.GetProcessesByName(nomeProcesso);
-
-            // Maior do que 1, porque a instância atual também conta
-            if (processes.Length > 1)
-            {
-
-                Process[] proc1 = Process.GetProcessesByName(nomeProcesso);
-                proc1[0].Kill();
-
-                Process proc = Process.GetCurrentProcess();
-                proc.Kill();
-
-                return;
-            }
+        spManutencao.Children.Add(Wifi);
         }
 
         private void btInformacoesSistema_Click(object sender, RoutedEventArgs e)
@@ -113,7 +95,8 @@ namespace _9230A_V00___PI.Telas_Fluxo
         {
             informacoesSistema.atualizaSistema();
             conexoes.atualizaConexoes();
-            rede.atualizaRede(3); // Buffer 3    
+            rede.atualizaRede(3); // Buffer 3   
+            Wifi.atualizaConexao();
         }
 
         private void btDiagnosticoCLP_Click(object sender, RoutedEventArgs e)
@@ -186,5 +169,7 @@ namespace _9230A_V00___PI.Telas_Fluxo
         {
             Utilidades.VariaveisGlobais.Window_Diagnostic.Show();
         }
+
+
     }
 }

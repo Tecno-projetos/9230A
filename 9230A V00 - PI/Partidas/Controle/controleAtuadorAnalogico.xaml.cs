@@ -372,5 +372,6 @@ namespace _9230A_V00___PI.Partidas.Controle
                 this.Bt_Fechar_Click(this, e);
         }
 
+
     }
 }
