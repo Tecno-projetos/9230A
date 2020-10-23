@@ -142,7 +142,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
 
                 TempoRestantePreMistura.Content = Utilidades.VariaveisGlobais.executaProducao.ControleExecucao.Slot_1.TempoRestantePreMistura.ToString();
                 TempoRestantePosMistura.Content = Utilidades.VariaveisGlobais.executaProducao.ControleExecucao.Slot_1.TempoRestantePosMistura.ToString();
-                TempoTotalBatelada.Content = (Utilidades.VariaveisGlobais.executaProducao.ControleExecucao.Slot_1.TempoAtualDesdeIniciado / 60000).ToString();
+                TempoTotalBatelada.Content = (Utilidades.VariaveisGlobais.executaProducao.ControleExecucao.Slot_1.TempoAtualDesdeIniciado).ToString();
                     
                 //Atualiza produtos no data grid
                 atualizaGridProdutos(VariaveisGlobais.executaProducao.ControleExecucao.Slot_1);
@@ -210,8 +210,8 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
                     }
                 }
 
-                TempoRestantePreMistura.Content = Utilidades.VariaveisGlobais.executaProducao.ControleExecucao.Slot_2.TempoRestantePreMistura.ToString("N", CultureInfo.GetCultureInfo("pt-BR"));
-                TempoRestantePosMistura.Content = Utilidades.VariaveisGlobais.executaProducao.ControleExecucao.Slot_2.TempoRestantePosMistura.ToString("N", CultureInfo.GetCultureInfo("pt-BR"));
+                TempoRestantePreMistura.Content = Utilidades.VariaveisGlobais.executaProducao.ControleExecucao.Slot_2.TempoRestantePreMistura.ToString();
+                TempoRestantePosMistura.Content = Utilidades.VariaveisGlobais.executaProducao.ControleExecucao.Slot_2.TempoRestantePosMistura.ToString();
                 TempoTotalBatelada.Content = Utilidades.VariaveisGlobais.executaProducao.ControleExecucao.Slot_2.TempoAtualDesdeIniciado.ToString();
 
                 //Atualiza produtos no data grid
@@ -279,8 +279,8 @@ namespace _9230A_V00___PI.Telas_Fluxo.Controle_Produção
 
                 }
 
-                TempoRestantePreMistura.Content = Utilidades.VariaveisGlobais.executaProducao.ControleExecucao.Slot_3.TempoRestantePreMistura.ToString("N", CultureInfo.GetCultureInfo("pt-BR"));
-                TempoRestantePosMistura.Content = Utilidades.VariaveisGlobais.executaProducao.ControleExecucao.Slot_3.TempoRestantePosMistura.ToString("N", CultureInfo.GetCultureInfo("pt-BR"));
+                TempoRestantePreMistura.Content = Utilidades.VariaveisGlobais.executaProducao.ControleExecucao.Slot_3.TempoRestantePreMistura.ToString();
+                TempoRestantePosMistura.Content = Utilidades.VariaveisGlobais.executaProducao.ControleExecucao.Slot_3.TempoRestantePosMistura.ToString();
                 TempoTotalBatelada.Content = Utilidades.VariaveisGlobais.executaProducao.ControleExecucao.Slot_3.TempoAtualDesdeIniciado.ToString();
 
                 //Atualiza produtos no data grid
