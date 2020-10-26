@@ -1122,18 +1122,15 @@ namespace _9230A_V00___PI.Utilidades
 
         public static int Id_Producao_No_Silo_Expedicao;
 
+        public static string NomeReceita_No_Silo_Expedicao = "";
+
         private static bool TickTack;
         public static bool TickTack_GS { get => TickTack; set => TickTack = value; }
 
         private static bool IniciouCadastro;
         public static bool IniciouCadastro_GS { get => IniciouCadastro; set => IniciouCadastro = value; }
 
-  
-
-
-
-
-
+        public static bool Libera_Escrita_Slot = false;
 
     }
 

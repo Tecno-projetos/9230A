@@ -785,7 +785,7 @@
                 </TransformGroup>
             </TextBlock.RenderTransform>
         </TextBlock>
-        <TextBlock Text="SILO EXPEDIÇÃO" TextAlignment="Center" TextWrapping="Wrap" HorizontalAlignment="Left" Height="55.167" Margin="862.962,246.083,0,0" VerticalAlignment="Top" Width="100.916" RenderTransformOrigin="0.5,0.5" FontSize="14" Foreground="White" FontWeight="Bold">
+        <TextBlock Text="SILO EXPEDIÇÃO" TextAlignment="Center" TextWrapping="Wrap" HorizontalAlignment="Left" Height="56" Margin="862,251,0,0" VerticalAlignment="Top" Width="101" RenderTransformOrigin="0.5,0.5" FontSize="14" Foreground="White" FontWeight="Bold">
             <TextBlock.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="-1"/>
@@ -837,6 +837,16 @@
             </Equipamentos:rosca.RenderTransform>
         </Equipamentos:rosca>
         <TextBlock x:Name="txtPID" Text="PID" TextAlignment="Center" TextWrapping="Wrap" HorizontalAlignment="Left" Height="25" Margin="567,520,0,0" VerticalAlignment="Top" Width="43" RenderTransformOrigin="0.5,0.5" FontSize="20" Foreground="Red" FontWeight="Bold">
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+        <TextBlock x:Name="Nome_Receita_Expedicao" Text="Nome receita que esta no Silo de Expedição" TextAlignment="Center" TextWrapping="Wrap" HorizontalAlignment="Left" Height="61" Margin="911,135,0,0" VerticalAlignment="Top" Width="112" RenderTransformOrigin="0.5,0.5" FontSize="14" Foreground="White" FontWeight="Bold">
             <TextBlock.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="-1"/>

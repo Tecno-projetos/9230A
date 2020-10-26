@@ -291,6 +291,10 @@ namespace _9230A_V00___PI.Utilidades
                 {
                     controleExecucao.Slot_1.Dosar_Primeiro_Silo_2 = true;
                 }
+                else
+                {
+                    controleExecucao.Slot_1.Dosar_Primeiro_Silo_2 = false;
+                }
 
                 //Envia a quantidade de itens a ser dosado manualmente na balança (Considerado dosagem de matéria prima manual ou dosagem de complemento pré)
                 //Todos os produtos que tem as especificações abaixo:
@@ -363,6 +367,10 @@ namespace _9230A_V00___PI.Utilidades
                 {
                     controleExecucao.Slot_2.Dosar_Primeiro_Silo_2 = true;
                 }
+                else
+                {
+                    controleExecucao.Slot_1.Dosar_Primeiro_Silo_2 = false;
+                }
 
                 //Envia a quantidade de itens a ser dosado manualmente na balança (Considerado dosagem de matéria prima manual ou dosagem de complemento pré)
                 //Todos os produtos que tem as especificações abaixo:
@@ -432,6 +440,10 @@ namespace _9230A_V00___PI.Utilidades
                 if (indexSilo2 < indexSilo1)
                 {
                     controleExecucao.Slot_3.Dosar_Primeiro_Silo_2 = true;
+                }
+                else
+                {
+                    controleExecucao.Slot_1.Dosar_Primeiro_Silo_2 = false;
                 }
 
                 //Envia a quantidade de itens a ser dosado manualmente na balança (Considerado dosagem de matéria prima manual ou dosagem de complemento pré)
@@ -558,6 +570,9 @@ namespace _9230A_V00___PI.Utilidades
 
                         //Seta o ID da produção que esta no silo de expedição
                         Comunicacao.Sharp7.S7.SetDIntAt(VariaveisGlobais.Buffer_PLC[1].Buffer, 278, VariaveisGlobais.ProducaoReceita.id);
+
+                        VariaveisGlobais.NomeReceita_No_Silo_Expedicao = DataBase.SqlFunctionsReceitas.getNomeReceitaFromId(DataBase.SQLFunctionsProducao.getID_Receita_Base_From_Id_Producao(VariaveisGlobais.ProducaoReceita.id));
+
 
                         VariaveisGlobais.Buffer_PLC[1].Enable_Write = true;
                     }
@@ -968,28 +983,35 @@ namespace _9230A_V00___PI.Utilidades
         /// </summary>
         public void InicioDosagemManualComplementoPre(int slot)
         {
-            VariaveisGlobais.Buffer_PLC[bufferPlc].Enable_Read = false; //Desabilita a leitura do buffer
 
-            if (slot ==1)
+            //Para evitar cliques subitos rapidos, o que ocasiona uma escrita do buffer inteiro muito rapido o que pode fazer que o supervisorio escreva valores
+            //que o CLP acabou de calcular.
+            //Para isso quando clicado nesse evento, só irá liberar clicar novamente quando garantirmos que o valor for para o CLP e for lido novamente.
+            if (!VariaveisGlobais.Libera_Escrita_Slot)
             {
-                controleExecucao.Slot_1.Complemento_Pre.Botao_Inicio_Fim_Dosagem_IHM = true;
-                Comunicacao.Sharp7.S7.SetByteAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 40, Move_Bits.ComplementoToByteBatelada(controleExecucao.Slot_1.Complemento_Pre));
-            }
-            else if (slot == 2)
-            {
-                controleExecucao.Slot_2.Complemento_Pre.Botao_Inicio_Fim_Dosagem_IHM = true;
-                Comunicacao.Sharp7.S7.SetByteAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 126, Move_Bits.ComplementoToByteBatelada(controleExecucao.Slot_2.Complemento_Pre));
-            }
-            else if (slot == 3)
-            {
-                controleExecucao.Slot_3.Complemento_Pre.Botao_Inicio_Fim_Dosagem_IHM = true;
-                Comunicacao.Sharp7.S7.SetByteAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 212, Move_Bits.ComplementoToByteBatelada(controleExecucao.Slot_3.Complemento_Pre));
-            }
+                VariaveisGlobais.Buffer_PLC[bufferPlc].Enable_Read = false; //Desabilita a leitura do buffer
 
+                if (slot == 1)
+                {
 
-            
+                    controleExecucao.Slot_1.Complemento_Pre.Botao_Inicio_Fim_Dosagem_IHM = true;
+                    Comunicacao.Sharp7.S7.SetByteAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 40, Move_Bits.ComplementoToByteBatelada(controleExecucao.Slot_1.Complemento_Pre));
+                }
+                else if (slot == 2)
+                {
+                    controleExecucao.Slot_2.Complemento_Pre.Botao_Inicio_Fim_Dosagem_IHM = true;
+                    Comunicacao.Sharp7.S7.SetByteAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 126, Move_Bits.ComplementoToByteBatelada(controleExecucao.Slot_2.Complemento_Pre));
+                }
+                else if (slot == 3)
+                {
+                    controleExecucao.Slot_3.Complemento_Pre.Botao_Inicio_Fim_Dosagem_IHM = true;
+                    Comunicacao.Sharp7.S7.SetByteAt(VariaveisGlobais.Buffer_PLC[bufferPlc].Buffer, 212, Move_Bits.ComplementoToByteBatelada(controleExecucao.Slot_3.Complemento_Pre));
+                }
 
-            VariaveisGlobais.Buffer_PLC[bufferPlc].Enable_Write = true;
+                VariaveisGlobais.Buffer_PLC[bufferPlc].Enable_Write = true;
+
+                VariaveisGlobais.Libera_Escrita_Slot = true;
+            }
 
         }
 

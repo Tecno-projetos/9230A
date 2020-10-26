@@ -40,7 +40,6 @@ namespace _9230A_V00___PI
         public TelaInicial()
         {
 
-
             InitializeComponent();
 
             #region Verifica se existe alguma instãnca do arquivo aberta se existir fecha todos
@@ -69,9 +68,6 @@ namespace _9230A_V00___PI
             VariaveisGlobais.Load_Connection();
 
             #endregion
-
-
-
 
             spInical.Children.Add(Utilidades.VariaveisGlobais.Fluxo);
 
@@ -266,6 +262,14 @@ namespace _9230A_V00___PI
             {
                 VariaveisGlobais.CommunicationPLC.readBuffersPLC(); //Chama a leitura no PLC
 
+                if (Utilidades.VariaveisGlobais.Buffer_PLC[1].Enable_Read)
+                {
+                    if (VariaveisGlobais.Libera_Escrita_Slot)
+                    {
+                        VariaveisGlobais.Libera_Escrita_Slot = false;
+                    }
+                }
+
                 lbAno.Content = DateTime.Now.Year;
                 lbDiaMes.Content = DateTime.Now.Day + "/" + DateTime.Now.Month;
                 lbHorario.Content = DateTime.Now.Minute + ":" + DateTime.Now.Second + ":" + DateTime.Now.Millisecond;
@@ -333,7 +337,12 @@ namespace _9230A_V00___PI
 
                     VariaveisGlobais.Fluxo.actualiza_UI();
 
-                    //Atualiza Id da produção no silo de expedição
+                    //Atualiza a variavel Id da produção que esta no silo da expedição
+                    //O valor que esta no PLC é atualizado conforme abaixo:
+                    //Se tem produção é atualizado com a produção atual se tiver nível na chamada do VariaveisGlobais.executaProducao.Produzir = true;
+                    //Se não tem produção, é verificado se tem nível no silo de expedição
+                    //se tiver nível, verifica se a produção é <=0 se for pega a ultima produção
+                    //se não tiver nível coloca 0 no Id da produção.
                     VariaveisGlobais.Id_Producao_No_Silo_Expedicao = Comunicacao.Sharp7.S7.GetDIntAt(VariaveisGlobais.Buffer_PLC[1].Buffer, 278);
 
                     //Atualiza Execução Produção
@@ -751,9 +760,26 @@ namespace _9230A_V00___PI
 
                         //Seta zero
                         Comunicacao.Sharp7.S7.SetDIntAt(VariaveisGlobais.Buffer_PLC[1].Buffer, 278, 0);
+                        VariaveisGlobais.NomeReceita_No_Silo_Expedicao = "Sem Ração no Silo Exp.";
 
                         VariaveisGlobais.Buffer_PLC[1].Enable_Write = true;
                     }
+                }
+                //Caso tenha finalizado a expedição, e ainda tem nível o ID da produção será a ultima produção
+                else
+                {
+                    if (VariaveisGlobais.Id_Producao_No_Silo_Expedicao <= 0 || VariaveisGlobais.NomeReceita_No_Silo_Expedicao.Equals(""))
+                    {
+                        VariaveisGlobais.Buffer_PLC[1].Enable_Read = false;
+
+                        Comunicacao.Sharp7.S7.SetDIntAt(VariaveisGlobais.Buffer_PLC[1].Buffer, 278, DataBase.SQLFunctionsProducao.getLast_ID_Producao());
+
+                        VariaveisGlobais.NomeReceita_No_Silo_Expedicao = DataBase.SqlFunctionsReceitas.getNomeReceitaFromId(DataBase.SQLFunctionsProducao.getID_Receita_Base_From_Id_Producao(DataBase.SQLFunctionsProducao.getLast_ID_Producao()));
+
+                        VariaveisGlobais.Buffer_PLC[1].Enable_Write = true;
+
+                    }
+
                 }
             }
         }

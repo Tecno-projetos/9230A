@@ -46,8 +46,6 @@ namespace _9230A_V00___PI.DataBase
             return false;
         }
 
-
-
         public static void Create_Table_Receita()
         {
             if (Utilidades.VariaveisGlobais.DB_Connected_GS)
@@ -534,7 +532,6 @@ namespace _9230A_V00___PI.DataBase
             return 0;
         }
 
-
         public static int DeleteReceita(string NomeReceita)
         {
             int ret = -1;
@@ -612,6 +609,32 @@ namespace _9230A_V00___PI.DataBase
             {
                 return -1;
             }
+        }
+
+        public static string getNomeReceitaFromId(int IdReceita)
+        {
+            DataTable Data = new DataTable();
+
+            if (Utilidades.VariaveisGlobais.DB_Connected_GS)
+            {
+                try
+                {
+                    string CommandString = "SELECT NomeReceita FROM Receitas WHERE Id = '" + IdReceita + "' ";
+
+                    dynamic Call = SqlGlobalFuctions.ReturnCall(Utilidades.VariaveisGlobais.Connection_DB_Receitas_GS);
+
+                    dynamic Adapter = SqlGlobalFuctions.ReturnAdapter(CommandString, Utilidades.VariaveisGlobais.Connection_DB_Receitas_GS);
+
+                    Adapter.Fill(Data);
+                }
+                catch (Exception ex)
+                {
+                    Utilidades.VariaveisGlobais.Window_Buffer_Diagnostic.List_Error = ex.ToString();
+                    return "";
+                }
+            }
+
+            return Convert.ToString(Data.Rows[0][0]);
         }
 
     }
