@@ -131,7 +131,7 @@
                     </MultiBinding>
                 </TextBlock.Visibility>
             </TextBlock>
-            <TextBox x:Name="tbVelocidadeSolicitada" PreviewMouseLeftButtonUp="tbPosicaoSolicitada_PreviewMouseUp" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" FontSize="14" VerticalAlignment="Bottom" Foreground="White" Height="40" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Left" />
+            <TextBox x:Name="tbVelocidadeSolicitada" PreviewMouseLeftButtonUp="tbPosicaoSolicitada_PreviewMouseUp" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" FontSize="14" VerticalAlignment="Bottom" Foreground="White" Height="40" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" />
         </Grid>
         <Button x:Name="btManual" Content="A" Margin="136,247,0,0" HorizontalAlignment="Left" Width="85"  Cursor="Hand" FontSize="72" Height="93" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Yu Gothic UI Semibold"  Foreground="#FFB4B4B4" VerticalContentAlignment="Top" HorizontalContentAlignment="Center" Padding="0" Click="btManual_Click" IsEnabled="False" UseLayoutRounding="True" FlowDirection="RightToLeft" >
             <Button.Style>

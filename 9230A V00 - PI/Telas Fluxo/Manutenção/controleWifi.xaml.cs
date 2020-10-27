@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.NetworkInformation;
+using System.Net.Sockets;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,6 +30,10 @@ namespace _9230A_V00___PI.Telas_Fluxo.Manutenção
     {
         private static Wifi wifi;
 
+        private bool abriuTela = false;
+
+        Utilidades.messageBox inputDialog;
+
         private int idexOLD = -1;
         private int idexNew = 0;
 
@@ -34,7 +41,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Manutenção
         {
             InitializeComponent();
 
-  
+
         }
 
 
@@ -42,6 +49,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Manutenção
         {
             Atualizalistbox();
 
+            abriuTela = true;
         }
 
         private void listbox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -70,7 +78,11 @@ namespace _9230A_V00___PI.Telas_Fluxo.Manutenção
                         idexOLD = idexNew;
                     }
                 }
-            }
+                else
+                {
+                    idexOLD = -1;
+                }
+            }  
             catch (Exception ex)
             {
 
@@ -89,9 +101,14 @@ namespace _9230A_V00___PI.Telas_Fluxo.Manutenção
                 AccessPoint ap = (AccessPoint)selectedItem.Tag;
                 connectWifi(ap, txtSenha.Password);
 
-
-
             }
+            else
+            {
+                inputDialog = new Utilidades.messageBox("Digite uma senha válida no campo senha!", "Digite uma senha válida", MaterialDesignThemes.Wpf.PackIconKind.Information, "OK", "Fechar");
+
+                inputDialog.ShowDialog();
+            }
+
         }
 
         private void btDesconectar_Click(object sender, RoutedEventArgs e)
@@ -100,14 +117,16 @@ namespace _9230A_V00___PI.Telas_Fluxo.Manutenção
             {
                 wifi.Disconnect();
 
- 
+
             }
+
+            txtSenha.Password = "";
         }
 
 
         private void senha_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            Utilidades.messageBox inputDialog;
+         
 
             inputDialog = new Utilidades.messageBox("Confirmação Senha", "A senha digita é: " + txtSenha.Password, MaterialDesignThemes.Wpf.PackIconKind.Information, "OK", "Fechar");
 
@@ -176,7 +195,7 @@ namespace _9230A_V00___PI.Telas_Fluxo.Manutenção
                     boxItem.Width = 300;
                     boxItem.Tag = ap;
                     boxItem.Background = new SolidColorBrush(Color.FromRgb(60, 60, 60));
-                    boxItem.Content = "Nome = " + ap.Name + "  Sinal = " + ap.SignalStrength;
+                    boxItem.Content =  ap.Name + "  Sinal = " + ap.SignalStrength;
                     boxItem.FontSize = 16;
                     boxItem.Foreground = new SolidColorBrush(Colors.White);
                     boxItem.VerticalAlignment = VerticalAlignment.Center;
@@ -202,32 +221,136 @@ namespace _9230A_V00___PI.Telas_Fluxo.Manutenção
 
         #endregion
 
-        public void atualizaConexao() 
+        public void atualizaConexao()
         {
-            wifi = new Wifi();
-
-            List<AccessPoint> aps = wifi.GetAccessPoints();
-
-            bool possui = false;
-
-            foreach (AccessPoint ap in aps)
+            if (abriuTela)
             {
-                if (ap.IsConnected)
+                wifi = new Wifi();
+
+                List<AccessPoint> aps = wifi.GetAccessPoints();
+
+                bool possui = false;
+
+                foreach (AccessPoint ap in aps)
                 {
-                    lbConectado.Content = "Conectado";
-                    lbNomeWifi.Content = ap.Name;
+                    if (ap.IsConnected)
+                    {
+                        lbConectado.Content = "Conectado";
+                        lbNomeWifi.Content = ap.Name;
 
-                    possui = true;
-                    break;
+                        lbIpexterno.Content = "IP Externo: " + GetExternalIp();
+                        lbIpinterno.Content = "IP Local: " + GetLocalIPAddress();
+
+                        possui = true;
+                        break;
+                    }
                 }
-            }
 
-            if (!possui)
-            {
-                lbConectado.Content = "Desconectado";
-                lbNomeWifi.Content = "-------";
+                if (!possui)
+                {
+                    lbConectado.Content = "Desconectado";
+                    lbNomeWifi.Content = "-------";
+
+                    lbIpexterno.Content = "IP Externo: ---.---.---.---";
+                    lbIpinterno.Content = "IP Local: ---.---.---.---";
+                }
+
+           
+                if (wifi.ConnectionStatus == WifiStatus.Connected)
+                {
+                    btConnect.IsEnabled = false;
+                    btDesconectar.IsEnabled = true;
+
+                }
+                else
+                {
+                    btDesconectar.IsEnabled = false;
+                    btConnect.IsEnabled = true;
+                }
+              
             }
         }
 
+        private static string GetExternalIp()
+        {
+            try
+            {
+               string externalip = new WebClient().DownloadString("https://ipv4.icanhazip.com/");
+  
+                return externalip.TrimEnd();
+            }
+            catch (Exception)
+            {
+                return "IP Externo: ---.---.---.---";
+            }
+
+        }
+        public static string GetLocalIPAddress()
+        {
+            //Código para pegar todos os nomes Wi-fi e conexão local.
+
+            //foreach (NetworkInterface ni in NetworkInterface.GetAllNetworkInterfaces())
+            //{
+            //    if (ni.NetworkInterfaceType == NetworkInterfaceType.Wireless80211 || ni.NetworkInterfaceType == NetworkInterfaceType.Ethernet)
+            //    {
+            //        Console.WriteLine(ni.Name);
+            //        foreach (UnicastIPAddressInformation ip in ni.GetIPProperties().UnicastAddresses)
+            //        {
+            //            if (ip.Address.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork)
+            //            {
+            //                Console.WriteLine(ip.Address.ToString());
+            //            }
+            //        }
+            //    }
+            //}
+
+
+
+            foreach (NetworkInterface ni in NetworkInterface.GetAllNetworkInterfaces())
+            {
+                if (ni.NetworkInterfaceType == NetworkInterfaceType.Wireless80211)
+
+
+                    if (ni.Name.Contains("Wi"))
+                    {
+                        //Console.WriteLine(ni.Name);
+                        foreach (UnicastIPAddressInformation ip in ni.GetIPProperties().UnicastAddresses)
+                        {
+                            if (ip.Address.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork)
+                            {
+                                //Console.WriteLine(ip.Address.ToString());
+                                return ip.Address.ToString();
+                               
+                            }
+                        }
+                    }
+            }
+
+            return "";
+
+
+            //NetworkInterface[] adapters = NetworkInterface.GetAllNetworkInterfaces();
+            //foreach (NetworkInterface adapter in adapters)
+            //{
+
+            //    IPInterfaceProperties properties = adapter.GetIPProperties();
+
+
+            //    Console.WriteLine(adapter.Description);
+            //    Console.WriteLine("  DNS suffix .............................. : {0}",
+            //        properties.DnsSuffix);
+            //    Console.WriteLine("  DNS enabled ............................. : {0}",
+            //        properties.IsDnsEnabled);
+            //    Console.WriteLine("  Dynamically configured DNS .............. : {0}",
+            //        properties.IsDynamicDnsEnabled);
+            //}
+   
+        }
+
+        private void UserControl_Unloaded(object sender, RoutedEventArgs e)
+        {
+            abriuTela = false;
+
+        }
     }
 }

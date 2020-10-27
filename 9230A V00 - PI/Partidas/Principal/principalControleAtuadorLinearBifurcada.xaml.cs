@@ -50,6 +50,7 @@ namespace _9230A_V00___PI.Partidas.Principal
             controleAtuadorBifurcada.lbName.Content = NomePartida;
             alarmes.lbNameEquip.Content = NomePartida;
 
+            created = true;
         }
 
 

@@ -178,7 +178,7 @@
                     </MultiBinding>
                 </TextBlock.Visibility>
             </TextBlock>
-            <TextBox x:Name="tbPosicaoSolicitada" PreviewMouseLeftButtonUp="tbPosicaoSolicitada_PreviewMouseUp" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" FontSize="14" VerticalAlignment="Bottom" Foreground="White" Height="40" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Left" Margin="1,0,-1,0" />
+            <TextBox x:Name="tbPosicaoSolicitada" PreviewMouseLeftButtonUp="tbPosicaoSolicitada_PreviewMouseUp" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" FontSize="14" VerticalAlignment="Bottom" Foreground="White" Height="40" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="1,0,-1,0" />
         </Grid>
 
     </Grid>
