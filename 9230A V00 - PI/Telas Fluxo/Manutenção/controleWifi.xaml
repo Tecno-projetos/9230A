@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:_9230A_V00___PI.Telas_Fluxo.Manutenção" xmlns:Utilidades="clr-namespace:_9230A_V00___PI.Utilidades" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800" Width="824" Height="675" Loaded="UserControl_Loaded" >
+             d:DesignHeight="450" d:DesignWidth="800" Width="824" Height="675" Loaded="UserControl_Loaded" Unloaded="UserControl_Unloaded" >
     <UserControl.Resources>
         <SolidColorBrush x:Key="brushWatermarkBorder" Color="White" />
 
@@ -49,7 +49,7 @@
             </ResourceDictionary>
 
         </Grid.Resources>
-        <GroupBox Header="Conexão Ativa" HorizontalAlignment="Left" Height="105" Margin="48,363,0,0" VerticalAlignment="Top" Width="199"/>
+        <GroupBox Header="Conexão Ativa" HorizontalAlignment="Left" Height="177" Margin="48,363,0,0" VerticalAlignment="Top" Width="199"/>
 
 
         <materialDesign:PackIcon Kind="Support" VerticalAlignment="Center" Foreground="White" Height="95" Margin="0,6,0,574" Width="824"/>
@@ -88,6 +88,8 @@
         </Button>
         <Label x:Name="lbConectado" Content="Conectado" HorizontalAlignment="Left" Height="25" Margin="48,398,0,0" VerticalAlignment="Top" Width="199" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="White" FontSize="14"/>
         <Label x:Name="lbNomeWifi" Content="Nome Wifi" HorizontalAlignment="Left" Height="33" Margin="48,426,0,0" VerticalAlignment="Top" Width="199" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="White" FontSize="14"/>
+        <Label x:Name="lbIpexterno" Content="Ip externo: " HorizontalAlignment="Left" Height="33" Margin="48,459,0,0" VerticalAlignment="Top" Width="199" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="White" FontSize="14"/>
+        <Label x:Name="lbIpinterno" Content="Ip externo: " HorizontalAlignment="Left" Height="33" Margin="48,492,0,0" VerticalAlignment="Top" Width="199" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="White" FontSize="14"/>
 
 
     </Grid>
