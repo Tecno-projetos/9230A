@@ -223,52 +223,61 @@ namespace _9230A_V00___PI.Telas_Fluxo.Manutenção
 
         public void atualizaConexao()
         {
-            if (abriuTela)
+            try
             {
-                wifi = new Wifi();
-
-                List<AccessPoint> aps = wifi.GetAccessPoints();
-
-                bool possui = false;
-
-                foreach (AccessPoint ap in aps)
+                if (abriuTela)
                 {
-                    if (ap.IsConnected)
+                    wifi = new Wifi();
+
+                    List<AccessPoint> aps = wifi.GetAccessPoints();
+
+                    bool possui = false;
+
+                    foreach (AccessPoint ap in aps)
                     {
-                        lbConectado.Content = "Conectado";
-                        lbNomeWifi.Content = ap.Name;
+                        if (ap.IsConnected)
+                        {
+                            lbConectado.Content = "Conectado";
+                            lbNomeWifi.Content = ap.Name;
 
-                        lbIpexterno.Content = "IP Externo: " + GetExternalIp();
-                        lbIpinterno.Content = "IP Local: " + GetLocalIPAddress();
+                            lbIpexterno.Content = "IP Externo: " + GetExternalIp();
+                            lbIpinterno.Content = "IP Local: " + GetLocalIPAddress();
 
-                        possui = true;
-                        break;
+                            possui = true;
+                            break;
+                        }
                     }
-                }
 
-                if (!possui)
-                {
-                    lbConectado.Content = "Desconectado";
-                    lbNomeWifi.Content = "-------";
+                    if (!possui)
+                    {
+                        lbConectado.Content = "Desconectado";
+                        lbNomeWifi.Content = "-------";
 
-                    lbIpexterno.Content = "IP Externo: ---.---.---.---";
-                    lbIpinterno.Content = "IP Local: ---.---.---.---";
-                }
+                        lbIpexterno.Content = "IP Externo: ---.---.---.---";
+                        lbIpinterno.Content = "IP Local: ---.---.---.---";
+                    }
 
-           
-                if (wifi.ConnectionStatus == WifiStatus.Connected)
-                {
-                    btConnect.IsEnabled = false;
-                    btDesconectar.IsEnabled = true;
+
+                    if (wifi.ConnectionStatus == WifiStatus.Connected)
+                    {
+                        btConnect.IsEnabled = false;
+                        btDesconectar.IsEnabled = true;
+
+                    }
+                    else
+                    {
+                        btDesconectar.IsEnabled = false;
+                        btConnect.IsEnabled = true;
+                    }
 
                 }
-                else
-                {
-                    btDesconectar.IsEnabled = false;
-                    btConnect.IsEnabled = true;
-                }
-              
             }
+            catch (Exception)
+            {
+
+       
+            }
+      
         }
 
         private static string GetExternalIp()
