@@ -98,9 +98,20 @@ namespace _9230A_V00___PI.Telas_Fluxo
                 txtPID.Foreground = new SolidColorBrush(Colors.Red);
             }
 
-            //Atualzia peso do ensaque
+            //Atualiza peso do ensaque
             lbPesoEnsaque.Content = Utilidades.VariaveisGlobais.executaEnsaque.IndicadorPesagem_Get.Valor_Atual_Indicador.ToString("N", CultureInfo.GetCultureInfo("pt-BR")) + " kg";
             lbStatusEnsaque = Utilidades.VariaveisGlobais.executaEnsaque.StatusBalanca(lbStatusEnsaque);
+
+            Nome_Receita_Expedicao.Text = VariaveisGlobais.NomeReceita_No_Silo_Expedicao;
+
+            if (Nome_Receita_Expedicao.Text.Equals("Sem Ração no Silo Exp."))
+            {
+                Nome_Receita_Expedicao.Foreground = new SolidColorBrush(Colors.Red);
+            }
+            else
+            {
+                Nome_Receita_Expedicao.Foreground = new SolidColorBrush(Colors.Green);
+            }
         }
 
         private void bt_Ensaque_Click(object sender, RoutedEventArgs e)

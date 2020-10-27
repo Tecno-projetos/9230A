@@ -725,7 +725,39 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
                 float bateladaPeso = -1;
 
                 int contbateladas = 0;
+                float bateladaPesquisa1 = -1;
+                int contbateladas1 = 0;
+                int contauxBatelada = 0;
+                int umavez = -1;
+                int segundavez = -1;
 
+                bool controle = false;
+                foreach (var bateladaPesquisa in producao.batelada)
+                {
+                    //Quantidade de bateladas
+                    contbateladas1++;
+
+                    //Pega as bateladas com peso diferente
+                    if (bateladaPesquisa1 != bateladaPesquisa.pesoDesejado)
+                    {
+                        //Atualiza variavel quando atualizada
+                        bateladaPesquisa1 = bateladaPesquisa.pesoDesejado;
+
+                        //Conta quantidade de batelada
+                        contauxBatelada++;
+
+                        if (umavez != -1 )
+                        {
+                            segundavez = bateladaPesquisa.numeroBatelada;
+                        }
+
+                        umavez = bateladaPesquisa.numeroBatelada;
+
+       
+                
+                    }
+
+                }
                 foreach (var batelada in producao.batelada)
                 {
                     PdfPTable tablebatelada = new PdfPTable(5);
@@ -753,11 +785,27 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
                         tablebatelada.KeepTogether = true;
                     }
 
+    
 
                     if (bateladaPeso != batelada.pesoDesejado && contbateladas <= producao.quantidadeBateladas)
                     {
 
-                        var cell = getNewCell("Batelada N°: " + batelada.numeroBatelada, titulo, Element.ALIGN_CENTER, 7, PdfPCell.BOX, preto, branco);
+                        string descrição = "";
+
+                        if (!controle)
+                        {
+                            descrição = "Batelada N°: " + batelada.numeroBatelada + " há Batelada N°: " + (contbateladas1 - contauxBatelada + 1);
+                            controle = true;
+
+                        }
+                        else
+                        {
+                            descrição = "Batelada N°: " + batelada.numeroBatelada;
+
+                        }
+
+                        var cell = getNewCell(descrição, titulo, Element.ALIGN_CENTER, 7, PdfPCell.BOX, preto, branco);
+
                         cell.Colspan = 5;
                         tablebatelada.AddCell(cell);
 

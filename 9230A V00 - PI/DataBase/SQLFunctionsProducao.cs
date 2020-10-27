@@ -474,5 +474,62 @@ namespace _9230A_V00___PI.DataBase
             return Convert.ToInt32(Data.Rows[0][0]);
         }
 
+        public static int getLast_ID_Producao()
+        {
+            DataTable Data = new DataTable();
+
+            int id = -1;
+
+            if (Utilidades.VariaveisGlobais.DB_Connected_GS)
+            {
+                try
+                {
+                    string CommandString = "SELECT MAX(Id) AS maxid FROM Producao";
+
+                    dynamic Call = SqlGlobalFuctions.ReturnCall(Utilidades.VariaveisGlobais.Connection_DB_Receitas_GS);
+
+                    dynamic Adapter = SqlGlobalFuctions.ReturnAdapter(CommandString, Utilidades.VariaveisGlobais.Connection_DB_Receitas_GS);
+
+                    Adapter.Fill(Data);
+
+                    //last id is null?
+                    if (!(DBNull.Value.Equals(Data.Rows[0][0])))
+                        id = Convert.ToInt32(Data.Rows[0][0]);
+                }
+                catch (Exception ex)
+                {
+                    Utilidades.VariaveisGlobais.Window_Buffer_Diagnostic.List_Error = ex.ToString();
+                }
+            }
+
+            return id;
+        }
+
+        public static int getID_Receita_Base_From_Id_Producao(int ID_Producao)
+        {
+            DataTable Data = new DataTable();
+
+            if (Utilidades.VariaveisGlobais.DB_Connected_GS)
+            {
+                try
+                {
+                    string CommandString = "SELECT IdReceitaBase FROM Producao Where Id = '" + ID_Producao + "'";
+
+                    dynamic Call = SqlGlobalFuctions.ReturnCall(Utilidades.VariaveisGlobais.Connection_DB_Receitas_GS);
+
+                    dynamic Adapter = SqlGlobalFuctions.ReturnAdapter(CommandString, Utilidades.VariaveisGlobais.Connection_DB_Receitas_GS);
+
+                    Adapter.Fill(Data);
+
+                }
+                catch (Exception ex)
+                {
+                    Utilidades.VariaveisGlobais.Window_Buffer_Diagnostic.List_Error = ex.ToString();
+                }
+            }
+
+            return Convert.ToInt32(Data.Rows[0][0]);
+        }
+
     }
 }
