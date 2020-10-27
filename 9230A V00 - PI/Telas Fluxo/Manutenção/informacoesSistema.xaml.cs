@@ -1,4 +1,5 @@
-﻿using System;
+﻿using _9230A_V00___PI.Utilidades;
+using System;
 using System.Buffers;
 using System.Collections.Generic;
 using System.Data;
@@ -122,28 +123,42 @@ namespace _9230A_V00___PI.Telas_Fluxo.Manutenção
 
         private void btAtivaDesativa_Click(object sender, RoutedEventArgs e)
         {
-            if (Utilidades.VariaveisGlobais.AtivaDesativaTecladoVirtual)
+            if (VariaveisGlobais.NumberOfGroup_GS <3)
             {
-
-                Utilidades.VariaveisGlobais.AtivaDesativaTecladoVirtual = false;
-
-                btAtivaDesativa.Background = new SolidColorBrush(Colors.Green);
-                txtVirtual.Text = "Desabilitar teclado virtual";
-                txtVirtual.Foreground = new SolidColorBrush(Colors.Black);
-                pckIcon.Foreground = new SolidColorBrush(Colors.Black);
-
-
+                Utilidades.messageBox inputDialog = new Utilidades.messageBox(Utilidades.VariaveisGlobais.faltaPermissaoTitle, Utilidades.VariaveisGlobais.faltaPermissaoMessage, MaterialDesignThemes.Wpf.PackIconKind.Error, "OK", "Fechar");
+                inputDialog.ShowDialog();
             }
             else
             {
-                Utilidades.VariaveisGlobais.AtivaDesativaTecladoVirtual = true;
+                if (Utilidades.VariaveisGlobais.AtivaDesativaTecladoVirtual)
+                {
 
-                btAtivaDesativa.Background = new SolidColorBrush(Colors.Red);
-                txtVirtual.Text = "Habilitar teclado virtual";
-                txtVirtual.Foreground = new SolidColorBrush(Colors.White);
-                pckIcon.Foreground = new SolidColorBrush(Colors.White);
+                    Utilidades.VariaveisGlobais.AtivaDesativaTecladoVirtual = false;
+
+                    btAtivaDesativa.Background = new SolidColorBrush(Colors.Green);
+                    txtVirtual.Text = "Desabilitar teclado virtual";
+                    txtVirtual.Foreground = new SolidColorBrush(Colors.Black);
+                    pckIcon.Foreground = new SolidColorBrush(Colors.Black);
+
+
+                }
+                else
+                {
+                    Utilidades.VariaveisGlobais.AtivaDesativaTecladoVirtual = true;
+
+                    btAtivaDesativa.Background = new SolidColorBrush(Colors.Red);
+                    txtVirtual.Text = "Habilitar teclado virtual";
+                    txtVirtual.Foreground = new SolidColorBrush(Colors.White);
+                    pckIcon.Foreground = new SolidColorBrush(Colors.White);
+
+                }
+
 
             }
+
+ 
+
+
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
@@ -166,15 +181,23 @@ namespace _9230A_V00___PI.Telas_Fluxo.Manutenção
 
         private void btLimpar_Click(object sender, RoutedEventArgs e)
         {
-            //Apago do banco para 6 meses
-            DataBase.SqlGlobalFuctions.AutoDelete(6);
+
+            if (VariaveisGlobais.NumberOfGroup_GS < 3)
+            {
+                Utilidades.messageBox inputDialog = new Utilidades.messageBox(Utilidades.VariaveisGlobais.faltaPermissaoTitle, Utilidades.VariaveisGlobais.faltaPermissaoMessage, MaterialDesignThemes.Wpf.PackIconKind.Error, "OK", "Fechar");
+                inputDialog.ShowDialog();
+            }
+            else
+            {
+                //Apago do banco para 6 meses
+                DataBase.SqlGlobalFuctions.AutoDelete(6);
 
 
+            }
         }
 
         private void btSair_Click(object sender, RoutedEventArgs e)
         {
-
             if (Utilidades.VariaveisGlobais.NumberOfGroup_GS < 2)
             {
                 Utilidades.messageBox inputDialog = new Utilidades.messageBox(Utilidades.VariaveisGlobais.faltaPermissaoTitle, Utilidades.VariaveisGlobais.faltaPermissaoMessage, MaterialDesignThemes.Wpf.PackIconKind.Error, "OK", "Fechar");

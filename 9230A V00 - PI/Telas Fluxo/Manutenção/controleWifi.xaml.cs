@@ -275,10 +275,8 @@ namespace _9230A_V00___PI.Telas_Fluxo.Manutenção
         {
             try
             {
-                string externalip = new WebClient().DownloadString("https://ipv4.icanhazip.com/");
-                Console.WriteLine(externalip);
-                Console.WriteLine(externalip.TrimEnd());
-
+               string externalip = new WebClient().DownloadString("https://ipv4.icanhazip.com/");
+  
                 return externalip.TrimEnd();
             }
             catch (Exception)
@@ -327,8 +325,6 @@ namespace _9230A_V00___PI.Telas_Fluxo.Manutenção
                         }
                     }
             }
-
-            Console.WriteLine();
 
             return "";
 
