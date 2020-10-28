@@ -139,6 +139,7 @@
 
         </Grid>
 
+        <materialDesign:PackIcon x:Name="AlarmInSup" Kind="Warning" VerticalAlignment="Top" Foreground="#FFF3FF00" Margin="615,658,0,0" HorizontalAlignment="Left" Width="46" Height="47"/>
 
         <Rectangle x:Name="REC_No_Connection" HorizontalAlignment="Left" Height="675" Margin="-5,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="1029" Opacity="0.53" Fill="Red" ScrollViewer.VerticalScrollBarVisibility="Hidden" d:IsHidden="True"/>
         <Rectangle x:Name="REC_PLC_STOP" HorizontalAlignment="Left" Height="675" Margin="-5,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="1021" Opacity="0.53" Fill="#FFFFDC00" d:IsHidden="True"/>

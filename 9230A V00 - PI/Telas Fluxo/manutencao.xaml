@@ -74,5 +74,6 @@
                 <TextBlock  Text="Suporte" FontFamily="Champagne &amp; Limousines" Foreground="White" Margin="32,4,0,2" Width="138" FontSize="14" FontWeight="Normal" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center"/>
             </Grid>
         </Button>
+        <materialDesign:PackIcon x:Name="AlarmInSup" Kind="Warning" VerticalAlignment="Top" Foreground="#FFF3FF00" Margin="149,94,0,0" HorizontalAlignment="Left" Width="46" Height="47"/>
     </Grid>
 </UserControl>

@@ -44,6 +44,8 @@ namespace _9230A_V00___PI.Telas_Fluxo
 
         public bool TelaManutencaoAtiva_Get { get => telaManutencaoAtiva; }
 
+        public Visibility AlarmInsup_GS { get => AlarmInSup.Visibility; set => AlarmInSup.Visibility = value; }
+
         public manutencao()
         {
             InitializeComponent();

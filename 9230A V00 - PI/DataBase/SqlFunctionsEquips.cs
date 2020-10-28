@@ -299,7 +299,7 @@ namespace _9230A_V00___PI.DataBase
             {
                 try
                 {
-                    string CommandString = "SELECT * FROM EquipAlarmEvent WHERE Event = 'False' AND NOT(Ack = 'True' AND Active = 'False') ORDER BY Id DESC;";
+                    string CommandString = "SELECT * FROM EquipAlarmEvent WHERE Event = 'False' AND Active = 'true' ORDER BY Id DESC;";
 
                     dynamic Call = SqlGlobalFuctions.ReturnCall(Utilidades.VariaveisGlobais.Connection_DB_Equip_GS);
 

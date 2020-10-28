@@ -1,6 +1,7 @@
 ﻿using _9230A_V00___PI.Utilidades;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -194,6 +195,9 @@ namespace _9230A_V00___PI
 
             VariaveisGlobais.windowFirstLoading.Close();
 
+            //Verifica se possui um alarme ativo.
+            AlarmInSup.Visibility = Visibility.Hidden;
+
         }
 
         private void Window_Diagnostic_Closing(object sender, System.ComponentModel.CancelEventArgs e)
@@ -254,6 +258,30 @@ namespace _9230A_V00___PI
 
             VariaveisGlobais.configuracoes.atualizaValoresConfiguracoes();
 
+            try
+            {
+                DataTable dt = new DataTable();
+
+                dt = DataBase.SqlFunctionsEquips.GetGridAlarm_Table_EquipAlarmEvent();
+
+                if (dt.Rows != null)
+                {
+                    if (dt.Rows.Count > 0)
+                    {
+                        AlarmInSup.Visibility = Visibility.Visible;
+                        VariaveisGlobais.manutencao.AlarmInsup_GS = Visibility.Visible;
+                    }
+                    else
+                    {
+                        AlarmInSup.Visibility = Visibility.Hidden;
+                        VariaveisGlobais.manutencao.AlarmInsup_GS = Visibility.Hidden;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
 
         void timer_Tick(object sender, EventArgs e)
