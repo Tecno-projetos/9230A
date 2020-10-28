@@ -564,10 +564,10 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
 
                         foreach (DataRow row in dt.Rows)
                         {
-                            if (OldEnsaque == -1)
+                            if (OldEnsaque == -1 || OldEnsaque < 35 )
                             {
                                 tablebatelada.KeepTogether = false;
-                                OldEnsaque = 1;
+                                OldEnsaque ++;
                             }
                             else
                             {
