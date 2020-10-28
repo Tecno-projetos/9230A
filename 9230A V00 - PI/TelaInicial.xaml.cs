@@ -272,7 +272,7 @@ namespace _9230A_V00___PI
 
                 lbAno.Content = DateTime.Now.Year;
                 lbDiaMes.Content = DateTime.Now.Day + "/" + DateTime.Now.Month;
-                lbHorario.Content = DateTime.Now.Minute + ":" + DateTime.Now.Second + ":" + DateTime.Now.Millisecond;
+                lbHorario.Content = DateTime.Now.Hour + ":" + DateTime.Now.Minute + ":" + DateTime.Now.Second;
 
                 LB_No_Connection.Dispatcher.Invoke(delegate { LB_No_Connection.Visibility = Visibility.Hidden; });
                 REC_No_Connection.Dispatcher.Invoke(delegate { REC_No_Connection.Visibility = Visibility.Hidden; });
