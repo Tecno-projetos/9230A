@@ -429,7 +429,8 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
 
                 DataTable dt = new DataTable();
 
-                dt = DataBase.SqlFunctionsEnsaques.getEnsaqueFromIdProducaoEnsaque(producao.id);
+                int a = DataBase.SqlFunctionsEnsaques.getIdProducaoEnsaque(producao.id);
+                dt = DataBase.SqlFunctionsEnsaques.getEnsaqueFromIdProducaoEnsaque(a);
 
                 if (dt != null)
                 {
@@ -516,10 +517,10 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
                         float[] colsW = { 25, 25 };
 
                         //Quantidade de produçoes
-                        document.Add(tableProducao("Produção N°: " + producao.id + ", Receita: " + producao.receita.nomeReceita, false, Element.ALIGN_CENTER));
-                        document.Add(tableProducao(colsW, "Peso ensacado: " + Math.Round(DataBase.SqlFunctionsEnsaques.getPesoTotalEnsaque(producao.id),2) + " kg", "Peso médio ensaque: " + Math.Round(DataBase.SqlFunctionsEnsaques.getPesoMedioEnsaque(producao.id),2) + " kg", false));
-                        document.Add(tableProducao(colsW, "Peso mínimo saco: " + Math.Round(DataBase.SqlFunctionsEnsaques.getPesoMinEnsaque(producao.id),2) + " kg", "Peso máximo saco: " + Math.Round(DataBase.SqlFunctionsEnsaques.getPesoMaxEnsaque(producao.id),2) + " kg", false));
-                        document.Add(tableProducao("Quantidade de sacos: " + DataBase.SqlFunctionsEnsaques.getCoutEnsaque(producao.id) + " und.", false, Element.ALIGN_LEFT));
+                        document.Add(tableProducao("Produção N°: " + a + ", Receita: " + producao.receita.nomeReceita, false, Element.ALIGN_CENTER));
+                        document.Add(tableProducao(colsW, "Peso ensacado: " + Math.Round(DataBase.SqlFunctionsEnsaques.getPesoTotalEnsaque(a),2) + " kg", "Peso médio ensaque: " + Math.Round(DataBase.SqlFunctionsEnsaques.getPesoMedioEnsaque(a),2) + " kg", false));
+                        document.Add(tableProducao(colsW, "Peso mínimo saco: " + Math.Round(DataBase.SqlFunctionsEnsaques.getPesoMinEnsaque(a),2) + " kg", "Peso máximo saco: " + Math.Round(DataBase.SqlFunctionsEnsaques.getPesoMaxEnsaque(a),2) + " kg", false));
+                        document.Add(tableProducao("Quantidade de sacos: " + DataBase.SqlFunctionsEnsaques.getCoutEnsaque(a) + " und.", false, Element.ALIGN_LEFT));
                        
   
 

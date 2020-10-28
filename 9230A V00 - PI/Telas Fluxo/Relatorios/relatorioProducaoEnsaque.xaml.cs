@@ -274,6 +274,8 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
 
                             inputDialog.ShowDialog();
 
+                  
+
                             int resultRelatorio = Relatorios.ExportacaoRelatorios.exportarEnsaque(destinationFile, Utilidades.functions.GetProducaoFromIdProducao(idproducao), "Detalhamento Ensaque");
 
 
