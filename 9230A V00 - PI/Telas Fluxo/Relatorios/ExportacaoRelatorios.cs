@@ -180,12 +180,15 @@ namespace _9230A_V00___PI.Telas_Fluxo.Relatorios
 
                         if (dt.Rows.Count > 0)
                         {
+
+                            int a = DataBase.SqlFunctionsEnsaques.getIdProducaoEnsaque(item.id);
+
                             quantidade = dt.Rows.Count;
 
                             document.Add(tableProducao("Quantidade de ensaques iniciados: " + quantidade, true));
-                            document.Add(tableProducao(colsW, "Peso ensacado: " + Math.Round(DataBase.SqlFunctionsEnsaques.getPesoTotalEnsaque(item.id),2) + " kg", "Peso médio ensaque: " + Math.Round(DataBase.SqlFunctionsEnsaques.getPesoMedioEnsaque(item.id),2) + " kg", true));
-                            document.Add(tableProducao(colsW, "Peso mínimo saco: " + (float)Math.Round(DataBase.SqlFunctionsEnsaques.getPesoMinEnsaque(item.id),2) + " kg", "Peso máximo saco: " + (float)Math.Round(DataBase.SqlFunctionsEnsaques.getPesoMaxEnsaque(item.id),2) + " kg", true));
-                            document.Add(tableProducao("Quantidade de sacos: " + DataBase.SqlFunctionsEnsaques.getCoutEnsaque(item.id) + " und.", true, Element.ALIGN_LEFT));
+                            document.Add(tableProducao(colsW, "Peso ensacado: " + Math.Round(DataBase.SqlFunctionsEnsaques.getPesoTotalEnsaque(a),2) + " kg", "Peso médio ensaque: " + Math.Round(DataBase.SqlFunctionsEnsaques.getPesoMedioEnsaque(a),2) + " kg", true));
+                            document.Add(tableProducao(colsW, "Peso mínimo saco: " + (float)Math.Round(DataBase.SqlFunctionsEnsaques.getPesoMinEnsaque(a),2) + " kg", "Peso máximo saco: " + (float)Math.Round(DataBase.SqlFunctionsEnsaques.getPesoMaxEnsaque(a),2) + " kg", true));
+                            document.Add(tableProducao("Quantidade de sacos: " + DataBase.SqlFunctionsEnsaques.getCoutEnsaque(a) + " und.", true, Element.ALIGN_LEFT));
 
                         }
                         else
